@@ -1,7 +1,7 @@
 import NextHead from "next/head";
 import GoogleFonts from "next-google-fonts";
 
-export default function Head({ title = "Alex Carpenter", description = "Sample description", children }) {
+export default function Head({ title = "Alex Carpenter", description = "Sample description" }) {
   return (
     <>
       <GoogleFonts href='https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap' />
@@ -13,7 +13,6 @@ export default function Head({ title = "Alex Carpenter", description = "Sample d
         />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <title>{title}</title>
-        {children}
       </NextHead>
     </>
   );
