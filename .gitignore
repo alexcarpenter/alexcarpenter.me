@@ -1,0 +1,9 @@
+node_modules
+.next
+.DS_Store
+.env
+.env.build
+.vscode
+yarn-error.log
+.now
+.vercel
