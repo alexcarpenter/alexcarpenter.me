@@ -14,6 +14,7 @@ export default function Posts({ posts }) {
     <Page title='Posts'>
       <Header>
         <Header.Title>Posts</Header.Title>
+        <Header.Description>Bibendum class eleifend accumsan lobortis nostra fusce donec augue sagittis</Header.Description>
       </Header>
       <Section>
         <Section.Title>Lastest posts</Section.Title>

@@ -15,11 +15,11 @@ export default function Post({ source, frontMatter}) {
   return (
     <Page title='Posts'>
       <article>
-      <Header>
-        <Header.Title>{frontMatter.title}</Header.Title>
-        <Header.Description>{frontMatter.description}</Header.Description>
-      </Header>
-      <div className="mt-4">{content}</div>
+        <Header>
+          <Header.Title decorate={false}>{frontMatter.title}</Header.Title>
+          <Header.Description>{frontMatter.description}</Header.Description>
+        </Header>
+        <div className="mt-4">{content}</div>
       </article>
     </Page>
   )

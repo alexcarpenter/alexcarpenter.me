@@ -6,13 +6,10 @@ function Header({ children }) {
   );
 }
 
-function Title({ children }) {
+function Title({ children, decorate = true }) {
   return (
     <h1 className='text-4xl font-bold'>
-      {children}{" "}
-      <span aria-hidden='true' className='text-gray-400'>
-        ¬
-      </span>
+      {children}{decorate && (<span aria-hidden='true' className='text-gray-400'>¬</span>)}
     </h1>
   );
 }
