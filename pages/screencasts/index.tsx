@@ -35,7 +35,7 @@ function Screencasts({ subscriberCount, viewCount }) {
             </Card>
             <Card>
               <Card.Eyebrow>Total views</Card.Eyebrow>
-              <Card.Stat>{viewCount ? viewCount : "-"}</Card.Stat>
+              <Card.Stat>{viewCount ? `${Math.round(viewCount / 1000)}K+` : "-"}</Card.Stat>
             </Card>
           </Grid>
           <div className='mt-4 text-center'>
