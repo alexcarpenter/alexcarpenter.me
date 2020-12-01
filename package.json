@@ -13,9 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^10.0.4",
-    "googleapis": "^65.0.0",
+    "gray-matter": "^4.0.2",
     "next": "^10.0.3",
     "next-google-fonts": "^1.2.1",
+    "next-mdx-remote": "^1.0.0",
     "postcss": "^8.1.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
