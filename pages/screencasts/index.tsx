@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import PseudoLink from "@/components/PseudoLink";
 import Section from "@/components/Section";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC2jJoQlzvLPvnYfowAEVaOg&key=${process.env.YOUTUBE_API_KEY}`);
   const data = await res.json();
   const { subscriberCount, viewCount, videoCount } = data?.items[0].statistics;
