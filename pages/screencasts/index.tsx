@@ -1,10 +1,10 @@
 import Page from "@/components/Page";
 import Card from "@/components/Card";
 import Listing from "@/components/Listing";
-import Grid from "@/components/Grid";
 import Header from "@/components/Header";
 import PseudoLink from "@/components/PseudoLink";
 import Section from "@/components/Section";
+import ScreencastStats from "@/components/ScreencastStats";
 
 function Screencasts() {
   return (
@@ -15,16 +15,7 @@ function Screencasts() {
           <Header.Description>Sed tincidunt aenean magnis velit tellus egestas urna placerat ipsum elit cum hac platea hendrerit ac tempus sollicitudin.</Header.Description>
         </Header>
         <div className='mt-8'>
-          <Grid>
-            <Card>
-              <Card.Eyebrow>Total subscribers</Card.Eyebrow>
-              <Card.Stat>689</Card.Stat>
-            </Card>
-            <Card>
-              <Card.Eyebrow>Total views</Card.Eyebrow>
-              <Card.Stat>69.2K</Card.Stat>
-            </Card>
-          </Grid>
+          <ScreencastStats />
           <div className='mt-4 text-center'>
             <a href='https://www.youtube.com/channel/UC2jJoQlzvLPvnYfowAEVaOg?sub_confirmation=1' className='inline-flex items-center text-blue hover:underline'>
               Subscribe on YouTube{" "}
