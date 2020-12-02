@@ -1,6 +1,6 @@
-function Card({ children }) {
+function Card({ children, highlight = false }) {
   return (
-    <div className="relative flex flex-col p-4 rounded-md bg-white border border-gray-200 shadow-sm">
+    <div className={`relative flex flex-col p-4 rounded-md bg-white border shadow-sm ${highlight ? 'border-blue' : 'border-gray-200'}`}>
       {children}
     </div>
   )

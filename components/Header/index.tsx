@@ -9,7 +9,7 @@ function Header({ children }) {
 function Title({ children, decorate = true }) {
   return (
     <h1 className='text-4xl font-bold'>
-      {children}{decorate && (<span aria-hidden='true' className='text-gray-400'>¬</span>)}
+      {children}{decorate && (<span aria-hidden='true' className='text-gray-400 ml-2'>¬</span>)}
     </h1>
   );
 }

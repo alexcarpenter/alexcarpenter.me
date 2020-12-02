@@ -52,6 +52,21 @@ function Screencasts({ subscriberCount, viewCount }) {
         <Section>
           <Section.Title>Popular</Section.Title>
           <Listing>
+            <Card highlight>
+              <Card.Title>
+                <PseudoLink href='https://www.youtube.com/watch?v=Uwnmn65cMec'>How to lazyload images</PseudoLink>
+              </Card.Title>
+              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
+            </Card>
+            <Card highlight>
+              <Card.Title>How to create overlapping images with CSS Grid</Card.Title>
+              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
+            </Card>
+          </Listing>
+        </Section>
+        <Section>
+          <Section.Title>Recent</Section.Title>
+          <Listing>
             <Card>
               <Card.Title>
                 <PseudoLink href='https://www.youtube.com/watch?v=Uwnmn65cMec'>How to lazyload images</PseudoLink>
@@ -62,7 +77,18 @@ function Screencasts({ subscriberCount, viewCount }) {
               <Card.Title>How to create overlapping images with CSS Grid</Card.Title>
               <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
             </Card>
+            <Card>
+              <Card.Title>How to create overlapping images with CSS Grid</Card.Title>
+              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
+            </Card>
+            <Card>
+              <Card.Title>How to create overlapping images with CSS Grid</Card.Title>
+              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
+            </Card>
           </Listing>
+          <div className="mt-4 text-center">
+            <button className="hover:bg-gray-200 px-4 py-3 rounded-md transition-colors">Load more...</button>
+          </div>
         </Section>
       </Page>
     </>

@@ -14,17 +14,17 @@ export default function Nav() {
       <ul className="flex space-x-4">
         <li>
           <Link href="/">
-            <a className="hover:text-blue">About</a>
+            <a className="hover:text-blue transition-colors">About</a>
           </Link>
         </li>
         <li>
           <Link href="/screencasts">
-            <a className="hover:text-blue">Screencasts</a>
+            <a className="hover:text-blue transition-colors">Screencasts</a>
           </Link>
         </li>
         <li>
           <Link href="/posts">
-            <a className="hover:text-blue">Posts</a>
+            <a className="hover:text-blue transition-colors">Posts</a>
           </Link>
         </li>
       </ul>
