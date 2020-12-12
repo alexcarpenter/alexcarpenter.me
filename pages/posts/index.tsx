@@ -23,7 +23,7 @@ export default function Posts({ posts }) {
             <Card key={post.filePath}>
               <Card.Title>
                 <Link as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`} href={`/posts/[slug]`}>
-                  <a>{post.data.title}</a>
+                  <a className='hover:text-blue'>{post.data.title}</a>
                 </Link>
               </Card.Title>
               <Card.Description>{post.data.description}</Card.Description>

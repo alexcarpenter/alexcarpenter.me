@@ -25,6 +25,10 @@ function CustomLink({ href, ...rest }) {
   return <a className='text-blue hover:underline' target='_blank' rel='noopener noreferrer' {...rest} />;
 }
 
+function List({ children }) {
+  return <ul className='list-inside list-disc space-y-1'>{children}</ul>;
+}
+
 function Blockquote({ children }) {
   return <blockquote className='border-l-4 border-blue italic px-4 py-2 text-gray-600 text-xl'>{children}</blockquote>;
 }
@@ -36,6 +40,7 @@ function Code({ children }) {
 const MDXComponents = {
   h2: H2,
   h3: H3,
+  ul: List,
   a: CustomLink,
   blockquote: Blockquote,
   pre: Code,
