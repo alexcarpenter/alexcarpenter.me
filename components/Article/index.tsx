@@ -13,7 +13,7 @@ export default function Post({ frontMatter, content }) {
         </Header>
         {frontMatter.youtubeId && (
           <div className='my-8'>
-            <div className='-mx-4 md:-mx-16 bg-gray-200'>
+            <div className='md:-mx-16 bg-gray-200'>
               <YoutubeVideo id={frontMatter.youtubeId} />
             </div>
             <div className='mt-4 text-center'>
