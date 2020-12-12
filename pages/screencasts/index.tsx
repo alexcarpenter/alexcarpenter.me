@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import Link from "next/link";
 import { screencastFilePaths, SCREENCASTS_PATH } from "../../lib/mdxUtils";
 import Page from "@/components/Page";
 import Card from "@/components/Card";
@@ -47,7 +48,11 @@ export default function Screencasts({ screencasts }) {
             {popularScreencasts.map((screencast) => {
               return (
                 <Card key={screencast.filePath} highlight>
-                  <Card.Title>{screencast.data.title}</Card.Title>
+                  <Card.Title>
+                    <Link as={`/screencasts/${screencast.filePath.replace(/\.mdx?$/, "")}`} href={`/screencasts/[slug]`}>
+                      <a className='hover:text-blue'>{screencast.data.title}</a>
+                    </Link>
+                  </Card.Title>
                   <Card.Description>{screencast.data.description}</Card.Description>
                 </Card>
               );
@@ -60,7 +65,11 @@ export default function Screencasts({ screencasts }) {
             {recentScreencasts.map((screencast) => {
               return (
                 <Card key={screencast.filePath}>
-                  <Card.Title>{screencast.data.title}</Card.Title>
+                  <Card.Title>
+                    <Link as={`/screencasts/${screencast.filePath.replace(/\.mdx?$/, "")}`} href={`/screencasts/[slug]`}>
+                      <a className='hover:text-blue'>{screencast.data.title}</a>
+                    </Link>
+                  </Card.Title>
                   <Card.Description>{screencast.data.description}</Card.Description>
                 </Card>
               );

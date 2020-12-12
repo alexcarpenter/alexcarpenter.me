@@ -17,7 +17,7 @@ export default function Posts({ posts }) {
         <Header.Description>Bibendum class eleifend accumsan lobortis nostra fusce donec augue sagittis</Header.Description>
       </Header>
       <Section>
-        <Section.Title>Lastest posts</Section.Title>
+        <Section.Title>Recent</Section.Title>
         <Listing>
           {posts.map((post) => (
             <Card key={post.filePath}>

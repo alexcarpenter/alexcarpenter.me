@@ -1,10 +1,10 @@
 import useSWR from "swr";
-import Fetcher from "@/lib/fetcher";
+import fetcher from "@/lib/fetcher";
 import Card from "@/components/Card";
 import Grid from "@/components/Grid";
 
 export default function Youtube() {
-  const { data } = useSWR("/api/youtube", Fetcher);
+  const { data } = useSWR("/api/youtube", fetcher);
   const subscriberCount = data?.subscriberCount;
   const viewCount = data?.viewCount;
 
