@@ -1,8 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-
 import Card from "@/components/Card";
-import Video from "@/components/Video";
+import YoutubeVideo from "@/components/YoutubeVideo";
 
 function H2({ children }) {
   return <h2 className='mt-4 text-2xl font-bold'>{children}</h2>;
@@ -42,7 +41,7 @@ const MDXComponents = {
   pre: Code,
   Card,
   Image,
-  Video,
+  YoutubeVideo,
 };
 
 export default MDXComponents;
