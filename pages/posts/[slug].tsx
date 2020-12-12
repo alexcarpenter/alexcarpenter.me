@@ -3,23 +3,16 @@ import matter from "gray-matter";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import dynamic from "next/dynamic";
+import prism from 'mdx-prism';
 import path from "path";
 import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils";
 import Head from "@/components/Head";
 import Page from "@/components/Page";
 import Header from "@/components/Header";
-import { MDXh2, MDXh3, MDXLink, MDXBlockquote, MDXCode } from "@/components/Mdx";
-
-const components = {
-  h2: MDXh2,
-  h3: MDXh3,
-  a: MDXLink,
-  blockquote: MDXBlockquote,
-  pre: MDXCode,
-};
+import MDXComponents from "@/components/MDXComponents";
 
 export default function Post({ source, frontMatter }) {
-  const content = hydrate(source, { components });
+  const content = hydrate(source, { components: MDXComponents });
   return (
     <>
       <Head title={frontMatter.title} description={frontMatter.description} />
@@ -46,7 +39,7 @@ export const getStaticProps = async ({ params }) => {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [],
+      rehypePlugins: [prism],
     },
     scope: data,
   });

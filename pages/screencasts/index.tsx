@@ -1,25 +1,26 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { screencastFilePaths, SCREENCASTS_PATH } from "../../lib/mdxUtils";
 import Page from "@/components/Page";
 import Card from "@/components/Card";
 import Grid from "@/components/Grid";
 import Listing from "@/components/Listing";
 import Header from "@/components/Header";
-import PseudoLink from "@/components/PseudoLink";
 import Section from "@/components/Section";
 
-export async function getStaticProps() {
-  const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC2jJoQlzvLPvnYfowAEVaOg&key=${process.env.YOUTUBE_API_KEY}`);
-  const data = await res.json();
-  const { subscriberCount, viewCount, videoCount } = data?.items[0].statistics;
-  return {
-    props: {
-      subscriberCount,
-      viewCount,
-      videoCount,
-    },
-  };
-}
-
-function Screencasts({ subscriberCount, viewCount }) {
+export default function Screencasts({ screencasts, subscriberCount, viewCount, videoCount }) {
+  let popularScreencasts = [];
+  let recentScreencasts = [];
+  screencasts
+    .sort((a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)))
+    .map((screencast) => {
+      if (screencast.data.popular === true && popularScreencasts.length < 2) {
+        popularScreencasts.push(screencast);
+      } else {
+        recentScreencasts.push(screencast);
+      }
+    });
   return (
     <>
       <Page title='Screencasts'>
@@ -52,47 +53,49 @@ function Screencasts({ subscriberCount, viewCount }) {
         <Section>
           <Section.Title>Popular</Section.Title>
           <Listing>
-            <Card highlight>
-              <Card.Title>
-                <PseudoLink href='https://www.youtube.com/watch?v=Uwnmn65cMec'>How to lazyload images</PseudoLink>
-              </Card.Title>
-              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
-            </Card>
-            <Card highlight>
-              <Card.Title>How to create overlapping images with CSS Grid</Card.Title>
-              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
-            </Card>
+            {popularScreencasts.map((screencast) => {
+              return (
+                <Card key={screencast.filePath} highlight>
+                  <Card.Title>{screencast.data.title}</Card.Title>
+                  <Card.Description>{screencast.data.description}</Card.Description>
+                </Card>
+              );
+            })}
           </Listing>
         </Section>
         <Section>
           <Section.Title>Recent</Section.Title>
           <Listing>
-            <Card>
-              <Card.Title>
-                <PseudoLink href='https://www.youtube.com/watch?v=Uwnmn65cMec'>How to lazyload images</PseudoLink>
-              </Card.Title>
-              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
-            </Card>
-            <Card>
-              <Card.Title>How to create overlapping images with CSS Grid</Card.Title>
-              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
-            </Card>
-            <Card>
-              <Card.Title>How to create overlapping images with CSS Grid</Card.Title>
-              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
-            </Card>
-            <Card>
-              <Card.Title>How to create overlapping images with CSS Grid</Card.Title>
-              <Card.Description>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat possimus atque enim beatae. Voluptates doloremque, expedita molestias quas neque eaque pariatur error voluptatem debitis dignissimos adipisci sequi repellat excepturi modi.</Card.Description>
-            </Card>
+            {recentScreencasts.map((screencast) => {
+              return (
+                <Card key={screencast.filePath}>
+                  <Card.Title>{screencast.data.title}</Card.Title>
+                  <Card.Description>{screencast.data.description}</Card.Description>
+                </Card>
+              );
+            })}
           </Listing>
-          <div className="mt-4 text-center">
-            <button className="hover:bg-gray-200 px-4 py-3 rounded-md transition-colors">Load more...</button>
-          </div>
         </Section>
       </Page>
     </>
   );
 }
 
-export default Screencasts;
+export async function getStaticProps() {
+  const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC2jJoQlzvLPvnYfowAEVaOg&key=${process.env.YOUTUBE_API_KEY}`);
+  const stats = await res.json();
+  const { subscriberCount, viewCount, videoCount } = stats?.items[0].statistics;
+
+  const screencasts = screencastFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(SCREENCASTS_PATH, filePath));
+    const { content, data } = matter(source);
+
+    return {
+      content,
+      data,
+      filePath,
+    };
+  });
+
+  return { props: { screencasts, subscriberCount, viewCount, videoCount } };
+}
