@@ -25,7 +25,7 @@ export default function Screencast({ source, frontMatter }) {
             <Header.Description>{frontMatter.description}</Header.Description>
           </Header>
           <div className='mt-8 space-y-3'>
-            <Video id={frontMatter.id} />
+            <Video id={frontMatter.youtubeId} />
             {content}
           </div>
         </article>

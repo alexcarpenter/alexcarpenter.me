@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <div className='border-t mt-auto pt-8 max-w-screen-sm mx-auto w-full'>
-      <ul className='flex space-x-3'>
+      <ul className='flex space-x-4'>
         <li>
           <a className='hover:text-blue' rel='me' aria-label='YouTube' href='https://www.youtube.com/channel/UC2jJoQlzvLPvnYfowAEVaOg'>
             <svg focusable='false' aria-hidden='true' width='24' height='24' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
