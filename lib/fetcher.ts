@@ -1,5 +1,3 @@
-export default async function fetcher(...args) {
-  const res = await fetch(...args);
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
-  return res.json();
-}
+export default fetcher;
