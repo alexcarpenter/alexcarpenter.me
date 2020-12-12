@@ -4,12 +4,12 @@ import matter from "gray-matter";
 import { screencastFilePaths, SCREENCASTS_PATH } from "../../lib/mdxUtils";
 import Page from "@/components/Page";
 import Card from "@/components/Card";
-import Grid from "@/components/Grid";
 import Listing from "@/components/Listing";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
+import Youtube from "@/components/Metrics/Youtube";
 
-export default function Screencasts({ screencasts, subscriberCount, viewCount, videoCount }) {
+export default function Screencasts({ screencasts }) {
   let popularScreencasts = [];
   let recentScreencasts = [];
   screencasts
@@ -29,16 +29,7 @@ export default function Screencasts({ screencasts, subscriberCount, viewCount, v
           <Header.Description>Sed tincidunt aenean magnis velit tellus egestas urna placerat ipsum elit cum hac platea hendrerit ac tempus sollicitudin.</Header.Description>
         </Header>
         <div className='mt-8'>
-          <Grid>
-            <Card>
-              <Card.Eyebrow>Total subscribers</Card.Eyebrow>
-              <Card.Stat>{subscriberCount ? subscriberCount : "-"}</Card.Stat>
-            </Card>
-            <Card>
-              <Card.Eyebrow>Total views</Card.Eyebrow>
-              <Card.Stat>{viewCount ? `${Math.round(viewCount / 1000)}K+` : "-"}</Card.Stat>
-            </Card>
-          </Grid>
+          <Youtube />
           <div className='mt-4 text-center'>
             <a href='https://www.youtube.com/channel/UC2jJoQlzvLPvnYfowAEVaOg?sub_confirmation=1' className='inline-flex items-center text-blue hover:underline'>
               Subscribe on YouTube{" "}
@@ -82,10 +73,6 @@ export default function Screencasts({ screencasts, subscriberCount, viewCount, v
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC2jJoQlzvLPvnYfowAEVaOg&key=${process.env.YOUTUBE_API_KEY}`);
-  const stats = await res.json();
-  const { subscriberCount, viewCount, videoCount } = stats?.items[0].statistics;
-
   const screencasts = screencastFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(SCREENCASTS_PATH, filePath));
     const { content, data } = matter(source);
@@ -97,5 +84,5 @@ export async function getStaticProps() {
     };
   });
 
-  return { props: { screencasts, subscriberCount, viewCount, videoCount } };
+  return { props: { screencasts } };
 }
