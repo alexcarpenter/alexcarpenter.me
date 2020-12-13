@@ -9,7 +9,7 @@ export default function Post({ frontMatter, content }) {
       <article>
         <Header>
           <Header.Title decorate={false}>{frontMatter.title}</Header.Title>
-          <Header.Description>{frontMatter.description}</Header.Description>
+          {frontMatter.description && <Header.Description>{frontMatter.description}</Header.Description>}
         </Header>
         {frontMatter.youtubeId && (
           <div className='my-8'>

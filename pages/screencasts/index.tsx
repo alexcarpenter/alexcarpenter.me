@@ -8,6 +8,7 @@ import Card from "@/components/Card";
 import Listing from "@/components/Listing";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
+import Tags from "@/components/Tags";
 import Youtube from "@/components/Metrics/Youtube";
 import YoutubeSubscribe from "@/components/YoutubeSubscribe";
 
@@ -47,7 +48,12 @@ export default function Screencasts({ screencasts }) {
                       <a className='hover:text-blue'>{screencast.data.title}</a>
                     </Link>
                   </Card.Title>
-                  <Card.Description>{screencast.data.description}</Card.Description>
+                  {screencast.data.description && <Card.Description>{screencast.data.description}</Card.Description>}
+                  {screencast.data.categories && (
+                    <div className='mt-4'>
+                      <Tags items={screencast.data.categories} />
+                    </div>
+                  )}
                 </Card>
               );
             })}
