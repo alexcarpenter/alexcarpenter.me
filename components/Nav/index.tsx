@@ -19,11 +19,11 @@ export default function Nav() {
             <a className={`hover:text-blue transition-colors`}>Screencasts</a>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link href='/posts'>
             <a className={`hover:text-blue transition-colors`}>Posts</a>
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
