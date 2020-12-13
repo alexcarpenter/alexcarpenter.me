@@ -48,7 +48,7 @@ export default function Screencasts({ screencasts }) {
                 <Card key={screencast.filePath} highlight>
                   <Card.Title>
                     <Link as={`/screencasts/${screencast.filePath.replace(/\.mdx?$/, "")}`} href={`/screencasts/[slug]`}>
-                      <a className='hover:text-blue'>{title}</a>
+                      <a className='hover:text-green'>{title}</a>
                     </Link>
                   </Card.Title>
                   {description && <Card.Description>{description}</Card.Description>}
