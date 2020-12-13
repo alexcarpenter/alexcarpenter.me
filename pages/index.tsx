@@ -13,6 +13,21 @@ function Home() {
           <Header.Description>a detail oriented user interface engineer currently interested in CSS architecture, React, TypeScript, design systems, and state machines.</Header.Description>
         </Header>
         {/* <Section>
+          <Section.Title>2020</Section.Title>
+          <ul className='space-y-8'>
+            <li>
+              <div className='h-16 w-16 bg-gray-200 rounded-full'></div>
+            </li>
+            <li>
+              <div className='h-16 w-16 bg-gray-200 rounded-full'></div>
+            </li>
+          </ul>
+        </Section>
+        <Section>
+          <Section.Title>2019</Section.Title>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse doloribus totam harum fuga, deserunt mollitia non expedita nam adipisci illum velit aperiam nemo, cumque eligendi necessitatibus nesciunt praesentium accusamus veritatis.</p>
+        </Section> */}
+        {/* <Section>
           <Section.Title>Experience</Section.Title>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse doloribus totam harum fuga, deserunt mollitia non expedita nam adipisci illum velit aperiam nemo, cumque eligendi necessitatibus nesciunt praesentium accusamus veritatis.</p>
         </Section>
