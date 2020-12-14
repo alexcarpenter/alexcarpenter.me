@@ -1,11 +1,13 @@
 import * as React from "react";
 
-export default function Listing({ children }) {
-  return (
-    <ul className="space-y-4">
-      {React.Children.map(children, function(child) {
-        return <li>{child}</li>
-      })}
-    </ul>
-  )
+function Listing({ children }) {
+  return <ul className='space-y-4'>{children}</ul>;
 }
+
+function Item({ children }) {
+  return <li>{children}</li>;
+}
+
+Listing.Item = Item;
+
+export default Listing;

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import Highlight, { defaultProps } from "prism-react-renderer";
+import theme from "prism-react-renderer/themes/nightOwl";
 import Card from "@/components/Card";
 import YoutubeVideo from "@/components/YoutubeVideo";
 
@@ -22,7 +24,14 @@ function CustomLink({ href, ...rest }) {
     );
   }
 
-  return <a className='text-blue hover:underline' target='_blank' rel='noopener noreferrer' {...rest} />;
+  return (
+    <a
+      className='text-blue hover:underline'
+      target='_blank'
+      rel='noopener noreferrer'
+      {...rest}
+    />
+  );
 }
 
 function List({ children }) {
@@ -30,11 +39,43 @@ function List({ children }) {
 }
 
 function Blockquote({ children }) {
-  return <blockquote className='border-l-4 border-blue italic px-4 py-2 text-gray-600 text-xl'>{children}</blockquote>;
+  return (
+    <blockquote className='border-l-4 border-blue italic px-4 py-2 text-gray-600 text-xl'>
+      {children}
+    </blockquote>
+  );
 }
 
 function Code({ children }) {
-  return <pre className='p-4 bg-gray-900 text-white rounded-md'>{children}</pre>;
+  return (
+    <Highlight
+      {...defaultProps}
+      theme={theme}
+      code={children.trim()}
+      language='jsx'
+    >
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre
+          className={className}
+          style={{
+            ...style,
+            overflow: "auto",
+            marginTop: 20,
+            marginBottom: 20,
+            padding: 16,
+          }}
+        >
+          {tokens.map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  );
 }
 
 const MDXComponents = {
@@ -43,7 +84,7 @@ const MDXComponents = {
   ul: List,
   a: CustomLink,
   blockquote: Blockquote,
-  pre: Code,
+  code: Code,
   Card,
   Image,
   YoutubeVideo,

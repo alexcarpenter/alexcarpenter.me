@@ -1,29 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+
+const navItems = [
+  { href: "/", label: "About" },
+  // { href: "/work", label: "Work" },
+  { href: "/screencasts", label: "Screencasts" },
+];
 
 export default function Nav() {
-  const router = useRouter();
-  console.log(router.pathname);
   return (
     <nav className='mb-8 flex justify-between items-center'>
-      <Image src='/me.jpg' alt='Picture of Alex Carpenter' width={64} height={64} className='rounded-full' />
+      <Image
+        src='/me.jpg'
+        alt='Picture of Alex Carpenter'
+        width={64}
+        height={64}
+        className='rounded-full'
+      />
       <ul className='flex space-x-4'>
-        <li>
-          <Link href='/'>
-            <a className={`hover:text-blue transition-colors`}>About</a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/screencasts'>
-            <a className={`hover:text-blue transition-colors`}>Screencasts</a>
-          </Link>
-        </li>
-        {/* <li>
-          <Link href='/posts'>
-            <a className={`hover:text-blue transition-colors`}>Posts</a>
-          </Link>
-        </li> */}
+        {navItems.map((item) => {
+          return (
+            <li>
+              <Link href={item.href}>
+                <a className={`hover:text-blue transition-colors`}>
+                  {item.label}
+                </a>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

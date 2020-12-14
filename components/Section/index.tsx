@@ -4,8 +4,8 @@ function Section({ children }) {
 
 function Title({ children }) {
   return (
-    <div className='relative flex items-center mb-4'>
-      <h2 className='font-bold uppercase tracking-wide'>{children}</h2>
+    <div className='relative flex items-center mb-8 text-sm'>
+      <h2 className='font-bold uppercase tracking-wider'>{children}</h2>
       <div className='bg-gray-200 flex-1 ml-4' style={{ height: 1 }}></div>
     </div>
   );

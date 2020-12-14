@@ -15,11 +15,49 @@ function Home() {
         {/* <Section>
           <Section.Title>2020</Section.Title>
           <ul className='space-y-8'>
-            <li>
-              <div className='h-16 w-16 bg-gray-200 rounded-full'></div>
+            <li className='flex'>
+              <div className='h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 mr-8'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>
+                  <circle cx='18' cy='18' r='3'></circle>
+                  <circle cx='6' cy='6' r='3'></circle>
+                  <path d='M6 21V9a9 9 0 0 0 9 9'></path>
+                </svg>
+              </div>
+              <div className='mt-3'>
+                <h3 className='text-lg font-bold'>Posted Switching to Next.js</h3>
+                <p className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet praesentium delectus laboriosam debitis id iste nisi, dicta doloribus eum, fuga facilis quis vero eos architecto qui saepe. Eius, voluptatum perspiciatis.</p>
+                <div className='mt-4'>
+                  <a href='' className='bg-blue text-white px-4 py-2 inline-block rounded'>
+                    View repo
+                  </a>
+                </div>
+              </div>
             </li>
-            <li>
-              <div className='h-16 w-16 bg-gray-200 rounded-full'></div>
+            <li className='flex'>
+              <div className='h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 mr-8'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>
+                  <circle cx='18' cy='18' r='3'></circle>
+                  <circle cx='6' cy='6' r='3'></circle>
+                  <path d='M6 21V9a9 9 0 0 0 9 9'></path>
+                </svg>
+              </div>
+              <div className='mt-3'>
+                <h3 className='text-lg font-bold'>Posted Switching to Next.js</h3>
+                <p className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet praesentium delectus laboriosam debitis id iste nisi, dicta doloribus eum, fuga facilis quis vero eos architecto qui saepe. Eius, voluptatum perspiciatis.</p>
+              </div>
+            </li>
+            <li className='flex'>
+              <div className='h-12 w-12 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 mr-8'>
+                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>
+                  <circle cx='18' cy='18' r='3'></circle>
+                  <circle cx='6' cy='6' r='3'></circle>
+                  <path d='M6 21V9a9 9 0 0 0 9 9'></path>
+                </svg>
+              </div>
+              <div className='mt-3'>
+                <h3 className='text-lg font-bold'>Posted Switching to Next.js</h3>
+                <p className='mt-2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet praesentium delectus laboriosam debitis id iste nisi, dicta doloribus eum, fuga facilis quis vero eos architecto qui saepe. Eius, voluptatum perspiciatis.</p>
+              </div>
             </li>
           </ul>
         </Section>
