@@ -1,3 +1,4 @@
+// @ts-nocheck
 function Card({ children, highlight = false }) {
   return (
     <div
