@@ -8,8 +8,6 @@ import { screencastFilePaths, SCREENCASTS_PATH } from "../../lib/mdxUtils";
 import Page from "@/components/Page";
 import Stack from "@/components/Stack";
 import Card from "@/components/Card";
-import Grid from "@/components/Grid";
-import Listing from "@/components/Listing";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import Youtube from "@/components/Metrics/Youtube";
