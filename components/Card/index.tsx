@@ -2,7 +2,7 @@
 function Card({ children, highlight = false }) {
   return (
     <div
-      className={`relative flex flex-col p-4 rounded-md bg-white border shadow-sm ${
+      className={`relative flex flex-col flex-grow p-4 rounded-md bg-white border shadow-sm ${
         highlight ? "border-blue" : "border-gray-200"
       }`}
     >

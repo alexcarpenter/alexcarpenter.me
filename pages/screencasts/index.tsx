@@ -6,6 +6,7 @@ import path from "path";
 import matter from "gray-matter";
 import { screencastFilePaths, SCREENCASTS_PATH } from "../../lib/mdxUtils";
 import Page from "@/components/Page";
+import Stack from "@/components/Stack";
 import Card from "@/components/Card";
 import Grid from "@/components/Grid";
 import Listing from "@/components/Listing";
@@ -49,11 +50,11 @@ export default function Screencasts({ screencasts }) {
         </div>
         <Section>
           <Section.Title>Popular</Section.Title>
-          <Listing>
+          <Stack>
             {popularScreencasts.map((screencast) => {
               const { title, description, categories } = screencast.data;
               return (
-                <Listing.Item>
+                <Stack.Item>
                   <Card key={screencast.filePath} highlight>
                     <Card.Title>
                       <Link
@@ -71,10 +72,10 @@ export default function Screencasts({ screencasts }) {
                     )}
                     <Card.Tags items={categories} />
                   </Card>
-                </Listing.Item>
+                </Stack.Item>
               );
             })}
-          </Listing>
+          </Stack>
         </Section>
         <div className='my-16 text-center'>
           <p className='text-xl text-gray-600'>
@@ -140,7 +141,7 @@ export default function Screencasts({ screencasts }) {
               </li>
             ))}
           </ul>
-          <Grid>
+          <Stack grid>
             {recentScreencasts
               .filter((screencast) => {
                 if (!category) {
@@ -154,23 +155,25 @@ export default function Screencasts({ screencasts }) {
               .map((screencast) => {
                 const { title, categories } = screencast.data;
                 return (
-                  <Card key={screencast.filePath}>
-                    <Card.Title>
-                      <Link
-                        as={`/screencasts/${screencast.filePath.replace(
-                          /\.mdx?$/,
-                          "",
-                        )}`}
-                        href={`/screencasts/[slug]`}
-                      >
-                        <a className='hover:text-blue'>{title}</a>
-                      </Link>
-                    </Card.Title>
-                    <Card.Tags items={categories} />
-                  </Card>
+                  <Stack.Item>
+                    <Card key={screencast.filePath}>
+                      <Card.Title>
+                        <Link
+                          as={`/screencasts/${screencast.filePath.replace(
+                            /\.mdx?$/,
+                            "",
+                          )}`}
+                          href={`/screencasts/[slug]`}
+                        >
+                          <a className='hover:text-blue'>{title}</a>
+                        </Link>
+                      </Card.Title>
+                      <Card.Tags items={categories} />
+                    </Card>
+                  </Stack.Item>
                 );
               })}
-          </Grid>
+          </Stack>
         </Section>
       </Page>
     </>

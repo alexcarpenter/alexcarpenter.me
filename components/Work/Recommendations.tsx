@@ -1,7 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Card from "@/components/Card";
-import Listing from "@/components/Listing";
+import Stack from "@/components/Stack";
 import Section from "@/components/Section";
 
 export default function Recommendations() {
@@ -10,8 +10,8 @@ export default function Recommendations() {
   return (
     <Section>
       <Section.Title>Recomendations</Section.Title>
-      <Listing>
-        <Listing.Item>
+      <Stack>
+        <Stack.Item>
           <Card>
             <Card.Description italic>
               “Alex is incredibly skilled, efficient, and thorough in his work.
@@ -37,9 +37,9 @@ export default function Recommendations() {
               </div>
             </div>
           </Card>
-        </Listing.Item>
+        </Stack.Item>
 
-        <Listing.Item>
+        <Stack.Item>
           <Card>
             <Card.Description italic>
               “I would recommend Alex to any forward-thinking web team. His
@@ -67,11 +67,11 @@ export default function Recommendations() {
               </div>
             </div>
           </Card>
-        </Listing.Item>
+        </Stack.Item>
 
         {viewAll ? (
           <>
-            <Listing.Item>
+            <Stack.Item>
               <Card>
                 <Card.Description italic>
                   “Alex is incredibly thorough and thoughtful with his work and
@@ -98,8 +98,8 @@ export default function Recommendations() {
                   </div>
                 </div>
               </Card>
-            </Listing.Item>
-            <Listing.Item>
+            </Stack.Item>
+            <Stack.Item>
               <Card>
                 <Card.Description italic>
                   “Alex is a true autodidact that is dedicated to keeping up
@@ -124,7 +124,7 @@ export default function Recommendations() {
                   </div>
                 </div>
               </Card>
-            </Listing.Item>
+            </Stack.Item>
           </>
         ) : (
           <div className='text-center'>
@@ -136,7 +136,7 @@ export default function Recommendations() {
             </button>
           </div>
         )}
-      </Listing>
+      </Stack>
     </Section>
   );
 }

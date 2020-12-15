@@ -7,31 +7,39 @@ import Page from "@/components/Page";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
-import Listing from "@/components/Listing";
+import Stack from "@/components/Stack";
 
 export default function Posts({ posts }) {
   return (
     <Page title='Posts'>
       <Header>
         <Header.Title>Posts</Header.Title>
-        <Header.Description>Bibendum class eleifend accumsan lobortis nostra fusce donec augue sagittis</Header.Description>
+        <Header.Description>
+          Bibendum class eleifend accumsan lobortis nostra fusce donec augue
+          sagittis
+        </Header.Description>
       </Header>
       <Section>
         <Section.Title>Lastest posts</Section.Title>
-        <Listing>
+        <Stack>
           {posts.map((post) => (
-            <Card key={post.filePath}>
-              <Card.Title>
-                <Link as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`} href={`/posts/[slug]`}>
-                  <a>{post.data.title}</a>
-                </Link>
-              </Card.Title>
-              {post.data.description && (
-                <Card.Description>{post.data.description}</Card.Description>
-              )}
-            </Card>
+            <Stack.Item>
+              <Card key={post.filePath}>
+                <Card.Title>
+                  <Link
+                    as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
+                    href={`/posts/[slug]`}
+                  >
+                    <a>{post.data.title}</a>
+                  </Link>
+                </Card.Title>
+                {post.data.description && (
+                  <Card.Description>{post.data.description}</Card.Description>
+                )}
+              </Card>
+            </Stack.Item>
           ))}
-        </Listing>
+        </Stack>
       </Section>
     </Page>
   );

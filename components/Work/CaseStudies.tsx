@@ -1,12 +1,12 @@
 import Card from "@/components/Card";
-import Grid from "@/components/Grid";
+import Stack from "@/components/Stack";
 import Section from "@/components/Section";
 
 export default function CaseStudies() {
   return (
     <Section>
       <Section.Title>Case studies</Section.Title>
-      <Grid>
+      <Stack grid>
         <Card>
           <Card.Eyebrow as='p'>NationBuilder</Card.Eyebrow>
           <Card.Title>Automations</Card.Title>
@@ -27,7 +27,7 @@ export default function CaseStudies() {
             adipiscing fermentum magna urna iaculis
           </Card.Description>
         </Card>
-      </Grid>
+      </Stack>
     </Section>
   );
 }
