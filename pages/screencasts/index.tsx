@@ -65,7 +65,9 @@ export default function Screencasts({ screencasts }) {
                         )}`}
                         href={`/screencasts/[slug]`}
                       >
-                        <a className='hover:text-blue'>{title}</a>
+                        <a className='hover:text-blue transition-colors'>
+                          {title}
+                        </a>
                       </Link>
                     </Card.Title>
                     {description && (
@@ -114,7 +116,7 @@ export default function Screencasts({ screencasts }) {
                     category === undefined
                       ? "bg-gray-600 text-white"
                       : "bg-gray-200"
-                  } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg`}
+                  } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
                 >
                   All
                 </a>
@@ -134,7 +136,7 @@ export default function Screencasts({ screencasts }) {
                       category === c.toLowerCase()
                         ? "bg-gray-600 text-white"
                         : "bg-gray-200"
-                    } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg`}
+                    } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
                   >
                     {c}
                   </a>
@@ -166,7 +168,9 @@ export default function Screencasts({ screencasts }) {
                           )}`}
                           href={`/screencasts/[slug]`}
                         >
-                          <a className='hover:text-blue'>{title}</a>
+                          <a className='hover:text-blue transition-colors'>
+                            {title}
+                          </a>
                         </Link>
                       </Card.Title>
                       <Card.Tags items={categories} />
