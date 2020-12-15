@@ -34,12 +34,15 @@ export default function Screencasts({ screencasts }) {
     });
   return (
     <>
-      <Page title='Screencasts'>
+      <Page
+        title='Screencasts'
+        description='Short front-end development tutorials for developers of all skill levels.'
+      >
         <Header>
           <Header.Title>Screencasts</Header.Title>
           <Header.Description>
-            Short—to the point front-end development tutorials for developers of
-            all skill levels.
+            Short front-end development tutorials for developers of all skill
+            levels.
           </Header.Description>
         </Header>
         <div className='mt-8'>
