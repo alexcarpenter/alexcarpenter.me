@@ -4,6 +4,7 @@ import GoogleFonts from "next-google-fonts";
 export default function Head({
   title = "Alex Carpenter",
   description = "Sample description",
+  image = "https://alexcarpenter.me/og-image.png"
 }) {
   return (
     <>
@@ -21,8 +22,8 @@ export default function Head({
         <meta name='og:description' content={description} />
 
         {/* Image */}
-        <meta name="twitter:image" content="https://alexcarpenter.me/meta-logo.png" />
-        <meta name="og:image" content="https://alexcarpenter.me/meta-logo.png" />
+        <meta name="twitter:image" content={image} />
+        <meta name="og:image" content={image} />
 
         {/* General */}
         <meta name="twitter:card" content="summary_large_image" />
