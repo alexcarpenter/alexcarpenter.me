@@ -20,11 +20,11 @@ export default function Posts({ posts }) {
         </Header.Description>
       </Header>
       <Section>
-        <Section.Title>Lastest posts</Section.Title>
+        <Section.Title>Recent</Section.Title>
         <Stack>
           {posts.map((post) => (
-            <Stack.Item>
-              <Card key={post.filePath}>
+            <Stack.Item key={post.filePath}>
+              <Card>
                 <Card.Title>
                   <Link
                     as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}

@@ -6,17 +6,17 @@ export default function Work() {
   return (
     <Page
       title='Work'
-      description='Helping teams build consistent, high-quality and inclusive user interfaces. Working remotely, floating between design and engineering teams.'
+      description='Helping teams build consistent, high-quality and inclusive user interfaces with React. Working remotely, floating between design and engineering teams.'
     >
       <Header>
         <Header.Title>Work</Header.Title>
         <Header.Description>
           Helping teams build consistent, high-quality and inclusive user
-          interfaces. Working remotely, floating between design and engineering
-          teams.
+          interfaces with React. Working remotely, floating between design and
+          engineering teams.
         </Header.Description>
       </Header>
-      <CaseStudies />
+      {/* <CaseStudies /> */}
       <Experience />
       <Recommendations />
     </Page>

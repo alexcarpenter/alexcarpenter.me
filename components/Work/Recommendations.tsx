@@ -13,7 +13,7 @@ export default function Recommendations() {
       <Stack>
         <Stack.Item>
           <Card>
-            <Card.Description italic>
+            <Card.Description>
               “Alex is incredibly skilled, efficient, and thorough in his work.
               Perhaps more than any other co-worker I have had, Alex possesses a
               deep and wide understanding of modern web technologies, while his
@@ -41,7 +41,7 @@ export default function Recommendations() {
 
         <Stack.Item>
           <Card>
-            <Card.Description italic>
+            <Card.Description>
               “I would recommend Alex to any forward-thinking web team. His
               passion for web standards along with his friendly attitude made
               him an invaluable part of our development team. I’m always
@@ -73,7 +73,7 @@ export default function Recommendations() {
           <>
             <Stack.Item>
               <Card>
-                <Card.Description italic>
+                <Card.Description>
                   “Alex is incredibly thorough and thoughtful with his work and
                   is always seeking out improving in his craft. He’s conscious
                   of meeting deadlines and communicates concerns early so that
@@ -101,7 +101,7 @@ export default function Recommendations() {
             </Stack.Item>
             <Stack.Item>
               <Card>
-                <Card.Description italic>
+                <Card.Description>
                   “Alex is a true autodidact that is dedicated to keeping up
                   with the latest development tools, methods and trends.”
                 </Card.Description>
@@ -132,7 +132,7 @@ export default function Recommendations() {
               onClick={() => setViewAll(true)}
               className='hover:bg-gray-200 py-2 px-4 rounded-md transition-colors'
             >
-              View all...
+              View all
             </button>
           </div>
         )}

@@ -1,4 +1,5 @@
 // @ts-nocheck
+import Image from 'next/image';
 function Card({ children, highlight = false }) {
   return (
     <div
@@ -7,6 +8,17 @@ function Card({ children, highlight = false }) {
       }`}
     >
       {children}
+    </div>
+  );
+}
+
+function Media({ color, ...props }) {
+  return (
+    <div
+      className='-mt-4 -mx-4 mb-4 pt-4 pl-4 flex justify-end items-end rounded-md rounded-b-none bg-black'
+      style={{ backgroundColor: color }}
+    >
+      <Image className="rounded-tl-md w-full" {...props} />
     </div>
   );
 }
@@ -46,6 +58,7 @@ function Tags({ items }) {
   );
 }
 
+Card.Media = Media;
 Card.Eyebrow = Eyebrow;
 Card.Title = Title;
 Card.Stat = Stat;

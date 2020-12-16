@@ -9,7 +9,7 @@ export default function Experience() {
         <Stack.Item>
           <h3 className='text-xl font-bold'>NationBuilder</h3>
           <p className='mt-1 text-gray-600'>UI Engineer • Nov 2018 - Present</p>
-          <ul className='mt-2 list-disc pl-3'>
+          <ul className='mt-2 list-disc pl-4'>
             <li>
               Maintain and implement new features within our design system
               Radius.
@@ -29,7 +29,7 @@ export default function Experience() {
           <p className='mt-1 text-gray-600'>
             Senior Developer • Oct 2015 - Nov 2018
           </p>
-          <ul className='mt-2 list-disc pl-3'>
+          <ul className='mt-2 list-disc pl-4'>
             <li>
               Architected solutions and estimate project scope for new and
               existing client features.
@@ -45,7 +45,7 @@ export default function Experience() {
           <p className='mt-1 text-gray-600'>
             Front-end Developer • Feb 2012 - Oct 2015
           </p>
-          <ul className='mt-2 list-disc pl-3'>
+          <ul className='mt-2 list-disc pl-4'>
             <li>Designed and developed a SaaS app built on Laravel.</li>
             <li>
               Developed mobile-first front-end templates for clients such as FOX

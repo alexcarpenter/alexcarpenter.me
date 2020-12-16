@@ -55,8 +55,8 @@ export default function Screencasts({ screencasts }) {
             {popularScreencasts.map((screencast) => {
               const { title, description, categories } = screencast.data;
               return (
-                <Stack.Item>
-                  <Card key={screencast.filePath} highlight>
+                <Stack.Item key={screencast.filePath}>
+                  <Card highlight>
                     <Card.Title>
                       <Link
                         as={`/screencasts/${screencast.filePath.replace(
@@ -123,7 +123,7 @@ export default function Screencasts({ screencasts }) {
               </Link>
             </li>
             {["CSS", "JavaScript", "Performance"].map((c) => (
-              <li>
+              <li key={c}>
                 <Link
                   href={{
                     pathname: "/screencasts",
@@ -158,8 +158,8 @@ export default function Screencasts({ screencasts }) {
               .map((screencast) => {
                 const { title, categories } = screencast.data;
                 return (
-                  <Stack.Item>
-                    <Card key={screencast.filePath}>
+                  <Stack.Item key={screencast.filePath}>
+                    <Card>
                       <Card.Title>
                         <Link
                           as={`/screencasts/${screencast.filePath.replace(
