@@ -1,0 +1,25 @@
+---
+title: Native date formatting
+tags: ["JavaScript"]
+---
+
+<ExternalLink href='https://twitter.com/wesbos/status/1185263826029174784' />
+
+```js
+const now = new Date();
+
+new Intl.DateTimeFormat("en-us", { dateStyle: "full" }).format(now);
+// Tuesday, October 15, 2019
+
+new Intl.DateTimeFormat("en-us", { dateStyle: "long" }).format(now);
+// October 15, 2019
+
+new Intl.DateTimeFormat("en-us", { dateStyle: "medium" }).format(now);
+// Oct 15, 2019
+
+new Intl.DateTimeFormat("en-us", { dateStyle: "short" }).format(now);
+// 10/15/19
+
+new Intl.DateTimeFormat("fr-CA", { dateStyle: "long" }).format(now);
+// 15 octobre 2019
+```

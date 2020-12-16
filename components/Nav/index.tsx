@@ -26,7 +26,7 @@ export default function Nav() {
       <ul className='flex space-x-4 sm:space-x-8 mt-4 sm:mt-0'>
         {navItems.map((item) => {
           return (
-            <li>
+            <li key={item.href}>
               <Link href={item.href}>
                 <a className={`hover:text-blue transition-colors`}>
                   {item.label}

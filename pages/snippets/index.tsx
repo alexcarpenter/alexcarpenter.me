@@ -3,32 +3,29 @@ import { useRouter } from "next/router";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils";
-import Page from "@/components/Page";
+import { snippetsFilePaths, SNIPPETS_PATH } from "../../lib/mdxUtils";
 import Header from "@/components/Header";
-import Section from "@/components/Section";
 import Card from "@/components/Card";
+import Page from "@/components/Page";
 import Stack from "@/components/Stack";
 
-export default function Posts({ posts }) {
+export default function Snippets({ snippets }) {
   const router = useRouter();
   let category = router.query.category;
   return (
-    <Page title='Posts'>
+    <Page
+      title='Snippets'
+      description='Writing it down so I remember it later.'
+    >
       <Header>
-        <Header.Title>Posts</Header.Title>
-        <Header.Description>
-          Bibendum class eleifend accumsan lobortis nostra fusce donec augue
-          sagittis
-        </Header.Description>
+        <Header.Title>Snippets</Header.Title>
       </Header>
-      <Section>
-        <Section.Title>Recent</Section.Title>
+      <div className='mt-8'>
         <ul className='flex space-x-2 mb-8'>
           <li>
             <Link
               href={{
-                pathname: "/posts",
+                pathname: "/snippets",
               }}
               scroll={false}
             >
@@ -47,7 +44,7 @@ export default function Posts({ posts }) {
             <li key={c}>
               <Link
                 href={{
-                  pathname: "/posts",
+                  pathname: "/snippets",
                   query: { category: c.toLowerCase() },
                 }}
                 scroll={false}
@@ -66,43 +63,48 @@ export default function Posts({ posts }) {
           ))}
         </ul>
         <Stack grid>
-          {posts
-            .filter((post) => {
+          {snippets
+            .filter((snippet) => {
               if (!category) {
-                return post;
+                return snippet;
               } else {
-                return post.data.tags
+                return snippet.data.tags
                   .map((c) => c.toLowerCase())
                   .includes(category);
               }
             })
-            .map((post) => (
-              <Stack.Item key={post.filePath}>
-                <Card>
-                  <Card.Title>
-                    <Link
-                      as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
-                      href={`/posts/[slug]`}
-                    >
-                      <a>{post.data.title}</a>
-                    </Link>
-                  </Card.Title>
-                  {/* {post.data.description && (
-                  <Card.Description>{post.data.description}</Card.Description>
-                )} */}
-                  <Card.Tags items={post.data.tags} />
-                </Card>
-              </Stack.Item>
-            ))}
+            .map((snippet) => {
+              const { title, tags } = snippet.data;
+              return (
+                <Stack.Item key={snippet.filePath}>
+                  <Card>
+                    <Card.Title>
+                      <Link
+                        as={`/snippets/${snippet.filePath.replace(
+                          /\.mdx?$/,
+                          "",
+                        )}`}
+                        href={`/snippets/[slug]`}
+                      >
+                        <a className='hover:text-blue transition-colors'>
+                          {title}
+                        </a>
+                      </Link>
+                    </Card.Title>
+                    <Card.Tags items={tags} />
+                  </Card>
+                </Stack.Item>
+              );
+            })}
         </Stack>
-      </Section>
+      </div>
     </Page>
   );
 }
 
-export function getStaticProps() {
-  const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+export async function getStaticProps() {
+  const snippets = snippetsFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(SNIPPETS_PATH, filePath));
     const { content, data } = matter(source);
 
     return {
@@ -112,5 +114,5 @@ export function getStaticProps() {
     };
   });
 
-  return { props: { posts } };
+  return { props: { snippets } };
 }

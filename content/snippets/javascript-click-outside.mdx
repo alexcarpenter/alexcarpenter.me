@@ -1,0 +1,13 @@
+---
+title: Detect clicks outside
+tags: ['JavaScript']
+---
+
+```js
+var getClosest = function (elem, selector) {...};
+document.addEventListener('click', function (event) {
+    if (!event.target.closest('.some-selector')) {
+        // Clicked outside the element...
+    }
+}, false);
+```

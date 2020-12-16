@@ -1,0 +1,20 @@
+---
+title: Create element
+tags: ['JavaScript']
+---
+
+<ExternalLink href="https://twitter.com/jon_neal/status/1326381118413803522" />
+
+```js
+createElement = (name, props) =>
+  Object.assign(document.createElement(name), props);
+
+const button = createElement("button", {
+  textContent: "Log Yar Click!",
+  onclick(e) {
+    console.log("Yar!", e);
+  }
+});
+
+document.body.appendChild(button);
+```

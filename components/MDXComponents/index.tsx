@@ -3,6 +3,7 @@ import Image from "next/image";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 import Card from "@/components/Card";
+import ExternalLink from "@/components/ExternalLink";
 import YoutubeVideo from "@/components/YoutubeVideo";
 
 function H2({ children }) {
@@ -86,6 +87,7 @@ const MDXComponents = {
   blockquote: Blockquote,
   code: Code,
   Card,
+  ExternalLink,
   Image,
   YoutubeVideo,
 };

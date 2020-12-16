@@ -53,7 +53,7 @@ export default function Screencasts({ screencasts }) {
           <Section.Title>Popular</Section.Title>
           <Stack>
             {popularScreencasts.map((screencast) => {
-              const { title, description, categories } = screencast.data;
+              const { title, description, tags } = screencast.data;
               return (
                 <Stack.Item key={screencast.filePath}>
                   <Card highlight>
@@ -73,7 +73,7 @@ export default function Screencasts({ screencasts }) {
                     {description && (
                       <Card.Description>{description}</Card.Description>
                     )}
-                    <Card.Tags items={categories} />
+                    <Card.Tags items={tags} />
                   </Card>
                 </Stack.Item>
               );
@@ -150,13 +150,13 @@ export default function Screencasts({ screencasts }) {
                 if (!category) {
                   return screencast;
                 } else {
-                  return screencast.data.categories
+                  return screencast.data.tags
                     .map((c) => c.toLowerCase())
                     .includes(category);
                 }
               })
               .map((screencast) => {
-                const { title, categories } = screencast.data;
+                const { title, tags } = screencast.data;
                 return (
                   <Stack.Item key={screencast.filePath}>
                     <Card>
@@ -173,7 +173,7 @@ export default function Screencasts({ screencasts }) {
                           </a>
                         </Link>
                       </Card.Title>
-                      <Card.Tags items={categories} />
+                      <Card.Tags items={tags} />
                     </Card>
                   </Stack.Item>
                 );

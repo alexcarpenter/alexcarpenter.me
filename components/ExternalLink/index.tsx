@@ -1,11 +1,16 @@
 export default function ExternalLink({ href, children }) {
+  let text = children;
+  if (!text) {
+    const { hostname } = new URL(href);
+    text = hostname;
+  }
   return (
     <a
       href={href}
       rel='noopener noreferrer'
       className='inline-flex items-center text-blue hover:underline'
     >
-      {children}{" "}
+      {text}{" "}
       <svg
         className='ml-1'
         aria-hidden='true'

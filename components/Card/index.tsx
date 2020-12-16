@@ -1,5 +1,5 @@
 // @ts-nocheck
-import Image from 'next/image';
+import Image from "next/image";
 function Card({ children, highlight = false }) {
   return (
     <div
@@ -18,7 +18,7 @@ function Media({ color, ...props }) {
       className='-mt-4 -mx-4 mb-4 pt-4 pl-4 flex justify-end items-end rounded-md rounded-b-none bg-black'
       style={{ backgroundColor: color }}
     >
-      <Image className="rounded-tl-md w-full" {...props} />
+      <Image className='rounded-tl-md w-full' {...props} />
     </div>
   );
 }
@@ -46,7 +46,8 @@ function Description({ children, italic = false }) {
 }
 
 function Tags({ items }) {
-  if (!items) return null;
+  if (!items.length) return null;
+
   return (
     <div className='mt-auto pt-2'>
       {items

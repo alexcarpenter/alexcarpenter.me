@@ -4,6 +4,7 @@ import path from "path";
 // POSTS_PATH is useful when you want to get the path to a specific file
 export const POSTS_PATH = path.join(process.cwd(), "content/posts");
 export const SCREENCASTS_PATH = path.join(process.cwd(), "content/screencasts");
+export const SNIPPETS_PATH = path.join(process.cwd(), "content/snippets");
 
 // postFilePaths is the list of all mdx files inside the POSTS_PATH directory
 export const postFilePaths = fs
@@ -13,5 +14,10 @@ export const postFilePaths = fs
 
 export const screencastFilePaths = fs
   .readdirSync(SCREENCASTS_PATH)
+  // Only include md(x) files
+  .filter((path) => /\.mdx?$/.test(path));
+
+export const snippetsFilePaths = fs
+  .readdirSync(SNIPPETS_PATH)
   // Only include md(x) files
   .filter((path) => /\.mdx?$/.test(path));
