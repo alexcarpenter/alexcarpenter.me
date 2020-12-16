@@ -21,8 +21,8 @@ export default function Head({
         <meta name='og:description' content={description} />
 
         {/* Image */}
-        {/* <meta name="twitter:image" content={image} /> */}
-        {/* <meta name="og:image" content={image} /> */}
+        <meta name="twitter:image" content="/meta-logo.png" />
+        <meta name="og:image" content="/meta-logo.png" />
 
         {/* General */}
         <meta name="twitter:card" content="summary_large_image" />
