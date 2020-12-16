@@ -22,7 +22,7 @@
     "prism-react-renderer": "^1.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-lite-yt-embed": "^1.2.0",
+    "react-lite-yt-embed": "^1.2.3",
     "rehype": "^11.0.0",
     "swr": "^0.3.9",
     "tailwindcss": "^2.0.1"
