@@ -1,3 +1,4 @@
+// @ts-nocheck
 import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
