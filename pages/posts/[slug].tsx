@@ -1,21 +1,19 @@
-import fs from "fs";
-import matter from "gray-matter";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
-import path from "path";
-import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils";
 import Article from "@/components/Article";
 import MDXComponents from "@/components/MDXComponents";
+import getContent from '@/lib/getContent';
 
-export default function Post({ source, frontMatter }) {
+export default function Post({ source, frontMatter, ...rest }) {
   const content = hydrate(source, { components: MDXComponents });
-  return <Article frontMatter={frontMatter} content={content} />;
+  return <Article frontMatter={frontMatter} content={content} {...rest} />;
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath);
-  const { content, data } = matter(source);
+  const posts = getContent("posts");
+  const postIndex = posts.findIndex((x) => x.slug === params.slug);
+  const post = posts[postIndex];
+  const { content, ...data } = post;
 
   const mdxSource = await renderToString(content, {
     mdxOptions: {
@@ -34,12 +32,8 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths
-    .map((path) => path.replace(/\.mdx?$/, ""))
-    .map((slug) => ({ params: { slug } }));
-
   return {
-    paths,
+    paths: getContent("posts").map((x) => `/posts/${x.slug}`),
     fallback: false,
   };
 };

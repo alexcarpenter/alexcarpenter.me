@@ -1,21 +1,19 @@
-import fs from "fs";
-import matter from "gray-matter";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
-import path from "path";
-import { snippetsFilePaths, SNIPPETS_PATH } from "../../lib/mdxUtils";
 import Article from "@/components/Article";
 import MDXComponents from "@/components/MDXComponents";
+import getContent from '@/lib/getContent';
 
-export default function Snippet({ source, frontMatter }) {
+export default function Snippet({ source, frontMatter, ...rest }) {
   const content = hydrate(source, { components: MDXComponents });
-  return <Article frontMatter={frontMatter} content={content} />;
+  return <Article frontMatter={frontMatter} content={content} {...rest} />;
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(SNIPPETS_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath);
-  const { content, data } = matter(source);
+  const snippets = getContent("snippets");
+  const snippetIndex = snippets.findIndex((x) => x.slug === params.slug);
+  const snippet = snippets[snippetIndex];
+  const { content, ...data } = snippet;
 
   const mdxSource = await renderToString(content, {
     mdxOptions: {
@@ -34,12 +32,8 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = snippetsFilePaths
-    .map((path) => path.replace(/\.mdx?$/, ""))
-    .map((slug) => ({ params: { slug } }));
-
   return {
-    paths,
+    paths: getContent("snippets").map((x) => `/snippets/${x.slug}`),
     fallback: false,
   };
 };
