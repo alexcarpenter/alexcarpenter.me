@@ -15,6 +15,12 @@ const getContent = (type = "posts") => {
     })
     .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
+  const fixtures = content.map(x => ({ ...x, content: null }))
+  fs.writeFileSync(
+    path.resolve(process.cwd(), `cypress/fixtures/${type}.json`),
+    JSON.stringify(fixtures)
+  )
+
   return content;
 };
 
