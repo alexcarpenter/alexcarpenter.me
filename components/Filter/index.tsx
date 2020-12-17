@@ -11,6 +11,7 @@ export default function Filter({ pathname, tags, activeTag }) {
           scroll={false}
         >
           <a
+            data-cy="filter"
             className={`${
               !activeTag ? "bg-gray-600 text-white" : "bg-gray-200"
             } bg-gray-200 hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
@@ -29,6 +30,7 @@ export default function Filter({ pathname, tags, activeTag }) {
             scroll={false}
           >
             <a
+              data-cy="filter"
               className={`${
                 activeTag === tag.toLowerCase()
                   ? "bg-gray-600 text-white"
