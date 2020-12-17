@@ -8,6 +8,8 @@ import YoutubeVideo from "@/components/YoutubeVideo";
 
 export default function Post(props) {
   const { frontMatter, content, next, previous } = props;
+  const showPagination = next || previous;
+
   return (
     <Page {...frontMatter}>
       <article>
@@ -28,8 +30,7 @@ export default function Post(props) {
           </div>
         )}
         <div className='mt-4 space-y-3'>{content}</div>
-        {/* {next ||
-          (previous && (
+        {!!showPagination && (
             <div className='mt-8 pt-8 border-t'>
               <Stack grid>
                 {previous && (
@@ -68,7 +69,7 @@ export default function Post(props) {
                 )}
               </Stack>
             </div>
-          ))} */}
+          )}
       </article>
     </Page>
   );
