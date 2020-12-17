@@ -28,44 +28,47 @@ export default function Post(props) {
           </div>
         )}
         <div className='mt-4 space-y-3'>{content}</div>
-        <div className='mt-8 pt-8 border-t'>
-          <Stack grid>
-            {previous && (
-              <Stack.Item>
-                <Card>
-                  <Card.Eyebrow as='p'>Previous</Card.Eyebrow>
-                  <Card.Title>
-                    <Link
-                      as={`/screencasts/${previous.slug}`}
-                      href={`/screencasts/[slug]`}
-                    >
-                      <a className='hover:text-blue transition-colors'>
-                        {previous.title}
-                      </a>
-                    </Link>
-                  </Card.Title>
-                </Card>
-              </Stack.Item>
-            )}
-            {next && (
-              <Stack.Item>
-                <Card>
-                  <Card.Eyebrow as='p'>Next</Card.Eyebrow>
-                  <Card.Title>
-                    <Link
-                      as={`/screencasts/${next.slug}`}
-                      href={`/screencasts/[slug]`}
-                    >
-                      <a className='hover:text-blue transition-colors'>
-                        {next.title}
-                      </a>
-                    </Link>
-                  </Card.Title>
-                </Card>
-              </Stack.Item>
-            )}
-          </Stack>
-        </div>
+        {/* {next ||
+          (previous && (
+            <div className='mt-8 pt-8 border-t'>
+              <Stack grid>
+                {previous && (
+                  <Stack.Item>
+                    <Card>
+                      <Card.Eyebrow as='p'>Previous</Card.Eyebrow>
+                      <Card.Title>
+                        <Link
+                          as={`/screencasts/${previous.slug}`}
+                          href={`/screencasts/[slug]`}
+                        >
+                          <a className='hover:text-blue transition-colors'>
+                            {previous.title}
+                          </a>
+                        </Link>
+                      </Card.Title>
+                    </Card>
+                  </Stack.Item>
+                )}
+                {next && (
+                  <Stack.Item>
+                    <Card>
+                      <Card.Eyebrow as='p'>Next</Card.Eyebrow>
+                      <Card.Title>
+                        <Link
+                          as={`/screencasts/${next.slug}`}
+                          href={`/screencasts/[slug]`}
+                        >
+                          <a className='hover:text-blue transition-colors'>
+                            {next.title}
+                          </a>
+                        </Link>
+                      </Card.Title>
+                    </Card>
+                  </Stack.Item>
+                )}
+              </Stack>
+            </div>
+          ))} */}
       </article>
     </Page>
   );

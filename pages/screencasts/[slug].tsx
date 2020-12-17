@@ -1,9 +1,5 @@
-import fs from "fs";
-import matter from "gray-matter";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
-import path from "path";
-import { screencastFilePaths, SCREENCASTS_PATH } from "../../lib/mdxUtils";
 import Article from "@/components/Article";
 import MDXComponents from "@/components/MDXComponents";
 import getContent from "@/lib/getContent";
