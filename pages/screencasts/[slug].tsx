@@ -2,25 +2,24 @@ import fs from "fs";
 import matter from "gray-matter";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
-// import prism from "mdx-prism";
 import path from "path";
 import { screencastFilePaths, SCREENCASTS_PATH } from "../../lib/mdxUtils";
 import Article from "@/components/Article";
 import MDXComponents from "@/components/MDXComponents";
+import getContent from "@/lib/getContent";
 
-export default function Screencast({ source, frontMatter }) {
+export default function Screencast({ source, frontMatter, ...rest }) {
   const content = hydrate(source, { components: MDXComponents });
-  return <Article frontMatter={frontMatter} content={content} />;
+  return <Article frontMatter={frontMatter} content={content} {...rest} />;
 }
 
 export const getStaticProps = async ({ params }) => {
-  const screencastFilePath = path.join(SCREENCASTS_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(screencastFilePath);
-
-  const { content, data } = matter(source);
+  const screencasts = getContent("screencasts");
+  const screencastIndex = screencasts.findIndex((x) => x.slug === params.slug);
+  const screencast = screencasts[screencastIndex];
+  const { content, ...data } = screencast;
 
   const mdxSource = await renderToString(content, {
-    // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [],
       rehypePlugins: [],
@@ -30,6 +29,8 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
+      previous: screencasts[screencastIndex + 1] || null,
+      next: screencasts[screencastIndex - 1] || null,
       source: mdxSource,
       frontMatter: data,
     },
@@ -37,14 +38,8 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = screencastFilePaths
-    // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ""))
-    // Map the path into the static paths object required by Next.js
-    .map((slug) => ({ params: { slug } }));
-
   return {
-    paths,
+    paths: getContent("screencasts").map((x) => `/screencasts/${x.slug}`),
     fallback: false,
   };
 };
