@@ -1,18 +1,16 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { postFilePaths, POSTS_PATH } from "../../lib/mdxUtils";
 import Page from "@/components/Page";
 import Header from "@/components/Header";
+import Filter from "@/components/Filter";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 import Stack from "@/components/Stack";
+import getContent from "@/lib/getContent";
 
 export default function Posts({ posts }) {
   const router = useRouter();
-  let category = router.query.category;
+  let tag = router.query.tagged;
   return (
     <Page title='Posts'>
       <Header>
@@ -24,73 +22,29 @@ export default function Posts({ posts }) {
       </Header>
       <Section>
         <Section.Title>Recent</Section.Title>
-        <ul className='flex space-x-2 mb-8'>
-          <li>
-            <Link
-              href={{
-                pathname: "/posts",
-              }}
-              scroll={false}
-            >
-              <a
-                className={`${
-                  category === undefined
-                    ? "bg-gray-600 text-white"
-                    : "bg-gray-200"
-                } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
-              >
-                All
-              </a>
-            </Link>
-          </li>
-          {["CSS", "JavaScript"].map((c) => (
-            <li key={c}>
-              <Link
-                href={{
-                  pathname: "/posts",
-                  query: { category: c.toLowerCase() },
-                }}
-                scroll={false}
-              >
-                <a
-                  className={`${
-                    category === c.toLowerCase()
-                      ? "bg-gray-600 text-white"
-                      : "bg-gray-200"
-                  } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
-                >
-                  {c}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Filter
+          pathname='/posts'
+          tags={["CSS", "JavaScript"]}
+          activeTag={tag}
+        />
         <Stack grid>
           {posts
             .filter((post) => {
-              if (!category) {
+              if (!tag) {
                 return post;
               } else {
-                return post.data.tags
-                  .map((c) => c.toLowerCase())
-                  .includes(category);
+                return post.tags.map((c) => c.toLowerCase()).includes(tag);
               }
             })
             .map((post) => (
-              <Stack.Item key={post.filePath}>
+              <Stack.Item key={post.slug}>
                 <Card>
                   <Card.Title>
-                    <Link
-                      as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
-                      href={`/posts/[slug]`}
-                    >
-                      <a>{post.data.title}</a>
+                    <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
+                      <a>{post.title}</a>
                     </Link>
                   </Card.Title>
-                  {/* {post.data.description && (
-                  <Card.Description>{post.data.description}</Card.Description>
-                )} */}
-                  <Card.Tags items={post.data.tags} />
+                  <Card.Tags items={post.tags} />
                 </Card>
               </Stack.Item>
             ))}
@@ -101,16 +55,6 @@ export default function Posts({ posts }) {
 }
 
 export function getStaticProps() {
-  const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
-    const { content, data } = matter(source);
-
-    return {
-      content,
-      data,
-      filePath,
-    };
-  });
-
+  const posts = getContent();
   return { props: { posts } };
 }

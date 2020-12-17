@@ -52,7 +52,9 @@ function Tags({ items }) {
     <div className='mt-auto pt-2'>
       {items
         .map((t) => (
-          <span className='text-gray-600 text-sm font-mono'>#{t}</span>
+          <span key={t} className='text-gray-600 text-sm font-mono'>
+            #{t}
+          </span>
         ))
         .reduce((prev, curr) => [prev, ", ", curr])}
     </div>

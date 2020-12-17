@@ -1,7 +1,8 @@
+import getContent from "@/lib/getContent";
 import Header from "@/components/Header";
 import Page from "@/components/Page";
 
-function Home() {
+function Home({ posts }) {
   return (
     <Page
       description="Hey, I'm Alex. User interface engineer currently interested in CSS
@@ -17,5 +18,15 @@ function Home() {
     </Page>
   );
 }
+
+export const getStaticProps = () => {
+  const posts = getContent("screencasts");
+
+  return {
+    props: {
+      posts,
+    },
+  };
+};
 
 export default Home;

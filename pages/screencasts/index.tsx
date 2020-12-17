@@ -1,21 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { screencastFilePaths, SCREENCASTS_PATH } from "../../lib/mdxUtils";
 import Page from "@/components/Page";
 import Stack from "@/components/Stack";
 import Card from "@/components/Card";
+import Filter from "@/components/Filter";
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import Youtube from "@/components/Metrics/Youtube";
 import YoutubeSubscribe from "@/components/YoutubeSubscribe";
+import getContent from "@/lib/getContent";
 
 export default function Screencasts({ screencasts }) {
   const router = useRouter();
-  let category = router.query.category;
+  let tag = router.query.tagged;
   let popularScreencasts = [];
   let recentScreencasts = [];
   screencasts
@@ -24,7 +22,7 @@ export default function Screencasts({ screencasts }) {
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)),
     )
     .map((screencast) => {
-      if (screencast.data.popular === true && popularScreencasts.length < 3) {
+      if (screencast.popular === true && popularScreencasts.length < 3) {
         popularScreencasts.push(screencast);
       } else {
         recentScreencasts.push(screencast);
@@ -53,27 +51,25 @@ export default function Screencasts({ screencasts }) {
           <Section.Title>Popular</Section.Title>
           <Stack>
             {popularScreencasts.map((screencast) => {
-              const { title, description, tags } = screencast.data;
               return (
-                <Stack.Item key={screencast.filePath}>
+                <Stack.Item key={screencast.slug}>
                   <Card highlight>
                     <Card.Title>
                       <Link
-                        as={`/screencasts/${screencast.filePath.replace(
-                          /\.mdx?$/,
-                          "",
-                        )}`}
+                        as={`/screencasts/${screencast.slug}`}
                         href={`/screencasts/[slug]`}
                       >
                         <a className='hover:text-blue transition-colors'>
-                          {title}
+                          {screencast.title}
                         </a>
                       </Link>
                     </Card.Title>
-                    {description && (
-                      <Card.Description>{description}</Card.Description>
+                    {screencast.description && (
+                      <Card.Description>
+                        {screencast.description}
+                      </Card.Description>
                     )}
-                    <Card.Tags items={tags} />
+                    <Card.Tags items={screencast.tags} />
                   </Card>
                 </Stack.Item>
               );
@@ -103,77 +99,37 @@ export default function Screencasts({ screencasts }) {
         </div>
         <Section>
           <Section.Title>Recent</Section.Title>
-          <ul className='flex space-x-2 mb-8'>
-            <li>
-              <Link
-                href={{
-                  pathname: "/screencasts",
-                }}
-                scroll={false}
-              >
-                <a
-                  className={`${
-                    category === undefined
-                      ? "bg-gray-600 text-white"
-                      : "bg-gray-200"
-                  } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
-                >
-                  All
-                </a>
-              </Link>
-            </li>
-            {["CSS", "JavaScript", "Performance"].map((c) => (
-              <li key={c}>
-                <Link
-                  href={{
-                    pathname: "/screencasts",
-                    query: { category: c.toLowerCase() },
-                  }}
-                  scroll={false}
-                >
-                  <a
-                    className={`${
-                      category === c.toLowerCase()
-                        ? "bg-gray-600 text-white"
-                        : "bg-gray-200"
-                    } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
-                  >
-                    {c}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <Filter
+            pathname='/screencasts'
+            tags={["CSS", "JavaScript"]}
+            activeTag={tag}
+          />
           <Stack grid>
             {recentScreencasts
               .filter((screencast) => {
-                if (!category) {
+                if (!tag) {
                   return screencast;
                 } else {
-                  return screencast.data.tags
+                  return screencast.tags
                     .map((c) => c.toLowerCase())
-                    .includes(category);
+                    .includes(tag);
                 }
               })
               .map((screencast) => {
-                const { title, tags } = screencast.data;
                 return (
-                  <Stack.Item key={screencast.filePath}>
+                  <Stack.Item key={screencast.slug}>
                     <Card>
                       <Card.Title>
                         <Link
-                          as={`/screencasts/${screencast.filePath.replace(
-                            /\.mdx?$/,
-                            "",
-                          )}`}
+                          as={`/screencasts/${screencast.slug}`}
                           href={`/screencasts/[slug]`}
                         >
                           <a className='hover:text-blue transition-colors'>
-                            {title}
+                            {screencast.title}
                           </a>
                         </Link>
                       </Card.Title>
-                      <Card.Tags items={tags} />
+                      <Card.Tags items={screencast.tags} />
                     </Card>
                   </Stack.Item>
                 );
@@ -186,16 +142,6 @@ export default function Screencasts({ screencasts }) {
 }
 
 export async function getStaticProps() {
-  const screencasts = screencastFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(SCREENCASTS_PATH, filePath));
-    const { content, data } = matter(source);
-
-    return {
-      content,
-      data,
-      filePath,
-    };
-  });
-
+  const screencasts = getContent("screencasts");
   return { props: { screencasts } };
 }

@@ -1,17 +1,15 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { snippetsFilePaths, SNIPPETS_PATH } from "../../lib/mdxUtils";
 import Header from "@/components/Header";
+import Filter from "@/components/Filter";
 import Card from "@/components/Card";
 import Page from "@/components/Page";
 import Stack from "@/components/Stack";
+import getContent from "@/lib/getContent";
 
 export default function Snippets({ snippets }) {
   const router = useRouter();
-  let category = router.query.category;
+  let tag = router.query.tagged;
   return (
     <Page
       title='Snippets'
@@ -21,77 +19,35 @@ export default function Snippets({ snippets }) {
         <Header.Title>Snippets</Header.Title>
       </Header>
       <div className='mt-8'>
-        <ul className='flex space-x-2 mb-8'>
-          <li>
-            <Link
-              href={{
-                pathname: "/snippets",
-              }}
-              scroll={false}
-            >
-              <a
-                className={`${
-                  category === undefined
-                    ? "bg-gray-600 text-white"
-                    : "bg-gray-200"
-                } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
-              >
-                All
-              </a>
-            </Link>
-          </li>
-          {["CSS", "JavaScript"].map((c) => (
-            <li key={c}>
-              <Link
-                href={{
-                  pathname: "/snippets",
-                  query: { category: c.toLowerCase() },
-                }}
-                scroll={false}
-              >
-                <a
-                  className={`${
-                    category === c.toLowerCase()
-                      ? "bg-gray-600 text-white"
-                      : "bg-gray-200"
-                  } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
-                >
-                  {c}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Filter
+          pathname='/snippets'
+          tags={["CSS", "JavaScript"]}
+          activeTag={tag}
+        />
         <Stack grid>
           {snippets
             .filter((snippet) => {
-              if (!category) {
+              if (!tag) {
                 return snippet;
               } else {
-                return snippet.data.tags
-                  .map((c) => c.toLowerCase())
-                  .includes(category);
+                return snippet.tags.map((c) => c.toLowerCase()).includes(tag);
               }
             })
             .map((snippet) => {
-              const { title, tags } = snippet.data;
               return (
-                <Stack.Item key={snippet.filePath}>
+                <Stack.Item key={snippet.slug}>
                   <Card>
                     <Card.Title>
                       <Link
-                        as={`/snippets/${snippet.filePath.replace(
-                          /\.mdx?$/,
-                          "",
-                        )}`}
+                        as={`/snippets/${snippet.slug}`}
                         href={`/snippets/[slug]`}
                       >
                         <a className='hover:text-blue transition-colors'>
-                          {title}
+                          {snippet.title}
                         </a>
                       </Link>
                     </Card.Title>
-                    <Card.Tags items={tags} />
+                    <Card.Tags items={snippet.tags} />
                   </Card>
                 </Stack.Item>
               );
@@ -103,16 +59,6 @@ export default function Snippets({ snippets }) {
 }
 
 export async function getStaticProps() {
-  const snippets = snippetsFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(SNIPPETS_PATH, filePath));
-    const { content, data } = matter(source);
-
-    return {
-      content,
-      data,
-      filePath,
-    };
-  });
-
+  const snippets = getContent("snippets");
   return { props: { snippets } };
 }
