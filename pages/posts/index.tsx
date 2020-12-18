@@ -12,13 +12,10 @@ export default function Posts({ posts }) {
   const router = useRouter();
   let tag = router.query.tagged;
   return (
-    <Page title='Posts'>
+    <Page title='Posts' description="Thoughts on CSS architecture, React, TypeScript, design systems, and state machines.">
       <Header>
         <Header.Title>Posts</Header.Title>
-        <Header.Description>
-          Bibendum class eleifend accumsan lobortis nostra fusce donec augue
-          sagittis
-        </Header.Description>
+        <Header.Description>Thoughts on CSS architecture, React, TypeScript, design systems, and state machines.</Header.Description>
       </Header>
       <Section>
         <Section.Title>Recent</Section.Title>

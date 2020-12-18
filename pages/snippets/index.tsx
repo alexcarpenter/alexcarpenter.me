@@ -1,27 +1,27 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Header from "@/components/Header";
-import Filter from "@/components/Filter";
-import Card from "@/components/Card";
-import Page from "@/components/Page";
-import Stack from "@/components/Stack";
-import getContent from "@/lib/getContent";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import Header from '@/components/Header';
+import Filter from '@/components/Filter';
+import Card from '@/components/Card';
+import Page from '@/components/Page';
+import Stack from '@/components/Stack';
+import getContent from '@/lib/getContent';
 
 export default function Snippets({ snippets }) {
   const router = useRouter();
   let tag = router.query.tagged;
   return (
     <Page
-      title='Snippets'
-      description='Writing it down so I remember it later.'
+      title="Snippets"
+      description="Writing it down so I remember it later."
     >
       <Header>
         <Header.Title>Snippets</Header.Title>
       </Header>
-      <div className='mt-8'>
+      <div className="mt-8">
         <Filter
-          pathname='/snippets'
-          tags={["CSS", "JavaScript"]}
+          pathname="/snippets"
+          tags={['CSS', 'JavaScript', 'React']}
           activeTag={tag}
         />
         <Stack grid>
@@ -42,7 +42,7 @@ export default function Snippets({ snippets }) {
                         as={`/snippets/${snippet.slug}`}
                         href={`/snippets/[slug]`}
                       >
-                        <a className='hover:text-blue transition-colors'>
+                        <a className="hover:text-blue transition-colors">
                           {snippet.title}
                         </a>
                       </Link>
@@ -59,6 +59,6 @@ export default function Snippets({ snippets }) {
 }
 
 export async function getStaticProps() {
-  const snippets = getContent("snippets");
+  const snippets = getContent('snippets');
   return { props: { snippets } };
 }
