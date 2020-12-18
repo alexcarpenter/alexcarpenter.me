@@ -51,7 +51,7 @@ export default function Post(props) {
                   </Stack.Item>
                 )}
                 {next && (
-                  <Stack.Item>
+                  <Stack.Item className="col-start-2">
                     <Card>
                       <Card.Eyebrow as='p'>Next</Card.Eyebrow>
                       <Card.Title>

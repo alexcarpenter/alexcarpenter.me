@@ -6,8 +6,8 @@ function Stack({ children, grid = false }) {
   );
 }
 
-function Item({ children }) {
-  return <div className='flex flex-col flex-grow'>{children}</div>;
+function Item({ children, className = '' }) {
+  return <div className={`flex flex-col flex-grow ${className}`}>{children}</div>;
 }
 
 Stack.Item = Item;
