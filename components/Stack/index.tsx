@@ -7,7 +7,13 @@ function Stack({ children, grid = false }) {
 }
 
 function Item({ children, offset = false }) {
-  return <div className={`flex flex-col flex-grow${offset ? ' col-start-2' : ''}`}>{children}</div>;
+  return (
+    <div
+      className={`flex flex-col flex-grow${offset ? " sm:col-start-2" : ""}`}
+    >
+      {children}
+    </div>
+  );
 }
 
 Stack.Item = Item;
