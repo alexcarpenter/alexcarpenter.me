@@ -17,7 +17,6 @@
     "gray-matter": "^4.0.2",
     "mdx-prism": "^0.3.1",
     "next": "^10.0.3",
-    "next-google-fonts": "^1.2.1",
     "next-mdx-remote": "^1.0.0",
     "postcss": "^8.1.10",
     "prism-react-renderer": "^1.1.1",
