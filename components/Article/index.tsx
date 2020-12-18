@@ -1,10 +1,10 @@
-import Link from "next/link";
-import Card from "@/components/Card";
-import Header from "@/components/Header";
-import Page from "@/components/Page";
-import Stack from "@/components/Stack";
-import YoutubeSubscribe from "@/components/YoutubeSubscribe";
-import YoutubeVideo from "@/components/YoutubeVideo";
+import Link from 'next/link';
+import Card from '@/components/Card';
+import Header from '@/components/Header';
+import Page from '@/components/Page';
+import Stack from '@/components/Stack';
+import YoutubeSubscribe from '@/components/YoutubeSubscribe';
+import YoutubeVideo from '@/components/YoutubeVideo';
 
 export default function Post(props) {
   const { frontMatter, content, next, previous } = props;
@@ -20,56 +20,82 @@ export default function Post(props) {
           )}
         </Header>
         {frontMatter.youtubeId && (
-          <div className='my-8'>
-            <div className='lg:-mx-16'>
+          <div className="my-8">
+            <div className="lg:-mx-16">
               <YoutubeVideo id={frontMatter.youtubeId} />
             </div>
-            <div className='mt-4 text-center'>
+            <div className="mt-4 text-center">
               <YoutubeSubscribe />
             </div>
           </div>
         )}
-        <div className='mt-4 space-y-3'>{content}</div>
+        <div className="mt-4 space-y-3">{content}</div>
         {!!showPagination && (
-            <div className='mt-8 pt-8 border-t'>
-              <Stack grid>
-                {previous && (
-                  <Stack.Item>
-                    <Card>
-                      <Card.Eyebrow as='p'>Previous</Card.Eyebrow>
-                      <Card.Title>
-                        <Link
-                          as={`/screencasts/${previous.slug}`}
-                          href={`/screencasts/[slug]`}
-                        >
-                          <a className='hover:text-blue transition-colors'>
-                            {previous.title}
-                          </a>
-                        </Link>
-                      </Card.Title>
-                    </Card>
-                  </Stack.Item>
-                )}
-                {next && (
-                  <Stack.Item offset>
-                    <Card>
-                      <Card.Eyebrow as='p'>Next</Card.Eyebrow>
-                      <Card.Title>
-                        <Link
-                          as={`/screencasts/${next.slug}`}
-                          href={`/screencasts/[slug]`}
-                        >
-                          <a className='hover:text-blue transition-colors'>
-                            {next.title}
-                          </a>
-                        </Link>
-                      </Card.Title>
-                    </Card>
-                  </Stack.Item>
-                )}
-              </Stack>
-            </div>
-          )}
+          <div className="mt-8 pt-8 border-t">
+            <Stack grid>
+              {previous && (
+                <Stack.Item>
+                  <Card>
+                    <Card.Eyebrow as="p">Previous</Card.Eyebrow>
+                    <Card.Title>
+                      <Link
+                        as={`/screencasts/${previous.slug}`}
+                        href={`/screencasts/[slug]`}
+                      >
+                        <a className="hover:text-blue transition-colors">
+                          {previous.title}
+                        </a>
+                      </Link>
+                    </Card.Title>
+                  </Card>
+                </Stack.Item>
+              )}
+              {next && (
+                <Stack.Item offset>
+                  <Card>
+                    <Card.Eyebrow as="p">Next</Card.Eyebrow>
+                    <Card.Title>
+                      <Link
+                        as={`/screencasts/${next.slug}`}
+                        href={`/screencasts/[slug]`}
+                      >
+                        <a className="hover:text-blue transition-colors">
+                          {next.title}
+                        </a>
+                      </Link>
+                    </Card.Title>
+                  </Card>
+                </Stack.Item>
+              )}
+            </Stack>
+          </div>
+        )}
+        {/* <ul className="flex space-x-4 justify-center mt-8">
+          <li>
+            <a
+              href=""
+              className="hover:bg-gray-200 py-2 px-4 rounded-md transition-colors text-sm"
+            >
+              Share on Twitter
+            </a>
+          </li>
+          <li>
+            <a
+              href=""
+              className="hover:bg-gray-200 py-2 px-4 rounded-md transition-colors text-sm"
+            >
+              Edit on Github
+            </a>
+          </li>
+          <li>
+            <a
+              href=""
+              className="hover:bg-gray-200 py-2 px-4 rounded-md transition-colors text-sm"
+            >
+              Copy link to clipboard
+            </a>
+          </li>
+        </ul> */}
       </article>
     </Page>
   );
