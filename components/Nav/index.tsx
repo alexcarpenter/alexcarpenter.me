@@ -20,6 +20,7 @@ export default function Nav() {
             width={64}
             height={64}
             className="rounded-full"
+            priority
           />
         </a>
       </Link>
