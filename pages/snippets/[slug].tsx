@@ -33,7 +33,7 @@ export const getStaticProps = async ({ params }) => {
 
 export const getStaticPaths = async () => {
   return {
-    paths: getContent('snippets').map((x) => `/snipprts/${x.slug}`),
+    paths: getContent('snippets').map((x) => `/snippets/${x.slug}`),
     fallback: false,
   };
 };
