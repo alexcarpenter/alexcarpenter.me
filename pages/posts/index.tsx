@@ -28,7 +28,7 @@ export default function Posts({ posts }) {
       <Section>
         <Section.Title>Recent</Section.Title>
         <Filter tags={['CSS', 'JavaScript']} />
-        <Grid as="ul">
+        <Grid>
           {posts
             .filter((post) => {
               if (!tag) {
@@ -38,7 +38,7 @@ export default function Posts({ posts }) {
               }
             })
             .map((post) => (
-              <Grid.Item key={post.slug} as="li">
+              <Grid.Item key={post.slug}>
                 <Card>
                   <Card.Title>
                     <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>

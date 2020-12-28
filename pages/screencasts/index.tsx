@@ -103,7 +103,7 @@ export default function Screencasts({ screencasts }) {
         <Section>
           <Section.Title>Recent</Section.Title>
           <Filter tags={['CSS', 'JavaScript']} />
-          <Grid grid>
+          <Grid>
             {recentScreencasts
               .filter((screencast) => {
                 if (!tag) {
