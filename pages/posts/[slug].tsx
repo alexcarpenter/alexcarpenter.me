@@ -1,7 +1,7 @@
-import hydrate from "next-mdx-remote/hydrate";
-import renderToString from "next-mdx-remote/render-to-string";
-import Article from "@/components/Article";
-import MDXComponents from "@/components/MDXComponents";
+import hydrate from 'next-mdx-remote/hydrate';
+import renderToString from 'next-mdx-remote/render-to-string';
+import Article from '@/components/Article';
+import MDXComponents from '@/components/MDXComponents';
 import getContent from '@/lib/getContent';
 
 export default function Post({ source, frontMatter, ...rest }) {
@@ -9,8 +9,8 @@ export default function Post({ source, frontMatter, ...rest }) {
   return <Article frontMatter={frontMatter} content={content} {...rest} />;
 }
 
-export const getStaticProps = async ({ params }) => {
-  const posts = getContent("posts");
+export const getServerSideProps = async ({ params }) => {
+  const posts = getContent('posts');
   const postIndex = posts.findIndex((x) => x.slug === params.slug);
   const post = posts[postIndex];
   const { content, ...data } = post;
@@ -28,12 +28,5 @@ export const getStaticProps = async ({ params }) => {
       source: mdxSource,
       frontMatter: data,
     },
-  };
-};
-
-export const getStaticPaths = async () => {
-  return {
-    paths: getContent("posts").map((x) => `/posts/${x.slug}`),
-    fallback: false,
   };
 };

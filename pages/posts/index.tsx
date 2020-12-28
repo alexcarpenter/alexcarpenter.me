@@ -1,30 +1,34 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import Page from "@/components/Page";
-import Header from "@/components/Header";
-import Filter from "@/components/Filter";
-import Section from "@/components/Section";
-import Card from "@/components/Card";
-import Stack from "@/components/Stack";
-import getContent from "@/lib/getContent";
+import { useRouter } from 'next/router';
+import Card from '@/components/Card';
+import Filter from '@/components/Filter';
+import getContent from '@/lib/getContent';
+import Grid from '@/components/Grid';
+import Link from 'next/link';
+import Page from '@/components/Page';
+import Section from '@/components/Section';
 
 export default function Posts({ posts }) {
   const router = useRouter();
   let tag = router.query.tagged;
   return (
-    <Page title='Posts' description="Thoughts on CSS architecture, React, TypeScript, design systems, and state machines.">
-      <Header>
-        <Header.Title>Posts</Header.Title>
-        <Header.Description>Thoughts on CSS architecture, React, TypeScript, design systems, and state machines.</Header.Description>
-      </Header>
+    <Page
+      meta={{
+        title: 'Posts',
+        description:
+          'Thoughts on CSS architecture, React, TypeScript, design systems, and state machines.',
+      }}
+    >
+      <Page.Header>
+        <Page.Title>Posts</Page.Title>
+        <Page.Description>
+          Thoughts on CSS architecture, React, TypeScript, design systems, and
+          state machines.
+        </Page.Description>
+      </Page.Header>
       <Section>
         <Section.Title>Recent</Section.Title>
-        <Filter
-          pathname='/posts'
-          tags={["CSS", "JavaScript"]}
-          activeTag={tag}
-        />
-        <Stack grid>
+        <Filter tags={['CSS', 'JavaScript']} />
+        <Grid as="ul">
           {posts
             .filter((post) => {
               if (!tag) {
@@ -34,7 +38,7 @@ export default function Posts({ posts }) {
               }
             })
             .map((post) => (
-              <Stack.Item key={post.slug}>
+              <Grid.Item key={post.slug} as="li">
                 <Card>
                   <Card.Title>
                     <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
@@ -43,9 +47,9 @@ export default function Posts({ posts }) {
                   </Card.Title>
                   <Card.Tags items={post.tags} />
                 </Card>
-              </Stack.Item>
+              </Grid.Item>
             ))}
-        </Stack>
+        </Grid>
       </Section>
     </Page>
   );

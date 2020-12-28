@@ -1,11 +1,11 @@
 /// <reference types="cypress" />
 
-context("Snippets page", () => {
+context('Snippets page', () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3001/snippets");
+    cy.visit('/snippets');
   });
 
-  it("should render header", () => {
-    cy.get("h1").should('be.visible');
+  it('should render header', () => {
+    cy.get('h1').should('be.visible');
   });
 });

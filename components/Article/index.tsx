@@ -1,24 +1,29 @@
 import Link from 'next/link';
+
 import Card from '@/components/Card';
-import Header from '@/components/Header';
 import Page from '@/components/Page';
 import Stack from '@/components/Stack';
 import YoutubeSubscribe from '@/components/YoutubeSubscribe';
 import YoutubeVideo from '@/components/YoutubeVideo';
 
-export default function Post(props) {
+export default function Article(props) {
   const { frontMatter, content, next, previous } = props;
   const showPagination = next || previous;
 
   return (
-    <Page {...frontMatter}>
+    <Page
+      meta={{
+        title: frontMatter.title,
+        description: frontMatter.description,
+      }}
+    >
       <article>
-        <Header>
-          <Header.Title decorate={false}>{frontMatter.title}</Header.Title>
+        <Page.Header>
+          <Page.Title decorate={false}>{frontMatter.title}</Page.Title>
           {frontMatter.description && (
-            <Header.Description>{frontMatter.description}</Header.Description>
+            <Page.Description>{frontMatter.description}</Page.Description>
           )}
-        </Header>
+        </Page.Header>
         {frontMatter.youtubeId && (
           <div className="my-8">
             <div className="lg:-mx-16">
@@ -31,7 +36,7 @@ export default function Post(props) {
         )}
         <div className="mt-4 space-y-3">{content}</div>
         {!!showPagination && (
-          <div className="mt-8 pt-8 border-t">
+          <div className="pt-8 mt-8 border-t">
             <Stack grid>
               {previous && (
                 <Stack.Item>
@@ -42,7 +47,7 @@ export default function Post(props) {
                         as={`/screencasts/${previous.slug}`}
                         href={`/screencasts/[slug]`}
                       >
-                        <a className="hover:text-blue transition-colors">
+                        <a className="transition-colors hover:text-blue">
                           {previous.title}
                         </a>
                       </Link>
@@ -59,7 +64,7 @@ export default function Post(props) {
                         as={`/screencasts/${next.slug}`}
                         href={`/screencasts/[slug]`}
                       >
-                        <a className="hover:text-blue transition-colors">
+                        <a className="transition-colors hover:text-blue">
                           {next.title}
                         </a>
                       </Link>
@@ -70,32 +75,6 @@ export default function Post(props) {
             </Stack>
           </div>
         )}
-        {/* <ul className="flex space-x-4 justify-center mt-8">
-          <li>
-            <a
-              href=""
-              className="hover:bg-gray-200 py-2 px-4 rounded-md transition-colors text-sm"
-            >
-              Share on Twitter
-            </a>
-          </li>
-          <li>
-            <a
-              href=""
-              className="hover:bg-gray-200 py-2 px-4 rounded-md transition-colors text-sm"
-            >
-              Edit on Github
-            </a>
-          </li>
-          <li>
-            <a
-              href=""
-              className="hover:bg-gray-200 py-2 px-4 rounded-md transition-colors text-sm"
-            >
-              Copy link to clipboard
-            </a>
-          </li>
-        </ul> */}
       </article>
     </Page>
   );

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Header from '@/components/Header';
 import Filter from '@/components/Filter';
 import Card from '@/components/Card';
 import Page from '@/components/Page';
@@ -12,18 +11,16 @@ export default function Snippets({ snippets }) {
   let tag = router.query.tagged;
   return (
     <Page
-      title="Snippets"
-      description="Writing it down so I remember it later."
+      meta={{
+        title: 'Snippets',
+        description: 'Writing it down so I remember it later.',
+      }}
     >
-      <Header>
-        <Header.Title>Snippets</Header.Title>
-      </Header>
+      <Page.Header>
+        <Page.Title>Snippets</Page.Title>
+      </Page.Header>
       <div className="mt-8">
-        <Filter
-          pathname="/snippets"
-          tags={['CSS', 'JavaScript', 'React']}
-          activeTag={tag}
-        />
+        <Filter tags={['CSS', 'JavaScript', 'React']} />
         <Stack grid>
           {snippets
             .filter((snippet) => {

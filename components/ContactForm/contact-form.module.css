@@ -1,0 +1,26 @@
+/*
+ * Auto grow textarea
+ * https://css-tricks.com/the-cleanest-trick-for-autogrowing-textareas/
+ */
+
+.grow {
+  display: grid;
+}
+
+.grow::after {
+  content: attr(data-replicated-value) ' ';
+  white-space: pre-wrap;
+  visibility: hidden;
+}
+
+.grow > textarea {
+  resize: none;
+  overflow: hidden;
+}
+
+.grow > textarea,
+.grow::after {
+  padding: 0.5rem 1rem;
+  font: inherit;
+  grid-area: 1 / 1 / 2 / 2;
+}

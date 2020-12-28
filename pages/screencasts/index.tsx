@@ -1,15 +1,15 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import Page from "@/components/Page";
-import Stack from "@/components/Stack";
-import Card from "@/components/Card";
-import Filter from "@/components/Filter";
-import Header from "@/components/Header";
-import Section from "@/components/Section";
-import Youtube from "@/components/Metrics/Youtube";
-import YoutubeSubscribe from "@/components/YoutubeSubscribe";
-import getContent from "@/lib/getContent";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import Page from '@/components/Page';
+import Card from '@/components/Card';
+import Grid from '@/components/Grid';
+import Filter from '@/components/Filter';
+import Section from '@/components/Section';
+import Stack from '@/components/Stack';
+import Youtube from '@/components/Metrics/Youtube';
+import YoutubeSubscribe from '@/components/YoutubeSubscribe';
+import getContent from '@/lib/getContent';
 
 export default function Screencasts({ screencasts }) {
   const router = useRouter();
@@ -31,19 +31,22 @@ export default function Screencasts({ screencasts }) {
   return (
     <>
       <Page
-        title='Screencasts'
-        description='Short front-end development tutorials for developers of all skill levels.'
+        meta={{
+          title: 'Screencasts',
+          description:
+            'Short front-end development tutorials for developers of all skill levels.',
+        }}
       >
-        <Header>
-          <Header.Title>Screencasts</Header.Title>
-          <Header.Description>
+        <Page.Header>
+          <Page.Title>Screencasts</Page.Title>
+          <Page.Description>
             Short front-end development tutorials for developers of all skill
             levels.
-          </Header.Description>
-        </Header>
-        <div className='mt-8'>
+          </Page.Description>
+        </Page.Header>
+        <div className="mt-8">
           <Youtube />
-          <div className='mt-4 text-center'>
+          <div className="mt-4 text-center">
             <YoutubeSubscribe />
           </div>
         </div>
@@ -59,7 +62,7 @@ export default function Screencasts({ screencasts }) {
                         as={`/screencasts/${screencast.slug}`}
                         href={`/screencasts/[slug]`}
                       >
-                        <a className='hover:text-blue transition-colors'>
+                        <a className="transition-colors hover:text-blue">
                           {screencast.title}
                         </a>
                       </Link>
@@ -76,35 +79,31 @@ export default function Screencasts({ screencasts }) {
             })}
           </Stack>
         </Section>
-        <div className='my-16 text-center'>
-          <p className='text-xl text-gray-600'>
+        <div className="my-16 text-center">
+          <p className="text-xl text-gray-600">
             “Alex’s tutorials are direct and to the point, while covering
             practical topics that can be useful to developers of any skill
             level.”
           </p>
-          <div className='inline-flex items-center mt-8'>
+          <div className="inline-flex items-center mt-8">
             <Image
-              src='/trey-gordon.jpg'
-              alt='Picture of Trey Gordon'
+              src="/trey-gordon.jpg"
+              alt="Picture of Trey Gordon"
               width={64}
               height={64}
-              className='rounded-full align-top'
+              className="align-top rounded-full"
             />
-            <p className='ml-3 text-left'>
+            <p className="ml-3 text-left">
               <strong>Trey Gordon</strong>
               <br />
-              <span className='text-gray-600'>Front-end Developer</span>
+              <span className="text-gray-600">Front-end Developer</span>
             </p>
           </div>
         </div>
         <Section>
           <Section.Title>Recent</Section.Title>
-          <Filter
-            pathname='/screencasts'
-            tags={["CSS", "JavaScript"]}
-            activeTag={tag}
-          />
-          <Stack grid>
+          <Filter tags={['CSS', 'JavaScript']} />
+          <Grid grid>
             {recentScreencasts
               .filter((screencast) => {
                 if (!tag) {
@@ -117,24 +116,24 @@ export default function Screencasts({ screencasts }) {
               })
               .map((screencast) => {
                 return (
-                  <Stack.Item key={screencast.slug}>
+                  <Grid.Item key={screencast.slug}>
                     <Card>
                       <Card.Title>
                         <Link
                           as={`/screencasts/${screencast.slug}`}
                           href={`/screencasts/[slug]`}
                         >
-                          <a className='hover:text-blue transition-colors'>
+                          <a className="transition-colors hover:text-blue">
                             {screencast.title}
                           </a>
                         </Link>
                       </Card.Title>
                       <Card.Tags items={screencast.tags} />
                     </Card>
-                  </Stack.Item>
+                  </Grid.Item>
                 );
               })}
-          </Stack>
+          </Grid>
         </Section>
       </Page>
     </>
@@ -142,6 +141,6 @@ export default function Screencasts({ screencasts }) {
 }
 
 export async function getStaticProps() {
-  const screencasts = getContent("screencasts");
+  const screencasts = getContent('screencasts');
   return { props: { screencasts } };
 }

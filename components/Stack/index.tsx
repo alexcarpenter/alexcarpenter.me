@@ -1,6 +1,6 @@
-function Stack({ children, grid = false }) {
+function Stack({ children, grid = false, gap = '4' }) {
   return (
-    <div className={`grid gap-4 grid-cols-1${grid && " sm:grid-cols-2"}`}>
+    <div className={`grid gap-${gap} grid-cols-1${grid && ' sm:grid-cols-2'}`}>
       {children}
     </div>
   );
@@ -9,7 +9,7 @@ function Stack({ children, grid = false }) {
 function Item({ children, offset = false }) {
   return (
     <div
-      className={`flex flex-col flex-grow${offset ? " sm:col-start-2" : ""}`}
+      className={`flex flex-col flex-grow${offset ? ' sm:col-start-2' : ''}`}
     >
       {children}
     </div>

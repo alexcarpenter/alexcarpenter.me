@@ -1,8 +1,16 @@
-import Link from "next/link";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-export default function Filter({ pathname, tags, activeTag }) {
+interface FilterProps {
+  tags: string[];
+}
+
+export default function Filter({ tags }: FilterProps) {
+  const router = useRouter();
+  let pathname = router.pathname;
+  let activeTag = router.query.tagged;
   return (
-    <ul className='flex space-x-2 mb-8'>
+    <ul className="flex mb-8 space-x-2">
       <li>
         <Link
           href={{
@@ -13,7 +21,7 @@ export default function Filter({ pathname, tags, activeTag }) {
           <a
             data-cy="filter"
             className={`${
-              !activeTag ? "bg-gray-600 text-white" : "bg-gray-200"
+              !activeTag ? 'bg-gray-600 text-white' : 'bg-gray-200'
             } bg-gray-200 hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
           >
             All
@@ -33,8 +41,8 @@ export default function Filter({ pathname, tags, activeTag }) {
               data-cy="filter"
               className={`${
                 activeTag === tag.toLowerCase()
-                  ? "bg-gray-600 text-white"
-                  : "bg-gray-200"
+                  ? 'bg-gray-600 text-white'
+                  : 'bg-gray-200'
               } bg-gray-200 hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
             >
               {tag}

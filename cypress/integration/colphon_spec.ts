@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 
-context('Work page', () => {
+context('Colophon page', () => {
   beforeEach(() => {
-    cy.visit('/work');
+    cy.visit('/colophon');
   });
 
   it('should render header', () => {

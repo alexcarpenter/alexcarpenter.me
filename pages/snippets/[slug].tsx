@@ -1,7 +1,7 @@
-import hydrate from "next-mdx-remote/hydrate";
-import renderToString from "next-mdx-remote/render-to-string";
-import Article from "@/components/Article";
-import MDXComponents from "@/components/MDXComponents";
+import hydrate from 'next-mdx-remote/hydrate';
+import renderToString from 'next-mdx-remote/render-to-string';
+import Article from '@/components/Article';
+import MDXComponents from '@/components/MDXComponents';
 import getContent from '@/lib/getContent';
 
 export default function Snippet({ source, frontMatter, ...rest }) {
@@ -9,8 +9,8 @@ export default function Snippet({ source, frontMatter, ...rest }) {
   return <Article frontMatter={frontMatter} content={content} {...rest} />;
 }
 
-export const getStaticProps = async ({ params }) => {
-  const snippets = getContent("snippets");
+export const getServerSideProps = async ({ params }) => {
+  const snippets = getContent('snippets');
   const snippetIndex = snippets.findIndex((x) => x.slug === params.slug);
   const snippet = snippets[snippetIndex];
   const { content, ...data } = snippet;
@@ -28,12 +28,5 @@ export const getStaticProps = async ({ params }) => {
       source: mdxSource,
       frontMatter: data,
     },
-  };
-};
-
-export const getStaticPaths = async () => {
-  return {
-    paths: getContent("snippets").map((x) => `/snippets/${x.slug}`),
-    fallback: false,
   };
 };
