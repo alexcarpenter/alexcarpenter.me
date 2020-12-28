@@ -9,7 +9,7 @@ export default function Post({ source, frontMatter, ...rest }) {
   return <Article frontMatter={frontMatter} content={content} {...rest} />;
 }
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const posts = getContent('posts');
   const postIndex = posts.findIndex((x) => x.slug === params.slug);
   const post = posts[postIndex];
@@ -28,5 +28,12 @@ export const getServerSideProps = async ({ params }) => {
       source: mdxSource,
       frontMatter: data,
     },
+  };
+};
+
+export const getStaticPaths = async () => {
+  return {
+    paths: getContent('posts').map((x) => `/posts/${x.slug}`),
+    fallback: false,
   };
 };

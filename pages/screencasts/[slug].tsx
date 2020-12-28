@@ -9,7 +9,7 @@ export default function Screencast({ source, frontMatter, ...rest }) {
   return <Article frontMatter={frontMatter} content={content} {...rest} />;
 }
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const screencasts = getContent('screencasts');
   const screencastIndex = screencasts.findIndex((x) => x.slug === params.slug);
   const screencast = screencasts[screencastIndex];
@@ -30,5 +30,12 @@ export const getServerSideProps = async ({ params }) => {
       source: mdxSource,
       frontMatter: data,
     },
+  };
+};
+
+export const getStaticPaths = async () => {
+  return {
+    paths: getContent('screencasts').map((x) => `/screencasts/${x.slug}`),
+    fallback: false,
   };
 };

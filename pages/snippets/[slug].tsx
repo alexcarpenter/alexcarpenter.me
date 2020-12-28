@@ -9,7 +9,7 @@ export default function Snippet({ source, frontMatter, ...rest }) {
   return <Article frontMatter={frontMatter} content={content} {...rest} />;
 }
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const snippets = getContent('snippets');
   const snippetIndex = snippets.findIndex((x) => x.slug === params.slug);
   const snippet = snippets[snippetIndex];
@@ -28,5 +28,12 @@ export const getServerSideProps = async ({ params }) => {
       source: mdxSource,
       frontMatter: data,
     },
+  };
+};
+
+export const getStaticPaths = async () => {
+  return {
+    paths: getContent('snippets').map((x) => `/snipprts/${x.slug}`),
+    fallback: false,
   };
 };
