@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <div className="w-full max-w-screen-sm pt-8 mx-auto mt-auto border-t">
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+      <div className="grid grid-cols-2 gap-4 gap-y-8 md:grid-cols-3">
         <ul className="space-y-2">
           <li>
             <Link href="/">
@@ -50,8 +50,8 @@ export default function Footer() {
             </Link>
           </li>
         </ul>
-        <ul className="flex">
-          <li className="flex-1 md:text-center">
+        <ul className="flex col-span-2 md:justify-end md:col-span-1">
+          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -73,7 +73,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="flex-1 md:text-center">
+          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -95,7 +95,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="flex-1 md:text-center">
+          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -117,7 +117,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="flex-1 md:text-center">
+          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -139,7 +139,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="flex-1 md:text-center">
+          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -161,7 +161,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="flex-1 md:text-center">
+          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
