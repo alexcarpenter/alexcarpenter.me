@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <Page meta={{ title: 'Contact' }}>
       <Page.Header>
-        <Page.Title>Contact</Page.Title>
+        {/* <Page.Title>Contact</Page.Title> */}
         <Page.Description>
           Id consequat in fusce aenean dictumst ornare habitasse ante tempus
           enim rutrum pretium lacinia nec.
