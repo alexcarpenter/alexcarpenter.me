@@ -29,13 +29,6 @@ export default function Footer() {
         </ul>
         <ul className="space-y-2">
           <li>
-            <Link href="/contact">
-              <a className="transition-colors hover:text-blue focus:outline-none focus:text-blue">
-                Contact
-              </a>
-            </Link>
-          </li>
-          <li>
             <Link href="/colophon">
               <a className="transition-colors hover:text-blue focus:outline-none focus:text-blue">
                 Colophon
@@ -49,9 +42,17 @@ export default function Footer() {
               </a>
             </Link>
           </li>
+          <li>
+            <a
+              href="mailto:im.alexcarpenter@gmail.com"
+              className="transition-colors hover:text-blue focus:outline-none focus:text-blue"
+            >
+              Contact
+            </a>
+          </li>
         </ul>
-        <ul className="flex col-span-2 md:justify-end md:col-span-1">
-          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
+        <ul className="flex col-span-2 space-x-3 md:justify-end md:col-span-1">
+          <li>
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -73,7 +74,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
+          <li>
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -95,7 +96,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
+          <li>
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -117,7 +118,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
+          <li>
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -139,7 +140,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
+          <li>
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"
@@ -161,7 +162,7 @@ export default function Footer() {
               </svg>
             </a>
           </li>
-          <li className="ml-0 mr-2 md:mr-0 md:ml-2">
+          <li>
             <a
               className="inline-block transition-colors hover:text-blue focus:outline-none focus:text-blue"
               rel="me"

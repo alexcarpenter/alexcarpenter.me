@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import Card from '@/components/Card';
 import Page from '@/components/Page';
 import Stack from '@/components/Stack';
