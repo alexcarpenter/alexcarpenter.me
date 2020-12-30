@@ -16,6 +16,7 @@ export const getStaticProps = async ({ params }) => {
   const { content, ...data } = snippet;
 
   const mdxSource = await renderToString(content, {
+    components: MDXComponents,
     mdxOptions: {
       remarkPlugins: [],
       rehypePlugins: [],
