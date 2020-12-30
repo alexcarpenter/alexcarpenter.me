@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
 import Card from '@/components/Card';
+import Code from './Code';
 import ExternalLink from '@/components/ExternalLink';
 import YoutubeVideo from '@/components/YoutubeVideo';
 
@@ -44,38 +43,6 @@ function Blockquote({ children }) {
     <blockquote className="px-4 py-2 text-xl italic text-gray-600 border-l-4 border-blue">
       {children}
     </blockquote>
-  );
-}
-
-function Code({ children }) {
-  return (
-    <Highlight
-      {...defaultProps}
-      theme={theme}
-      code={children.trim()}
-      language="jsx"
-    >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre
-          className={className}
-          style={{
-            ...style,
-            overflow: 'auto',
-            marginTop: 20,
-            marginBottom: 20,
-            padding: 16,
-          }}
-        >
-          {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </pre>
-      )}
-    </Highlight>
   );
 }
 

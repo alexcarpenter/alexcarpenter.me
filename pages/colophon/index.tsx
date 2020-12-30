@@ -94,6 +94,42 @@ const data = [
     link: 'https://tailwindcss.com/',
   },
   {
+    heading: 'MDX',
+    description: '',
+    logo: (
+      <svg
+        viewBox="0 0 120 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={SVG_CLASSES}
+      >
+        <rect width="120" height="120" fill="white" />
+        <path
+          d="M60.6917 65.9474V48.4495"
+          stroke="black"
+          strokeWidth="6"
+          strokeLinecap="square"
+        />
+        <path
+          d="M50.0286 59.0308L60.7793 69.7763L71.3753 59.1863"
+          stroke="black"
+          strokeWidth="6"
+        />
+        <path
+          d="M18 72.2063V52.4979L28.9395 63.4329L39.9438 52.4347V72.065"
+          stroke="black"
+          strokeWidth="6"
+        />
+        <path
+          d="M78.9065 70.1063L102.025 47M101.716 70.1063L78.5977 47L101.716 70.1063Z"
+          stroke="#F9AC00"
+          strokeWidth="6"
+        />
+      </svg>
+    ),
+    link: 'https://mdxjs.com/',
+  },
+  {
     heading: 'TypeScript',
     description: '',
     logo: (
