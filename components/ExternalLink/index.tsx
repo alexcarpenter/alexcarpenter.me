@@ -1,4 +1,4 @@
-function ExternalLink({
+export default function ExternalLink({
   href,
   children,
 }: {
@@ -37,5 +37,3 @@ function ExternalLink({
     </a>
   );
 }
-
-export default ExternalLink;

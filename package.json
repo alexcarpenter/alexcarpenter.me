@@ -17,6 +17,7 @@
     "mdx-prism": "^0.3.1",
     "next": "^10.0.3",
     "next-mdx-remote": "^1.0.0",
+    "next-transpile-modules": "^6.0.0",
     "postcss": "^8.1.10",
     "prism-react-renderer": "^1.1.1",
     "react": "^17.0.1",
@@ -25,9 +26,11 @@
     "react-feather": "^2.0.9",
     "react-lite-yt-embed": "^1.2.3",
     "react-polymorphic-types": "^1.0.3",
+    "react-use-clipboard": "^1.0.7",
     "rehype": "^11.0.0",
     "swr": "^0.3.9",
-    "tailwindcss": "^2.0.1"
+    "tailwindcss": "^2.0.1",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "@testing-library/cypress": "^7.0.3",
