@@ -10,6 +10,7 @@ import Stack from '@/components/Stack';
 import Youtube from '@/components/Metrics/Youtube';
 import YoutubeSubscribe from '@/components/YoutubeSubscribe';
 import getContent from '@/lib/getContent';
+import filterByTag from '@/lib/filterByTag';
 
 export default function Screencasts({ screencasts }) {
   const router = useRouter();
@@ -104,35 +105,25 @@ export default function Screencasts({ screencasts }) {
           <Section.Title>Recent</Section.Title>
           <Filter tags={['CSS', 'JavaScript']} />
           <Grid>
-            {recentScreencasts
-              .filter((screencast) => {
-                if (!tag) {
-                  return screencast;
-                } else {
-                  return screencast.tags
-                    .map((c) => c.toLowerCase())
-                    .includes(tag);
-                }
-              })
-              .map((screencast) => {
-                return (
-                  <Grid.Item key={screencast.slug}>
-                    <Card>
-                      <Card.Title>
-                        <Link
-                          as={`/screencasts/${screencast.slug}`}
-                          href={`/screencasts/[slug]`}
-                        >
-                          <a className="transition-colors hover:text-blue">
-                            {screencast.title}
-                          </a>
-                        </Link>
-                      </Card.Title>
-                      <Card.Tags items={screencast.tags} />
-                    </Card>
-                  </Grid.Item>
-                );
-              })}
+            {filterByTag(recentScreencasts, tag).map((screencast) => {
+              return (
+                <Grid.Item key={screencast.slug}>
+                  <Card>
+                    <Card.Title>
+                      <Link
+                        as={`/screencasts/${screencast.slug}`}
+                        href={`/screencasts/[slug]`}
+                      >
+                        <a className="transition-colors hover:text-blue">
+                          {screencast.title}
+                        </a>
+                      </Link>
+                    </Card.Title>
+                    <Card.Tags items={screencast.tags} />
+                  </Card>
+                </Grid.Item>
+              );
+            })}
           </Grid>
         </Section>
       </Page>

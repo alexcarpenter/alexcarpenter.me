@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import filterByTag from '@/lib/filterByTag';
 import Card from '@/components/Card';
 import Filter from '@/components/Filter';
 import getContent from '@/lib/getContent';
@@ -29,26 +30,18 @@ export default function Posts({ posts }) {
         <Section.Title>Recent</Section.Title>
         <Filter tags={['CSS', 'JavaScript']} />
         <Grid>
-          {posts
-            .filter((post) => {
-              if (!tag) {
-                return post;
-              } else {
-                return post.tags.map((c) => c.toLowerCase()).includes(tag);
-              }
-            })
-            .map((post) => (
-              <Grid.Item key={post.slug}>
-                <Card>
-                  <Card.Title>
-                    <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
-                      <a>{post.title}</a>
-                    </Link>
-                  </Card.Title>
-                  <Card.Tags items={post.tags} />
-                </Card>
-              </Grid.Item>
-            ))}
+          {filterByTag(posts, tag).map((post) => (
+            <Grid.Item key={post.slug}>
+              <Card>
+                <Card.Title>
+                  <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
+                    <a>{post.title}</a>
+                  </Link>
+                </Card.Title>
+                <Card.Tags items={post.tags} />
+              </Card>
+            </Grid.Item>
+          ))}
         </Grid>
       </Section>
     </Page>
