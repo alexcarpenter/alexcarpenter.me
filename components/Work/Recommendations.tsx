@@ -14,6 +14,34 @@ export default function Recommendations() {
         <Stack.Item>
           <Card>
             <Card.Description>
+              “I worked with Alex on a variety of different projects. He is
+              excellent at his craft and a pleasure to collaborate with. His
+              attention to detail always resulted in an extremely polished final
+              product.”
+            </Card.Description>
+            <div className="inline-flex items-center justify-between pt-4 mt-auto">
+              <p className="mr-3">
+                <strong>Andrew Possehl</strong>
+                <br />
+                <span className="text-gray-600">
+                  Senior Designer, NationBuilder
+                </span>
+              </p>
+              <div className="flex-shrink-0">
+                <Image
+                  src="/andrew-possehl.jpg"
+                  alt="Picture of Andrew Possehl"
+                  width={64}
+                  height={64}
+                  className="rounded-full"
+                />
+              </div>
+            </div>
+          </Card>
+        </Stack.Item>
+        <Stack.Item>
+          <Card>
+            <Card.Description>
               “Alex is incredibly skilled, efficient, and thorough in his work.
               Perhaps more than any other co-worker I have had, Alex possesses a
               deep and wide understanding of modern web technologies, while his
@@ -130,7 +158,7 @@ export default function Recommendations() {
           <div className="text-center">
             <button
               onClick={() => setViewAll(true)}
-              className="px-4 py-2 hover:bg-gray-200 rounded-md transition-colors focus:outline-none focus:bg-gray-200"
+              className="px-4 py-2 transition-colors rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
             >
               View all
             </button>
