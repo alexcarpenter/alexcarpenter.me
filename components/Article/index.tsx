@@ -8,6 +8,8 @@ import YoutubeVideo from '@/components/YoutubeVideo';
 export default function Article(props) {
   const { frontMatter, content, next, previous } = props;
   const showPagination = next || previous;
+  const showDescription =
+    frontMatter.description && frontMatter.type !== 'posts';
 
   return (
     <Page
@@ -19,7 +21,7 @@ export default function Article(props) {
       <article>
         <Page.Header>
           <Page.Title decorate={false}>{frontMatter.title}</Page.Title>
-          {frontMatter.description && (
+          {showDescription && (
             <Page.Description>{frontMatter.description}</Page.Description>
           )}
         </Page.Header>
