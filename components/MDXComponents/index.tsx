@@ -13,6 +13,14 @@ function H3({ children }) {
   return <h3 className="mt-4 text-xl font-bold">{children}</h3>;
 }
 
+function InlineCode({ children }) {
+  return (
+    <code className="bg-gray-200 px-1 py-0.5 rounded-sm text-sm">
+      {children}
+    </code>
+  );
+}
+
 function CustomLink(props) {
   const isInternalLink =
     props.href && (props.href.startsWith('/') || props.href.startsWith('#'));
@@ -53,6 +61,7 @@ const MDXComponents = {
   ul: List,
   a: CustomLink,
   blockquote: Blockquote,
+  inlineCode: InlineCode,
   code: Code,
   Card,
   ExternalLink,

@@ -20,6 +20,13 @@ export default function Footer() {
             </Link>
           </li>
           <li>
+            <Link href="/posts">
+              <a className="transition-colors hover:text-blue focus:outline-none focus:text-blue">
+                Posts
+              </a>
+            </Link>
+          </li>
+          <li>
             <Link href="/screencasts">
               <a className="transition-colors hover:text-blue focus:outline-none focus:text-blue">
                 Screencasts
