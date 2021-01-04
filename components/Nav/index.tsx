@@ -15,7 +15,7 @@ export default function Nav() {
         <a className="w-16 h-16 transition-opacity rounded-full hover:opacity-80 focus:outline-none focus:ring focus:ring-gray-300">
           <span className="sr-only">Home</span>
           <Image
-            src="/me.jpg"
+            src="/images/me.jpg"
             alt="Picture of Alex Carpenter"
             width={64}
             height={64}
