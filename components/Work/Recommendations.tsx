@@ -29,7 +29,7 @@ export default function Recommendations() {
               </p>
               <div className="flex-shrink-0">
                 <Image
-                  src="/andrew-possehl.jpg"
+                  src="/images/andrew-possehl.jpg"
                   alt="Picture of Andrew Possehl"
                   width={64}
                   height={64}
@@ -56,7 +56,7 @@ export default function Recommendations() {
               </p>
               <div className="flex-shrink-0">
                 <Image
-                  src="/kyle-luck.jpg"
+                  src="/images/kyle-luck.jpg"
                   alt="Picture of Kyle Luck"
                   width={64}
                   height={64}
@@ -86,7 +86,7 @@ export default function Recommendations() {
               </p>
               <div className="flex-shrink-0">
                 <Image
-                  src="/melissa-taylor.jpg"
+                  src="/images/melissa-taylor.jpg"
                   alt="Picture of Melissa Taylor"
                   width={64}
                   height={64}
@@ -117,7 +117,7 @@ export default function Recommendations() {
                   </p>
                   <div className="flex-shrink-0">
                     <Image
-                      src="/danielle-dunn.jpg"
+                      src="/images/danielle-dunn.jpg"
                       alt="Picture of Danielle Dunn"
                       width={64}
                       height={64}
@@ -143,7 +143,7 @@ export default function Recommendations() {
                   </p>
                   <div className="flex-shrink-0">
                     <Image
-                      src="/ben-kohl.jpg"
+                      src="/images/ben-kohl.jpg"
                       alt="Picture of Benjamin Kohl"
                       width={64}
                       height={64}

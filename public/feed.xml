@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Alex Carpenter]]></title>
+        <description><![CDATA[Alex Carpenter]]></description>
+        <link>https://alexcarpenter.me</link>
+        <image>
+            <url>https://alexcarpenter.me/og-image.png</url>
+            <title>Alex Carpenter</title>
+            <link>https://alexcarpenter.me</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 04 Jan 2021 13:13:01 GMT</lastBuildDate>
+        <atom:link href="https://alexcarpenter.me/feed.xml" rel="self" type="application/rss+xml"/>
+        <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[How to change border width on hover without affecting layout]]></title>
+            <description><![CDATA[I recently came across a situation where I needed to modify the border width of an element when hovering or focusing the element.]]></description>
+            <link>https://alexcarpenter.me/posts/border-hover</link>
+            <guid isPermaLink="false">https://alexcarpenter.me/posts/border-hover</guid>
+            <dc:creator><![CDATA[Alex Carpenter]]></dc:creator>
+            <pubDate>Sat, 02 Jan 2021 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

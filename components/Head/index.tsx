@@ -47,6 +47,14 @@ export default function Head({
 
         {/* Favicons */}
         <link rel="shortcut icon" href="/favicon.ico" />
+
+        {/* RSS feed */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS Feed for alexcarpenter.me"
+          href="/feed.xml"
+        />
       </NextHead>
     </>
   );
