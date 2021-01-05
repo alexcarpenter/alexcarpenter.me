@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Card from '@/components/Card';
 import Code from './Code';
+import Card from '@/components/Card';
 import ExternalLink from '@/components/ExternalLink';
 import YoutubeVideo from '@/components/YoutubeVideo';
 
@@ -63,7 +63,6 @@ const MDXComponents = {
   blockquote: Blockquote,
   inlineCode: InlineCode,
   code: Code,
-  Card,
   ExternalLink,
   Image,
   YoutubeVideo,

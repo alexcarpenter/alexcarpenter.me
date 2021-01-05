@@ -14,7 +14,7 @@ const posts = fs
   })
   .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
-const main = () => {
+(async () => {
   const feed = new RSS({
     title: 'Alex Carpenter',
     site_url: 'https://alexcarpenter.me',
@@ -38,6 +38,4 @@ const main = () => {
 
   const rss = feed.xml({ indent: true });
   fs.writeFileSync(path.join(__dirname, '../public/feed.xml'), rss);
-};
-
-main();
+})();

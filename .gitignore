@@ -7,3 +7,5 @@ node_modules
 yarn-error.log
 .now
 .vercel
+public/sitemap.xml
+public/feed.xml

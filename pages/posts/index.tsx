@@ -14,7 +14,7 @@ export default function Posts({ posts }) {
   return (
     <Page
       meta={{
-        title: 'Posts',
+        title: tag ? `Posts tagged ${tag}` : 'Posts',
         description:
           'Thoughts on CSS architecture, React, TypeScript, design systems, and state machines.',
       }}

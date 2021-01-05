@@ -4,11 +4,10 @@
   "description": "Personal site built with Next.js, TypeScript, and Tailwind CSS.",
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "npm run rss && next build",
+    "build": "next build",
     "start": "next start",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "rss": "node lib/rss"
+    "cypress:run": "cypress run"
   },
   "license": "MIT",
   "dependencies": {
@@ -42,6 +41,7 @@
     "@types/node": "^14.14.10",
     "@types/react": "^17.0.0",
     "cypress": "^6.1.0",
+    "globby": "^11.0.1",
     "husky": "^4.3.6",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",

@@ -12,7 +12,7 @@ export default function Snippets({ snippets }) {
   return (
     <Page
       meta={{
-        title: 'Snippets',
+        title: tag ? `Snippets tagged ${tag}` : 'Snippets',
         description: 'Writing it down so I remember it later.',
       }}
     >
@@ -39,7 +39,7 @@ export default function Snippets({ snippets }) {
                         as={`/snippets/${snippet.slug}`}
                         href={`/snippets/[slug]`}
                       >
-                        <a className="hover:text-blue transition-colors">
+                        <a className="transition-colors hover:text-blue">
                           {snippet.title}
                         </a>
                       </Link>
