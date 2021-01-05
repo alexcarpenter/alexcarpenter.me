@@ -1,11 +1,10 @@
 module.exports = {
-  async redirects() {
-    return [
-      {
-        source: '/posts/2020/10/border-hover',
-        destination: '/posts/border-hover',
-        permanent: true,
-      },
-    ];
+  webpack: (config, { dev, isServer }) => {
+    if (isServer) {
+      require('./scripts/sitemap');
+      require('./scripts/rss');
+    }
+
+    return config;
   },
 };

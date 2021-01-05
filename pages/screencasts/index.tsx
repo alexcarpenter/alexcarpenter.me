@@ -33,7 +33,7 @@ export default function Screencasts({ screencasts }) {
     <>
       <Page
         meta={{
-          title: 'Screencasts',
+          title: tag ? `Screencasts tagged ${tag}` : 'Screencasts',
           description:
             'Short front-end development tutorials for developers of all skill levels.',
         }}
@@ -88,7 +88,7 @@ export default function Screencasts({ screencasts }) {
           </p>
           <div className="inline-flex items-center mt-8">
             <Image
-              src="/trey-gordon.jpg"
+              src="/images/trey-gordon.jpg"
               alt="Picture of Trey Gordon"
               width={64}
               height={64}
