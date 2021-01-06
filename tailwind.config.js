@@ -34,6 +34,9 @@ module.exports = {
           '> * + *': {
             marginTop: '1rem',
           },
+          '* + h2, * + h3': {
+            marginTop: '2rem',
+          },
           ul: {
             paddingLeft: '1.25rem',
           },

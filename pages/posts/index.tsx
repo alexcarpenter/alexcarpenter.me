@@ -33,7 +33,7 @@ export default function Posts({ posts }) {
       </Page.Header>
       <Section>
         <Section.Title>Recent</Section.Title>
-        <Filter tags={['CSS', 'JavaScript']} />
+        {/* <Filter tags={['CSS', 'JavaScript']} /> */}
         <Grid>
           {filterByTag(posts, tag).map((post) => (
             <Grid.Item key={post.slug}>
