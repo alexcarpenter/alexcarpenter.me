@@ -27,7 +27,7 @@ export default function Posts({ posts }) {
           Thoughts on CSS architecture, React, TypeScript, design systems, and
           state machines.
         </Page.Description>
-        <ExternalLink href="https://alexcarpenter/feed.xml" icon={Rss}>
+        <ExternalLink href="https://alexcarpenter.me/feed.xml" icon={Rss}>
           Subscribe via RSS
         </ExternalLink>
       </Page.Header>

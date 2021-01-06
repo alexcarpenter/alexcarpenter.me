@@ -9,7 +9,7 @@
             <link>https://alexcarpenter.me</link>
         </image>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 04 Jan 2021 16:35:48 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 06 Jan 2021 00:05:54 GMT</lastBuildDate>
         <atom:link href="https://alexcarpenter.me/feed.xml" rel="self" type="application/rss+xml"/>
         <language><![CDATA[en]]></language>
         <item>
@@ -19,6 +19,14 @@
             <guid isPermaLink="false">https://alexcarpenter.me/posts/border-hover</guid>
             <dc:creator><![CDATA[Alex Carpenter]]></dc:creator>
             <pubDate>Sat, 02 Jan 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[CSS grid and custom properties]]></title>
+            <description><![CDATA[CSS grid and custom properties]]></description>
+            <link>https://alexcarpenter.me/posts/css-grid-custom-properties</link>
+            <guid isPermaLink="false">https://alexcarpenter.me/posts/css-grid-custom-properties</guid>
+            <dc:creator><![CDATA[Alex Carpenter]]></dc:creator>
+            <pubDate>Tue, 19 Nov 2019 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

@@ -9,7 +9,7 @@ export default function Code({ children, className }) {
   });
   const language = className.replace(/language-/, '');
   return (
-    <div className="relative my-4 overflow-hidden rounded">
+    <div className="relative overflow-hidden rounded">
       <div
         className="flex items-center justify-between w-full px-4 py-2 text-white border-b border-gray-700"
         style={{ background: 'rgb(1, 22, 39)' }}

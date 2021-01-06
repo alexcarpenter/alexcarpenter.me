@@ -165,7 +165,7 @@ const data = [
       >
         <path fill="#fff" d="M0 0h120v120H0z" />
         <path
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M40.375 26.438c7.145 0 12.938 5.792 12.938 12.937S47.52 52.313 40.374 52.313c-7.145 0-12.938-5.793-12.938-12.938 0-7.145 5.793-12.938 12.938-12.938zM59.063 52.313a8.625 8.625 0 110 17.25 8.625 8.625 0 010-17.25zM59.063 75.313a8.625 8.625 0 110 17.25 8.625 8.625 0 010-17.25zM84.938 75.313a8.625 8.625 0 110 17.25 8.625 8.625 0 010-17.25z"
           stroke="#1074E7"
           strokeWidth="2"
@@ -180,7 +180,7 @@ const data = [
           strokeLinejoin="round"
         />
         <path
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M84.938 52.313a8.625 8.625 0 110 17.25 8.625 8.625 0 010-17.25z"
           stroke="#1074E7"
           strokeWidth="2"
@@ -206,8 +206,8 @@ const data = [
           strokeLinejoin="round"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M56.188 82.5a1.438 1.438 0 11-.002 2.877 1.438 1.438 0 01.002-2.877zM61.938 82.5a1.438 1.438 0 11-.002 2.877 1.438 1.438 0 01.002-2.877z"
           fill="#1074E7"
         />
@@ -269,8 +269,8 @@ const data = [
             y2="94"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FBD55F" />
-            <stop offset="1" stop-color="#F77022" />
+            <stop stopColor="#FBD55F" />
+            <stop offset="1" stopColor="#F77022" />
           </linearGradient>
         </defs>
       </svg>
