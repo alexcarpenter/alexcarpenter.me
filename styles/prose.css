@@ -1,0 +1,8 @@
+.prose > * + * {
+  margin-top: 1rem;
+}
+
+.prose > * + h2,
+.prose > * + h3 {
+  margin-top: 2rem;
+}

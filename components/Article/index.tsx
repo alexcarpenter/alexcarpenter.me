@@ -35,7 +35,7 @@ export default function Article(props) {
             </div>
           </div>
         )}
-        <div className="mt-4 space-y-3">{content}</div>
+        {content && <Page.Content>{content}</Page.Content>}
         {!!showPagination && (
           <div className="pt-8 mt-8 border-t">
             <Stack grid>

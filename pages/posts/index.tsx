@@ -2,11 +2,13 @@ import { useRouter } from 'next/router';
 import filterByTag from '@/lib/filterByTag';
 import Card from '@/components/Card';
 import Filter from '@/components/Filter';
-import getContent from '@/lib/getContent';
 import Grid from '@/components/Grid';
 import Link from 'next/link';
 import Page from '@/components/Page';
+import ExternalLink from '@/components/ExternalLink';
 import Section from '@/components/Section';
+import { Rss } from 'react-feather';
+import { getContentByType } from '@/lib/mdx';
 
 export default function Posts({ posts }) {
   const router = useRouter();
@@ -25,6 +27,9 @@ export default function Posts({ posts }) {
           Thoughts on CSS architecture, React, TypeScript, design systems, and
           state machines.
         </Page.Description>
+        <ExternalLink href="https://alexcarpenter/feed.xml" icon={Rss}>
+          Subscribe via RSS
+        </ExternalLink>
       </Page.Header>
       <Section>
         <Section.Title>Recent</Section.Title>
@@ -48,7 +53,7 @@ export default function Posts({ posts }) {
   );
 }
 
-export function getStaticProps() {
-  const posts = getContent();
+export async function getStaticProps() {
+  const posts = await getContentByType('posts');
   return { props: { posts } };
 }

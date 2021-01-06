@@ -1,40 +1,26 @@
 import hydrate from 'next-mdx-remote/hydrate';
-import renderToString from 'next-mdx-remote/render-to-string';
 import Article from '@/components/Article';
 import MDXComponents from '@/components/MDXComponents';
-import getContent from '@/lib/getContent';
+import { getContentByType, getContentBySlug } from '@/lib/mdx';
 
-export default function Snippet({ source, frontMatter, ...rest }) {
+export default function Snippet({ frontMatter, source }) {
   const content = hydrate(source, { components: MDXComponents });
-  return <Article frontMatter={frontMatter} content={content} {...rest} />;
+  return <Article frontMatter={frontMatter} content={content} />;
 }
 
-export const getStaticProps = async ({ params }) => {
-  const snippets = getContent('snippets');
-  const snippetIndex = snippets.findIndex((x) => x.slug === params.slug);
-  const snippet = snippets[snippetIndex];
-  const { content, ...data } = snippet;
+export async function getStaticProps({ params }) {
+  const snippets = await getContentBySlug(params.slug, 'snippets');
+  return { props: snippets };
+}
 
-  const mdxSource = await renderToString(content, {
-    components: MDXComponents,
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-    scope: data,
-  });
-
+export async function getStaticPaths() {
+  const snippets = await getContentByType('snippets');
   return {
-    props: {
-      source: mdxSource,
-      frontMatter: data,
-    },
-  };
-};
-
-export const getStaticPaths = async () => {
-  return {
-    paths: getContent('snippets').map((x) => `/snippets/${x.slug}`),
+    paths: snippets.map((s) => ({
+      params: {
+        slug: s.slug,
+      },
+    })),
     fallback: false,
   };
-};
+}

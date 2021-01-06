@@ -53,8 +53,13 @@ function Description({ children }) {
   return <p className="text-xl text-gray-600 sm:text-2xl">{children}</p>;
 }
 
+function Content({ children }) {
+  return <div className="mt-8 prose">{children}</div>;
+}
+
 Page.Header = Header;
 Page.Title = Title;
 Page.Description = Description;
+Page.Content = Content;
 
 export default Page;

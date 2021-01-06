@@ -9,26 +9,22 @@ import Section from '@/components/Section';
 import Stack from '@/components/Stack';
 import Youtube from '@/components/Metrics/Youtube';
 import YoutubeSubscribe from '@/components/YoutubeSubscribe';
-import getContent from '@/lib/getContent';
+import { getContentByType } from '@/lib/mdx';
 import filterByTag from '@/lib/filterByTag';
+import sortByDate from '@/lib/sortByDate';
 
 export default function Screencasts({ screencasts }) {
   const router = useRouter();
   let tag = router.query.tagged;
   let popularScreencasts = [];
   let recentScreencasts = [];
-  screencasts
-    .sort(
-      (a, b) =>
-        Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)),
-    )
-    .map((screencast) => {
-      if (screencast.popular === true && popularScreencasts.length < 3) {
-        popularScreencasts.push(screencast);
-      } else {
-        recentScreencasts.push(screencast);
-      }
-    });
+  sortByDate(screencasts).map((screencast) => {
+    if (screencast.popular === true && popularScreencasts.length < 3) {
+      popularScreencasts.push(screencast);
+    } else {
+      recentScreencasts.push(screencast);
+    }
+  });
   return (
     <>
       <Page
@@ -132,6 +128,6 @@ export default function Screencasts({ screencasts }) {
 }
 
 export async function getStaticProps() {
-  const screencasts = getContent('screencasts');
+  const screencasts = await getContentByType('screencasts');
   return { props: { screencasts } };
 }
