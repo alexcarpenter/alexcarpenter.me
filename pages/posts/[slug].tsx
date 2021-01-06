@@ -1,40 +1,26 @@
 import hydrate from 'next-mdx-remote/hydrate';
-import renderToString from 'next-mdx-remote/render-to-string';
 import Article from '@/components/Article';
 import MDXComponents from '@/components/MDXComponents';
-import getContent from '@/lib/getContent';
+import { getContentByType, getContentBySlug } from '@/lib/mdx';
 
-export default function Post({ source, frontMatter, ...rest }) {
+export default function Post({ frontMatter, source }) {
   const content = hydrate(source, { components: MDXComponents });
-  return <Article frontMatter={frontMatter} content={content} {...rest} />;
+  return <Article frontMatter={frontMatter} content={content} />;
 }
 
-export const getStaticProps = async ({ params }) => {
-  const posts = getContent('posts');
-  const postIndex = posts.findIndex((x) => x.slug === params.slug);
-  const post = posts[postIndex];
-  const { content, ...data } = post;
+export async function getStaticProps({ params }) {
+  const post = await getContentBySlug(params.slug, 'posts');
+  return { props: post };
+}
 
-  const mdxSource = await renderToString(content, {
-    components: MDXComponents,
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-    scope: data,
-  });
-
+export async function getStaticPaths() {
+  const posts = await getContentByType('posts');
   return {
-    props: {
-      source: mdxSource,
-      frontMatter: data,
-    },
-  };
-};
-
-export const getStaticPaths = async () => {
-  return {
-    paths: getContent('posts').map((x) => `/posts/${x.slug}`),
+    paths: posts.map((p) => ({
+      params: {
+        slug: p.slug,
+      },
+    })),
     fallback: false,
   };
-};
+}

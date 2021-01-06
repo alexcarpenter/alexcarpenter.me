@@ -1,42 +1,34 @@
 import hydrate from 'next-mdx-remote/hydrate';
-import renderToString from 'next-mdx-remote/render-to-string';
 import Article from '@/components/Article';
 import MDXComponents from '@/components/MDXComponents';
-import getContent from '@/lib/getContent';
+import { getContentByType, getContentBySlug } from '@/lib/mdx';
 
 export default function Screencast({ source, frontMatter, ...rest }) {
   const content = hydrate(source, { components: MDXComponents });
   return <Article frontMatter={frontMatter} content={content} {...rest} />;
 }
 
-export const getStaticProps = async ({ params }) => {
-  const screencasts = getContent('screencasts');
-  const screencastIndex = screencasts.findIndex((x) => x.slug === params.slug);
-  const screencast = screencasts[screencastIndex];
-  const { content, ...data } = screencast;
-
-  const mdxSource = await renderToString(content, {
-    components: MDXComponents,
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-    scope: data,
-  });
-
+export async function getStaticProps({ params }) {
+  const screencasts = await getContentByType('screencasts');
+  const screencastIndex = screencasts.findIndex((s) => s.slug === params.slug);
+  const screencast = await getContentBySlug(params.slug, 'screencasts');
   return {
     props: {
+      ...screencast,
       previous: screencasts[screencastIndex + 1] || null,
       next: screencasts[screencastIndex - 1] || null,
-      source: mdxSource,
-      frontMatter: data,
     },
   };
-};
+}
 
-export const getStaticPaths = async () => {
+export async function getStaticPaths() {
+  const screencasts = await getContentByType('screencasts');
   return {
-    paths: getContent('screencasts').map((x) => `/screencasts/${x.slug}`),
+    paths: screencasts.map((s) => ({
+      params: {
+        slug: s.slug,
+      },
+    })),
     fallback: false,
   };
-};
+}

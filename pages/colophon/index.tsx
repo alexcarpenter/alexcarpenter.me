@@ -15,6 +15,9 @@ export default function Colophon() {
         <Page.Description>
           The tools and services used to build and maintain alexcarpenter.me.
         </Page.Description>
+        <ExternalLink href="https://github.com/alexcarpenter/alexcarpenter-next">
+          View source code
+        </ExternalLink>
       </Page.Header>
       <div className="divide-y divide-gray-200">
         {data.map((item, index) => {
@@ -151,6 +154,74 @@ const data = [
     link: 'https://typescriptlang.org/',
   },
   {
+    heading: 'Github Actions',
+    description: '',
+    logo: (
+      <svg
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 120 120"
+        className={SVG_CLASSES}
+      >
+        <path fill="#fff" d="M0 0h120v120H0z" />
+        <path
+          clip-rule="evenodd"
+          d="M40.375 26.438c7.145 0 12.938 5.792 12.938 12.937S47.52 52.313 40.374 52.313c-7.145 0-12.938-5.793-12.938-12.938 0-7.145 5.793-12.938 12.938-12.938zM59.063 52.313a8.625 8.625 0 110 17.25 8.625 8.625 0 010-17.25zM59.063 75.313a8.625 8.625 0 110 17.25 8.625 8.625 0 010-17.25zM84.938 75.313a8.625 8.625 0 110 17.25 8.625 8.625 0 010-17.25z"
+          stroke="#1074E7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M61.99 58.935l-4.412 4.406-2.143-2.135"
+          stroke="#1074E7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M84.938 52.313a8.625 8.625 0 110 17.25 8.625 8.625 0 010-17.25z"
+          stroke="#1074E7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M87.865 58.935l-4.412 4.406-2.143-2.135M36.063 34.792a1.437 1.437 0 012.203-1.216l7.35 4.63a1.438 1.438 0 01-.008 2.438l-7.35 4.558a1.438 1.438 0 01-2.196-1.222v-9.188zM38.938 52.313v21.562c0 5.557 4.567 10.063 10.062 10.063h1.438"
+          stroke="#1074E7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M50.364 62.375a1.438 1.438 0 000-2.875v2.875zM37.5 52.363c0 5.53 4.483 10.012 10.012 10.012V59.5a7.137 7.137 0 01-7.137-7.137H37.5zm10.012 10.012h2.852V59.5h-2.852v2.875z"
+          fill="#1074E7"
+        />
+        <path
+          d="M67.766 60.938h8.545"
+          stroke="#1074E7"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M56.188 82.5a1.438 1.438 0 11-.002 2.877 1.438 1.438 0 01.002-2.877zM61.938 82.5a1.438 1.438 0 11-.002 2.877 1.438 1.438 0 01.002-2.877z"
+          fill="#1074E7"
+        />
+        <path
+          d="M74.882 83.947l-1.456.048"
+          stroke="#1074E7"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+    link: 'https://github.com/features/actions',
+  },
+  {
     heading: 'Dependabot',
     description: '',
     logo: (
@@ -176,6 +247,35 @@ const data = [
       </svg>
     ),
     link: 'https://dependabot.com/',
+  },
+  {
+    heading: 'Kodiak',
+    description: '',
+    logo: (
+      <svg
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 120 120"
+        className={SVG_CLASSES}
+      >
+        <path fill="#fff" d="M0 0h120v120H0z" />
+        <circle cx="60" cy="60" r="34" fill="url(#paint0_linear)" />
+        <defs>
+          <linearGradient
+            id="paint0_linear"
+            x1="60"
+            y1="26"
+            x2="60"
+            y2="94"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#FBD55F" />
+            <stop offset="1" stop-color="#F77022" />
+          </linearGradient>
+        </defs>
+      </svg>
+    ),
+    link: 'https://kodiakhq.com/',
   },
   {
     heading: 'Cypress',

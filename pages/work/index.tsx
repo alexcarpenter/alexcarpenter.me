@@ -1,4 +1,6 @@
 import Page from '@/components/Page';
+// import ExternalLink from '@/components/ExternalLink';
+// import { Download } from 'react-feather';
 import { CaseStudies, Experience, Recommendations } from '@/components/Work';
 
 export default function Work() {
@@ -17,6 +19,7 @@ export default function Work() {
           interfaces with React. Working remotely, floating between design and
           engineering teams.
         </Page.Description>
+        {/* <ExternalLink href="https://alexcarpenter.me/resume.pdf" icon={Download}>Download resume</ExternalLink> */}
       </Page.Header>
       {/* <CaseStudies /> */}
       <Experience />

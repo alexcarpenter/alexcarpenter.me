@@ -4,7 +4,7 @@ import Filter from '@/components/Filter';
 import Card from '@/components/Card';
 import Page from '@/components/Page';
 import Stack from '@/components/Stack';
-import getContent from '@/lib/getContent';
+import { getContentByType } from '@/lib/mdx';
 
 export default function Snippets({ snippets }) {
   const router = useRouter();
@@ -56,6 +56,6 @@ export default function Snippets({ snippets }) {
 }
 
 export async function getStaticProps() {
-  const snippets = getContent('snippets');
+  const snippets = await getContentByType('snippets');
   return { props: { snippets } };
 }
