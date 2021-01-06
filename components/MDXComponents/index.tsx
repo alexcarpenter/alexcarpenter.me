@@ -1,16 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Code from './Code';
-import Card from '@/components/Card';
 import ExternalLink from '@/components/ExternalLink';
 import YoutubeVideo from '@/components/YoutubeVideo';
 
 function H2({ children }) {
-  return <h2 className="mt-4 text-2xl font-bold">{children}</h2>;
+  return <h2 className="text-2xl font-bold">{children}</h2>;
 }
 
 function H3({ children }) {
-  return <h3 className="mt-4 text-xl font-bold">{children}</h3>;
+  return <h3 className="text-xl font-bold">{children}</h3>;
 }
 
 function InlineCode({ children }) {
@@ -44,7 +43,7 @@ function CustomLink(props) {
 }
 
 function List({ children }) {
-  return <ul className="pl-4 space-y-1 list-disc">{children}</ul>;
+  return <ul className="space-y-1 list-disc">{children}</ul>;
 }
 
 function Blockquote({ children }) {

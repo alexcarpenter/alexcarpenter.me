@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -26,5 +27,23 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addComponents }) {
+      const prose = {
+        '.prose': {
+          '> * + *': {
+            marginTop: '1rem',
+          },
+          ul: {
+            paddingLeft: '1.25rem',
+          },
+          'ul li ul': {
+            marginTop: '0.25rem',
+          },
+        },
+      };
+
+      addComponents(prose);
+    }),
+  ],
 };
