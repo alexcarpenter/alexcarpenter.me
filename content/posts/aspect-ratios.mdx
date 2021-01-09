@@ -1,0 +1,94 @@
+---
+title: 3 methods for preserving aspect ratios with CSS
+description:
+publishedAt: '2021-01-09'
+tags: [CSS]
+---
+
+```css
+.aspect-ratio-16\/9 {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+.aspect-ratio-16\/9:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+```
+
+```html
+<div class="aspect-ratio-16/9">...</div>
+```
+
+<ExternalLink href="https://caniuse.com/?search=aspect-ratio">
+  Browser compatibility
+</ExternalLink>
+
+---
+
+```css
+[style*='--aspect-ratio'] {
+  position: relative;
+  width: 100%;
+}
+
+[style*='--aspect-ratio']::before {
+  content: '';
+  display: block;
+  padding-bottom: calc(100% / (var(--aspect-ratio, 16/9)));
+}
+
+[style*='--aspect-ratio'] > :first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+```
+
+```html
+<!-- Defaults to 16/9 -->
+<div style="--aspect-ratio">...</div>
+<!-- 3/4 -->
+<div style="--aspect-ratio: 3/4">...</div>
+```
+
+The benefits using custom properties like this, is the ability to have infinite amount of aspect ratios throughout your site without having to generate CSS for each one.
+
+<ExternalLink href="https://caniuse.com/?search=custom-properties">
+  Browser compatibility
+</ExternalLink>
+
+---
+
+```css
+.aspect-ratio-16\/9 {
+  position: relative;
+  display: block;
+}
+
+.aspect-ratio-16\/9::before {
+  content: '';
+  display: block;
+  width: 100%;
+  padding-bottom: calc(100% / (16 / 9));
+}
+
+.aspect-ratio-16\/9:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+```
+
+```html
+<div class="aspect-ratio-16/9">...</div>
+```
