@@ -1,7 +1,12 @@
 import Page from '@/components/Page';
 // import ExternalLink from '@/components/ExternalLink';
 // import { Download } from 'react-feather';
-import { CaseStudies, Experience, Recommendations } from '@/components/Work';
+import {
+  CaseStudies,
+  Experience,
+  Interests,
+  Recommendations,
+} from '@/components/Work';
 
 export default function Work() {
   return (
@@ -22,6 +27,7 @@ export default function Work() {
         {/* <ExternalLink href="https://alexcarpenter.me/resume.pdf" icon={Download}>Download resume</ExternalLink> */}
       </Page.Header>
       {/* <CaseStudies /> */}
+      <Interests />
       <Experience />
       <Recommendations />
     </Page>

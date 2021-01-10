@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      mono: [...defaultTheme.fontFamily.mono],
+      mono: ['JetBrains Mono Web', ...defaultTheme.fontFamily.mono],
     },
     colors: {
       gray: colors.blueGray,
