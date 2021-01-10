@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import Breakout from '@/components/Breakout';
 import Code from './Code';
 import ExternalLink from '@/components/ExternalLink';
 import YoutubeVideo from '@/components/YoutubeVideo';
@@ -10,6 +11,10 @@ function H2({ children }) {
 
 function H3({ children }) {
   return <h3 className="text-xl font-bold">{children}</h3>;
+}
+
+function HR() {
+  return <hr className="my-8" />;
 }
 
 function InlineCode({ children }) {
@@ -58,10 +63,12 @@ const MDXComponents = {
   h2: H2,
   h3: H3,
   ul: List,
+  hr: HR,
   a: CustomLink,
   blockquote: Blockquote,
   inlineCode: InlineCode,
   code: Code,
+  Breakout,
   ExternalLink,
   Image,
   YoutubeVideo,
