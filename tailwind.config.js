@@ -30,7 +30,7 @@ module.exports = {
   plugins: [
     plugin(function ({ addComponents }) {
       const prose = {
-        '.prose': {
+        '.prose, .prose > div': {
           '> * + *': {
             marginTop: '1rem',
           },
