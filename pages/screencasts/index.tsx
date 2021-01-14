@@ -59,7 +59,7 @@ export default function Screencasts({ screencasts }) {
                         as={`/screencasts/${screencast.slug}`}
                         href={`/screencasts/[slug]`}
                       >
-                        <a className="transition-colors hover:text-blue">
+                        <a className="inline-block transition-colors hover:text-blue">
                           {screencast.title}
                         </a>
                       </Link>
@@ -110,7 +110,7 @@ export default function Screencasts({ screencasts }) {
                         as={`/screencasts/${screencast.slug}`}
                         href={`/screencasts/[slug]`}
                       >
-                        <a className="transition-colors hover:text-blue">
+                        <a className="inline-block transition-colors hover:text-blue">
                           {screencast.title}
                         </a>
                       </Link>

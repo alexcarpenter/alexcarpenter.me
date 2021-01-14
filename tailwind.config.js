@@ -7,7 +7,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      sans: ['Inter', ...defaultTheme.fontFamily.sans],
       mono: ['JetBrains Mono Web', ...defaultTheme.fontFamily.mono],
     },
     colors: {

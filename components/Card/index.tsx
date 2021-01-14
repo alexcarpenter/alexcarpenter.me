@@ -55,16 +55,8 @@ function Stat({ children }) {
   return <p className="text-4xl font-bold">{children}</p>;
 }
 
-function Description({
-  children,
-  italic = false,
-}: {
-  children: React.ReactNode;
-  italic?: boolean;
-}) {
-  return (
-    <p className={`mt-2 text-gray-600${italic ? ' italic' : ''}`}>{children}</p>
-  );
+function Description({ children }: { children: React.ReactNode }) {
+  return <p className={`mt-2 text-gray-600`}>{children}</p>;
 }
 
 function Tags({ items }: { items: string[] }) {
