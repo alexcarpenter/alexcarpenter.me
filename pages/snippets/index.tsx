@@ -39,7 +39,7 @@ export default function Snippets({ snippets }) {
                         as={`/snippets/${snippet.slug}`}
                         href={`/snippets/[slug]`}
                       >
-                        <a className="transition-colors hover:text-blue">
+                        <a className="inline-block transition-colors hover:text-blue">
                           {snippet.title}
                         </a>
                       </Link>

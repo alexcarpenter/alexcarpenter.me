@@ -53,7 +53,7 @@ function List({ children }) {
 
 function Blockquote({ children }) {
   return (
-    <blockquote className="px-4 py-2 text-xl italic text-gray-600 border-l-4 border-blue">
+    <blockquote className="p-4 md:p-8 text-lg md:text-xl rounded text-gray-600 bg-gray-200">
       {children}
     </blockquote>
   );

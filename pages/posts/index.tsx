@@ -40,7 +40,9 @@ export default function Posts({ posts }) {
               <Card>
                 <Card.Title>
                   <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
-                    <a>{post.title}</a>
+                    <a className="inline-block transition-colors hover:text-blue">
+                      {post.title}
+                    </a>
                   </Link>
                 </Card.Title>
                 <Card.Tags items={post.tags} />

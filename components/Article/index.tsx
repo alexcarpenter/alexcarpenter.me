@@ -48,7 +48,7 @@ export default function Article(props) {
                         as={`/screencasts/${previous.slug}`}
                         href={`/screencasts/[slug]`}
                       >
-                        <a className="transition-colors hover:text-blue">
+                        <a className="inline-block transition-colors hover:text-blue">
                           {previous.title}
                         </a>
                       </Link>
@@ -65,7 +65,7 @@ export default function Article(props) {
                         as={`/screencasts/${next.slug}`}
                         href={`/screencasts/[slug]`}
                       >
-                        <a className="transition-colors hover:text-blue">
+                        <a className="inline-block transition-colors hover:text-blue">
                           {next.title}
                         </a>
                       </Link>
