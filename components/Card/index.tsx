@@ -8,7 +8,7 @@ function Card({
 }) {
   return (
     <div
-      className={`relative flex flex-col flex-grow p-4 rounded-md bg-white border shadow-sm ${
+      className={`relative flex flex-col flex-grow p-4 rounded-md bg-white border shadow-sm overflow-hidden ${
         highlight ? 'border-blue' : 'border-gray-200'
       }`}
     >
