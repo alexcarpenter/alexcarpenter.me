@@ -3,7 +3,7 @@ import NextHead from 'next/head';
 export default function Head({
   title = 'Alex Carpenter',
   description = 'Sample description',
-  image = 'https://alexcarpenter.me/og-image.png',
+  image = 'og-image.png',
 }: {
   title?: string;
   description?: string;
@@ -33,8 +33,11 @@ export default function Head({
         <meta name="og:description" content={description} />
 
         {/* Image */}
-        <meta name="twitter:image" content={image} />
-        <meta name="og:image" content={image} />
+        <meta
+          name="twitter:image"
+          content={`https://alexcarpenter.me/${image}`}
+        />
+        <meta name="og:image" content={`https://alexcarpenter.me/${image}`} />
 
         {/* General */}
         <meta name="twitter:card" content="summary_large_image" />

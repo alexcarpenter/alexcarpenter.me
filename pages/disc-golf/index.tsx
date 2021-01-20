@@ -7,6 +7,7 @@ export default function DiscGolf() {
       meta={{
         title: 'Disc Golf',
         description: "What's in my disc golf bag as of the start of 2021.",
+        image: 'og-image-disc-golf.png',
       }}
     >
       <Page.Header>
