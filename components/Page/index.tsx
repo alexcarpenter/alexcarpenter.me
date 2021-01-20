@@ -8,15 +8,17 @@ function Page({
   meta: {
     title?: string;
     description?: string;
+    image?: string;
   };
   children: React.ReactNode;
 }) {
-  const { title, description } = meta;
+  const { title, description, image } = meta;
   return (
     <>
       <Head
         title={`${title ? `${title} - ` : ''}Alex Carpenter`}
         description={description}
+        image={image}
       />
       <div className="max-w-screen-sm mx-auto mb-16 w-100">
         <Nav />
