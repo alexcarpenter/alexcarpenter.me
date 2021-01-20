@@ -1,0 +1,51 @@
+export default {
+  id: 'puttAndApproach',
+  title: 'Putt and Approach',
+  items: [
+    {
+      name: 'Paul McBeth Luna',
+      brand: 'Discraft',
+      weight: 172,
+      plastic: 'Jawbreaker/Rubber Blend',
+      thumbnail: 'discraft-luna.png',
+      flight: {
+        speed: '3',
+        glide: '3',
+        turn: '0',
+        fade: '3',
+        stability: '1.0',
+      },
+      link: 'https://nomadicdg.com/tag/Discraft/?s=Luna&post_type=product',
+    },
+    {
+      name: 'Get Freaky FLX Zone',
+      brand: 'Discraft',
+      weight: 176,
+      plastic: 'Crystal FLX',
+      thumbnail: 'discraft-get-freaky-zone.png',
+      flight: {
+        speed: '3',
+        glide: '3',
+        turn: '0',
+        fade: '3',
+        stability: '1.0',
+      },
+      link: 'https://nomadicdg.com/tag/Discraft/?s=Zone&post_type=product',
+    },
+    {
+      name: 'Brian Earhart Tour Series Zone',
+      brand: 'Discraft',
+      weight: 174,
+      plastic: 'Z',
+      thumbnail: 'discraft-tour-series-zone.png',
+      flight: {
+        speed: '3',
+        glide: '3',
+        turn: '0',
+        fade: '3',
+        stability: '1.0',
+      },
+      link: 'https://nomadicdg.com/tag/Discraft/?s=Zone&post_type=product',
+    },
+  ],
+};
