@@ -18,6 +18,21 @@ export default {
       link: 'https://nomadicdg.com/tag/Discraft/?s=Raptor&post_type=product',
     },
     {
+      name: 'Raptor',
+      brand: 'Discraft',
+      weight: 173,
+      plastic: 'ESP',
+      thumbnail: 'discraft-esp-raptor.png',
+      flight: {
+        speed: '9',
+        glide: '4',
+        turn: '0',
+        fade: '3',
+        stability: '2.1',
+      },
+      link: 'https://nomadicdg.com/tag/Discraft/?s=Raptor&post_type=product',
+    },
+    {
       name: 'Paige Pierce 5x Signature Series Z Sol',
       brand: 'Discraft',
       weight: 174,

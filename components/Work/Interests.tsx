@@ -6,7 +6,7 @@ export default function Interests() {
   return (
     <Section>
       <Section.Title>Interests</Section.Title>
-      <Grid>
+      <Grid cols={1} colsSm={2}>
         <Grid.Item>
           <Card>
             <svg

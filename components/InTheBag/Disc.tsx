@@ -2,6 +2,23 @@ import Image from 'next/image';
 import ExternalLink from '@/components/ExternalLink';
 import Separator from '@/components/Separator';
 
+interface DiscProps {
+  name: string;
+  brand: string;
+  weight: number;
+  plastic: string;
+  flight: {
+    speed: string;
+    glide: string;
+    turn: string;
+    fade: string;
+    stability: string;
+  };
+  link: string;
+  thumbnail: string;
+  description: string;
+}
+
 export default function Disc({
   name,
   brand,
@@ -11,7 +28,7 @@ export default function Disc({
   link,
   thumbnail,
   description,
-}) {
+}: DiscProps) {
   return (
     <article className="text-center md:text-left md:flex">
       <div className="w-32 h-32 flex-shrink-0 mx-auto md:mr-8 mb-3">
@@ -59,6 +76,7 @@ export default function Disc({
               <span>{flight.stability}</span>
             </li>
           </ul>
+          {description && <p>{description}</p>}
           <ExternalLink href={`${link}?ref=alexcarpenter.me`}>
             Purchase
           </ExternalLink>

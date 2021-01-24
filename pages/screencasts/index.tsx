@@ -6,7 +6,6 @@ import Card from '@/components/Card';
 import Grid from '@/components/Grid';
 import Filter from '@/components/Filter';
 import Section from '@/components/Section';
-import Stack from '@/components/Stack';
 import Youtube from '@/components/Metrics/Youtube';
 import YoutubeSubscribe from '@/components/YoutubeSubscribe';
 import { getContentByType } from '@/lib/mdx';
@@ -49,10 +48,10 @@ export default function Screencasts({ screencasts }) {
         </div>
         <Section>
           <Section.Title>Popular</Section.Title>
-          <Stack>
+          <Grid cols={1}>
             {popularScreencasts.map((screencast) => {
               return (
-                <Stack.Item key={screencast.slug}>
+                <Grid.Item key={screencast.slug}>
                   <Card highlight>
                     <Card.Title>
                       <Link
@@ -71,10 +70,10 @@ export default function Screencasts({ screencasts }) {
                     )}
                     <Card.Tags items={screencast.tags} />
                   </Card>
-                </Stack.Item>
+                </Grid.Item>
               );
             })}
-          </Stack>
+          </Grid>
         </Section>
         <div className="my-16 text-center">
           <p className="text-xl text-gray-600">
@@ -100,7 +99,7 @@ export default function Screencasts({ screencasts }) {
         <Section>
           <Section.Title>Recent</Section.Title>
           <Filter tags={['CSS', 'JavaScript']} />
-          <Grid>
+          <Grid cols={1} colsSm={2}>
             {filterByTag(recentScreencasts, tag).map((screencast) => {
               return (
                 <Grid.Item key={screencast.slug}>
