@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Card from '@/components/Card';
 import Page from '@/components/Page';
-import Stack from '@/components/Stack';
+import Grid from '@/components/Grid';
 import YoutubeSubscribe from '@/components/YoutubeSubscribe';
 import YoutubeVideo from '@/components/YoutubeVideo';
 
@@ -38,9 +38,9 @@ export default function Article(props) {
         {content && <Page.Content>{content}</Page.Content>}
         {!!showPagination && (
           <div className="pt-8 mt-8 border-t">
-            <Stack grid>
+            <Grid cols={1} colsSm={2}>
               {previous && (
-                <Stack.Item>
+                <Grid.Item>
                   <Card>
                     <Card.Eyebrow as="p">Previous</Card.Eyebrow>
                     <Card.Title>
@@ -54,10 +54,10 @@ export default function Article(props) {
                       </Link>
                     </Card.Title>
                   </Card>
-                </Stack.Item>
+                </Grid.Item>
               )}
               {next && (
-                <Stack.Item offset>
+                <Grid.Item>
                   <Card>
                     <Card.Eyebrow as="p">Next</Card.Eyebrow>
                     <Card.Title>
@@ -71,9 +71,9 @@ export default function Article(props) {
                       </Link>
                     </Card.Title>
                   </Card>
-                </Stack.Item>
+                </Grid.Item>
               )}
-            </Stack>
+            </Grid>
           </div>
         )}
       </article>

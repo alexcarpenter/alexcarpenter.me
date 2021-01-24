@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Filter from '@/components/Filter';
 import Card from '@/components/Card';
 import Page from '@/components/Page';
-import Stack from '@/components/Stack';
+import Grid from '@/components/Grid';
 import { getContentByType } from '@/lib/mdx';
 
 export default function Snippets({ snippets }) {
@@ -21,7 +21,7 @@ export default function Snippets({ snippets }) {
       </Page.Header>
       <div className="mt-8">
         <Filter tags={['CSS', 'JavaScript', 'React']} />
-        <Stack grid>
+        <Grid cols={1} colsSm={2}>
           {snippets
             .filter((snippet) => {
               if (!tag) {
@@ -32,7 +32,7 @@ export default function Snippets({ snippets }) {
             })
             .map((snippet) => {
               return (
-                <Stack.Item key={snippet.slug}>
+                <Grid.Item key={snippet.slug}>
                   <Card>
                     <Card.Title>
                       <Link
@@ -46,10 +46,10 @@ export default function Snippets({ snippets }) {
                     </Card.Title>
                     <Card.Tags items={snippet.tags} />
                   </Card>
-                </Stack.Item>
+                </Grid.Item>
               );
             })}
-        </Stack>
+        </Grid>
       </div>
     </Page>
   );

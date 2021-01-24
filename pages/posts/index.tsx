@@ -34,7 +34,7 @@ export default function Posts({ posts }) {
       <Section>
         <Section.Title>Recent</Section.Title>
         {/* <Filter tags={['CSS', 'JavaScript']} /> */}
-        <Grid>
+        <Grid cols={1} colsSm={2}>
           {filterByTag(posts, tag).map((post) => (
             <Grid.Item key={post.slug}>
               <Card>

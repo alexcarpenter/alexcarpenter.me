@@ -1,21 +1,40 @@
 import clsx from 'clsx';
 
-const COLS_MAP = {
-  2: 'sm:grid-cols-2',
-  3: 'sm:grid-cols-2 md:grid-cols-3',
-};
-
 function Grid({
   children,
   gap = 4,
+  gapX = null,
+  gapY = null,
   cols = 2,
+  colsXs = null,
+  colsSm = null,
+  colsMd = null,
+  colsLg = null,
 }: {
   children: React.ReactNode;
   gap?: number;
-  cols?: keyof typeof COLS_MAP;
+  gapX?: number;
+  gapY?: number;
+  cols?: number;
+  colsXs?: number;
+  colsSm?: number;
+  colsMd?: number;
+  colsLg?: number;
 }) {
   return (
-    <div className={clsx(['grid', `gap-${gap}`, COLS_MAP[cols]])}>
+    <div
+      className={clsx([
+        'grid',
+        `gap-${gap}`,
+        gapX && `gap-y-${gapX}`,
+        gapY && `gap-y-${gapY}`,
+        `grid-cols-${cols}`,
+        colsXs && `xs:grid-cols-${colsXs}`,
+        colsSm && `sm:grid-cols-${colsSm}`,
+        colsMd && `md:grid-cols-${colsMd}`,
+        colsLg && `lg:grid-cols-${colsLg}`,
+      ])}
+    >
       {children}
     </div>
   );

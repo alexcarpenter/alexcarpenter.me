@@ -1,4 +1,5 @@
 import Page from '@/components/Page';
+import Grid from '@/components/Grid';
 import ExternalLink from '@/components/ExternalLink';
 
 export default function Colophon() {
@@ -19,19 +20,23 @@ export default function Colophon() {
           View source code
         </ExternalLink>
       </Page.Header>
-      <div className="divide-y divide-gray-200">
-        {data.map((item, index) => {
-          return (
-            <section key={index} className="flex py-8">
-              {item.logo}
-              <div>
-                <h2 className="text-xl font-bold">{item.heading}</h2>
-                <p className="mt-1 mb-2">{item.description}</p>
-                <ExternalLink href={item.link} />
-              </div>
-            </section>
-          );
-        })}
+      <div className="mt-8">
+        <Grid gapY={12}>
+          {data.map((item, index) => {
+            return (
+              <Grid.Item key={index}>
+                <article className="flex">
+                  {item.logo}
+                  <div>
+                    <h2 className="text-xl font-bold">{item.heading}</h2>
+                    <p className="mt-1 mb-2">{item.description}</p>
+                    <ExternalLink href={item.link} />
+                  </div>
+                </article>
+              </Grid.Item>
+            );
+          })}
+        </Grid>
       </div>
     </Page>
   );

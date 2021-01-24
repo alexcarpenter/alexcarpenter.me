@@ -9,7 +9,7 @@ export default function Youtube() {
   const viewCount = data?.viewCount;
 
   return (
-    <Grid>
+    <Grid cols={1} colsSm={2}>
       <Grid.Item>
         <Card>
           <Card.Eyebrow>Total subscribers</Card.Eyebrow>

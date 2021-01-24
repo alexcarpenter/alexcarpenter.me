@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import Card from '@/components/Card';
-import Stack from '@/components/Stack';
+import Grid from '@/components/Grid';
 import Section from '@/components/Section';
 
 export default function Recommendations() {
@@ -10,8 +10,8 @@ export default function Recommendations() {
   return (
     <Section>
       <Section.Title>Recomendations</Section.Title>
-      <Stack>
-        <Stack.Item>
+      <Grid cols={1}>
+        <Grid.Item>
           <Card>
             <Card.Description>
               “I worked with Alex on a variety of different projects. He is
@@ -38,8 +38,8 @@ export default function Recommendations() {
               </div>
             </div>
           </Card>
-        </Stack.Item>
-        <Stack.Item>
+        </Grid.Item>
+        <Grid.Item>
           <Card>
             <Card.Description>
               “Alex is incredibly skilled, efficient, and thorough in his work.
@@ -65,9 +65,9 @@ export default function Recommendations() {
               </div>
             </div>
           </Card>
-        </Stack.Item>
+        </Grid.Item>
 
-        <Stack.Item>
+        <Grid.Item>
           <Card>
             <Card.Description>
               “I would recommend Alex to any forward-thinking web team. His
@@ -95,11 +95,11 @@ export default function Recommendations() {
               </div>
             </div>
           </Card>
-        </Stack.Item>
+        </Grid.Item>
 
         {viewAll ? (
           <>
-            <Stack.Item>
+            <Grid.Item>
               <Card>
                 <Card.Description>
                   “Alex is incredibly thorough and thoughtful with his work and
@@ -126,8 +126,8 @@ export default function Recommendations() {
                   </div>
                 </div>
               </Card>
-            </Stack.Item>
-            <Stack.Item>
+            </Grid.Item>
+            <Grid.Item>
               <Card>
                 <Card.Description>
                   “Alex is a true autodidact that is dedicated to keeping up
@@ -152,7 +152,7 @@ export default function Recommendations() {
                   </div>
                 </div>
               </Card>
-            </Stack.Item>
+            </Grid.Item>
           </>
         ) : (
           <div className="text-center">
@@ -164,7 +164,7 @@ export default function Recommendations() {
             </button>
           </div>
         )}
-      </Stack>
+      </Grid>
     </Section>
   );
 }
