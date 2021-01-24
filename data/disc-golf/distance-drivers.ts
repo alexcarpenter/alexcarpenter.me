@@ -4,8 +4,6 @@ export default {
   items: [
     {
       name: 'Paul McBeth Hades',
-      description:
-        'Interdum dolor urna habitant diam dapibus congue conubia luctus convallis adipiscing ut quis eros rutrum odio egestas facilisis suscipit posuere',
       brand: 'Discraft',
       weight: 176,
       plastic: 'Z',
