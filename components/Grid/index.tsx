@@ -6,7 +6,6 @@ function Grid({
   gapX = null,
   gapY = null,
   cols = 2,
-  colsXs = null,
   colsSm = null,
   colsMd = null,
   colsLg = null,
@@ -16,7 +15,6 @@ function Grid({
   gapX?: number;
   gapY?: number;
   cols?: number;
-  colsXs?: number;
   colsSm?: number;
   colsMd?: number;
   colsLg?: number;
@@ -29,7 +27,6 @@ function Grid({
         gapX && `gap-y-${gapX}`,
         gapY && `gap-y-${gapY}`,
         `grid-cols-${cols}`,
-        colsXs && `xs:grid-cols-${colsXs}`,
         colsSm && `sm:grid-cols-${colsSm}`,
         colsMd && `md:grid-cols-${colsMd}`,
         colsLg && `lg:grid-cols-${colsLg}`,
