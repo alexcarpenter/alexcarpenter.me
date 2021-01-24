@@ -11,7 +11,7 @@ module.exports = {
     ],
     safelist: {
       gap: [/gap$/],
-      col: [/grid-col$/],
+      col: [/grid-cols$/],
     },
   },
   darkMode: false, // or 'media' or 'class'
