@@ -65,9 +65,9 @@ export default function Nav() {
             </li>
           );
         })}
-        <li>
+        {/* <li>
           <DialogTrigger />
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

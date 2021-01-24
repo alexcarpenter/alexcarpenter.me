@@ -57,6 +57,13 @@ export default function Footer() {
             </Link>
           </li>
           <li>
+            <Link href="/disc-golf">
+              <a className="transition-colors hover:text-blue focus:outline-none focus:text-blue">
+                Disc Golf
+              </a>
+            </Link>
+          </li>
+          <li>
             <a
               href="mailto:im.alexcarpenter@gmail.com"
               className="transition-colors hover:text-blue focus:outline-none focus:text-blue"

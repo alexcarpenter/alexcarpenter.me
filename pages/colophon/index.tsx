@@ -21,7 +21,7 @@ export default function Colophon() {
         </ExternalLink>
       </Page.Header>
       <div className="mt-8">
-        <Grid gapY={12}>
+        <Grid gapY={12} cols={1} colsSm={2}>
           {data.map((item, index) => {
             return (
               <Grid.Item key={index}>
