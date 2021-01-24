@@ -1,5 +1,9 @@
+import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import clsx from 'clsx';
+import { usePress } from '@react-aria/interactions';
+import { Search } from 'react-feather';
 
 const navItems = [
   { href: '/', label: 'About' },
@@ -7,6 +11,31 @@ const navItems = [
   { href: '/posts', label: 'Posts' },
   { href: '/screencasts', label: 'Screencasts' },
 ];
+
+function DialogTrigger() {
+  let { pressProps, isPressed } = usePress({
+    onPressUp: (e) => {},
+  });
+
+  return (
+    <>
+      <button
+        {...pressProps}
+        className="relative w-8 h-8 rounded-full flex items-center justify-center group focus:outline-none"
+      >
+        <span className="sr-only">Search</span>
+        <Search width=".85em" className="relative z-10" />
+        <span
+          aria-hidden="true"
+          className={clsx(
+            'bg-gray-200 absolute inset w-8 h-8 rounded-full transform transition-transform transition-background',
+            !isPressed && 'group-hover:scale-150 group-focus:scale-150',
+          )}
+        ></span>
+      </button>
+    </>
+  );
+}
 
 export default function Nav() {
   return (
@@ -24,7 +53,7 @@ export default function Nav() {
           />
         </a>
       </Link>
-      <ul className="flex mt-4 space-x-4 sm:space-x-8 sm:mt-0">
+      <ul className="flex items-center mt-4 space-x-4 sm:space-x-8 sm:mt-0">
         {navItems.map((item) => {
           return (
             <li key={item.href}>
@@ -36,6 +65,9 @@ export default function Nav() {
             </li>
           );
         })}
+        <li>
+          <DialogTrigger />
+        </li>
       </ul>
     </nav>
   );

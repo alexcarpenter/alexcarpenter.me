@@ -57,7 +57,7 @@ export default function Article(props) {
                 </Grid.Item>
               )}
               {next && (
-                <Grid.Item offset>
+                <Grid.Item>
                   <Card>
                     <Card.Eyebrow as="p">Next</Card.Eyebrow>
                     <Card.Title>

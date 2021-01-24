@@ -7,19 +7,31 @@ import MDXComponents from '@/components/MDXComponents';
 const root = process.cwd();
 
 export async function getContentByType(type) {
-  return fs.readdirSync(path.join(root, 'content', type)).map((file) => {
-    const source = fs.readFileSync(
-      path.join(root, 'content', type, file),
-      'utf8',
+  const content = fs
+    .readdirSync(path.join(root, 'content', type))
+    .map((file) => {
+      const source = fs.readFileSync(
+        path.join(root, 'content', type, file),
+        'utf8',
+      );
+      const { data } = matter(source);
+      const slug = file.replace(/\.mdx$/, '');
+      return {
+        slug,
+        type,
+        ...data,
+      };
+    });
+
+  if (type === 'screencasts') {
+    const meta = content.map((x) => ({ ...x, body: null }));
+    fs.writeFileSync(
+      path.resolve(process.cwd(), 'data/search.json'),
+      JSON.stringify(meta),
     );
-    const { data } = matter(source);
-    const slug = file.replace(/\.mdx$/, '');
-    return {
-      slug,
-      type,
-      ...data,
-    };
-  });
+  }
+
+  return content;
 }
 
 export async function getContentBySlug(slug: string, type?: string) {
