@@ -9,9 +9,6 @@ module.exports = {
       './components/**/*.tsx',
       './content/**/*.mdx',
     ],
-    options: {
-      safelist: ['gap-4', 'gap-8', 'gap-y-12', 'grid-cols-1', 'sm:grid-cols-2'],
-    },
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
