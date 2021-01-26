@@ -21,6 +21,7 @@ const GAP_Y_MAP = {
   2: 'gap-Y-2',
   4: 'gap-Y-4',
   8: 'gap-Y-8',
+  12: 'gap-Y-12',
   16: 'gap-Y-16',
 };
 
