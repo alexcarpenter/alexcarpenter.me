@@ -75,7 +75,12 @@ export default function SearchDialog() {
             'bg-gray-200 absolute inset w-8 h-8 rounded-full transform transition-transform transition-background group-hover:scale-150 group-focus:scale-150',
           )}
         />
-        <Search width=".85em" className="relative" />
+        <Search
+          aria-hidden="true"
+          focusable={false}
+          width=".85em"
+          className="relative"
+        />
       </button>
       {state.isOpen && (
         <OverlayContainer>
