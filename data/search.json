@@ -1,165 +1,182 @@
 [
   {
+    "slug": "aspect-ratios",
+    "type": "posts",
+    "title": "3 methods for preserving aspect ratios with CSS",
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "border-hover",
+    "type": "posts",
+    "title": "How to change border width on hover without affecting layout",
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "css-grid-custom-properties",
+    "type": "posts",
+    "title": "CSS grid and custom properties",
+    "tags": ["CSS"]
+  },
+  {
     "slug": "animate-box-shadows",
     "type": "screencasts",
     "title": "How to animate box-shadows with transforms and opacity",
-    "description": null,
-    "publishedAt": "2018-02-06",
-    "tags": ["CSS", "Performance"],
-    "youtubeId": "ZkDWCCHiPg4",
-    "body": null
+    "tags": ["CSS", "Performance"]
   },
   {
     "slug": "css-grid-overlapping-images",
     "type": "screencasts",
     "title": "How to create overlapping images with CSS Grid",
-    "description": "CSS Grid makes it possible to overlay elements without the need of absolute positioning.",
-    "publishedAt": "2019-02-14",
-    "youtubeId": "sZJrcOfBaNY",
-    "tags": ["CSS"],
-    "popular": true,
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "css-grid-stacking",
     "type": "screencasts",
     "title": "Stacking content with CSS Grid to create a tabbed interface",
-    "description": null,
-    "publishedAt": "2020-01-10",
-    "tags": ["CSS"],
-    "youtubeId": "Fhu83TS9Mls",
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "custom-select",
     "type": "screencasts",
     "title": "How to style a select element with CSS",
-    "description": null,
-    "publishedAt": "2020-01-27",
-    "tags": ["CSS"],
-    "youtubeId": "m9dNLMbCjkk",
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "eleventy-filters",
     "type": "screencasts",
     "title": "How to use Eleventy filters",
-    "description": null,
-    "publishedAt": "2020-04-20",
-    "tags": ["Eleventy"],
-    "youtubeId": "wV77GwOY22w",
-    "body": null
+    "tags": ["Eleventy"]
   },
   {
     "slug": "eleventy-shortcodes",
     "type": "screencasts",
     "title": "How to use Eleventy paired shortcodes",
-    "description": null,
-    "publishedAt": "2020-04-14",
-    "tags": ["Eleventy"],
-    "youtubeId": "nUlB8SR039w",
-    "body": null
+    "tags": ["Eleventy"]
   },
   {
     "slug": "equal-height-flexbox-grid",
     "type": "screencasts",
     "title": "How to create an equal height grid using Flexbox CSS",
-    "description": null,
-    "publishedAt": "2019-01-13",
-    "tags": ["CSS"],
-    "youtubeId": "OmmM_a_AMNE",
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "gradient-overlay",
     "type": "screencasts",
     "title": "How to add gradient overlays to your images with CSS",
-    "description": null,
-    "publishedAt": "2020-03-16",
-    "tags": ["CSS"],
-    "youtubeId": "mT10ZJdlh9Y",
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "gradient-text",
     "type": "screencasts",
     "title": "How to add a gradient to text with CSS",
-    "description": null,
-    "publishedAt": "2020-02-18",
-    "tags": ["CSS"],
-    "youtubeId": "hXsJ0BuFh9I",
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "how-to-lazyload-images",
     "type": "screencasts",
     "title": "How to lazyload images",
-    "description": "Improve the performance of your website by lazyloading images.",
-    "publishedAt": "2017-12-06",
-    "youtubeId": "Uwnmn65cMec",
-    "tags": ["JavaScript", "Performance"],
-    "popular": true,
-    "body": null
+    "tags": ["JavaScript", "Performance"]
   },
   {
     "slug": "image-aspect-ratio",
     "type": "screencasts",
     "title": "Preserve image aspect ratios with CSS",
-    "description": "Improve your cumulative layout shift score by ensuring your images space is defined to avoid users experiencing unexpected layout shifts.",
-    "publishedAt": "2017-11-24",
-    "tags": ["CSS"],
-    "youtubeId": "iSaBRUgAXnk",
-    "popular": true,
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "javascript-event-delegation",
     "type": "screencasts",
     "title": "What is JavaScript event delegation?",
-    "description": null,
-    "publishedAt": "2019-01-14",
-    "tags": ["JavaScript"],
-    "youtubeId": "KMm2pIgAy1E",
-    "body": null
+    "tags": ["JavaScript"]
   },
   {
     "slug": "object-fit-images",
     "type": "screencasts",
     "title": "How to use the object-fit CSS property to scale images responsively",
-    "description": null,
-    "publishedAt": "2020-03-11",
-    "tags": ["CSS"],
-    "youtubeId": "mLZjKBC3R34",
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "skewed-backgrounds",
     "type": "screencasts",
     "title": "How to create skewed backgrounds with CSS",
-    "description": null,
-    "publishedAt": "2020-02-25",
-    "tags": ["CSS"],
-    "youtubeId": "HE4Wjz3WSis",
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "style-global-links",
     "type": "screencasts",
     "title": "Style your default global links using the :not CSS selector",
-    "description": null,
-    "publishedAt": "2019-02-28",
-    "tags": ["CSS"],
-    "youtubeId": "K5rmQXlIomk",
-    "body": null
+    "tags": ["CSS"]
   },
   {
     "slug": "vertical-text-css",
     "type": "screencasts",
     "title": "How to create vertical text with CSS",
-    "description": null,
-    "publishedAt": "2020-02-19",
-    "tags": ["CSS"],
-    "youtubeId": "x5Dx5zgDwnI",
-    "body": null
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "css-aspect-ratio",
+    "type": "snippets",
+    "title": "Aspect ratio",
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "css-auto-grow-textarea",
+    "type": "snippets",
+    "title": "Autogrow textarea",
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "css-breakout-utility",
+    "type": "snippets",
+    "title": "Breakout utility",
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "css-fluid-typography",
+    "type": "snippets",
+    "title": "Fluid Typography",
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "javascript-click-outside",
+    "type": "snippets",
+    "title": "Detect clicks outside",
+    "tags": ["JavaScript"]
+  },
+  {
+    "slug": "javascript-create-element",
+    "type": "snippets",
+    "title": "Create element",
+    "tags": ["JavaScript"]
+  },
+  {
+    "slug": "javascript-format-json-stringify",
+    "type": "snippets",
+    "title": "Format JSON.stringify() output",
+    "tags": ["JavaScript"]
+  },
+  {
+    "slug": "javascript-inversion-of-control",
+    "type": "snippets",
+    "title": "Inversion of control",
+    "tags": ["JavaScript"]
+  },
+  {
+    "slug": "javascript-native-date-formatting",
+    "type": "snippets",
+    "title": "Native date formatting",
+    "tags": ["JavaScript"]
+  },
+  {
+    "slug": "javascript-stater-reducer-pattern",
+    "type": "snippets",
+    "title": "State reducer pattern",
+    "tags": ["JavaScript", "React"]
+  },
+  {
+    "slug": "mouse-tracking-with-css-variables",
+    "type": "snippets",
+    "title": "Mouse Tracking with CSS Variables",
+    "tags": ["JavaScript"]
   }
 ]
