@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { useCombobox } from 'downshift';
+import { matchSorter } from 'match-sorter';
 import { Search } from 'react-feather';
 import data from '@/data/search.json';
 import clsx from 'clsx';
+import { useRouter } from 'next/router';
+import Separator from '@/components/Separator';
 
-export default function SearchInput() {
+export default function SearchInput({ onClose }) {
+  const router = useRouter();
   const itemToString = (item) => (item ? item.title : '');
   const [inputItems, setInputItems] = React.useState(data);
   const {
@@ -19,16 +23,21 @@ export default function SearchInput() {
   } = useCombobox({
     items: inputItems,
     itemToString,
+    initialIsOpen: true,
+    onSelectedItemChange: (val) => {
+      const href = `/${val.selectedItem.type}/${val.selectedItem.slug}`;
+      router.push(href);
+      onClose();
+    },
     onInputValueChange: ({ inputValue }) => {
       setInputItems(
-        data.filter((item) =>
-          itemToString(item).toLowerCase().startsWith(inputValue.toLowerCase()),
-        ),
+        matchSorter(data, inputValue, { keys: ['title', 'tags', 'type'] }),
       );
     },
   });
+  const type = (str) => <span className="capitalize">{str.slice(0, -1)}</span>;
   return (
-    <div className="relative">
+    <div className="relative mt-2">
       <div {...getComboboxProps()}>
         <div className="relative">
           <label htmlFor="search" className="sr-only" {...getLabelProps()}>
@@ -36,8 +45,8 @@ export default function SearchInput() {
           </label>
           <input
             {...getInputProps()}
-            className="border border-gray-300 rounded bg-white p-3 pr-8 w-full focus:outline-none focus:ring"
-            placeholder="Search by tag or name..."
+            className="border border-gray-300 rounded bg-white p-3 pr-8 w-full focus:outline-none focus:ring shadow-2xl"
+            placeholder="Search by name, type, or tag..."
           />
           <Search
             width="1em"
@@ -48,7 +57,7 @@ export default function SearchInput() {
       <ul
         {...getMenuProps()}
         className={clsx([
-          'divide-y overflow-y-auto max-h-80 rounded mt-3 border border-gray-300',
+          'divide-y overflow-y-auto max-h-80 rounded mt-3 border border-gray-300 relative z-10',
           isOpen && inputItems.length ? 'opacity-100' : 'opacity-0',
         ])}
       >
@@ -57,12 +66,23 @@ export default function SearchInput() {
             <li
               key={`${item}${index}`}
               className={clsx([
-                'p-3',
+                'p-3 cursor-pointer',
                 highlightedIndex === index ? 'bg-blue text-white' : 'bg-white',
               ])}
               {...getItemProps({ item, index })}
             >
-              {item.title}
+              <span
+                className={clsx([
+                  'text-xs',
+                  highlightedIndex === index
+                    ? 'text-white opacity-80'
+                    : 'text-gray-600',
+                ])}
+              >
+                {type(item.type)} <Separator />{' '}
+                {item.tags.map((t) => `#${t}`).join(', ')}
+              </span>
+              <span className="block">{item.title}</span>
             </li>
           ))}
       </ul>

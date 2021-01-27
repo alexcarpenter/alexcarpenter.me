@@ -15,11 +15,11 @@ import sortByDate from '@/lib/sortByDate';
 export default function Screencasts({ screencasts }) {
   const router = useRouter();
   let tag = router.query.tagged;
-  let popularScreencasts = [];
+  let featuredScreencasts = [];
   let recentScreencasts = [];
   sortByDate(screencasts).map((screencast) => {
-    if (screencast.popular === true && popularScreencasts.length < 3) {
-      popularScreencasts.push(screencast);
+    if (screencast.featured === true && featuredScreencasts.length < 3) {
+      featuredScreencasts.push(screencast);
     } else {
       recentScreencasts.push(screencast);
     }
@@ -49,7 +49,7 @@ export default function Screencasts({ screencasts }) {
         <Section>
           <Section.Title>Popular</Section.Title>
           <Grid cols={1}>
-            {popularScreencasts.map((screencast) => {
+            {featuredScreencasts.map((screencast) => {
               return (
                 <Grid.Item key={screencast.slug}>
                   <Card highlight>

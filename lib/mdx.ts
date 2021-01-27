@@ -19,17 +19,12 @@ export async function getContentByType(type) {
       return {
         slug,
         type,
-        ...data,
+        title: data.title,
+        description: data.description || null,
+        tags: data.tags,
+        featured: data.featured || null,
       };
     });
-
-  if (type === 'screencasts') {
-    const meta = content.map((x) => ({ ...x, body: null }));
-    fs.writeFileSync(
-      path.resolve(process.cwd(), 'data/search.json'),
-      JSON.stringify(meta),
-    );
-  }
 
   return content;
 }

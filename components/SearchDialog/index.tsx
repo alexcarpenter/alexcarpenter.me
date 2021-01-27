@@ -6,13 +6,13 @@ import {
   useModal,
   OverlayContainer,
 } from '@react-aria/overlays';
-import { usePress } from '@react-aria/interactions';
 import { useDialog } from '@react-aria/dialog';
 import { FocusScope } from '@react-aria/focus';
 import { useButton } from '@react-aria/button';
 import { Search } from 'react-feather';
 import SeachInput from '@/components/SearchInput';
 import clsx from 'clsx';
+import tinykeys from 'tinykeys';
 
 function ModalDialog(props) {
   let { children } = props;
@@ -24,7 +24,7 @@ function ModalDialog(props) {
 
   return (
     <div
-      className="fixed inset-0 px-4 py-16 flex justify-center items-start bg-gray-50 z-100"
+      className="fixed inset-0 px-4 py-8 md:py-16 flex justify-center items-start bg-gray-50 z-100"
       // @ts-ignore
       style={{ '--tw-bg-opacity': 0.95 }}
     >
@@ -46,16 +46,25 @@ function ModalDialog(props) {
 export default function SearchDialog() {
   let state = useOverlayTriggerState({});
   let openButtonRef = React.useRef();
-  let { buttonProps: openButtonProps } = useButton({}, openButtonRef);
-
-  let { pressProps, isPressed } = usePress({
-    onPressEnd: (e) => state.open(),
+  let { buttonProps: openButtonProps } = useButton(
+    {
+      onPress: () => state.open(),
+    },
+    openButtonRef,
+  );
+  React.useEffect(() => {
+    let unsubscribe = tinykeys(window, {
+      '/': () => state.open(),
+    });
+    return () => {
+      unsubscribe();
+    };
   });
 
   return (
     <>
       <button
-        {...pressProps}
+        {...openButtonProps}
         ref={openButtonRef}
         className="relative w-8 h-8 rounded-full flex items-center justify-center group focus:outline-none"
       >
@@ -63,8 +72,7 @@ export default function SearchDialog() {
         <span
           aria-hidden="true"
           className={clsx(
-            'bg-gray-200 absolute inset w-8 h-8 rounded-full transform transition-transform transition-background',
-            !isPressed && 'group-hover:scale-150 group-focus:scale-150',
+            'bg-gray-200 absolute inset w-8 h-8 rounded-full transform transition-transform transition-background group-hover:scale-150 group-focus:scale-150',
           )}
         />
         <Search width=".85em" className="relative" />
@@ -72,7 +80,7 @@ export default function SearchDialog() {
       {state.isOpen && (
         <OverlayContainer>
           <ModalDialog isOpen onClose={state.close} isDismissable>
-            <SeachInput />
+            <SeachInput onClose={state.close} />
           </ModalDialog>
         </OverlayContainer>
       )}
