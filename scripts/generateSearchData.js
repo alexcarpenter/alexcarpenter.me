@@ -13,7 +13,7 @@ const root = process.cwd();
 
   fs.writeFileSync(
     path.resolve(process.cwd(), 'data/search.json'),
-    JSON.stringify(allContent.flat(), null, 2),
+    JSON.stringify(allContent.flat()),
   );
 })();
 
