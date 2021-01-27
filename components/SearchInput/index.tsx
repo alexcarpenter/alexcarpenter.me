@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useCombobox } from 'downshift';
 import { matchSorter } from 'match-sorter';
-import { Search } from 'react-feather';
+import { Search, ArrowRightCircle } from 'react-feather';
 import data from '@/data/search.json';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
@@ -49,7 +49,10 @@ export default function SearchInput({ onClose }) {
             placeholder="Search by name, type, or tag..."
           />
           <Search
+            aria-hidden="true"
+            focusable={false}
             width="1em"
+            height="1em"
             className="text-gray-600 absolute top-1/2 transform -translate-y-1/2 right-3"
           />
         </div>
@@ -66,23 +69,34 @@ export default function SearchInput({ onClose }) {
             <li
               key={`${item}${index}`}
               className={clsx([
-                'p-3 cursor-pointer',
+                'p-3 cursor-pointer flex items-center justify-between',
                 highlightedIndex === index ? 'bg-blue text-white' : 'bg-white',
               ])}
               {...getItemProps({ item, index })}
             >
-              <span
+              <div className="mr-1">
+                <span
+                  className={clsx([
+                    'text-xs',
+                    highlightedIndex === index
+                      ? 'text-white opacity-80'
+                      : 'text-gray-600',
+                  ])}
+                >
+                  {type(item.type)} <Separator />{' '}
+                  {item.tags.map((t) => `#${t}`).join(', ')}
+                </span>
+                <span className="block">{item.title}</span>
+              </div>
+              <ArrowRightCircle
+                aria-hidden="true"
+                focusable={false}
+                width="1.2em"
+                height="1.2em"
                 className={clsx([
-                  'text-xs',
-                  highlightedIndex === index
-                    ? 'text-white opacity-80'
-                    : 'text-gray-600',
+                  highlightedIndex === index ? 'opacity-100' : 'opacity-0',
                 ])}
-              >
-                {type(item.type)} <Separator />{' '}
-                {item.tags.map((t) => `#${t}`).join(', ')}
-              </span>
-              <span className="block">{item.title}</span>
+              />
             </li>
           ))}
       </ul>
