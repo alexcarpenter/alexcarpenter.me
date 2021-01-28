@@ -48,6 +48,7 @@ export async function getContentBySlug(slug: string, type?: string) {
     source: mdxSource,
     frontMatter: {
       type: type || null,
+      slug,
       ...data,
     },
   };

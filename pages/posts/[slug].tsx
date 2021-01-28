@@ -10,7 +10,9 @@ export default function Post({ frontMatter, source }) {
 
 export async function getStaticProps({ params }) {
   const post = await getContentBySlug(params.slug, 'posts');
-  return { props: post };
+  return {
+    props: post,
+  };
 }
 
 export async function getStaticPaths() {
