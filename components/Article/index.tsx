@@ -26,7 +26,7 @@ export default function Article(props) {
           {showMeta && (
             <p className="font-mono text-gray-600 text-sm">
               {frontMatter.publishedAt} <Separator />{' '}
-              <ViewCounter slug={frontMatter.slug} />
+              <ViewCounter slug={`${frontMatter.type}/${frontMatter.slug}`} />
             </p>
           )}
           <Page.Title decorate={false}>{frontMatter.title}</Page.Title>
