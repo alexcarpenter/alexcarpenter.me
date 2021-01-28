@@ -4,10 +4,13 @@ import Page from '@/components/Page';
 import Grid from '@/components/Grid';
 import YoutubeSubscribe from '@/components/YoutubeSubscribe';
 import YoutubeVideo from '@/components/YoutubeVideo';
+import ViewCounter from '@/components/ViewCounter';
+import Separator from '../Separator';
 
 export default function Article(props) {
   const { frontMatter, content, next, previous } = props;
   const showPagination = next || previous;
+  const showMeta = frontMatter.type !== 'snippets';
   const showDescription =
     frontMatter.description && frontMatter.type !== 'posts';
 
@@ -20,6 +23,12 @@ export default function Article(props) {
     >
       <article>
         <Page.Header>
+          {showMeta && (
+            <p className="font-mono text-gray-600 text-sm">
+              {frontMatter.publishedAt} <Separator />{' '}
+              <ViewCounter slug={frontMatter.slug} />
+            </p>
+          )}
           <Page.Title decorate={false}>{frontMatter.title}</Page.Title>
           {showDescription && (
             <Page.Description>{frontMatter.description}</Page.Description>
