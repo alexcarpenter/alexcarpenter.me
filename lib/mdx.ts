@@ -20,11 +20,13 @@ export async function getContentByType(type) {
         slug,
         type,
         title: data.title,
+        publishedAt: data.publishedAt || new Date().toDateString(),
         description: data.description || null,
         tags: data.tags,
         featured: data.featured || null,
       };
-    });
+    })
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
   return content;
 }

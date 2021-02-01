@@ -10,14 +10,13 @@ import Youtube from '@/components/Metrics/Youtube';
 import YoutubeSubscribe from '@/components/YoutubeSubscribe';
 import { getContentByType } from '@/lib/mdx';
 import filterByTag from '@/lib/filterByTag';
-import sortByDate from '@/lib/sortByDate';
 
 export default function Screencasts({ screencasts }) {
   const router = useRouter();
   let tag = router.query.tagged;
   let featuredScreencasts = [];
   let recentScreencasts = [];
-  sortByDate(screencasts).map((screencast) => {
+  screencasts.map((screencast) => {
     if (screencast.featured === true && featuredScreencasts.length < 3) {
       featuredScreencasts.push(screencast);
     } else {
