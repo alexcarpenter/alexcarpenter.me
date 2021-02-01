@@ -1,0 +1,44 @@
+---
+title: Keyline heading pattern with CSS
+description:
+publishedAt: '2021-02-01'
+tags: [CSS]
+---
+
+Across this website I make use of a `<Section.Title>` component that adds a "keyline" after the title text. It's a small design flourish that helps section off content.
+
+I am using Tailwind CSS for styling across the site, so the markup to achieve this pattern looks like the following.
+
+```html
+<h2 class="flex items-center">
+  Hello world
+  <span class="ml-3 block h-px bg-gray-200 flex-1"></span>
+</h2>
+```
+
+[View the demo](https://play.tailwindcss.com/zjVJBAaUqp)
+
+If you were writing your own CSS, you could achieve the same pattern without the need for an extra `span` element.
+
+```html
+<h2 class="keyline-heading">Hello world</h2>
+```
+
+```css
+.keyline-heading {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.keyline-heading::after {
+  content: '';
+  flex: 1;
+  display: block;
+  margin-left: 1rem;
+  height: 1px;
+  background-color: #eee;
+}
+```
+
+[View the demo](https://codepen.io/alexcarpenter/pen/xxRbeoL)
