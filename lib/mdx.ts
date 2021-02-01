@@ -26,6 +26,7 @@ export async function getContentByType(type) {
         featured: data.featured || null,
       };
     })
+    // @ts-ignore
     .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
   return content;
