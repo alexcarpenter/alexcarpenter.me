@@ -1,0 +1,49 @@
+---
+title: Use underscores when working with large numbers in JavaScript
+description: Underscores can make it easier to understand what size the value you are working with at a glance.
+publishedAt: '2021-02-02'
+tags: [JavaScript]
+---
+
+I needed to make some updates to some constants on our website that were large numbers. When numbers start getting into the millions and billions, it can be hard to decipher their size just by glancing at the values.
+
+For example here are a few examples. Can you tell the difference between million and billion values?
+
+```js
+const count1 = 100000000;
+const count2 = 10000000000;
+const count3 = 1000000000;
+const count4 = 100000000000;
+```
+
+We can actually format our code using underscores without affecting their output.
+
+```js
+const count1 = 100_000_000;
+const count2 = 10_000_000_000;
+const count3 = 1_000_000_000;
+const count4 = 100_000_000_000;
+```
+
+This makes it much easier to read when working with large numbers and functions the same when formatting the values as seen below.
+
+```js
+const formatNumber = (number) => new Intl.NumberFormat('en-US').format(number);
+
+const count1 = 100_000_000;
+const count2 = 10_000_000_000;
+const count3 = 1_000_000_000;
+const count4 = 100_000_000_000;
+
+console.log(formatNumber(count1)); // 100,000,000
+console.log(formatNumber(count2)); // 10,000,000,000
+console.log(formatNumber(count3)); // 1,000,000,000
+console.log(formatNumber(count4)); // 100,000,000,000
+```
+
+You can even fire open a console and compare the two.
+
+```js
+100000000 === 100_000_000; // true
+typeof 100_000_000; // number
+```
