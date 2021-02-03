@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Breakout from '@/components/Breakout';
 import Code from './Code';
+import Emoji from './Emoji';
 import ExternalLink from '@/components/ExternalLink';
 import YoutubeVideo from '@/components/YoutubeVideo';
 
@@ -70,6 +71,7 @@ const MDXComponents = {
   code: Code,
   Breakout,
   ExternalLink,
+  Emoji,
   Image,
   YoutubeVideo,
 };
