@@ -1,0 +1,24 @@
+---
+title: Adding an accessible emoji component to my MDX blog
+description:
+publishedAt: '2021-02-03'
+tags: [Accessibility]
+---
+
+I like a lot of folks these days make heavy use of emoji's in text communication throughout the day. I was about to add an emoji within a new post on this site and remembered that there are some [limitations of how emojis work on the web](https://tink.uk/accessible-emoji/), requring a bit more work.
+
+Since my blog is built on top of MDX, I built a small React component that takes a `label` and a `symbol` as props and returns markup to be used by screen readers.
+
+Usage:
+
+```jsx
+<Emoji label="bacon" symbol="🥓" />
+```
+
+Which ouputs:
+
+```html
+<span role="img" aria-label="bacon">🥓</span>
+```
+
+View the [PR on Github](https://github.com/alexcarpenter/alexcarpenter-next/pull/38/files).

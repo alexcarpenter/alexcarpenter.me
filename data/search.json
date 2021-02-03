@@ -18,6 +18,18 @@
     "tags": ["CSS"]
   },
   {
+    "slug": "keyline-heading",
+    "type": "posts",
+    "title": "Keyline heading pattern with CSS",
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "large-numbers-with-underscores",
+    "type": "posts",
+    "title": "Use underscores when working with large numbers in JavaScript",
+    "tags": ["JavaScript"]
+  },
+  {
     "slug": "animate-box-shadows",
     "type": "screencasts",
     "title": "How to animate box-shadows with transforms and opacity",
