@@ -20,9 +20,15 @@ function Page({
         description={description}
         image={image}
       />
+      <a
+        href="#content"
+        className="bg-blue text-white p-3 fixed top-0 left-0 transform -translate-y-full focus:translate-y-0"
+      >
+        Skip to content
+      </a>
       <div className="max-w-screen-sm mx-auto mb-16 w-100">
         <Nav />
-        {children}
+        <main id="content">{children}</main>
       </div>
     </>
   );
