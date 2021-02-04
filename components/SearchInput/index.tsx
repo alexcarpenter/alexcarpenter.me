@@ -13,7 +13,6 @@ export default function SearchInput({ onClose }) {
   const [inputItems, setInputItems] = React.useState(data);
   const {
     isOpen,
-    getToggleButtonProps,
     getLabelProps,
     getMenuProps,
     getInputProps,
@@ -23,7 +22,6 @@ export default function SearchInput({ onClose }) {
   } = useCombobox({
     items: inputItems,
     itemToString,
-    initialIsOpen: true,
     onSelectedItemChange: (val) => {
       const href = `/${val.selectedItem.type}/${val.selectedItem.slug}`;
       router.push(href);

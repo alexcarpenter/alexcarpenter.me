@@ -1,9 +1,11 @@
 import NextHead from 'next/head';
 
+const defaultImage = 'og-image.png';
+
 export default function Head({
   title = 'Alex Carpenter',
-  description = 'Sample description',
-  image = 'og-image.png',
+  description = 'User interface engineer currently interested in CSS architecture, React, TypeScript, design systems, and state machines.',
+  image = defaultImage,
 }: {
   title?: string;
   description?: string;
@@ -40,7 +42,10 @@ export default function Head({
         <meta name="og:image" content={`https://alexcarpenter.me/${image}`} />
 
         {/* General */}
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:card"
+          content={image === defaultImage ? 'summary' : 'summary_large_image'}
+        />
         <meta name="twitter:site" content="@hybrid_alex" />
         <meta name="apple-mobile-web-app-title" content="@" />
         <meta name="author" content="Alex Carpenter" />

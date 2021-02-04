@@ -12,7 +12,7 @@ import { useButton } from '@react-aria/button';
 import { Search } from 'react-feather';
 import SeachInput from '@/components/SearchInput';
 import clsx from 'clsx';
-import tinykeys from 'tinykeys';
+// import tinykeys from 'tinykeys';
 
 function ModalDialog(props) {
   let { children } = props;
@@ -26,7 +26,7 @@ function ModalDialog(props) {
     <div
       className="fixed inset-0 px-4 py-8 md:py-16 flex justify-center items-start bg-gray-50 z-100"
       // @ts-ignore
-      style={{ '--tw-bg-opacity': 0.95 }}
+      style={{ '--tw-bg-opacity': 0.85, backdropFilter: 'blur(8px)' }}
     >
       <FocusScope contain restoreFocus autoFocus>
         <div
@@ -52,14 +52,14 @@ export default function SearchDialog() {
     },
     openButtonRef,
   );
-  React.useEffect(() => {
-    let unsubscribe = tinykeys(window, {
-      '/': () => state.open(),
-    });
-    return () => {
-      unsubscribe();
-    };
-  });
+  // React.useEffect(() => {
+  //   let unsubscribe = tinykeys(window, {
+  //     '/': () => state.open(),
+  //   });
+  //   return () => {
+  //     unsubscribe();
+  //   };
+  // });
 
   return (
     <>

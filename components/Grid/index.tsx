@@ -17,12 +17,12 @@ const GAP_X_MAP = {
 };
 
 const GAP_Y_MAP = {
-  1: 'gap-Y-1',
-  2: 'gap-Y-2',
-  4: 'gap-Y-4',
-  8: 'gap-Y-8',
-  12: 'gap-Y-12',
-  16: 'gap-Y-16',
+  1: 'gap-y-1',
+  2: 'gap-y-2',
+  4: 'gap-y-4',
+  8: 'gap-y-8',
+  12: 'gap-y-12',
+  16: 'gap-y-16',
 };
 
 const COLS_MAP = {
