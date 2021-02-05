@@ -60,6 +60,15 @@ function Blockquote({ children }) {
   );
 }
 
+function Note({ children, label = 'Note' }) {
+  return (
+    <div className="p-4 bg-white border rounded text-sm">
+      <span className="uppercase font-medium tracking-wide">{label}:</span>{' '}
+      {children}
+    </div>
+  );
+}
+
 const MDXComponents = {
   h2: H2,
   h3: H3,
@@ -73,6 +82,7 @@ const MDXComponents = {
   ExternalLink,
   Emoji,
   Image,
+  Note,
   YoutubeVideo,
 };
 

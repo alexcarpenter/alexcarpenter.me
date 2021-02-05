@@ -1,0 +1,62 @@
+---
+title: How to position text over an image with CSS Grid
+description: One of my favorite features of CSS Grid is the ability to stack content on top of each other without the need for absolute positioning.
+publishedAt: '2021-02-05'
+tags: [CSS]
+---
+
+To start, lets assume we have a card pattern that uses an image as a background and text is overlaying the image. In the past we've reached for background images and or absolute positioning to solve this.
+
+One of my favorite features of CSS Grid is the ability to [stack content](https://www.youtube.com/watch?v=Fhu83TS9Mls) on top of each other without the need for absolute positioning.
+
+To start lets create some markup.
+
+```html
+<article>
+  <img src="https://picsum.photos/300/400" alt="Sample alt text" />
+  <header>
+    <h2>Sample article title</h2>
+  </header>
+</article>
+```
+
+<Note label="Sidenote">
+  One benefit to not using background images in these instances, is the SEO
+  value you get from inline images.
+</Note>
+
+And here we use grid to stack the header element on top of the image.
+
+```scss
+article {
+  display: grid;
+
+  & > * {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  header {
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    background: rgba(#000, 0.45);
+    color: #fff;
+  }
+}
+```
+
+Lets break this down. To get the elements to stack we apply grid to our article container. Then we select all of the direct children and set their `grid-row-start` and `grid-column-start` values to 1. This in an of itself is all we need to do to stack the elements.
+
+We also added some styling to the header element to create a background overlay to ensure the text is visible and position the text in the bottom left corner using flexbox.
+
+[View the demo](https://codepen.io/alexcarpenter/pen/GRNoGzw?editors=1100)
+
+<Note>
+  there is still some work done to make this responsive and flexible. The point
+  of the demo was to show how to stack content.
+</Note>
