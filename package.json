@@ -23,6 +23,7 @@
     "next": "^10.0.3",
     "next-mdx-remote": "^1.0.0",
     "next-transpile-modules": "^6.0.0",
+    "parse-numeric-range": "^1.2.0",
     "postcss": "^8.1.10",
     "prism-react-renderer": "^1.1.1",
     "react": "^17.0.1",
