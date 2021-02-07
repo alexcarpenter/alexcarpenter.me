@@ -60,6 +60,14 @@ function Blockquote({ children }) {
   );
 }
 
+function Mark({ children }) {
+  return (
+    <mark className="px-0.5" style={{ backgroundColor: '#fffeca' }}>
+      {children}
+    </mark>
+  );
+}
+
 function Note({ children, label = 'Note' }) {
   return (
     <div className="p-4 bg-white border rounded text-sm">
@@ -82,6 +90,7 @@ const MDXComponents = {
   ExternalLink,
   Emoji,
   Image,
+  Mark,
   Note,
   YoutubeVideo,
 };
