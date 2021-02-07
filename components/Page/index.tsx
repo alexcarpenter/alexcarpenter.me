@@ -1,5 +1,6 @@
 import Head from '@/components/Head';
 import Nav from '@/components/Nav';
+import widont from '@/lib/widont';
 
 function Page({
   meta,
@@ -58,7 +59,9 @@ function Title({
 }
 
 function Description({ children }) {
-  return <p className="text-xl text-gray-600 sm:text-2xl">{children}</p>;
+  return (
+    <p className="text-xl text-gray-600 sm:text-2xl">{widont(children)}</p>
+  );
 }
 
 function Content({ children }) {
