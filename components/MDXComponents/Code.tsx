@@ -121,7 +121,7 @@ export default function Code({ children, className, metastring }) {
   const [isCopied, setCopied] = useClipboard(children.trim(), {
     successDuration: 2000,
   });
-  const language = className.replace(/language-/, '');
+  const language = className ? className.replace(/language-/, '') : '';
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   return (
     <div className="relative overflow-hidden rounded">
