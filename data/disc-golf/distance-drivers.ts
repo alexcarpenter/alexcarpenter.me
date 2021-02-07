@@ -47,5 +47,36 @@ export default {
       },
       link: 'https://nomadicdg.com/tag/Discraft/?s=Nuke%20SS&post_type=product',
     },
+    {
+      name: 'Avenger SS',
+      brand: 'Discraft',
+      weight: 167,
+      plastic: 'ESP',
+      thumbnail: 'discraft-avenger-ss.png',
+      flight: {
+        speed: '10',
+        glide: '5',
+        turn: '-3',
+        fade: '1',
+        stability: '0.5',
+      },
+      link:
+        'https://nomadicdg.com/shop/?s=Avenger+SS+-+Paul+McBeth&post_type=product',
+    },
+    {
+      name: 'Heat',
+      brand: 'Discraft',
+      weight: 173,
+      plastic: 'Z',
+      thumbnail: 'discraft-heat.png',
+      flight: {
+        speed: '9',
+        glide: '6',
+        turn: '-3',
+        fade: '1',
+        stability: '0.0',
+      },
+      link: 'https://nomadicdg.com/tag/Discraft/?s=Heat&post_type=product',
+    },
   ],
 };
