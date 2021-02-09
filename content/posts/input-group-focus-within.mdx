@@ -1,11 +1,13 @@
 ---
 title: Using focus-within to style input groups
-description:
+description: How to apply a custom focus style to inputs within groups using the focus-within pseudo selector.
 publishedAt: '2021-02-08'
 tags: [CSS]
 ---
 
-Input groups, popularlized by Bootstrap, is a pattern that includes an input with a label and/or a button element.
+Input groups are a pattern that includes an input with a label and/or a button element.
+
+What we want to do is show a focus style around the input-group when the input is focused. To do this lets setup some markup to be used.
 
 ```html
 <div class="input-group">
@@ -22,7 +24,9 @@ Now that we have our markup structure in place, we can start to apply our stylin
 
 ```scss
 .input-group {
+  // Set elements inline and flush with each other
   display: inline-flex;
+  // This is the border will use for focus styling
   border: 1px solid #ddd;
 
   input {
@@ -46,9 +50,9 @@ Now that we have our markup structure in place, we can start to apply our stylin
 
 Now we can now watch for focus within our input group and adjust our border color and apply a box-shadow.
 
-```scss {4-7}
+```scss {3-6}
 .input-group {
-  ... &:focus-within {
+  &:focus-within {
     border-color: #05f;
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
   }
