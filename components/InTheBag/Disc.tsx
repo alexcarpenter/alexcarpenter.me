@@ -32,7 +32,12 @@ export default function Disc({
   return (
     <article className="text-center md:text-left md:flex">
       <div className="w-32 h-32 flex-shrink-0 mx-auto md:mr-8 mb-3">
-        <Image src={`/images/${thumbnail}`} alt="" width={256} height={256} />
+        <Image
+          src={`/images/${thumbnail}`}
+          alt={name}
+          width={256}
+          height={256}
+        />
       </div>
       <div className="flex-1">
         <h3 className="text-xl font-bold">{name}</h3>
