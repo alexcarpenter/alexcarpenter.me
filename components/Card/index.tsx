@@ -60,20 +60,11 @@ function Description({ children }: { children: React.ReactNode }) {
 }
 
 function Tags({ items }: { items: string[] }) {
-  if (!items.length) return null;
-
-  const joinWithComma = (arr: React.ReactNode[]): React.ReactNode =>
-    arr.reduce((prev, curr) => [prev, ', ', curr]);
+  if (!items.length) return;
 
   return (
-    <div className="pt-2 mt-auto">
-      {joinWithComma(
-        items.map((t) => (
-          <span key={t} className="font-mono text-sm text-gray-600">
-            #{t}
-          </span>
-        )),
-      )}
+    <div className="pt-2 mt-auto font-mono text-sm text-gray-600">
+      {items.map((i) => `#${i}`).join(', ')}
     </div>
   );
 }

@@ -32,6 +32,7 @@ const posts = fs
       date: new Date(post.publishedAt),
       author: 'Alex Carpenter',
       url,
+      categories: post.tags,
       guid: url,
     });
   });
