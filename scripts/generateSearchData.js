@@ -6,7 +6,7 @@ const root = process.cwd();
 
 (async () => {
   let allContent = [];
-  ['posts', 'screencasts', 'snippets'].forEach((type) => {
+  ['posts', 'screencasts'].forEach((type) => {
     let content = getContentData(type);
     allContent.push(content);
   });

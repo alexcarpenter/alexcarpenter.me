@@ -43,13 +43,6 @@ export default function Footer() {
             </Link>
           </li>
           <li>
-            <Link href="/snippets">
-              <a className="transition-colors hover:text-blue focus:outline-none focus:text-blue">
-                Snippets
-              </a>
-            </Link>
-          </li>
-          <li>
             <Link href="/uses">
               <a className="transition-colors hover:text-blue focus:outline-none focus:text-blue">
                 Uses

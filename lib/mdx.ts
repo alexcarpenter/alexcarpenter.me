@@ -17,22 +17,16 @@ export async function getContentByType(type) {
       const { data } = matter(source);
       const slug = file.replace(/\.mdx$/, '');
       return {
-        slug,
         type,
-        title: data.title,
-        publishedAt: data.publishedAt || new Date().toDateString(),
-        description: data.description || null,
-        tags: data.tags,
-        featured: data.featured || null,
+        slug,
+        ...data,
       };
-    })
-    // @ts-ignore
-    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+    });
 
   return content;
 }
 
-export async function getContentBySlug(slug: string, type?: string) {
+export async function getContentBySlug(slug, type = null) {
   const source = type
     ? fs.readFileSync(path.join(root, 'content', type, `${slug}.mdx`), 'utf8')
     : fs.readFileSync(path.join(root, 'content', `${slug}.mdx`), 'utf8');
@@ -50,7 +44,7 @@ export async function getContentBySlug(slug: string, type?: string) {
   return {
     source: mdxSource,
     frontMatter: {
-      type: type || null,
+      type,
       slug,
       ...data,
     },

@@ -30,11 +30,6 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      scale: ['group-hover', 'group-focus'],
-    },
-  },
   plugins: [
     plugin(function ({ addComponents }) {
       const prose = {

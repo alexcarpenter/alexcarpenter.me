@@ -22,7 +22,7 @@ export default function Filter({ tags }: FilterProps) {
             data-cy="filter"
             className={`${
               !activeTag ? 'bg-gray-600 text-white' : 'bg-gray-200'
-            } bg-gray-200 hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
+            } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
           >
             All
           </a>
@@ -43,7 +43,7 @@ export default function Filter({ tags }: FilterProps) {
                 activeTag === tag.toLowerCase()
                   ? 'bg-gray-600 text-white'
                   : 'bg-gray-200'
-              } bg-gray-200 hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
+              } hover:bg-gray-600 hover:text-white py-1 px-2 text-sm rounded-lg transition-colors`}
             >
               {tag}
             </a>

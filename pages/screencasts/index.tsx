@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import Page from '@/components/Page';
 import Card from '@/components/Card';
 import Grid from '@/components/Grid';
@@ -9,25 +8,18 @@ import Section from '@/components/Section';
 import Youtube from '@/components/Metrics/Youtube';
 import YoutubeSubscribe from '@/components/YoutubeSubscribe';
 import { getContentByType } from '@/lib/mdx';
-import filterByTag from '@/lib/filterByTag';
+import filterByTagQuery from '@/lib/filterByTagQuery';
 
-export default function Screencasts({ screencasts }) {
-  const router = useRouter();
-  let tag = router.query.tagged;
-  let featuredScreencasts = [];
-  let recentScreencasts = [];
-  screencasts.map((screencast) => {
-    if (screencast.featured === true && featuredScreencasts.length < 3) {
-      featuredScreencasts.push(screencast);
-    } else {
-      recentScreencasts.push(screencast);
-    }
-  });
+export default function Screencasts({
+  featuredScreencasts,
+  recentScreencasts,
+}) {
+  const filteredRecentScreencasts = filterByTagQuery(recentScreencasts);
   return (
     <>
       <Page
         meta={{
-          title: tag ? `Screencasts tagged ${tag}` : 'Screencasts',
+          title: 'Screencasts',
           description:
             'Short front-end development tutorials for developers of all skill levels.',
         }}
@@ -99,7 +91,7 @@ export default function Screencasts({ screencasts }) {
           <Section.Title>Recent</Section.Title>
           <Filter tags={['CSS', 'JavaScript']} />
           <Grid cols={1} colsSm={2}>
-            {filterByTag(recentScreencasts, tag).map((screencast) => {
+            {filteredRecentScreencasts.map((screencast) => {
               return (
                 <Grid.Item key={screencast.slug}>
                   <Card>
@@ -127,5 +119,21 @@ export default function Screencasts({ screencasts }) {
 
 export async function getStaticProps() {
   const screencasts = await getContentByType('screencasts');
-  return { props: { screencasts } };
+  let featuredScreencasts = [];
+  let recentScreencasts = [];
+  screencasts.map((screencast) => {
+    if (screencast.featured && featuredScreencasts.length < 3) {
+      featuredScreencasts.push(screencast);
+    } else {
+      recentScreencasts.push(screencast);
+    }
+  });
+  return {
+    props: {
+      featuredScreencasts,
+      recentScreencasts: recentScreencasts.sort(
+        (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
+      ),
+    },
+  };
 }

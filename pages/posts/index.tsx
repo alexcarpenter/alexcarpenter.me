@@ -1,7 +1,4 @@
-import { useRouter } from 'next/router';
-import filterByTag from '@/lib/filterByTag';
 import Card from '@/components/Card';
-import Filter from '@/components/Filter';
 import Grid from '@/components/Grid';
 import Link from 'next/link';
 import Page from '@/components/Page';
@@ -11,12 +8,10 @@ import { Rss } from 'react-feather';
 import { getContentByType } from '@/lib/mdx';
 
 export default function Posts({ posts }) {
-  const router = useRouter();
-  let tag = router.query.tagged;
   return (
     <Page
       meta={{
-        title: tag ? `Posts tagged ${tag}` : 'Posts',
+        title: 'Posts',
         description:
           'Thoughts on CSS architecture, React, TypeScript, design systems, and state machines.',
       }}
@@ -33,9 +28,8 @@ export default function Posts({ posts }) {
       </Page.Header>
       <Section>
         <Section.Title>Recent</Section.Title>
-        {/* <Filter tags={['CSS', 'JavaScript']} /> */}
         <Grid cols={1} colsSm={2}>
-          {filterByTag(posts, tag).map((post) => (
+          {posts.map((post) => (
             <Grid.Item key={post.slug}>
               <Card>
                 <Card.Title>
@@ -57,5 +51,11 @@ export default function Posts({ posts }) {
 
 export async function getStaticProps() {
   const posts = await getContentByType('posts');
-  return { props: { posts } };
+  return {
+    props: {
+      posts: posts.sort(
+        (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
+      ),
+    },
+  };
 }

@@ -1,5 +1,11 @@
 [
   {
+    "slug": "accessible-emoji-component",
+    "type": "posts",
+    "title": "Building an accessible emoji component for my MDX blog",
+    "tags": ["Accessibility"]
+  },
+  {
     "slug": "aspect-ratios",
     "type": "posts",
     "title": "3 methods for preserving aspect ratios with CSS",
@@ -18,6 +24,12 @@
     "tags": ["CSS"]
   },
   {
+    "slug": "input-group-focus-within",
+    "type": "posts",
+    "title": "Using focus-within to style input groups",
+    "tags": ["CSS"]
+  },
+  {
     "slug": "keyline-heading",
     "type": "posts",
     "title": "Keyline heading pattern with CSS",
@@ -27,6 +39,30 @@
     "slug": "large-numbers-with-underscores",
     "type": "posts",
     "title": "Use underscores when working with large numbers in JavaScript",
+    "tags": ["JavaScript"]
+  },
+  {
+    "slug": "overlay-text-css-grid",
+    "type": "posts",
+    "title": "How to position text over an image with CSS Grid",
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "skip-link-nextjs",
+    "type": "posts",
+    "title": "Adding a skip link to my Next.js website",
+    "tags": ["Accessibility"]
+  },
+  {
+    "slug": "styling-links-without-a-class",
+    "type": "posts",
+    "title": "How to style links that do not have a class with CSS",
+    "tags": ["CSS"]
+  },
+  {
+    "slug": "widont",
+    "type": "posts",
+    "title": "Preventing widows with a widont helper function",
     "tags": ["JavaScript"]
   },
   {
@@ -124,71 +160,5 @@
     "type": "screencasts",
     "title": "How to create vertical text with CSS",
     "tags": ["CSS"]
-  },
-  {
-    "slug": "css-aspect-ratio",
-    "type": "snippets",
-    "title": "Aspect ratio",
-    "tags": ["CSS"]
-  },
-  {
-    "slug": "css-auto-grow-textarea",
-    "type": "snippets",
-    "title": "Autogrow textarea",
-    "tags": ["CSS"]
-  },
-  {
-    "slug": "css-breakout-utility",
-    "type": "snippets",
-    "title": "Breakout utility",
-    "tags": ["CSS"]
-  },
-  {
-    "slug": "css-fluid-typography",
-    "type": "snippets",
-    "title": "Fluid Typography",
-    "tags": ["CSS"]
-  },
-  {
-    "slug": "javascript-click-outside",
-    "type": "snippets",
-    "title": "Detect clicks outside",
-    "tags": ["JavaScript"]
-  },
-  {
-    "slug": "javascript-create-element",
-    "type": "snippets",
-    "title": "Create element",
-    "tags": ["JavaScript"]
-  },
-  {
-    "slug": "javascript-format-json-stringify",
-    "type": "snippets",
-    "title": "Format JSON.stringify() output",
-    "tags": ["JavaScript"]
-  },
-  {
-    "slug": "javascript-inversion-of-control",
-    "type": "snippets",
-    "title": "Inversion of control",
-    "tags": ["JavaScript"]
-  },
-  {
-    "slug": "javascript-native-date-formatting",
-    "type": "snippets",
-    "title": "Native date formatting",
-    "tags": ["JavaScript"]
-  },
-  {
-    "slug": "javascript-stater-reducer-pattern",
-    "type": "snippets",
-    "title": "State reducer pattern",
-    "tags": ["JavaScript", "React"]
-  },
-  {
-    "slug": "mouse-tracking-with-css-variables",
-    "type": "snippets",
-    "title": "Mouse Tracking with CSS Variables",
-    "tags": ["JavaScript"]
   }
 ]
