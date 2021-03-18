@@ -54,6 +54,7 @@ export async function getStaticProps() {
   return {
     props: {
       posts: posts.sort(
+        //@ts-ignore
         (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
       ),
     },

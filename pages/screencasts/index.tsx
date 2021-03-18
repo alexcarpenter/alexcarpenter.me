@@ -122,6 +122,7 @@ export async function getStaticProps() {
   let featuredScreencasts = [];
   let recentScreencasts = [];
   screencasts.map((screencast) => {
+    //@ts-ignore
     if (screencast.featured && featuredScreencasts.length < 3) {
       featuredScreencasts.push(screencast);
     } else {
@@ -132,6 +133,7 @@ export async function getStaticProps() {
     props: {
       featuredScreencasts,
       recentScreencasts: recentScreencasts.sort(
+        //@ts-ignore
         (a, b) => new Date(b.publishedAt) - new Date(a.publishedAt),
       ),
     },
