@@ -1,4 +1,4 @@
-import '@/styles/fonts.css';
+import '@/styles/custom.css';
 import 'tailwindcss/tailwind.css';
 import { OverlayProvider } from '@react-aria/overlays';
 

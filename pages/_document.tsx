@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body className="flex flex-col min-h-screen px-4 py-8 text-gray-900 w-100 md:py-16 bg-gray-50">
+        <body className="relative flex flex-col min-h-screen px-4 py-8 text-gray-900 w-100 md:py-16 bg-gray-50">
           <Main />
           <Footer />
           <NextScript />

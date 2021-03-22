@@ -72,7 +72,7 @@ export default function SearchDialog() {
         <span
           aria-hidden="true"
           className={clsx(
-            'bg-gray-200 absolute inset w-8 h-8 rounded-full transform transition-transform transition-background group-hover:scale-150 group-focus:scale-150',
+            'bg-gray-50 border absolute inset w-8 h-8 rounded-full transform transition-transform transition-background group-hover:scale-150 group-focus:scale-150',
           )}
         />
         <Search
