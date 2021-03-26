@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Card from '@/components/Card';
-import Grid from '@/components/Grid';
 import Section from '@/components/Section';
 
 export default function Recommendations() {
@@ -10,8 +10,8 @@ export default function Recommendations() {
   return (
     <Section>
       <Section.Title>Recomendations</Section.Title>
-      <Grid cols={1}>
-        <Grid.Item>
+      <motion.ul className="space-y-4">
+        <li>
           <Card>
             <Card.Description>
               “I worked with Alex on a variety of different projects. He is
@@ -38,8 +38,8 @@ export default function Recommendations() {
               </div>
             </div>
           </Card>
-        </Grid.Item>
-        <Grid.Item>
+        </li>
+        <li>
           <Card>
             <Card.Description>
               “Alex is incredibly skilled, efficient, and thorough in his work.
@@ -65,9 +65,8 @@ export default function Recommendations() {
               </div>
             </div>
           </Card>
-        </Grid.Item>
-
-        <Grid.Item>
+        </li>
+        <li>
           <Card>
             <Card.Description>
               “I would recommend Alex to any forward-thinking web team. His
@@ -95,11 +94,14 @@ export default function Recommendations() {
               </div>
             </div>
           </Card>
-        </Grid.Item>
-
-        {viewAll ? (
+        </li>
+        {viewAll && (
           <>
-            <Grid.Item>
+            <motion.li
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ ease: 'easeOut', delay: 0.1 }}
+            >
               <Card>
                 <Card.Description>
                   “Alex is incredibly thorough and thoughtful with his work and
@@ -126,8 +128,12 @@ export default function Recommendations() {
                   </div>
                 </div>
               </Card>
-            </Grid.Item>
-            <Grid.Item>
+            </motion.li>
+            <motion.li
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, ease: 'easeOut' }}
+            >
               <Card>
                 <Card.Description>
                   “Alex is a true autodidact that is dedicated to keeping up
@@ -152,19 +158,27 @@ export default function Recommendations() {
                   </div>
                 </div>
               </Card>
-            </Grid.Item>
+            </motion.li>
           </>
-        ) : (
-          <div className="text-center">
+        )}
+      </motion.ul>
+
+      <AnimatePresence>
+        {!viewAll && (
+          <motion.div
+            className="mt-4 text-center"
+            exit={{ scale: 0.5, opacity: 0.5 }}
+            transition={{ duration: 0.2 }}
+          >
             <button
               onClick={() => setViewAll(true)}
               className="px-4 py-2 transition-colors rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
             >
               View all
             </button>
-          </div>
+          </motion.div>
         )}
-      </Grid>
+      </AnimatePresence>
     </Section>
   );
 }

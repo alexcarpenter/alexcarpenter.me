@@ -52,7 +52,7 @@ function Title({ children }) {
 }
 
 function Stat({ children }) {
-  return <p className="text-4xl font-bold">{children}</p>;
+  return <p className="text-4xl font-bold relative">{children}</p>;
 }
 
 function Description({ children }: { children: React.ReactNode }) {

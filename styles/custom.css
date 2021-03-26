@@ -41,5 +41,5 @@ body::after {
   background-position: top center;
   background-repeat: no-repeat;
   z-index: -2;
-  opacity: 0.2;
+  opacity: 0.125;
 }

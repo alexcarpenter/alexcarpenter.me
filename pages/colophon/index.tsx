@@ -159,6 +159,27 @@ const data = [
     link: 'https://typescriptlang.org/',
   },
   {
+    heading: 'Framer Motion',
+    description: '',
+    logo: (
+      <svg
+        width="120"
+        height="120"
+        viewBox="0 0 120 120"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={SVG_CLASSES}
+      >
+        <rect width="120" height="120" fill="white" />
+        <path
+          d="M31 88V31L59.5 59.5L88 31V88L73.75 73.75L59.5 88L45.25 73.75L31 88Z"
+          fill="black"
+        />
+      </svg>
+    ),
+    link: 'https://www.framer.com/motion/',
+  },
+  {
     heading: 'Github Actions',
     description: '',
     logo: (

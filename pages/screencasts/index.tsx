@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Page from '@/components/Page';
 import Card from '@/components/Card';
 import Grid from '@/components/Grid';
@@ -39,10 +40,10 @@ export default function Screencasts({
         </div>
         <Section>
           <Section.Title>Popular</Section.Title>
-          <Grid cols={1}>
+          <ul className="space-y-4">
             {featuredScreencasts.map((screencast) => {
               return (
-                <Grid.Item key={screencast.slug}>
+                <li key={screencast.slug}>
                   <Card highlight>
                     <Card.Title>
                       <Link
@@ -61,10 +62,10 @@ export default function Screencasts({
                     )}
                     <Card.Tags items={screencast.tags} />
                   </Card>
-                </Grid.Item>
+                </li>
               );
             })}
-          </Grid>
+          </ul>
         </Section>
         <div className="my-16 text-center">
           <p className="text-xl text-gray-600">
@@ -90,10 +91,10 @@ export default function Screencasts({
         <Section>
           <Section.Title>Recent</Section.Title>
           <Filter tags={['CSS', 'JavaScript']} />
-          <Grid cols={1} colsSm={2}>
+          <motion.ul className="grid grid-cols-2 gap-4">
             {filteredRecentScreencasts.map((screencast) => {
               return (
-                <Grid.Item key={screencast.slug}>
+                <motion.li layout key={screencast.slug} className="flex">
                   <Card>
                     <Card.Title>
                       <Link
@@ -107,10 +108,10 @@ export default function Screencasts({
                     </Card.Title>
                     <Card.Tags items={screencast.tags} />
                   </Card>
-                </Grid.Item>
+                </motion.li>
               );
             })}
-          </Grid>
+          </motion.ul>
         </Section>
       </Page>
     </>
