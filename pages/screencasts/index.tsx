@@ -91,7 +91,7 @@ export default function Screencasts({
         <Section>
           <Section.Title>Recent</Section.Title>
           <Filter tags={['CSS', 'JavaScript']} />
-          <motion.ul className="grid grid-cols-2 gap-4">
+          <motion.ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {filteredRecentScreencasts.map((screencast) => {
               return (
                 <motion.li layout key={screencast.slug} className="flex">
