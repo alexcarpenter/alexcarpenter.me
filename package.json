@@ -34,6 +34,7 @@
     "react-aria": "^3.4.0",
     "react-dom": "^17.0.1",
     "react-feather": "^2.0.9",
+    "react-hot-toast": "^1.0.2",
     "react-lite-yt-embed": "^1.2.3",
     "react-polymorphic-types": "^1.0.3",
     "react-use-clipboard": "^1.0.7",
@@ -45,7 +46,7 @@
     "tinykeys": "^1.1.1"
   },
   "devDependencies": {
-    "@tailwindcss/jit": "^0.1.3",
+    "@tailwindcss/jit": "^0.1.18",
     "@testing-library/cypress": "^7.0.3",
     "@types/jest": "^26.0.19",
     "@types/mocha": "^8.2.0",

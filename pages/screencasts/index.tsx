@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Page from '@/components/Page';
 import Card from '@/components/Card';
 import Grid from '@/components/Grid';

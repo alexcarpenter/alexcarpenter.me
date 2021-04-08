@@ -163,22 +163,16 @@ export default function Recommendations() {
         )}
       </motion.ul>
 
-      <AnimatePresence>
-        {!viewAll && (
-          <motion.div
-            className="mt-4 text-center"
-            exit={{ scale: 0.5, opacity: 0.5 }}
-            transition={{ duration: 0.2 }}
+      {!viewAll && (
+        <div className="mt-4 text-center">
+          <button
+            onClick={() => setViewAll(true)}
+            className="px-4 py-2 transition-colors rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
           >
-            <button
-              onClick={() => setViewAll(true)}
-              className="px-4 py-2 transition-colors rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
-            >
-              View all
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            View all
+          </button>
+        </div>
+      )}
     </Section>
   );
 }

@@ -15,31 +15,3 @@
   font-style: normal;
   src: url('/fonts/JetBrainsMono.woff2') format('woff2');
 }
-
-body::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.1);
-  z-index: -1;
-  backdrop-filter: blur(10px);
-}
-
-body::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  min-height: 100vh;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABjSURBVHgBdYu7CYBAEERnLzgwMTNU1AquF7uzCDtSDMTEQERQODxXdwUDwQf7mRmGQmBumwVF3qGOHYQqIxh50rLHYQxcGEARIbG3KQ2Zfdz0rvOjSRb7E2S1/KIBPkz+JxAuMR81mYsLMBsAAAAASUVORK5CYII=');
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-  z-index: -2;
-  opacity: 0.125;
-}
