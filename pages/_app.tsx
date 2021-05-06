@@ -1,12 +1,13 @@
 import '@/styles/custom.css';
 import 'tailwindcss/tailwind.css';
-import { OverlayProvider } from '@react-aria/overlays';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <OverlayProvider>
-      <Component {...pageProps} />
-    </OverlayProvider>
+    <div className="bg-black text-gray-100 min-h-screen font-mono md:text-lg antialiased">
+      <div className="max-w-screen-md mx-auto p-8 md:p-16">
+        <Component {...pageProps} />
+      </div>
+    </div>
   );
 }
 

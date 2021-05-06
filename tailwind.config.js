@@ -17,12 +17,9 @@ module.exports = {
       mono: ['JetBrains Mono Web', ...defaultTheme.fontFamily.mono],
     },
     colors: {
-      gray: colors.blueGray,
-      blue: '#0055FF',
-      green: '#4CA55E',
-      red: '#FF3300',
-      white: '#FFFFFF',
-      black: '#04070C',
+      white: '#fafafa',
+      black: '#04070c',
+      ...colors,
     },
     extend: {
       spacing: {
@@ -31,20 +28,18 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ addComponents }) {
+    plugin(function ({ addComponents, theme }) {
       const prose = {
         '.prose, .prose > div': {
           '> * + *': {
-            marginTop: '1rem',
+            marginTop: '1.25rem',
           },
-          '* + h2, * + h3': {
-            marginTop: '2rem',
-          },
-          ul: {
-            paddingLeft: '1.25rem',
-          },
-          'ul li ul': {
-            marginTop: '0.25rem',
+          a: {
+            textDecoration: 'underline',
+            textDecorationColor: theme('colors.gray.600'),
+            '&:hover': {
+              textDecorationColor: theme('colors.gray.400'),
+            },
           },
         },
       };
