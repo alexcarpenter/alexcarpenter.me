@@ -17,7 +17,7 @@ export default function Home() {
         sharing and being apart of passionate communities.
       </p>
       <Details summary="Experience">
-        {experience.map((job) => {
+        {experience.map((job, index) => {
           return (
             <>
               <p>{job.company}</p>
@@ -26,24 +26,24 @@ export default function Home() {
                 {job.timeline.end ? job.timeline.end : 'Present'}
               </p>
               <ul>
-                {job.items.map((item) => (
-                  <li>{item}</li>
+                {job.items.map((item, index) => (
+                  <li key={index}>{item}</li>
                 ))}
               </ul>
-              <hr />
+              {index < experience.length - 1 && <hr />}
             </>
           );
         })}
       </Details>
       <Details summary="Recommendations">
-        {recommendations.map((item) => {
+        {recommendations.map((item, index) => {
           return (
             <>
               <p>“{item.text}”</p>
               <p className="text-gray-400">
                 &ndash; {item.cite.name}, {item.cite.title}, {item.cite.company}
               </p>
-              <hr />
+              {index < recommendations.length - 1 && <hr />}
             </>
           );
         })}
