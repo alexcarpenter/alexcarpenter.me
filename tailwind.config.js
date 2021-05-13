@@ -13,7 +13,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ['Inter', ...defaultTheme.fontFamily.sans],
       mono: ['JetBrains Mono Web', ...defaultTheme.fontFamily.mono],
     },
     colors: {
@@ -27,24 +26,4 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    plugin(function ({ addComponents, theme }) {
-      const prose = {
-        '.prose, .prose > div': {
-          '> * + *': {
-            marginTop: '1.25rem',
-          },
-          a: {
-            textDecoration: 'underline',
-            textDecorationColor: theme('colors.gray.600'),
-            '&:hover': {
-              textDecorationColor: theme('colors.gray.400'),
-            },
-          },
-        },
-      };
-
-      addComponents(prose);
-    }),
-  ],
 };
