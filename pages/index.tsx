@@ -1,9 +1,11 @@
 import * as React from 'react';
+import Link from 'next/link';
+import { getAllMdx } from '@/lib/mdx';
 import Details from '@/components/Details';
 import experience from '@/data/experience';
 import recommendations from '@/data/recommendations';
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <div className="prose">
       <p>Hey, I'm Alex.</p>
@@ -19,8 +21,8 @@ export default function Home() {
       <Details summary="Experience">
         {experience.map((job, index) => {
           return (
-            <>
-              <p>{job.company}</p>
+            <React.Fragment key={index}>
+              <p className="font-bold">{job.company}</p>
               <p className="mt-1 text-gray-400">
                 {job.title} • {job.timeline.start} -{' '}
                 {job.timeline.end ? job.timeline.end : 'Present'}
@@ -31,20 +33,20 @@ export default function Home() {
                 ))}
               </ul>
               {index < experience.length - 1 && <hr />}
-            </>
+            </React.Fragment>
           );
         })}
       </Details>
       <Details summary="Recommendations">
         {recommendations.map((item, index) => {
           return (
-            <>
+            <React.Fragment key={index}>
               <p>“{item.text}”</p>
               <p className="text-gray-400">
                 &ndash; {item.cite.name}, {item.cite.title}, {item.cite.company}
               </p>
               {index < recommendations.length - 1 && <hr />}
-            </>
+            </React.Fragment>
           );
         })}
       </Details>
@@ -74,4 +76,13 @@ export default function Home() {
       </Details>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const mdxFiles = getAllMdx();
+  return {
+    props: {
+      posts: mdxFiles,
+    },
+  };
 }
