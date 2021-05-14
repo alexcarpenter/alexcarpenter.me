@@ -59,6 +59,7 @@ export default function Code({ children, className, metastring }) {
       </div>
       <Highlight
         {...defaultProps}
+        //@ts-ignore
         theme={theme}
         code={children.trim()}
         language={language}
