@@ -114,6 +114,7 @@ export default function Work({ data }) {
 
 export async function getStaticProps() {
   const groupedData = groupBy(
+    //@ts-ignore
     data.sort((a, b) => new Date(b.date) - new Date(a.date)),
     (obj) => new Date(obj.date).getFullYear().toString(),
   );
