@@ -34,7 +34,7 @@ const CustomLink = (props) => {
 export default function Work({ data }) {
   return (
     <Page title="Work">
-      <div className="divide-y divide-gray-800 divide-opacity-10 -my-8">
+      <div className="divide-y divide-white divide-opacity-10 -my-8">
         {data.map(([year, items]) => {
           return (
             <section className={cx('py-8')} key={year}>
@@ -57,7 +57,7 @@ export default function Work({ data }) {
                       <div className="flex flex-col sm:flex-row">
                         <div className="w-28 flex-shrink-0">
                           <time
-                            className="mb-2 inline-block text-gray-800 text-opacity-75"
+                            className="mb-2 inline-block text-white text-opacity-75"
                             dateTime={item.date}
                           >
                             {formatDate(item.date)}
@@ -81,7 +81,7 @@ export default function Work({ data }) {
                           {item.description && (
                             <div
                               className={cx(
-                                'prose text-gray-800 text-opacity-75',
+                                'prose text-white text-opacity-75',
                                 {
                                   'mt-2': item.title,
                                 },

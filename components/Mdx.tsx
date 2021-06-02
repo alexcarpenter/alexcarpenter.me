@@ -2,7 +2,7 @@ import Code from '@/components/Code';
 
 export const components = {
   blockquote: ({ children }) => (
-    <blockquote className="border-l-4 border-gray-800 border-opacity-10 pl-4">
+    <blockquote className="border-l-4 border-white border-opacity-10 pl-4">
       {children}
     </blockquote>
   ),

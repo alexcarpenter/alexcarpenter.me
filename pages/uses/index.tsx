@@ -7,8 +7,8 @@ export default function Uses() {
   return (
     <Page title="Uses">
       <List>
-        {data.map((item) => (
-          <List.Item>
+        {data.map((item, index) => (
+          <List.Item key={index}>
             <div className="flex flex-col sm:flex-row">
               <div className="w-28 flex-shrink-0">
                 <Image
@@ -28,7 +28,7 @@ export default function Uses() {
                     {item.name}
                   </a>
                 </h2>
-                <p className="mt-2 text-gray-800 text-opacity-75">
+                <p className="mt-2 text-white text-opacity-75">
                   {item.description}
                 </p>
               </div>

@@ -42,13 +42,13 @@ export default function Page({
       <main id="main">
         <Component>
           {title && Component === 'div' && (
-            <h1 className="text-xl border-b border-gray-800 border-opacity-10 mb-8 pb-8">
+            <h1 className="text-xl border-b border-white border-opacity-10 mb-8 pb-8">
               {title}&nbsp;<span aria-hidden={true}>¬</span>
             </h1>
           )}
           {title && Component === 'article' && (
-            <header className="border-b border-gray-800 border-opacity-10 mb-8 pb-8">
-              <p className="text-gray-800 text-opacity-75 space-x-1">
+            <header className="border-b border-white border-opacity-10 mb-8 pb-8">
+              <p className="text-white text-opacity-75 space-x-1">
                 <time dateTime={date}>{formatDate(date, 'long')}</time>
                 {slug && (
                   <>
@@ -63,7 +63,7 @@ export default function Page({
               {link && (
                 <a
                   href={link}
-                  className="text-gray-800 text-opacity-75 hover:text-opacity-100 inline-block"
+                  className="text-white text-opacity-75 hover:text-opacity-100 inline-block"
                 >
                   {new URL(link).hostname}&nbsp;&#8594;
                 </a>

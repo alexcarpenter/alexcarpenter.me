@@ -26,7 +26,7 @@ export default function Banner() {
           <Link href="/work">
             <a
               className={cx(
-                'text-gray-800 text-opacity-75 hover:text-opacity-100',
+                'text-white text-opacity-75 hover:text-opacity-100',
               )}
               aria-current={pathname === '/work' ? 'page' : null}
             >
@@ -38,7 +38,7 @@ export default function Banner() {
           <Link href="/posts">
             <a
               className={cx(
-                'text-gray-800 text-opacity-75 hover:text-opacity-100',
+                'text-white text-opacity-75 hover:text-opacity-100',
               )}
               aria-current={pathname === '/posts' ? 'page' : null}
             >
