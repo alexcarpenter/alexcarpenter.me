@@ -21,7 +21,7 @@ export const formatDate = (date, format = 'short') => {
       day: 'numeric',
     },
     long: {
-      month: 'numeric',
+      month: 'short',
       day: 'numeric',
       year: 'numeric',
     },
