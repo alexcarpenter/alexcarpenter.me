@@ -52,7 +52,9 @@ export default function Page({
                 <time dateTime={date}>{formatDate(date, 'long')}</time>
                 {slug && (
                   <>
-                    <span>&#183;</span>
+                    <span role="separator" aria-orientation="vertical">
+                      &#183;
+                    </span>
                     <Views slug={slug} />
                   </>
                 )}

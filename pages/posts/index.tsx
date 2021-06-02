@@ -20,7 +20,7 @@ export default function Posts({ posts }) {
               <div className="flex flex-col sm:flex-row">
                 <div className="w-28 flex-shrink-0">
                   <time
-                    className="text-gray-800 text-opacity-75 mb-4 inline-block"
+                    className="text-gray-800 text-opacity-75 mb-2 inline-block"
                     dateTime={post.frontMatter.date}
                   >
                     {formatDate(post.frontMatter.date)}
@@ -40,7 +40,7 @@ export default function Posts({ posts }) {
                   {post.frontMatter.tags && (
                     <div className="mt-4 space-x-2">
                       {post.frontMatter.tags.map((tag) => (
-                        <Badge>#{tag}</Badge>
+                        <Badge key={tag}>#{tag}</Badge>
                       ))}
                     </div>
                   )}

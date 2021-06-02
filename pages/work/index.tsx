@@ -57,7 +57,7 @@ export default function Work({ data }) {
                       <div className="flex flex-col sm:flex-row">
                         <div className="w-28 flex-shrink-0">
                           <time
-                            className="mb-4 inline-block text-gray-800 text-opacity-75"
+                            className="mb-2 inline-block text-gray-800 text-opacity-75"
                             dateTime={item.date}
                           >
                             {formatDate(item.date)}
