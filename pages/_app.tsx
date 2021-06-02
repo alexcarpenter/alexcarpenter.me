@@ -1,15 +1,19 @@
+import { useEffect } from 'react';
 import '@/styles/custom.css';
 import 'tailwindcss/tailwind.css';
-import Header from '@/components/Header';
+import cx from 'clsx';
+
+// #00254B, #00432a, #0C2E22
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="bg-black text-gray-100 min-h-screen font-mono md:text-lg antialiased">
+    <div
+      className={cx(
+        'min-h-screen font-mono md:text-lg antialiased bg-gray-200 text-gray-800',
+      )}
+    >
       <div className="max-w-screen-md mx-auto p-8 md:p-16">
-        <Header />
-        <main>
-          <Component {...pageProps} />
-        </main>
+        <Component {...pageProps} />
       </div>
     </div>
   );

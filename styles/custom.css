@@ -20,6 +20,23 @@
   src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
 }
 
+/* body::after {
+  --x-px: calc(var(--x) * 1px);
+  --y-px: calc(var(--y) * 1px);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  transform:
+    translate(var(--x-px), var(--y-px))
+    translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, .2);
+  border-radius: 9999px;
+  pointer-events: none;
+} */
+
 .prose > * + * {
   margin-top: 1.25rem;
 }
@@ -35,12 +52,11 @@
 
 .prose a {
   text-decoration: underline;
-  text-decoration-color: theme('colors.gray.500');
 }
 
 .prose a:hover,
 .prose a:focus {
-  text-decoration-color: inherit;
+  text-decoration: none;
 }
 
 .prose hr {

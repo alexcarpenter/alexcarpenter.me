@@ -4,14 +4,12 @@ import { getAllMdx, getMdx, contentPath } from '@/lib/mdx';
 import Page from '@/components/Page';
 import { components } from '@/components/Mdx';
 
-export default function Post({ frontMatter, mdx }) {
+export default function PostPage({ frontMatter, mdx }) {
   return (
-    <Page title={frontMatter.title} description={frontMatter.description}>
-      <article className="prose">
-        <h1 className="font-bold text-2xl">{frontMatter.title}</h1>
-        <p className="mt-1 text-gray-400">{frontMatter.publishedAt}</p>
+    <Page {...frontMatter} as="article">
+      <div className="prose">
         <MDXRemote {...mdx} components={components} />
-      </article>
+      </div>
     </Page>
   );
 }

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import rangeParser from 'parse-numeric-range';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import useClipboard from 'react-use-clipboard';
@@ -11,20 +12,9 @@ var theme = {
     {
       types: ['comment'],
       style: {
-        color: 'rgba(161, 161, 170, var(--tw-text-opacity))',
+        color: 'inherit',
+        opacity: '0.75',
       },
-    },
-    {
-      types: ['string', 'number', 'builtin', 'variable'],
-      // style: {
-      //   color: '#aaaaa',
-      // },
-    },
-    {
-      types: ['class-name', 'function', 'tag', 'attr-name'],
-      // style: {
-      //   color: '#fff',
-      // },
     },
   ],
 };
@@ -40,15 +30,15 @@ const calculateLinesToHighlight = (meta) => {
   }
 };
 
-export default function Code({ children, className, metastring }) {
+export default function Code({ children, className = '', metastring }) {
   const [isCopied, setCopied] = useClipboard(children.trim(), {
     successDuration: 2000,
   });
   const language = className.replace(/language-/, '');
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   return (
-    <div className="relative overflow-hidden rounded border border-gray-900">
-      <div className="flex items-center justify-between w-full px-4 py-2 text-white border-b border-gray-900">
+    <div className="relative overflow-hidden rounded border  bg-gray-800 text-white">
+      <div className="flex items-center justify-between w-full px-4 py-2 border-b border-gray-200 border-opacity-20">
         <span className="uppercase">{language}</span>
         <button
           className="flex items-center focus:outline-none"
@@ -59,7 +49,6 @@ export default function Code({ children, className, metastring }) {
       </div>
       <Highlight
         {...defaultProps}
-        //@ts-ignore
         theme={theme}
         code={children.trim()}
         language={language}
@@ -82,7 +71,7 @@ export default function Code({ children, className, metastring }) {
             {tokens.map((line, i) => {
               const lineProps = getLineProps({ line, key: i });
               if (shouldHighlightLine(i)) {
-                lineProps.className = `${lineProps.className} bg-gray-800 -mx-4 px-4`;
+                lineProps.className = `${lineProps.className} bg-white bg-opacity-5 -mx-4 px-4`;
               }
               return (
                 <div key={i} {...lineProps}>
