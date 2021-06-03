@@ -1,7 +1,6 @@
 import social from '@/data/social';
 import Page from '@/components/Page';
 import Experience from '@/components/Experience';
-import Interests from '@/components/Interests';
 import Recommendations from '@/components/Recommendations';
 import Work from '@/components/Work';
 
