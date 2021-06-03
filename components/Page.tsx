@@ -19,7 +19,7 @@ export default function Page({
   link?: string;
   as?: 'div' | 'article';
   slug?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }) {
   return (
     <>
@@ -31,6 +31,8 @@ export default function Page({
         />
         <meta name="description" content={description} />
         <meta name="og:description" content={description} />
+
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
       <a
         href="#main"
@@ -42,9 +44,14 @@ export default function Page({
       <main id="main">
         <Component>
           {title && Component === 'div' && (
-            <h1 className="text-xl border-b border-white border-opacity-10 mb-8 pb-8">
-              {title}&nbsp;<span aria-hidden={true}>¬</span>
-            </h1>
+            <header className="border-b border-white border-opacity-10 mb-8 pb-8">
+              <h1 className="text-xl">
+                {title}&nbsp;<span aria-hidden={true}>¬</span>
+              </h1>
+              {description && (
+                <p className="mt-2 text-white text-opacity-75">{description}</p>
+              )}
+            </header>
           )}
           {title && Component === 'article' && (
             <header className="border-b border-white border-opacity-10 mb-8 pb-8">

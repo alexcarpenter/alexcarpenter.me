@@ -5,7 +5,7 @@ import List from '@/components/List';
 
 export default function Uses() {
   return (
-    <Page title="Uses">
+    <Page title="Uses" description="The tools I use daily to get work done.">
       <List>
         {data.map((item, index) => (
           <List.Item key={index}>
@@ -27,6 +27,7 @@ export default function Uses() {
                   >
                     {item.name}
                   </a>
+                  <span>&nbsp;&#8594;</span>
                 </h2>
                 <p className="mt-2 text-white text-opacity-75">
                   {item.description}
