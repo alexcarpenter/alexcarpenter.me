@@ -66,11 +66,11 @@ export default function Page({
                   </>
                 )}
               </p>
-              <h1 className="text-xl my-1">{widont(title)}</h1>
+              <h1 className="text-xl mt-1">{widont(title)}</h1>
               {link && (
                 <a
                   href={link}
-                  className="text-white text-opacity-75 hover:text-opacity-100 inline-block"
+                  className="text-white text-opacity-75 hover:text-opacity-100 mt-2 inline-block"
                 >
                   {new URL(link).hostname}&nbsp;&#8594;
                 </a>

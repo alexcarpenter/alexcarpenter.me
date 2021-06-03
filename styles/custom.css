@@ -37,6 +37,19 @@ html {
   padding-top: 0.25rem;
 }
 
+.prose blockquote {
+  @apply border-l-4 border-white border-opacity-10 pl-4;
+}
+
+.prose h2 {
+  @apply text-xl;
+}
+
+.prose * + h2,
+.prose * + h3 {
+  @apply mt-8;
+}
+
 .prose a {
   text-decoration: underline;
 }

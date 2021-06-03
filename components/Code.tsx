@@ -40,10 +40,7 @@ export default function Code({ children, className = '', metastring }) {
     <div className="relative overflow-hidden rounded bg-gray-900 text-white">
       <div className="flex items-center justify-between w-full px-4 py-2 border-b border-black">
         <span className="uppercase">{language}</span>
-        <button
-          className="flex items-center focus:outline-none"
-          onClick={setCopied}
-        >
+        <button className="flex items-center" onClick={setCopied}>
           {isCopied ? 'Copied' : 'Copy'}
         </button>
       </div>

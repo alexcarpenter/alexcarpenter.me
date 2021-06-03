@@ -22,7 +22,7 @@ export default function Banner() {
         </Link>
       </div>
       <ul className="flex space-x-8">
-        {/* <li>
+        <li>
           <Link href="/work">
             <a
               className={cx(
@@ -33,7 +33,7 @@ export default function Banner() {
               Work
             </a>
           </Link>
-        </li> */}
+        </li>
         <li>
           <Link href="/posts">
             <a

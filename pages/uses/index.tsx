@@ -11,13 +11,15 @@ export default function Uses() {
           <List.Item key={index}>
             <div className="flex flex-col sm:flex-row">
               <div className="w-28 flex-shrink-0">
-                <Image
-                  src={`/images/uses/${item.thumbnail}`}
-                  alt=""
-                  width={48}
-                  height={48}
-                  className="rounded-md w-full block"
-                />
+                <div className="mb-4">
+                  <Image
+                    src={`/images/uses/${item.thumbnail}`}
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="rounded-md w-full block"
+                  />
+                </div>
               </div>
               <div className="flex-1">
                 <h2>
@@ -27,7 +29,9 @@ export default function Uses() {
                   >
                     {item.name}
                   </a>
-                  <span>&nbsp;&#8594;</span>
+                  <span className="text-white text-opacity-75">
+                    &nbsp;&#8594;
+                  </span>
                 </h2>
                 <p className="mt-2 text-white text-opacity-75">
                   {item.description}

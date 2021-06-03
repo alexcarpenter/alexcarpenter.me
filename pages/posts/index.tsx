@@ -7,7 +7,10 @@ import List from '@/components/List';
 
 export default function Posts({ posts }) {
   return (
-    <Page title="Posts">
+    <Page
+      title="Posts"
+      description="Thoughts on CSS architecture, React, TypeScript, design systems, and state machines."
+    >
       <List>
         {posts
           .sort(
