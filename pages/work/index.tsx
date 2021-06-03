@@ -29,7 +29,7 @@ export default function WorkPage() {
               'TypeScript',
               'Design Systems',
               'Performance',
-              'State Machinces',
+              'State Machines',
               'Accessibility',
             ].map((item) => (
               <li>
