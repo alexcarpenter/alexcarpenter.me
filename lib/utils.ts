@@ -35,3 +35,14 @@ export const widont = (str) => {
 };
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export const breakpoints = [null, 'sm', 'md', 'lg', 'xl', '2xl'];
+
+export const mapResponsiveValues = (values, postfix) => {
+  return values.map((value, index) => {
+    if (!value) return;
+    return index > 0
+      ? `${breakpoints[index]}:${postfix}-${value}`
+      : `${postfix}-${value}`;
+  });
+};

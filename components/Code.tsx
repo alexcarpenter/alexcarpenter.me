@@ -16,6 +16,13 @@ var theme = {
         opacity: '0.75',
       },
     },
+    {
+      types: ['deleted'],
+      style: {
+        color: 'inherit',
+        opacity: '0.75',
+      },
+    },
   ],
 };
 

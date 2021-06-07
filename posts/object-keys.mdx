@@ -1,0 +1,46 @@
+---
+title: Using object keys to populate prop types or typescript types
+description:
+date: '2021-06-07'
+tags: ['react', 'typescript']
+---
+
+```jsx
+const themes = {
+  primary: 'primary',
+  secondary: 'secondary',
+};
+
+type ButtonProps = {
+  theme: 'primary' | 'secondary',
+};
+
+const Button = ({ theme = 'primary' }: ButtonProps) => {
+  return <button className={themes[theme]}>...</button>;
+};
+
+Button.propTypes = {
+  theme: PropTypes.oneOf(['primary', 'secondary']),
+};
+```
+
+```diff
+const themes = {
+  primary: 'primary',
+  secondary: 'secondary',
+};
+
+type ButtonProps = {
+-  theme: 'primary' | 'secondary';
++  theme: keyof typeof themes;
+};
+
+const Button = ({ theme = 'primary' }: ButtonProps) => {
+  return <button className={themes[theme]}>...</button>;
+};
+
+Button.propTypes = {
+-  theme: PropTypes.oneOf(['primary', 'secondary']),
++  theme: PropTypes.oneOf(Object.keys(themes)),
+};
+```

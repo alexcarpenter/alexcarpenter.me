@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
 import '@/styles/custom.css';
 import 'tailwindcss/tailwind.css';
-import cx from 'clsx';
+import { cx } from '@/lib/utils';
 
 function MyApp({ Component, pageProps }) {
   return (

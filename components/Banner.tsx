@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import cx from 'clsx';
+import { cx } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 

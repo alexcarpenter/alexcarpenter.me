@@ -1,8 +1,9 @@
 import social from '@/data/social';
 import Page from '@/components/Page';
-import Experience from '@/components/Experience';
+// import Experience from '@/components/Experience';
 import Recommendations from '@/components/Recommendations';
 import Work from '@/components/Work';
+import BulletList from '@/components/BulletList';
 
 export default function WorkPage() {
   return (
@@ -16,12 +17,12 @@ export default function WorkPage() {
           <Experience />
         </section> */}
         {/* <section className="py-8">
-          <h2 className="mb-8 text-xl">Work</h2>
+          <h2 className="mb-8 text-xl">Case studies</h2>
           <Work />
         </section> */}
         <section className="py-8">
           <h2 className="mb-8 text-xl">Interests</h2>
-          <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <BulletList cols={[2, null, 3]}>
             {[
               'CSS',
               'React',
@@ -32,18 +33,9 @@ export default function WorkPage() {
               'State Machines',
               'Accessibility',
             ].map((item) => (
-              <li key={item}>
-                <span
-                  role="img"
-                  aria-hidden="true"
-                  className="text-white text-opacity-75"
-                >
-                  &#8594;
-                </span>{' '}
-                {item}
-              </li>
+              <BulletList.Item>{item}</BulletList.Item>
             ))}
-          </ul>
+          </BulletList>
         </section>
         <section className="py-8">
           <h2 className="mb-8 text-xl">Recomendations</h2>
@@ -51,24 +43,16 @@ export default function WorkPage() {
         </section>
         <section className="py-8">
           <h2 className="mb-8 text-xl">Connect</h2>
-          <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <BulletList cols={[2, null, 3]}>
             {social.map((item, index) => (
-              <li key={index}>
-                <span
-                  role="img"
-                  aria-hidden="true"
-                  className="text-white text-opacity-75"
-                >
-                  &#8594;
-                </span>
-                &nbsp;
+              <BulletList.Item key={index}>
                 <a
                   {...item}
                   className="underline hover:no-underline focus:no-underline"
                 />
-              </li>
+              </BulletList.Item>
             ))}
-          </ul>
+          </BulletList>
         </section>
       </div>
     </Page>

@@ -4,15 +4,7 @@ import Head from 'next/head';
 import Banner from '@/components/Banner';
 import Views from '@/components/Views';
 
-export default function Page({
-  title,
-  description,
-  date,
-  link,
-  as: Component = 'div',
-  slug,
-  children,
-}: {
+interface PageProps {
   title?: string;
   description?: string;
   date?: string;
@@ -20,7 +12,17 @@ export default function Page({
   as?: 'div' | 'article';
   slug?: string;
   children?: React.ReactNode;
-}) {
+}
+
+export default function Page({
+  title,
+  description = 'UI Engineer',
+  date,
+  link,
+  as: Component = 'div',
+  slug,
+  children,
+}: PageProps) {
   return (
     <>
       <Head>

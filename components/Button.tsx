@@ -1,4 +1,4 @@
-import cx from 'clsx';
+import { cx } from '@/lib/utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm';
