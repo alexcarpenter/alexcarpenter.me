@@ -32,7 +32,7 @@ export default function WorkPage() {
               'State Machines',
               'Accessibility',
             ].map((item) => (
-              <li>
+              <li key={item}>
                 <span
                   role="img"
                   aria-hidden="true"
