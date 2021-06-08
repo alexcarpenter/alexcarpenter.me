@@ -22,7 +22,7 @@ export default function WorkPage() {
         </section> */}
         <section className="py-8">
           <h2 className="mb-8 text-xl">Interests</h2>
-          <BulletList cols={[2, null, 3]}>
+          <BulletList cols={['grid-cols-2', 'md:grid-cols-3']}>
             {[
               'CSS',
               'React',
@@ -43,7 +43,7 @@ export default function WorkPage() {
         </section>
         <section className="py-8">
           <h2 className="mb-8 text-xl">Connect</h2>
-          <BulletList cols={[2, null, 3]}>
+          <BulletList cols={['grid-cols-2', 'md:grid-cols-3']}>
             {social.map((item, index) => (
               <BulletList.Item key={index}>
                 <a

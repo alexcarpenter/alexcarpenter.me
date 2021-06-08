@@ -1,20 +1,14 @@
-import { cx, mapResponsiveValues } from '@/lib/utils';
+import { cx } from '@/lib/utils';
 
 function BulletList({
   children,
   cols,
 }: {
   children: React.ReactNode;
-  cols?: (null | 1 | 2 | 3)[];
+  cols?: string[];
 }) {
   return (
-    <ul
-      className={cx('grid gap-4 !list-none !pl-0', [
-        ...mapResponsiveValues(cols, 'grid-cols'),
-      ])}
-    >
-      {children}
-    </ul>
+    <ul className={cx('grid gap-4 !list-none !pl-0', [...cols])}>{children}</ul>
   );
 }
 
