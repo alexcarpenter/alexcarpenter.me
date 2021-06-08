@@ -6,9 +6,7 @@ module.exports = {
   purge: {
     content: ['./pages/**/*.tsx', './components/**/*.tsx', './data/**/*.ts'],
     options: {
-      safelist: {
-        standard: [/grid-cols-2$/, /grid-cols-3$/],
-      },
+      safelist: [/grid-cols-2$/, /grid-cols-3$/],
     },
   },
   darkMode: false, // or 'media' or 'class'
