@@ -5,7 +5,7 @@ function BulletList({
   cols,
 }: {
   children: React.ReactNode;
-  cols?: (null | 1 | 2 | 3 | 4)[];
+  cols?: (null | 1 | 2 | 3)[];
 }) {
   return (
     <ul
