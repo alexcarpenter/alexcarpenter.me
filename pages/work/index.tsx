@@ -16,10 +16,10 @@ export default function WorkPage() {
           <h2 className="mb-8 text-xl">Experience</h2>
           <Experience />
         </section> */}
-        {/* <section className="py-8">
-          <h2 className="mb-8 text-xl">Case studies</h2>
+        <section className="py-8">
+          <h2 className="mb-8 text-xl">Selected work</h2>
           <Work />
-        </section> */}
+        </section>
         <section className="py-8">
           <h2 className="mb-8 text-xl">Interests</h2>
           <BulletList cols={['grid-cols-2', 'md:grid-cols-3']}>

@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const root = process.cwd();
-export const contentPath = path.join(root, 'posts');
+export const contentPath = path.join(root, 'content/posts');
 
 export const getMdx = (directoryPath, fileName) => {
   const fullPath = path.join(directoryPath, fileName);
