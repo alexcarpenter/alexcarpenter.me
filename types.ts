@@ -1,5 +1,27 @@
 import * as React from 'react';
 
+// interface BasePageProps {
+//   title: string;
+//   description?: string;
+//   as?: 'div' | 'article';
+//   slug?: string;
+//   children?: React.ReactNode;
+// }
+
+// interface WorkPageProps extends BasePageProps {
+//   type: 'work';
+//   thumbnail: {
+//     src: string;
+//     width: string;
+//     height: string;
+//     alt: string;
+//   };
+// }
+
+// interface PostPageProps extends BasePageProps {
+//   type: 'post';
+//   date: string;
+// }
 export interface PageProps {
   title: string;
   description?: string;
@@ -13,8 +35,8 @@ export interface PageProps {
     height: string;
     alt: string;
   };
-  slug: string;
-  children: React.ReactNode;
+  slug?: string;
+  children?: React.ReactNode;
 }
 
 export type GridCols =
