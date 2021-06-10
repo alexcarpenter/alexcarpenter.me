@@ -3,7 +3,14 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const root = process.cwd();
-export const contentPath = path.join(root, 'content/posts');
+
+export const postsPath = path.join(root, 'content/posts');
+export const workPath = path.join(root, 'content/work');
+
+const content = {
+  posts: postsPath,
+  work: workPath,
+};
 
 export const getMdx = (directoryPath, fileName) => {
   const fullPath = path.join(directoryPath, fileName);
@@ -20,9 +27,9 @@ export const getMdx = (directoryPath, fileName) => {
   };
 };
 
-export const getAllMdx = () => {
-  const posts = fs
-    .readdirSync(contentPath)
-    .map((post) => getMdx(contentPath, post));
-  return posts;
+export const getAllMdx = (type: keyof typeof content) => {
+  const items = fs
+    .readdirSync(content[type])
+    .map((item) => getMdx(content[type], item));
+  return items;
 };

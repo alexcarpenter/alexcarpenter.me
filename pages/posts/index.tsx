@@ -57,7 +57,7 @@ export default function Posts({ posts }) {
 }
 
 export async function getStaticProps() {
-  const mdxFiles = getAllMdx();
+  const mdxFiles = getAllMdx('posts');
   return {
     props: {
       posts: mdxFiles,

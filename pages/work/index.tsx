@@ -1,11 +1,12 @@
+import { getAllMdx } from '@/lib/mdx';
 import social from '@/data/social';
 import Page from '@/components/Page';
 // import Experience from '@/components/Experience';
 import Recommendations from '@/components/Recommendations';
-import Work from '@/components/Work';
+import SelectedWork from '@/components/SelectedWork';
 import BulletList from '@/components/BulletList';
 
-export default function WorkPage() {
+export default function Work({ work }) {
   return (
     <Page
       title="Work"
@@ -18,7 +19,7 @@ export default function WorkPage() {
         </section> */}
         {/* <section className="py-8">
           <h2 className="mb-8 text-xl">Selected work</h2>
-          <Work />
+          <SelectedWork work={work} />
         </section> */}
         <section className="py-8">
           <h2 className="mb-8 text-xl">Interests</h2>
@@ -32,8 +33,8 @@ export default function WorkPage() {
               'Performance',
               'State Machines',
               'Accessibility',
-            ].map((item) => (
-              <BulletList.Item>{item}</BulletList.Item>
+            ].map((item, index) => (
+              <BulletList.Item key={index}>{item}</BulletList.Item>
             ))}
           </BulletList>
         </section>
@@ -57,4 +58,13 @@ export default function WorkPage() {
       </div>
     </Page>
   );
+}
+
+export async function getStaticProps() {
+  const mdxFiles = getAllMdx('work');
+  return {
+    props: {
+      work: mdxFiles,
+    },
+  };
 }

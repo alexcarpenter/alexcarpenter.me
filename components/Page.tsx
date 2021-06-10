@@ -2,6 +2,7 @@ import * as React from 'react';
 import { formatDate, widont } from '@/lib/utils';
 import Head from 'next/head';
 import Banner from '@/components/Banner';
+import Header from '@/components/Header';
 import Views from '@/components/Views';
 
 interface PageProps {
@@ -11,6 +12,7 @@ interface PageProps {
   link?: string;
   as?: 'div' | 'article';
   slug?: string;
+  type?: 'post' | 'work';
   children?: React.ReactNode;
 }
 
@@ -21,6 +23,8 @@ export default function Page({
   link,
   as: Component = 'div',
   slug,
+  thumbnail,
+  type,
   children,
 }: PageProps) {
   return (
@@ -45,40 +49,15 @@ export default function Page({
       <Banner />
       <main id="main">
         <Component>
-          {title && Component === 'div' && (
-            <header className="border-b border-white border-opacity-10 mb-8 pb-8">
-              <h1 className="text-xl">
-                {title}&nbsp;<span aria-hidden={true}>¬</span>
-              </h1>
-              {description && (
-                <p className="mt-2 text-white text-opacity-75">{description}</p>
-              )}
-            </header>
-          )}
-          {title && Component === 'article' && (
-            <header className="border-b border-white border-opacity-10 mb-8 pb-8">
-              <p className="text-white text-opacity-75 space-x-1">
-                <time dateTime={date}>{formatDate(date, 'long')}</time>
-                {slug && (
-                  <>
-                    <span role="separator" aria-orientation="vertical">
-                      &#183;
-                    </span>
-                    <Views slug={slug} />
-                  </>
-                )}
-              </p>
-              <h1 className="text-xl mt-1">{widont(title)}</h1>
-              {link && (
-                <a
-                  href={link}
-                  className="text-white text-opacity-75 hover:text-opacity-100 mt-2 inline-block"
-                >
-                  {new URL(link).hostname}&nbsp;&#8594;
-                </a>
-              )}
-            </header>
-          )}
+          <Header
+            title={title}
+            description={description}
+            type={type}
+            date={date}
+            link={link}
+            thumbnail={thumbnail}
+            slug={slug}
+          />
           {children}
         </Component>
       </main>

@@ -1,12 +1,12 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
-import { getAllMdx, getMdx, postsPath } from '@/lib/mdx';
+import { getAllMdx, getMdx, workPath } from '@/lib/mdx';
 import Page from '@/components/Page';
 import { components } from '@/components/Mdx';
 
-export default function PostPage({ frontMatter, mdx }) {
+export default function WorkEntry({ frontMatter, mdx }) {
   return (
-    <Page {...frontMatter} as="article" type="post">
+    <Page {...frontMatter} as="article" type="work">
       <div className="prose">
         <MDXRemote {...mdx} components={components} />
       </div>
@@ -15,7 +15,7 @@ export default function PostPage({ frontMatter, mdx }) {
 }
 
 export async function getStaticPaths() {
-  const mdxFiles = getAllMdx('posts');
+  const mdxFiles = getAllMdx('work');
   return {
     paths: mdxFiles.map((file) => ({
       params: { slug: file.frontMatter.slug },
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { frontMatter, content } = getMdx(
-    postsPath,
+    workPath,
     `${context.params.slug}.mdx`,
   );
 
