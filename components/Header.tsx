@@ -73,7 +73,7 @@ export default function Header({
 
   return (
     <Component>
-      <h1 className="text-xl mt-1">{widont(title)}</h1>
+      <h1 className="text-xl mt-1">{widont(title)}&nbsp;&#xAC;</h1>
       {description && (
         <p className="mt-2 text-white text-opacity-75">{description}</p>
       )}

@@ -1,3 +1,4 @@
+import Note from '@/components/Note';
 import Page from '@/components/Page';
 
 export default function Home() {
