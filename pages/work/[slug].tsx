@@ -6,7 +6,7 @@ import { components } from '@/components/Mdx';
 
 export default function WorkEntry({ frontMatter, mdx }) {
   return (
-    <Page {...frontMatter} as="article" type="work">
+    <Page {...frontMatter} type="work">
       <div className="prose">
         <MDXRemote {...mdx} components={components} />
       </div>

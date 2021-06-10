@@ -1,5 +1,4 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-const plugin = require('tailwindcss/plugin');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
@@ -15,11 +14,6 @@ module.exports = {
       white: '#fafafa',
       black: '#04070c',
       ...colors,
-    },
-    extend: {
-      spacing: {
-        '16/9': '56.25%',
-      },
     },
   },
 };

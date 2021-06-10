@@ -6,7 +6,7 @@ import { components } from '@/components/Mdx';
 
 export default function PostPage({ frontMatter, mdx }) {
   return (
-    <Page {...frontMatter} as="article" type="post">
+    <Page {...frontMatter} type="post">
       <div className="prose">
         <MDXRemote {...mdx} components={components} />
       </div>
