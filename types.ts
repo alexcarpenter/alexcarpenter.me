@@ -1,9 +1,12 @@
-export interface FrontMatter {
+import * as React from 'react';
+
+export interface PageProps {
   title: string;
   description?: string;
   type?: 'post' | 'work';
   date?: string;
   link?: string;
+  as?: 'div' | 'article';
   thumbnail?: {
     src: string;
     width: string;
@@ -11,6 +14,7 @@ export interface FrontMatter {
     alt: string;
   };
   slug: string;
+  children: React.ReactNode;
 }
 
 export type GridCols =

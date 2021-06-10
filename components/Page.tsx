@@ -1,20 +1,8 @@
 import * as React from 'react';
-import { formatDate, widont } from '@/lib/utils';
+import type { PageProps } from '../types';
 import Head from 'next/head';
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
-import Views from '@/components/Views';
-
-interface PageProps {
-  title?: string;
-  description?: string;
-  date?: string;
-  link?: string;
-  as?: 'div' | 'article';
-  slug?: string;
-  type?: 'post' | 'work';
-  children?: React.ReactNode;
-}
 
 export default function Page({
   title,
