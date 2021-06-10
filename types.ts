@@ -23,7 +23,7 @@ import * as React from 'react';
 //   date: string;
 // }
 export interface PageProps {
-  title: string;
+  title?: string;
   description?: string;
   type?: 'post' | 'work';
   date?: string;
