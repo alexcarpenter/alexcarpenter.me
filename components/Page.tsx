@@ -1,20 +1,35 @@
 import * as React from 'react';
-import type { PageProps } from '../types';
 import Head from 'next/head';
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
 
+interface PageProps {
+  type?: 'basic' | 'post' | 'work';
+  title?: string;
+  description?: string;
+  date?: string;
+  link?: string;
+  thumbnail?: {
+    src: string;
+    width: string;
+    height: string;
+    alt: string;
+  };
+  slug?: string;
+  children?: React.ReactNode;
+}
+
 export default function Page({
+  type = 'basic',
   title,
   description = 'UI Engineer',
   date,
   link,
-  as: Component = 'div',
   slug,
   thumbnail,
-  type,
   children,
 }: PageProps) {
+  const Component = type === 'basic' ? 'div' : 'article';
   return (
     <>
       <Head>

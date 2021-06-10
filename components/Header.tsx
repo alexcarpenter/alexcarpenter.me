@@ -20,7 +20,7 @@ export default function Header({
 }) {
   if (!title) return null;
 
-  if (type && type === 'work') {
+  if (type === 'work') {
     return (
       <Component>
         {thumbnail && (
@@ -44,7 +44,7 @@ export default function Header({
     );
   }
 
-  if (type && type === 'post') {
+  if (type === 'post') {
     return (
       <Component>
         <p className="text-white text-opacity-75 space-x-1">
