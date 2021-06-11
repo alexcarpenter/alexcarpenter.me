@@ -22,7 +22,7 @@ interface PageProps {
 export default function Page({
   type = 'basic',
   title,
-  description = 'UI Engineer',
+  description = 'Detail oriented user interface engineer currently interested in CSS architecture, React, TypeScript, design systems, and state machines.',
   date,
   link,
   slug,

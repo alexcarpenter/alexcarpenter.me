@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { getAllMdx } from '@/lib/mdx';
 import { formatDate } from '@/lib/utils';
-import Page from '@/components/Page';
 import Badge from '@/components/Badge';
+import Entry from '@/components/Entry';
+import Page from '@/components/Page';
 import List from '@/components/List';
 
 export default function Posts({ posts }) {
