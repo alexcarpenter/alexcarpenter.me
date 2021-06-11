@@ -12,10 +12,10 @@ export default function Work({ work }) {
       description="Helping teams build consistent, high-quality and inclusive user interfaces with React. Working remotely, floating between design and engineering teams."
     >
       <div className="divide-y divide-white divide-opacity-10 -my-8">
-        <section className="py-8">
+        {/* <section className="py-8">
           <h2 className="mb-8 text-xl">Selected work</h2>
           <SelectedWork work={work} />
-        </section>
+        </section> */}
         <section className="py-8">
           <h2 className="mb-8 text-xl">Interests</h2>
           <BulletList cols={['grid-cols-2', 'md:grid-cols-3']}>
