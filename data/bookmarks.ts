@@ -1,5 +1,12 @@
 export default [
   {
+    title: 'Stop using isLoading booleans',
+    description: '',
+    link: 'https://kentcdodds.com/blog/stop-using-isloading-booleans',
+    date: '2021-06-11T10:26:37-04:00',
+    tags: ['javascript'],
+  },
+  {
     title: 'Astro',
     description: 'Build faster websites with less client-side Javascript.',
     link: 'https://astro.build/',
