@@ -34,7 +34,7 @@ export default function Work({ work }) {
           </BulletList>
         </section>
         <section className="py-8">
-          <h2 className="mb-8 text-xl">Recomendations</h2>
+          <h2 className="mb-8 text-xl">Recommendations</h2>
           <Recommendations />
         </section>
         <section className="py-8">
