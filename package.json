@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "test": "jest",
     "test:watch": "jest --watch",
     "cypress:open": "cypress open",
@@ -21,7 +21,7 @@
     "firebase-admin": "^9.9.0",
     "gray-matter": "^4.0.3",
     "mdx-prism": "^0.3.3",
-    "next": "^10.2.3",
+    "next": "^11.0.0",
     "next-mdx-remote": "^3.0.2",
     "next-transpile-modules": "^6.4.1",
     "node-pinboard": "^2.0.1",

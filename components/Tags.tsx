@@ -12,7 +12,7 @@ export default function Tags({ items }) {
     return (
       <Component>
         {items.slice(0, 2).map((tag) => (
-          <li>
+          <li key={tag}>
             <Badge key={tag}>#{tag}</Badge>
           </li>
         ))}

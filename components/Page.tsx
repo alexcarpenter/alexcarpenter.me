@@ -45,7 +45,7 @@ export default function Page({
       </Head>
       <a
         href="#main"
-        className="fixed top-0 left-0 p-1 bg-yellow-400 text-[#111] text-sm transform -translate-y-full focus:translate-y-0"
+        className="fixed top-0 left-0 p-1 bg-yellow-500 text-[#111] text-sm transform -translate-y-full focus:translate-y-0"
       >
         Skip to content
       </a>
