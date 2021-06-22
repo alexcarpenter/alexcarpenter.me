@@ -3,7 +3,7 @@ import type { GridCols } from '../types';
 
 function BulletList({
   children,
-  cols,
+  cols = [],
 }: {
   children: React.ReactNode;
   cols?: Array<GridCols>;
@@ -15,15 +15,16 @@ function BulletList({
 
 function BulletListItem({ children }) {
   return (
-    <li>
+    <li className="flex">
       <span
         role="img"
         aria-hidden="true"
-        className="text-white text-opacity-75"
+        className="text-white text-opacity-75 flex-shrink-0"
       >
         &#8594;
-      </span>{' '}
-      {children}
+      </span>
+      &nbsp;
+      <span>{children}</span>
     </li>
   );
 }
