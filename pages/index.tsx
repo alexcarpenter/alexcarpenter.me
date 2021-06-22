@@ -10,13 +10,13 @@ export default function Home() {
           A detail oriented user interface engineer currently interested in CSS
           architecture, React, TypeScript, design systems, and state machines.
         </p>
-        {/* <aside className="sm:float-right sm:w-1/2 sm:ml-4 sm:mb-4">
+        <aside className="sm:float-right sm:w-1/2 sm:ml-4 sm:mb-4">
           <Note label="Currently" variant="orange">
             Learning TypeScript via Ultimate Courses, rebuilding{' '}
             <a href="https://us-coffee-roasters.com">us-coffee-roasters.com</a>{' '}
             with Next.js, and playing lots of disc golf.
           </Note>
-        </aside> */}
+        </aside>
         <p>
           This site is my digital playground that I have been tending on and off
           for the past eight years. I've used it as a tool to experiment and
