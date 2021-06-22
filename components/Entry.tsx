@@ -21,7 +21,7 @@ export default function Entry({ date, title, description, tags, link }) {
     return (
       <>
         <a
-          className="hover:underline focus:underline"
+          className="underline hover:no-underline focus:no-underline"
           target="_blank"
           rel="noopener noreferrer"
           href={link}
@@ -44,11 +44,13 @@ export default function Entry({ date, title, description, tags, link }) {
       </div>
       <div className="flex-1">
         <h2>
-          <CustomLink href={link}>{title}</CustomLink>
+          {link ? <CustomLink href={link}>{title}</CustomLink> : { title }}
         </h2>
-        <p className="text-sm text-white text-opacity-75">
-          {new URL(link).hostname}
-        </p>
+        {link && (
+          <p className="text-sm text-white text-opacity-75">
+            {new URL(link).hostname}
+          </p>
+        )}
         <p className="mt-2 text-white text-opacity-75">{description}</p>
         {tags && <Tags items={tags} />}
       </div>
