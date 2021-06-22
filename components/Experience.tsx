@@ -1,92 +1,51 @@
-import Image from 'next/image';
-import List from '@/components/List';
-
 export default function Experience() {
   return (
-    <List>
-      <List.Item>
-        <div className="flex flex-col sm:flex-row">
-          <div className="w-28 flex-shrink-0">
-            <Image
-              src={`/images/experience/nationbuilder.png`}
-              alt="Picture of Alex Carpenter"
-              width={48}
-              height={48}
-              className="rounded-md w-full block"
-            />
-          </div>
-          <div className="flex-1">
-            <h2>NationBuilder</h2>
-            <p className="text-white text-opacity-75">
-              2018&mdash;Present{' '}
-              <span role="separator" aria-orientation="vertical">
-                &#183;
-              </span>{' '}
-              UI Engineer
-            </p>
+    <div className="grid sm:grid-cols-2 gap-4">
+      <article className="bg-white bg-opacity-10 p-4 rounded-md">
+        <h3>NationBuilder</h3>
+        <p className="text-sm text-white text-opacity-75">
+          UI Engineer
+          <br />
+          Nov 2018 - Present
+        </p>
+      </article>
 
-            <ul className="mt-2">
-              {/* <li>
-                <span
-                  role="img"
-                  aria-hidden="true"
-                  className="text-white text-opacity-75"
-                >
-                  &#8594;
-                </span>{' '}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Temporibus, atque?
-              </li> */}
-            </ul>
-          </div>
-        </div>
-      </List.Item>
-      <List.Item>
-        <div className="flex flex-col sm:flex-row">
-          <div className="w-28 flex-shrink-0">
-            <Image
-              src={`/images/experience/mighty-in-the-midwest.png`}
-              alt="Picture of Alex Carpenter"
-              width={48}
-              height={48}
-              className="rounded-md w-full block"
-            />
-          </div>
-          <div className="flex-1">
-            <h2>Mighty in the Midwest</h2>
-            <p className="text-white text-opacity-75">
-              2015&mdash;2018{' '}
-              <span role="separator" aria-orientation="vertical">
-                &#183;
-              </span>{' '}
-              Senior Developer
-            </p>
-          </div>
-        </div>
-      </List.Item>
-      <List.Item>
-        <div className="flex flex-col sm:flex-row">
-          <div className="w-28 flex-shrink-0">
-            <Image
-              src={`/images/experience/masuga-design.jpeg`}
-              alt="Picture of Alex Carpenter"
-              width={48}
-              height={48}
-              className="rounded-md w-full block"
-            />
-          </div>
-          <div className="flex-1">
-            <h2>Masuga Design</h2>
-            <p className="text-white text-opacity-75">
-              2012&mdash;2015{' '}
-              <span role="separator" aria-orientation="vertical">
-                &#183;
-              </span>{' '}
-              Front-end Developer
-            </p>
-          </div>
-        </div>
-      </List.Item>
-    </List>
+      <article className="bg-white bg-opacity-10 p-4 rounded-md">
+        <h3>Mighty in the Midwest</h3>
+        <p className="text-sm text-white text-opacity-75">
+          Senior Developer
+          <br />
+          Oct 2015 - Nov 2018
+        </p>
+      </article>
+
+      <article className="bg-white bg-opacity-10 p-4 rounded-md">
+        <h3>Masuga Design</h3>
+        <p className="text-sm text-white text-opacity-75">
+          Front-end Developer
+          <br />
+          Feb 2012 - Oct 2015
+        </p>
+      </article>
+
+      <div className="flex items-center justify-center p-4">
+        <p>
+          <a
+            href="https://www.linkedin.com/in/imalexcarpenter/"
+            className="underline hover:no-underline focus:no-underline"
+          >
+            View LinkedIn
+          </a>
+          &nbsp;
+          <span
+            role="img"
+            aria-hidden="true"
+            className="text-white text-opacity-75 flex-shrink-0"
+          >
+            &#8594;
+          </span>
+        </p>
+      </div>
+    </div>
   );
 }
