@@ -4,7 +4,7 @@ const variants = {
   yellow: 'bg-yellow-500',
   orange: 'bg-orange-500',
   green: 'bg-green-500',
-  gray: 'bg-gray-300',
+  gray: 'bg-white bg-opacity-10 !text-white',
 };
 
 export default function Note({
@@ -18,7 +18,9 @@ export default function Note({
 }) {
   return (
     <div
-      className={cx('p-4 mb-8 text-black rounded-md flex', [variants[variant]])}
+      className={cx('p-4 rounded-md text-black flex text-base', [
+        variants[variant],
+      ])}
     >
       <span className="mr-4 flex-shrink-0" aria-hidden={true}>
         &#8594;{' '}
