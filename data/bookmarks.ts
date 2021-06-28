@@ -1,5 +1,12 @@
 export default [
   {
+    title: 'useTransitToSubmenu hook',
+    description: '',
+    link: 'https://github.com/reakit/reakit/blob/master/packages/reakit/src/Menu/__utils/useTransitToSubmenu.ts',
+    date: '2021-06-24T15:32:08-04:00',
+    tags: ['react'],
+  },
+  {
     title: 'Stop using isLoading booleans',
     description: '',
     link: 'https://kentcdodds.com/blog/stop-using-isloading-booleans',
