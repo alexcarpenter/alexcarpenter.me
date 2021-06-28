@@ -3,7 +3,7 @@ export default function Experience() {
     <div className="grid sm:grid-cols-2 gap-4">
       <article className="bg-white bg-opacity-10 p-4 rounded-md">
         <h3>NationBuilder</h3>
-        <p className="text-sm text-white text-opacity-75">
+        <p className="mt-0.5 text-sm text-white text-opacity-75">
           UI Engineer
           <br />
           Nov 2018 - Present
@@ -12,7 +12,7 @@ export default function Experience() {
 
       <article className="bg-white bg-opacity-10 p-4 rounded-md">
         <h3>Mighty in the Midwest</h3>
-        <p className="text-sm text-white text-opacity-75">
+        <p className="mt-0.5 text-sm text-white text-opacity-75">
           Senior Developer
           <br />
           Oct 2015 - Nov 2018
@@ -21,7 +21,7 @@ export default function Experience() {
 
       <article className="bg-white bg-opacity-10 p-4 rounded-md">
         <h3>Masuga Design</h3>
-        <p className="text-sm text-white text-opacity-75">
+        <p className="mt-0.5 text-sm text-white text-opacity-75">
           Front-end Developer
           <br />
           Feb 2012 - Oct 2015

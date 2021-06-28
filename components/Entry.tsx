@@ -47,7 +47,7 @@ export default function Entry({ date, title, description, tags, link }) {
           {link ? <CustomLink href={link}>{title}</CustomLink> : { title }}
         </h2>
         {link && (
-          <p className="text-sm text-white text-opacity-75">
+          <p className="mt-0.5 text-sm text-white text-opacity-75">
             {new URL(link).hostname}
           </p>
         )}

@@ -10,6 +10,7 @@ export default function Banner() {
       <div className="w-28 flex-shrink-0">
         <Link href="/">
           <a className="flex items-start w-12 relative group">
+            <span className="sr-only">Alex Carpenter</span>
             <Image
               src="/images/me.jpg"
               alt="Picture of Alex Carpenter"
@@ -26,7 +27,6 @@ export default function Banner() {
                 width={32}
                 height={32}
               >
-                <defs />
                 <path
                   fillRule="evenodd"
                   clipRule="evenodd"
