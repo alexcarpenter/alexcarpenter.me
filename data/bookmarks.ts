@@ -1,5 +1,13 @@
 export default [
   {
+    title: 'Write code that is easy to delete, not easy to extend',
+    description:
+      'Every line of code written comes at a price: maintenance. To avoid paying for a lot of code, we build reusable software. The problem with code re-use is that it gets in the way of changing your mind later on.',
+    link: 'https://programmingisterrible.com/post/139222674273/how-to-write-disposable-code-in-large-systems',
+    date: '2021-06-29T09:38:21-04:00',
+    tags: [],
+  },
+  {
     title: 'Don’t Use The Placeholder Attribute',
     description:
       'The placeholder attribute contains a surprising amount of issues that prevent it from delivering on what it promises.',

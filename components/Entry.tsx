@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { formatDate } from '@/lib/utils';
+import { formatDate, widont } from '@/lib/utils';
 import Tags from '@/components/Tags';
 
 export default function Entry({ date, title, description, tags, link }) {
@@ -43,7 +43,11 @@ export default function Entry({ date, title, description, tags, link }) {
       </div>
       <div className="flex-1">
         <h2>
-          {link ? <CustomLink href={link}>{title}</CustomLink> : { title }}
+          {link ? (
+            <CustomLink href={link}>{widont(title)}</CustomLink>
+          ) : (
+            { title }
+          )}
         </h2>
         {link && (
           <p className="mt-0.5 text-sm text-white text-opacity-75">
