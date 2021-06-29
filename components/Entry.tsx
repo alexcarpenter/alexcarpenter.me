@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { formatDate } from '@/lib/utils';
-import Badge from '@/components/Badge';
 import Tags from '@/components/Tags';
 
 export default function Entry({ date, title, description, tags, link }) {

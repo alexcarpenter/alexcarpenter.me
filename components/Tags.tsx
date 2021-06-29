@@ -28,7 +28,7 @@ export default function Tags({ items }) {
   return (
     <Component>
       {items.map((tag) => (
-        <li>
+        <li key={tag}>
           <Badge key={tag}>#{tag}</Badge>
         </li>
       ))}

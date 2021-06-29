@@ -1,14 +1,12 @@
 import { cx } from '@/lib/utils';
 
 const variants = {
-  yellow: 'bg-yellow-500',
-  orange: 'bg-orange-500',
-  green: 'bg-green-500',
-  gray: 'bg-white bg-opacity-10 !text-white',
+  orange: 'bg-orange-500 text-black',
+  gray: 'bg-white bg-opacity-10',
 };
 
 export default function Note({
-  variant = 'yellow',
+  variant = 'gray',
   label = 'Note',
   children,
 }: {
@@ -17,11 +15,7 @@ export default function Note({
   children: React.ReactNode;
 }) {
   return (
-    <div
-      className={cx('p-4 rounded-md text-black flex text-base', [
-        variants[variant],
-      ])}
-    >
+    <div className={cx('p-4 rounded-md flex text-base', [variants[variant]])}>
       <span className="mr-4 flex-shrink-0" aria-hidden={true}>
         &#8594;{' '}
       </span>
