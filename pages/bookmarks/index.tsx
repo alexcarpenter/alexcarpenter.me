@@ -5,7 +5,7 @@ import data from '@/data/bookmarks';
 
 export default function Bookmarks() {
   return (
-    <Page title="Bookmarks" description="">
+    <Page title="Bookmarks" description="Saving for reference later.">
       <List>
         {data.map((item) => (
           <List.Item key={item.date}>
