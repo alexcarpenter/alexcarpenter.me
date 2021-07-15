@@ -6,7 +6,7 @@ import Experience from '@/components/Experience';
 import Recommendations from '@/components/Recommendations';
 import Section from '@/components/Section';
 
-export default function Work({ work }) {
+export default function Work() {
   return (
     <Page
       title="Work"
@@ -48,13 +48,4 @@ export default function Work({ work }) {
       </Section>
     </Page>
   );
-}
-
-export async function getStaticProps() {
-  const mdxFiles = getAllMdx('work');
-  return {
-    props: {
-      work: mdxFiles,
-    },
-  };
 }
