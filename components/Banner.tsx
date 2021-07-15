@@ -75,6 +75,18 @@ export default function Banner() {
             </a>
           </Link>
         </li>
+        {/* <li>
+          <Link href="/changelog">
+            <a
+              className={cx(
+                'text-white text-opacity-75 hover:text-opacity-100',
+              )}
+              aria-current={pathname === '/changelog' ? 'page' : null}
+            >
+              Changelog
+            </a>
+          </Link>
+        </li> */}
       </ul>
     </header>
   );
