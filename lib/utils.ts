@@ -26,7 +26,9 @@ export const formatDate = (date, format = 'short') => {
       year: 'numeric',
     },
   };
-  return new Date(date).toLocaleDateString('default', formats[format]);
+  let options = formats[format];
+  options.timeZone = 'UTC';
+  return new Date(date).toLocaleDateString('en-us', options);
 };
 
 export const widont = (str) => {
