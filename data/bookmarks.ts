@@ -1,5 +1,22 @@
 export default [
   {
+    title:
+      'Avoid global state — Colocate with Uncontrolled Compound Components',
+    description:
+      'With all the best intentions, codebases frequently end up a tangled web of components, abstractions, and global state (managed by some third party library) making the smallest of changes a living nightmare, and maintenance a balancing act.',
+    link: 'https://jjenzz.com/avoid-global-state-colocate',
+    date: '2021-07-15T11:27:45-04:00',
+    tags: ['react'],
+  },
+  {
+    title: 'XState Catalogue',
+    description:
+      'Collection of professionally designed state machines you can drop into your projects.',
+    link: 'https://xstate-catalogue.com/',
+    date: '2021-07-12T10:08:08-04:00',
+    tags: [],
+  },
+  {
     title: 'Write code that is easy to delete, not easy to extend',
     description:
       'Every line of code written comes at a price: maintenance. To avoid paying for a lot of code, we build reusable software. The problem with code re-use is that it gets in the way of changing your mind later on.',
