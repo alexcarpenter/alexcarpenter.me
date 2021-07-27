@@ -1,7 +1,7 @@
 export default function Experience() {
   return (
     <div className="grid sm:grid-cols-2 gap-4">
-      {/* <article
+      <article
         className="flex justify-between items-center bg-white bg-opacity-10 p-4 rounded-md col-span-2"
         style={{
           background: 'linear-gradient(45deg, #844FBA 0%, #2E71E5 100%)',
@@ -26,14 +26,14 @@ export default function Experience() {
           <path d="M62.3 0v49.2H44.5V30.8l-16.7 9.7v62.9l16.7 9.7v-49h17.8v18.2l16.8-9.6v-63z" />
           <path d="M62.3 113.1l44.6-25.7V25.7l-16.8-9.6v61.7l-27.8 16z" />
         </svg>
-      </article> */}
+      </article>
 
       <article className="bg-white bg-opacity-10 p-4 rounded-md">
         <h3>NationBuilder</h3>
         <p className="mt-0.5 text-sm text-white text-opacity-75">
           UI Engineer
           <br />
-          Nov 2018 - Present
+          Nov 2018 - Jul 2021
         </p>
       </article>
 
