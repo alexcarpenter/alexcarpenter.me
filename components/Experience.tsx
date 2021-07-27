@@ -2,7 +2,7 @@ export default function Experience() {
   return (
     <div className="grid sm:grid-cols-2 gap-4">
       <article
-        className="flex justify-between items-center bg-white bg-opacity-10 p-4 rounded-md col-span-2"
+        className="flex justify-between items-center bg-white bg-opacity-10 p-4 rounded-md sm:col-span-2"
         style={{
           background: 'linear-gradient(45deg, #844FBA 0%, #2E71E5 100%)',
         }}
