@@ -1,5 +1,13 @@
 export default [
   {
+    title: 'Polymorphic React Components in TypeScript',
+    description:
+      'How to define strongly-typed React components that can inherit props from arbitrary HTML elements.',
+    link: 'https://www.benmvp.com/blog/polymorphic-react-components-typescript/',
+    date: '2021-08-10T11:27:45-04:00',
+    tags: ['react', 'typescript'],
+  },
+  {
     title:
       'Avoid global state — Colocate with Uncontrolled Compound Components',
     description:
