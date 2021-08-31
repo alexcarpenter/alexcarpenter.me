@@ -34,14 +34,14 @@ export default function HashiCorp() {
 
       <Section id="state-of-the-cloud">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8">
-          <div className="col-span-2">
+          <div className="md:col-span-2">
             <p className="text-5xl">02</p>
             <h2 className="mt-4 text-white text-opacity-75">
               State of the Cloud
             </h2>
           </div>
 
-          <div className="col-span-2 prose">
+          <div className="md:col-span-2 prose">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
               dolorem voluptatibus reiciendis, veniam dolorum necessitatibus
@@ -50,11 +50,11 @@ export default function HashiCorp() {
             </p>
           </div>
 
-          <div className="col-span-4">
+          <div className="md:col-span-4">
             <Video src="/videos/state-of-the-cloud-animation.mp4" />
           </div>
 
-          <div className="col-start-3 col-span-2 prose">
+          <div className="md:col-start-3 md:col-span-2 prose">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
               dolorem voluptatibus reiciendis, veniam dolorum necessitatibus
@@ -172,7 +172,7 @@ function Video({ src }: { src: string }) {
           'opacity-100': isPlaying,
         })}
       >
-        <video muted ref={videoRef}>
+        <video muted playsInline ref={videoRef}>
           <source src={src} type="video/mp4" />
         </video>
       </div>
