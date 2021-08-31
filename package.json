@@ -28,13 +28,14 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
+    "react-intersection-observer": "^8.32.1",
     "react-polymorphic-types": "^1.1.0",
     "react-rough-notation": "^1.0.1",
     "react-use-clipboard": "^1.0.7",
     "rehype": "^11.0.0",
     "rehype-slug": "^4.0.1",
     "swr": "^0.3.9",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "^2.2.9"
   },
   "devDependencies": {
     "@tailwindcss/jit": "^0.1.18",

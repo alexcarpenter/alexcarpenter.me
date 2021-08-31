@@ -4,7 +4,7 @@ import Views from '@/components/Views';
 
 const Component = (props) => (
   <header
-    className="border-b border-white border-opacity-10 mb-8 pb-8"
+    className="border-b border-white border-opacity-[.15] mb-8 pb-8"
     {...props}
   />
 );
