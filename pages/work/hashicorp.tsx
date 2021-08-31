@@ -112,7 +112,7 @@ export default function HashiCorp() {
 
       <Section>
         <div className="grid grid-cols-4">
-          <div className="col-start-2 col-span-2 text-center">
+          <div className="md:col-start-2 md:col-span-2 text-center">
             <time className="text-white text-opacity-75">Jul 26, 2021</time>
             <h2 className="mt-2">
               Joined HashiCorp as a Web Engineer II on the core team.
