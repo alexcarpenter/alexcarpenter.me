@@ -62,3 +62,22 @@ html {
 .prose hr {
   @apply bg-gray-800 h-px w-full border-0;
 }
+
+[style*='--aspect-ratio'] {
+  position: relative;
+  width: 100%;
+}
+
+[style*='--aspect-ratio']::before {
+  content: '';
+  display: block;
+  padding-bottom: calc(100% / (var(--aspect-ratio)));
+}
+
+[style*='--aspect-ratio'] > :first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

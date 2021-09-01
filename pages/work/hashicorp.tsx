@@ -1,7 +1,8 @@
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 import { cx } from '@/lib/utils';
+import Badge from '@/components/Badge';
 import BulletList from '@/components/BulletList';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
@@ -9,36 +10,49 @@ import { useEffect } from 'react';
 
 export default function HashiCorp() {
   return (
-    <Page title="HashiCorp" description="">
-      {/* <Section id="about-redesign">
+    <Page
+      title="HashiCorp"
+      description="Web Engineer helping build and maintain public-facing HashiCorp websites and web applications with Next.js."
+    >
+      <Section id="about-redesign">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8">
           <div className="col-span-2">
             <p className="text-5xl">03</p>
-            <h2 className="mt-4 text-white text-opacity-75">About redesign</h2>
+            <h2 className="my-4 text-white text-opacity-75">About redesign</h2>
+            <Badge>#project</Badge>
           </div>
 
           <div className="col-span-2 prose">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-              dolorem voluptatibus reiciendis, veniam dolorum necessitatibus
-              dicta? Repellendus magni dolorum at accusamus vel quod, cum atque
-              quos doloremque odit quidem voluptatem.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+              similique amet voluptatum quisquam soluta porro repellendus, id ad
+              beatae tempora vitae nam laudantium explicabo laboriosam eligendi
+              aut. Necessitatibus, debitis voluptate?
             </p>
             <p>
-              <a href="https://www.hashicorp.com/about">View pages</a>
+              <a href="https://hashicorp.com/about">View pages</a>
               <span className="text-white text-opacity-75">&nbsp;→</span>
             </p>
           </div>
         </div>
-      </Section> */}
+      </Section>
 
       <Section id="state-of-the-cloud">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8">
+          <div className="md:col-span-4">
+            <Video
+              src="/videos/state-of-the-cloud-animation.mp4"
+              width={1454}
+              height={1138}
+            />
+          </div>
+
           <div className="md:col-span-2">
             <p className="text-5xl">02</p>
-            <h2 className="mt-4 text-white text-opacity-75">
+            <h2 className="my-4 text-white text-opacity-75">
               State of the Cloud
             </h2>
+            <Badge>#project</Badge>
           </div>
 
           <div className="md:col-span-2 prose">
@@ -48,10 +62,6 @@ export default function HashiCorp() {
               dicta? Repellendus magni dolorum at accusamus vel quod, cum atque
               quos doloremque odit quidem voluptatem.
             </p>
-          </div>
-
-          <div className="md:col-span-4">
-            <Video src="/videos/state-of-the-cloud-animation.mp4" />
           </div>
 
           <div className="md:col-start-3 md:col-span-2 prose">
@@ -92,10 +102,17 @@ export default function HashiCorp() {
 
           <div className="md:col-span-2">
             <p className="text-5xl">01</p>
-            <h2 className="mt-4 text-white text-opacity-75">HCP Consul page</h2>
+            <h2 className="my-4 text-white text-opacity-75">HCP Consul page</h2>
+            <Badge>#project</Badge>
           </div>
 
           <div className="md:col-span-2 prose">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+              dolorem voluptatibus reiciendis, veniam dolorum necessitatibus
+              dicta? Repellendus magni dolorum at accusamus vel quod, cum atque
+              quos doloremque odit quidem voluptatem.
+            </p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
               dolorem voluptatibus reiciendis, veniam dolorum necessitatibus
@@ -114,9 +131,10 @@ export default function HashiCorp() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-y-8">
           <div className="md:col-start-2 md:col-span-2 text-center">
             <time className="text-white text-opacity-75">Jul 26, 2021</time>
-            <h2 className="mt-2">
+            <h2 className="mt-2 mb-4">
               Joined HashiCorp as a Web Engineer II on the core team.
             </h2>
+            <Badge>#update</Badge>
           </div>
         </div>
       </Section>
@@ -124,7 +142,15 @@ export default function HashiCorp() {
   );
 }
 
-function Video({ src }: { src: string }) {
+function Video({
+  src,
+  width,
+  height,
+}: {
+  src: string;
+  width?: number;
+  height?: number;
+}) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
   const [inViewRef, inView] = useInView({
@@ -149,7 +175,7 @@ function Video({ src }: { src: string }) {
 
   return (
     <div
-      className="relative border border-white border-opacity-[.15]"
+      className={cx('relative border border-white border-opacity-[.15]')}
       ref={inViewRef}
     >
       {inView && (
@@ -171,6 +197,11 @@ function Video({ src }: { src: string }) {
           'opacity-50': !isPlaying,
           'opacity-100': isPlaying,
         })}
+        style={
+          {
+            '--aspect-ratio': width && height ? `${width}/${height}` : null,
+          } as React.CSSProperties
+        }
       >
         <video muted playsInline ref={videoRef}>
           <source src={src} type="video/mp4" />
