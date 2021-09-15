@@ -20,6 +20,17 @@
   src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
 }
 
+:root {
+  /* Your default theme */
+  --background: white;
+  --foreground: black;
+}
+
+[data-theme='dark'] {
+  --background: black;
+  --foreground: white;
+}
+
 * {
   margin: 0;
   padding: 0;

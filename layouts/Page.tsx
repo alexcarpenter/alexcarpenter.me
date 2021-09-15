@@ -1,5 +1,7 @@
+import Base from './Base';
+
 const Page: React.FC = ({ children }) => {
-  return <div>{children}</div>;
+  return <Base>{children}</Base>;
 };
 
 export default Page;
