@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
+import { SkipLink } from './SkipLink';
 
 interface PageProps {
   type?: 'basic' | 'post' | 'work';
@@ -43,12 +44,7 @@ export default function Page({
 
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
-      <a
-        href="#main"
-        className="fixed top-0 left-0 p-1 bg-orange-500 text-black text-sm transform -translate-y-full focus:translate-y-0"
-      >
-        Skip to content
-      </a>
+      <SkipLink targetSelector="#main">Skip to content</SkipLink>
       <Banner />
       <main id="main">
         <Component>
