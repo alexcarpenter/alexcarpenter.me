@@ -20,45 +20,29 @@
   src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
 }
 
-html {
-  @apply bg-black text-white;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.prose > * + * {
-  margin-top: 1.25rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: normal;
 }
 
-.prose h2 {
-  @apply text-xl;
+body {
+  min-height: 100vh;
+  font-family: 'JetBrains Mono Web', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, Liberation Mono, Courier New, monospace;
+  -webkit-font-smoothing: antialiased;
 }
 
-.prose * + h2,
-.prose * + h3 {
-  @apply mt-8;
-}
-
-.prose ul {
-  padding-left: 1.35rem;
-  list-style-type: disc;
-}
-
-.prose ul li + li {
-  padding-top: 0.25rem;
-}
-
-.prose blockquote {
-  @apply border-l-4 border-white border-opacity-10 pl-4;
-}
-
-.prose a {
-  text-decoration: underline;
-}
-
-.prose a:hover,
-.prose a:focus {
-  text-decoration: none;
-}
-
-.prose hr {
-  @apply bg-gray-800 h-px w-full border-0;
+a {
+  color: inherit;
 }
