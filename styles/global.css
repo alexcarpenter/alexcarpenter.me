@@ -21,14 +21,13 @@
 }
 
 :root {
-  /* Your default theme */
-  --background: white;
-  --foreground: black;
+  --background: #f8f9fa;
+  --foreground: #12181c;
 }
 
 [data-theme='dark'] {
-  --background: black;
-  --foreground: white;
+  --background: #12181c;
+  --foreground: #f8f9fa;
 }
 
 * {
