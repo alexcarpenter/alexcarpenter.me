@@ -21,16 +21,16 @@
 }
 
 :root {
-  --background: 248 249 250;
-  --foreground: 18 24 28;
+  --background: 249 250 251;
+  --foreground: 0 0 0;
   --primary: var(--foreground);
   --secondary: rgb(var(--foreground) / 75%);
   --border-color: rgb(var(--foreground) / 10%);
 }
 
 [data-theme='dark'] {
-  --background: 18 24 28;
-  --foreground: 248 249 250;
+  --background: 0 0 0;
+  --foreground: 249 250 251;
 }
 
 * {
