@@ -21,13 +21,16 @@
 }
 
 :root {
-  --background: #f8f9fa;
-  --foreground: #12181c;
+  --background: 248 249 250;
+  --foreground: 18 24 28;
+  --primary: var(--foreground);
+  --secondary: rgb(var(--foreground) / 75%);
+  --border-color: rgb(var(--foreground) / 10%);
 }
 
 [data-theme='dark'] {
-  --background: #12181c;
-  --foreground: #f8f9fa;
+  --background: 18 24 28;
+  --foreground: 248 249 250;
 }
 
 * {
@@ -51,6 +54,8 @@ body {
   font-family: 'JetBrains Mono Web', ui-monospace, SFMono-Regular, Menlo, Monaco,
     Consolas, Liberation Mono, Courier New, monospace;
   -webkit-font-smoothing: antialiased;
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
 }
 
 a {
