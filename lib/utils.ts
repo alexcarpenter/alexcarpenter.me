@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-export { clsx as cx };
+import slugify from '@sindresorhus/slugify';
+export { slugify, clsx as cx };
 
 // https://gist.github.com/JamieMason/0566f8412af9fe6a1d470aa1e089a752
 export const groupBy = <T extends Record<string, any>, K extends keyof T>(

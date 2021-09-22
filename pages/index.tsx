@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Note from '@/components/Note';
 import Page from '@/components/Page';
 
@@ -7,8 +8,13 @@ export default function Home() {
       <div className="prose">
         <h1>Hey, I'm Alex.</h1>
         <p>
-          A detail oriented user interface engineer currently interested in CSS
+          A detail oriented user interface engineer interested in CSS
           architecture, React, TypeScript, design systems, and state machines.
+          Currently working at{' '}
+          <Link href="/work/hashicorp">
+            <a>HashiCorp</a>
+          </Link>
+          .
         </p>
         <aside className="sm:float-right sm:w-1/2 sm:ml-4 sm:mb-4">
           <Note label="Currently" variant="orange">
