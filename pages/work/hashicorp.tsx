@@ -2,10 +2,9 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { cx } from '@/lib/utils';
-import Emoji from '@/components/Emoji';
 import Page from '@/components/Page';
 import Timeline from '@/components/Timeline';
-import BulletList from '@/components/BulletList';
+import Emoji from '@/components/Emoji';
 import { useEffect } from 'react';
 
 export default function HashiCorp() {
@@ -23,21 +22,23 @@ export default function HashiCorp() {
           tags={['project']}
         /> */}
 
-        <Timeline.Event
+        {/* <Timeline.Event
+          theme="hashicorp"
           date="Sep 8, 2021"
           heading="HashiCorp about pages"
           link="https://hashicorp.com/about"
           tags={['project']}
-        />
+        /> */}
 
-        <Timeline.Event
+        {/* <Timeline.Event
           theme="consul"
           date="Aug 31, 2021"
           heading="HCP Consul pricing table updates"
           tags={['project']}
-        />
+        /> */}
 
-        <Timeline.Event
+        {/* <Timeline.Event
+          theme="hashicorp"
           date="Aug 11, 2021"
           heading="State of the Cloud page"
           link="https://hashicorp.com/state-of-the-cloud"
@@ -48,24 +49,51 @@ export default function HashiCorp() {
             width={1454}
             height={1138}
           />
-        </Timeline.Event>
 
-        <Timeline.Event
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+            beatae, tenetur sapiente itaque a maiores ducimus dolores culpa
+            architecto, repellat dolor. Quisquam quibusdam veniam delectus id
+            voluptatem animi in saepe?
+          </p>
+
+          <Media className="ml-4 mb-4 float-right w-1/2">
+            <Image
+              src="/images/work/hashicorp/state-of-the-cloud-graph.jpeg"
+              width={940}
+              height={1135}
+              alt="Try HCP Consul homepage screenshot"
+            />
+          </Media>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+            beatae, tenetur sapiente itaque a maiores ducimus dolores culpa
+            architecto, repellat dolor. Quisquam quibusdam veniam delectus id
+            voluptatem animi in saepe?
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+            beatae, tenetur sapiente itaque a maiores ducimus dolores culpa
+            architecto, repellat dolor. Quisquam quibusdam veniam delectus id
+            voluptatem animi in saepe?
+          </p>
+        </Timeline.Event> */}
+
+        {/* <Timeline.Event
           theme="consul"
           date="Jul 26, 2021"
           heading="Consul on the HashiCorp Cloud Platform"
           link="https://cloud.hashicorp.com/try-hcp-consul"
           tags={['project']}
         >
-          <div className="ml-4 mb-4 float-right w-1/2">
-            <Media>
-              <Image
-                src="/images/work/hashicorp/try-hcp-consul.jpeg"
-                width={1600}
-                height={900}
-              />
-            </Media>
-          </div>
+          <Media className="ml-4 mb-4 float-right w-1/2">
+            <Image
+              src="/images/work/hashicorp/try-hcp-consul.jpeg"
+              width={1600}
+              height={900}
+              alt="Try HCP Consul homepage screenshot"
+            />
+          </Media>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
             beatae, tenetur sapiente itaque a maiores ducimus dolores culpa
@@ -78,34 +106,44 @@ export default function HashiCorp() {
             architecto, repellat dolor. Quisquam quibusdam veniam delectus id
             voluptatem animi in saepe?
           </p>
-        </Timeline.Event>
+        </Timeline.Event> */}
 
         <Timeline.Event
           date="Jul 26, 2021"
-          heading="🎉 Joined HashiCorp as a Web Engineer II on the core team."
-          tags={['event']}
+          heading={
+            <>
+              <Emoji label="Tada">🎉</Emoji> Joined HashiCorp as a Web Engineer
+              II on the core team.
+            </>
+          }
+          tags={['update']}
         />
       </Timeline>
     </Page>
   );
 }
 
-const Media = React.forwardRef<HTMLDivElement, { children: React.ReactNode }>(
-  (props, ref) => (
+const Media = React.forwardRef<
+  HTMLDivElement,
+  { className?: string; children: React.ReactNode }
+>((props, ref) => (
+  <div className={props.className}>
     <div
       className="flex relative border border-white border-opacity-[.15]"
       ref={ref}
     >
       {props.children}
     </div>
-  ),
-);
+  </div>
+));
 
 function Video({
+  className,
   src,
   width,
   height,
 }: {
+  className?: string;
   src: string;
   width?: number;
   height?: number;
@@ -133,7 +171,7 @@ function Video({
   }, [videoRef.current]);
 
   return (
-    <Media ref={inViewRef}>
+    <Media ref={inViewRef} className={className}>
       {inView && (
         <button
           onClick={() => videoRef.current.play()}
@@ -145,8 +183,9 @@ function Video({
                 isPlaying,
             },
           )}
+          aria-hidden={isPlaying ? true : false}
         >
-          Replay
+          Replay <span className="sr-only">video</span>
         </button>
       )}
       <div

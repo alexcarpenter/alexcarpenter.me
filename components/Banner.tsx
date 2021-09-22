@@ -38,38 +38,40 @@ export default function Banner() {
           </a>
         </Link>
       </div>
-      <ul className="flex flex-col items-end sm:items-start sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8">
-        <li>
-          <Link href="/work">
-            <a
-              className={cx('text-gray-300 hover:text-white')}
-              aria-current={pathname === '/work' ? 'page' : null}
-            >
-              Work
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/posts">
-            <a
-              className={cx('text-gray-300 hover:text-white')}
-              aria-current={pathname === '/posts' ? 'page' : null}
-            >
-              Posts
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/bookmarks">
-            <a
-              className={cx('text-gray-300 hover:text-white')}
-              aria-current={pathname === '/bookmarks' ? 'page' : null}
-            >
-              Bookmarks
-            </a>
-          </Link>
-        </li>
-      </ul>
+      <nav>
+        <ul className="flex flex-col items-end sm:items-start sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8">
+          <li>
+            <Link href="/work">
+              <a
+                className={cx('text-gray-300 hover:text-white')}
+                aria-current={pathname === '/work' ? 'page' : null}
+              >
+                Work
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/posts">
+              <a
+                className={cx('text-gray-300 hover:text-white')}
+                aria-current={pathname === '/posts' ? 'page' : null}
+              >
+                Posts
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/bookmarks">
+              <a
+                className={cx('text-gray-300 hover:text-white')}
+                aria-current={pathname === '/bookmarks' ? 'page' : null}
+              >
+                Bookmarks
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }

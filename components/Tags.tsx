@@ -5,7 +5,9 @@ export default function Tags({ items }) {
   const [showMore, setShowMore] = React.useState(false);
 
   const Component = ({ children }) => (
-    <ul className="flex flex-wrap mt-4 gap-2">{children}</ul>
+    <ul className="flex flex-wrap mt-4 gap-2" aria-label="Tags">
+      {children}
+    </ul>
   );
 
   if (items.length > 3 && !showMore) {

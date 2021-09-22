@@ -1,4 +1,5 @@
 import { widont, formatDate } from '@/lib/utils';
+import Link from 'next/link';
 import Image from 'next/image';
 import Views from '@/components/Views';
 
@@ -68,7 +69,10 @@ export default function Header({
 
   return (
     <Component>
-      <h1 className="text-xl mt-1">{widont(title)}&nbsp;&#xAC;</h1>
+      <h1 className="text-xl mt-1">
+        {widont(title)}
+        <span aria-hidden={true}>&nbsp;&#xAC;</span>
+      </h1>
       {description && <p className="mt-2 text-gray-300">{description}</p>}
     </Component>
   );
