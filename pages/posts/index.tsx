@@ -43,7 +43,7 @@ export default function Posts({ posts }) {
                   {post.frontMatter.tags && (
                     <div className="mt-4 space-x-2">
                       {post.frontMatter.tags.map((tag) => (
-                        <Badge key={tag}>#{tag}</Badge>
+                        <Badge key={tag}>{`#${tag}`}</Badge>
                       ))}
                     </div>
                   )}
