@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { cx } from '@/lib/utils';
+import Emoji from '@/components/Emoji';
 import Page from '@/components/Page';
 import Timeline from '@/components/Timeline';
 import BulletList from '@/components/BulletList';

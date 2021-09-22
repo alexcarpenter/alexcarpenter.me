@@ -42,9 +42,7 @@ export default function Banner() {
         <li>
           <Link href="/work">
             <a
-              className={cx(
-                'text-white text-opacity-75 hover:text-opacity-100',
-              )}
+              className={cx('text-gray-300 hover:text-white')}
               aria-current={pathname === '/work' ? 'page' : null}
             >
               Work
@@ -54,9 +52,7 @@ export default function Banner() {
         <li>
           <Link href="/posts">
             <a
-              className={cx(
-                'text-white text-opacity-75 hover:text-opacity-100',
-              )}
+              className={cx('text-gray-300 hover:text-white')}
               aria-current={pathname === '/posts' ? 'page' : null}
             >
               Posts
@@ -66,9 +62,7 @@ export default function Banner() {
         <li>
           <Link href="/bookmarks">
             <a
-              className={cx(
-                'text-white text-opacity-75 hover:text-opacity-100',
-              )}
+              className={cx('text-gray-300 hover:text-white')}
               aria-current={pathname === '/bookmarks' ? 'page' : null}
             >
               Bookmarks

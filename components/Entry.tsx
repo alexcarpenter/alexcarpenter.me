@@ -47,7 +47,7 @@ export default function Entry({
         >
           {children}
         </a>
-        <span className="text-white text-opacity-75">&nbsp;&#8594;</span>
+        <span className="text-gray-300">&nbsp;&#8594;</span>
       </>
     );
   };
@@ -65,10 +65,7 @@ export default function Entry({
         </div>
       )}
       <div className="w-28 flex-shrink-0">
-        <time
-          className="text-white text-opacity-75 mb-2 inline-block"
-          dateTime={date}
-        >
+        <time className="text-gray-300 mb-2 inline-block" dateTime={date}>
           {formatDate(date)}
         </time>
       </div>
@@ -81,13 +78,11 @@ export default function Entry({
           )}
         </h2>
         {link && (
-          <p className="mt-0.5 text-sm text-white text-opacity-75">
+          <p className="mt-0.5 text-sm text-gray-300">
             {new URL(link).hostname}
           </p>
         )}
-        {description && (
-          <p className="mt-2 text-white text-opacity-75">{description}</p>
-        )}
+        {description && <p className="mt-2 text-gray-300">{description}</p>}
         {tags && <Tags items={tags} />}
       </div>
     </div>

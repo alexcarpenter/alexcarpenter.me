@@ -23,7 +23,7 @@ export default function Posts({ posts }) {
               <div className="flex flex-col sm:flex-row">
                 <div className="w-28 flex-shrink-0">
                   <time
-                    className="text-white text-opacity-75 mb-2 inline-block"
+                    className="text-gray-300 mb-2 inline-block"
                     dateTime={post.frontMatter.date}
                   >
                     {formatDate(post.frontMatter.date)}
@@ -37,7 +37,7 @@ export default function Posts({ posts }) {
                       </a>
                     </Link>
                   </h2>
-                  <p className="mt-2 text-white text-opacity-75">
+                  <p className="mt-2 text-gray-300">
                     {post.frontMatter.description}
                   </p>
                   {post.frontMatter.tags && (

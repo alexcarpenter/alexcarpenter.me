@@ -25,7 +25,7 @@ export default function Recommendations() {
               </div>
               <div className="flex-1">
                 <p style={{ textIndent: '-.65rem' }}>“{item.text}”</p>
-                <p className="mt-4 text-white text-opacity-75">
+                <p className="mt-4 text-gray-300">
                   &mdash; {item.name}, {item.title}, {item.company}
                 </p>
               </div>

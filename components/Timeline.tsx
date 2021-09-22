@@ -40,10 +40,7 @@ interface EventProps {
 function Event({ date, heading, children, link, tags }: EventProps) {
   return (
     <article className={cx('w-full')}>
-      <time
-        className={cx('text-sm text-white text-opacity-75')}
-        dateTime={date}
-      >
+      <time className={cx('text-sm text-gray-300')} dateTime={date}>
         <a href={`#${slugify(heading)}`}>{formatDate(date, 'long')}</a>
       </time>
       <h2 className={cx('mt-1')}>
@@ -57,16 +54,14 @@ function Event({ date, heading, children, link, tags }: EventProps) {
             >
               {heading}
             </a>
-            <span className="text-white text-opacity-75">&nbsp;&#8594;</span>
+            <span className="text-gray-300">&nbsp;&#8594;</span>
           </>
         ) : (
           <>{heading}</>
         )}
       </h2>
       {link && (
-        <p className="mt-2 text-sm text-white text-opacity-75">
-          {new URL(link).hostname}
-        </p>
+        <p className="mt-2 text-sm text-gray-300">{new URL(link).hostname}</p>
       )}
       {children && <div className={cx('my-8 prose')}>{children}</div>}
       <Tags items={tags} />
@@ -84,7 +79,7 @@ function Event({ date, heading, children, link, tags }: EventProps) {
 //   } = props;
 //   return (
 //     <article className={cx('w-full')} ref={ref}>
-//       <time className={cx('text-white text-opacity-75')} dateTime={date}>
+//       <time className={cx('text-gray-300')} dateTime={date}>
 //         <a href={`#${slugify(heading)}`}>{formatDate(date, 'long')}</a>
 //       </time>
 //       <h2 className={cx('mt-2')}>
@@ -98,14 +93,14 @@ function Event({ date, heading, children, link, tags }: EventProps) {
 //             >
 //               {heading}
 //             </a>
-//             <span className="text-white text-opacity-75">&nbsp;&#8594;</span>
+//             <span className="text-gray-300">&nbsp;&#8594;</span>
 //           </>
 //         ) : (
 //           <>{heading}</>
 //         )}
 //       </h2>
 //       {link && (
-//         <p className="mt-2 text-sm text-white text-opacity-75">
+//         <p className="mt-2 text-sm text-gray-300">
 //           {new URL(link).hostname}
 //         </p>
 //       )}

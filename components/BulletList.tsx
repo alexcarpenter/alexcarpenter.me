@@ -19,7 +19,7 @@ function BulletListItem({ children }) {
       <span
         role="img"
         aria-hidden="true"
-        className="text-white text-opacity-75 flex-shrink-0"
+        className="text-gray-300 flex-shrink-0"
       >
         &#8594;
       </span>
