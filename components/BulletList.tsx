@@ -1,5 +1,6 @@
 import { cx } from '@/lib/utils';
 import type { GridCols } from '../types';
+import RightArrow from '@/components/RightArrow';
 
 function BulletList({
   children,
@@ -16,14 +17,7 @@ function BulletList({
 function BulletListItem({ children }) {
   return (
     <li className="flex">
-      <span
-        role="img"
-        aria-hidden="true"
-        className="text-white text-opacity-75 flex-shrink-0"
-      >
-        &#8594;
-      </span>
-      &nbsp;
+      <RightArrow position="before" />
       <span>{children}</span>
     </li>
   );

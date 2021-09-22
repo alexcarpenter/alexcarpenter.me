@@ -5,7 +5,9 @@ export default function Tags({ items }) {
   const [showMore, setShowMore] = React.useState(false);
 
   const Component = ({ children }) => (
-    <ul className="flex flex-wrap mt-4 gap-2">{children}</ul>
+    <ul className="flex flex-wrap mt-4 gap-2" aria-label="Tags">
+      {children}
+    </ul>
   );
 
   if (items.length > 3 && !showMore) {
@@ -13,7 +15,7 @@ export default function Tags({ items }) {
       <Component>
         {items.slice(0, 2).map((tag) => (
           <li key={tag}>
-            <Badge key={tag}>#{tag}</Badge>
+            <Badge key={tag}>{`#${tag}`}</Badge>
           </li>
         ))}
         <li>
@@ -29,7 +31,7 @@ export default function Tags({ items }) {
     <Component>
       {items.map((tag) => (
         <li key={tag}>
-          <Badge key={tag}>#{tag}</Badge>
+          <Badge key={tag}>{`#${tag}`}</Badge>
         </li>
       ))}
     </Component>

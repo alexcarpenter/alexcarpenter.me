@@ -1,14 +1,23 @@
+import Link from 'next/link';
+import RightArrow from '@/components/RightArrow';
+
 export default function Experience() {
   return (
     <div className="grid sm:grid-cols-2 gap-4">
       <article
-        className="flex justify-between items-center bg-white bg-opacity-10 p-4 rounded-md sm:col-span-2"
+        className="relative flex justify-between items-center p-4 rounded-md sm:col-span-2"
         style={{
           background: 'linear-gradient(45deg, #844FBA 0%, #2E71E5 100%)',
         }}
       >
         <div>
-          <h3>HashiCorp</h3>
+          <h3>
+            <Link href="/work/hashicorp">
+              <a className="after:absolute after:inset-0 underline hover:no-underline">
+                HashiCorp
+              </a>
+            </Link>
+          </h3>
           <p className="mt-0.5 text-sm text-white text-opacity-90">
             Web Engineer
             <br />
@@ -28,27 +37,27 @@ export default function Experience() {
         </svg>
       </article>
 
-      <article className="bg-white bg-opacity-10 p-4 rounded-md">
+      <article className="bg-gray-900 p-4 rounded-md">
         <h3>NationBuilder</h3>
-        <p className="mt-0.5 text-sm text-white text-opacity-75">
+        <p className="mt-0.5 text-sm text-gray-300">
           UI Engineer
           <br />
           Nov 2018 - Jul 2021
         </p>
       </article>
 
-      <article className="bg-white bg-opacity-10 p-4 rounded-md">
+      <article className="bg-gray-900 p-4 rounded-md">
         <h3>Mighty in the Midwest</h3>
-        <p className="mt-0.5 text-sm text-white text-opacity-75">
+        <p className="mt-0.5 text-sm text-gray-300">
           Senior Developer
           <br />
           Oct 2015 - Nov 2018
         </p>
       </article>
 
-      <article className="bg-white bg-opacity-10 p-4 rounded-md">
+      <article className="bg-gray-900 p-4 rounded-md">
         <h3>Masuga Design</h3>
-        <p className="mt-0.5 text-sm text-white text-opacity-75">
+        <p className="mt-0.5 text-sm text-gray-300">
           Front-end Developer
           <br />
           Feb 2012 - Oct 2015
@@ -63,14 +72,7 @@ export default function Experience() {
           >
             View LinkedIn
           </a>
-          &nbsp;
-          <span
-            role="img"
-            aria-hidden="true"
-            className="text-white text-opacity-75 flex-shrink-0"
-          >
-            &#8594;
-          </span>
+          <RightArrow position="after" />
         </p>
       </div>
     </div>

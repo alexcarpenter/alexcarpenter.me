@@ -1,12 +1,10 @@
 import { widont, formatDate } from '@/lib/utils';
+import Link from 'next/link';
 import Image from 'next/image';
 import Views from '@/components/Views';
 
 const Component = (props) => (
-  <header
-    className="border-b border-white border-opacity-10 mb-8 pb-8"
-    {...props}
-  />
+  <header className="border-b mb-8 pb-8" {...props} />
 );
 
 export default function Header({
@@ -31,15 +29,13 @@ export default function Header({
         {link && (
           <a
             href={link}
-            className="text-white text-opacity-75 hover:text-opacity-100 inline-block"
+            className="text-gray-300 hover:text-white inline-block"
           >
             {new URL(link).hostname}&nbsp;&#8594;
           </a>
         )}
         <h1 className="text-xl mt-2">{widont(title)}</h1>
-        {description && (
-          <p className="mt-2 text-white text-opacity-75">{description}</p>
-        )}
+        {description && <p className="mt-2 text-gray-300">{description}</p>}
       </Component>
     );
   }
@@ -47,7 +43,7 @@ export default function Header({
   if (type === 'post') {
     return (
       <Component>
-        <p className="text-white text-opacity-75 space-x-1">
+        <p className="text-gray-300 space-x-1">
           <time dateTime={date}>{formatDate(date, 'long')}</time>
           {slug && (
             <>
@@ -62,7 +58,7 @@ export default function Header({
         {link && (
           <a
             href={link}
-            className="text-white text-opacity-75 hover:text-opacity-100 mt-2 inline-block"
+            className="text-gray-300 hover:text-white mt-2 inline-block"
           >
             {new URL(link).hostname}&nbsp;&#8594;
           </a>
@@ -73,10 +69,11 @@ export default function Header({
 
   return (
     <Component>
-      <h1 className="text-xl mt-1">{widont(title)}&nbsp;&#xAC;</h1>
-      {description && (
-        <p className="mt-2 text-white text-opacity-75">{description}</p>
-      )}
+      <h1 className="text-xl mt-1">
+        {widont(title)}
+        <span aria-hidden={true}>&nbsp;&#xAC;</span>
+      </h1>
+      {description && <p className="mt-2 text-gray-300">{description}</p>}
     </Component>
   );
 }

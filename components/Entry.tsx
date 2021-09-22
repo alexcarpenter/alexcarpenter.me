@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { formatDate, widont } from '@/lib/utils';
+import RightArrow from '@/components/RightArrow';
 import Tags from '@/components/Tags';
 
 interface EntryProps {
@@ -23,11 +24,11 @@ export default function Entry({
   tags,
   link,
 }: EntryProps) {
-  const CustomLink = ({ href, children }) => {
-    const isInternalLink =
-      href && (href.startsWith('/') || href.startsWith('#'));
+  const isInternalLink = (href) =>
+    href && (href.startsWith('/') || href.startsWith('#'));
 
-    if (isInternalLink) {
+  const CustomLink = ({ href, children }) => {
+    if (isInternalLink(href)) {
       return (
         <Link href={href}>
           <a className="underline hover:no-underline focus:no-underline">
@@ -47,12 +48,13 @@ export default function Entry({
         >
           {children}
         </a>
-        <span className="text-white text-opacity-75">&nbsp;&#8594;</span>
+        <RightArrow position="after" />
       </>
     );
   };
+
   return (
-    <div className="flex flex-col sm:flex-row flex-wrap">
+    <article className="flex flex-col sm:flex-row flex-wrap">
       {image && (
         <div className="w-full mb-4">
           <Image
@@ -65,10 +67,7 @@ export default function Entry({
         </div>
       )}
       <div className="w-28 flex-shrink-0">
-        <time
-          className="text-white text-opacity-75 mb-2 inline-block"
-          dateTime={date}
-        >
+        <time className="text-gray-300 mb-2 inline-block" dateTime={date}>
           {formatDate(date)}
         </time>
       </div>
@@ -80,16 +79,14 @@ export default function Entry({
             <>{title}</>
           )}
         </h2>
-        {link && (
-          <p className="mt-0.5 text-sm text-white text-opacity-75">
+        {link && !isInternalLink(link) && (
+          <p className="mt-0.5 text-sm text-gray-300">
             {new URL(link).hostname}
           </p>
         )}
-        {description && (
-          <p className="mt-2 text-white text-opacity-75">{description}</p>
-        )}
+        {description && <p className="mt-2 text-gray-300">{description}</p>}
         {tags && <Tags items={tags} />}
       </div>
-    </div>
+    </article>
   );
 }
