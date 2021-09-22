@@ -13,7 +13,7 @@ export default function Tags({ items }) {
       <Component>
         {items.slice(0, 2).map((tag) => (
           <li key={tag}>
-            <Badge key={tag}>#{tag}</Badge>
+            <Badge key={tag}>{`#${tag}`}</Badge>
           </li>
         ))}
         <li>
@@ -29,7 +29,7 @@ export default function Tags({ items }) {
     <Component>
       {items.map((tag) => (
         <li key={tag}>
-          <Badge key={tag}>#{tag}</Badge>
+          <Badge key={tag}>{`#${tag}`}</Badge>
         </li>
       ))}
     </Component>
