@@ -22,29 +22,30 @@ export default function HashiCorp() {
           tags={['project']}
         /> */}
 
-        {/* <Timeline.Event
+        <Timeline.Event
           theme="hashicorp"
           date="Sep 8, 2021"
           heading="HashiCorp about pages"
           link="https://hashicorp.com/about"
           tags={['project']}
-        /> */}
+        />
 
-        {/* <Timeline.Event
+        <Timeline.Event
           theme="consul"
           date="Aug 31, 2021"
           heading="HCP Consul pricing table updates"
+          link="https://cloud.hashicorp.com/pricing/consul"
           tags={['project']}
-        /> */}
+        />
 
-        {/* <Timeline.Event
+        <Timeline.Event
           theme="hashicorp"
           date="Aug 11, 2021"
           heading="State of the Cloud page"
           link="https://hashicorp.com/state-of-the-cloud"
           tags={['project']}
         >
-          <Video
+          {/* <Video
             src="/videos/state-of-the-cloud-animation.mp4"
             width={1454}
             height={1138}
@@ -76,37 +77,23 @@ export default function HashiCorp() {
             beatae, tenetur sapiente itaque a maiores ducimus dolores culpa
             architecto, repellat dolor. Quisquam quibusdam veniam delectus id
             voluptatem animi in saepe?
-          </p>
-        </Timeline.Event> */}
+          </p> */}
+        </Timeline.Event>
 
-        {/* <Timeline.Event
+        <Timeline.Event
           theme="consul"
-          date="Jul 26, 2021"
+          date="Jul 29, 2021"
           heading="Consul on the HashiCorp Cloud Platform"
           link="https://cloud.hashicorp.com/try-hcp-consul"
           tags={['project']}
         >
-          <Media className="ml-4 mb-4 float-right w-1/2">
-            <Image
-              src="/images/work/hashicorp/try-hcp-consul.jpeg"
-              width={1600}
-              height={900}
-              alt="Try HCP Consul homepage screenshot"
-            />
-          </Media>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-            beatae, tenetur sapiente itaque a maiores ducimus dolores culpa
-            architecto, repellat dolor. Quisquam quibusdam veniam delectus id
-            voluptatem animi in saepe?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-            beatae, tenetur sapiente itaque a maiores ducimus dolores culpa
-            architecto, repellat dolor. Quisquam quibusdam veniam delectus id
-            voluptatem animi in saepe?
-          </p>
-        </Timeline.Event> */}
+          {/* <Image
+            src="/images/work/hashicorp/try-hcp-consul.jpeg"
+            width={1600}
+            height={900}
+            alt="Try HCP Consul homepage screenshot"
+          /> */}
+        </Timeline.Event>
 
         <Timeline.Event
           date="Jul 26, 2021"
