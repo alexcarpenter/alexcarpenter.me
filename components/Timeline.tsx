@@ -36,7 +36,10 @@ function Timeline({ children }) {
         const { theme = 'default' } = child.props;
         return (
           <li
-            className={cx('relative pl-8 py-8 border-l', themes[theme].border)}
+            className={cx(
+              'relative pl-4 md:pl-8 py-4 md:py-8 border-l',
+              themes[theme].border,
+            )}
           >
             <span
               className={cx(
