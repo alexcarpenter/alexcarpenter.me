@@ -11,10 +11,10 @@ function Section({
     <section className="section" id={id}>
       <style jsx>{`
         .section + .section {
-          @apply border-t pt-8 mt-8;
+          @apply border-t pt-12 mt-12;
         }
       `}</style>
-      {heading && <h2 className="text-xl mb-8">{heading}</h2>}
+      {heading && <h2 className="text-xl mb-12">{heading}</h2>}
       {children}
     </section>
   );

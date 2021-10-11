@@ -1,4 +1,4 @@
-import '@/styles/custom.css';
+import '@/styles/global.css';
 import 'tailwindcss/tailwind.css';
 import { cx } from '@/lib/utils';
 

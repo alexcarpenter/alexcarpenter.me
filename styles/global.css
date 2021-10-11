@@ -25,7 +25,7 @@ html {
 }
 
 .prose > * + * {
-  margin-top: 1.25rem;
+  @apply mt-6;
 }
 
 .prose h2 {

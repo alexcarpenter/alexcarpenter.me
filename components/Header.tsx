@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Views from '@/components/Views';
 
 const Component = (props) => (
-  <header className="border-b mb-8 pb-8" {...props} />
+  <header className="border-b mb-12 pb-12" {...props} />
 );
 
 export default function Header({

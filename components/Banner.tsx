@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Banner() {
   const { pathname } = useRouter();
   return (
-    <header className="mb-8 flex items-start sm:items-center justify-between sm:justify-start">
+    <header className="mb-12 flex items-start sm:items-center justify-between sm:justify-start">
       <div className="w-28 flex-shrink-0">
         <Link href="/">
           <a className="flex items-start w-12 relative group">
