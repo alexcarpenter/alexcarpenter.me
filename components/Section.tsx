@@ -14,7 +14,7 @@ function Section({
           @apply border-t pt-12 mt-12;
         }
       `}</style>
-      {heading && <h2 className="text-xl mb-12">{heading}</h2>}
+      {heading && <h2 className="text-xl mb-6">{heading}</h2>}
       {children}
     </section>
   );
