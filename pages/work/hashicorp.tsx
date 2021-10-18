@@ -6,6 +6,7 @@ import Page from '@/components/Page';
 import Emoji from '@/components/Emoji';
 import List from '@/components/List';
 import Entry from '@/components/Entry';
+import Section from '@/components/Section';
 import { useEffect } from 'react';
 
 export default function HashiCorp() {
@@ -15,14 +16,14 @@ export default function HashiCorp() {
       description="Web Engineer helping build and maintain public-facing HashiCorp websites and web applications with Next.js."
     >
       <List>
-        {/* <List.Item>
+        <List.Item>
           <Entry
-            date="Jul 26, 2021"
+            date="Oct 14, 2021"
             title="Waypoint homepage"
             link="https://waypointproject.io"
             tags={['project']}
           />
-        </List.Item> */}
+        </List.Item>
 
         <List.Item>
           <Entry

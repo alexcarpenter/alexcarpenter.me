@@ -1,4 +1,3 @@
-import { getAllMdx } from '@/lib/mdx';
 import social from '@/data/social';
 import BulletList from '@/components/BulletList';
 import Page from '@/components/Page';
