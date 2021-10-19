@@ -18,6 +18,15 @@ export default function HashiCorp() {
       <List>
         <List.Item>
           <Entry
+            date="Oct 19, 2021"
+            title="HCP Packer page"
+            link="https://cloud.hashicorp.com/products/packer"
+            tags={['project']}
+          />
+        </List.Item>
+
+        <List.Item>
+          <Entry
             date="Oct 14, 2021"
             title="Waypoint homepage"
             link="https://waypointproject.io"
