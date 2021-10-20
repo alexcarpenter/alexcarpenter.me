@@ -26,6 +26,17 @@ var theme = {
   ],
 };
 
+const getParams = (name = ``) => {
+  const [lang, params = ``] = name.split(`:`);
+  return [lang.split(`language-`).pop().split(`{`).shift()].concat(
+    params.split(`&`).reduce((merged, param) => {
+      const [key, value] = param.split(`=`);
+      merged[key] = value;
+      return merged;
+    }, {}),
+  );
+};
+
 const calculateLinesToHighlight = (meta) => {
   const RE = /{([\d,-]+)}/;
   if (RE.test(meta)) {
@@ -37,16 +48,23 @@ const calculateLinesToHighlight = (meta) => {
   }
 };
 
-export default function Code({ children, className = '', metastring }) {
+export default function Code({ children, className = '' }) {
   const [isCopied, setCopied] = useClipboard(children.trim(), {
     successDuration: 2000,
   });
-  const language = className.replace(/language-/, '');
-  const shouldHighlightLine = calculateLinesToHighlight(metastring);
+  const [language, { filename = ``, highlight = `` }] = getParams(className);
+  const shouldHighlightLine = calculateLinesToHighlight(highlight);
   return (
     <div className="relative overflow-hidden rounded bg-white bg-opacity-10 text-white">
       <div className="flex items-center justify-between w-full px-4 py-2 border-b border-black">
-        <span className="uppercase">{language}</span>
+        <span>
+          <span className="uppercase">{language}</span>
+          {filename && (
+            <span className="hidden sm:inline">
+              : <span className="opacity-75">{filename}</span>
+            </span>
+          )}
+        </span>
         <button className="flex items-center" onClick={setCopied}>
           {isCopied ? 'Copied' : 'Copy'}
         </button>

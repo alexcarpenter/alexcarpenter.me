@@ -2,7 +2,7 @@
 title: Building a swipeable tabbed interface with React
 description: Learn how to build an swipeable tabbed interface using Reach Tabs and React Swipeable.
 date: '2021-10-20'
-tags: ['react', 'accessibility']
+tags: ['react', 'a11y']
 ---
 
 I just finished up a project at work that required an tabbed interface that was swipeable on touch devices. In this post I will walk you through how I used a combination of [Reach Tabs](https://reach.tech/tabs/) and [React Swipeable](https://github.com/FormidableLabs/react-swipeable) to build out this component.
@@ -11,8 +11,7 @@ I just finished up a project at work that required an tabbed interface that was 
 
 To start, we will build out the UI using Reach Tabs. We import the components needed and apply classNames to the elements to control styling. In our example we will not be using any of the default styles provided by `@reach/tabs` package.
 
-```jsx
-// SwipeableTabs.jsx
+```jsx:filename=SwipeableTabs.jsx
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs';
 import 'swipeable-tabs.css';
 
@@ -44,8 +43,7 @@ function SwipeableTabs({ items }) {
 
 With that setup, we can write some styles for our `SwipeableTabs`. On desktop screens we display the tabs inline and stack them on mobile devices.
 
-```css
-/* swipeable-tabs.css */
+```css:filename=swipeable-tabs.css
 .tabs {
   position: relative;
   display: flex;
@@ -114,8 +112,7 @@ Here is a sample CodeSandbox with where we are at:
 
 Since we are adjusting the tabs layout between desktop and mobile, we need to modify the tabs orientation value. This ensures keyboard users can use their <kbd>up</kbd> and <kbd>down</kbd> arrows in vertical orientation and <kbd>left</kbd> and <kbd>right</kbd> in horizontal orientation.
 
-```jsx
-// SwipeableTabs.jsx
+```jsx:filename=SwipeableTabs.jsx
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs';
 import 'swipeable-tabs.css';
 
@@ -165,8 +162,7 @@ function SwipeableTabs({ items }) {
 
 With our foundation in place, lets add some transitions in between tab changes.
 
-```css
-/* swipeable-tabs.css */
+```css:filename=swipeable-tabs.css
 .tabPanel {
   opacity: 0;
   animation-duration: 0.4s;
@@ -235,8 +231,7 @@ With our foundation in place, lets add some transitions in between tab changes.
 
 And now will update our `SwipeableTabs` component to make use of the transitions based on `activeTabIndex` and `prevTabIndex`. To do this will need to convert our component to be a controlled component so that we can manage these indexes.
 
-```jsx {5-11,14-18,21}
-// SwipeableTabs.jsx
+```jsx:filename=SwipeableTabs.jsx&highlight={4-10,13-17,20}
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs';
 import 'swipeable-tabs.css';
 
@@ -282,8 +277,7 @@ function SwipeableTabs({ items }) {
 
 With that update, we now have all of the info to inform our tab panel animations. Here we make use of the `clsx` package to manage classNames. Based on the indexes, we conditionally apply classes to animate the active and previous tab panels in and out.
 
-```jsx
-// SwipeableTabs.jsx
+```jsx:filename=SwipeableTabs.jsx
 import cx from 'clsx';
 
 <TabPanel
@@ -305,8 +299,7 @@ import cx from 'clsx';
 
 So the last thing we need to do is implement swiping functionality for tab panels on touch devices. To do this will make use of the `react-swipeable` package. We use the `useSwipeable` hook to intercept the direction of users swipe and pass that to our `handleSwipe` function and update the `activeTabIndex`.
 
-```jsx {4,19-21,27-41,59}
-// SwipeableTabs.jsx
+```jsx:filename=SwipeableTabs.jsx&highlight={3,18-20,26-40,58}
 import { useState, useRef, useEffect } from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs';
 import { useSwipeable } from 'react-swipeable';
