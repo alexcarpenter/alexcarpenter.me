@@ -34,7 +34,7 @@ html {
 
 .prose * + h2,
 .prose * + h3 {
-  @apply mt-8;
+  @apply mt-12;
 }
 
 .prose ul {
@@ -61,6 +61,14 @@ html {
 
 .prose hr {
   @apply bg-gray-800 h-px w-full border-0;
+}
+
+code {
+  @apply bg-white bg-opacity-10 px-1 py-0.5 rounded;
+}
+
+kbd {
+  @apply bg-white bg-opacity-10 px-1 rounded border-b-2;
 }
 
 [style*='--aspect-ratio'] {

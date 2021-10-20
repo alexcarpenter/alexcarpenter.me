@@ -1,0 +1,395 @@
+---
+title: Building a swipeable tabbed interface with React
+description: Learn how to build an swipeable tabbed interface using Reach Tabs and React Swipeable.
+date: '2021-10-20'
+tags: ['react', 'accessibility']
+---
+
+I just finished up a project at work that required an tabbed interface that was swipeable on touch devices. In this post I will walk you through how I used a combination of [Reach Tabs](https://reach.tech/tabs/) and [React Swipeable](https://github.com/FormidableLabs/react-swipeable) to build out this component.
+
+## Foundation
+
+To start, we will build out the UI using Reach Tabs. We import the components needed and apply classNames to the elements to control styling. In our example we will not be using any of the default styles provided by `@reach/tabs` package.
+
+```jsx
+// SwipeableTabs.jsx
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs';
+import 'swipeable-tabs.css';
+
+function SwipeableTabs({ items }) {
+  return (
+    <Tabs className="tabs">
+      <TabList className="tabList">
+        {items.map((item, index) => {
+          return (
+            <Tab key={index} className="tab">
+              {item.label}
+            </Tab>
+          );
+        })}
+      </TabList>
+      <TabPanels className="tabPanels">
+        {items.map((item, index) => {
+          return (
+            <TabPanel key={index} className="tabPanel">
+              {item.content}
+            </TabPanel>
+          );
+        })}
+      </TabPanels>
+    </Tabs>
+  );
+}
+```
+
+With that setup, we can write some styles for our `SwipeableTabs`. On desktop screens we display the tabs inline and stack them on mobile devices.
+
+```css
+/* swipeable-tabs.css */
+.tabs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  column-gap: 32px;
+  row-gap: 16px;
+}
+
+.tabList {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.tab {
+  appearance: none;
+  border: 0;
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: lightGray;
+  cursor: pointer;
+}
+
+.tab[data-selected] {
+  background-color: lightblue;
+}
+
+.tabPanels {
+  flex-grow: 1;
+  display: grid;
+  background-color: lightGray;
+  border-radius: 4px;
+  text-align: left;
+  padding: 1rem;
+}
+
+.tabPanel {
+  grid-area: 1 / 1;
+  opacity: 1;
+}
+
+.tabPanel[hidden] {
+  display: block;
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .tabs {
+    flex-direction: row;
+  }
+
+  .tabList {
+    flex-direction: column;
+  }
+}
+```
+
+We've simplified the styling here, but the main things to note is that the `tabPanel`'s are stacked on top of each other using CSS grid and we override the default `hidden` attribute styling to be `display: block` and `opacity: 0`. This allows us to the animate our tab panels `opacity` and `transforms` to create a nice transitions between tab changes. For more info, [checkout this screencast](https://www.youtube.com/watch?v=Fhu83TS9Mls) I made using this technique.
+
+Here is a sample CodeSandbox with where we are at:
+
+<CodeSandbox src="https://codesandbox.io/embed/swipeable-tabs-1-gtiux?fontsize=14&hidenavigation=1&theme=dark" />
+
+## Tabs orientation
+
+Since we are adjusting the tabs layout between desktop and mobile, we need to modify the tabs orientation value. This ensures keyboard users can use their <kbd>up</kbd> and <kbd>down</kbd> arrows in vertical orientation and <kbd>left</kbd> and <kbd>right</kbd> in horizontal orientation.
+
+```jsx
+// SwipeableTabs.jsx
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs';
+import 'swipeable-tabs.css';
+
+function SwipeableTabs({ items }) {
+  const [isStacked, setIsStacked] = useState(
+    typeof window !== 'undefined'
+      ? window.matchMedia('(max-width: 768px)').matches
+      : true,
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsStacked(window.matchMedia('(max-width: 768px)').matches);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isStacked]);
+
+  return (
+    <Tabs className="tabs" orientation={isStacked ? 'horizontal' : 'vertical'}>
+      <TabList className="tabList">
+        {items.map((item, index) => {
+          return (
+            <Tab key={index} className="tab">
+              {item.label}
+            </Tab>
+          );
+        })}
+      </TabList>
+      <TabPanels className="tabPanels">
+        {items.map((item, index) => {
+          return (
+            <TabPanel key={index} className="tabPanel">
+              {item.content}
+            </TabPanel>
+          );
+        })}
+      </TabPanels>
+    </Tabs>
+  );
+}
+```
+
+## Direction aware animations
+
+With our foundation in place, lets add some transitions in between tab changes.
+
+```css
+/* swipeable-tabs.css */
+.tabPanel {
+  opacity: 0;
+  animation-duration: 0.4s;
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}
+
+.slideOutLeft {
+  animation-name: slideOutLeft;
+}
+
+.slideOutRight {
+  animation-name: slideOutRight;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+}
+```
+
+And now will update our `SwipeableTabs` component to make use of the transitions based on `activeTabIndex` and `prevTabIndex`. To do this will need to convert our component to be a controlled component so that we can manage these indexes.
+
+```jsx {5-11,14-18,21}
+// SwipeableTabs.jsx
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs';
+import 'swipeable-tabs.css';
+
+function usePreviousIndex(value) {
+  const ref = useRef(0);
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+
+function SwipeableTabs({ items }) {
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const prevActiveIndex = usePreviousIndex(activeTabIndex);
+  const handleTabsChange = (index) => {
+    setActiveTabIndex(index);
+  };
+
+  return (
+    <Tabs className="tabs" index={activeTabIndex} onChange={handleTabsChange}>
+      <TabList className="tabList">
+        {items.map((item, index) => {
+          return (
+            <Tab key={index} className="tab">
+              {item.label}
+            </Tab>
+          );
+        })}
+      </TabList>
+      <TabPanels className="tabPanels">
+        {items.map((item, index) => {
+          return (
+            <TabPanel key={index} className="tabPanel">
+              {item.content}
+            </TabPanel>
+          );
+        })}
+      </TabPanels>
+    </Tabs>
+  );
+}
+```
+
+With that update, we now have all of the info to inform our tab panel animations. Here we make use of the `clsx` package to manage classNames. Based on the indexes, we conditionally apply classes to animate the active and previous tab panels in and out.
+
+```jsx
+// SwipeableTabs.jsx
+import cx from 'clsx';
+
+<TabPanel
+  key={index}
+  className={cx('tabPanel', {
+    slideInLeft: activeTabIndex === index && activeTabIndex > prevTabIndex,
+    slideInRight: activeTabIndex === index && activeTabIndex < prevTabIndex,
+    slideOutLeft: prevTabIndex === index && activeTabIndex < prevTabIndex,
+    slideOutRight: prevTabIndex === index && activeTabIndex > prevTabIndex,
+  })}
+>
+  {item.content}
+</TabPanel>;
+```
+
+<CodeSandbox src="https://codesandbox.io/embed/swipeable-tabs-2-4s30t?fontsize=14&hidenavigation=1&theme=dark" />
+
+## Make it swipeable
+
+So the last thing we need to do is implement swiping functionality for tab panels on touch devices. To do this will make use of the `react-swipeable` package. We use the `useSwipeable` hook to intercept the direction of users swipe and pass that to our `handleSwipe` function and update the `activeTabIndex`.
+
+```jsx {4,19-21,27-41,59}
+// SwipeableTabs.jsx
+import { useState, useRef, useEffect } from 'react';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs';
+import { useSwipeable } from 'react-swipeable';
+import cx from 'clsx';
+import './swipeable-tabs.css';
+
+function usePreviousIndex(value) {
+  const ref = useRef(0);
+  useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+}
+
+function SwipeableTabs({ items }) {
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const prevTabIndex = usePreviousIndex(activeTabIndex);
+  const swipeHandlers = useSwipeable({
+    onSwiped: ({ dir }) => handleSwipe(dir),
+  });
+
+  const handleTabsChange = (index) => {
+    setActiveTabIndex(index);
+  };
+
+  const handleSwipe = (dir) => {
+    if (dir === 'Right') {
+      if (activeTabIndex === 0) {
+        return;
+      } else {
+        setActiveTabIndex((prevIndex) => prevIndex - 1);
+      }
+    } else if (dir === 'Left') {
+      if (activeTabIndex >= items.length - 1) {
+        return;
+      } else {
+        setActiveTabIndex((prevIndex) => prevIndex + 1);
+      }
+    }
+  };
+
+  return (
+    <Tabs
+      className="tabs"
+      orientation="vertical"
+      index={activeTabIndex}
+      onChange={handleTabsChange}
+    >
+      <TabList className="tabList">
+        {items.map((item, index) => {
+          return (
+            <Tab key={index} className="tab">
+              {item.label}
+            </Tab>
+          );
+        })}
+      </TabList>
+      <TabPanels className="tabPanels" {...swipeHandlers}>
+        {items.map((item, index) => {
+          return (
+            <TabPanel
+              key={index}
+              className={cx('tabPanel', {
+                slideInLeft:
+                  activeTabIndex === index && activeTabIndex > prevTabIndex,
+                slideInRight:
+                  activeTabIndex === index && activeTabIndex < prevTabIndex,
+                slideOutLeft:
+                  prevTabIndex === index && activeTabIndex < prevTabIndex,
+                slideOutRight:
+                  prevTabIndex === index && activeTabIndex > prevTabIndex,
+              })}
+            >
+              {item.content}
+            </TabPanel>
+          );
+        })}
+      </TabPanels>
+    </Tabs>
+  );
+}
+```
+
+And here is our final implementation. If you open the sandbox in a new browser window and emulate a mobile device using devtools, you can swipe through the tab panels.
+
+<CodeSandbox src="https://codesandbox.io/embed/swipeable-tabs-3-i2czk?fontsize=14&hidenavigation=1&theme=dark" />
