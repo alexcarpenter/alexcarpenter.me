@@ -91,7 +91,7 @@ export default function Search() {
                   </h3>
                   <p className="mt-0.5 text-sm text-gray-300">{description}</p>
                 </div>
-                <div className="flex-shrink-0 rounded-md w-8 h-8 bg-gray-700 grid place-items-center">
+                <div className="flex-shrink-0 rounded-md w-8 h-8 bg-gray-800 grid place-items-center">
                   {icon}
                 </div>
               </article>
