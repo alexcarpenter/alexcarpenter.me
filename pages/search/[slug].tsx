@@ -42,6 +42,7 @@ export async function getStaticPaths() {
   const posts = getAllMdx('posts');
   return {
     paths: Array.from(
+      // @ts-ignore
       new Set(posts.map((post) => post.frontMatter.tags).flat()),
     ).map((tag) => {
       return {
@@ -61,6 +62,7 @@ export async function getStaticProps({ params }) {
     props: {
       slug,
       posts: getAllMdx('posts').filter((post) =>
+        // @ts-ignore
         post.frontMatter.tags.includes(slug),
       ),
     },
