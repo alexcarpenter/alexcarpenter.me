@@ -64,11 +64,11 @@ html {
 }
 
 code {
-  @apply bg-white bg-opacity-10 px-1 py-0.5 rounded;
+  @apply bg-gray-900 px-1 py-0.5 rounded;
 }
 
 kbd {
-  @apply bg-white bg-opacity-10 px-1 rounded border-b-2;
+  @apply bg-gray-900 px-1 rounded border-b-2;
 }
 
 [style*='--aspect-ratio'] {

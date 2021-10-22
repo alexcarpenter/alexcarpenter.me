@@ -55,7 +55,7 @@ export default function Code({ children, className = '' }) {
   const [language, { filename = ``, highlight = `` }] = getParams(className);
   const shouldHighlightLine = calculateLinesToHighlight(highlight);
   return (
-    <div className="relative overflow-hidden rounded bg-white bg-opacity-10 text-white">
+    <div className="my-12 relative overflow-hidden rounded text-white bg-gray-900">
       <div className="flex items-center justify-between w-full px-4 py-2 border-b border-black">
         <span>
           <span className="uppercase">{language}</span>
@@ -93,7 +93,7 @@ export default function Code({ children, className = '' }) {
             {tokens.map((line, i) => {
               const lineProps = getLineProps({ line, key: i });
               if (shouldHighlightLine(i)) {
-                lineProps.className = `${lineProps.className} bg-white bg-opacity-5 -mx-4 px-4`;
+                lineProps.className = `${lineProps.className} bg-gray-800 -mx-4 px-4`;
               }
               return (
                 <div key={i} {...lineProps}>
