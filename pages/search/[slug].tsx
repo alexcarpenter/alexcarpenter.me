@@ -3,6 +3,7 @@ import { slugify } from '@/lib/utils';
 import Entry from '@/components/Entry';
 import Page from '@/components/Page';
 import List from '@/components/List';
+import bookmarks from '@/data/bookmarks';
 import { featuredTags } from '.';
 
 export default function SearchTag({ slug, posts }) {
@@ -14,20 +15,16 @@ export default function SearchTag({ slug, posts }) {
     >
       <List>
         {posts
-          .sort(
-            (a, b) =>
-              Number(new Date(b.frontMatter.date)) -
-              Number(new Date(a.frontMatter.date)),
-          )
+          .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
           .map((post, index) => {
-            const { date, title, description, slug, tags } = post.frontMatter;
+            const { date, title, description, slug, link, tags } = post;
             return (
               <List.Item key={index}>
                 <Entry
                   date={date}
                   title={title}
                   description={description}
-                  link={`/posts/${slug}`}
+                  link={link ? link : `/posts/${slug}`}
                   tags={tags}
                 />
               </List.Item>
@@ -58,12 +55,14 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
+  const posts = getAllMdx('posts').map((post) => post['frontMatter']);
   return {
     props: {
       slug,
-      posts: getAllMdx('posts').filter((post) =>
+      bookmarks,
+      posts: [...posts, ...bookmarks].filter((post) =>
         // @ts-ignore
-        post.frontMatter.tags.includes(slug),
+        post.tags.includes(slug),
       ),
     },
   };
