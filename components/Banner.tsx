@@ -1,10 +1,8 @@
-import { useRouter } from 'next/router';
-import { cx } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
+import Nav from '@/components/Nav';
 
 export default function Banner() {
-  const { pathname } = useRouter();
   return (
     <header className="mb-12 flex items-start sm:items-center justify-between sm:justify-start">
       <div className="w-28 flex-shrink-0">
@@ -38,40 +36,7 @@ export default function Banner() {
           </a>
         </Link>
       </div>
-      <nav>
-        <ul className="flex flex-col items-end sm:items-start sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8">
-          <li>
-            <Link href="/work">
-              <a
-                className={cx('text-gray-300 hover:text-white')}
-                aria-current={pathname === '/work' ? 'page' : null}
-              >
-                Work
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/posts">
-              <a
-                className={cx('text-gray-300 hover:text-white')}
-                aria-current={pathname === '/posts' ? 'page' : null}
-              >
-                Posts
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/bookmarks">
-              <a
-                className={cx('text-gray-300 hover:text-white')}
-                aria-current={pathname === '/bookmarks' ? 'page' : null}
-              >
-                Bookmarks
-              </a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <Nav />
     </header>
   );
 }
