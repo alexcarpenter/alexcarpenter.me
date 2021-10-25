@@ -61,9 +61,9 @@ export default function Nav() {
         className="hidden md:block absolute top-0 left-0 bottom-0 opacity-0 bg-gray-900 rounded-md"
       />
       <ul className="flex flex-col items-end sm:items-start sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
-        {navData.map((item) => {
+        {navData.map((item, index) => {
           return (
-            <li>
+            <li key={index}>
               <Link href={item.path}>
                 <a
                   key={item.label}
