@@ -16,7 +16,7 @@ export default function Home() {
           </Link>
           .
         </p>
-        <aside className="sm:float-right sm:w-1/2 sm:ml-4 sm:mb-4">
+        {/* <aside className="sm:float-right sm:w-1/2 sm:ml-4 sm:mb-4">
           <Note label="Currently" variant="orange">
             Learning TypeScript via Ultimate Courses, rebuilding{' '}
             <a href="https://us-coffee-roasters.com">us-coffee-roasters.com</a>{' '}
@@ -38,7 +38,7 @@ export default function Home() {
             Github
           </a>
           .
-        </p>
+        </p> */}
       </div>
     </Page>
   );

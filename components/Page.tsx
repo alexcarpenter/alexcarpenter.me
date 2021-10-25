@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 interface PageProps {
   type?: 'basic' | 'post' | 'work';
@@ -50,7 +51,7 @@ export default function Page({
         Skip to content
       </a>
       <Banner />
-      <main id="main">
+      <main id="main" className="mb-auto">
         <Component>
           <Header
             title={title}
@@ -64,6 +65,7 @@ export default function Page({
           {children}
         </Component>
       </main>
+      <Footer />
     </>
   );
 }

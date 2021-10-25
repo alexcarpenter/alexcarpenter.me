@@ -33,7 +33,7 @@ export default function Work() {
       <Section heading="Recommendations">
         <Recommendations />
       </Section>
-      <Section heading="Connect">
+      {/* <Section heading="Connect">
         <BulletList cols={['grid-cols-2', 'md:grid-cols-3']}>
           {social.map((item, index) => (
             <BulletList.Item key={index}>
@@ -44,7 +44,7 @@ export default function Work() {
             </BulletList.Item>
           ))}
         </BulletList>
-      </Section>
+      </Section> */}
     </Page>
   );
 }
