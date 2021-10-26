@@ -1,4 +1,19 @@
+interface BookmarkProps {
+  title: string;
+  description: string;
+  link: string;
+  date: string;
+  tags: Array<string>;
+}
+
 export default [
+  {
+    title: 'The New CSS Reset',
+    description: 'The New Simple and Lighter CSS Reset.',
+    link: 'https://elad2412.github.io/the-new-css-reset/',
+    date: '2021-10-26T11:27:45-04:00',
+    tags: ['css'],
+  },
   {
     title: 'Polymorphic React Components in TypeScript',
     description:
@@ -68,4 +83,4 @@ export default [
     date: '2021-06-11T09:49:03-04:00',
     tags: ['css', 'a11y'],
   },
-];
+] as Array<BookmarkProps>;
