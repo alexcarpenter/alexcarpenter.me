@@ -54,13 +54,17 @@ export default function Nav() {
     }px)`;
   }
   return (
-    <nav className="relative" ref={wrapperRef} onMouseLeave={resetHighlight}>
+    <nav
+      className="relative -mx-2 -my-1"
+      ref={wrapperRef}
+      onMouseLeave={resetHighlight}
+    >
       <span
         ref={highlightRef}
         style={highlightStyles}
         className="hidden md:block absolute top-0 left-0 bottom-0 opacity-0 bg-gray-900 rounded-md"
       />
-      <ul className="flex flex-col items-end sm:items-start sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
+      <ul className="flex flex-col items-end sm:items-start sm:flex-row gap-x-4 gap-y-1">
         {navData.map((item, index) => {
           return (
             <li key={index}>
@@ -68,7 +72,10 @@ export default function Nav() {
                 <a
                   key={item.label}
                   onMouseOver={(ev) => repositionHighlight(ev, item)}
-                  className={cx('p-2 relative text-gray-300 hover:text-white')}
+                  onFocus={(ev) => repositionHighlight(ev, item)}
+                  className={cx(
+                    'relative block px-2 py-1 text-gray-300 hover:text-white outline-none',
+                  )}
                   aria-current={pathname === item.path ? 'page' : null}
                 >
                   {item.label}
