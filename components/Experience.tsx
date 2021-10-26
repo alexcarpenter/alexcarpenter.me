@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import RightArrow from '@/components/RightArrow';
+import { cx, textSecondary } from '@/lib/utils';
 
 export default function Experience() {
   return (
@@ -13,7 +14,12 @@ export default function Experience() {
         <div>
           <h3>
             <Link href="/work/hashicorp">
-              <a className="after:absolute after:inset-0 underline hover:no-underline">
+              <a
+                className={cx(
+                  'after:absolute after:inset-0 underline hover:no-underline',
+                  ['text-white'],
+                )}
+              >
                 HashiCorp
               </a>
             </Link>
@@ -37,27 +43,33 @@ export default function Experience() {
         </svg>
       </article>
 
-      <article className="bg-gray-900 p-4 rounded-md">
+      <article
+        className={cx('p-4 rounded-md', ['dark:bg-gray-900'], ['bg-gray-200'])}
+      >
         <h3>NationBuilder</h3>
-        <p className="mt-0.5 text-sm text-gray-300">
+        <p className={cx('mt-0.5 text-sm', textSecondary)}>
           UI Engineer
           <br />
           Nov 2018 - Jul 2021
         </p>
       </article>
 
-      <article className="bg-gray-900 p-4 rounded-md">
+      <article
+        className={cx('p-4 rounded-md', ['dark:bg-gray-900'], ['bg-gray-200'])}
+      >
         <h3>Mighty in the Midwest</h3>
-        <p className="mt-0.5 text-sm text-gray-300">
+        <p className={cx('mt-0.5 text-sm', textSecondary)}>
           Senior Developer
           <br />
           Oct 2015 - Nov 2018
         </p>
       </article>
 
-      <article className="bg-gray-900 p-4 rounded-md">
+      <article
+        className={cx('p-4 rounded-md', ['dark:bg-gray-900'], ['bg-gray-200'])}
+      >
         <h3>Masuga Design</h3>
-        <p className="mt-0.5 text-sm text-gray-300">
+        <p className={cx('mt-0.5 text-sm', textSecondary)}>
           Front-end Developer
           <br />
           Feb 2012 - Oct 2015

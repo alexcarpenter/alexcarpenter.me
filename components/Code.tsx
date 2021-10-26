@@ -1,4 +1,5 @@
 //@ts-nocheck
+import { cx } from '@/lib/utils';
 import rangeParser from 'parse-numeric-range';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import useClipboard from 'react-use-clipboard';
@@ -55,8 +56,20 @@ export default function Code({ children, className = '' }) {
   const [language, { filename = ``, highlight = `` }] = getParams(className);
   const shouldHighlightLine = calculateLinesToHighlight(highlight);
   return (
-    <div className="my-12 relative overflow-hidden rounded text-white bg-gray-900">
-      <div className="flex items-center justify-between w-full px-4 py-2 border-b border-black">
+    <div
+      className={cx(
+        'my-12 relative overflow-hidden rounded',
+        ['bg-gray-200 text-gray-700'],
+        ['dark:text-white dark:bg-gray-900'],
+      )}
+    >
+      <div
+        className={cx(
+          'flex items-center justify-between w-full px-4 py-2 border-b',
+          ['border-gray-300'],
+          ['dark:border-black'],
+        )}
+      >
         <span>
           <span className="uppercase">{language}</span>
           {filename && (
@@ -93,7 +106,7 @@ export default function Code({ children, className = '' }) {
             {tokens.map((line, i) => {
               const lineProps = getLineProps({ line, key: i });
               if (shouldHighlightLine(i)) {
-                lineProps.className = `${lineProps.className} bg-gray-800 -mx-4 px-4`;
+                lineProps.className = `${lineProps.className} bg-gray-300 dark:bg-gray-800 -mx-4 px-4`;
               }
               return (
                 <div key={i} {...lineProps}>

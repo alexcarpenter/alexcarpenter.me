@@ -2,6 +2,7 @@ import * as React from 'react';
 import Image from 'next/image';
 import List from '@/components/List';
 import Button from '@/components/Button';
+import { cx, textSecondary } from '@/lib/utils';
 import data from '@/data/recommendations';
 
 export default function Recommendations() {
@@ -25,7 +26,7 @@ export default function Recommendations() {
               </div>
               <div className="flex-1">
                 <p style={{ textIndent: '-.65rem' }}>“{item.text}”</p>
-                <p className="mt-4 text-gray-300">
+                <p className={cx('mt-4', textSecondary)}>
                   &mdash; {item.name}, {item.title}, {item.company}
                 </p>
               </div>

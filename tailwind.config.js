@@ -6,7 +6,7 @@ module.exports = {
   purge: {
     content: ['./pages/**/*.tsx', './components/**/*.tsx', './data/**/*.ts'],
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     fontFamily: {
       mono: ['JetBrains Mono Web', ...defaultTheme.fontFamily.mono],
@@ -18,7 +18,7 @@ module.exports = {
     },
     borderColor: (theme) => ({
       ...theme('colors'),
-      DEFAULT: theme('colors.gray.800'),
+      DEFAULT: theme('colors.gray.200'),
     }),
   },
 };

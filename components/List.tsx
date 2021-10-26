@@ -1,6 +1,13 @@
+import { cx, borderColor } from '@/lib/utils';
 function List({ children }) {
   return (
-    <ul className="list-none pl-0 -my-12 divide-y divide-white divide-opacity-[.15]">
+    <ul
+      className={cx(
+        'list-none pl-0 -my-12 divide-y',
+        ['divide-gray-200'],
+        ['dark:divide-gray-800'],
+      )}
+    >
       {children}
     </ul>
   );

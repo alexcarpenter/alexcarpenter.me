@@ -62,7 +62,11 @@ export default function Nav() {
       <span
         ref={highlightRef}
         style={highlightStyles}
-        className="hidden md:block absolute top-0 left-0 bottom-0 opacity-0 bg-gray-900 rounded-md"
+        className={cx(
+          'hidden md:block absolute top-0 left-0 bottom-0 opacity-0 rounded-md',
+          ['bg-gray-200'],
+          ['dark:bg-gray-900'],
+        )}
       />
       <ul className="flex flex-col items-end sm:items-start sm:flex-row gap-x-4 gap-y-1">
         {navData.map((item, index) => {
@@ -74,7 +78,9 @@ export default function Nav() {
                   onMouseOver={(ev) => repositionHighlight(ev, item)}
                   onFocus={(ev) => repositionHighlight(ev, item)}
                   className={cx(
-                    'relative block px-2 py-1 text-gray-300 hover:text-white outline-none',
+                    'relative block px-2 py-1 outline-none',
+                    ['text-gray-600 hover:text-gray-700'],
+                    ['dark:text-gray-300 dark:hover:text-white'],
                   )}
                   aria-current={pathname === item.path ? 'page' : null}
                 >

@@ -9,19 +9,15 @@ export default function Button({ size, children, ...props }: ButtonProps) {
     <button
       className={cx(
         'border',
-        'border-white',
-        'border-opacity-10',
-        'bg-white',
-        'bg-opacity-10',
-        'hover:bg-opacity-20',
-        'focus:bg-opacity-20',
         'px-4',
         'py-1',
         'rounded-md',
-        'transition-opacity',
+        'transition-colors',
         {
           'text-sm': size === 'sm',
         },
+        ['bg-gray-200 border-gray-300 hover:bg-gray-300'],
+        ['dark:bg-gray-900 dark:border-gray-800 dark:hover:bg-gray-800'],
       )}
       {...props}
     >
