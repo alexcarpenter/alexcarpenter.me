@@ -21,7 +21,11 @@
 }
 
 html {
-  @apply bg-gray-100 text-gray-800 dark:bg-black dark:text-white;
+  @apply bg-gray-100 text-gray-800;
+}
+
+html.dark {
+  @apply bg-black text-white;
 }
 
 .prose > * + * {
@@ -88,4 +92,8 @@ kbd {
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+.section + .section {
+  @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-800;
 }
