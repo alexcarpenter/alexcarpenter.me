@@ -60,9 +60,5 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  },
-  "nextBundleAnalysis": {
-    "budget": 358400,
-    "budgetPercentIncreaseRed": 20
   }
 }
