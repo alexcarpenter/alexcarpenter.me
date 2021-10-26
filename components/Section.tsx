@@ -13,7 +13,15 @@ function Section({
     <section className="section" id={id}>
       <style jsx>{`
         .section + .section {
-          @apply border-t border-gray-200 dark:border-gray-800 pt-12 mt-12;
+          margin-top: 3rem;
+          padding-top: 3rem;
+          border-top: 1px solid;
+          border-color: rgba(228, 228, 231, var(--tw-border-opacity));
+        }
+        @media (prefers-color-scheme: dark) {
+          .section + .section {
+            border-color: rgba(39, 39, 42, var(--tw-border-opacity));
+          }
         }
       `}</style>
       {heading && (
