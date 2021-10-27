@@ -30,7 +30,7 @@ export default function ThemeSelect() {
   const handleChange = (e) => setTheme(e.target.value);
 
   return (
-    <div className="relative max-w-[224px]">
+    <div className="relative inline-block">
       <label htmlFor="theme-menu" className="sr-only">
         Toggle theme
       </label>
@@ -56,7 +56,7 @@ export default function ThemeSelect() {
       <select
         id="theme-menu"
         className={cx(
-          'appearance-none rounded-md border w-full pl-8 pr-8',
+          'appearance-none rounded-md border sm:w-full pl-8 pr-12',
           'bg-gray-100 border-gray-200',
           'dark:bg-black dark:border-gray-800',
         )}

@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className={cx('border-t pt-12 mt-12', borderColor)}>
       <h2 className="sr-only">Connect</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="col-span-2">
           <BulletList cols={['grid-cols-2']}>
             {social.map((item, index) => (
