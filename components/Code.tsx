@@ -58,15 +58,15 @@ export default function Code({ children, className = '' }) {
   return (
     <div
       className={cx(
-        'my-12 relative overflow-hidden rounded',
-        ['bg-gray-200 text-gray-700'],
-        ['dark:text-white dark:bg-gray-900'],
+        'my-12 relative overflow-hidden rounded border',
+        ['bg-gray-50 border-gray-200'],
+        ['dark:text-white dark:bg-gray-900 dark:border-none'],
       )}
     >
       <div
         className={cx(
           'flex items-center justify-between w-full px-4 py-2 border-b',
-          ['border-gray-300'],
+          ['border-gray-200'],
           ['dark:border-black'],
         )}
       >
@@ -106,7 +106,7 @@ export default function Code({ children, className = '' }) {
             {tokens.map((line, i) => {
               const lineProps = getLineProps({ line, key: i });
               if (shouldHighlightLine(i)) {
-                lineProps.className = `${lineProps.className} bg-gray-300 dark:bg-gray-800 -mx-4 px-4`;
+                lineProps.className = `${lineProps.className} bg-gray-100 dark:bg-gray-800 -mx-4 px-4`;
               }
               return (
                 <div key={i} {...lineProps}>
