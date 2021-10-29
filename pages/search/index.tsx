@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { slugify } from '@/lib/utils';
+import { cx, slugify, textSecondary } from '@/lib/utils';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 
@@ -80,7 +80,13 @@ export default function Search() {
         <div className="grid sm:grid-cols-2 gap-4">
           {featuredTags.map(({ icon, heading, description, slug }) => {
             return (
-              <article className="relative flex bg-gray-900 p-4 rounded-md">
+              <article
+                className={cx(
+                  'relative flex p-4 rounded-md',
+                  'bg-gray-200',
+                  'dark:bg-gray-900',
+                )}
+              >
                 <div>
                   <h3>
                     <Link href={`/search/${slugify(slug)}`}>
@@ -89,9 +95,17 @@ export default function Search() {
                       </a>
                     </Link>
                   </h3>
-                  <p className="mt-0.5 text-sm text-gray-300">{description}</p>
+                  <p className={cx('mt-0.5 text-sm', textSecondary)}>
+                    {description}
+                  </p>
                 </div>
-                <div className="flex-shrink-0 rounded-md w-8 h-8 bg-gray-800 grid place-items-center">
+                <div
+                  className={cx(
+                    'flex-shrink-0 rounded-md w-8 h-8 grid place-items-center',
+                    'bg-gray-300',
+                    'dark:bg-gray-800',
+                  )}
+                >
                   {icon}
                 </div>
               </article>
