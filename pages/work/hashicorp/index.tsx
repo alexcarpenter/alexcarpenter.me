@@ -16,20 +16,18 @@ export default function HashiCorp() {
       title="HashiCorp"
       description="Web Engineer helping build and maintain public-facing HashiCorp websites and web applications with Next.js."
     >
-      <Section heading="CV">
+      <Section heading="CV" headingGap="lg">
         <Meta>
-          <Meta.Title>Start date</Meta.Title>
-          <Meta.Description>July 2021</Meta.Description>
-          <Meta.Title>Position</Meta.Title>
-          <Meta.Description>Web Engineer II</Meta.Description>
-          <Meta.Title>Tools</Meta.Title>
-          <Meta.Description>
-            Next.js, CSS Modules, TypeScript, DatoCMS
-          </Meta.Description>
+          <Meta.Item title="Start date" description="July 2021" />
+          <Meta.Item title="Position" description="Web Engineer II" />
+          <Meta.Item
+            title="Tools"
+            description="Next.js, CSS Modules, TypeScript, DatoCMS"
+          />
         </Meta>
       </Section>
 
-      <Section heading="Timeline">
+      <Section heading="Timeline" headingGap="lg">
         <List>
           <List.Item>
             <Entry

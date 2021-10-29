@@ -1,28 +1,33 @@
 import { cx, textSecondary } from '@/lib/utils';
 function Meta({ children }) {
+  return <dl className="-mt-4">{children}</dl>;
+}
+
+function Item({ title, description }) {
   return (
-    <dl className="meta -mt-4 sm:gap-x-8 sm:gap-y-4">
-      <style jsx>{`
-        @media (min-width: 640px) {
-          .meta {
-            display: grid;
-            grid-template-columns: auto 1fr;
-          }
-        }
-      `}</style>
-      {children}
-    </dl>
+    <div>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+    </div>
   );
 }
 
 function Title({ children }) {
-  return <dt className={cx('mt-4 sm:mt-0', textSecondary)}>{children}</dt>;
+  return (
+    <dt className={cx('mt-4 text-sm uppercase tracking-wider', textSecondary)}>
+      {/* <span className="opacity-50" aria-hidden={true}>
+        //
+      </span>{' '} */}
+      {children}
+    </dt>
+  );
 }
 
 function Description({ children }) {
-  return <dd className="mt-2 sm:mt-0">{children}</dd>;
+  return <dd className="mt-2">{children}</dd>;
 }
 
+Meta.Item = Item;
 Meta.Title = Title;
 Meta.Description = Description;
 export default Meta;
