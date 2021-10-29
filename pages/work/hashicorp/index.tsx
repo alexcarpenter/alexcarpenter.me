@@ -6,7 +6,8 @@ import Page from '@/components/Page';
 import Emoji from '@/components/Emoji';
 import List from '@/components/List';
 import Entry from '@/components/Entry';
-// import Section from '@/components/Section';
+import Section from '@/components/Section';
+import Meta from '@/components/Meta';
 import { useEffect } from 'react';
 
 export default function HashiCorp() {
@@ -15,69 +16,83 @@ export default function HashiCorp() {
       title="HashiCorp"
       description="Web Engineer helping build and maintain public-facing HashiCorp websites and web applications with Next.js."
     >
-      <List>
-        <List.Item>
-          <Entry
-            date="Oct 28, 2021"
-            title="Industry pages"
-            link="https://hashicorp.com/industries/financial-services"
-          />
-        </List.Item>
+      <Section heading="CV">
+        <Meta>
+          <Meta.Title>Start date</Meta.Title>
+          <Meta.Description>July 2021</Meta.Description>
+          <Meta.Title>Position</Meta.Title>
+          <Meta.Description>Web Engineer II</Meta.Description>
+          <Meta.Title>Tools</Meta.Title>
+          <Meta.Description>
+            Next.js, CSS Modules, TypeScript, DatoCMS
+          </Meta.Description>
+        </Meta>
+      </Section>
 
-        <List.Item>
-          <Entry
-            date="Oct 19, 2021"
-            title="HCP Packer page"
-            link="https://cloud.hashicorp.com/products/packer"
-          />
-        </List.Item>
+      <Section heading="Timeline">
+        <List>
+          <List.Item>
+            <Entry
+              date="Oct 28, 2021"
+              title="Industry pages"
+              link="https://hashicorp.com/industries/financial-services"
+            />
+          </List.Item>
 
-        <List.Item>
-          <Entry
-            date="Oct 14, 2021"
-            title="Waypoint homepage"
-            link="https://waypointproject.io"
-          />
-        </List.Item>
+          <List.Item>
+            <Entry
+              date="Oct 19, 2021"
+              title="HCP Packer page"
+              link="https://cloud.hashicorp.com/products/packer"
+            />
+          </List.Item>
 
-        <List.Item>
-          <Entry
-            date="Sep 30, 2021"
-            title="Zero trust security with HashiCorp and Microsoft Azure page"
-            link="https://hashicorp.com/solutions/zero-trust-security-microsoft-azure"
-          />
-        </List.Item>
+          <List.Item>
+            <Entry
+              date="Oct 14, 2021"
+              title="Waypoint homepage"
+              link="https://waypointproject.io"
+            />
+          </List.Item>
 
-        <List.Item>
-          <Entry
-            date="Sep 30, 2021"
-            title="Boundary homepage updates"
-            link="https://boundaryproject.io/"
-          />
-        </List.Item>
+          <List.Item>
+            <Entry
+              date="Sep 30, 2021"
+              title="Zero trust security with HashiCorp and Microsoft Azure page"
+              link="https://hashicorp.com/solutions/zero-trust-security-microsoft-azure"
+            />
+          </List.Item>
 
-        <List.Item>
-          <Entry
-            date="Sep 8, 2021"
-            title="HashiCorp about pages"
-            link="https://hashicorp.com/about"
-          />
-        </List.Item>
+          <List.Item>
+            <Entry
+              date="Sep 30, 2021"
+              title="Boundary homepage updates"
+              link="https://boundaryproject.io/"
+            />
+          </List.Item>
 
-        <List.Item>
-          <Entry
-            // feature={
-            //   <Video
-            //     src="/videos/state-of-the-cloud-animation.mp4"
-            //     width={1454}
-            //     height={1138}
-            //   />
-            // }
-            date="Aug 11, 2021"
-            title="State of the Cloud page"
-            link="https://hashicorp.com/state-of-the-cloud"
-          >
-            {/* <Media className="ml-4 mb-4 float-right w-1/2">
+          <List.Item>
+            <Entry
+              date="Sep 8, 2021"
+              title="HashiCorp about pages"
+              link="https://hashicorp.com/about"
+            />
+          </List.Item>
+
+          <List.Item>
+            <Entry
+              // feature={
+              //   <Video
+              //     src="/videos/state-of-the-cloud-animation.mp4"
+              //     width={1454}
+              //     height={1138}
+              //   />
+              // }
+              date="Aug 11, 2021"
+              title="State of the Cloud page"
+              link="https://hashicorp.com/state-of-the-cloud"
+            >
+              {/* <Media className="ml-4 mb-4 float-right w-1/2">
               <Image
                 src="/images/work/hashicorp/state-of-the-cloud-graph.jpeg"
                 width={940}
@@ -85,36 +100,37 @@ export default function HashiCorp() {
                 alt="Try HCP Consul homepage screenshot"
               />
             </Media> */}
-          </Entry>
-        </List.Item>
+            </Entry>
+          </List.Item>
 
-        <List.Item>
-          <Entry
-            date="Jul 29, 2021"
-            title="Consul on the HashiCorp Cloud Platform"
-            link="https://cloud.hashicorp.com/try-hcp-consul"
-          >
-            {/* <Image
+          <List.Item>
+            <Entry
+              date="Jul 29, 2021"
+              title="Consul on the HashiCorp Cloud Platform"
+              link="https://cloud.hashicorp.com/try-hcp-consul"
+            >
+              {/* <Image
               src="/images/work/hashicorp/try-hcp-consul.jpeg"
               width={1600}
               height={900}
               alt="Try HCP Consul homepage screenshot"
             /> */}
-          </Entry>
-        </List.Item>
+            </Entry>
+          </List.Item>
 
-        <List.Item>
-          <Entry
-            date="Jul 26, 2021"
-            title={
-              <>
-                <Emoji label="Tada">🎉</Emoji> Joined HashiCorp as a Web
-                Engineer II on the core&nbsp;team.
-              </>
-            }
-          />
-        </List.Item>
-      </List>
+          <List.Item>
+            <Entry
+              date="Jul 26, 2021"
+              title={
+                <>
+                  <Emoji label="Tada">🎉</Emoji> Joined HashiCorp as a Web
+                  Engineer II on the core&nbsp;team.
+                </>
+              }
+            />
+          </List.Item>
+        </List>
+      </Section>
     </Page>
   );
 }

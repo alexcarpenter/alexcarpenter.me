@@ -1,8 +1,9 @@
+import { cx, textSecondary } from '@/lib/utils';
 function Meta({ children }) {
   return (
-    <dl className="meta -mt-4 md:gap-x-8 md:gap-y-4">
+    <dl className="meta -mt-4 sm:gap-x-8 sm:gap-y-4">
       <style jsx>{`
-        @media (min-width: 768px) {
+        @media (min-width: 640px) {
           .meta {
             display: grid;
             grid-template-columns: auto 1fr;
@@ -15,11 +16,11 @@ function Meta({ children }) {
 }
 
 function Title({ children }) {
-  return <dt className="text-gray-300 mt-4 md:mt-0">{children}</dt>;
+  return <dt className={cx('mt-4 sm:mt-0', textSecondary)}>{children}</dt>;
 }
 
 function Description({ children }) {
-  return <dd className="mt-2 md:mt-0">{children}</dd>;
+  return <dd className="mt-2 sm:mt-0">{children}</dd>;
 }
 
 Meta.Title = Title;
