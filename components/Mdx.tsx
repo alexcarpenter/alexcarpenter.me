@@ -1,4 +1,3 @@
-import { slugify } from '@/lib/utils';
 import Code from '@/components/Code';
 import Note from '@/components/Note';
 import LinkedHeading from './LinkedHeading';

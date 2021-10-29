@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { cx } from '@/lib/utils';
 import Page from '@/components/Page';
 import Emoji from '@/components/Emoji';
 import List from '@/components/List';
 import Entry from '@/components/Entry';
-import Section from '@/components/Section';
+// import Section from '@/components/Section';
 import { useEffect } from 'react';
 
 export default function HashiCorp() {
@@ -18,10 +18,17 @@ export default function HashiCorp() {
       <List>
         <List.Item>
           <Entry
+            date="Oct 28, 2021"
+            title="Industry pages"
+            link="https://hashicorp.com/industries/financial-services"
+          />
+        </List.Item>
+
+        <List.Item>
+          <Entry
             date="Oct 19, 2021"
             title="HCP Packer page"
             link="https://cloud.hashicorp.com/products/packer"
-            tags={['project']}
           />
         </List.Item>
 
@@ -30,7 +37,6 @@ export default function HashiCorp() {
             date="Oct 14, 2021"
             title="Waypoint homepage"
             link="https://waypointproject.io"
-            tags={['project']}
           />
         </List.Item>
 
@@ -38,8 +44,7 @@ export default function HashiCorp() {
           <Entry
             date="Sep 30, 2021"
             title="Zero trust security with HashiCorp and Microsoft Azure page"
-            link="https://www.hashicorp.com/solutions/zero-trust-security-microsoft-azure"
-            tags={['project']}
+            link="https://hashicorp.com/solutions/zero-trust-security-microsoft-azure"
           />
         </List.Item>
 
@@ -47,8 +52,7 @@ export default function HashiCorp() {
           <Entry
             date="Sep 30, 2021"
             title="Boundary homepage updates"
-            link="https://www.boundaryproject.io/"
-            tags={['project']}
+            link="https://boundaryproject.io/"
           />
         </List.Item>
 
@@ -57,7 +61,6 @@ export default function HashiCorp() {
             date="Sep 8, 2021"
             title="HashiCorp about pages"
             link="https://hashicorp.com/about"
-            tags={['project']}
           />
         </List.Item>
 
@@ -73,7 +76,6 @@ export default function HashiCorp() {
             date="Aug 11, 2021"
             title="State of the Cloud page"
             link="https://hashicorp.com/state-of-the-cloud"
-            tags={['project']}
           >
             {/* <Media className="ml-4 mb-4 float-right w-1/2">
               <Image
@@ -91,7 +93,6 @@ export default function HashiCorp() {
             date="Jul 29, 2021"
             title="Consul on the HashiCorp Cloud Platform"
             link="https://cloud.hashicorp.com/try-hcp-consul"
-            tags={['project']}
           >
             {/* <Image
               src="/images/work/hashicorp/try-hcp-consul.jpeg"
@@ -111,7 +112,6 @@ export default function HashiCorp() {
                 Engineer II on the core&nbsp;team.
               </>
             }
-            tags={['update']}
           />
         </List.Item>
       </List>
