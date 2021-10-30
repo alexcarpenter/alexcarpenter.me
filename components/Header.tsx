@@ -5,7 +5,6 @@ import {
   textSecondary,
   borderColor,
 } from '@/lib/utils';
-import Link from 'next/link';
 import Image from 'next/image';
 import Views from '@/components/Views';
 
