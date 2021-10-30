@@ -2,10 +2,10 @@ import RightArrow from './RightArrow';
 import { cx } from '@/lib/utils';
 
 const variants = {
-  orange: 'bg-[#fbd6b7] text-[#a03516]',
-  blue: 'bg-[#C8E7FA] text-[#005B94]',
-  green: 'bg-[#BFE0D6] text-[#31636E]',
-  purple: 'bg-[#F0EBF5] text-[#3c053c]',
+  orange: 'bg-orange-200 text-orange-800',
+  blue: 'bg-blue-200 text-blue-800',
+  emerald: 'bg-emerald-200 text-emerald-800',
+  violet: 'bg-violet-200 text-violet-800',
   gray: cx('bg-gray-200', 'dark:bg-gray-900'),
   ghost: cx('border', 'border-gray-200', 'dark:border-gray-800'),
 };
