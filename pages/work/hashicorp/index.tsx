@@ -51,15 +51,15 @@ export default function HashiCorp() {
           />
         </Meta>
 
-        {/* <div className="mt-12">
-          <Note label="Currently" variant="violet">
+        <div className="mt-12">
+          <Note label="On-Deck" variant="violet">
             Building a new internationalized Next.js site for{' '}
             <a href="https://www.hashicorp.com/blog/announcing-hashitalks-2021-call-for-proposals">
               HashiTalks
             </a>{' '}
             backed by DatoCMS.
           </Note>
-        </div> */}
+        </div>
       </Section>
 
       <Section heading="Timeline" headingGap="lg">
