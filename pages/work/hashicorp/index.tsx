@@ -15,7 +15,7 @@ export default function HashiCorp() {
       title="HashiCorp"
       description="Web Engineer helping build and maintain public-facing HashiCorp websites and web applications with Next.js."
     >
-      <Section heading="CV" headingGap="lg">
+      <Section>
         <a
           href="https://hashicorp.com"
           className="inline-flex sm:float-right mb-4"
