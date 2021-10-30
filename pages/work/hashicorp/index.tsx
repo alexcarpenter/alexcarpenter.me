@@ -23,7 +23,7 @@ export default function HashiCorp() {
           <span className="sr-only">HashiCorp</span>
           <svg
             aria-hidden={true}
-            width="100"
+            width="120"
             height="100%"
             viewBox="0 0 317 88"
             fill="none"
