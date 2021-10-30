@@ -1,12 +1,14 @@
 import Code from '@/components/Code';
 import Note from '@/components/Note';
-import LinkedHeading from './LinkedHeading';
+import YoutubeEmbed from '@/components/YoutubeEmbed';
+import LinkedHeading from '@/components/LinkedHeading';
 
 export const components = {
   h2: (props) => <LinkedHeading {...props} as="h2" />,
   h3: (props) => <LinkedHeading {...props} as="h3" />,
   code: Code,
   Note,
+  YoutubeEmbed,
   CodeSandbox: ({ src, title }: { src: string; title: string }) => (
     <iframe
       title={title}
