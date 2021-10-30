@@ -61,10 +61,11 @@ export default function ThemeSelect() {
           'dark:bg-black dark:border-gray-800',
         )}
         onChange={handleChange}
+        value={activeTheme}
       >
         {themes.map((theme) => {
           return (
-            <option value={theme} selected={theme === activeTheme}>
+            <option key={theme} value={theme}>
               {THEME_MAP[theme].label}
             </option>
           );
