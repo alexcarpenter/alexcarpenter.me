@@ -31,22 +31,34 @@ export default function Page({
   children,
 }: PageProps) {
   const Component = type === 'basic' ? 'div' : 'article';
+  const metaTitle = `${title ? `${title} - ` : ''}Alex Carpenter`;
   return (
     <>
       <Head>
-        <title>{`${title ? `${title} - ` : ''}Alex Carpenter`}</title>
-        <meta
-          property="og:title"
-          content={`${title ? `${title} - ` : ''}Alex Carpenter`}
-        />
+        {/* Title */}
+        <title>{metaTitle}</title>
+        <meta property="og:title" content={metaTitle} />
+
+        {/* Description */}
         <meta name="description" content={description} />
         <meta name="og:description" content={description} />
 
+        {/* URL */}
+        <meta name="og:url" content="https://alexcarpenter.me" />
+
+        {/* General */}
+        <meta httpEquiv="Content-Language" content="en" />
+        <meta name="twitter:site" content="@hybrid_alex" />
+        <meta name="author" content="Alex Carpenter" />
+
+        {/* Favicons */}
+        <meta name="theme-color" content="#000000" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/meta-image.png" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
       <a
         href="#main"
-        className="fixed top-0 left-0 p-1 bg-orange-500 text-black text-sm transform -translate-y-full focus:translate-y-0"
+        className="fixed top-0 left-0 p-1 bg-black dark:bg-gray-200 text-white dark:text-black text-sm transform -translate-y-full focus:translate-y-0"
       >
         Skip to content
       </a>
