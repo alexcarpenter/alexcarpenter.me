@@ -128,7 +128,7 @@ const YoutubeEmbed = ({
           <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
         </>
       )}
-      <div
+      <button
         onClick={loadIframeFunc}
         onPointerOver={warmConnections}
         className={`${styles['yt-lite']} ${
@@ -154,7 +154,7 @@ const YoutubeEmbed = ({
             src={iframeSrc}
           ></iframe>
         )}
-      </div>
+      </button>
     </>
   );
 };

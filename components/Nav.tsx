@@ -77,7 +77,7 @@ export default function Nav() {
                   key={item.label}
                   onMouseOver={(ev) => repositionHighlight(ev, item)}
                   className={cx(
-                    'relative block px-2 py-1 outline-none',
+                    'relative block px-2 py-1',
                     ['text-gray-600 hover:text-gray-700'],
                     ['dark:text-gray-300 dark:hover:text-white'],
                   )}
