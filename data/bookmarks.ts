@@ -8,6 +8,13 @@ interface BookmarkProps {
 
 export default [
   {
+    title: 'Cubic Bézier: from math to motion',
+    description: '',
+    link: 'https://blog.maximeheckel.com/posts/cubic-bezier-from-math-to-motion/',
+    date: '2021-11-02T11:27:45-04:00',
+    tags: ['animation'],
+  },
+  {
     title: 'The New CSS Reset',
     description: 'The New Simple and Lighter CSS Reset.',
     link: 'https://elad2412.github.io/the-new-css-reset/',
