@@ -15,7 +15,7 @@ export default function HashiCorp() {
       <Section>
         <a
           href="https://hashicorp.com"
-          className="inline-flex sm:float-right mb-4"
+          className="inline-flex sm:float-right mb-8"
         >
           <span className="sr-only">HashiCorp</span>
           <svg
