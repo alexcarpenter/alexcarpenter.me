@@ -45,7 +45,7 @@ export default function HashiCorp() {
           <Meta.Item title="Position" description="Web Engineer II" />
           <Meta.Item
             title="Tools"
-            description="Next.js, CSS Modules, TypeScript, DatoCMS"
+            description="Next.js, CSS Modules, TypeScript, Framer Motion, DatoCMS"
           />
         </Meta>
 
