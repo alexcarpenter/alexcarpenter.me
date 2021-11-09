@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { cx, textSecondary, formatDate } from '@/lib/utils';
+import { cx, formatDate } from '@/lib/utils';
 import RightArrow from '@/components/RightArrow';
 import Tags from '@/components/Tags';
 
@@ -72,10 +72,7 @@ export default function Entry({
       )}
       {feature && <div className="w-full mb-4">{feature}</div>}
       <div className="w-28 flex-shrink-0">
-        <time
-          className={cx('mb-2 inline-block', textSecondary)}
-          dateTime={date}
-        >
+        <time className={cx('mb-2 inline-block textSecondary')} dateTime={date}>
           {formatDate(date)}
         </time>
       </div>
@@ -84,15 +81,15 @@ export default function Entry({
           {link ? <CustomLink href={link}>{title}</CustomLink> : <>{title}</>}
         </h2>
         {link && !isInternalLink(link) && (
-          <p className={cx('mt-0.5 text-sm', textSecondary)}>
+          <p className={cx('mt-0.5 text-sm textSecondary')}>
             {new URL(link).hostname}
           </p>
         )}
         {description && (
-          <p className={cx('mt-4', textSecondary)}>{description}</p>
+          <p className={cx('mt-4 textSecondary')}>{description}</p>
         )}
         {children && (
-          <div className={cx('mt-4 prose', textSecondary)}>
+          <div className={cx('mt-4 prose textSecondary')}>
             {typeof children === 'string' ? <p>{children}</p> : children}
           </div>
         )}

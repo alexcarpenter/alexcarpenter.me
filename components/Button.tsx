@@ -1,4 +1,4 @@
-import { cx, borderColor } from '@/lib/utils';
+import { cx } from '@/lib/utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm';
@@ -11,7 +11,7 @@ export default function Button({ size, children, ...props }: ButtonProps) {
         'border px-4 py-1 rounded-md',
         'bg-gray-50',
         'dark:bg-gray-800',
-        borderColor,
+        'borderColor',
         {
           'text-sm': size === 'sm',
         },

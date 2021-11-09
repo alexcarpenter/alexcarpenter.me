@@ -1,4 +1,4 @@
-import { cx, textSecondary } from '@/lib/utils';
+import { cx } from '@/lib/utils';
 
 export default function RightArrow({
   position,
@@ -14,7 +14,7 @@ export default function RightArrow({
       <span
         role="img"
         aria-hidden="true"
-        className={cx('flex-shrink-0', fill ? fill : textSecondary)}
+        className={cx('flex-shrink-0', fill ? fill : 'textSecondary')}
       >
         &#8594;
       </span>

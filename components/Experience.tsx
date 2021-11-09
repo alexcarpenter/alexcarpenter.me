@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import RightArrow from '@/components/RightArrow';
-import { cx, textSecondary } from '@/lib/utils';
+import { cx } from '@/lib/utils';
 
 export default function Experience() {
   return (
@@ -47,7 +47,7 @@ export default function Experience() {
         className={cx('p-4 rounded-md', 'dark:bg-gray-800', 'bg-gray-200')}
       >
         <h3>NationBuilder</h3>
-        <p className={cx('mt-0.5 text-sm', textSecondary)}>
+        <p className={cx('mt-0.5 text-sm textSecondary')}>
           UI Engineer
           <br />
           Nov 2018 - Jul 2021
@@ -58,7 +58,7 @@ export default function Experience() {
         className={cx('p-4 rounded-md', 'dark:bg-gray-800', 'bg-gray-200')}
       >
         <h3>Mighty in the Midwest</h3>
-        <p className={cx('mt-0.5 text-sm', textSecondary)}>
+        <p className={cx('mt-0.5 text-sm textSecondary')}>
           Senior Developer
           <br />
           Oct 2015 - Nov 2018
@@ -69,7 +69,7 @@ export default function Experience() {
         className={cx('p-4 rounded-md', 'dark:bg-gray-800', 'bg-gray-200')}
       >
         <h3>Masuga Design</h3>
-        <p className={cx('mt-0.5 text-sm', textSecondary)}>
+        <p className={cx('mt-0.5 text-sm textSecondary')}>
           Front-end Developer
           <br />
           Feb 2012 - Oct 2015

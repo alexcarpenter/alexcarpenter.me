@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { borderColor, cx, slugify, textSecondary } from '@/lib/utils';
+import { cx, slugify } from '@/lib/utils';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 
@@ -95,7 +95,7 @@ export default function Search() {
                       </a>
                     </Link>
                   </h3>
-                  <p className={cx('mt-0.5 text-sm', textSecondary)}>
+                  <p className={cx('mt-0.5 text-sm textSecondary')}>
                     {description}
                   </p>
                 </div>

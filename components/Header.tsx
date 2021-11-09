@@ -1,15 +1,9 @@
-import {
-  cx,
-  widont,
-  formatDate,
-  textSecondary,
-  borderColor,
-} from '@/lib/utils';
+import { cx, widont, formatDate } from '@/lib/utils';
 import Image from 'next/image';
 import Views from '@/components/Views';
 
 const Component = (props) => (
-  <header className={cx('border-b mb-12 pb-12', borderColor)} {...props} />
+  <header className={cx('border-b mb-12 pb-12 borderColor')} {...props} />
 );
 
 export default function Header({
@@ -41,7 +35,7 @@ export default function Header({
         )}
         <h1 className="text-xl mt-2">{widont(title)}</h1>
         {description && (
-          <p className={cx('mt-2', textSecondary)}>{description}</p>
+          <p className={cx('mt-2 textSecondary')}>{description}</p>
         )}
       </Component>
     );
@@ -50,7 +44,7 @@ export default function Header({
   if (type === 'post') {
     return (
       <Component>
-        <p className={cx('mt-2 space-x-1', textSecondary)}>
+        <p className={cx('mt-2 space-x-1 textSecondary')}>
           <time dateTime={date}>{formatDate(date, 'long')}</time>
           {slug && (
             <>
@@ -80,9 +74,7 @@ export default function Header({
         {widont(title)}
         <span aria-hidden={true}>&nbsp;&#xAC;</span>
       </h1>
-      {description && (
-        <p className={cx('mt-2', textSecondary)}>{description}</p>
-      )}
+      {description && <p className={cx('mt-2 textSecondary')}>{description}</p>}
     </Component>
   );
 }

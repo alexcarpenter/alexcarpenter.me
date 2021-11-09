@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cx, textSecondary } from '@/lib/utils';
+import { cx } from '@/lib/utils';
 
 function Meta({ children }) {
   return (
@@ -40,8 +40,7 @@ function Title({
   return (
     <dt
       className={cx(
-        'text-sm uppercase tracking-wider',
-        textSecondary,
+        'text-sm uppercase tracking-wider textSecondary',
         index > 0 && 'mt-4',
       )}
     >

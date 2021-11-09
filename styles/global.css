@@ -28,6 +28,18 @@ html.dark {
   @apply bg-black text-white;
 }
 
+.textPrimary {
+  @apply text-gray-800 dark:text-white;
+}
+
+.textSecondary {
+  @apply text-gray-600 dark:text-gray-300;
+}
+
+.borderColor {
+  @apply border-gray-200 dark:border-gray-700;
+}
+
 .prose > * + * {
   @apply mt-6;
 }

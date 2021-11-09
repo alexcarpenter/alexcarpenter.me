@@ -1,4 +1,4 @@
-import { cx, borderColor } from '@/lib/utils';
+import { cx } from '@/lib/utils';
 function List({ children }) {
   return (
     <ul

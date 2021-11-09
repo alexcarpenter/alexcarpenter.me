@@ -1,3 +1,4 @@
+import * as React from 'react';
 import clsx from 'clsx';
 import slugify from '@sindresorhus/slugify';
 export { slugify, clsx as cx };
@@ -26,6 +27,10 @@ export const widont = (str) => {
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
 
-export const textPrimary = clsx('text-gray-800', 'dark:text-white');
-export const textSecondary = clsx('text-gray-600', 'dark:text-gray-300');
-export const borderColor = clsx('border-gray-200', 'dark:border-gray-700');
+export const isElement = (element) => {
+  return React.isValidElement(element);
+};
+
+export const isDOMTypeElement = (element) => {
+  return isElement(element) && typeof element.type === 'string';
+};

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTheme } from 'next-themes';
 import { Command, Sun, Moon, Code } from 'react-feather';
-import { cx, textSecondary } from '@/lib/utils';
+import { cx } from '@/lib/utils';
 
 const THEME_MAP = {
   system: {
@@ -37,8 +37,7 @@ export default function ThemeSelect() {
       <span
         aria-hidden={true}
         className={cx(
-          'absolute top-1/2 -translate-y-1/2 left-2 pointer-events-none',
-          textSecondary,
+          'absolute top-1/2 -translate-y-1/2 left-2 pointer-events-none textSecondary',
           'opacity-50',
         )}
       >
@@ -50,7 +49,7 @@ export default function ThemeSelect() {
       >
         <Code
           width=".9em"
-          className={cx('rotate-90', textSecondary, 'opacity-50')}
+          className={cx('rotate-90', 'textSecondary', 'opacity-50')}
         />
       </span>
       <select
