@@ -44,7 +44,7 @@ export default function Experience() {
       </article>
 
       <article
-        className={cx('p-4 rounded-md', ['dark:bg-gray-900'], ['bg-gray-200'])}
+        className={cx('p-4 rounded-md', 'dark:bg-gray-800', 'bg-gray-200')}
       >
         <h3>NationBuilder</h3>
         <p className={cx('mt-0.5 text-sm', textSecondary)}>
@@ -55,7 +55,7 @@ export default function Experience() {
       </article>
 
       <article
-        className={cx('p-4 rounded-md', ['dark:bg-gray-900'], ['bg-gray-200'])}
+        className={cx('p-4 rounded-md', 'dark:bg-gray-800', 'bg-gray-200')}
       >
         <h3>Mighty in the Midwest</h3>
         <p className={cx('mt-0.5 text-sm', textSecondary)}>
@@ -66,7 +66,7 @@ export default function Experience() {
       </article>
 
       <article
-        className={cx('p-4 rounded-md', ['dark:bg-gray-900'], ['bg-gray-200'])}
+        className={cx('p-4 rounded-md', 'dark:bg-gray-800', 'bg-gray-200')}
       >
         <h3>Masuga Design</h3>
         <p className={cx('mt-0.5 text-sm', textSecondary)}>

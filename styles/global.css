@@ -32,25 +32,25 @@ html.dark {
   @apply mt-6;
 }
 
-.prose h2 {
+.prose > h2 {
   @apply text-xl;
 }
 
-.prose * + h2,
-.prose * + h3 {
+.prose > * + h2,
+.prose > * + h3 {
   @apply mt-12;
 }
 
-.prose ul {
+.prose > ul {
   padding-left: 1.35rem;
   list-style-type: disc;
 }
 
-.prose ul li + li {
+.prose > ul li + li {
   padding-top: 0.25rem;
 }
 
-.prose blockquote {
+.prose > blockquote {
   @apply border-l-4 border-white border-opacity-10 pl-4;
 }
 
@@ -63,16 +63,16 @@ html.dark {
   text-decoration: none;
 }
 
-.prose hr {
+.prose > hr {
   @apply bg-gray-200 dark:bg-gray-800 h-px w-full border-0;
 }
 
 code {
-  @apply bg-gray-200 dark:bg-gray-900 px-1 rounded;
+  @apply bg-gray-200 dark:bg-gray-800 px-1 rounded;
 }
 
 kbd {
-  @apply bg-gray-200 dark:bg-gray-900 border-gray-300 dark:border-gray-800 px-1 rounded border-b-2;
+  @apply bg-gray-200 dark:bg-gray-800 border-gray-300 dark:border-gray-700 px-1 rounded border-b-2;
 }
 
 [style*='--aspect-ratio'] {

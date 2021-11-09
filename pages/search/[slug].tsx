@@ -36,11 +36,12 @@ export default function SearchTag({ slug, posts }) {
 }
 
 export async function getStaticPaths() {
-  const posts = getAllMdx('posts');
+  const posts = getAllMdx('posts').map((post) => post['frontMatter']);
+  const sources = [...posts, ...bookmarks];
   return {
     paths: Array.from(
       // @ts-ignore
-      new Set(posts.map((post) => post.frontMatter.tags).flat()),
+      new Set(sources.map((post) => post.tags).flat()),
     ).map((tag) => {
       return {
         params: {

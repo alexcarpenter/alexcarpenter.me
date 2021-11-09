@@ -65,7 +65,7 @@ export default function Nav() {
         className={cx(
           'hidden md:block absolute top-0 left-0 bottom-0 opacity-0 rounded-md',
           ['bg-gray-200'],
-          ['dark:bg-gray-900'],
+          ['dark:bg-gray-800'],
         )}
       />
       <ul className="flex flex-col items-end sm:items-start sm:flex-row gap-x-4 gap-y-1">

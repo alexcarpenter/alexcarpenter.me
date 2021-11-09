@@ -57,8 +57,8 @@ export default function ThemeSelect() {
         id="theme-menu"
         className={cx(
           'appearance-none rounded-md border sm:w-full pl-8 pr-12',
-          'bg-gray-100 border-gray-200',
-          'dark:bg-black dark:border-gray-800',
+          'bg-gray-50 border-gray-200',
+          'dark:bg-gray-800 dark:border-gray-700',
         )}
         onChange={handleChange}
         value={activeTheme}

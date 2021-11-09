@@ -1,10 +1,7 @@
 import { cx } from '@/lib/utils';
 
 const variants = {
-  white: cx(
-    ['bg-gray-200 border-gray-300'],
-    ['dark:bg-gray-900 dark:border-gray-800'],
-  ),
+  white: cx('bg-gray-200', 'dark:bg-gray-800'),
 };
 
 interface BadgeProps {
@@ -16,7 +13,7 @@ export default function Badge({ variant = 'white', children }: BadgeProps) {
   return (
     <span
       className={cx(
-        'inline-block text-sm py-0.5 px-2.5 rounded-full border',
+        'inline-block text-sm py-0.5 px-2.5 rounded-full',
         variants[variant],
       )}
     >
