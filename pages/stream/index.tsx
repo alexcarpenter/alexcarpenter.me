@@ -30,7 +30,7 @@ export default function Stream({ entries }) {
                   <p className="mt-6 text-sm textSecondary">
                     &mdash;{' '}
                     <time dateTime={entry.frontMatter.date}>
-                      {formatDate(entry.frontMatter.date, 'long')}
+                      {formatDate(entry.frontMatter.date, 'full')}
                     </time>
                   </p>
                 </article>

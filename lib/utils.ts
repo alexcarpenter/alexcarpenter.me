@@ -13,6 +13,11 @@ export const formatDate = (date, format = 'short') => {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
+    },
+    full: {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
     },
