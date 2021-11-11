@@ -13,6 +13,8 @@ export const formatDate = (date, format = 'short') => {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
     },
   };
   let options = formats[format];
@@ -26,6 +28,9 @@ export const widont = (str) => {
 };
 
 export const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export const isInternalUrl = (url) =>
+  url.startsWith('/') || url.startsWith('#');
 
 export const isElement = (element) => {
   return React.isValidElement(element);

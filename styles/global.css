@@ -63,7 +63,7 @@ html.dark {
 }
 
 .prose > blockquote {
-  @apply border-l-4 border-white border-opacity-10 pl-4;
+  @apply border-l-4 pl-4 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300;
 }
 
 .prose a {

@@ -58,15 +58,15 @@ export default function Code({ children, className = '' }) {
   return (
     <div
       className={cx(
-        'my-12 relative overflow-hidden rounded border',
-        ['bg-gray-50 border-gray-200'],
-        ['dark:text-white dark:bg-gray-900 dark:border-none'],
+        'relative overflow-hidden rounded',
+        ['bg-gray-50'],
+        ['dark:text-white dark:bg-gray-900'],
       )}
     >
       <div
         className={cx(
           'flex items-center justify-between w-full px-4 py-2 border-b',
-          ['border-gray-200'],
+          ['border-gray-100'],
           ['dark:border-black'],
         )}
       >

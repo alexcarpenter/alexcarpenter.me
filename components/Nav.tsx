@@ -12,9 +12,13 @@ const navData = [
     path: '/posts',
     label: 'Posts',
   },
+  // {
+  //   path: '/bookmarks',
+  //   label: 'Bookmarks',
+  // },
   {
-    path: '/bookmarks',
-    label: 'Bookmarks',
+    path: '/stream',
+    label: 'Stream',
   },
 ];
 
