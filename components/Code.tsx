@@ -1,4 +1,5 @@
 //@ts-nocheck
+import { Children } from 'react';
 import { cx } from '@/lib/utils';
 import rangeParser from 'parse-numeric-range';
 import Highlight, { defaultProps } from 'prism-react-renderer';
@@ -49,8 +50,23 @@ const calculateLinesToHighlight = (meta) => {
   }
 };
 
-export default function Code({ children, className = '' }) {
-  const [isCopied, setCopied] = useClipboard(children.trim(), {
+const getCodeDataFromChildren = (children) => {
+  const childrenArray = Children.toArray(children);
+  const codeChild = childrenArray[0];
+
+  if (codeChild) {
+    return {
+      source: codeChild.props.children.trim(),
+      className: codeChild.props.className,
+    };
+  }
+
+  return {};
+};
+
+export default function Code({ children }) {
+  const { source, className } = getCodeDataFromChildren(children);
+  const [isCopied, setCopied] = useClipboard(source, {
     successDuration: 2000,
   });
   const [language, { filename = ``, highlight = `` }] = getParams(className);
@@ -85,7 +101,7 @@ export default function Code({ children, className = '' }) {
       <Highlight
         {...defaultProps}
         theme={theme}
-        code={children.trim()}
+        code={source}
         language={language}
       >
         {({
