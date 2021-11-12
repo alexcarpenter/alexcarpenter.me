@@ -64,9 +64,8 @@ const getCodeDataFromChildren = (children) => {
   return {};
 };
 
-export default function Code({ children, className = '' }) {
+export default function Code({ children }) {
   const { source, className } = getCodeDataFromChildren(children);
-
   const [isCopied, setCopied] = useClipboard(source, {
     successDuration: 2000,
   });
