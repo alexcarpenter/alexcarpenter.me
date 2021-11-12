@@ -1,6 +1,7 @@
 //@ts-nocheck
 import * as React from 'react';
 import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
 import {
   KBarAnimator,
   KBarProvider,
@@ -14,6 +15,7 @@ import { cx } from '@/lib/utils';
 
 export default function CommandBar(props) {
   const router = useRouter();
+  const { setTheme } = useTheme();
 
   const actions = [
     {
@@ -23,6 +25,31 @@ export default function CommandBar(props) {
       keywords: 'copy-url',
       section: 'General',
       perform: () => navigator.clipboard.writeText(window.location.href),
+    },
+    {
+      id: 'theme',
+      name: 'Change theme',
+      keywords: 'interface color dark light',
+      shortcut: ['t'],
+      section: 'General',
+    },
+    {
+      id: 'darkTheme',
+      name: 'Dark',
+      keywords: 'dark theme',
+      section: '',
+      shortcut: ['d'],
+      perform: () => setTheme('dark'),
+      parent: 'theme',
+    },
+    {
+      id: 'lightTheme',
+      name: 'Light',
+      keywords: 'light theme',
+      section: '',
+      shortcut: ['l'],
+      perform: () => setTheme('light'),
+      parent: 'theme',
     },
     {
       id: 'source',
