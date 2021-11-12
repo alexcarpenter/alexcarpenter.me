@@ -52,6 +52,15 @@ export default function CommandBar(props) {
       parent: 'theme',
     },
     {
+      id: 'systemTheme',
+      name: 'System',
+      keywords: 'system theme',
+      section: '',
+      shortcut: ['s'],
+      perform: () => setTheme('system'),
+      parent: 'theme',
+    },
+    {
       id: 'source',
       name: 'View Source',
       shortcut: ['s'],
