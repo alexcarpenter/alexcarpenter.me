@@ -44,7 +44,7 @@ export default function Header({
   if (type === 'post') {
     return (
       <Component>
-        <p className={cx('mt-2 space-x-1 textSecondary')}>
+        <p className={cx('mt-2 space-x-1 textSecondary text-sm')}>
           <time dateTime={date}>{formatDate(date, 'long')}</time>
           {slug && (
             <>

@@ -41,7 +41,7 @@ function Card({
   return (
     <div
       className={cx(
-        'relative group flex flex-col p-4 sm:p-8 rounded-md overflow-hidden',
+        'relative group flex flex-col p-4 sm:p-8 rounded-md overflow-hidden border borderColor',
         'bg-gray-50',
         'dark:bg-gray-900',
       )}

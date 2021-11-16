@@ -74,16 +74,14 @@ export default function Code({ children }) {
   return (
     <div
       className={cx(
-        'relative overflow-hidden rounded',
+        'relative overflow-hidden rounded border borderColor',
         ['bg-gray-50'],
         ['dark:text-white dark:bg-gray-900'],
       )}
     >
       <div
         className={cx(
-          'flex items-center justify-between w-full px-4 py-2 border-b',
-          ['border-gray-100'],
-          ['dark:border-black'],
+          'flex items-center justify-between w-full px-4 py-2 border-b borderColor',
         )}
       >
         <span>
