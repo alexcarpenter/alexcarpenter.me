@@ -5,11 +5,11 @@ import matter from 'gray-matter';
 const root = process.cwd();
 
 export const postsPath = path.join(root, 'content/posts');
-export const streamPath = path.join(root, 'content/stream');
+export const feedPath = path.join(root, 'content/feed');
 
 const content = {
   posts: postsPath,
-  stream: streamPath,
+  feed: feedPath,
 };
 
 export const getMdx = (directoryPath, fileName) => {

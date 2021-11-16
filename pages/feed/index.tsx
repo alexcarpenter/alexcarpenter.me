@@ -6,10 +6,10 @@ import Page from '@/components/Page';
 import List from '@/components/List';
 import { components } from '@/components/Mdx';
 
-export default function Stream({ entries }) {
+export default function Feed({ entries }) {
   return (
     <Page
-      title="Stream"
+      title="Feed"
       description="Notes, bookmarks, updates, code snippets, inspiration, etc."
     >
       <List>
@@ -19,10 +19,10 @@ export default function Stream({ entries }) {
               Number(new Date(b.frontMatter.date)) -
               Number(new Date(a.frontMatter.date)),
           )
-          .map((entry) => {
+          .map((entry, index) => {
             const source = entry.mdx;
             return (
-              <List.Item>
+              <List.Item key={index}>
                 <article>
                   <div className="prose">
                     <MDXRemote {...source} components={components} />
@@ -43,7 +43,7 @@ export default function Stream({ entries }) {
 }
 
 export async function getStaticProps() {
-  const mdxFiles = getAllMdx('stream');
+  const mdxFiles = getAllMdx('feed');
 
   async function serializeMdxFile(item) {
     const { frontMatter, content } = item;

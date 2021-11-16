@@ -17,8 +17,8 @@ const navData = [
   //   label: 'Bookmarks',
   // },
   {
-    path: '/stream',
-    label: 'Stream',
+    path: '/feed',
+    label: 'Feed',
   },
 ];
 
