@@ -55,7 +55,9 @@ export default function HashiCorp() {
             <a href="https://www.hashicorp.com/blog/announcing-hashitalks-2021-call-for-proposals">
               HashiTalks
             </a>{' '}
-            backed by DatoCMS.
+            backed by DatoCMS and building new homepages for{' '}
+            <a href="https://vaultproject.io">Vault</a> and{' '}
+            <a href="https://www.consul.io">Consul</a>.
           </Note>
         </div>
       </Section>
