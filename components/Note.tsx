@@ -23,7 +23,7 @@ export default function Note({
   children: React.ReactNode;
 }) {
   return (
-    <div className={cx('p-4 rounded-md flex text-base', [variants[variant]])}>
+    <div className={cx('p-4 rounded-md flex', [variants[variant]])}>
       <span className="mr-2 flex-shrink-0">
         <RightArrow position="before" fill="currentColor" />
       </span>
