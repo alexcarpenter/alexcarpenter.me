@@ -15,7 +15,7 @@ export default function Header({
   link,
   slug,
 }) {
-  if (!title) return null;
+  if (!title || type === 'feed') return null;
 
   if (type === 'work') {
     return (

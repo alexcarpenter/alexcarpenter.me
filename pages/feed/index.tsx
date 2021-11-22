@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getAllMdx } from '@/lib/mdx';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -29,9 +30,13 @@ export default function Feed({ entries }) {
                   </div>
                   <p className="mt-6 text-sm textSecondary">
                     &mdash;{' '}
-                    <time dateTime={entry.frontMatter.date}>
-                      {formatDate(entry.frontMatter.date, 'full')}
-                    </time>
+                    <Link href={`/feed/${entry.frontMatter.slug}`}>
+                      <a className="underline hover:no-underline">
+                        <time dateTime={entry.frontMatter.date}>
+                          {formatDate(entry.frontMatter.date, 'full')}
+                        </time>
+                      </a>
+                    </Link>
                   </p>
                 </article>
               </List.Item>

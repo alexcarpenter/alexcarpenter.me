@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 interface PageProps {
-  type?: 'basic' | 'post' | 'work';
+  type?: 'basic' | 'post' | 'feed' | 'work';
   title?: string;
   description?: string;
   date?: string;
