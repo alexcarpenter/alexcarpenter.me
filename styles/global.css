@@ -109,3 +109,11 @@ kbd {
 .section + .section {
   @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-800;
 }
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.area-1\/1 {
+  grid-area: 1 / 1;
+}

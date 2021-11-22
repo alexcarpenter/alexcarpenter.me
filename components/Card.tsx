@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cx, isInternalUrl, isDOMTypeElement } from '@/lib/utils';
+import { cx, isDOMTypeElement } from '@/lib/utils';
 import Link from '@/components/Link';
 import RightArrow from '@/components/RightArrow';
 

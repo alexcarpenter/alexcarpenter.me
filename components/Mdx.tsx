@@ -3,6 +3,7 @@ import Badge from '@/components/Badge';
 import Card from '@/components/Card';
 import Code from '@/components/Code';
 import Note from '@/components/Note';
+import Slideshow from '@/components/Slideshow';
 import YoutubeEmbed from '@/components/YoutubeEmbed';
 import LinkedHeading from '@/components/LinkedHeading';
 
@@ -15,6 +16,7 @@ export const components = {
   Image,
   Note,
   YoutubeEmbed,
+  Slideshow,
   ExternalLink: ({ href, children }) => (
     <div className="flex-1">
       <p>
