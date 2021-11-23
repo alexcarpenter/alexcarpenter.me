@@ -84,12 +84,14 @@ const Slideshow = ({ children }) => {
             className="shadow-md grid place-items-center w-8 h-8 bg-white bg-opacity-90 dark:bg-black dark:bg-opacity-90 absolute right-4 top-1/2 -translate-y-1/2 rounded-md z-10"
             onClick={() => paginate(1)}
           >
+            <span className="sr-only">Next image</span>
             <ChevronRight />
           </button>
           <button
             className="shadow-md grid place-items-center w-8 h-8 bg-white bg-opacity-90 dark:bg-black dark:bg-opacity-90 absolute left-4 top-1/2 -translate-y-1/2 rounded-md z-10"
             onClick={() => paginate(-1)}
           >
+            <span className="sr-only">Previous image</span>
             <ChevronLeft />
           </button>
         </div>
