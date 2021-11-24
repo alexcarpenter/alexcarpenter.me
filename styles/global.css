@@ -53,7 +53,7 @@ html.dark {
   @apply mt-12;
 }
 
-.prose > ul {
+.prose > ul:not([class]) {
   padding-left: 1.35rem;
   list-style-type: disc;
 }
@@ -85,6 +85,10 @@ code {
 
 kbd {
   @apply bg-gray-200 dark:bg-gray-800 border-gray-300 dark:border-gray-700 px-1 rounded border-b-2;
+}
+
+mark {
+  @apply bg-yellow-200;
 }
 
 [style*='--aspect-ratio'] {
