@@ -59,7 +59,9 @@ export default function Header({
         {link && (
           <a
             href={link}
-            className="text-gray-300 hover:text-white mt-2 inline-block"
+            className="mt-2 inline-block textSecondary text-sm"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             {new URL(link).hostname}&nbsp;&#8594;
           </a>

@@ -68,7 +68,7 @@ function Card({
               <Card.Eyebrow variant={variant}>{eyebrow}</Card.Eyebrow>
             )}
             <Card.Title link={link} children={title} />
-            <Card.Description>{description}</Card.Description>
+            {description && <Card.Description>{description}</Card.Description>}
           </div>
         </>
       )}
@@ -85,7 +85,7 @@ function CardEyebrow({ variant, children }) {
   return (
     <p
       className={cx(
-        'mt-0 mb-2 text-sm font-bold uppercase tracking-wider',
+        'mt-0 mb-1 text-sm font-bold uppercase tracking-wider',
         variants[variant],
       )}
     >
@@ -102,7 +102,7 @@ function CardTitle({
   children: React.ReactNode;
 }) {
   return (
-    <h3 className="m-0">
+    <h3 className="m-0 text-lg">
       {link ? (
         <Link
           className="underline hover:no-underline after:absolute after:inset-0 after:z-10"
