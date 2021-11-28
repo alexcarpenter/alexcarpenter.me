@@ -88,8 +88,7 @@ kbd {
 }
 
 mark {
-  @apply bg-yellow-200;
-  color: inherit;
+  @apply bg-yellow-200 text-gray-800;
 }
 
 [style*='--aspect-ratio'] {
