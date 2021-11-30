@@ -3,7 +3,6 @@ import { slugify } from '@/lib/utils';
 import Entry from '@/components/Entry';
 import Page from '@/components/Page';
 import List from '@/components/List';
-import bookmarks from '@/data/bookmarks';
 import { featuredTags } from '.';
 
 export default function SearchTag({ slug, posts }) {
@@ -37,7 +36,7 @@ export default function SearchTag({ slug, posts }) {
 
 export async function getStaticPaths() {
   const posts = getAllMdx('posts').map((post) => post['frontMatter']);
-  const sources = [...posts, ...bookmarks];
+  const sources = [...posts];
   return {
     paths: Array.from(
       // @ts-ignore
