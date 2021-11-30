@@ -34,7 +34,7 @@ export default function Banner() {
                 />
               </svg>
             </span>
-            <span className="absolute bottom-0 right-0 bg-white dark:bg-gray-800 w-6 h-6 rounded-md translate-y-1/2 translate-x-1/2 text-sm grid place-items-center border borderColor">
+            <span className="absolute bottom-0 right-0 bg-white dark:bg-gray-800 w-6 h-6 rounded-md translate-y-1/2 translate-x-1/2 text-xs sm:text-sm grid place-items-center border borderColor">
               <Emoji label="Happy holidays">🎄</Emoji>
             </span>
           </a>
