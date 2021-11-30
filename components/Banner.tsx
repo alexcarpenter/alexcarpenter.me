@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
+import Emoji from '@/components/Emoji';
 
 export default function Banner() {
   return (
@@ -32,6 +33,9 @@ export default function Banner() {
                   fill="#fff"
                 />
               </svg>
+            </span>
+            <span className="absolute bottom-0 right-0 bg-white w-6 h-6 rounded-md translate-y-1/2 translate-x-1/2 text-sm grid place-items-center border borderColor">
+              <Emoji label="Happy holidays">🎄</Emoji>
             </span>
           </a>
         </Link>
