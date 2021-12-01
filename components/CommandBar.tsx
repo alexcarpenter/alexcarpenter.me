@@ -97,12 +97,12 @@ export default function CommandBar(props) {
       perform: () => router.push('/posts'),
     },
     {
-      id: 'stream',
-      name: 'Stream',
+      id: 'feed',
+      name: 'Feed',
       shortcut: ['g', 's'],
-      keywords: 'go-stream',
+      keywords: 'go-feed',
       section: 'Go To',
-      perform: () => router.push('/stream'),
+      perform: () => router.push('/feed'),
     },
     {
       id: 'github',

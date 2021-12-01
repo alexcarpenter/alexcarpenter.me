@@ -14,7 +14,7 @@ export default function Home() {
       <div className="mt-8">
         <div className="prose">
           <h2>About</h2>
-          <div className="relative float-right w-1/3 ml-8 mb-8 inline-flex rounded-md overflow-hidden">
+          <div className="relative float-right w-1/3 ml-4 md:ml-8 mb-4 md:mb-8 inline-flex rounded-md overflow-hidden">
             <Image
               src="/images/family.jpg"
               width={400}
