@@ -14,15 +14,11 @@ export default function Home() {
       <div className="mt-8">
         <div className="prose">
           <h2>About</h2>
-          <div
-            className="relative float-right w-1/3 ml-8 mb-8 inline-flex rounded-md overflow-hidden"
-            style={{
-              aspectRatio: '1/1',
-            }}
-          >
+          <div className="relative float-right w-1/3 ml-8 mb-8 inline-flex rounded-md overflow-hidden">
             <Image
               src="/images/family.jpg"
-              layout="fill"
+              width={400}
+              height={400}
               alt="My wife, my dog, and I at the park."
             />
           </div>
@@ -38,14 +34,7 @@ export default function Home() {
             Outside of work I am a self-proclaimed serial hobbyist. Currently
             interested in <del>fly fishing</del>, <del>RC cars</del>, disc golf,
             and outdoor cooking{' '}
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://www.instagram.com/stories/highlights/17960504368004615/"
-            >
-              #smokedmeats
-            </a>
-            .
+            <a href="https://www.instagram.com/alexcarp/">#smokedmeats</a>.
           </p>
           <h2>Colophon</h2>
           {/* <p>
