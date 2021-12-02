@@ -24,7 +24,7 @@ export default function Home() {
           />
         </div>
         <p>
-          Hey! I'm Alex, a detail oriented user interface engineer interested in
+          Hey, I'm Alex. A detail oriented user interface engineer interested in
           CSS architecture, React, TypeScript, design systems, and state
           machines. Currently working at{' '}
           <Link href="/work/hashicorp">HashiCorp</Link>, helping build and
