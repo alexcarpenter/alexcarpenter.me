@@ -7,9 +7,9 @@ export default function Banner() {
   return (
     <header className="mb-12 flex items-start sm:items-center justify-between sm:justify-start">
       <div className="w-28 flex-shrink-0">
-        <span className="relative inline-flex">
+        <div className="relative w-12">
           <Link href="/">
-            <a className="flex items-start w-12 relative group">
+            <a className="flex items-start relative group">
               <span className="sr-only">Alex Carpenter</span>
               <Image
                 src="/images/me.jpg"
@@ -43,7 +43,7 @@ export default function Banner() {
           >
             <Emoji label="Happy holidays">🎄</Emoji>
           </span>
-        </span>
+        </div>
       </div>
       <Nav />
     </header>
