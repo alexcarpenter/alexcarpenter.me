@@ -40,10 +40,8 @@ export default function Home() {
         <h2>Colophon</h2>
         <p>
           This site is built using Next.js, Tailwind CSS, TypeScript, MDX, and
-          hosted using Vercel. Type is set in JetBrains Mono. Overkill for a
-          small personal website with a few posts I know, but I have learned a
-          lot about React, TypeScript, Cypress E2E tests, and Github Actions
-          from this experiment. Feel free to check out the source code on{' '}
+          hosted using Vercel. Type is set in JetBrains Mono. Feel free to check
+          out the source code on{' '}
           <a href="https://github.com/alexcarpenter/alexcarpenter-next">
             Github
           </a>

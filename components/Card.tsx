@@ -7,6 +7,7 @@ type CardProps =
   | {
       variant?: keyof typeof variants;
       link?: string;
+      cta?: string;
       eyebrow?: never;
       title?: never;
       description?: never;
@@ -15,6 +16,7 @@ type CardProps =
   | {
       variant?: keyof typeof variants;
       link?: string;
+      cta?: string;
       eyebrow?: string;
       title: string;
       description: string;
@@ -33,6 +35,7 @@ const variants = {
 function Card({
   variant = 'orange',
   link,
+  cta,
   eyebrow,
   title,
   description,
@@ -74,6 +77,9 @@ function Card({
       )}
       {link && (
         <div className="mt-auto pt-4 sm:pt-8 flex justify-end items-center transition-transform group-hover:translate-x-[2px]">
+          {cta ? (
+            <span className={cx('text-sm', variants[variant])}>{cta}</span>
+          ) : null}
           <RightArrow position="after" fill={variants[variant]} />
         </div>
       )}
@@ -85,7 +91,7 @@ function CardEyebrow({ variant, children }) {
   return (
     <p
       className={cx(
-        'mt-0 mb-1 text-sm font-bold uppercase tracking-wider',
+        'mt-0 mb-1 text-sm uppercase tracking-wider',
         variants[variant],
       )}
     >

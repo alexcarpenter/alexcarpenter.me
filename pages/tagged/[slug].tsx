@@ -1,27 +1,12 @@
-import Link from '@/components/Link';
 import { getAllMdx } from '@/lib/mdx';
+import { slugify } from '@/lib/utils';
 import Entry from '@/components/Entry';
-import Page from '@/components/Page';
 import List from '@/components/List';
+import Page from '@/components/Page';
 
-export default function Posts({ posts }) {
+export default function Tagged({ slug, posts }) {
   return (
-    <Page
-      title="Posts"
-      description={
-        <>
-          Thoughts on{' '}
-          <Link className="underline hover:no-underline" href="/tagged/css">
-            CSS architecture
-          </Link>
-          ,{' '}
-          <Link className="underline hover:no-underline" href="/tagged/react">
-            React
-          </Link>
-          , TypeScript, design systems, and state machines.
-        </>
-      }
-    >
+    <Page title={`Tagged: ${slug}`} description="">
       <List>
         {posts
           .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
@@ -44,11 +29,33 @@ export default function Posts({ posts }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticPaths() {
+  const mdxFiles = getAllMdx('posts').map((post) => post['frontMatter']);
+  return {
+    paths: Array.from(
+      // @ts-ignore
+      new Set(mdxFiles.map((file) => file.tags).flat()),
+    ).map((tag) => {
+      return {
+        params: {
+          slug: slugify(tag),
+        },
+      };
+    }),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { slug } = params;
   const mdxFiles = getAllMdx('posts').map((post) => post['frontMatter']);
   return {
     props: {
-      posts: mdxFiles,
+      slug,
+      posts: mdxFiles.filter((file) => {
+        // @ts-ignore
+        return file.tags.includes(slug);
+      }),
     },
   };
 }

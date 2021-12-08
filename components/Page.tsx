@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Head from 'next/head';
+import { onlyText } from 'react-children-utilities';
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,7 +8,7 @@ import Footer from '@/components/Footer';
 interface PageProps {
   type?: 'basic' | 'post' | 'feed' | 'work';
   title?: string;
-  description?: string;
+  description?: string | React.ReactNode;
   date?: string;
   link?: string;
   thumbnail?: {
@@ -32,6 +33,7 @@ export default function Page({
 }: PageProps) {
   const Component = type === 'basic' ? 'div' : 'article';
   const metaTitle = `${title ? `${title} - ` : ''}Alex Carpenter`;
+  const metaDescription = onlyText(description);
   return (
     <>
       <Head>
@@ -40,8 +42,8 @@ export default function Page({
         <meta property="og:title" content={metaTitle} />
 
         {/* Description */}
-        <meta name="description" content={description} />
-        <meta name="og:description" content={description} />
+        <meta name="description" content={metaDescription} />
+        <meta name="og:description" content={metaDescription} />
 
         {/* URL */}
         <meta name="og:url" content="https://alexcarpenter.me" />
