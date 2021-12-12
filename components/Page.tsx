@@ -55,7 +55,11 @@ export default function Page({
 
         {/* Favicons */}
         <meta name="theme-color" content="#000000" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/meta-image.png" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="https://alexcarpenter.me/meta-image.png"
+        />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
       <a
