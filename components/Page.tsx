@@ -9,6 +9,7 @@ interface PageProps {
   type?: 'basic' | 'post' | 'feed';
   title?: string;
   description?: string | React.ReactNode;
+  image?: string;
   date?: string;
   link?: string;
   slug?: string;
@@ -19,6 +20,7 @@ export default function Page({
   type = 'basic',
   title,
   description = 'Detail oriented user interface engineer currently interested in CSS architecture, React, TypeScript, design systems, and state machines.',
+  image,
   date,
   link,
   slug,
@@ -27,6 +29,7 @@ export default function Page({
   const Component = type === 'basic' ? 'div' : 'article';
   const metaTitle = `${title ? `${title} - ` : ''}Alex Carpenter`;
   const metaDescription = onlyText(description);
+  const metaImage = image ? image : '/image/meta-image.png';
   return (
     <>
       <Head>
@@ -43,15 +46,22 @@ export default function Page({
 
         {/* General */}
         <meta httpEquiv="Content-Language" content="en" />
+        <meta property="og:type" content="website" />
         <meta name="twitter:site" content="@hybrid_alex" />
         <meta name="author" content="Alex Carpenter" />
+
+        {/* Image */}
+        <meta
+          property="og:image"
+          content={`https://alexcarpenter.me${metaImage}`}
+        />
 
         {/* Favicons */}
         <meta name="theme-color" content="#000000" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="https://alexcarpenter.me/meta-image.png"
+          href="/apple-touch-icon.png"
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
