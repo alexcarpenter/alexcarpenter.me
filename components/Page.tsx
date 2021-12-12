@@ -6,17 +6,11 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 interface PageProps {
-  type?: 'basic' | 'post' | 'feed' | 'work';
+  type?: 'basic' | 'post' | 'feed';
   title?: string;
   description?: string | React.ReactNode;
   date?: string;
   link?: string;
-  thumbnail?: {
-    src: string;
-    width: string;
-    height: string;
-    alt: string;
-  };
   slug?: string;
   children?: React.ReactNode;
 }
@@ -28,7 +22,6 @@ export default function Page({
   date,
   link,
   slug,
-  thumbnail,
   children,
 }: PageProps) {
   const Component = type === 'basic' ? 'div' : 'article';
@@ -77,7 +70,6 @@ export default function Page({
             type={type}
             date={date}
             link={link}
-            thumbnail={thumbnail}
             slug={slug}
           />
           {children}
