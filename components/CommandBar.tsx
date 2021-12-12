@@ -145,7 +145,7 @@ export default function CommandBar(props) {
       <KBarPortal>
         <KBarPositioner
           className={cx(
-            'fixed inset-0 backdrop-blur-sm',
+            'fixed inset-0 backdrop-blur-sm z-50',
             'bg-gray-100 bg-opacity-75',
             'dark:bg-black dark:bg-opacity-60',
           )}
