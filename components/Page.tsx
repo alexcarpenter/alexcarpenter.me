@@ -48,6 +48,8 @@ export default function Page({
         <meta httpEquiv="Content-Language" content="en" />
         <meta property="og:type" content="website" />
         <meta name="twitter:site" content="@hybrid_alex" />
+        <meta name="twitter:creator" content="@hybrid_alex" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="author" content="Alex Carpenter" />
 
         {/* Image */}
