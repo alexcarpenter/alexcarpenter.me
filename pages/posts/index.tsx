@@ -21,6 +21,7 @@ export default function Posts({ posts }) {
           , TypeScript, design systems, and state machines.
         </>
       }
+      image="posts.png"
     >
       <List>
         {posts

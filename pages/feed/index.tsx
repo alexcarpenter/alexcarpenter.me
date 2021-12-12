@@ -12,6 +12,7 @@ export default function Feed({ entries }) {
     <Page
       title="Feed"
       description="Notes, bookmarks, updates, code snippets, inspiration, etc."
+      image="feed.png"
     >
       <List>
         {entries

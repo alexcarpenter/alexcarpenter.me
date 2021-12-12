@@ -29,7 +29,7 @@ export default function Page({
   const Component = type === 'basic' ? 'div' : 'article';
   const metaTitle = `${title ? `${title} - ` : ''}Alex Carpenter`;
   const metaDescription = onlyText(description);
-  const metaImage = image ? image : '/meta-image.png';
+  const metaImage = image ? `/og/${image}` : '/og/default.png';
   return (
     <>
       <Head>

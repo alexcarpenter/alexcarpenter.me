@@ -10,6 +10,7 @@ export default function Work() {
     <Page
       title="Work"
       description="Helping teams build consistent, high-quality and inclusive user interfaces with React. Working remotely, floating between design and engineering teams."
+      image="work.png"
     >
       <Section heading="Experience">
         <Experience />
