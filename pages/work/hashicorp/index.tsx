@@ -11,6 +11,7 @@ export default function HashiCorp() {
     <Page
       title="HashiCorp"
       description="Web Engineer helping build and maintain public-facing HashiCorp websites and web applications with Next.js."
+      image="hashicorp.png"
     >
       <Section>
         <a
