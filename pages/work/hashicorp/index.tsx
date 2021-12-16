@@ -67,6 +67,14 @@ export default function HashiCorp() {
         <List>
           <List.Item>
             <Entry
+              date="Dec 15, 2021"
+              title="Vault homepage and use case pages"
+              link="https://vaultproject.io"
+            />
+          </List.Item>
+
+          <List.Item>
+            <Entry
               date="Oct 28, 2021"
               title="Industry pages"
               link="https://hashicorp.com/industries/financial-services"
