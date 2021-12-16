@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
+import { motion, AnimateSharedLayout } from 'framer-motion';
 import {
   KBarAnimator,
   KBarProvider,
@@ -187,23 +188,25 @@ function RenderResults() {
   );
 
   return (
-    <KBarResults
-      items={flattened}
-      onRender={({ item, active }) =>
-        typeof item === 'string' ? (
-          <h2
-            className="border-l-2 px-4 pt-4 pb-2 text-sm font-mono uppercase tracking-wider textSecondary text-opacity-75"
-            style={{
-              borderColor: 'transparent',
-            }}
-          >
-            {item}
-          </h2>
-        ) : (
-          <ResultItem action={item} active={active} />
-        )
-      }
-    />
+    <AnimateSharedLayout>
+      <KBarResults
+        items={flattened}
+        onRender={({ item, active }) =>
+          typeof item === 'string' ? (
+            <h2
+              className="relative border-l-2 px-4 pt-4 pb-2 text-sm font-mono uppercase tracking-wider textSecondary text-opacity-75"
+              style={{
+                borderColor: 'transparent',
+              }}
+            >
+              {item}
+            </h2>
+          ) : (
+            <ResultItem action={item} active={active} />
+          )
+        }
+      />
+    </AnimateSharedLayout>
   );
 }
 
@@ -222,29 +225,20 @@ const ResultItem = React.forwardRef(
       <div
         ref={ref}
         className={cx(
-          'px-4 py-2 flex items-center justify-between border-l-2 border-transparent textSecondary cursor-pointer',
-          active &&
-            cx(
-              'border-violet-600 bg-violet-200',
-              'dark:border-violet-800 dark:bg-violet-600 dark:text-white',
-            ),
+          'relative px-4 py-2 textSecondary font-mono cursor-pointer',
         )}
-        style={{
-          borderColor: active ? null : 'transparent',
-        }}
       >
-        <div className="flex gap-4 items-center">
-          <div className="flex flex-col">
-            <span className="font-mono">{action.name}</span>
-          </div>
-        </div>
-        {action.shortcut?.length ? (
-          <div className="grid grid-flow-col gap-2">
-            {action.shortcut.map((shortcut) => (
-              <kbd key={shortcut}>{shortcut}</kbd>
-            ))}
-          </div>
-        ) : null}
+        <span className="block relative z-10">{action.name}</span>
+        {active && (
+          <motion.span
+            layoutId="shadow"
+            className={cx(
+              'absolute inset-1 rounded-md z-[-1]',
+              ['bg-gray-100'],
+              ['dark:bg-gray-800'],
+            )}
+          />
+        )}
       </div>
     );
   },
