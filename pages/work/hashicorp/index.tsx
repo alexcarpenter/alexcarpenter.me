@@ -52,13 +52,7 @@ export default function HashiCorp() {
 
         <div className="mt-12">
           <Note label="Currently" variant="violet">
-            Building a new internationalized Next.js site for{' '}
-            <a href="https://www.hashicorp.com/blog/announcing-hashitalks-2021-call-for-proposals">
-              HashiTalks
-            </a>{' '}
-            backed by DatoCMS and building new homepages for{' '}
-            <a href="https://vaultproject.io">Vault</a> and{' '}
-            <a href="https://www.consul.io">Consul</a>.
+            On holiday break, recharging the batteries.
           </Note>
         </div>
       </Section>
@@ -69,7 +63,7 @@ export default function HashiCorp() {
             <Entry
               date="Dec 21, 2021"
               titleAs="h3"
-              title="Consul hompeage and use case pages"
+              title="Consul hompepage and use case pages"
               link="https://consul.io"
             />
           </List.Item>
