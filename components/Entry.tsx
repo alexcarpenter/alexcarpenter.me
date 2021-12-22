@@ -11,6 +11,7 @@ interface EntryProps {
     alt: string;
   };
   date: string;
+  titleAs?: 'h2' | 'h3';
   title: string | React.ReactNode;
   description?: string;
   tags?: string[];
@@ -19,10 +20,9 @@ interface EntryProps {
 }
 
 export default function Entry({
-  feature,
-  image,
   date,
   title,
+  titleAs: Component = 'h2',
   description,
   tags,
   link,
@@ -59,27 +59,15 @@ export default function Entry({
 
   return (
     <article className="flex flex-col sm:flex-row flex-wrap">
-      {image && (
-        <div className="w-full mb-4">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            width={800}
-            height={450}
-            className="rounded-md"
-          />
-        </div>
-      )}
-      {feature && <div className="w-full mb-4">{feature}</div>}
       <div className="w-28 flex-shrink-0">
         <time className={cx('mb-2 inline-block textSecondary')} dateTime={date}>
           {formatDate(date)}
         </time>
       </div>
       <div className="flex-1">
-        <h2>
+        <Component>
           {link ? <CustomLink href={link}>{title}</CustomLink> : <>{title}</>}
-        </h2>
+        </Component>
         {link && !isInternalLink(link) && (
           <p className={cx('mt-0.5 text-sm textSecondary')}>
             {new URL(link).hostname}
@@ -98,3 +86,5 @@ export default function Entry({
     </article>
   );
 }
+
+function Heading({ children }) {}

@@ -67,7 +67,26 @@ export default function HashiCorp() {
         <List>
           <List.Item>
             <Entry
+              date="Dec 21, 2021"
+              titleAs="h3"
+              title="Consul hompeage and use case pages"
+              link="https://consul.io"
+            />
+          </List.Item>
+
+          <List.Item>
+            <Entry
+              date="Dec 20, 2021"
+              titleAs="h3"
+              title="Update HashiCorp.com primary nav to be powered by DatoCMS singleton"
+              link="https://hashicorp.com"
+            />
+          </List.Item>
+
+          <List.Item>
+            <Entry
               date="Dec 15, 2021"
+              titleAs="h3"
               title="Vault homepage and use case pages"
               link="https://vaultproject.io"
             />
@@ -76,6 +95,7 @@ export default function HashiCorp() {
           <List.Item>
             <Entry
               date="Oct 28, 2021"
+              titleAs="h3"
               title="Industry pages"
               link="https://hashicorp.com/industries/financial-services"
             />
@@ -84,6 +104,7 @@ export default function HashiCorp() {
           <List.Item>
             <Entry
               date="Oct 19, 2021"
+              titleAs="h3"
               title="HCP Packer page"
               link="https://cloud.hashicorp.com/products/packer"
             />
@@ -92,6 +113,7 @@ export default function HashiCorp() {
           <List.Item>
             <Entry
               date="Oct 14, 2021"
+              titleAs="h3"
               title="Waypoint homepage"
               link="https://waypointproject.io"
             />
@@ -108,6 +130,7 @@ export default function HashiCorp() {
           <List.Item>
             <Entry
               date="Sep 30, 2021"
+              titleAs="h3"
               title="Boundary homepage updates"
               link="https://boundaryproject.io/"
             />
@@ -116,6 +139,7 @@ export default function HashiCorp() {
           <List.Item>
             <Entry
               date="Sep 8, 2021"
+              titleAs="h3"
               title="HashiCorp about pages"
               link="https://hashicorp.com/about"
             />
@@ -124,6 +148,7 @@ export default function HashiCorp() {
           <List.Item>
             <Entry
               date="Aug 11, 2021"
+              titleAs="h3"
               title="State of the Cloud page"
               link="https://hashicorp.com/state-of-the-cloud"
             />
@@ -132,6 +157,7 @@ export default function HashiCorp() {
           <List.Item>
             <Entry
               date="Jul 29, 2021"
+              titleAs="h3"
               title="Consul on the HashiCorp Cloud Platform"
               link="https://cloud.hashicorp.com/try-hcp-consul"
             />
@@ -140,6 +166,7 @@ export default function HashiCorp() {
           <List.Item>
             <Entry
               date="Jul 26, 2021"
+              titleAs="h3"
               title={
                 <>
                   <Emoji label="Tada">🎉</Emoji> Joined HashiCorp as a Web
