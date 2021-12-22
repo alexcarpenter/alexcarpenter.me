@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
     >
       <CommandBar>
         <div className={cx('font-mono antialiased leading-relaxed')}>
-          <div className="min-h-screen max-w-[800px] w-full mx-auto p-8 md:p-16 flex flex-col">
+          <div className="min-h-screen max-w-[800px] w-full mx-auto px-4 py-8 sm:p-8 md:p-16 flex flex-col">
             <Component {...pageProps} />
           </div>
         </div>
