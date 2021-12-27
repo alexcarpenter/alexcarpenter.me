@@ -8,9 +8,10 @@ export default function Home() {
     <Page>
       <h1 className="sr-only">Alex Carpenter</h1>
       <div className="-mt-4">
-        <Blurb date="2021-11-30T17:19:32Z">
-          The winter snow has finally arrived here in Michigan. Not sure I am
-          ready for it but excited for the holidays!
+        <Blurb date="2021-12-27T14:27:52Z">
+          Getting back into the swing of things producing screencasts. First up,
+          how to create an animated nav shadow with Framer Motion.{' '}
+          <a href="https://youtu.be/CbSVUCQA2K4">youtu.be/CbSVUCQA2K4</a>
         </Blurb>
       </div>
       <div className="mt-8 prose">
@@ -35,7 +36,8 @@ export default function Home() {
           Outside of work I am a self-proclaimed serial hobbyist. Currently
           interested in <del>fly fishing</del>, <del>RC cars</del>, disc golf,
           and outdoor cooking{' '}
-          <a href="https://www.instagram.com/alexcarp/">#smokedmeats</a>.
+          <a href="https://www.instagram.com/alexcarp/">#smokedmeats</a>. Also
+          big fan of tools and gear.
         </p>
         <h2>Colophon</h2>
         <p>
