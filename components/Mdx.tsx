@@ -3,10 +3,13 @@ import Badge from '@/components/Badge';
 import Card from '@/components/Card';
 import Code from '@/components/Code';
 import Note from '@/components/Note';
+import Meta from '@/components/Meta';
+import PersonMeta from '@/components/PersonMeta';
 import Highlights from './Highlights';
 import Slideshow from '@/components/Slideshow';
 import YoutubeEmbed from '@/components/YoutubeEmbed';
 import LinkedHeading from '@/components/LinkedHeading';
+import { cx } from '@/lib/utils';
 
 export const components = {
   h2: (props) => <LinkedHeading {...props} as="h2" />,
@@ -16,6 +19,8 @@ export const components = {
   Card,
   Image,
   Note,
+  Meta,
+  PersonMeta,
   Highlights,
   YoutubeEmbed,
   Slideshow,
@@ -58,4 +63,7 @@ export const components = {
       sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
     ></iframe>
   ),
+  Spacer: () => {
+    return <span aria-hidden={true} className={cx('m-0 block h-6')} />;
+  },
 };

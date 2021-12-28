@@ -1,14 +1,36 @@
 import * as React from 'react';
 import { cx } from '@/lib/utils';
 
-function Meta({ children }) {
+interface MetaProps {
+  items?: Array<{
+    title: string;
+    description: string;
+  }>;
+  children?: React.ReactNode;
+}
+
+function Meta({ items, children }: MetaProps) {
   return (
     <dl>
-      {React.Children.map(children, (child, index) => {
-        return React.cloneElement(child, {
-          index,
-        });
-      })}
+      {children
+        ? React.Children.map(children, (child, index) => {
+            if (React.isValidElement(child)) {
+              return React.cloneElement(child, {
+                index,
+              });
+            }
+            return child;
+          })
+        : items.map((item, index) => {
+            return (
+              <Item
+                key={index}
+                index={index}
+                title={item.title}
+                description={item.description}
+              />
+            );
+          })}
     </dl>
   );
 }

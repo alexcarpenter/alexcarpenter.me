@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { wrap } from 'popmotion';
 import { ChevronRight, ChevronLeft } from 'react-feather';
+import { cx } from '@/lib/utils';
 
 const variants = {
   enter: (direction: number) => {
@@ -30,7 +31,7 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
 
-const Slideshow = ({ children }) => {
+const Slideshow = ({ caption, children }) => {
   const [[page, direction], setPage] = useState([0, 0]);
   const activeIndex = wrap(0, React.Children.count(children), page);
   const images = React.Children.map(children, (child) => {
@@ -95,14 +96,20 @@ const Slideshow = ({ children }) => {
             <ChevronLeft />
           </button>
         </div>
-        <figcaption className="text-center py-1">
-          <small className="text-sm textSecondary">
+        <figcaption
+          className={cx(
+            'text-sm textSecondary text-center pt-4 flex flex-wrap',
+            [caption ? 'justify-between' : 'justify-center'],
+          )}
+        >
+          <span>
             {activeIndex + 1}
             <span aria-label="of" className="px-1">
               /
             </span>
             {React.Children.count(children)}
-          </small>
+          </span>
+          {caption ? <span>{caption}</span> : null}
         </figcaption>
       </figure>
     </>
