@@ -4,9 +4,24 @@ import Entry from '@/components/Entry';
 import List from '@/components/List';
 import Page from '@/components/Page';
 
+const FEATURED_TAGS = {
+  edc: {
+    title: 'Everyday carry',
+    description: '',
+  },
+  'framer-motion': {
+    title: 'Framer Motion',
+    description: '',
+  },
+};
+
 export default function Tagged({ slug, posts }) {
+  const featuredTag = FEATURED_TAGS[slug];
   return (
-    <Page title={`Tagged: ${slug}`} description="">
+    <Page
+      title={featuredTag ? featuredTag.title : `Tagged: ${slug}`}
+      description={featuredTag ? featuredTag.description : ''}
+    >
       <List>
         {posts
           .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
