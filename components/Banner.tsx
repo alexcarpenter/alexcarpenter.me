@@ -41,7 +41,7 @@ export default function Banner() {
             aria-hidden={true}
             className="pointer-events-none absolute bottom-0 right-0 bg-white dark:bg-gray-800 w-6 h-6 rounded-md translate-y-1/2 translate-x-1/2 text-xs sm:text-sm grid place-items-center border borderColor"
           >
-            <Emoji label="Happy holidays">🎄</Emoji>
+            <Emoji label="Happy new year!">🍾</Emoji>
           </span>
         </div>
       </div>
