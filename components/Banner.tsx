@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
-import Emoji from '@/components/Emoji';
+
+const status = {
+  title: 'Happy new year!',
+  emoji: '🍾',
+};
 
 export default function Banner() {
   return (
@@ -38,10 +42,11 @@ export default function Banner() {
             </a>
           </Link>
           <span
-            aria-hidden={true}
-            className="pointer-events-none absolute bottom-0 right-0 bg-white dark:bg-gray-800 w-6 h-6 rounded-md translate-y-1/2 translate-x-1/2 text-xs sm:text-sm grid place-items-center border borderColor"
+            title={status.title}
+            role="img"
+            className="absolute bottom-0 right-0 bg-white dark:bg-gray-800 w-6 h-6 rounded-md translate-y-1/2 translate-x-1/2 text-xs sm:text-sm grid place-items-center border borderColor"
           >
-            <Emoji label="Happy new year!">🍾</Emoji>
+            {status.emoji}
           </span>
         </div>
       </div>
