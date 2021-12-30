@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { cx } from '@/lib/utils';
 
 const variants = {
@@ -14,17 +15,25 @@ const variants = {
 interface BadgeProps {
   variant?: keyof typeof variants;
   children: string;
+  href?: string;
 }
 
-export default function Badge({ variant = 'white', children }: BadgeProps) {
-  return (
-    <span
-      className={cx(
-        'inline-block text-sm py-0.5 px-2.5 rounded-full',
-        variants[variant],
-      )}
-    >
-      {children}
-    </span>
+export default function Badge({
+  variant = 'white',
+  children,
+  href,
+}: BadgeProps) {
+  const classNames = cx(
+    'inline-block text-sm py-0.5 px-2.5 rounded-full',
+    variants[variant],
+    [href && 'hover:underline'],
   );
+  if (href) {
+    return (
+      <Link href={href}>
+        <a className={classNames}>{children}</a>
+      </Link>
+    );
+  }
+  return <span className={classNames}>{children}</span>;
 }
