@@ -17,7 +17,7 @@ export default function Banner() {
               <span className="sr-only">Alex Carpenter</span>
               <Image
                 src="/images/me.jpg"
-                alt="Picture of Alex Carpenter"
+                alt=""
                 width={48}
                 height={48}
                 className="rounded-md w-full block"
