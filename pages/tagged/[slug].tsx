@@ -11,7 +11,8 @@ const FEATURED_TAGS = {
   },
   'framer-motion': {
     title: 'Framer Motion',
-    description: '',
+    description:
+      'How to create delightful user experiences within your React applications using Framer Motion.',
   },
 };
 
