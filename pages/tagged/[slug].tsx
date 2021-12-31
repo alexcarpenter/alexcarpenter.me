@@ -19,7 +19,7 @@ export default function Tagged({ slug, posts }) {
   const featuredTag = FEATURED_TAGS[slug];
   return (
     <Page
-      title={featuredTag ? featuredTag.title : `Tagged: ${slug}`}
+      title={`Tagged: ${featuredTag ? featuredTag.title : slug}`}
       description={featuredTag ? featuredTag.description : ''}
     >
       <List>

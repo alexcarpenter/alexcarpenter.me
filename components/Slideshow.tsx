@@ -32,6 +32,7 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 const Slideshow = ({ caption, children }) => {
+  const [grabbing, setGrabbing] = useState(false);
   const [[page, direction], setPage] = useState([0, 0]);
   const activeIndex = wrap(0, React.Children.count(children), page);
   const images = React.Children.map(children, (child) => {
@@ -76,7 +77,12 @@ const Slideshow = ({ caption, children }) => {
                   paginate(-1);
                 }
               }}
-              className="flex area-1/1 cursor-grab"
+              onPointerDown={() => setGrabbing(true)}
+              onPointerUp={() => setGrabbing(false)}
+              className="flex area-1/1"
+              style={{
+                cursor: grabbing ? 'grabbing' : 'grab',
+              }}
             >
               {images[activeIndex]}
             </motion.div>
