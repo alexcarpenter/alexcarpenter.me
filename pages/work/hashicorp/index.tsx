@@ -52,13 +52,23 @@ export default function HashiCorp() {
 
         <div className="mt-12">
           <Note label="Currently" variant="violet">
-            On holiday break, recharging the batteries.
+            Getting back into the swing of things to start the new year off,
+            onboarding onto new projects.
           </Note>
         </div>
       </Section>
 
       <Section heading="Updates" headingGap="lg">
         <List>
+          <List.Item>
+            <Entry
+              date="Dec 21, 2021"
+              titleAs="h3"
+              title="Start with the source page"
+              link="https://hashicorp.com/start-with-the-source"
+            />
+          </List.Item>
+
           <List.Item>
             <Entry
               date="Dec 21, 2021"
