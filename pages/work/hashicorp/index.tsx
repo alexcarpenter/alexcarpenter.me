@@ -6,6 +6,15 @@ import Section from '@/components/Section';
 import Meta from '@/components/Meta';
 import Note from '@/components/Note';
 
+const status = {
+  content: (
+    <>
+      Getting back into the swing of things to start the new year off,
+      onboarding onto new projects.
+    </>
+  ),
+};
+
 export default function HashiCorp() {
   return (
     <Page
@@ -52,8 +61,7 @@ export default function HashiCorp() {
 
         <div className="mt-12">
           <Note label="Currently" variant="violet">
-            Getting back into the swing of things to start the new year off,
-            onboarding onto new projects.
+            {status.content}
           </Note>
         </div>
       </Section>

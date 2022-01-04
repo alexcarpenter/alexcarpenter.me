@@ -3,16 +3,23 @@ import Blurb from '@/components/Blurb';
 import Link from '@/components/Link';
 import Page from '@/components/Page';
 
+const status = {
+  content: (
+    <>
+      Getting back into the swing of things producing screencasts. First up, how
+      to create an animated nav shadow with Framer Motion.{' '}
+      <a href="https://youtu.be/CbSVUCQA2K4">youtu.be/CbSVUCQA2K4</a>
+    </>
+  ),
+  date: '2021-12-27T14:27:52Z',
+};
+
 export default function Home() {
   return (
     <Page>
       <h1 className="sr-only">Alex Carpenter</h1>
       <div className="-mt-4">
-        <Blurb date="2021-12-27T14:27:52Z">
-          Getting back into the swing of things producing screencasts. First up,
-          how to create an animated nav shadow with Framer Motion.{' '}
-          <a href="https://youtu.be/CbSVUCQA2K4">youtu.be/CbSVUCQA2K4</a>
-        </Blurb>
+        <Blurb date={status.date}>{status.content}</Blurb>
       </div>
       <div className="mt-8 prose">
         <h2>About</h2>
