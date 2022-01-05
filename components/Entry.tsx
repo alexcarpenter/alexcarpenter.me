@@ -1,15 +1,9 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { cx, formatDate } from '@/lib/utils';
 import RightArrow from '@/components/RightArrow';
 import Tags from '@/components/Tags';
 
 interface EntryProps {
-  feature?: React.ReactNode;
-  image?: {
-    src: string;
-    alt: string;
-  };
   date: string;
   titleAs?: 'h2' | 'h3';
   title: string | React.ReactNode;
@@ -86,5 +80,3 @@ export default function Entry({
     </article>
   );
 }
-
-function Heading({ children }) {}
