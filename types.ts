@@ -1,3 +1,12 @@
+export type MDXFrontMatter = {
+  date: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  link?: string;
+  tags?: Array<string>;
+};
+
 export type GridCols =
   | 'grid-cols-1'
   | 'sm:grid-cols-1'

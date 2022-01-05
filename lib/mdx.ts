@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { MDXFrontMatter } from 'types';
 
 const root = process.cwd();
 
@@ -20,7 +21,7 @@ export const getMdx = (directoryPath, fileName) => {
 
   return {
     frontMatter: {
-      ...data,
+      ...(data as MDXFrontMatter),
       slug: fileName.replace('.mdx', ''),
     },
     content,
