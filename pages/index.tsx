@@ -44,7 +44,8 @@ export default function Home() {
           interested in <del>fly fishing</del>, <del>RC cars</del>, disc golf,
           and outdoor cooking{' '}
           <a href="https://www.instagram.com/alexcarp/">#smokedmeats</a>. Also
-          big fan of tools and gear.
+          big fan of <Link href="/tagged/edc">everyday tools</Link> and{' '}
+          <Link href="/tagged/gear">gear</Link>.
         </p>
         <h2>Colophon</h2>
         <p>
