@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/Link';
 import { cx } from '@/lib/utils';
 
 const variants = {
@@ -30,8 +30,8 @@ export default function Badge({
   );
   if (href) {
     return (
-      <Link href={href}>
-        <a className={classNames}>{children}</a>
+      <Link href={href} className={classNames}>
+        {children}
       </Link>
     );
   }

@@ -42,7 +42,7 @@ export default function Posts({ posts }) {
         .reverse()
         .map((year) => {
           return (
-            <Section heading={year} headingGap="lg">
+            <Section key={year} heading={year} headingGap="lg">
               <List>
                 {orderedPosts[year].map((post, index) => {
                   const { date, title, description, slug, tags } = post;

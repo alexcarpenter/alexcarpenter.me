@@ -30,6 +30,7 @@ const variants = {
   blue: 'text-blue-600',
   amber: 'text-amber-600',
   red: 'text-red-600',
+  gray: 'text-secondary',
 };
 
 function Card({
@@ -44,7 +45,7 @@ function Card({
   return (
     <div
       className={cx(
-        'relative group flex flex-col p-4 sm:p-8 rounded-md overflow-hidden border borderColor',
+        'relative group flex flex-col flex-grow p-4 sm:p-8 rounded-md overflow-hidden border borderColor',
         'bg-gray-50',
         'dark:bg-gray-900',
       )}
@@ -87,7 +88,13 @@ function Card({
   );
 }
 
-function CardEyebrow({ variant, children }) {
+function CardEyebrow({
+  variant,
+  children,
+}: {
+  variant?: string;
+  children: React.ReactNode;
+}) {
   return (
     <p
       className={cx(

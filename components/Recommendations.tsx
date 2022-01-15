@@ -10,7 +10,7 @@ export default function Recommendations() {
   return (
     <>
       <List>
-        {data.slice(0, showMore ? data.length : 3).map((item, index) => (
+        {data.slice(0, showMore ? data.length : 3).map((item) => (
           <List.Item key={item.name}>
             <div className="flex flex-col sm:flex-row">
               <div className="w-28 flex-shrink-0">

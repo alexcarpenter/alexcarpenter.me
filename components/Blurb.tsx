@@ -3,7 +3,7 @@ import { formatDate } from '@/lib/utils';
 
 interface BlurbProps {
   date: string;
-  children: string | React.ReactNode;
+  children: React.ReactNode;
 }
 
 export default function Blurb({ date, children }: BlurbProps) {

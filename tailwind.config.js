@@ -6,7 +6,7 @@ module.exports = {
   purge: {
     content: ['./pages/**/*.tsx', './components/**/*.tsx', './data/**/*.ts'],
   },
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     fontFamily: {
       mono: ['JetBrains Mono Web', ...defaultTheme.fontFamily.mono],

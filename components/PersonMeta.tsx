@@ -6,14 +6,17 @@ interface PersonMetaProps {
     title: string;
     description: string;
   }>;
-  avatar: string;
+  avatar: {
+    src: string;
+    alt: string;
+  };
 }
 
 export default function PersonMeta({ meta, avatar }: PersonMetaProps) {
   return (
     <div className="relative clear-both">
       <div className="relative float-right w-1/3 ml-4 md:ml-8 mb-4 md:mb-8 inline-flex rounded-md overflow-hidden">
-        <Image src={avatar} width={400} height={400} alt="" />
+        <Image src={avatar.src} width={400} height={400} alt={avatar.alt} />
       </div>
       <Meta items={meta} />
     </div>
