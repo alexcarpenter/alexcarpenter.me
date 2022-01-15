@@ -9,7 +9,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     fontFamily: {
-      mono: ['JetBrains Mono Web', ...defaultTheme.fontFamily.mono],
+      mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
     },
     colors: {
       white: '#fafafa',
