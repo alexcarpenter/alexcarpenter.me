@@ -176,21 +176,11 @@ export default function CommandBar(props) {
 }
 
 function RenderResults() {
-  const groups = useMatches();
-  const flattened = React.useMemo(
-    () =>
-      groups.reduce((acc, curr) => {
-        acc.push(curr.name);
-        acc.push(...curr.actions);
-        return acc;
-      }, []),
-    [groups],
-  );
-
+  const { results } = useMatches();
   return (
     <AnimateSharedLayout>
       <KBarResults
-        items={flattened}
+        items={results}
         onRender={({ item, active }) =>
           typeof item === 'string' ? (
             <h2
