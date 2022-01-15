@@ -98,8 +98,8 @@ export default function Rucking() {
             >
               <Card.Title>Goruck Rucker 3.0</Card.Title>
               <Card.Description>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
-                reiciendis.
+                Bomb proof backpack with a purpose built ruck plate holder to
+                ensure it rides high on the back.
               </Card.Description>
             </Card>
           </li>
@@ -110,8 +110,8 @@ export default function Rucking() {
             >
               <Card.Title>Goruck 20lb Ruck Plate</Card.Title>
               <Card.Description>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
-                reiciendis.
+                As someone who doesn't work out much, 20lbs has felt like a
+                great starting point.
               </Card.Description>
             </Card>
           </li>
