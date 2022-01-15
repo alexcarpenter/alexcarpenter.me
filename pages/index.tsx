@@ -41,8 +41,8 @@ export default function Home() {
         </p>
         <p>
           Outside of work I am a self-proclaimed serial hobbyist. Currently
-          interested in <del>fly fishing</del>, <del>RC cars</del>, disc golf,
-          and outdoor cooking{' '}
+          interested in <del>fly fishing</del>, <del>RC cars</del>, disc golf,{' '}
+          <Link href="/rucking">rucking</Link>, and outdoor cooking{' '}
           <a href="https://www.instagram.com/alexcarp/">#smokedmeats</a>. Also
           big fan of <Link href="/tagged/edc">everyday tools</Link> and{' '}
           <Link href="/tagged/gear">gear</Link>.

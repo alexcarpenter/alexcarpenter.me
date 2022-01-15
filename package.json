@@ -30,6 +30,7 @@
     "postcss": "^8.3.6",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.2",
+    "react-charts": "^3.0.0-beta.34",
     "react-children-utilities": "^2.6.3",
     "react-dom": "^17.0.2",
     "react-feather": "^2.0.9",
