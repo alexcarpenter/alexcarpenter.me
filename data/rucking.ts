@@ -15,9 +15,9 @@ const data: Array<Series> = [
     label: '2022',
     data: [
       {
-        date: '2022-01-08',
-        distance: 5.1,
-        duration: 100,
+        date: '2022-01-15',
+        distance: 0.42,
+        duration: 9.4,
         weight: 20,
       },
     ],
