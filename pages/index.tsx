@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Blurb from '@/components/Blurb';
 import Link from '@/components/Link';
 import Page from '@/components/Page';
+import LinkedHeading from '@/components/LinkedHeading';
 
 const status = {
   content: (
@@ -22,7 +23,7 @@ export default function Home() {
         <Blurb date={status.date}>{status.content}</Blurb>
       </div>
       <div className="mt-8 prose">
-        <h2>About</h2>
+        <LinkedHeading>About</LinkedHeading>
         <div className="relative float-right w-1/3 ml-4 md:ml-8 mb-4 md:mb-8 inline-flex rounded-md overflow-hidden">
           <Image
             src="/images/family.jpg"
@@ -47,7 +48,7 @@ export default function Home() {
           big fan of <Link href="/tagged/edc">everyday tools</Link> and{' '}
           <Link href="/tagged/gear">gear</Link>.
         </p>
-        <h2>Colophon</h2>
+        <LinkedHeading>Colophon</LinkedHeading>
         <p>
           This site is built using Next.js, Tailwind CSS, Framer Motion,
           TypeScript, MDX, and hosted using Vercel. Type is set in JetBrains
