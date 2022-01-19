@@ -52,7 +52,7 @@ const Slideshow = ({ caption, children }) => {
   return (
     <>
       <figure>
-        <div className="relative grid bg-gray-50 dark:bg-gray-900 rounded-md overflow-hidden">
+        <div className="relative grid bg-gray-50 dark:bg-gray-900 overflow-hidden">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={page}

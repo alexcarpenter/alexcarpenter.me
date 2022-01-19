@@ -17,7 +17,11 @@ export const components = {
   pre: Code,
   Badge,
   Card,
-  Image,
+  Image: (props) => (
+    <div className={cx('flex', 'bg-gray-200', 'dark:bg-gray-900')}>
+      <Image {...props} />
+    </div>
+  ),
   Note,
   Meta,
   PersonMeta,
