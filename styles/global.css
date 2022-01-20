@@ -59,7 +59,7 @@ html.dark {
 }
 
 .prose a {
-  text-decoration: underline;
+  @apply underline;
 }
 
 .prose a:hover,
