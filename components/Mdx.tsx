@@ -18,7 +18,7 @@ export const components = {
   Badge,
   Card,
   Image: (props) => (
-    <div className={cx('flex', 'bg-gray-200', 'dark:bg-gray-900')}>
+    <div className={cx('flex w-max', 'bg-gray-200', 'dark:bg-gray-900')}>
       <Image {...props} />
     </div>
   ),
