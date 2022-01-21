@@ -15,7 +15,10 @@ const Screencasts: NextPage<ScreencastsProps> = ({ screencasts }) => {
   const subscriberCount = data?.subscriberCount;
   const viewCount = data?.viewCount;
   return (
-    <Page title="Screencasts" description="">
+    <Page
+      title="Screencasts"
+      description="Short front-end development tutorials for developers of all skill levels."
+    >
       <ul className="mt-8 grid sm:grid-cols-2 gap-4 md:gap-8">
         <li className="flex flex-col">
           <Card variant="gray">
