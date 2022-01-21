@@ -4,7 +4,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { cx } from '@/lib/utils';
 
-const navData = [
+const navData: Array<{
+  path: string;
+  label: string;
+}> = [
   {
     path: '/work',
     label: 'Work',
@@ -12,6 +15,10 @@ const navData = [
   {
     path: '/posts',
     label: 'Posts',
+  },
+  {
+    path: '/screencasts',
+    label: 'Screencasts',
   },
   {
     path: '/feed',
