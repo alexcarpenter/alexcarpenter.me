@@ -41,6 +41,14 @@ const Screencasts: NextPage<ScreencastsProps> = ({ screencasts }) => {
           </Card>
         </li>
       </ul>
+      <div className="mt-8 text-center">
+        <a
+          href="https://www.youtube.com/channel/UC2jJoQlzvLPvnYfowAEVaOg?sub_confirmation=1"
+          className="inline-flex items-center gap-2 underline hover:no-underline"
+        >
+          Subscribe on YouTube
+        </a>
+      </div>
     </Page>
   );
 };
