@@ -103,7 +103,7 @@ mark {
 }
 
 .section + .section {
-  @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-800;
+  @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-700;
 }
 
 .cursor-grab {
