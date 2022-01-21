@@ -9,9 +9,10 @@ module.exports = {
       mono: ['JetBrains Mono Web', ...defaultTheme.fontFamily.mono],
     },
     colors: {
+      ...colors,
       white: '#fafafa',
       black: '#04070c',
-      ...colors,
+      gray: colors.neutral,
     },
   },
 };
