@@ -17,8 +17,8 @@ const navData: Array<{
     label: 'Posts',
   },
   {
-    path: '/screencasts',
-    label: 'Screencasts',
+    path: '/videos',
+    label: 'Videos',
   },
   {
     path: '/feed',
