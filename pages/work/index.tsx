@@ -1,4 +1,3 @@
-import social from '@/data/social';
 import BulletList from '@/components/BulletList';
 import Page from '@/components/Page';
 import Experience from '@/components/Experience';
@@ -34,18 +33,6 @@ export default function Work() {
       <Section heading="Recommendations">
         <Recommendations />
       </Section>
-      {/* <Section heading="Connect">
-        <BulletList cols={['grid-cols-2', 'md:grid-cols-3']}>
-          {social.map((item, index) => (
-            <BulletList.Item key={index}>
-              <a
-                {...item}
-                className="underline hover:no-underline focus:no-underline"
-              />
-            </BulletList.Item>
-          ))}
-        </BulletList>
-      </Section> */}
     </Page>
   );
 }

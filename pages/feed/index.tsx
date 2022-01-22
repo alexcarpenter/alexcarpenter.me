@@ -1,3 +1,5 @@
+import type { NextPage } from 'next';
+import type { MDXFrontMatter } from 'types';
 import Link from 'next/link';
 import { getAllMdx } from '@/lib/mdx';
 import { MDXRemote } from 'next-mdx-remote';
@@ -7,7 +9,15 @@ import Page from '@/components/Page';
 import List from '@/components/List';
 import { components } from '@/components/Mdx';
 
-export default function Feed({ entries }) {
+type FeedProps = NextPage & {
+  entries: Array<
+    MDXFrontMatter & {
+      mdx: any;
+    }
+  >;
+};
+
+export default function Feed({ entries }: FeedProps) {
   return (
     <Page
       title="Feed"
@@ -16,11 +26,7 @@ export default function Feed({ entries }) {
     >
       <List>
         {entries
-          .sort(
-            (a, b) =>
-              Number(new Date(b.frontMatter.date)) -
-              Number(new Date(a.frontMatter.date)),
-          )
+          .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
           .map((entry, index) => {
             const source = entry.mdx;
             return (
@@ -31,10 +37,10 @@ export default function Feed({ entries }) {
                   </div>
                   <p className="mt-6 text-sm textSecondary">
                     &mdash;{' '}
-                    <Link href={`/feed/${entry.frontMatter.slug}`}>
+                    <Link href={`/feed/${entry.slug}`}>
                       <a className="underline hover:no-underline">
-                        <time dateTime={entry.frontMatter.date}>
-                          {formatDate(entry.frontMatter.date, 'full')}
+                        <time dateTime={entry.date}>
+                          {formatDate(entry.date, 'full')}
                         </time>
                       </a>
                     </Link>
@@ -51,11 +57,14 @@ export default function Feed({ entries }) {
 export async function getStaticProps() {
   const mdxFiles = getAllMdx('feed');
 
-  async function serializeMdxFile(item) {
+  async function serializeMdxFile(item: {
+    frontMatter: MDXFrontMatter;
+    content: any;
+  }) {
     const { frontMatter, content } = item;
     const mdx = await serialize(content);
     return {
-      frontMatter,
+      ...frontMatter,
       mdx,
     };
   }

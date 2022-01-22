@@ -1,3 +1,5 @@
+import type { NextPage } from 'next';
+import type { MDXFrontMatter } from 'types';
 import Link from '@/components/Link';
 import { getAllMdx } from '@/lib/mdx';
 import Entry from '@/components/Entry';
@@ -5,7 +7,11 @@ import Page from '@/components/Page';
 import List from '@/components/List';
 import Section from '@/components/Section';
 
-export default function Posts({ posts }) {
+type PostProps = NextPage & {
+  posts: Array<MDXFrontMatter>;
+};
+
+export default function Posts({ posts }: PostProps) {
   const orderedPosts = posts
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
     .reduce((sections, currentValue) => {
@@ -17,7 +23,7 @@ export default function Posts({ posts }) {
       }
 
       return sections;
-    }, {});
+    }, {} as Record<string, Array<MDXFrontMatter>>);
 
   return (
     <Page
@@ -37,14 +43,14 @@ export default function Posts({ posts }) {
       }
       image="posts.png"
     >
-      {Object.keys(orderedPosts)
+      {Object.entries(orderedPosts)
         .sort()
         .reverse()
-        .map((year) => {
+        .map(([year, posts]) => {
           return (
             <Section key={year} heading={year} headingGap="lg">
               <List>
-                {orderedPosts[year].map((post, index) => {
+                {posts.map((post, index) => {
                   const { date, title, description, slug, tags } = post;
                   return (
                     <List.Item key={index}>

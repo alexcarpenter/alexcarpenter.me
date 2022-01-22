@@ -9,14 +9,15 @@ import Page from '@/components/Page';
 import List from '@/components/List';
 import Section from '@/components/Section';
 
-interface VideoProps {
+type VideoProps = NextPage & {
   videos: Array<Video>;
-}
+};
 
 const Videos: NextPage<VideoProps> = ({ videos }) => {
   const { data } = useSWR('/api/youtube', fetcher);
   const subscriberCount = data?.subscriberCount;
   const viewCount = data?.viewCount;
+
   const orderedVideos = videos
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
     .reduce((sections, currentValue) => {
@@ -28,7 +29,8 @@ const Videos: NextPage<VideoProps> = ({ videos }) => {
       }
 
       return sections;
-    }, {});
+    }, {} as Record<string, Array<Video>>);
+
   return (
     <Page
       title="Videos"
@@ -66,14 +68,15 @@ const Videos: NextPage<VideoProps> = ({ videos }) => {
           </a>
         </div>
       </Section>
-      {Object.keys(orderedVideos)
+
+      {Object.entries(orderedVideos)
         .sort()
         .reverse()
-        .map((year) => {
+        .map(([year, videos]) => {
           return (
             <Section key={year} heading={year} headingGap="lg">
               <List>
-                {orderedVideos[year].map((video, index) => {
+                {videos.map((video, index) => {
                   const { date, title, description, id } = video;
                   return (
                     <List.Item key={index}>

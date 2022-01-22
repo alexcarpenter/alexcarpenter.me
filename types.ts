@@ -1,5 +1,6 @@
 export type MDXFrontMatter = {
   date: string;
+  slug?: string;
   title?: string;
   description?: string;
   image?: string;
