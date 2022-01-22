@@ -1,7 +1,11 @@
 import * as React from 'react';
 import Badge from '@/components/Badge';
 
-export default function Tags({ items }) {
+interface TagsProps {
+  items: Array<string>;
+}
+
+export default function Tags({ items }: TagsProps) {
   const [showMore, setShowMore] = React.useState(false);
 
   const Component = ({ children }) => (
