@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "JetBrains Mono Web";
+  font-display: swap;
+  font-style: normal;
+  src: url("/fonts/JetBrainsMono.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono Web";
+  font-display: swap;
+  font-style: italic;
+  src: url("/fonts/JetBrainsMono-Italic.woff2") format("woff2");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-mono antialiased bg-gray-100 text-gray-800;
+  }
+
+  html.dark {
+    @apply bg-black text-white;
+  }
+}

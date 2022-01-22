@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
@@ -7,6 +8,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      mono: ["JetBrains Mono Web", ...defaultTheme.fontFamily.mono],
+    },
     colors: {
       ...colors,
       white: "#fafafa",

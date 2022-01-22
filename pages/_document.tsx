@@ -16,7 +16,15 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link
+            rel="preload"
+            href="/fonts/JetBrainsMono.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
