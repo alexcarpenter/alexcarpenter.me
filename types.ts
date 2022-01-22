@@ -7,6 +7,27 @@ export type MDXFrontMatter = {
   tags?: Array<string>;
 };
 
+export type PostFrontMatter = {
+  date: string;
+  title: string;
+  description?: string;
+  image?: string;
+  link?: string;
+  tags?: Array<string>;
+};
+
+export type VideoFrontMatter = {
+  date: string;
+  title: string;
+  description: string;
+  id: string;
+  tags?: Array<string>;
+};
+
+export type FeedFrontMatter = {
+  date: string;
+};
+
 export type GridCols =
   | 'grid-cols-1'
   | 'sm:grid-cols-1'
