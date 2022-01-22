@@ -1,12 +1,16 @@
-import { useEffect } from 'react';
+import * as React from 'react';
 import useSWR from 'swr';
 import { fetcher } from '@/lib/utils';
 
-export default function ViewCounter({ slug }) {
+interface ViewCounterProps {
+  slug: string;
+}
+
+export default function ViewCounter({ slug }: ViewCounterProps) {
   const { data } = useSWR(`/api/views/${slug}`, fetcher);
   const views = data?.total;
 
-  useEffect(() => {
+  React.useEffect(() => {
     const registerView = () =>
       fetch(`/api/views/${slug}`, {
         method: 'POST',

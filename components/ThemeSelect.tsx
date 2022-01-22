@@ -3,7 +3,7 @@ import { useTheme } from 'next-themes';
 import { Command, Sun, Moon, Code } from 'react-feather';
 import { cx } from '@/lib/utils';
 
-const THEME_MAP = {
+const THEME_MAP: { [key: string]: { label: string; icon: React.ReactNode } } = {
   system: {
     label: 'System',
     icon: <Command width=".9em" />,
@@ -22,12 +22,12 @@ export default function ThemeSelect() {
   const [mounted, setMounted] = React.useState(false);
   const { theme: activeTheme, themes, setTheme } = useTheme();
 
-  // When mounted on client, now we can show the UI
   React.useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
 
-  const handleChange = (e) => setTheme(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) =>
+    setTheme(e.target.value);
 
   return (
     <div className="relative inline-block">
