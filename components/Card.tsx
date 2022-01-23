@@ -11,9 +11,9 @@ const Card: React.FC<CardProps> = ({ link, eyebrow, heading, children }) => {
   return (
     <article
       className={cx(
-        "relative group flex flex-col flex-grow p-4 sm:p-8 rounded-md overflow-hidden border borderColor",
-        "bg-gray-50",
-        "dark:bg-gray-900"
+        "relative group flex flex-col flex-grow p-4 sm:p-8 rounded-md overflow-hidden border",
+        "bg-gray-50 border-gray-200",
+        "dark:bg-gray-900 dark:border-gray-700"
       )}
     >
       {eyebrow ? (
