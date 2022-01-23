@@ -85,6 +85,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
                   const link = `https://youtube.com/watch?v=${video.id}`;
                   return (
                     <Entry
+                      key={index}
                       link={link}
                       date={video.date}
                       title={video.title}
