@@ -1,7 +1,12 @@
+import { cx } from "@/lib/utils";
 import s from "@/styles/prose.module.css";
 
-const Prose: React.FC = ({ children }) => {
-  return <div className={s.prose}>{children}</div>;
+type PropsProps = {
+  className?: string;
+};
+
+const Prose: React.FC<PropsProps> = ({ children, className }) => {
+  return <div className={cx(s.prose, className)}>{children}</div>;
 };
 
 export default Prose;
