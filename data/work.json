@@ -1,6 +1,7 @@
 {
   "title": "Work",
   "description": "Helping teams build consistent, high-quality and inclusive user interfaces with React. Working remotely, floating between design and engineering teams.",
+  "thumbnail": "/og/work.png",
   "experience": [
     {
       "link": "/work/hashicorp",

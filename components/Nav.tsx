@@ -59,7 +59,7 @@ export default function Nav() {
                         className={cx(
                           "absolute inset-0 rounded-md pointer-events-none z-0",
                           ["bg-gray-200"],
-                          ["dark:bg-gray-700"]
+                          ["dark:bg-gray-800"]
                         )}
                       />
                     )}

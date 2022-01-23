@@ -1,6 +1,7 @@
 {
   "title": "HashiCorp",
   "description": "Web Engineer helping build and maintain public-facing HashiCorp websites and web applications with Next.js.",
+  "thumbnail": "/og/hashicorp.png",
   "meta": {
     "Start Date": "July 2021",
     "Position": "Web Engineer II",
