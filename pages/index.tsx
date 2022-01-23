@@ -1,22 +1,19 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import pageData from "@/data/home.json";
 import { cx } from "@/lib/utils";
 import { formatDate } from "@/lib/formatDate";
 import Prose from "@/components/Prose";
 
-const statusData: { content: React.ReactNode; date: string } = {
-  content: (
-    <>
-      Getting back into the swing of things producing screencasts. First up, how
-      to create an animated nav shadow with Framer Motion.{" "}
-      <a href="youtu.be/CbSVUCQA2K4">youtu.be/CbSVUCQA2K4</a>
-    </>
-  ),
-  date: "2022-01-23T14:27:52Z",
+type HomeProps = {
+  status: {
+    content: string;
+    date: string;
+  };
 };
 
-const Home: NextPage = () => {
+const Home: NextPage<HomeProps> = ({ status }) => {
   return (
     <>
       <article
@@ -34,12 +31,16 @@ const Home: NextPage = () => {
           )}
         />
         <Prose>
-          <p>{statusData.content}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: status.content,
+            }}
+          />
         </Prose>
         <p
           className={cx("mt-4 text-sm", "text-gray-600", "dark:text-gray-300")}
         >
-          &mdash; {formatDate(statusData.date, "full")}
+          &mdash; {formatDate(status.date, "full")}
         </p>
       </article>
 
@@ -82,6 +83,14 @@ const Home: NextPage = () => {
       </Prose>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      ...pageData,
+    },
+  };
 };
 
 export default Home;

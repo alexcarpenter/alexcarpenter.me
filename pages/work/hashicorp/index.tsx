@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import data from "@/data/hashicorp.json";
+import pageData from "@/data/hashicorp.json";
 import Intro from "@/components/Intro";
 import Note from "@/components/Note";
 import Meta from "@/components/Meta";
@@ -73,7 +73,7 @@ const Hashicorp: NextPage<HashicorpProps> = ({
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      ...data,
+      ...pageData,
     },
   };
 };

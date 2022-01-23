@@ -2,7 +2,7 @@ import * as React from "react";
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import data from "@/data/work.json";
+import pageData from "@/data/work.json";
 import { cx } from "@/lib/utils";
 import Button from "@/components/Button";
 import Intro from "@/components/Intro";
@@ -181,7 +181,7 @@ const Work: NextPage<WorkProps> = ({
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      ...data,
+      ...pageData,
     },
   };
 };

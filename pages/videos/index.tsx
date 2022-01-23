@@ -3,7 +3,7 @@ import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
 import { slugify } from "@/lib/utils";
 import { groupByYear } from "@/lib/groupByYear";
-import data from "@/data/videos.json";
+import pageData from "@/data/videos.json";
 import Card from "@/components/Card";
 import Entry from "@/components/Entry";
 import EntryList from "@/components/EntryList";
@@ -101,7 +101,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      ...data,
+      ...pageData,
     },
   };
 };

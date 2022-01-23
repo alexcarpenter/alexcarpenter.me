@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import data from "@/data/posts.json";
+import pageData from "@/data/posts.json";
 import Intro from "@/components/Intro";
 
 type PostsProps = {
@@ -18,7 +18,7 @@ const Post: NextPage<PostsProps> = ({ title, description }) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      ...data,
+      ...pageData,
     },
   };
 };

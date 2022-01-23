@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
-import data from "@/data/feed.json";
+import pageData from "@/data/feed.json";
 import Intro from "@/components/Intro";
 
 type FeedProps = {
@@ -18,7 +18,7 @@ const Feed: NextPage<FeedProps> = ({ title, description }) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      ...data,
+      ...pageData,
     },
   };
 };
