@@ -1,4 +1,10 @@
-export const groupByYear = <T>(arr: Array<T>) =>
+export const groupByYear = <
+  T extends {
+    date: string;
+  }
+>(
+  arr: Array<T>
+) =>
   arr.reduce((acc, current) => {
     const year = new Date(current.date).getFullYear().toString();
     if (acc[year] != undefined) {

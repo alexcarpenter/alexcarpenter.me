@@ -1,6 +1,8 @@
 import { GetStaticProps, NextPage } from "next";
 import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
+import { slugify } from "@/lib/utils";
+import { groupByYear } from "@/lib/groupByYear";
 import data from "@/data/videos.json";
 import Card from "@/components/Card";
 import Entry from "@/components/Entry";
@@ -27,18 +29,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
   const subscriberCount = data?.subscriberCount;
   const viewCount = data?.viewCount;
 
-  const orderedVideos = videos
-    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
-    .reduce((years, currentValue) => {
-      const currentYear = new Date(currentValue.date).getFullYear().toString();
-      if (years[currentYear] != undefined) {
-        years[currentYear].push(currentValue);
-      } else {
-        years[currentYear] = [currentValue];
-      }
-
-      return years;
-    }, {} as Record<string, Array<Video>>);
+  const orderedVideos = groupByYear<Video>(videos);
 
   return (
     <>
@@ -92,7 +83,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
                       description={video.description}
                       tags={video.tags.map((tag) => {
                         return {
-                          path: "/videos/tagged/",
+                          path: `/videos/tagged/${slugify(tag)}`,
                           tag: tag,
                         };
                       })}

@@ -53,7 +53,7 @@ const Entry = ({ link, date, title, description, tags }: EntryProps) => {
               const tagSlug = slugify(tag);
               return (
                 <li key={index}>
-                  <Badge href={`${path}${tagSlug}`}>{tagSlug}</Badge>
+                  <Badge href={path}>{tagSlug}</Badge>
                 </li>
               );
             })}
