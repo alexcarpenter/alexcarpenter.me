@@ -3,12 +3,10 @@ import useSWR from "swr";
 import { fetcher } from "@/lib/fetcher";
 import data from "@/data/videos.json";
 import Card from "@/components/Card";
+import Entry from "@/components/Entry";
+import EntryList from "@/components/EntryList";
 import Intro from "@/components/Intro";
 import Section from "@/components/Section";
-import { getHostname } from "@/lib/getHostname";
-import { cx } from "@/lib/utils";
-import RightArrow from "@/components/RightArrow";
-import { formatDate } from "@/lib/formatDate";
 
 type Video = {
   title: string;
@@ -82,60 +80,25 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
         .map(([year, videos]) => {
           return (
             <Section heading={year}>
-              <ul className="divide-y -my-8">
+              <EntryList>
                 {videos.map((video, index) => {
                   const link = `https://youtube.com/watch?v=${video.id}`;
                   return (
-                    <li key={index} className="py-8">
-                      <article className="flex flex-col sm:flex-row flex-wrap">
-                        <div className="w-28 flex-shrink-0">
-                          <time
-                            className={cx(
-                              "mb-2 inline-block",
-                              "text-gray-600",
-                              "dark:text-gray-300"
-                            )}
-                            dateTime="2021-12-31"
-                          >
-                            {formatDate(video.date)}
-                          </time>
-                        </div>
-                        <div className="flex-1">
-                          <h3>
-                            <a
-                              className="underline hover:no-underline"
-                              href={link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {video.title}
-                            </a>
-                            <RightArrow position="end" />
-                          </h3>
-                          <p
-                            className={cx(
-                              "text-sm",
-                              "text-gray-600",
-                              "dark:text-gray-300"
-                            )}
-                          >
-                            {getHostname(link)}
-                          </p>
-                          <p
-                            className={cx(
-                              "mt-4",
-                              "text-gray-600",
-                              "dark:text-gray-300"
-                            )}
-                          >
-                            {video.description}
-                          </p>
-                        </div>
-                      </article>
-                    </li>
+                    <Entry
+                      link={link}
+                      date={video.date}
+                      title={video.title}
+                      description={video.description}
+                      tags={video.tags.map((tag) => {
+                        return {
+                          path: "/videos/tagged/",
+                          tag: tag,
+                        };
+                      })}
+                    />
                   );
                 })}
-              </ul>
+              </EntryList>
             </Section>
           );
         })}
