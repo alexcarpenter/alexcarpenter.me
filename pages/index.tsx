@@ -54,9 +54,9 @@ const Home: NextPage = () => {
           />
         </div>
         <p>
-          Hey, I'm Alex. A detail oriented user interface engineer interested in
-          CSS architecture, React, TypeScript, design systems, and state
-          machines. Currently working at{" "}
+          Hey, I&apos;m Alex. A detail oriented user interface engineer
+          interested in CSS architecture, React, TypeScript, design systems, and
+          state machines. Currently working at{" "}
           <Link href="/work/hashicorp">HashiCorp</Link>, helping build and
           maintain public-facing HashiCorp websites and web applications with
           Next.js.
