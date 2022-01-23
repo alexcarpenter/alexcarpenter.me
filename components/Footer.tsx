@@ -1,7 +1,7 @@
 import { cx } from "@/lib/utils";
 import ThemeSelect from "@/components/ThemeSelect";
 
-const social: Array<{ label: string; href: string }> = [
+const socialData: Array<{ label: string; href: string }> = [
   {
     label: "Github",
     href: "https://github.com/alexcarpenter",
@@ -37,9 +37,9 @@ const Footer = () => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="col-span-2">
           <ul className="grid grid-cols-2 gap-4">
-            {social.map((item) => {
+            {socialData.map((item, index) => {
               return (
-                <li>
+                <li key={index}>
                   <a href={item.href}>{item.label}</a>
                 </li>
               );
