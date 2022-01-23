@@ -36,4 +36,8 @@
   main {
     @apply mb-auto;
   }
+
+  .section + .section {
+    @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-700;
+  }
 }
