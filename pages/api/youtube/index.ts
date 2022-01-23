@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async (_, res: NextApiResponse) => {
+export default async (_: NextApiRequest, res: NextApiResponse) => {
   const data = await fetch(
     `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UC2jJoQlzvLPvnYfowAEVaOg&key=${process.env.YOUTUBE_API_KEY}`
   );
