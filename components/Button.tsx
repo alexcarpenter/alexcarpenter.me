@@ -9,9 +9,8 @@ export default function Button({ size, children, ...props }: ButtonProps) {
     <button
       className={cx(
         "border px-4 py-1 rounded-md",
-        "bg-gray-50",
-        "dark:bg-gray-800",
-        "borderColor",
+        "bg-gray-50 border-gray-200",
+        "dark:bg-gray-800 dark:border-gray-700",
         {
           "text-sm": size === "sm",
         }
