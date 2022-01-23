@@ -79,7 +79,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
         .reverse()
         .map(([year, videos]) => {
           return (
-            <Section heading={year}>
+            <Section key={year} heading={year}>
               <EntryList>
                 {videos.map((video, index) => {
                   const link = `https://youtube.com/watch?v=${video.id}`;
