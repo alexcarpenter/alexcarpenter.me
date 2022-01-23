@@ -31,15 +31,15 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
 
   const orderedVideos = videos
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
-    .reduce((sections, currentValue) => {
-      const year = new Date(currentValue.date).getFullYear().toString();
-      if (sections[year] != undefined) {
-        sections[year].push(currentValue);
+    .reduce((years, currentValue) => {
+      const currentYear = new Date(currentValue.date).getFullYear().toString();
+      if (years[currentYear] != undefined) {
+        years[currentYear].push(currentValue);
       } else {
-        sections[year] = [currentValue];
+        years[currentYear] = [currentValue];
       }
 
-      return sections;
+      return years;
     }, {} as Record<string, Array<Video>>);
 
   return (
