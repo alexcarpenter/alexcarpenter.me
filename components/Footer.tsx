@@ -1,4 +1,5 @@
 import { cx } from "@/lib/utils";
+import RightArrow from "@/components/RightArrow";
 import ThemeSelect from "@/components/ThemeSelect";
 
 const socialData: Array<{ label: string; href: string }> = [
@@ -40,7 +41,10 @@ const Footer = () => {
             {socialData.map((item, index) => {
               return (
                 <li key={index}>
-                  <a href={item.href}>{item.label}</a>
+                  <RightArrow position="start" />
+                  <a href={item.href} className="underline hover:no-underline">
+                    {item.label}
+                  </a>
                 </li>
               );
             })}
