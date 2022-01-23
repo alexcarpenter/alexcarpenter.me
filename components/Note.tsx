@@ -1,5 +1,6 @@
-import RightArrow from "./RightArrow";
 import { cx } from "@/lib/utils";
+import Prose from "@/components/Prose";
+import RightArrow from "@/components/RightArrow";
 
 interface NoteProps {
   variant?: keyof typeof variants;
@@ -34,9 +35,9 @@ export default function Note({
       <span className="mr-2 flex-shrink-0">
         <RightArrow position="start" fill="currentColor" />
       </span>
-      <p className="prose">
+      <Prose>
         <span className="uppercase">{label}</span>: {children}
-      </p>
+      </Prose>
     </div>
   );
 }
