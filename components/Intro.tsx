@@ -1,11 +1,14 @@
 import { cx } from "@/lib/utils";
+import { getHostname } from "@/lib/getHostname";
+import RightArrow from "./RightArrow";
 
 type IntroProps = {
   title: string;
   description: string;
+  link?: string;
 };
 
-const Intro = ({ title, description }: IntroProps) => {
+const Intro = ({ title, description, link }: IntroProps) => {
   return (
     <header
       className={cx(
@@ -21,6 +24,12 @@ const Intro = ({ title, description }: IntroProps) => {
       <p className={cx("mt-2", "text-gray-600", "dark:text-gray-300")}>
         {description}
       </p>
+      {link ? (
+        <p className={cx("mt-2", "text-gray-600", "dark:text-gray-300")}>
+          <a href={link}>{getHostname(link)}</a>
+          <RightArrow position="end" />
+        </p>
+      ) : null}
     </header>
   );
 };
