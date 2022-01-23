@@ -18,7 +18,7 @@
 
 @layer base {
   html {
-    @apply font-mono antialiased bg-gray-100 text-gray-800;
+    @apply font-mono antialiased leading-relaxed bg-gray-100 text-gray-800;
   }
 
   html.dark {
