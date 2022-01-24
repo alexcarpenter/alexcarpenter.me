@@ -3,28 +3,7 @@ import { motion, AnimateSharedLayout } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { cx } from "@/lib/utils";
-
-const navData: Array<{
-  path: string;
-  label: string;
-}> = [
-  {
-    path: "/work",
-    label: "Work",
-  },
-  {
-    path: "/posts",
-    label: "Posts",
-  },
-  {
-    path: "/videos",
-    label: "Videos",
-  },
-  {
-    path: "/feed",
-    label: "Feed",
-  },
-];
+import navData from "@/data/nav.json";
 
 export default function Nav() {
   const { pathname } = useRouter();
@@ -36,7 +15,7 @@ export default function Nav() {
           className="flex flex-col items-end sm:items-start sm:flex-row gap-x-4 gap-y-1"
           onHoverEnd={() => setActiveIndex(null)}
         >
-          {navData.map((item, index) => {
+          {navData.items.map((item, index) => {
             const isActive = activeIndex === index;
             return (
               <motion.li key={index} onHoverStart={() => setActiveIndex(index)}>

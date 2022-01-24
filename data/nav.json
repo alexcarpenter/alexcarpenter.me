@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "path": "/work",
+      "label": "Work"
+    },
+    {
+      "path": "/posts",
+      "label": "Posts"
+    },
+    {
+      "path": "/videos",
+      "label": "Videos"
+    },
+    {
+      "path": "/feed",
+      "label": "Feed"
+    }
+  ]
+}
