@@ -1,13 +1,13 @@
 import { GetStaticProps, NextPage } from "next";
 import type { FeedFrontMatter } from "@/lib/feed";
 import { getAllFeed, serializeMdxContent } from "@/lib/feed";
+import { cx, formatDate } from "@/lib/utils";
 import pageData from "@/data/feed.json";
 import Intro from "@/components/Intro";
 import EntryList from "@/components/EntryList";
 import Prose from "@/components/Prose";
 import { MDXRemote } from "next-mdx-remote";
 import { components } from "@/components/MDXComponents";
-import { formatDate } from "@/lib/utils";
 import Link from "next/link";
 
 type FeedProps = {
@@ -38,7 +38,13 @@ const Feed: NextPage<FeedProps> = ({ title, description, items }) => {
                 <Prose>
                   <MDXRemote {...source} components={components} />
                 </Prose>
-                <p className="mt-6 text-sm textSecondary">
+                <p
+                  className={cx(
+                    "mt-6 text-sm",
+                    "text-gray-600",
+                    "dark:text-gray-300"
+                  )}
+                >
                   &mdash;{" "}
                   <Link href={`/feed/${item.frontMatter.slug}`}>
                     <a className="underline hover:no-underline">
