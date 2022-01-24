@@ -40,4 +40,8 @@
   .section + .section {
     @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-700;
   }
+
+  mark {
+    @apply bg-yellow-200 text-gray-800;
+  }
 }
