@@ -127,7 +127,7 @@ export default function Code({ children }) {
               return (
                 <div key={i} {...lineProps}>
                   {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
+                    <span key={key} {...getTokenProps({ token, key })} />
                   ))}
                 </div>
               );
