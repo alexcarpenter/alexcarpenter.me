@@ -38,14 +38,14 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
       <Section>
         <ul className="grid sm:grid-cols-2 gap-4 md:gap-8">
           <li className="flex flex-col">
-            <Card eyebrow="Total subscribers">
+            <Card eyebrow="Total subscribers" variant="gray">
               <p className="mt-2 text-4xl">
                 {subscriberCount ? subscriberCount : "-"}
               </p>
             </Card>
           </li>
           <li className="flex flex-col">
-            <Card eyebrow="Total views">
+            <Card eyebrow="Total views" variant="gray">
               <p className="mt-2 text-4xl">
                 {viewCount
                   ? new Intl.NumberFormat("en", { notation: "compact" }).format(
