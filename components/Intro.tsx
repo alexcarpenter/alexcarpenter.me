@@ -1,14 +1,15 @@
-import { cx } from "@/lib/utils";
+import { cx, formatDate } from "@/lib/utils";
 import { getHostname } from "@/lib/getHostname";
 import RightArrow from "./RightArrow";
 
 type IntroProps = {
+  date?: string;
   title: string;
-  description: string;
+  description?: string;
   link?: string;
 };
 
-const Intro = ({ title, description, link }: IntroProps) => {
+const Intro = ({ date, title, description, link }: IntroProps) => {
   return (
     <header
       className={cx(
@@ -17,13 +18,26 @@ const Intro = ({ title, description, link }: IntroProps) => {
         "dark:border-gray-700"
       )}
     >
+      {date ? (
+        <time
+          className={cx(
+            "block mb-2 text-sm",
+            "text-gray-600",
+            "dark:text-gray-300"
+          )}
+        >
+          {formatDate(date, "long")}
+        </time>
+      ) : null}
       <h1 className="text-xl">
         {title}
-        <span aria-hidden={true}>&nbsp;&#xAC;</span>
+        {date ? null : <span aria-hidden={true}>&nbsp;&#xAC;</span>}
       </h1>
-      <p className={cx("mt-2", "text-gray-600", "dark:text-gray-300")}>
-        {description}
-      </p>
+      {description ? (
+        <p className={cx("mt-2", "text-gray-600", "dark:text-gray-300")}>
+          {description}
+        </p>
+      ) : null}
       {link ? (
         <p className={cx("mt-2", "text-gray-600", "dark:text-gray-300")}>
           <a href={link}>{getHostname(link)}</a>

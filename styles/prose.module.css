@@ -18,3 +18,7 @@
 .prose a {
   @apply underline hover:no-underline;
 }
+
+.prose ul {
+  @apply list-disc pl-5;
+}

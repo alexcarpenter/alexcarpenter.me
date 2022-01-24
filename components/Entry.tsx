@@ -1,8 +1,11 @@
 import Link from "next/link";
-import { cx, slugify } from "@/lib/utils";
-import { formatDate } from "@/lib/formatDate";
-import { getHostname } from "@/lib/getHostname";
-import { isInternalLink } from "@/lib/isInternalLink";
+import {
+  cx,
+  slugify,
+  formatDate,
+  getHostname,
+  isInternalLink,
+} from "@/lib/utils";
 import RightArrow from "@/components/RightArrow";
 import Badge from "./Badge";
 

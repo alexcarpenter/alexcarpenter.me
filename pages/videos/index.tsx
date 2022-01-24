@@ -29,7 +29,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
   const subscriberCount = data?.subscriberCount;
   const viewCount = data?.viewCount;
 
-  const orderedVideos = groupByYear<Video>(videos);
+  const groupedVides = groupByYear<Video>(videos);
 
   return (
     <>
@@ -66,7 +66,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
         </div>
       </Section>
 
-      {Object.entries(orderedVideos)
+      {Object.entries(groupedVides)
         .reverse()
         .map(([year, videos]) => {
           return (
