@@ -2,6 +2,7 @@ import { cx } from "@/lib/utils";
 import Image from "next/image";
 import Card from "@/components/Card";
 import Code from "@/components/Code";
+import ExternalLink from "@/components/ExternalLink";
 import Highlights from "@/components/Hightlights";
 import Meta from "@/components/Meta";
 import Note from "@/components/Note";
@@ -10,6 +11,7 @@ import Video from "@/components/Video";
 
 export const components = {
   Card,
+  ExternalLink,
   Image,
   Highlights,
   Note,

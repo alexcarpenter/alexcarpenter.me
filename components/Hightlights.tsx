@@ -4,7 +4,7 @@ type HighlightsProps = {
 
 const Highlights = ({ items }: HighlightsProps) => {
   return (
-    <ul className="space-y-2">
+    <ul className="space-y-2 !list-none !pl-0">
       {items.map((item, index) => {
         return (
           <li key={index}>
