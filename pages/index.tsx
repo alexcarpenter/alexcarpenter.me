@@ -1,10 +1,9 @@
-import type { GetStaticProps, NextPage } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import pageData from "@/data/home.json";
-import { cx } from "@/lib/utils";
-import { formatDate } from "@/lib/formatDate";
-import Prose from "@/components/Prose";
+import type { GetStaticProps, NextPage } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import pageData from '@/data/home.json';
+import { cx, formatDate } from '@/lib/utils';
+import Prose from '@/components/Prose';
 
 type HomeProps = {
   status: {
@@ -18,16 +17,16 @@ const Home: NextPage<HomeProps> = ({ status }) => {
     <>
       <article
         className={cx(
-          "-mt-4 relative w-full p-4 rounded-md border",
-          "bg-white border-gray-200",
-          "dark:bg-gray-800 dark:border-gray-700"
+          '-mt-4 relative w-full p-4 rounded-md border',
+          'bg-white border-gray-200',
+          'dark:bg-gray-800 dark:border-gray-700',
         )}
       >
         <span
           className={cx(
-            "block w-4 h-4 absolute top-0 left-4 rotate-45 -translate-y-1/2 border border-r-0 border-b-0",
-            "bg-white border-gray-200",
-            "dark:bg-gray-800 dark:border-gray-700"
+            'block w-4 h-4 absolute top-0 left-4 rotate-45 -translate-y-1/2 border border-r-0 border-b-0',
+            'bg-white border-gray-200',
+            'dark:bg-gray-800 dark:border-gray-700',
           )}
         />
         <Prose>
@@ -38,9 +37,9 @@ const Home: NextPage<HomeProps> = ({ status }) => {
           />
         </Prose>
         <p
-          className={cx("mt-4 text-sm", "text-gray-600", "dark:text-gray-300")}
+          className={cx('mt-4 text-sm', 'text-gray-600', 'dark:text-gray-300')}
         >
-          &mdash; {formatDate(status.date, "full")}
+          &mdash; {formatDate(status.date, 'full')}
         </p>
       </article>
 
@@ -57,7 +56,7 @@ const Home: NextPage<HomeProps> = ({ status }) => {
         <p>
           Hey, I&apos;m Alex. A detail oriented user interface engineer
           interested in CSS architecture, React, TypeScript, design systems, and
-          state machines. Currently working at{" "}
+          state machines. Currently working at{' '}
           <Link href="/work/hashicorp">HashiCorp</Link>, helping build and
           maintain public-facing HashiCorp websites and web applications with
           Next.js.
@@ -65,16 +64,15 @@ const Home: NextPage<HomeProps> = ({ status }) => {
         <p>
           Outside of work I am a self-proclaimed serial hobbyist. Currently
           interested in <del>fly fishing</del>, <del>RC cars</del>, disc golf,
-          and outdoor cooking{" "}
+          and outdoor cooking{' '}
           <a href="https://www.instagram.com/alexcarp/">#smokedmeats</a>. Also
-          big fan of <Link href="/tagged/edc">everyday tools</Link> and{" "}
-          <Link href="/tagged/gear">gear</Link>.
+          big fan of everyday tools and gear.
         </p>
         <h2>Colophon</h2>
         <p>
           This site is built using Next.js, Tailwind CSS, Framer Motion,
           TypeScript, MDX, and hosted using Vercel. Type is set in JetBrains
-          Mono. Feel free to check out the source code on{" "}
+          Mono. Feel free to check out the source code on{' '}
           <a href="https://github.com/alexcarpenter/alexcarpenter-next">
             Github
           </a>

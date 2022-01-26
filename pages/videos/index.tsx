@@ -1,14 +1,12 @@
-import { GetStaticProps, NextPage } from "next";
-import useSWR from "swr";
-import { fetcher } from "@/lib/fetcher";
-import { slugify } from "@/lib/utils";
-import { groupByYear } from "@/lib/groupByYear";
-import pageData from "@/data/videos.json";
-import Card from "@/components/Card";
-import Entry from "@/components/Entry";
-import EntryList from "@/components/EntryList";
-import Intro from "@/components/Intro";
-import Section from "@/components/Section";
+import { GetStaticProps, NextPage } from 'next';
+import useSWR from 'swr';
+import { groupByYear, fetcher, slugify } from '@/lib/utils';
+import pageData from '@/data/videos.json';
+import Card from '@/components/Card';
+import Entry from '@/components/Entry';
+import EntryList from '@/components/EntryList';
+import Intro from '@/components/Intro';
+import Section from '@/components/Section';
 
 type Video = {
   title: string;
@@ -25,11 +23,11 @@ type VideoProps = {
 };
 
 const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
-  const { data } = useSWR("/api/youtube", fetcher);
+  const { data } = useSWR('/api/youtube', fetcher);
   const subscriberCount = data?.subscriberCount;
   const viewCount = data?.viewCount;
 
-  const groupedVides = groupByYear<Video>(videos);
+  const groupedVideos = groupByYear<Video>(videos);
 
   return (
     <>
@@ -40,7 +38,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
           <li className="flex flex-col">
             <Card eyebrow="Total subscribers" variant="gray">
               <p className="mt-2 text-4xl">
-                {subscriberCount ? subscriberCount : "-"}
+                {subscriberCount ? subscriberCount : '-'}
               </p>
             </Card>
           </li>
@@ -48,10 +46,10 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
             <Card eyebrow="Total views" variant="gray">
               <p className="mt-2 text-4xl">
                 {viewCount
-                  ? new Intl.NumberFormat("en", { notation: "compact" }).format(
-                      viewCount
+                  ? new Intl.NumberFormat('en', { notation: 'compact' }).format(
+                      viewCount,
                     )
-                  : "-"}
+                  : '-'}
               </p>
             </Card>
           </li>
@@ -66,7 +64,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
         </div>
       </Section>
 
-      {Object.entries(groupedVides)
+      {Object.entries(groupedVideos)
         .reverse()
         .map(([year, videos]) => {
           return (

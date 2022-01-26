@@ -1,13 +1,13 @@
-import Link from "next/link";
+import Link from 'next/link';
 import {
   cx,
   slugify,
   formatDate,
   getHostname,
   isInternalLink,
-} from "@/lib/utils";
-import RightArrow from "@/components/RightArrow";
-import Badge from "./Badge";
+} from '@/lib/utils';
+import RightArrow from '@/components/RightArrow';
+import Badge from './Badge';
 
 export type EntryProps = {
   link?: string;
@@ -26,9 +26,9 @@ const Entry = ({ link, date, title, description, tags }: EntryProps) => {
       <div className="w-28 flex-shrink-0">
         <time
           className={cx(
-            "mb-2 inline-block",
-            "text-gray-600",
-            "dark:text-gray-300"
+            'mb-2 inline-block',
+            'text-gray-600',
+            'dark:text-gray-300',
           )}
           dateTime=""
         >
@@ -50,12 +50,12 @@ const Entry = ({ link, date, title, description, tags }: EntryProps) => {
         </h3>
         {link ? (
           isInternalLink(link) ? null : (
-            <p className={cx("text-sm", "text-gray-600", "dark:text-gray-300")}>
+            <p className={cx('text-sm', 'text-gray-600', 'dark:text-gray-300')}>
               {getHostname(link)}
             </p>
           )
         ) : null}
-        <p className={cx("mt-4", "text-gray-600", "dark:text-gray-300")}>
+        <p className={cx('mt-4', 'text-gray-600', 'dark:text-gray-300')}>
           {description}
         </p>
         {tags ? (

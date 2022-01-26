@@ -1,13 +1,15 @@
-import * as React from "react";
-import type { GetStaticProps, NextPage } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import pageData from "@/data/work.json";
-import { cx } from "@/lib/utils";
-import Button from "@/components/Button";
-import Intro from "@/components/Intro";
-import RightArrow from "@/components/RightArrow";
-import Section from "@/components/Section";
+import * as React from 'react';
+import type { GetStaticProps, NextPage } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import pageData from '@/data/work.json';
+import { cx } from '@/lib/utils';
+import Button from '@/components/Button';
+import Entry from '@/components/Entry';
+import EntryList from '@/components/EntryList';
+import Intro from '@/components/Intro';
+import RightArrow from '@/components/RightArrow';
+import Section from '@/components/Section';
 
 type WorkProps = {
   title: string;
@@ -86,17 +88,17 @@ const Work: NextPage<WorkProps> = ({
               <article
                 key={index}
                 className={cx(
-                  "p-4 rounded-md",
-                  "dark:bg-gray-800",
-                  "bg-gray-200"
+                  'p-4 rounded-md',
+                  'dark:bg-gray-800',
+                  'bg-gray-200',
                 )}
               >
                 <h3>{job.company}</h3>
                 <p
                   className={cx(
-                    "mt-0.5 text-sm",
-                    "text-gray-600",
-                    "dark:text-gray-300"
+                    'mt-0.5 text-sm',
+                    'text-gray-600',
+                    'dark:text-gray-300',
                   )}
                 >
                   {job.title}
@@ -133,12 +135,12 @@ const Work: NextPage<WorkProps> = ({
       </Section>
 
       <Section heading="Recommendations">
-        <ul className="space-y-12">
+        <EntryList>
           {recommendations
             .slice(0, viewAllRecs ? recommendations.length : 3)
             .map((item, index) => {
               return (
-                <li key={index} className="flex flex-col sm:flex-row">
+                <div key={index} className="flex flex-col sm:flex-row">
                   <div className="w-28 flex-shrink-0">
                     <div className="mb-4">
                       <Image
@@ -151,21 +153,21 @@ const Work: NextPage<WorkProps> = ({
                     </div>
                   </div>
                   <div className="flex-1">
-                    <p style={{ textIndent: "-.65rem" }}>“{item.text}”</p>
+                    <p style={{ textIndent: '-.65rem' }}>“{item.text}”</p>
                     <p
                       className={cx(
-                        "mt-4",
-                        "text-gray-600",
-                        "dark:text-gray-300"
+                        'mt-4',
+                        'text-gray-600',
+                        'dark:text-gray-300',
                       )}
                     >
                       &mdash; {item.name}, {item.title}, {item.company}
                     </p>
                   </div>
-                </li>
+                </div>
               );
             })}
-        </ul>
+        </EntryList>
         {!viewAllRecs && (
           <div className="mt-8 pl-0 md:pl-28 text-center md:text-left">
             <Button onClick={() => setViewAllRecs(true)} size="sm">

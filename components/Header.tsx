@@ -1,11 +1,11 @@
-import Link from "next/link";
-import Image from "next/image";
-import { cx } from "@/lib/utils";
-import Nav from "@/components/Nav";
+import Link from 'next/link';
+import Image from 'next/image';
+import { cx } from '@/lib/utils';
+import Nav from '@/components/Nav';
 
 const status: { content: string; emoji: string } = {
-  content: "Happy new year!",
-  emoji: "🍾",
+  content: 'Working at HashiCorp',
+  emoji: '👨🏼‍💻',
 };
 
 const Header = () => {
@@ -46,9 +46,9 @@ const Header = () => {
             title={status.content}
             role="img"
             className={cx(
-              "absolute bottom-0 right-0 w-6 h-6 rounded-md translate-y-1/2 translate-x-1/2 text-xs sm:text-sm grid place-items-center border",
-              "bg-gray-50 border-gray-200",
-              "dark:bg-gray-800 dark:border-gray-700"
+              'absolute bottom-0 right-0 w-6 h-6 rounded-md translate-y-1/2 translate-x-1/2 text-xs sm:text-sm grid place-items-center border',
+              'bg-gray-50 border-gray-200',
+              'dark:bg-gray-800 dark:border-gray-700',
             )}
           >
             {status.emoji}
