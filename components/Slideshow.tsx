@@ -48,7 +48,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ caption, children }) => {
         null
       );
     }
-    return child;
+    // return child;
   });
 
   const paginate = (newDirection: number) => {
@@ -85,8 +85,9 @@ const Slideshow: React.FC<SlideshowProps> = ({ caption, children }) => {
               }}
               onPointerDown={() => setGrabbing(true)}
               onPointerUp={() => setGrabbing(false)}
-              className="flex area-1/1"
+              className="flex"
               style={{
+                gridArea: "1/1",
                 cursor: grabbing ? "grabbing" : "grab",
               }}
             >

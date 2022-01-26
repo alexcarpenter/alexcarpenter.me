@@ -81,11 +81,12 @@ const Hashicorp: NextPage<HashicorpProps> = ({
         .reverse()
         .map(([year, items]) => {
           return (
-            <Section heading={year}>
+            <Section heading={year} key={year}>
               <EntryList>
-                {items.map((item) => {
+                {items.map((item, index) => {
                   return (
                     <Entry
+                      key={index}
                       title={item.title}
                       date={item.date}
                       link={item.link}
