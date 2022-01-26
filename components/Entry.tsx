@@ -9,11 +9,11 @@ import {
 import RightArrow from "@/components/RightArrow";
 import Badge from "./Badge";
 
-type EntryProps = {
-  link: string;
+export type EntryProps = {
+  link?: string;
   date: string;
   title: string;
-  description: string;
+  description?: string;
   tags?: Array<{
     path: string;
     tag: string;
@@ -37,16 +37,24 @@ const Entry = ({ link, date, title, description, tags }: EntryProps) => {
       </div>
       <div className="flex-1">
         <h3>
-          <Link href={link}>
-            <a className="underline hover:no-underline">{title}</a>
-          </Link>
-          <RightArrow position="end" />
+          {link ? (
+            <>
+              <Link href={link}>
+                <a className="underline hover:no-underline">{title}</a>
+              </Link>
+              <RightArrow position="end" />
+            </>
+          ) : (
+            <>{title}</>
+          )}
         </h3>
-        {isInternalLink(link) ? null : (
-          <p className={cx("text-sm", "text-gray-600", "dark:text-gray-300")}>
-            {getHostname(link)}
-          </p>
-        )}
+        {link ? (
+          isInternalLink(link) ? null : (
+            <p className={cx("text-sm", "text-gray-600", "dark:text-gray-300")}>
+              {getHostname(link)}
+            </p>
+          )
+        ) : null}
         <p className={cx("mt-4", "text-gray-600", "dark:text-gray-300")}>
           {description}
         </p>

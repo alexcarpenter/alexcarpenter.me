@@ -1,15 +1,23 @@
-import { GetStaticProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
+import { groupByYear } from "@/lib/utils";
 import pageData from "@/data/hashicorp.json";
 import Intro from "@/components/Intro";
 import Note from "@/components/Note";
 import Meta from "@/components/Meta";
 import Section from "@/components/Section";
+import EntryList from "@/components/EntryList";
+import Entry from "@/components/Entry";
 
 type HashicorpProps = {
   title: string;
   description: string;
   meta: { [key: string]: string };
   currently: string;
+  timeline: Array<{
+    title: string;
+    date: string;
+    link?: string;
+  }>;
 };
 
 const Hashicorp: NextPage<HashicorpProps> = ({
@@ -17,7 +25,9 @@ const Hashicorp: NextPage<HashicorpProps> = ({
   description,
   meta,
   currently,
+  timeline,
 }) => {
+  const groupedTimeline = groupByYear(timeline);
   return (
     <>
       <Intro title={title} description={description} />
@@ -66,6 +76,26 @@ const Hashicorp: NextPage<HashicorpProps> = ({
           </Note>
         </div>
       </Section>
+
+      {Object.entries(groupedTimeline)
+        .reverse()
+        .map(([year, items]) => {
+          return (
+            <Section heading={year}>
+              <EntryList>
+                {items.map((item) => {
+                  return (
+                    <Entry
+                      title={item.title}
+                      date={item.date}
+                      link={item.link}
+                    />
+                  );
+                })}
+              </EntryList>
+            </Section>
+          );
+        })}
     </>
   );
 };
