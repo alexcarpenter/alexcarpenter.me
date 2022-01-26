@@ -1,0 +1,24 @@
+.prose {
+  @apply relative;
+}
+
+.prose > * + * {
+  @apply mt-6;
+}
+
+.prose > h2 {
+  @apply text-xl;
+}
+
+.prose > * + h2,
+.prose > * + h3 {
+  @apply mt-12;
+}
+
+.prose a {
+  @apply underline hover:no-underline;
+}
+
+.prose ul {
+  @apply list-disc pl-5;
+}

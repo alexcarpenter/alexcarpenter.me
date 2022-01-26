@@ -1,27 +1,37 @@
-import Page from '@/components/Page';
-import Emoji from '@/components/Emoji';
-import List from '@/components/List';
-import Entry from '@/components/Entry';
-import Section from '@/components/Section';
-import Meta from '@/components/Meta';
-import Note from '@/components/Note';
+import type { GetStaticProps, NextPage } from "next";
+import { groupByYear } from "@/lib/utils";
+import pageData from "@/data/hashicorp.json";
+import Intro from "@/components/Intro";
+import Note from "@/components/Note";
+import Meta from "@/components/Meta";
+import Section from "@/components/Section";
+import EntryList from "@/components/EntryList";
+import Entry from "@/components/Entry";
 
-const status = {
-  content: (
-    <>
-      Getting back into the swing of things to start the new year off,
-      onboarding onto new projects.
-    </>
-  ),
+type HashicorpProps = {
+  title: string;
+  description: string;
+  meta: { [key: string]: string };
+  currently: string;
+  timeline: Array<{
+    title: string;
+    date: string;
+    link?: string;
+  }>;
 };
 
-export default function HashiCorp() {
+const Hashicorp: NextPage<HashicorpProps> = ({
+  title,
+  description,
+  meta,
+  currently,
+  timeline,
+}) => {
+  const groupedTimeline = groupByYear(timeline);
   return (
-    <Page
-      title="HashiCorp"
-      description="Web Engineer helping build and maintain public-facing HashiCorp websites and web applications with Next.js."
-      image="hashicorp.png"
-    >
+    <>
+      <Intro title={title} description={description} />
+
       <Section>
         <a
           href="https://hashicorp.com"
@@ -50,145 +60,53 @@ export default function HashiCorp() {
             ></path>
           </svg>
         </a>
-        <Meta>
-          <Meta.Item title="Start date" description="July 2021" />
-          <Meta.Item title="Position" description="Web Engineer II" />
-          <Meta.Item
-            title="Tools"
-            description="Next.js, CSS Modules, TypeScript, Framer Motion, DatoCMS"
-          />
-        </Meta>
+
+        <Meta
+          items={Object.entries(meta).map(([key, value]) => {
+            return {
+              title: key,
+              description: value,
+            };
+          })}
+        />
 
         <div className="mt-12">
           <Note label="Currently" variant="violet">
-            {status.content}
+            {currently}
           </Note>
         </div>
       </Section>
 
-      <Section heading="Updates" headingGap="lg">
-        <List>
-          <List.Item>
-            <Entry
-              date="Dec 21, 2021"
-              titleAs="h3"
-              title="Start with the source page"
-              link="https://hashicorp.com/start-with-the-source"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Dec 21, 2021"
-              titleAs="h3"
-              title="Consul hompepage and use case pages"
-              link="https://consul.io"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Dec 20, 2021"
-              titleAs="h3"
-              title="Update HashiCorp.com primary nav to be powered by DatoCMS singleton"
-              link="https://hashicorp.com"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Dec 15, 2021"
-              titleAs="h3"
-              title="Vault homepage and use case pages"
-              link="https://vaultproject.io"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Oct 28, 2021"
-              titleAs="h3"
-              title="Industry pages"
-              link="https://hashicorp.com/industries/financial-services"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Oct 19, 2021"
-              titleAs="h3"
-              title="HCP Packer page"
-              link="https://cloud.hashicorp.com/products/packer"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Oct 14, 2021"
-              titleAs="h3"
-              title="Waypoint homepage"
-              link="https://waypointproject.io"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Sep 30, 2021"
-              title="Zero trust security with HashiCorp and Microsoft Azure page"
-              link="https://hashicorp.com/solutions/zero-trust-security-microsoft-azure"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Sep 30, 2021"
-              titleAs="h3"
-              title="Boundary homepage updates"
-              link="https://boundaryproject.io/"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Sep 8, 2021"
-              titleAs="h3"
-              title="HashiCorp about pages"
-              link="https://hashicorp.com/about"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Aug 11, 2021"
-              titleAs="h3"
-              title="State of the Cloud page"
-              link="https://hashicorp.com/state-of-the-cloud"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Jul 29, 2021"
-              titleAs="h3"
-              title="Consul on the HashiCorp Cloud Platform"
-              link="https://cloud.hashicorp.com/try-hcp-consul"
-            />
-          </List.Item>
-
-          <List.Item>
-            <Entry
-              date="Jul 26, 2021"
-              titleAs="h3"
-              title={
-                <>
-                  <Emoji label="Tada">🎉</Emoji> Joined HashiCorp as a Web
-                  Engineer II on the core&nbsp;team.
-                </>
-              }
-            />
-          </List.Item>
-        </List>
-      </Section>
-    </Page>
+      {Object.entries(groupedTimeline)
+        .reverse()
+        .map(([year, items]) => {
+          return (
+            <Section heading={year} key={year}>
+              <EntryList>
+                {items.map((item, index) => {
+                  return (
+                    <Entry
+                      key={index}
+                      title={item.title}
+                      date={item.date}
+                      link={item.link}
+                    />
+                  );
+                })}
+              </EntryList>
+            </Section>
+          );
+        })}
+    </>
   );
-}
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+      ...pageData,
+    },
+  };
+};
+
+export default Hashicorp;

@@ -1,9 +1,12 @@
-import * as React from 'react';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { wrap } from 'popmotion';
-import { ChevronRight, ChevronLeft } from 'react-feather';
-import { cx } from '@/lib/utils';
+import * as React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { wrap } from "popmotion";
+import { ChevronRight, ChevronLeft } from "react-feather";
+import { cx } from "@/lib/utils";
+
+type SlideshowProps = {
+  caption?: string;
+};
 
 const variants = {
   enter: (direction: number) => {
@@ -31,18 +34,21 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
 
-const Slideshow = ({ caption, children }) => {
-  const [grabbing, setGrabbing] = useState(false);
-  const [[page, direction], setPage] = useState([0, 0]);
+const Slideshow: React.FC<SlideshowProps> = ({ caption, children }) => {
+  const [grabbing, setGrabbing] = React.useState(false);
+  const [[page, direction], setPage] = React.useState([0, 0]);
   const activeIndex = wrap(0, React.Children.count(children), page);
   const images = React.Children.map(children, (child) => {
-    return React.cloneElement(
-      child,
-      {
-        draggable: false,
-      },
-      null,
-    );
+    if (React.isValidElement(child)) {
+      return React.cloneElement(
+        child,
+        {
+          draggable: false,
+        },
+        null
+      );
+    }
+    // return child;
   });
 
   const paginate = (newDirection: number) => {
@@ -62,7 +68,7 @@ const Slideshow = ({ caption, children }) => {
               animate="center"
               exit="exit"
               transition={{
-                x: { type: 'spring', stiffness: 300, damping: 30 },
+                x: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 },
               }}
               drag="x"
@@ -79,12 +85,13 @@ const Slideshow = ({ caption, children }) => {
               }}
               onPointerDown={() => setGrabbing(true)}
               onPointerUp={() => setGrabbing(false)}
-              className="flex area-1/1"
+              className="flex"
               style={{
-                cursor: grabbing ? 'grabbing' : 'grab',
+                gridArea: "1/1",
+                cursor: grabbing ? "grabbing" : "grab",
               }}
             >
-              {images[activeIndex]}
+              {images![activeIndex]}
             </motion.div>
           </AnimatePresence>
           <button
@@ -104,8 +111,10 @@ const Slideshow = ({ caption, children }) => {
         </div>
         <figcaption
           className={cx(
-            'text-sm textSecondary text-center pt-4 flex flex-wrap',
-            [caption ? 'justify-between' : 'justify-center'],
+            "text-sm text-center pt-4 flex flex-wrap",
+            "text-gray-600",
+            "dark:text-gray-300",
+            [caption ? "justify-between" : "justify-center"]
           )}
         >
           <span>

@@ -1,76 +1,65 @@
-import Link from '@/components/Link';
-import { getAllMdx } from '@/lib/mdx';
-import Entry from '@/components/Entry';
-import Page from '@/components/Page';
-import List from '@/components/List';
-import Section from '@/components/Section';
+import { GetStaticProps, NextPage } from "next";
+import type { PostFrontMatter } from "@/lib/posts";
+import { getAllPosts } from "@/lib/posts";
+import { groupByYear, slugify } from "@/lib/utils";
+import pageData from "@/data/posts.json";
+import Intro from "@/components/Intro";
+import EntryList from "@/components/EntryList";
+import Entry from "@/components/Entry";
+import Section from "@/components/Section";
 
-export default function Posts({ posts }) {
-  const orderedPosts = posts
-    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
-    .reduce((sections, currentValue) => {
-      const year = new Date(currentValue.date).getFullYear().toString();
-      if (sections[year] != undefined) {
-        sections[year].push(currentValue);
-      } else {
-        sections[year] = [currentValue];
-      }
+type PostsProps = {
+  title: string;
+  description: string;
+  posts: Array<PostFrontMatter>;
+};
 
-      return sections;
-    }, {});
-
+const Post: NextPage<PostsProps> = ({ title, description, posts }) => {
+  const groupedPosts = groupByYear<PostFrontMatter>(posts);
   return (
-    <Page
-      title="Posts"
-      description={
-        <>
-          Thoughts on{' '}
-          <Link className="underline hover:no-underline" href="/tagged/css">
-            CSS architecture
-          </Link>
-          ,{' '}
-          <Link className="underline hover:no-underline" href="/tagged/react">
-            React
-          </Link>
-          , TypeScript, design systems, and state machines.
-        </>
-      }
-      image="posts.png"
-    >
-      {Object.keys(orderedPosts)
-        .sort()
+    <>
+      <Intro title={title} description={description} />
+      {Object.entries(groupedPosts)
         .reverse()
-        .map((year) => {
+        .map(([year, posts]) => {
           return (
-            <Section key={year} heading={year} headingGap="lg">
-              <List>
-                {orderedPosts[year].map((post, index) => {
-                  const { date, title, description, slug, tags } = post;
+            <Section key={year} heading={year}>
+              <EntryList>
+                {posts.map((post, index) => {
+                  const link = `/posts/${post.slug}`;
                   return (
-                    <List.Item key={index}>
-                      <Entry
-                        date={date}
-                        title={title}
-                        description={description}
-                        link={`/posts/${slug}`}
-                        tags={tags}
-                      />
-                    </List.Item>
+                    <Entry
+                      key={index}
+                      link={link}
+                      date={post.date}
+                      title={post.title}
+                      description={post.description}
+                      tags={post.tags?.map((tag) => {
+                        return {
+                          path: `/posts/tagged/${slugify(tag)}`,
+                          tag: tag,
+                        };
+                      })}
+                    />
                   );
                 })}
-              </List>
+              </EntryList>
             </Section>
           );
         })}
-    </Page>
+    </>
   );
-}
+};
 
-export async function getStaticProps() {
-  const mdxFiles = getAllMdx('posts').map((post) => post['frontMatter']);
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getAllPosts();
+
   return {
     props: {
-      posts: mdxFiles,
+      ...pageData,
+      posts,
     },
   };
-}
+};
+
+export default Post;

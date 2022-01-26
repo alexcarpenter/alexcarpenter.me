@@ -1,31 +1,14 @@
-import LinkedHeading from './LinkedHeading';
-import { cx } from '@/lib/utils';
-
-function Section({
-  heading,
-  headingGap = 'md',
-  children,
-  id,
-}: {
+type SectionProps = {
   heading?: string;
-  headingGap?: 'md' | 'lg';
-  children: React.ReactNode;
-  id?: string;
-}) {
-  const gap = {
-    md: 'mb-6',
-    lg: 'mb-12',
-  };
+};
+
+const Section: React.FC<SectionProps> = ({ heading, children }) => {
   return (
-    <section className="section" id={id}>
-      {heading && (
-        <LinkedHeading className={cx('text-xl', gap[headingGap])}>
-          {heading}
-        </LinkedHeading>
-      )}
-      {children}
+    <section className="section grid gap-12">
+      {heading ? <h2 className="text-xl">{heading}</h2> : null}{" "}
+      <div>{children}</div>
     </section>
   );
-}
+};
 
 export default Section;

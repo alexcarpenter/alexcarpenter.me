@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "JetBrains Mono Web";
+  font-display: swap;
+  font-style: normal;
+  src: url("/fonts/JetBrainsMono.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono Web";
+  font-display: swap;
+  font-style: italic;
+  src: url("/fonts/JetBrainsMono-Italic.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-mono antialiased leading-relaxed bg-gray-100 text-gray-800;
+  }
+
+  html.dark {
+    @apply bg-black text-white;
+  }
+
+  body {
+    @apply min-h-screen max-w-[800px] w-full mx-auto px-4 py-8 sm:p-8 md:p-16 flex flex-col;
+  }
+
+  #__next {
+    @apply flex flex-col flex-1;
+  }
+
+  main {
+    @apply mb-auto;
+  }
+
+  .section + .section {
+    @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-700;
+  }
+
+  mark {
+    @apply bg-yellow-200 text-gray-800;
+  }
+}

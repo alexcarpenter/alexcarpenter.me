@@ -1,46 +1,69 @@
-import * as React from 'react';
-import clsx from 'clsx';
-import slugify from '@sindresorhus/slugify';
+import clsx from "clsx";
+import slugify from "@sindresorhus/slugify";
 export { slugify, clsx as cx };
 
-export const formatDate = (date, format = 'short') => {
-  const formats = {
+export const isInternalLink = (url: string) => {
+  if (url.startsWith("/") || url.startsWith("#")) {
+    return true;
+  }
+  return false;
+};
+
+export const groupByYear = <
+  T extends {
+    date: string;
+  }
+>(
+  arr: Array<T>
+) =>
+  arr
+    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+    .reduce((acc, current) => {
+      const year = new Date(current.date).getFullYear().toString();
+      if (acc[year] != undefined) {
+        acc[year].push(current);
+      } else {
+        acc[year] = [current];
+      }
+
+      return acc;
+    }, {} as Record<string, Array<T>>);
+
+export const getHostname = (url: string) => {
+  let hostname;
+  try {
+    hostname = new URL(url).hostname;
+  } catch (error) {
+    throw new Error("Invalid url");
+  }
+  return hostname;
+};
+
+export const formatDate = (
+  date: string,
+  format: "short" | "long" | "full" = "short"
+) => {
+  const formats: { [key: string]: any } = {
     short: {
-      month: 'numeric',
-      day: 'numeric',
+      month: "numeric",
+      day: "numeric",
     },
     long: {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
+      month: "short",
+      day: "numeric",
+      year: "numeric",
     },
     full: {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
     },
   };
   let options = formats[format];
-  options.timeZone = 'UTC';
-  return new Date(date).toLocaleDateString('en-us', options);
+  options.timeZone = "UTC";
+  return new Date(date).toLocaleDateString("en-us", options);
 };
 
-export const widont = (str) => {
-  const REGEX = /\s((?=(([^\s<>]|<[^>]*>)+))\2)\s*$/;
-  return str.replace(REGEX, '\u00A0$1');
-};
-
-export const fetcher = (url) => fetch(url).then((res) => res.json());
-
-export const isInternalUrl = (url) =>
-  url.startsWith('/') || url.startsWith('#');
-
-export const isElement = (element) => {
-  return React.isValidElement(element);
-};
-
-export const isDOMTypeElement = (element) => {
-  return isElement(element) && typeof element.type === 'string';
-};
+export const fetcher = (url: string) => fetch(url).then((res) => res.json());

@@ -1,68 +1,76 @@
-import Link from 'next/link';
-import { getAllMdx } from '@/lib/mdx';
-import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
-import { formatDate } from '@/lib/utils';
-import Page from '@/components/Page';
-import List from '@/components/List';
-import { components } from '@/components/Mdx';
+import { GetStaticProps, NextPage } from "next";
+import type { FeedFrontMatter } from "@/lib/feed";
+import { getAllFeed, serializeMdxContent } from "@/lib/feed";
+import { cx, formatDate } from "@/lib/utils";
+import pageData from "@/data/feed.json";
+import Intro from "@/components/Intro";
+import EntryList from "@/components/EntryList";
+import Prose from "@/components/Prose";
+import { MDXRemote } from "next-mdx-remote";
+import { components } from "@/components/MDXComponents";
+import Link from "next/link";
 
-export default function Feed({ entries }) {
+type FeedProps = {
+  title: string;
+  description: string;
+  items: Array<{
+    frontMatter: FeedFrontMatter;
+    mdx: any;
+  }>;
+};
+
+const Feed: NextPage<FeedProps> = ({ title, description, items }) => {
   return (
-    <Page
-      title="Feed"
-      description="Notes, bookmarks, updates, code snippets, inspiration, etc."
-      image="feed.png"
-    >
-      <List>
-        {entries
+    <>
+      <Intro title={title} description={description} />
+
+      <EntryList>
+        {items
           .sort(
             (a, b) =>
               Number(new Date(b.frontMatter.date)) -
-              Number(new Date(a.frontMatter.date)),
+              Number(new Date(a.frontMatter.date))
           )
-          .map((entry, index) => {
-            const source = entry.mdx;
+          .map((item, index) => {
+            const source = item.mdx;
             return (
-              <List.Item key={index}>
-                <article>
-                  <div className="prose">
-                    <MDXRemote {...source} components={components} />
-                  </div>
-                  <p className="mt-6 text-sm textSecondary">
-                    &mdash;{' '}
-                    <Link href={`/feed/${entry.frontMatter.slug}`}>
-                      <a className="underline hover:no-underline">
-                        <time dateTime={entry.frontMatter.date}>
-                          {formatDate(entry.frontMatter.date, 'full')}
-                        </time>
-                      </a>
-                    </Link>
-                  </p>
-                </article>
-              </List.Item>
+              <article key={index}>
+                <Prose>
+                  <MDXRemote {...source} components={components} />
+                </Prose>
+                <p
+                  className={cx(
+                    "mt-6 text-sm",
+                    "text-gray-600",
+                    "dark:text-gray-300"
+                  )}
+                >
+                  &mdash;{" "}
+                  <Link href={`/feed/${item.frontMatter.slug}`}>
+                    <a className="underline hover:no-underline">
+                      <time dateTime={item.frontMatter.date}>
+                        {formatDate(item.frontMatter.date, "full")}
+                      </time>
+                    </a>
+                  </Link>
+                </p>
+              </article>
             );
           })}
-      </List>
-    </Page>
+      </EntryList>
+    </>
   );
-}
+};
 
-export async function getStaticProps() {
-  const mdxFiles = getAllMdx('feed');
-
-  async function serializeMdxFile(item) {
-    const { frontMatter, content } = item;
-    const mdx = await serialize(content);
-    return {
-      frontMatter,
-      mdx,
-    };
-  }
+export const getStaticProps: GetStaticProps = async () => {
+  const items = getAllFeed();
 
   return {
     props: {
-      entries: await Promise.all(mdxFiles.map((f) => serializeMdxFile(f))),
+      ...pageData,
+      items: await Promise.all(items.map((f) => serializeMdxContent(f))),
     },
   };
-}
+};
+
+export default Feed;

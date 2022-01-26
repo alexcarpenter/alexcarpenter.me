@@ -1,35 +1,46 @@
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
-import { getAllMdx, getMdx, postsPath } from '@/lib/mdx';
-import Page from '@/components/Page';
-import { components } from '@/components/Mdx';
+import type { GetStaticPaths, GetStaticProps } from "next/types";
+import { ParsedUrlQuery } from "querystring";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import { getAllPosts, getPost, PostFrontMatter } from "@/lib/posts";
+import { components } from "@/components/MDXComponents";
+import Intro from "@/components/Intro";
+import Prose from "@/components/Prose";
 
-export default function PostPage({ frontMatter, mdx }) {
-  return (
-    <Page {...frontMatter} type="post">
-      <div className="prose">
-        <MDXRemote {...mdx} components={components} />
-      </div>
-    </Page>
-  );
+interface ContextProps extends ParsedUrlQuery {
+  slug: string;
 }
 
-export async function getStaticPaths() {
-  const mdxFiles = getAllMdx('posts');
+type PostProps = PostFrontMatter & {
+  mdx: any;
+};
+
+const Post: React.FC<PostProps> = ({ date, title, description, mdx }) => {
+  return (
+    <>
+      <Intro date={date} title={title} />
+      <Prose>
+        <MDXRemote {...mdx} components={components} />
+      </Prose>
+    </>
+  );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = getAllPosts();
   return {
-    paths: mdxFiles.map((file) => ({
-      params: { slug: file.frontMatter.slug },
-    })),
+    paths: posts.map((file) => {
+      return {
+        params: { slug: file.slug },
+      };
+    }),
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps(context) {
-  const { frontMatter, content } = getMdx(
-    postsPath,
-    `${context.params.slug}.mdx`,
-  );
-
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params as ContextProps;
+  const { frontMatter, content } = getPost(`${slug}.mdx`);
   const mdxContent = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [],
@@ -37,11 +48,12 @@ export async function getStaticProps(context) {
     },
     scope: frontMatter,
   });
-
   return {
     props: {
-      frontMatter,
+      ...frontMatter,
       mdx: mdxContent,
     },
   };
-}
+};
+
+export default Post;

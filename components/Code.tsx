@@ -1,28 +1,28 @@
 //@ts-nocheck
-import { Children } from 'react';
-import { cx } from '@/lib/utils';
-import rangeParser from 'parse-numeric-range';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import useClipboard from 'react-use-clipboard';
+import { Children } from "react";
+import { cx } from "@/lib/utils";
+import rangeParser from "parse-numeric-range";
+import Highlight, { defaultProps } from "prism-react-renderer";
+import useClipboard from "react-use-clipboard";
 
 var theme = {
   plain: {
-    color: 'inherit',
-    backgroundColor: 'transparent',
+    color: "inherit",
+    backgroundColor: "transparent",
   },
   styles: [
     {
-      types: ['comment'],
+      types: ["comment"],
       style: {
-        color: 'inherit',
-        opacity: '0.75',
+        color: "inherit",
+        opacity: "0.75",
       },
     },
     {
-      types: ['deleted'],
+      types: ["deleted"],
       style: {
-        color: 'inherit',
-        opacity: '0.75',
+        color: "inherit",
+        opacity: "0.75",
       },
     },
   ],
@@ -35,7 +35,7 @@ const getParams = (name = ``) => {
       const [key, value] = param.split(`=`);
       merged[key] = value;
       return merged;
-    }, {}),
+    }, {})
   );
 };
 
@@ -74,14 +74,16 @@ export default function Code({ children }) {
   return (
     <div
       className={cx(
-        'relative overflow-hidden rounded border borderColor',
-        ['bg-gray-50'],
-        ['dark:text-white dark:bg-gray-900'],
+        "relative overflow-hidden rounded border",
+        ["bg-gray-50 border-gray-200"],
+        ["dark:text-white dark:bg-gray-900 dark:border-gray-700"]
       )}
     >
       <div
         className={cx(
-          'flex items-center justify-between w-full px-4 py-2 border-b borderColor',
+          "flex items-center justify-between w-full px-4 py-2 border-b",
+          "border-gray-200",
+          "dark:border-gray-700"
         )}
       >
         <span>
@@ -93,7 +95,7 @@ export default function Code({ children }) {
           )}
         </span>
         <button className="flex items-center" onClick={setCopied}>
-          {isCopied ? 'Copied' : 'Copy'}
+          {isCopied ? "Copied" : "Copy"}
         </button>
       </div>
       <Highlight
@@ -113,7 +115,7 @@ export default function Code({ children }) {
             className={`${className}`}
             style={{
               ...style,
-              overflow: 'auto',
+              overflow: "auto",
               padding: 16,
             }}
           >
@@ -125,7 +127,7 @@ export default function Code({ children }) {
               return (
                 <div key={i} {...lineProps}>
                   {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
+                    <span key={key} {...getTokenProps({ token, key })} />
                   ))}
                 </div>
               );

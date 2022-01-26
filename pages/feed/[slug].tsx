@@ -1,24 +1,36 @@
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
-import { getAllMdx, getMdx, feedPath } from '@/lib/mdx';
-import Page from '@/components/Page';
-import { components } from '@/components/Mdx';
-import { formatDate } from '@/lib/utils';
+import type { GetStaticPaths, GetStaticProps } from "next/types";
+import type { FeedFrontMatter } from "@/lib/feed";
+import { ParsedUrlQuery } from "querystring";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
+import { cx, formatDate } from "@/lib/utils";
+import { getAllFeed, getFeedItem } from "@/lib/feed";
+import { components } from "@/components/MDXComponents";
+import Prose from "@/components/Prose";
 
-export default function FeedPage({ frontMatter, mdx }) {
+interface ContextProps extends ParsedUrlQuery {
+  slug: string;
+}
+
+type FeedPageProps = {
+  frontMatter: FeedFrontMatter;
+  mdx: any;
+};
+
+const FeedPage: React.FC<FeedPageProps> = ({ frontMatter, mdx }) => {
   return (
-    <Page title={`Posted: ${formatDate(frontMatter.date, 'full')}`} type="feed">
-      <div className="prose">
+    <>
+      <Prose>
         <MDXRemote {...mdx} components={components} />
-      </div>
-      <p className="mt-6 text-sm textSecondary">
-        &mdash;{' '}
+      </Prose>
+      <p className={cx("mt-6 text-sm", "text-gray-600", "dark:text-gray-300")}>
+        &mdash;{" "}
         <time dateTime={frontMatter.date}>
-          {formatDate(frontMatter.date, 'full')}
-        </time>{' '}
+          {formatDate(frontMatter.date, "full")}
+        </time>{" "}
         <span role="separator" aria-orientation="vertical">
           &#183;
-        </span>{' '}
+        </span>{" "}
         <a
           target="_blank"
           rel="noreferrer noopener"
@@ -30,25 +42,23 @@ export default function FeedPage({ frontMatter, mdx }) {
           Discuss on Twitter
         </a>
       </p>
-    </Page>
+    </>
   );
-}
+};
 
-export async function getStaticPaths() {
-  const mdxFiles = getAllMdx('feed');
+export const getStaticPaths: GetStaticPaths = async () => {
+  const items = getAllFeed();
   return {
-    paths: mdxFiles.map((file) => ({
-      params: { slug: file.frontMatter.slug },
+    paths: items.map((item) => ({
+      params: { slug: item.frontMatter.slug },
     })),
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps(context) {
-  const { frontMatter, content } = getMdx(
-    feedPath,
-    `${context.params.slug}.mdx`,
-  );
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params as ContextProps;
+  const { frontMatter, content } = getFeedItem(`${slug}.mdx`);
 
   const mdxContent = await serialize(content, {
     mdxOptions: {
@@ -60,8 +70,11 @@ export async function getStaticProps(context) {
 
   return {
     props: {
+      title: `Posted ${formatDate(frontMatter.date, "full")}`,
       frontMatter,
       mdx: mdxContent,
     },
   };
-}
+};
+
+export default FeedPage;

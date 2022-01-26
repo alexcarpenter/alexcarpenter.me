@@ -1,24 +1,28 @@
-import { cx } from '@/lib/utils';
+import { cx } from "@/lib/utils";
 
-export default function RightArrow({
-  position,
-  fill,
-}: {
-  position: 'before' | 'after';
+type RightArrowProps = {
+  position: "start" | "end";
   fill?: string;
-}) {
-  const NBSP = '\u00a0';
+};
+
+const RightArrow = ({ position, fill }: RightArrowProps) => {
+  const NBSP = "\u00a0";
   return (
     <>
-      {position === 'after' && NBSP}
+      {position === "end" && NBSP}
       <span
         role="img"
         aria-hidden="true"
-        className={cx('flex-shrink-0', fill ? fill : 'textSecondary')}
+        className={cx(
+          "flex-shrink-0",
+          fill ? fill : ["text-gray-600", "dark:text-gray-300"]
+        )}
       >
         &#8594;
       </span>
-      {position === 'before' && NBSP}
+      {position === "start" && NBSP}
     </>
   );
-}
+};
+
+export default RightArrow;
