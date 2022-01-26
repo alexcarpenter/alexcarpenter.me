@@ -1,12 +1,12 @@
-import type { GetStaticPaths, GetStaticProps } from "next/types";
-import type { FeedFrontMatter } from "@/lib/feed";
-import { ParsedUrlQuery } from "querystring";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
-import { cx, formatDate } from "@/lib/utils";
-import { getAllFeed, getFeedItem } from "@/lib/feed";
-import { components } from "@/components/MDXComponents";
-import Prose from "@/components/Prose";
+import type { GetStaticPaths, GetStaticProps } from 'next/types';
+import type { FeedFrontMatter } from '@/lib/feed';
+import { ParsedUrlQuery } from 'querystring';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
+import { cx, formatDate } from '@/lib/utils';
+import { getAllFeed, getFeedItem } from '@/lib/feed';
+import { components } from '@/components/MDXComponents';
+import Prose from '@/components/Prose';
 
 interface ContextProps extends ParsedUrlQuery {
   slug: string;
@@ -23,14 +23,14 @@ const FeedPage: React.FC<FeedPageProps> = ({ frontMatter, mdx }) => {
       <Prose>
         <MDXRemote {...mdx} components={components} />
       </Prose>
-      <p className={cx("mt-6 text-sm", "text-gray-600", "dark:text-gray-300")}>
-        &mdash;{" "}
+      <p className={cx('mt-6 text-sm', 'text-gray-600', 'dark:text-gray-300')}>
+        &mdash;{' '}
         <time dateTime={frontMatter.date}>
-          {formatDate(frontMatter.date, "full")}
-        </time>{" "}
+          {formatDate(frontMatter.date, 'full')}
+        </time>{' '}
         <span role="separator" aria-orientation="vertical">
           &#183;
-        </span>{" "}
+        </span>{' '}
         <a
           target="_blank"
           rel="noreferrer noopener"
@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      title: `Posted ${formatDate(frontMatter.date, "full")}`,
+      title: `Posted ${formatDate(frontMatter.date, 'full')}`,
       frontMatter,
       mdx: mdxContent,
     },

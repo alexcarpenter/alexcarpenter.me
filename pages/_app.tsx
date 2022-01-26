@@ -1,15 +1,15 @@
-import "@/styles/globals.css";
-import Head from "next/head";
-import type { AppProps } from "next/app";
-import { ThemeProvider } from "next-themes";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import '@/styles/globals.css';
+import Head from 'next/head';
+import type { AppProps } from 'next/app';
+import { ThemeProvider } from 'next-themes';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { title, description, thumbnail } = pageProps;
-  const metaTitle = `${title ? `${title} - ` : ""}Alex Carpenter`;
-  const metaDescription = description ? description : "Web Engineer";
-  const metaImage = thumbnail ? thumbnail : "/og/default.png";
+  const metaTitle = `${title ? `${title} - ` : ''}Alex Carpenter`;
+  const metaDescription = description ? description : 'Web Engineer';
+  const metaImage = thumbnail ? thumbnail : '/og/default.png';
   return (
     <>
       <Head>

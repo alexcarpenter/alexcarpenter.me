@@ -1,14 +1,14 @@
-import { GetStaticProps, NextPage } from "next";
-import type { FeedFrontMatter } from "@/lib/feed";
-import { getAllFeed, serializeMdxContent } from "@/lib/feed";
-import { cx, formatDate } from "@/lib/utils";
-import pageData from "@/data/feed.json";
-import Intro from "@/components/Intro";
-import EntryList from "@/components/EntryList";
-import Prose from "@/components/Prose";
-import { MDXRemote } from "next-mdx-remote";
-import { components } from "@/components/MDXComponents";
-import Link from "next/link";
+import { GetStaticProps, NextPage } from 'next';
+import type { FeedFrontMatter } from '@/lib/feed';
+import { getAllFeed, serializeMdxContent } from '@/lib/feed';
+import { cx, formatDate } from '@/lib/utils';
+import pageData from '@/data/feed.json';
+import Intro from '@/components/Intro';
+import EntryList from '@/components/EntryList';
+import Prose from '@/components/Prose';
+import { MDXRemote } from 'next-mdx-remote';
+import { components } from '@/components/MDXComponents';
+import Link from 'next/link';
 
 type FeedProps = {
   title: string;
@@ -29,7 +29,7 @@ const Feed: NextPage<FeedProps> = ({ title, description, items }) => {
           .sort(
             (a, b) =>
               Number(new Date(b.frontMatter.date)) -
-              Number(new Date(a.frontMatter.date))
+              Number(new Date(a.frontMatter.date)),
           )
           .map((item, index) => {
             const source = item.mdx;
@@ -40,16 +40,16 @@ const Feed: NextPage<FeedProps> = ({ title, description, items }) => {
                 </Prose>
                 <p
                   className={cx(
-                    "mt-6 text-sm",
-                    "text-gray-600",
-                    "dark:text-gray-300"
+                    'mt-6 text-sm',
+                    'text-gray-600',
+                    'dark:text-gray-300',
                   )}
                 >
-                  &mdash;{" "}
+                  &mdash;{' '}
                   <Link href={`/feed/${item.frontMatter.slug}`}>
                     <a className="underline hover:no-underline">
                       <time dateTime={item.frontMatter.date}>
-                        {formatDate(item.frontMatter.date, "full")}
+                        {formatDate(item.frontMatter.date, 'full')}
                       </time>
                     </a>
                   </Link>

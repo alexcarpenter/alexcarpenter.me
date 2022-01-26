@@ -1,12 +1,12 @@
-import type { GetStaticProps, NextPage } from "next";
-import { groupByYear } from "@/lib/utils";
-import pageData from "@/data/hashicorp.json";
-import Intro from "@/components/Intro";
-import Note from "@/components/Note";
-import Meta from "@/components/Meta";
-import Section from "@/components/Section";
-import EntryList from "@/components/EntryList";
-import Entry from "@/components/Entry";
+import type { GetStaticProps, NextPage } from 'next';
+import { groupByYear } from '@/lib/utils';
+import pageData from '@/data/hashicorp.json';
+import Intro from '@/components/Intro';
+import Note from '@/components/Note';
+import Meta from '@/components/Meta';
+import Section from '@/components/Section';
+import EntryList from '@/components/EntryList';
+import Entry from '@/components/Entry';
 
 type HashicorpProps = {
   title: string;

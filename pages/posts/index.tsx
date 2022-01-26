@@ -1,12 +1,12 @@
-import { GetStaticProps, NextPage } from "next";
-import type { PostFrontMatter } from "@/lib/posts";
-import { getAllPosts } from "@/lib/posts";
-import { groupByYear, slugify } from "@/lib/utils";
-import pageData from "@/data/posts.json";
-import Intro from "@/components/Intro";
-import EntryList from "@/components/EntryList";
-import Entry from "@/components/Entry";
-import Section from "@/components/Section";
+import { GetStaticProps, NextPage } from 'next';
+import type { PostFrontMatter } from '@/lib/posts';
+import { getAllPosts } from '@/lib/posts';
+import { groupByYear, slugify } from '@/lib/utils';
+import pageData from '@/data/posts.json';
+import Intro from '@/components/Intro';
+import EntryList from '@/components/EntryList';
+import Entry from '@/components/Entry';
+import Section from '@/components/Section';
 
 type PostsProps = {
   title: string;

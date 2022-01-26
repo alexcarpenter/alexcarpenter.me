@@ -1,11 +1,11 @@
-import type { GetStaticPaths, GetStaticProps } from "next/types";
-import { ParsedUrlQuery } from "querystring";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
-import { getAllPosts, getPost, PostFrontMatter } from "@/lib/posts";
-import { components } from "@/components/MDXComponents";
-import Intro from "@/components/Intro";
-import Prose from "@/components/Prose";
+import type { GetStaticPaths, GetStaticProps } from 'next/types';
+import { ParsedUrlQuery } from 'querystring';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
+import { getAllPosts, getPost, PostFrontMatter } from '@/lib/posts';
+import { components } from '@/components/MDXComponents';
+import Intro from '@/components/Intro';
+import Prose from '@/components/Prose';
 
 interface ContextProps extends ParsedUrlQuery {
   slug: string;
