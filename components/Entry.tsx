@@ -42,7 +42,7 @@ const Entry = ({ link, date, title, description, tags }: EntryProps) => {
               <Link href={link}>
                 <a className="underline hover:no-underline">{title}</a>
               </Link>
-              <RightArrow position="end" />
+              {isInternalLink(link) ? null : <RightArrow position="end" />}
             </>
           ) : (
             <>{title}</>
