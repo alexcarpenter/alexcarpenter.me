@@ -27,6 +27,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:creator" content="@hybrid_alex" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="author" content="Alex Carpenter" />
+        <meta name="theme-color" content="#000000" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
       <ThemeProvider
