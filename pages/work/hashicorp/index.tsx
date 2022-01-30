@@ -72,7 +72,7 @@ const Hashicorp: NextPage<HashicorpProps> = ({
 
         <div className="mt-12">
           <Note label="Currently" variant="violet">
-            {currently}
+            <span dangerouslySetInnerHTML={{ __html: currently }} />
           </Note>
         </div>
       </Section>
