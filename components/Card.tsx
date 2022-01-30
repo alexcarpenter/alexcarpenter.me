@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { cx } from "@/lib/utils";
-import RightArrow from "./RightArrow";
+import Link from 'next/link';
+import { cx } from '@/lib/utils';
+import RightArrow from './RightArrow';
 
 type CardProps = {
   variant?: keyof typeof variants;
@@ -12,17 +12,17 @@ type CardProps = {
 };
 
 const variants = {
-  orange: "text-orange-600",
-  emerald: "text-emerald-600",
-  violet: "text-violet-600",
-  blue: "text-blue-600",
-  amber: "text-amber-600",
-  red: "text-red-600",
-  gray: "text-secondary",
+  orange: 'text-orange-600',
+  emerald: 'text-emerald-600',
+  violet: 'text-violet-600',
+  blue: 'text-blue-600',
+  amber: 'text-amber-600',
+  red: 'text-red-600',
+  gray: 'text-secondary',
 };
 
 const Card: React.FC<CardProps> = ({
-  variant = "orange",
+  variant = 'orange',
   link,
   cta,
   eyebrow,
@@ -33,16 +33,16 @@ const Card: React.FC<CardProps> = ({
   return (
     <article
       className={cx(
-        "relative group flex flex-col flex-grow p-4 sm:p-8 rounded-md overflow-hidden border",
-        "bg-gray-50 border-gray-200",
-        "dark:bg-gray-900 dark:border-gray-700"
+        'relative group flex flex-col flex-grow p-4 sm:p-8 rounded-md overflow-hidden border',
+        'bg-gray-50 border-gray-200',
+        'dark:bg-gray-900 dark:border-gray-700',
       )}
     >
       {eyebrow ? (
         <p
           className={cx(
-            "mb-1 text-sm uppercase tracking-wider",
-            variant && variants[variant]
+            'mb-1 text-sm uppercase tracking-wider',
+            variant && variants[variant],
           )}
         >
           {eyebrow}
@@ -67,7 +67,7 @@ const Card: React.FC<CardProps> = ({
       {link && (
         <div className="mt-auto pt-4 sm:pt-8 flex justify-end items-center transition-transform group-hover:translate-x-[2px]">
           {cta ? (
-            <span className={cx("text-sm", variant && variants[variant])}>
+            <span className={cx('text-sm', variant && variants[variant])}>
               {cta}
             </span>
           ) : null}

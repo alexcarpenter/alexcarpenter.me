@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { cx } from "@/lib/utils";
+import Link from 'next/link';
+import { cx } from '@/lib/utils';
 
 type BadgeProps = {
   children: string;
@@ -8,10 +8,10 @@ type BadgeProps = {
 
 const Badge: React.FC<BadgeProps> = ({ children, href }) => {
   const classNames = cx(
-    "inline-block text-sm py-0.5 px-2.5 rounded-full",
-    "bg-gray-200",
-    "dark:bg-gray-800",
-    [href && "hover:underline"]
+    'inline-block text-sm py-0.5 px-2.5 rounded-full',
+    'bg-gray-200',
+    'dark:bg-gray-800',
+    [href && 'hover:underline'],
   );
   if (href) {
     return (

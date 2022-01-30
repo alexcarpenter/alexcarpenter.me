@@ -46,6 +46,6 @@
   }
 
   mark {
-    @apply bg-yellow-200 dark:bg-gray-700 text-inherit;
+    @apply bg-yellow-100 dark:bg-gray-700 text-inherit;
   }
 }

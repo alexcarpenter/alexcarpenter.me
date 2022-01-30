@@ -57,9 +57,11 @@ const Home: NextPage<HomeProps> = ({ status }) => {
           Hey, I&apos;m Alex. A detail oriented user interface engineer
           interested in CSS architecture, React, TypeScript, design systems, and
           state machines. Currently working at{' '}
-          <Link href="/work/hashicorp">HashiCorp</Link>, helping build and
-          maintain public-facing HashiCorp websites and web applications with
-          Next.js.
+          <Link href="/work/hashicorp">
+            <a>HashiCorp</a>
+          </Link>
+          , helping build and maintain public-facing HashiCorp websites and web
+          applications with Next.js.
         </p>
         <p>
           Outside of work I am a self-proclaimed serial hobbyist. Currently

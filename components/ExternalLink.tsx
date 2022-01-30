@@ -1,4 +1,4 @@
-import { getHostname } from "@/lib/utils";
+import { getHostname } from '@/lib/utils';
 
 type ExternalLinkProps = {
   href: string;

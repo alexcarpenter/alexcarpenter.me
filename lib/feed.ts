@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
 
 export type FeedFrontMatter = {
   date: string;
@@ -20,13 +20,13 @@ export const serializeMdxContent = async (item: any) => {
 };
 
 export const getFeedItem = (fileName: string) => {
-  const fullPath = path.join(path.join(root, "content/feed"), fileName);
-  const docSource = fs.readFileSync(fullPath, "utf-8");
+  const fullPath = path.join(path.join(root, 'content/feed'), fileName);
+  const docSource = fs.readFileSync(fullPath, 'utf-8');
   const { data, content } = matter(docSource);
   return {
     frontMatter: {
       ...data,
-      slug: fileName.replace(".mdx", ""),
+      slug: fileName.replace('.mdx', ''),
     } as FeedFrontMatter,
     content,
   };
@@ -34,7 +34,7 @@ export const getFeedItem = (fileName: string) => {
 
 export const getAllFeed = () => {
   const posts = fs
-    .readdirSync(path.join(root, "content/feed"))
+    .readdirSync(path.join(root, 'content/feed'))
     .map((fileName) => getFeedItem(fileName));
   return posts;
 };

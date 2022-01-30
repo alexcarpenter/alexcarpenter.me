@@ -1,27 +1,27 @@
-import { cx } from "@/lib/utils";
-import RightArrow from "@/components/RightArrow";
-import ThemeSelect from "@/components/ThemeSelect";
+import { cx } from '@/lib/utils';
+import RightArrow from '@/components/RightArrow';
+import ThemeSelect from '@/components/ThemeSelect';
 
 const socialData: Array<{ label: string; href: string }> = [
   {
-    label: "Github",
-    href: "https://github.com/alexcarpenter",
+    label: 'Github',
+    href: 'https://github.com/alexcarpenter',
   },
   {
-    label: "Twitter",
-    href: "https://twitter.com/hybrid_alex",
+    label: 'Twitter',
+    href: 'https://twitter.com/hybrid_alex',
   },
   {
-    label: "Email",
-    href: "mailto:im.alexcarpenter@gmail.com",
+    label: 'Email',
+    href: 'mailto:im.alexcarpenter@gmail.com',
   },
   {
-    label: "Instagram",
-    href: "https://www.instagram.com/alexcarp/",
+    label: 'Instagram',
+    href: 'https://www.instagram.com/alexcarp/',
   },
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/imalexcarpenter/",
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/imalexcarpenter/',
   },
 ];
 
@@ -29,9 +29,9 @@ const Footer = () => {
   return (
     <footer
       className={cx(
-        "pt-12 mt-12 border-t",
-        "border-gray-200",
-        "dark:border-gray-700"
+        'pt-12 mt-12 border-t',
+        'border-gray-200',
+        'dark:border-gray-700',
       )}
     >
       <h2 className="sr-only">Connect</h2>

@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
 export type PostFrontMatter = {
   slug: string;
@@ -14,13 +14,13 @@ export type PostFrontMatter = {
 const root = process.cwd();
 
 export const getPost = (fileName: string) => {
-  const fullPath = path.join(path.join(root, "content/posts"), fileName);
-  const docSource = fs.readFileSync(fullPath, "utf-8");
+  const fullPath = path.join(path.join(root, 'content/posts'), fileName);
+  const docSource = fs.readFileSync(fullPath, 'utf-8');
   const { data, content } = matter(docSource);
   return {
     frontMatter: {
       ...data,
-      slug: fileName.replace(".mdx", ""),
+      slug: fileName.replace('.mdx', ''),
     } as PostFrontMatter,
     content,
   };
@@ -28,7 +28,7 @@ export const getPost = (fileName: string) => {
 
 export const getAllPosts = () => {
   const posts = fs
-    .readdirSync(path.join(root, "content/posts"))
-    .map((fileName) => getPost(fileName)["frontMatter"]);
+    .readdirSync(path.join(root, 'content/posts'))
+    .map((fileName) => getPost(fileName)['frontMatter']);
   return posts;
 };

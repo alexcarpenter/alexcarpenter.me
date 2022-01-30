@@ -1,5 +1,5 @@
-import { cx } from "@/lib/utils";
-import s from "@/styles/prose.module.css";
+import { cx } from '@/lib/utils';
+import s from '@/styles/prose.module.css';
 
 type PropsProps = {
   className?: string;

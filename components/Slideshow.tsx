@@ -1,8 +1,8 @@
-import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { wrap } from "popmotion";
-import { ChevronRight, ChevronLeft } from "react-feather";
-import { cx } from "@/lib/utils";
+import * as React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { wrap } from 'popmotion';
+import { ChevronRight, ChevronLeft } from 'react-feather';
+import { cx } from '@/lib/utils';
 
 type SlideshowProps = {
   caption?: string;
@@ -45,7 +45,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ caption, children }) => {
         {
           draggable: false,
         },
-        null
+        null,
       );
     }
     // return child;
@@ -68,7 +68,7 @@ const Slideshow: React.FC<SlideshowProps> = ({ caption, children }) => {
               animate="center"
               exit="exit"
               transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
+                x: { type: 'spring', stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 },
               }}
               drag="x"
@@ -87,8 +87,8 @@ const Slideshow: React.FC<SlideshowProps> = ({ caption, children }) => {
               onPointerUp={() => setGrabbing(false)}
               className="flex"
               style={{
-                gridArea: "1/1",
-                cursor: grabbing ? "grabbing" : "grab",
+                gridArea: '1/1',
+                cursor: grabbing ? 'grabbing' : 'grab',
               }}
             >
               {images![activeIndex]}
@@ -111,10 +111,10 @@ const Slideshow: React.FC<SlideshowProps> = ({ caption, children }) => {
         </div>
         <figcaption
           className={cx(
-            "text-sm text-center pt-4 flex flex-wrap",
-            "text-gray-600",
-            "dark:text-gray-300",
-            [caption ? "justify-between" : "justify-center"]
+            'text-sm text-center pt-4 flex flex-wrap',
+            'text-gray-600',
+            'dark:text-gray-300',
+            [caption ? 'justify-between' : 'justify-center'],
           )}
         >
           <span>

@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next run build",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@sindresorhus/slugify": "^2.1.0",

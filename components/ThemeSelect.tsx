@@ -1,19 +1,19 @@
-import * as React from "react";
-import { useTheme } from "next-themes";
-import { Command, Sun, Moon, Code } from "react-feather";
-import { cx } from "@/lib/utils";
+import * as React from 'react';
+import { useTheme } from 'next-themes';
+import { Command, Sun, Moon, Code } from 'react-feather';
+import { cx } from '@/lib/utils';
 
 const THEME_MAP: { [key: string]: { label: string; icon: React.ReactNode } } = {
   system: {
-    label: "System",
+    label: 'System',
     icon: <Command width=".9em" />,
   },
   light: {
-    label: "Light",
+    label: 'Light',
     icon: <Sun width=".9em" />,
   },
   dark: {
-    label: "Dark",
+    label: 'Dark',
     icon: <Moon width=".9em" />,
   },
 };
@@ -37,8 +37,8 @@ const ThemeSelect = () => {
       <span
         aria-hidden={true}
         className={cx(
-          "absolute top-1/2 -translate-y-1/2 left-2 pointer-events-none",
-          "opacity-50"
+          'absolute top-1/2 -translate-y-1/2 left-2 pointer-events-none',
+          'opacity-50',
         )}
       >
         {THEME_MAP[activeTheme!].icon}
@@ -47,14 +47,14 @@ const ThemeSelect = () => {
         aria-hidden={true}
         className="absolute top-1/2 -translate-y-1/2 right-2 pointer-events-none"
       >
-        <Code width=".9em" className={cx("rotate-90", "opacity-50")} />
+        <Code width=".9em" className={cx('rotate-90', 'opacity-50')} />
       </span>
       <select
         id="theme-menu"
         className={cx(
-          "appearance-none rounded-md border sm:w-full pl-8 pr-12",
-          "bg-gray-50 border-gray-200",
-          "dark:bg-gray-800 dark:border-gray-700"
+          'appearance-none rounded-md border sm:w-full pl-8 pr-12',
+          'bg-gray-50 border-gray-200',
+          'dark:bg-gray-800 dark:border-gray-700',
         )}
         onChange={handleChange}
         value={activeTheme}
