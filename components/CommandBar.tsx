@@ -224,7 +224,9 @@ const ResultItem = React.forwardRef<
     <div
       ref={ref}
       className={cx(
-        'px-4 py-2 flex items-center justify-between border-l-2 border-transparent textSecondary cursor-pointer',
+        'px-4 py-2 flex items-center justify-between border-l-2 border-transparent cursor-pointer',
+        'text-gray-600',
+        'dark:text-gray-300',
         active &&
           cx(
             'border-violet-600 bg-violet-200',

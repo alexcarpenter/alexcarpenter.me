@@ -1,4 +1,4 @@
-import { getHostname } from '@/lib/utils';
+import { cx, getHostname } from '@/lib/utils';
 
 type ExternalLinkProps = {
   href: string;
@@ -20,12 +20,16 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children }) => {
         <span
           role="img"
           aria-hidden="true"
-          className="flex-shrink-0 textSecondary"
+          className={cx('flex-shrink-0', 'text-gray-600', 'dark:text-gray-300')}
         >
           →
         </span>
       </p>
-      <p className="mt-0.5 text-sm textSecondary">{getHostname(href)}</p>
+      <p
+        className={cx('mt-0.5 text-sm', 'text-gray-600', 'dark:text-gray-300')}
+      >
+        {getHostname(href)}
+      </p>
     </div>
   );
 };
