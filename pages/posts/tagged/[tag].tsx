@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from 'next/types';
 import type { PostFrontMatter } from '@/lib/posts';
+import type { GroupByYear } from '@/lib/utils';
 import { ParsedUrlQuery } from 'querystring';
 import { groupByYear, slugify } from '@/lib/utils';
 import { getAllPosts } from '@/lib/posts';
@@ -14,22 +15,21 @@ interface ContextProps extends ParsedUrlQuery {
 
 type PostsTaggedProps = {
   tag: string;
-  posts: Array<PostFrontMatter>;
+  posts: GroupByYear<PostFrontMatter>;
 };
 
 const PostsTagged = ({ tag, posts }: PostsTaggedProps) => {
-  const groupedPosts = groupByYear<PostFrontMatter>(posts);
   return (
     <>
       <Intro title="Posts" description={`Tagged with "${tag}"`} />
 
-      {Object.entries(groupedPosts)
+      {Object.entries(posts)
         .reverse()
-        .map(([year, posts]) => {
+        .map(([year, yearPosts]) => {
           return (
             <Section key={year} heading={year}>
               <EntryList>
-                {posts.map((post, index) => {
+                {yearPosts.map((post, index) => {
                   const link = `/posts/${post.slug}`;
                   return (
                     <Entry
@@ -73,14 +73,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { tag } = context.params as ContextProps;
-  const posts = getAllPosts();
+  const filteredPosts = getAllPosts().filter((post) => {
+    return post.tags?.includes(tag);
+  });
+  const groupedPosts = groupByYear<PostFrontMatter>(filteredPosts);
   return {
     props: {
       title: `Posts tagged with "${tag}"`,
       tag,
-      posts: posts.filter((post) => {
-        return post.tags?.includes(tag);
-      }),
+      posts: groupedPosts,
     },
   };
 };

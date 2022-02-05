@@ -5,7 +5,6 @@ import Image from 'next/image';
 import pageData from '@/data/work.json';
 import { cx } from '@/lib/utils';
 import Button from '@/components/Button';
-import Entry from '@/components/Entry';
 import EntryList from '@/components/EntryList';
 import Intro from '@/components/Intro';
 import RightArrow from '@/components/RightArrow';

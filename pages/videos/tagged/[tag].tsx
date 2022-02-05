@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps } from 'next/types';
+import type { GroupByYear } from '@/lib/utils';
 import { ParsedUrlQuery } from 'querystring';
 import { groupByYear, slugify } from '@/lib/utils';
 import pageData from '@/data/videos.json';
@@ -21,22 +22,21 @@ type Video = {
 
 type VideosTaggedProps = {
   tag: string;
-  videos: Array<Video>;
+  videos: GroupByYear<Video>;
 };
 
 const VideosTagged = ({ tag, videos }: VideosTaggedProps) => {
-  const groupedVideos = groupByYear<Video>(videos);
   return (
     <>
       <Intro title="Videos" description={`Tagged with "${tag}"`} />
 
-      {Object.entries(groupedVideos)
+      {Object.entries(videos)
         .reverse()
-        .map(([year, videos]) => {
+        .map(([year, yearVideos]) => {
           return (
             <Section key={year} heading={year}>
               <EntryList>
-                {videos.map((video, index) => {
+                {yearVideos.map((video, index) => {
                   const link = `https://youtube.com/watch?v=${video.id}`;
                   return (
                     <Entry
@@ -79,13 +79,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { tag } = context.params as ContextProps;
+  const filteredVideos = pageData.videos.filter((video) => {
+    return video.tags.includes(tag);
+  });
+  const groupedVideos = groupByYear<Video>(filteredVideos);
   return {
     props: {
       title: `Videos tagged with "${tag}"`,
       tag,
-      videos: pageData.videos.filter((video) => {
-        return video.tags.includes(tag);
-      }),
+      videos: groupedVideos,
     },
   };
 };
