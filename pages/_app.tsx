@@ -2,6 +2,7 @@ import '@/styles/globals.css';
 import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
+import CommandBar from '@/components/CommandBar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -40,17 +41,19 @@ function MyApp({ Component, pageProps }: AppProps) {
         defaultTheme="system"
         attribute="class"
       >
-        <a
-          href="#main"
-          className="fixed top-0 left-0 p-2 -translate-y-full focus:translate-y-0"
-        >
-          Skip to main content
-        </a>
-        <Header />
-        <main id="main">
-          <Component {...pageProps} />
-        </main>
-        <Footer />
+        <CommandBar>
+          <a
+            href="#main"
+            className="fixed top-0 left-0 p-2 -translate-y-full focus:translate-y-0"
+          >
+            Skip to main content
+          </a>
+          <Header />
+          <main id="main">
+            <Component {...pageProps} />
+          </main>
+          <Footer />
+        </CommandBar>
       </ThemeProvider>
     </>
   );
