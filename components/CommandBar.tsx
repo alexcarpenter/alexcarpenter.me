@@ -111,7 +111,7 @@ export default function CommandBar({
     {
       id: 'feed',
       name: 'Feed',
-      shortcut: ['g', 's'],
+      shortcut: ['g', 'f'],
       keywords: 'go-feed',
       section: 'Go To',
       perform: () => router.push('/feed'),
