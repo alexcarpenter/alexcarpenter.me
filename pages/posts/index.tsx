@@ -1,5 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import type { PostFrontMatter } from '@/lib/posts';
+import type { GroupByYear } from '@/lib/utils';
 import { getAllPosts } from '@/lib/posts';
 import { groupByYear, slugify } from '@/lib/utils';
 import pageData from '@/data/posts.json';
@@ -11,21 +12,20 @@ import Section from '@/components/Section';
 type PostsProps = {
   title: string;
   description: string;
-  posts: Array<PostFrontMatter>;
+  posts: GroupByYear<PostFrontMatter>;
 };
 
 const Post: NextPage<PostsProps> = ({ title, description, posts }) => {
-  const groupedPosts = groupByYear<PostFrontMatter>(posts);
   return (
     <>
       <Intro title={title} description={description} />
-      {Object.entries(groupedPosts)
+      {Object.entries(posts)
         .reverse()
-        .map(([year, posts]) => {
+        .map(([year, yearPosts]) => {
           return (
             <Section key={year} heading={year}>
               <EntryList>
-                {posts.map((post, index) => {
+                {yearPosts.map((post, index) => {
                   const link = `/posts/${post.slug}`;
                   return (
                     <Entry
@@ -53,11 +53,11 @@ const Post: NextPage<PostsProps> = ({ title, description, posts }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts();
-
+  const groupedPosts = groupByYear<PostFrontMatter>(posts);
   return {
     props: {
       ...pageData,
-      posts,
+      posts: groupedPosts,
     },
   };
 };

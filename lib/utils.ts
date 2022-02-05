@@ -9,6 +9,7 @@ export const isInternalLink = (url: string) => {
   return false;
 };
 
+export type GroupByYear<T> = Record<string, Array<T>>;
 export const groupByYear = <
   T extends {
     date: string;
@@ -27,7 +28,7 @@ export const groupByYear = <
       }
 
       return acc;
-    }, {} as Record<string, Array<T>>);
+    }, {} as GroupByYear<T>);
 
 export const getHostname = (url: string) => {
   let hostname;
