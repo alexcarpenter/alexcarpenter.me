@@ -43,7 +43,7 @@ const Home: NextPage<HomeProps> = ({ status }) => {
         </p>
       </article>
 
-      <Prose className="mt-8">
+      <Prose className="mt-12">
         <h2>About</h2>
         <div className="relative float-right w-1/3 ml-4 md:ml-8 mb-4 md:mb-8 inline-flex rounded-md overflow-hidden">
           <Image

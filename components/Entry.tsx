@@ -55,9 +55,11 @@ const Entry = ({ link, date, title, description, tags }: EntryProps) => {
             </p>
           )
         ) : null}
-        <p className={cx('mt-4', 'text-gray-600', 'dark:text-gray-300')}>
-          {description}
-        </p>
+        {description ? (
+          <p className={cx('mt-4', 'text-gray-600', 'dark:text-gray-300')}>
+            {description}
+          </p>
+        ) : null}
         {tags ? (
           <ul className="mt-4 flex flex-wrap gap-2">
             {tags.map(({ path, tag }, index) => {

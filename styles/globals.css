@@ -45,15 +45,15 @@
     @apply mb-auto;
   }
 
-  .section + .section {
-    @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-700;
-  }
-
   kbd {
     @apply px-1 rounded-sm border-b bg-gray-50 border-gray-200 dark:bg-gray-800 dark:border-gray-700;
   }
 
   mark {
-    @apply bg-yellow-100 dark:bg-gray-800 text-inherit;
+    @apply bg-yellow-200 dark:bg-gray-800 text-inherit;
+  }
+
+  .section + .section {
+    @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-700;
   }
 }
