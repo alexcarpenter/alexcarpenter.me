@@ -8,24 +8,24 @@ type BadgeProps = {
 };
 
 const variants = {
-  gray: cx('bg-gray-200', 'dark:bg-gray-800'),
+  gray: cx('bg-gray-200 border-transparent', 'dark:bg-gray-800'),
   orange: cx(
-    'bg-orange-200 text-orange-800',
-    'dark:bg-orange-800/30 dark:text-orange-400 border border-orange-400/10',
+    'bg-orange-200 text-orange-800 border-transparent',
+    'dark:bg-orange-800/30 dark:text-orange-400 dark:border-orange-400/10',
   ),
   emerald: cx(
-    'bg-emerald-200 text-emerald-800',
-    'dark:bg-emerald-800/30 dark:text-emerald-400 border border-emerald-400/10',
+    'bg-emerald-200 text-emerald-800 border-transparent',
+    'dark:bg-emerald-800/30 dark:text-emerald-400 dark:border-emerald-400/10',
   ),
   violet: cx(
-    'bg-violet-200 text-violet-800',
-    'dark:bg-violet-800/30 dark:text-violet-400 border border-violet-400/10',
+    'bg-violet-200 text-violet-800 border-transparent',
+    'dark:bg-violet-800/30 dark:text-violet-400 dark:border-violet-400/10',
   ),
 };
 
 const Badge: React.FC<BadgeProps> = ({ children, variant = 'gray', href }) => {
   const classNames = cx(
-    'inline-block text-sm py-0.5 px-2.5 rounded-full',
+    'inline-block text-sm py-0.5 px-2.5 rounded-full border',
     variants[variant],
     [href && 'hover:underline'],
   );
