@@ -7,7 +7,6 @@ import pageData from '@/data/feed.json';
 import Intro from '@/components/Intro';
 import EntryList from '@/components/EntryList';
 import Prose from '@/components/Prose';
-import Select from '@/components/Select';
 import { MDXRemote } from 'next-mdx-remote';
 import { components } from '@/components/MDXComponents';
 
