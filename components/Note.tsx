@@ -11,15 +11,15 @@ interface NoteProps {
 const variants = {
   orange: cx(
     'bg-orange-200 text-orange-800',
-    'dark:bg-orange-600 dark:text-white',
+    'dark:bg-orange-800/30 dark:text-orange-400 border border-orange-400/10',
   ),
   emerald: cx(
     'bg-emerald-200 text-emerald-800',
-    'dark:bg-emerald-800 dark:text-white',
+    'dark:bg-emerald-800/30 dark:text-emerald-400 border border-emerald-400/10',
   ),
   violet: cx(
     'bg-violet-200 text-violet-800',
-    'dark:bg-violet-800 dark:text-white',
+    'dark:bg-violet-800/30 dark:text-violet-400 border border-violet-400/10',
   ),
   gray: cx('bg-gray-200', 'dark:bg-gray-900'),
   ghost: cx('border', 'border-gray-200', 'dark:border-gray-800'),

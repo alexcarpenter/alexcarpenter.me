@@ -8,9 +8,17 @@
 @font-face {
   font-family: 'JetBrains Mono Web';
   font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+}
+
+/* @font-face {
+  font-family: 'JetBrains Mono Web';
+  font-display: swap;
   font-style: italic;
   src: url('/fonts/JetBrainsMono-Italic.woff2') format('woff2');
-}
+} */
 
 @tailwind base;
 @tailwind components;
@@ -46,6 +54,6 @@
   }
 
   mark {
-    @apply bg-yellow-100 dark:bg-gray-700 text-inherit;
+    @apply bg-yellow-100 dark:bg-gray-800 text-inherit;
   }
 }

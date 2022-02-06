@@ -1,5 +1,6 @@
 import { cx } from '@/lib/utils';
 import Image from 'next/image';
+import Badge from '@/components/Badge';
 import Card from '@/components/Card';
 import Code from '@/components/Code';
 import ExternalLink from '@/components/ExternalLink';
@@ -10,6 +11,7 @@ import Slideshow from '@/components/Slideshow';
 import Video from '@/components/Video';
 
 export const components = {
+  Badge,
   Card,
   CodeSandbox: ({ src, title }: { src: string; title: string }) => (
     <iframe

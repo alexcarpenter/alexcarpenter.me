@@ -62,10 +62,10 @@ const Hashicorp: NextPage<HashicorpProps> = ({
         </a>
 
         <Meta
-          items={Object.entries(meta).map(([key, value]) => {
+          items={Object.entries(meta).map(([title, description]) => {
             return {
-              title: key,
-              description: value,
+              title,
+              description,
             };
           })}
         />
