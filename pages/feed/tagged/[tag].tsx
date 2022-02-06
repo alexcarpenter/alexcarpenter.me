@@ -1,15 +1,19 @@
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 import type { FeedFrontMatter } from '@/lib/feed';
-import Link from 'next/link';
 import { getAllFeed, serializeMdxContent } from '@/lib/feed';
-import { cx, formatDate } from '@/lib/utils';
+import { cx, formatDate, slugify } from '@/lib/utils';
 import pageData from '@/data/feed.json';
 import Intro from '@/components/Intro';
 import EntryList from '@/components/EntryList';
 import Prose from '@/components/Prose';
-import Select from '@/components/Select';
 import { MDXRemote } from 'next-mdx-remote';
 import { components } from '@/components/MDXComponents';
+import Link from 'next/link';
+
+interface ContextProps extends ParsedUrlQuery {
+  tag: string;
+}
 
 type FeedProps = {
   title: string;
@@ -63,13 +67,35 @@ const Feed: NextPage<FeedProps> = ({ title, description, items }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const items = getAllFeed();
+  return {
+    paths: Array.from(
+      new Set(items.map((item) => item.frontMatter.tags).flat()),
+    )
+      .filter(Boolean)
+      .map((tag) => {
+        return {
+          params: {
+            tag: slugify(tag!),
+          },
+        };
+      }),
+    fallback: false,
+  };
+};
 
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { tag } = context.params as ContextProps;
+  const filteredItems = getAllFeed().filter((item) => {
+    return item.frontMatter.tags?.includes(tag);
+  });
   return {
     props: {
       ...pageData,
-      items: await Promise.all(items.map((f) => serializeMdxContent(f))),
+      items: await Promise.all(
+        filteredItems.map((f) => serializeMdxContent(f)),
+      ),
     },
   };
 };

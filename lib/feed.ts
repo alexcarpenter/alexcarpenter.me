@@ -6,6 +6,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 export type FeedFrontMatter = {
   date: string;
   slug: string;
+  tags?: Array<string>;
 };
 
 const root = process.cwd();
