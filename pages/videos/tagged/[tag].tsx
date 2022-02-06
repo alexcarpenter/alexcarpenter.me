@@ -85,7 +85,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const groupedVideos = groupByYear<Video>(filteredVideos);
   return {
     props: {
-      title: `Videos tagged with "${tag}"`,
+      title: 'Videos',
       tag,
       videos: groupedVideos,
     },

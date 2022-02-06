@@ -16,18 +16,17 @@ interface ContextProps extends ParsedUrlQuery {
 }
 
 type FeedProps = {
-  title: string;
-  description: string;
+  tag: string;
   items: Array<{
     frontMatter: FeedFrontMatter;
     mdx: any;
   }>;
 };
 
-const Feed: NextPage<FeedProps> = ({ title, description, items }) => {
+const FeedTagged: NextPage<FeedProps> = ({ tag, items }) => {
   return (
     <>
-      <Intro title={title} description={description} />
+      <Intro title="Feed" description={`Tagged with "${tag}"`} />
 
       <EntryList>
         {items
@@ -92,7 +91,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   });
   return {
     props: {
-      ...pageData,
+      title: 'Feed',
+      tag,
       items: await Promise.all(
         filteredItems.map((f) => serializeMdxContent(f)),
       ),
@@ -100,4 +100,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export default Feed;
+export default FeedTagged;

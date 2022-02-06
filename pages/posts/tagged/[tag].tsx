@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const groupedPosts = groupByYear<PostFrontMatter>(filteredPosts);
   return {
     props: {
-      title: `Posts tagged with "${tag}"`,
+      title: 'Posts',
       tag,
       posts: groupedPosts,
     },
