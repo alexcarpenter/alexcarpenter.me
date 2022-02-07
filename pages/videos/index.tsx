@@ -33,7 +33,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
       <Intro title={title} description={description} />
 
       <Section>
-        <ul className="grid sm:grid-cols-2 gap-4 md:gap-8">
+        <ul className="grid sm:grid-cols-2 gap-4">
           <li className="flex flex-col">
             <Card eyebrow="Total subscribers" variant="gray">
               <p className="mt-2 text-4xl">
