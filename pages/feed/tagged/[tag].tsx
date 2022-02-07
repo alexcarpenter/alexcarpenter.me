@@ -91,6 +91,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   });
   return {
     props: {
+      ...pageData,
       title: 'Feed',
       tag,
       items: await Promise.all(
