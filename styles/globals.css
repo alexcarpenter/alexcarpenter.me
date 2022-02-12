@@ -56,4 +56,8 @@
   .section + .section {
     @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-700;
   }
+
+  code {
+    @apply bg-gray-200 dark:bg-gray-800 px-1 rounded;
+  }
 }
