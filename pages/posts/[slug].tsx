@@ -12,7 +12,6 @@ interface ContextProps extends ParsedUrlQuery {
 }
 
 type PostProps = PostFrontMatter & {
-  slug: string;
   mdx: any;
 };
 
@@ -51,7 +50,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   });
   return {
     props: {
-      slug,
       ...frontMatter,
       mdx: mdxContent,
     },
