@@ -10,18 +10,18 @@ interface NoteProps {
 
 const variants = {
   orange: cx(
-    'bg-orange-200 text-orange-800 border-transparent',
+    'bg-orange-100 text-orange-800 border-transparent',
     'dark:bg-orange-800/30 dark:text-orange-400 dark:border-orange-400/10',
   ),
   emerald: cx(
-    'bg-emerald-200 text-emerald-800  border-transparent',
+    'bg-emerald-100 text-emerald-800  border-transparent',
     'dark:bg-emerald-800/30 dark:text-emerald-400 dark:border-emerald-400/10',
   ),
   violet: cx(
-    'bg-violet-200 text-violet-800 border-transparent',
+    'bg-violet-100 text-violet-800 border-transparent',
     'dark:bg-violet-800/30 dark:text-violet-400 dark:border-violet-400/10',
   ),
-  gray: cx('bg-gray-200  border-transparent', 'dark:bg-gray-900'),
+  gray: cx('bg-gray-200 border-transparent', 'dark:bg-gray-900'),
   ghost: cx('border-gray-200', 'dark:border-gray-800'),
 };
 
