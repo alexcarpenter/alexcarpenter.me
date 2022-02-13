@@ -12,13 +12,14 @@ interface ContextProps extends ParsedUrlQuery {
 }
 
 type PostProps = PostFrontMatter & {
+  slug: string;
   mdx: any;
 };
 
-const Post: React.FC<PostProps> = ({ date, title, description, mdx }) => {
+const Post: React.FC<PostProps> = ({ slug, date, title, mdx }) => {
   return (
     <>
-      <Intro date={date} title={title} />
+      <Intro date={date} title={title} views={`/posts/${slug}`} />
       <Prose>
         <MDXRemote {...mdx} components={components} />
       </Prose>
@@ -50,6 +51,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   });
   return {
     props: {
+      slug,
       ...frontMatter,
       mdx: mdxContent,
     },

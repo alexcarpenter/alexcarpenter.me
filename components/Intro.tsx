@@ -1,14 +1,16 @@
 import { cx, formatDate, getHostname } from '@/lib/utils';
 import RightArrow from './RightArrow';
+import Views from './Views';
 
 type IntroProps = {
   date?: string;
   title: string;
   description?: string;
   link?: string;
+  views?: string;
 };
 
-const Intro = ({ date, title, description, link }: IntroProps) => {
+const Intro = ({ date, title, description, link, views }: IntroProps) => {
   return (
     <header
       className={cx(
@@ -17,16 +19,22 @@ const Intro = ({ date, title, description, link }: IntroProps) => {
         'dark:border-gray-700',
       )}
     >
-      {date ? (
-        <time
+      {date || views ? (
+        <span
           className={cx(
             'block mb-2 text-sm',
             'text-gray-600',
             'dark:text-gray-300',
           )}
         >
-          {formatDate(date, 'long')}
-        </time>
+          {date ? <time>{formatDate(date, 'long')}</time> : null}
+          {views ? (
+            <>
+              {' '}
+              &bull; <Views slug={views} />
+            </>
+          ) : null}
+        </span>
       ) : null}
       <h1 className="text-xl">
         {title}
