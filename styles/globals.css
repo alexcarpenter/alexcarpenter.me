@@ -50,11 +50,15 @@
   }
 
   mark {
-    @apply bg-yellow-200 dark:bg-gray-800 text-inherit;
+    @apply bg-yellow-100 dark:bg-gray-800 text-inherit;
   }
 
   .section + .section {
     @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-700;
+  }
+
+  blockquote {
+    @apply pl-4 border-l-4 border-gray-200 dark:border-gray-700;
   }
 
   code {
