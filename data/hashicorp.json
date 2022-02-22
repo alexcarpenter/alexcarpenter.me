@@ -10,6 +10,11 @@
   "currently": "Building out the new conference site for HashiConf 2022. Check out the landing page we just launched <a href='https://hashiconf.com'>HashiConf</a>.",
   "timeline": [
     {
+      "title": "HashiConf 2022 Europe",
+      "date": "Feb 22, 2022",
+      "link": "https://hashiconf.com/europe/"
+    },
+    {
       "title": "HashiConf 2022 Landing Page",
       "date": "Jan 25, 2022",
       "link": "https://hashiconf.com/"

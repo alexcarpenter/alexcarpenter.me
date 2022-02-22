@@ -1,6 +1,6 @@
 {
   "status": {
-    "content": "Getting back into the swing of things producing screencasts. First up, how to create an animated nav shadow with Framer Motion. <a href='https://youtu.be/CbSVUCQA2K4'>youtu.be/CbSVUCQA2K4</a>",
-    "date": "2022-01-23T14:27:52Z"
+    "content": "Starting on the next iteration of my <a href='https://us-coffee-roasters.com/'>US Coffee Roasters</a> website. Built using Next.js, NextAuth.js, Prisma, tRPC, and Planetscale. Follow along on <a href='https://github.com/alexcarpenter/us-coffee-roasters-next/pull/2'>Github</a>.",
+    "date": "2022-02-22T09:37:02Z"
   }
 }
