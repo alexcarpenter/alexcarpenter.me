@@ -7,6 +7,7 @@ import Meta from '@/components/Meta';
 import Section from '@/components/Section';
 import EntryList from '@/components/EntryList';
 import Entry from '@/components/Entry';
+import Button from '@/components/Button';
 
 type HashicorpProps = {
   title: string;
@@ -16,6 +17,7 @@ type HashicorpProps = {
   timeline: Array<{
     title: string;
     date: string;
+    description?: string;
     link?: string;
   }>;
 };
@@ -90,6 +92,7 @@ const Hashicorp: NextPage<HashicorpProps> = ({
                       title={item.title}
                       date={item.date}
                       link={item.link}
+                      description={item.description}
                     />
                   );
                 })}

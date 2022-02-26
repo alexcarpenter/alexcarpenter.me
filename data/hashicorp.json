@@ -10,6 +10,11 @@
   "currently": "Working with the web marketing design team to build out a web pattern library for commonly used components across our web marketing properties.",
   "timeline": [
     {
+      "title": "Added new Badge component to component library",
+      "date": "Feb 25, 2022",
+      "link": "https://github.com/hashicorp/react-components/pull/512"
+    },
+    {
       "title": "HashiConf 2022 Europe",
       "date": "Feb 22, 2022",
       "link": "https://hashiconf.com/europe/"
