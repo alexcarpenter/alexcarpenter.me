@@ -7,7 +7,6 @@ import Meta from '@/components/Meta';
 import Section from '@/components/Section';
 import EntryList from '@/components/EntryList';
 import Entry from '@/components/Entry';
-import Button from '@/components/Button';
 
 type HashicorpProps = {
   title: string;
