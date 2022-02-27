@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import pageData from '@/data/work.json';
 import { cx } from '@/lib/utils';
 import Button from '@/components/Button';
@@ -38,6 +39,7 @@ const Work: NextPage<WorkProps> = ({
   recommendations,
 }) => {
   const [viewAllRecs, setViewAllRecs] = React.useState(false);
+  const shouldReduceMotion = useReducedMotion();
   return (
     <>
       <Intro title={title} description={description} />
@@ -134,39 +136,49 @@ const Work: NextPage<WorkProps> = ({
       </Section>
 
       <Section heading="Recommendations">
-        <EntryList>
-          {recommendations
-            .slice(0, viewAllRecs ? recommendations.length : 3)
-            .map((item, index) => {
-              return (
-                <div key={index} className="flex flex-col sm:flex-row">
-                  <div className="w-28 flex-shrink-0">
-                    <div className="mb-4">
-                      <Image
-                        src={item.thumbnail}
-                        alt={`${item.name} portrait`}
-                        width={48}
-                        height={48}
-                        className="rounded-md w-full block"
-                      />
+        <AnimatePresence initial={false}>
+          <EntryList>
+            {recommendations
+              .slice(0, viewAllRecs ? recommendations.length : 3)
+              .map((item, index) => {
+                return (
+                  <motion.div
+                    key={index}
+                    className="flex flex-col sm:flex-row"
+                    initial={{ opacity: 0, y: 100, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{
+                      duration: shouldReduceMotion ? 0 : 0.2,
+                    }}
+                  >
+                    <div className="w-28 flex-shrink-0">
+                      <div className="mb-4">
+                        <Image
+                          src={item.thumbnail}
+                          alt={`${item.name} portrait`}
+                          width={48}
+                          height={48}
+                          className="rounded-md w-full block"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex-1">
-                    <p style={{ textIndent: '-.65rem' }}>“{item.text}”</p>
-                    <p
-                      className={cx(
-                        'mt-4',
-                        'text-gray-600',
-                        'dark:text-gray-300',
-                      )}
-                    >
-                      &mdash; {item.name}, {item.title}, {item.company}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-        </EntryList>
+                    <div className="flex-1">
+                      <p style={{ textIndent: '-.65rem' }}>“{item.text}”</p>
+                      <p
+                        className={cx(
+                          'mt-4',
+                          'text-gray-600',
+                          'dark:text-gray-300',
+                        )}
+                      >
+                        &mdash; {item.name}, {item.title}, {item.company}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+          </EntryList>
+        </AnimatePresence>
         {!viewAllRecs && (
           <div className="mt-8 pl-0 md:pl-28 text-center md:text-left">
             <Button onClick={() => setViewAllRecs(true)} size="sm">
