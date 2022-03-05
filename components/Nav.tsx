@@ -3,7 +3,7 @@ import { motion, AnimateSharedLayout, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { cx } from '@/lib/utils';
-import navData from '@/data/nav.json';
+import data from '@/data/global.json';
 
 export default function Nav() {
   const { pathname } = useRouter();
@@ -16,7 +16,7 @@ export default function Nav() {
           className="flex flex-col items-end sm:items-start sm:flex-row gap-x-4 gap-y-1"
           onHoverEnd={() => setActiveIndex(null)}
         >
-          {navData.items.map((item, index) => {
+          {data.nav.map((item, index) => {
             const isActive = activeIndex === index;
             return (
               <motion.li key={index} onHoverStart={() => setActiveIndex(index)}>

@@ -2,11 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { cx } from '@/lib/utils';
 import Nav from '@/components/Nav';
-
-const status: { content: string; emoji: string } = {
-  content: 'Working at HashiCorp',
-  emoji: '👨🏼‍💻',
-};
+import data from '@/data/global.json';
 
 const Header = () => {
   return (
@@ -43,7 +39,7 @@ const Header = () => {
             </a>
           </Link>
           <span
-            title={status.content}
+            title={data.status.content}
             role="img"
             className={cx(
               'absolute bottom-0 right-0 w-6 h-6 rounded-md translate-y-1/2 translate-x-1/2 text-xs sm:text-sm grid place-items-center border',
@@ -51,7 +47,7 @@ const Header = () => {
               'dark:bg-gray-800 dark:border-gray-700',
             )}
           >
-            {status.emoji}
+            {data.status.emoji}
           </span>
         </div>
       </div>

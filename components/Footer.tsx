@@ -1,29 +1,7 @@
 import { cx } from '@/lib/utils';
 import RightArrow from '@/components/RightArrow';
 import ThemeSelect from '@/components/ThemeSelect';
-
-const socialData: Array<{ label: string; href: string }> = [
-  {
-    label: 'Github',
-    href: 'https://github.com/alexcarpenter',
-  },
-  {
-    label: 'Twitter',
-    href: 'https://twitter.com/hybrid_alex',
-  },
-  {
-    label: 'Email',
-    href: 'mailto:im.alexcarpenter@gmail.com',
-  },
-  {
-    label: 'Instagram',
-    href: 'https://www.instagram.com/alexcarp/',
-  },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/imalexcarpenter/',
-  },
-];
+import data from '@/data/global.json';
 
 const Footer = () => {
   return (
@@ -38,7 +16,7 @@ const Footer = () => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="col-span-2">
           <ul className="grid grid-cols-2 gap-4">
-            {socialData.map((item, index) => {
+            {data.footer.map((item, index) => {
               return (
                 <li key={index}>
                   <RightArrow position="start" />
