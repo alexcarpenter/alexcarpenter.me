@@ -27,7 +27,8 @@
     {
       "date": "Dec 21, 2021",
       "title": "Start with the source page",
-      "link": "https://hashicorp.com/start-with-the-source"
+      "link": "https://hashicorp.com/start-with-the-source",
+      "teammates": ["noel"]
     },
     {
       "date": "Dec 21, 2021",
@@ -77,12 +78,14 @@
     {
       "date": "Aug 11, 2021",
       "title": "State of the Cloud page",
-      "link": "https://hashicorp.com/state-of-the-cloud"
+      "link": "https://hashicorp.com/state-of-the-cloud",
+      "teammates": ["noel", "brandon"]
     },
     {
       "date": "Jul 29, 2021",
       "title": "Consul on the HashiCorp Cloud Platform",
-      "link": "https://cloud.hashicorp.com/try-hcp-consul"
+      "link": "https://cloud.hashicorp.com/try-hcp-consul",
+      "teammates": ["brandon"]
     },
     {
       "date": "Jul 26, 2021",

@@ -72,9 +72,9 @@ const Home: NextPage<HomeProps> = ({ status }) => {
         </p>
         <h2>Colophon</h2>
         <p>
-          This site is built using Next.js, Tailwind CSS, Framer Motion,
-          TypeScript, MDX, and hosted using Vercel. Type is set in JetBrains
-          Mono. Feel free to check out the source code on{' '}
+          This site is built using Next.js, Tailwind CSS, Framer Motion, React
+          Aria, TypeScript, MDX, and hosted using Vercel. Type is set in
+          JetBrains Mono. Feel free to check out the source code on{' '}
           <a href="https://github.com/alexcarpenter/alexcarpenter-next">
             Github
           </a>

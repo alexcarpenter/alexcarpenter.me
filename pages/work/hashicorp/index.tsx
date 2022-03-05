@@ -6,7 +6,7 @@ import Note from '@/components/Note';
 import Meta from '@/components/Meta';
 import Section from '@/components/Section';
 import EntryList from '@/components/EntryList';
-import Entry from '@/components/Entry';
+import WorkEntry from '@/components/WorkEntry';
 
 type HashicorpProps = {
   title: string;
@@ -18,7 +18,37 @@ type HashicorpProps = {
     date: string;
     description?: string;
     link?: string;
+    teammates?: Array<keyof typeof hashicorpTeammates>;
   }>;
+};
+
+const hashicorpTeammates: {
+  [key: string]: {
+    image: string;
+    name: string;
+    link: string;
+  };
+} = {
+  jimmy: {
+    image: '/img/jimmy-merritello.jpeg',
+    name: 'Jimmy Merritello',
+    link: 'https://github.com/jmfury',
+  },
+  noel: {
+    image: '/img/noel-quiles.jpeg',
+    name: 'Noel Quiles',
+    link: 'https://github.com/EnMod',
+  },
+  pam: {
+    image: '/img/pamela-bortnick.png',
+    name: 'Pam Bortnick',
+    link: 'https://github.com/pbortnick',
+  },
+  brandon: {
+    image: '/img/brandon-romano.jpeg',
+    name: 'Brandon Romano',
+    link: 'https://github.com/BrandonRomano',
+  },
 };
 
 const Hashicorp: NextPage<HashicorpProps> = ({
@@ -86,12 +116,15 @@ const Hashicorp: NextPage<HashicorpProps> = ({
               <EntryList>
                 {items.map((item, index) => {
                   return (
-                    <Entry
+                    <WorkEntry
                       key={index}
                       title={item.title}
                       date={item.date}
                       link={item.link}
                       description={item.description}
+                      teammates={item.teammates?.map((person) => {
+                        return hashicorpTeammates[person];
+                      })}
                     />
                   );
                 })}
