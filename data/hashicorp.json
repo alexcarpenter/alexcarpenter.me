@@ -10,6 +10,12 @@
   "currently": "Working with the web marketing design team to build out a web pattern library for commonly used components across our web marketing properties.",
   "timeline": [
     {
+      "title": "Customer success pages",
+      "date": "Mar 7, 2022",
+      "link": "https://hashicorp.com/customer-success",
+      "teammates": ["noel"]
+    },
+    {
       "title": "Added new Badge component to component library",
       "date": "Feb 25, 2022",
       "link": "https://github.com/hashicorp/react-components/pull/512"
