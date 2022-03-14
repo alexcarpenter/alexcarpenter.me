@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { cx, formatDate, getHostname, isInternalLink } from '@/lib/utils';
-import RightArrow from '@/components/RightArrow';
 import FacePile from '@/components/FacePile';
+import RightArrowUp from '@/components/RightArrowUp';
 
 export type WorkEntryProps = {
   link?: string;
@@ -43,7 +43,7 @@ const WorkEntry = ({
               <Link href={link}>
                 <a className="underline hover:no-underline">{title}</a>
               </Link>
-              {isInternalLink(link) ? null : <RightArrow position="end" />}
+              {isInternalLink(link) ? null : <RightArrowUp position="end" />}
             </>
           ) : (
             <>{title}</>

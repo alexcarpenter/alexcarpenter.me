@@ -31,16 +31,16 @@
       "href": "https://twitter.com/hybrid_alex"
     },
     {
-      "label": "Email",
-      "href": "mailto:im.alexcarpenter@gmail.com"
-    },
-    {
       "label": "Instagram",
       "href": "https://www.instagram.com/alexcarp/"
     },
     {
       "label": "LinkedIn",
       "href": "https://www.linkedin.com/in/imalexcarpenter/"
+    },
+    {
+      "label": "Email",
+      "href": "mailto:im.alexcarpenter@gmail.com"
     }
   ]
 }

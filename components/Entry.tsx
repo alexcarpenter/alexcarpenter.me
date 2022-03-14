@@ -6,7 +6,7 @@ import {
   getHostname,
   isInternalLink,
 } from '@/lib/utils';
-import RightArrow from '@/components/RightArrow';
+import RightArrowUp from '@/components/RightArrowUp';
 import Badge from './Badge';
 
 export type EntryProps = {
@@ -42,7 +42,7 @@ const Entry = ({ link, date, title, description, tags }: EntryProps) => {
               <Link href={link}>
                 <a className="underline hover:no-underline">{title}</a>
               </Link>
-              {isInternalLink(link) ? null : <RightArrow position="end" />}
+              {isInternalLink(link) ? null : <RightArrowUp position="end" />}
             </>
           ) : (
             <>{title}</>

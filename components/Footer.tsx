@@ -1,4 +1,5 @@
 import { cx } from '@/lib/utils';
+import ExternalLink from '@/components/ExternalLink';
 import RightArrow from '@/components/RightArrow';
 import ThemeSelect from '@/components/ThemeSelect';
 import data from '@/data/global.json';
@@ -19,10 +20,9 @@ const Footer = () => {
             {data.footer.map((item, index) => {
               return (
                 <li key={index}>
-                  <RightArrow position="start" />
-                  <a href={item.href} className="underline hover:no-underline">
+                  <ExternalLink href={item.href} hostname={false}>
                     {item.label}
-                  </a>
+                  </ExternalLink>
                 </li>
               );
             })}

@@ -2,9 +2,14 @@ import { cx, getHostname } from '@/lib/utils';
 
 type ExternalLinkProps = {
   href: string;
+  hostname?: boolean;
 };
 
-const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children }) => {
+const ExternalLink: React.FC<ExternalLinkProps> = ({
+  href,
+  children,
+  hostname = true,
+}) => {
   return (
     <div className="flex-1">
       <p>
@@ -22,14 +27,20 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children }) => {
           aria-hidden="true"
           className={cx('flex-shrink-0', 'text-gray-600', 'dark:text-gray-300')}
         >
-          →
+          ↗
         </span>
       </p>
-      <p
-        className={cx('mt-0.5 text-sm', 'text-gray-600', 'dark:text-gray-300')}
-      >
-        {getHostname(href)}
-      </p>
+      {hostname ? (
+        <p
+          className={cx(
+            'mt-0.5 text-sm',
+            'text-gray-600',
+            'dark:text-gray-300',
+          )}
+        >
+          {getHostname(href)}
+        </p>
+      ) : null}
     </div>
   );
 };

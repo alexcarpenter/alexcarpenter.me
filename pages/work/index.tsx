@@ -6,6 +6,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import pageData from '@/data/work.json';
 import { cx } from '@/lib/utils';
 import Button from '@/components/Button';
+import ExternalLink from '@/components/ExternalLink';
 import EntryList from '@/components/EntryList';
 import Intro from '@/components/Intro';
 import RightArrow from '@/components/RightArrow';
@@ -110,16 +111,13 @@ const Work: NextPage<WorkProps> = ({
             );
           })}
 
-          <div className="flex items-center justify-center p-4">
-            <p>
-              <a
-                href="https://www.linkedin.com/in/imalexcarpenter/"
-                className="underline hover:no-underline focus:no-underline"
-              >
-                View LinkedIn
-              </a>
-              <RightArrow position="end" />
-            </p>
+          <div className="grid place-items-center p-4">
+            <ExternalLink
+              href="https://www.linkedin.com/in/imalexcarpenter/"
+              hostname={false}
+            >
+              View LinkedIn
+            </ExternalLink>
           </div>
         </div>
       </Section>
