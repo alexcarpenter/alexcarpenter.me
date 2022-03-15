@@ -46,11 +46,9 @@ const Person: React.FC<TooltipTriggerProps & PersonProps> = (props) => {
           />
         </a>
       </Link>
-      {state.isOpen && (
-        <Tooltip state={state} {...tooltipProps}>
-          {props.name}
-        </Tooltip>
-      )}
+      <Tooltip state={state} {...tooltipProps}>
+        {props.name}
+      </Tooltip>
     </span>
   );
 };
