@@ -40,7 +40,17 @@ const Entry = ({ link, date, title, description, tags }: EntryProps) => {
           {link ? (
             <>
               <Link href={link}>
-                <a className="underline hover:no-underline">{title}</a>
+                <a
+                  className="underline hover:no-underline"
+                  {...(isInternalLink(link)
+                    ? {}
+                    : {
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                      })}
+                >
+                  {title}
+                </a>
               </Link>
               {isInternalLink(link) ? null : <RightArrowUp position="end" />}
             </>
