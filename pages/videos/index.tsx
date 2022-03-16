@@ -8,6 +8,7 @@ import Entry from '@/components/Entry';
 import EntryList from '@/components/EntryList';
 import Intro from '@/components/Intro';
 import Section from '@/components/Section';
+import ExternalLink from '@/components/ExternalLink';
 
 type Video = {
   title: string;
@@ -54,12 +55,12 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
           </li>
         </ul>
         <div className="mt-8 text-center">
-          <a
+          <ExternalLink
             href="https://www.youtube.com/channel/UC2jJoQlzvLPvnYfowAEVaOg?sub_confirmation=1"
-            className="inline-flex items-center gap-2 underline hover:no-underline"
+            hostname={false}
           >
             Subscribe on YouTube
-          </a>
+          </ExternalLink>
         </div>
       </Section>
 
