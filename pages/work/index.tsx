@@ -90,12 +90,23 @@ const Work: NextPage<WorkProps> = ({
               <article
                 key={index}
                 className={cx(
-                  'p-4 rounded-md',
+                  'relative p-4 rounded-md',
                   'dark:bg-gray-800',
                   'bg-gray-200',
                 )}
               >
-                <h3>{job.company}</h3>
+                <h3>
+                  {job.company}
+                  {/* {job.link ? (
+                    <Link href={job.link}>
+                      <a className="after:absolute after:inset-0 underline hover:no-underline">
+                        {job.company}
+                      </a>
+                    </Link>
+                  ) : (
+                    job.company
+                  )} */}
+                </h3>
                 <p
                   className={cx(
                     'mt-0.5 text-sm',

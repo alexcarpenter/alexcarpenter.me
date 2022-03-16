@@ -1,0 +1,16 @@
+{
+  "title": "Mighty",
+  "description": "Senior Web Developer building marketing websites for companys such as Amway, Herman Miller, and Conservation Legacy.",
+  "thumbnail": "/og/hashicorp.png",
+  "meta": {
+    "Duration": "Oct 2015 - Nov 2018",
+    "Position": "Senior Web Developer",
+    "Tools": "Craft CMS, Expression Engine, Sass, Vanilla JavaScript"
+  },
+  "highlights": [
+    "Lorem, ipsum dolor sit amet elit. Eaque, eveniet.",
+    "Lorem, ipsum dolor sit amet elit. Eaque, eveniet eaque, eveniet.",
+    "Lorem, ipsum dolor sit amet elit. Eaque, eveniet Eaque."
+  ],
+  "timeline": []
+}
