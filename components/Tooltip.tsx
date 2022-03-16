@@ -30,11 +30,17 @@ const Tooltip: React.FC<AriaTooltipProps & { state: TooltipTriggerState }> = ({
               opacity: 1,
               y: '-12px',
               x: '-50%',
+              transition: {
+                duration: 0.15,
+              },
             }}
             exit={{
               opacity: 0,
               y: '-6px',
               x: '-50%',
+              transition: {
+                duration: 0.1,
+              },
             }}
           >
             <span
