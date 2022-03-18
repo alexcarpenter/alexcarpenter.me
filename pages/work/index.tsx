@@ -96,8 +96,7 @@ const Work: NextPage<WorkProps> = ({
                 )}
               >
                 <h3>
-                  {job.company}
-                  {/* {job.link ? (
+                  {job.link ? (
                     <Link href={job.link}>
                       <a className="after:absolute after:inset-0 underline hover:no-underline">
                         {job.company}
@@ -105,7 +104,7 @@ const Work: NextPage<WorkProps> = ({
                     </Link>
                   ) : (
                     job.company
-                  )} */}
+                  )}
                 </h3>
                 <p
                   className={cx(
