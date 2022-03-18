@@ -66,7 +66,7 @@ const Hashicorp: NextPage<HashicorpProps> = ({
       <Section>
         <a
           href="https://hashicorp.com"
-          className="inline-flex float-right mb-8"
+          className="inline-flex sm:float-right mb-8"
         >
           <span className="sr-only">HashiCorp</span>
           <svg

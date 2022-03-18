@@ -26,7 +26,7 @@ const Mighty: NextPage<MightyProps> = ({ title, description, meta }) => {
       <Section>
         <a
           href="https://nationbuilder.com"
-          className="inline-flex float-right mb-8"
+          className="inline-flex sm:float-right mb-8"
         >
           <span className="sr-only">Mighty</span>
           <svg
