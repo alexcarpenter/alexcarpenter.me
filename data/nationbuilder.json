@@ -1,11 +1,20 @@
 {
   "title": "NationBuilder",
   "description": "UI Engineer helping build and maintain our design system Radius.",
+  "link": "https://nationbuilder.com/",
+  "logo": {
+    "src": "/img/nationbuilder.svg",
+    "width": 160,
+    "height": 41
+  },
   "thumbnail": "/og/hashicorp.png",
   "meta": {
     "Duration": "Nov 2018 - Jul 2021",
     "Position": "UI Engineer",
-    "Tools": "React, Rails, Bootstrap"
+    "Tools": "React, Rails, Sass, Bootstrap"
   },
+  "highlights": [
+    "Maintained updates and additions to component library Radius."
+  ],
   "timeline": []
 }
