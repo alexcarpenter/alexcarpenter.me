@@ -16,6 +16,7 @@ type CompanyProps = {
   title: string;
   description: string;
   link: string;
+  logoSvg: string;
   logo: {
     src: string;
     width: number;
@@ -36,6 +37,7 @@ const Company: NextPage<CompanyProps> = ({
   title,
   description,
   link,
+  logoSvg,
   logo,
   meta,
   // highlights,
@@ -47,13 +49,8 @@ const Company: NextPage<CompanyProps> = ({
 
       <Section>
         <a href={link} className="inline-flex sm:float-right mb-8">
-          <Image
-            src={logo.src}
-            width={logo.width}
-            height={logo.height}
-            alt={`${title} logo`}
-            priority={true}
-          />
+          <span className="sr-only">{title} logo</span>
+          <span dangerouslySetInnerHTML={{ __html: logoSvg }} />
         </a>
 
         <Meta
