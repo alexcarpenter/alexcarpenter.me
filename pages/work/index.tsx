@@ -3,7 +3,6 @@ import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import pageData from '@/data/work.json';
 import { cx } from '@/lib/utils';
 import Button from '@/components/Button';
 import ExternalLink from '@/components/ExternalLink';
@@ -200,6 +199,7 @@ const Work: NextPage<WorkProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const pageData = await import('@/data/work.json');
   return {
     props: {
       ...pageData,

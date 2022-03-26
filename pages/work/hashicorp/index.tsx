@@ -1,6 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { groupByYear } from '@/lib/utils';
-import pageData from '@/data/hashicorp.json';
 import Intro from '@/components/Intro';
 import Note from '@/components/Note';
 import Meta from '@/components/Meta';
@@ -137,6 +136,7 @@ const Hashicorp: NextPage<HashicorpProps> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const pageData = await import('@/data/hashicorp.json');
   return {
     props: {
       ...pageData,

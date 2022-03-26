@@ -3,7 +3,6 @@ import { ParsedUrlQuery } from 'querystring';
 import type { FeedFrontMatter } from '@/lib/feed';
 import { getAllFeed, serializeMdxContent } from '@/lib/feed';
 import { cx, formatDate, slugify } from '@/lib/utils';
-import pageData from '@/data/feed.json';
 import Intro from '@/components/Intro';
 import EntryList from '@/components/EntryList';
 import Prose from '@/components/Prose';
@@ -89,6 +88,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const filteredItems = getAllFeed().filter((item) => {
     return item.frontMatter.tags?.includes(tag);
   });
+  const pageData = await import('@/data/feed.json');
   return {
     props: {
       ...pageData,

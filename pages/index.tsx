@@ -1,7 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import pageData from '@/data/home.json';
 import { cx, formatDate } from '@/lib/utils';
 import Prose from '@/components/Prose';
 
@@ -86,6 +85,7 @@ const Home: NextPage<HomeProps> = ({ status }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const pageData = await import('@/data/home.json');
   return {
     props: {
       ...pageData,

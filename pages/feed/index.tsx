@@ -3,7 +3,6 @@ import type { FeedFrontMatter } from '@/lib/feed';
 import Link from 'next/link';
 import { getAllFeed, serializeMdxContent } from '@/lib/feed';
 import { cx, formatDate } from '@/lib/utils';
-import pageData from '@/data/feed.json';
 import Intro from '@/components/Intro';
 import EntryList from '@/components/EntryList';
 import Prose from '@/components/Prose';
@@ -63,6 +62,7 @@ const Feed: NextPage<FeedProps> = ({ title, description, items }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const pageData = await import('@/data/feed.json');
   const items = getAllFeed();
 
   return {

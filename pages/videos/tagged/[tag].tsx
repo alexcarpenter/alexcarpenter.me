@@ -2,7 +2,6 @@ import type { GetStaticPaths, GetStaticProps } from 'next/types';
 import type { GroupByYear } from '@/lib/utils';
 import { ParsedUrlQuery } from 'querystring';
 import { groupByYear, slugify } from '@/lib/utils';
-import pageData from '@/data/videos.json';
 import Intro from '@/components/Intro';
 import Section from '@/components/Section';
 import EntryList from '@/components/EntryList';
@@ -63,6 +62,7 @@ const VideosTagged = ({ tag, videos }: VideosTaggedProps) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  const pageData = await import('@/data/videos.json');
   return {
     paths: Array.from(
       new Set(pageData.videos.map((file) => file.tags).flat()),
@@ -78,6 +78,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const pageData = await import('@/data/videos.json');
   const { tag } = context.params as ContextProps;
   const filteredVideos = pageData.videos.filter((video) => {
     return video.tags.includes(tag);

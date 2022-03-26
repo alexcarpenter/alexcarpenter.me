@@ -2,7 +2,6 @@ import { GetStaticProps, NextPage } from 'next';
 import useSWR from 'swr';
 import type { GroupByYear } from '@/lib/utils';
 import { groupByYear, fetcher, slugify } from '@/lib/utils';
-import pageData from '@/data/videos.json';
 import Card from '@/components/Card';
 import Entry from '@/components/Entry';
 import EntryList from '@/components/EntryList';
@@ -97,6 +96,7 @@ const Videos: NextPage<VideoProps> = ({ title, description, videos }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const pageData = await import('@/data/videos.json');
   const groupedVideos = groupByYear<Video>(pageData.videos);
   return {
     props: {

@@ -12,10 +12,12 @@
   "meta": {
     "Duration": "Nov 2018 - Jul 2021",
     "Position": "UI Engineer",
-    "Tools": "React, Rails, Sass, Bootstrap"
+    "Tools": "React, Redux, Rails, Sass, Bootstrap"
   },
   "highlights": [
-    "Maintained updates and additions to component library Radius."
+    "Maintained updates and additions to component library Radius.",
+    "Lead marketing website additions and updates.",
+    "Worked collaboratively across team disciplines to implement new features within the product using React and Redux."
   ],
   "timeline": []
 }

@@ -3,7 +3,6 @@ import type { PostFrontMatter } from '@/lib/posts';
 import type { GroupByYear } from '@/lib/utils';
 import { getAllPosts } from '@/lib/posts';
 import { groupByYear, slugify } from '@/lib/utils';
-import pageData from '@/data/posts.json';
 import Intro from '@/components/Intro';
 import EntryList from '@/components/EntryList';
 import Entry from '@/components/Entry';
@@ -52,6 +51,7 @@ const Post: NextPage<PostsProps> = ({ title, description, posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const pageData = await import('@/data/posts.json');
   const posts = getAllPosts();
   const groupedPosts = groupByYear<PostFrontMatter>(posts);
   return {

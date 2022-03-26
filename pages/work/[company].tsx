@@ -40,7 +40,7 @@ const Company: NextPage<CompanyProps> = ({
   logoSvg,
   logo,
   meta,
-  // highlights,
+  highlights,
   recommendations,
 }) => {
   return (
@@ -63,9 +63,9 @@ const Company: NextPage<CompanyProps> = ({
         />
       </Section>
 
-      {/* {highlights.length > 0 ? (
+      {highlights.length > 0 ? (
         <Section heading="Highlights">
-          <ul>
+          <ul className="space-y-4">
             {highlights.map((item, index) => {
               return (
                 <li key={index} className="flex">
@@ -76,7 +76,7 @@ const Company: NextPage<CompanyProps> = ({
             })}
           </ul>
         </Section>
-      ) : null} */}
+      ) : null}
 
       <Section heading="Recommendations">
         <EntryList>
