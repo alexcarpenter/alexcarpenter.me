@@ -39,3 +39,25 @@ export const getAllFeed = () => {
     .map((fileName) => getFeedItem(fileName));
   return posts;
 };
+
+export const getLatestUpdate = async () => {
+  const feed = getAllFeed();
+  const update = feed
+    .sort(
+      (a, b) =>
+        Number(new Date(b.frontMatter.date)) -
+        Number(new Date(a.frontMatter.date)),
+    )
+    .find((item) => item.frontMatter.tags?.includes('update'));
+  const { frontMatter, content } = getFeedItem(
+    `${update?.frontMatter.slug}.mdx`,
+  );
+  const mdxContent = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [],
+    },
+    scope: frontMatter,
+  });
+  return { date: frontMatter.date, mdx: mdxContent };
+};

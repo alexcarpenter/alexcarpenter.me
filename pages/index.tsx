@@ -2,16 +2,14 @@ import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cx, formatDate } from '@/lib/utils';
+import { getLatestUpdate } from '@/lib/feed';
+import { MDXRemote } from 'next-mdx-remote';
+import { components } from '@/components/MDXComponents';
 import Prose from '@/components/Prose';
 
-type HomeProps = {
-  status: {
-    content: string;
-    date: string;
-  };
-};
+type HomeProps = any;
 
-const Home: NextPage<HomeProps> = ({ status }) => {
+const Home: NextPage<HomeProps> = ({ date, mdx }) => {
   return (
     <>
       <article
@@ -29,16 +27,19 @@ const Home: NextPage<HomeProps> = ({ status }) => {
           )}
         />
         <Prose>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: status.content,
-            }}
-          />
+          <MDXRemote {...mdx} components={components} />
         </Prose>
         <p
-          className={cx('mt-4 text-sm', 'text-gray-600', 'dark:text-gray-300')}
+          className={cx(
+            'mt-4 text-sm flex justify-between flex-wrap gap-4',
+            'text-gray-600',
+            'dark:text-gray-300',
+          )}
         >
-          &mdash; {formatDate(status.date, 'full')}
+          <span>&mdash; {formatDate(date, 'full')}</span>
+          <Link href="/feed/tagged/update">
+            <a className="underline">View more</a>
+          </Link>
         </p>
       </article>
 
@@ -85,10 +86,10 @@ const Home: NextPage<HomeProps> = ({ status }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageData = await import('@/data/home.json');
+  const update = await getLatestUpdate();
   return {
     props: {
-      ...pageData,
+      ...update,
     },
   };
 };
