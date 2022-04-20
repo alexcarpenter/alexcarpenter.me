@@ -7,8 +7,13 @@
     "Position": "Web Engineer II",
     "Tools": "Next.js, CSS Modules, TypeScript, Framer Motion, DatoCMS"
   },
-  "currently": "Building out a new homepage for HashiCorp Dev Portal.",
+  "currently": "Building out a new page on hashicorp.com.",
   "timeline": [
+    {
+      "date": "Apr 19, 2022",
+      "title": "Terraform hompepage and use case pages",
+      "link": "https://terraform.io"
+    },
     {
       "title": "Customer success pages",
       "date": "Mar 7, 2022",
