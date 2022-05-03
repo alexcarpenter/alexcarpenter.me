@@ -100,11 +100,13 @@ const Hashicorp: NextPage<HashicorpProps> = ({
           })}
         />
 
-        <div className="mt-12">
-          <Note label="Currently" variant="violet">
-            <span dangerouslySetInnerHTML={{ __html: currently }} />
-          </Note>
-        </div>
+        {currently ? (
+          <div className="mt-12">
+            <Note label="Currently" variant="violet">
+              <span dangerouslySetInnerHTML={{ __html: currently }} />
+            </Note>
+          </div>
+        ) : null}
       </Section>
 
       {Object.entries(groupedTimeline)
