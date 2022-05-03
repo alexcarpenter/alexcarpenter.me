@@ -10,6 +10,11 @@
   "currently": "Building out a new page on hashicorp.com and building out new <a href='https://github.com/hashicorp/react-components'>web pattern library components</a>.",
   "timeline": [
     {
+      "date": "May 3, 2022",
+      "title": "Nomad hompepage and use case pages",
+      "link": "https://nomadproject.io"
+    },
+    {
       "date": "May 2, 2022",
       "title": "Why HashiCorp page",
       "link": "https://hashicorp.com/why"
