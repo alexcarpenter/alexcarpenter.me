@@ -44,6 +44,13 @@
   ],
   "recommendations": [
     {
+      "text": "Alex is an excellent teammate and an exceptionally talented web developer. When he joined the team we gained an incredibly strong collaborator. His thoughtful approach to both producing work and actively reviewing code instantly improved the entire team's workflow. It is clear that Alex is a life long learner and therefore is always sure to bring a new, novel approach to solve a problem.",
+      "name": "Jimmy Merritello",
+      "title": "Web Engineer",
+      "company": "HashiCorp",
+      "thumbnail": "/img/jimmy-merritello.jpeg"
+    },
+    {
       "text": "Alex and I worked together on the design team at NationBuilder. Alex is a natural problem solver, and a talented visual designer. That combination makes him an excellent front-end engineer. We worked together on a new feature with a complex UI and he was able to interpret the designs with a care and detail that is rare, while also making thoughtful UX suggestions. Not to mention Alex is just a great person, easy to talk to and lovely to work with.",
       "name": "Amy Stuart",
       "title": "Senior Designer",
