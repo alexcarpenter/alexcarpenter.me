@@ -152,8 +152,8 @@ const Work: NextPage<WorkProps> = ({
                   <motion.div
                     key={index}
                     className="flex flex-col sm:flex-row"
-                    initial={{ opacity: 0, y: 100, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{
                       duration: shouldReduceMotion ? 0 : 0.2,
                     }}
