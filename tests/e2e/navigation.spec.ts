@@ -9,7 +9,7 @@ test('should navigate to the work page', async ({ page }) => {
 
 test('should navigate to the posts page', async ({ page }) => {
   await page.goto('/');
-  await page.click('text=Postss');
+  await page.click('text=Posts');
   await expect(page).toHaveURL('/posts');
   await expect(page.locator('h1')).toContainText('Posts');
 });
