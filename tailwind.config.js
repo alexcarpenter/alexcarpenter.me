@@ -1,5 +1,4 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors');
 
 module.exports = {
   darkMode: 'class',
@@ -9,14 +8,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      mono: ['JetBrains Mono Web', ...defaultTheme.fontFamily.mono],
+      sans: ['Inter', ...defaultTheme.fontFamily.sans],
     },
-    colors: {
-      ...colors,
-      white: '#fafafa',
-      black: '#04070c',
-      gray: colors.neutral,
-    },
+    colors: {},
     extend: {},
   },
   plugins: [],
