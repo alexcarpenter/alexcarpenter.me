@@ -331,7 +331,7 @@ const Home: NextPage = () => {
           <li>
             <article className="flex gap-4">
               <span className="w-28 flex-shrink-0">Email</span>
-              <a href="">
+              <a href="mailto:im.alexcarpenter@gmail.com">
                 im.alexcarpenter@gmail.com&nbsp;
                 <span>↗</span>
               </a>
@@ -341,7 +341,7 @@ const Home: NextPage = () => {
           <li>
             <article className="flex gap-4">
               <span className="w-28 flex-shrink-0">Twitter</span>
-              <a href="">
+              <a href="https://twitter.com/hybrid_alex">
                 hybrid_alex&nbsp;
                 <span>↗</span>
               </a>
@@ -351,7 +351,7 @@ const Home: NextPage = () => {
           <li>
             <article className="flex gap-4">
               <span className="w-28 flex-shrink-0">Github</span>
-              <a href="">
+              <a href="https://github.com/alexcarpenter">
                 alexcarpenter&nbsp;
                 <span>↗</span>
               </a>
@@ -361,7 +361,7 @@ const Home: NextPage = () => {
           <li>
             <article className="flex gap-4">
               <span className="w-28 flex-shrink-0">LinkedIn</span>
-              <a href="">
+              <a href="https://www.linkedin.com/in/imalexcarpenter/">
                 alexcarpenter&nbsp;
                 <span>↗</span>
               </a>

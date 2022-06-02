@@ -10,6 +10,7 @@ export const Header = () => {
             width={64}
             height={64}
             alt="Alex Carpenter avatar"
+            priority
           />
         </span>
         <span className="absolute -bottom-2 -right-2 grid place-items-center w-8 h-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-full">
