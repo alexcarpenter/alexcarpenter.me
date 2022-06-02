@@ -3,6 +3,7 @@ import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import { SSRProvider } from '@react-aria/ssr';
 import { ThemeProvider } from 'next-themes';
+import { Header } from '@/components/Header';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { title, description, thumbnail } = pageProps;
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           >
             Skip to main content
           </a>
+          <Header />
           <main id="main">
             <Component {...pageProps} />
           </main>

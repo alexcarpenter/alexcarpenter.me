@@ -7,21 +7,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <header className="flex items-center gap-4">
-        <span className="inline-flex rounded-full overflow-hidden">
-          <Image
-            src="/img/me.jpeg"
-            width={64}
-            height={64}
-            alt="Jimmy Merritello avatar"
-          />
-        </span>
-        <span>
-          <h1 className="text-xl">Alex Carpenter</h1>
-          <p>UI Engineer</p>
-        </span>
-      </header>
-
       <section className="mt-16">
         <h2 className="mb-8">
           About&nbsp;<span>¬</span>
@@ -102,6 +87,28 @@ const Home: NextPage = () => {
             </article>
           </li>
         </ol>
+      </section>
+
+      <section className="mt-16">
+        <h2 className="mb-8">
+          Interests&nbsp;<span>¬</span>
+        </h2>
+
+        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          {[
+            'Accessibility',
+            'CSS',
+            'Design Systems',
+            'Essentialism',
+            'Next.js',
+            'Performance',
+            'Pragmatism',
+            'React',
+            'TypeScript',
+          ].map((interest, index) => {
+            return <li key={index}>{interest}</li>;
+          })}
+        </ul>
       </section>
 
       <section className="mt-16">
