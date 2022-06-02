@@ -1,10 +1,28 @@
+import * as React from 'react';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 
 const Home: NextPage = () => {
+  const [allRecs, showAllRecs] = React.useReducer(() => true, false);
+
   return (
     <>
-      <section>
+      <header className="flex items-center gap-4">
+        <span className="inline-flex rounded-full overflow-hidden">
+          <Image
+            src="/img/me.jpeg"
+            width={64}
+            height={64}
+            alt="Jimmy Merritello avatar"
+          />
+        </span>
+        <span>
+          <h1 className="text-xl">Alex Carpenter</h1>
+          <p>UI Engineer</p>
+        </span>
+      </header>
+
+      <section className="mt-16">
         <h2 className="mb-8">
           About&nbsp;<span>¬</span>
         </h2>
@@ -29,16 +47,12 @@ const Home: NextPage = () => {
               <span className="w-28 flex-shrink-0">2021 &mdash; Now</span>
               <div>
                 <h3>
-                  <a href="">
-                    Lead Web Engineer at HashiCorp&nbsp;
+                  <a href="https://hashicorp.com">
+                    Web Engineer at HashiCorp&nbsp;
                     <span>↗</span>
                   </a>
                 </h3>
                 <p>Remote</p>
-                <p className="mt-4">
-                  Web Engineer helping build and maintain public-facing
-                  HashiCorp websites and web applications with Next.js.
-                </p>
               </div>
             </article>
           </li>
@@ -48,7 +62,7 @@ const Home: NextPage = () => {
               <span className="w-28 flex-shrink-0">2018 &mdash; 2021</span>
               <div>
                 <h3>
-                  <a href="">
+                  <a href="https://nationbuilder.com">
                     UI Engineer at NationBuilder&nbsp;
                     <span>↗</span>
                   </a>
@@ -63,7 +77,7 @@ const Home: NextPage = () => {
               <span className="w-28 flex-shrink-0">2015 &mdash; 2018</span>
               <div>
                 <h3>
-                  <a href="">
+                  <a href="https://mightyinthemidwest.com/">
                     Senior Developer at Mighty in the Midwest&nbsp;
                     <span>↗</span>
                   </a>
@@ -78,7 +92,7 @@ const Home: NextPage = () => {
               <span className="w-28 flex-shrink-0">2012 &mdash; 2015</span>
               <div>
                 <h3>
-                  <a href="">
+                  <a href="https://gomasuga.com">
                     Front-end Developer at Masuga Design&nbsp;
                     <span>↗</span>
                   </a>
@@ -114,11 +128,11 @@ const Home: NextPage = () => {
                   web developer. When he joined the team we gained an incredibly
                   strong collaborator. His thoughtful approach to both producing
                   work and actively reviewing code instantly improved the entire
-                  team's workflow. It is clear that Alex is a life long learner
+                  teams workflow. It is clear that Alex is a life long learner
                   and therefore is always sure to bring a new, novel approach to
                   solve a problem.
                 </p>
-                <p className="mt-4 text-gray-800">
+                <p className="mt-4 text-gray-800 dark:text-gray-200">
                   Jimmy Merritello, Web Engineer, HashiCorp
                 </p>
               </div>
@@ -148,7 +162,7 @@ const Home: NextPage = () => {
                   thoughtful UX suggestions. Not to mention Alex is just a great
                   person, easy to talk to and lovely to work with.
                 </p>
-                <p className="mt-4 text-gray-800">
+                <p className="mt-4 text-gray-800 dark:text-gray-200">
                   Amy Stuart, Senior Designer, NationBuilder
                 </p>
               </div>
@@ -174,118 +188,131 @@ const Home: NextPage = () => {
                   attention to detail always resulted in an extremely polished
                   final product.
                 </p>
-                <p className="mt-4 text-gray-800">
+                <p className="mt-4 text-gray-800 dark:text-gray-200">
                   Andrew Possehl, Senior Designer, NationBuilder
                 </p>
               </div>
             </article>
           </li>
 
-          <li>
-            <article className="flex gap-4">
-              <span className="w-28 flex-shrink-0">
-                <span className="inline-flex rounded-full overflow-hidden">
-                  <Image
-                    src="/img/kyle-luck.jpeg"
-                    width={32}
-                    height={32}
-                    alt="Kyle Luck avatar"
-                  />
-                </span>
-              </span>
-              <div>
-                <p>
-                  Alex is incredibly skilled, efficient, and thorough in his
-                  work. Perhaps more than any other co-worker I have had, Alex
-                  possesses a deep and wide understanding of modern web
-                  technologies, while his steady passion for producing
-                  best-of-class work inspires his peers to write cleaner,
-                  simpler, and more elegant code.
-                </p>
-                <p className="mt-4 text-gray-800">
-                  Kyle Luck, Developer, Mighty
-                </p>
-              </div>
-            </article>
-          </li>
+          {allRecs ? (
+            <>
+              <li>
+                <article className="flex gap-4">
+                  <span className="w-28 flex-shrink-0">
+                    <span className="inline-flex rounded-full overflow-hidden">
+                      <Image
+                        src="/img/kyle-luck.jpeg"
+                        width={32}
+                        height={32}
+                        alt="Kyle Luck avatar"
+                      />
+                    </span>
+                  </span>
+                  <div>
+                    <p>
+                      Alex is incredibly skilled, efficient, and thorough in his
+                      work. Perhaps more than any other co-worker I have had,
+                      Alex possesses a deep and wide understanding of modern web
+                      technologies, while his steady passion for producing
+                      best-of-class work inspires his peers to write cleaner,
+                      simpler, and more elegant code.
+                    </p>
+                    <p className="mt-4 text-gray-800 dark:text-gray-200">
+                      Kyle Luck, Developer, Mighty
+                    </p>
+                  </div>
+                </article>
+              </li>
 
-          <li>
-            <article className="flex gap-4">
-              <span className="w-28 flex-shrink-0">
-                <span className="inline-flex rounded-full overflow-hidden">
-                  <Image
-                    src="/img/melissa-taylor.jpeg"
-                    width={32}
-                    height={32}
-                    alt="Melissa Taylor avatar"
-                  />
-                </span>
-              </span>
-              <div>
-                <p>
-                  I would recommend Alex to any forward-thinking web team. His
-                  passion for web standards along with his friendly attitude
-                  made him an invaluable part of our development team. I’m
-                  always especially impressed with his commitment to continuous
-                  learning and I hope to have the chance to work with him again!
-                </p>
-                <p className="mt-4 text-gray-800">
-                  Melissa Taylor, Director of Client Services, Mighty
-                </p>
-              </div>
-            </article>
-          </li>
+              <li>
+                <article className="flex gap-4">
+                  <span className="w-28 flex-shrink-0">
+                    <span className="inline-flex rounded-full overflow-hidden">
+                      <Image
+                        src="/img/melissa-taylor.jpeg"
+                        width={32}
+                        height={32}
+                        alt="Melissa Taylor avatar"
+                      />
+                    </span>
+                  </span>
+                  <div>
+                    <p>
+                      I would recommend Alex to any forward-thinking web team.
+                      His passion for web standards along with his friendly
+                      attitude made him an invaluable part of our development
+                      team. I’m always especially impressed with his commitment
+                      to continuous learning and I hope to have the chance to
+                      work with him again!
+                    </p>
+                    <p className="mt-4 text-gray-800 dark:text-gray-200">
+                      Melissa Taylor, Director of Client Services, Mighty
+                    </p>
+                  </div>
+                </article>
+              </li>
 
-          <li>
-            <article className="flex gap-4">
-              <span className="w-28 flex-shrink-0">
-                <span className="inline-flex rounded-full overflow-hidden">
-                  <Image
-                    src="/img/danielle-dunn.jpeg"
-                    width={32}
-                    height={32}
-                    alt="Danielle Dunn avatar"
-                  />
-                </span>
-              </span>
-              <div>
-                <p>
-                  Alex is incredibly thorough and thoughtful with his work and
-                  is always seeking out improving in his craft. He’s conscious
-                  of meeting deadlines and communicates concerns early so that
-                  project teams can be proactive in problem solving.
-                </p>
-                <p className="mt-4 text-gray-800">
-                  Danielle Dunn, Project Manager, Mighty
-                </p>
-              </div>
-            </article>
-          </li>
+              <li>
+                <article className="flex gap-4">
+                  <span className="w-28 flex-shrink-0">
+                    <span className="inline-flex rounded-full overflow-hidden">
+                      <Image
+                        src="/img/danielle-dunn.jpeg"
+                        width={32}
+                        height={32}
+                        alt="Danielle Dunn avatar"
+                      />
+                    </span>
+                  </span>
+                  <div>
+                    <p>
+                      Alex is incredibly thorough and thoughtful with his work
+                      and is always seeking out improving in his craft. He’s
+                      conscious of meeting deadlines and communicates concerns
+                      early so that project teams can be proactive in problem
+                      solving.
+                    </p>
+                    <p className="mt-4 text-gray-800 dark:text-gray-200">
+                      Danielle Dunn, Project Manager, Mighty
+                    </p>
+                  </div>
+                </article>
+              </li>
 
-          <li>
-            <article className="flex gap-4">
-              <span className="w-28 flex-shrink-0">
-                <span className="inline-flex rounded-full overflow-hidden">
-                  <Image
-                    src="/img/ben-kohl.jpeg"
-                    width={32}
-                    height={32}
-                    alt="Benjamin Kohl avatar"
-                  />
-                </span>
-              </span>
-              <div>
-                <p>
-                  Alex is a true autodidact that is dedicated to keeping up with
-                  the latest development tools, methods and trends.
-                </p>
-                <p className="mt-4 text-gray-800">
-                  Benjamin Kohl, Back-end Developer, Masuga
-                </p>
-              </div>
-            </article>
-          </li>
+              <li>
+                <article className="flex gap-4">
+                  <span className="w-28 flex-shrink-0">
+                    <span className="inline-flex rounded-full overflow-hidden">
+                      <Image
+                        src="/img/ben-kohl.jpeg"
+                        width={32}
+                        height={32}
+                        alt="Benjamin Kohl avatar"
+                      />
+                    </span>
+                  </span>
+                  <div>
+                    <p>
+                      Alex is a true autodidact that is dedicated to keeping up
+                      with the latest development tools, methods and trends.
+                    </p>
+                    <p className="mt-4 text-gray-800 dark:text-gray-200">
+                      Benjamin Kohl, Back-end Developer, Masuga
+                    </p>
+                  </div>
+                </article>
+              </li>
+            </>
+          ) : null}
         </ul>
+
+        {!allRecs ? (
+          <div className="mt-8 flex gap-4">
+            <span className="w-28 flex-shrink-0" />
+            <button onClick={showAllRecs}>Show all</button>
+          </div>
+        ) : null}
       </section>
 
       <section className="mt-16">
