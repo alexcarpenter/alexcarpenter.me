@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   darkMode: 'class',
@@ -10,7 +11,10 @@ module.exports = {
     fontFamily: {
       sans: ['Inter', ...defaultTheme.fontFamily.sans],
     },
-    colors: {},
+    colors: {
+      ...colors,
+      gray: colors.zinc,
+    },
     extend: {},
   },
   plugins: [],
