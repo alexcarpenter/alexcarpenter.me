@@ -9,7 +9,7 @@ const Home: NextPage = () => {
     <>
       <section className="mt-16">
         <h2 className="mb-8">
-          About&nbsp;<span>¬</span>
+          About&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
 
         <p>
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 
       <section className="mt-16">
         <h2 className="mb-8">
-          Experience&nbsp;<span>¬</span>
+          Experience&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
 
         <ol className="grid gap-8">
@@ -34,7 +34,7 @@ const Home: NextPage = () => {
                 <h3>
                   <a href="https://hashicorp.com">
                     Web Engineer at HashiCorp&nbsp;
-                    <span>↗</span>
+                    <span aria-hidden={true}>↗</span>
                   </a>
                 </h3>
                 <p>Remote</p>
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
                 <h3>
                   <a href="https://nationbuilder.com">
                     UI Engineer at NationBuilder&nbsp;
-                    <span>↗</span>
+                    <span aria-hidden={true}>↗</span>
                   </a>
                 </h3>
                 <p>Remote</p>
@@ -64,7 +64,7 @@ const Home: NextPage = () => {
                 <h3>
                   <a href="https://mightyinthemidwest.com/">
                     Senior Developer at Mighty in the Midwest&nbsp;
-                    <span>↗</span>
+                    <span aria-hidden={true}>↗</span>
                   </a>
                 </h3>
                 <p>Grand Rapids, MI.</p>
@@ -79,7 +79,7 @@ const Home: NextPage = () => {
                 <h3>
                   <a href="https://gomasuga.com">
                     Front-end Developer at Masuga Design&nbsp;
-                    <span>↗</span>
+                    <span aria-hidden={true}>↗</span>
                   </a>
                 </h3>
                 <p>Grand Rapids, MI.</p>
@@ -91,7 +91,7 @@ const Home: NextPage = () => {
 
       <section className="mt-16">
         <h2 className="mb-8">
-          Interests&nbsp;<span>¬</span>
+          Interests&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
 
         <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
 
       <section className="mt-16">
         <h2 className="mb-8">
-          Recommendations&nbsp;<span>¬</span>
+          Recommendations&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
 
         <ul className="grid gap-8">
@@ -324,7 +324,7 @@ const Home: NextPage = () => {
 
       <section className="mt-16">
         <h2 className="mb-8">
-          Connect&nbsp;<span>¬</span>
+          Connect&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
 
         <ul className="grid gap-8">
@@ -333,7 +333,7 @@ const Home: NextPage = () => {
               <span className="w-28 flex-shrink-0">Email</span>
               <a href="mailto:im.alexcarpenter@gmail.com">
                 im.alexcarpenter@gmail.com&nbsp;
-                <span>↗</span>
+                <span aria-hidden={true}>↗</span>
               </a>
             </article>
           </li>
@@ -343,7 +343,7 @@ const Home: NextPage = () => {
               <span className="w-28 flex-shrink-0">Twitter</span>
               <a href="https://twitter.com/hybrid_alex">
                 hybrid_alex&nbsp;
-                <span>↗</span>
+                <span aria-hidden={true}>↗</span>
               </a>
             </article>
           </li>
@@ -353,7 +353,7 @@ const Home: NextPage = () => {
               <span className="w-28 flex-shrink-0">Github</span>
               <a href="https://github.com/alexcarpenter">
                 alexcarpenter&nbsp;
-                <span>↗</span>
+                <span aria-hidden={true}>↗</span>
               </a>
             </article>
           </li>
@@ -363,7 +363,7 @@ const Home: NextPage = () => {
               <span className="w-28 flex-shrink-0">LinkedIn</span>
               <a href="https://www.linkedin.com/in/imalexcarpenter/">
                 alexcarpenter&nbsp;
-                <span>↗</span>
+                <span aria-hidden={true}>↗</span>
               </a>
             </article>
           </li>
