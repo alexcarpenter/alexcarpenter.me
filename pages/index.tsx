@@ -1,8 +1,20 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
+import { compareDesc, format, parseISO } from "date-fns";
+import { allPosts, Post } from "contentlayer/generated";
+import Link from "next/link";
 
-const Home: NextPage = () => {
+export async function getStaticProps() {
+  const posts = allPosts.sort((a, b) => {
+    return compareDesc(new Date(a.date), new Date(b.date));
+  });
+  return { props: { posts } };
+}
+
+const Home: NextPage<{
+  posts: Post[];
+}> = ({ posts }) => {
   const [allRecs, showAllRecs] = React.useReducer(() => true, false);
 
   return (
@@ -320,6 +332,36 @@ const Home: NextPage = () => {
             <button onClick={showAllRecs}>Show all</button>
           </div>
         ) : null}
+      </section>
+
+      <section className="mt-16">
+        <h2 className="mb-8">
+          Posts&nbsp;<span aria-hidden={true}>¬</span>
+        </h2>
+
+        <ul className="grid gap-8">
+          {posts.map((post, index) => {
+            return (
+              <li key={index}>
+                <article className="flex flex-col sm:flex-row gap-4">
+                  <span className="w-28 flex-shrink-0">
+                    <time dateTime={post.date}>
+                      {format(parseISO(post.date), "LLLL d")}
+                    </time>
+                  </span>
+                  <div>
+                    <h3>
+                      <Link href={post.url}>
+                        <a className="underline">{post.title}</a>
+                      </Link>
+                    </h3>
+                    {post.description ? <p>{post.description}</p> : null}
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ul>
       </section>
     </>
   );
