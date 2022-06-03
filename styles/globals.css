@@ -43,7 +43,7 @@
   }
 
   .prose blockquote {
-    @apply border-l-4 border-gray-200 dark:border-gray-700 pl-4;
+    @apply border-l-4 border-gray-200 dark:border-gray-700 pl-4 text-gray-800 dark:text-gray-200;
   }
 
   .prose table {

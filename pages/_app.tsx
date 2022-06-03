@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { title, description } = pageProps?.post || {};
@@ -33,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <main>
         <Component {...pageProps} />
       </main>
+      <Footer />
     </>
   );
 }
