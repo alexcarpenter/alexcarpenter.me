@@ -2,6 +2,7 @@ import { NextPage } from "next/types";
 import { format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import { Components } from "@/components/MDXComponents";
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post) => post.url);
@@ -35,8 +36,8 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
         <time dateTime={post.date}>
           {format(parseISO(post.date), "LLLL d, yyyy")}
         </time>
-        <div className="mt-4">
-          <MDXContent components={{}} />
+        <div className="mt-8 prose">
+          <MDXContent components={Components} />
         </div>
       </article>
     </>
