@@ -7,22 +7,6 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <header className="flex items-center gap-4">
-        <span className="flex rounded-full overflow-hidden w-16 h-16">
-          <Image
-            src="/img/me.jpeg"
-            width={64}
-            height={64}
-            alt="Alex Carpenter avatar"
-            priority
-          />
-        </span>
-        <span>
-          <h1 className="text-xl">Alex Carpenter</h1>
-          <p>UI Engineer</p>
-        </span>
-      </header>
-
       <section className="mt-16">
         <h2 className="mb-8">
           About&nbsp;<span aria-hidden={true}>¬</span>

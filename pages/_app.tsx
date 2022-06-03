@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Header } from "@/components/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -24,7 +25,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
-      <Component {...pageProps} />
+      <Header />
+      <main>
+        <Component {...pageProps} />
+      </main>
     </>
   );
 }
