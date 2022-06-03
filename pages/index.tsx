@@ -1,8 +1,20 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
+import { compareDesc, format, parseISO } from "date-fns";
+import { allPosts, Post } from "contentlayer/generated";
+import Link from "next/link";
 
-const Home: NextPage = () => {
+export async function getStaticProps() {
+  const posts = allPosts.sort((a, b) => {
+    return compareDesc(new Date(a.date), new Date(b.date));
+  });
+  return { props: { posts } };
+}
+
+const Home: NextPage<{
+  posts: Post[];
+}> = ({ posts }) => {
   const [allRecs, showAllRecs] = React.useReducer(() => true, false);
 
   return (
@@ -324,49 +336,31 @@ const Home: NextPage = () => {
 
       <section className="mt-16">
         <h2 className="mb-8">
-          Connect&nbsp;<span aria-hidden={true}>¬</span>
+          Posts&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
 
         <ul className="grid gap-8">
-          <li>
-            <article className="flex flex-col sm:flex-row gap-1 sm:gap-4">
-              <span className="w-28 flex-shrink-0">Email</span>
-              <a href="mailto:im.alexcarpenter@gmail.com">
-                im.alexcarpenter@gmail.com&nbsp;
-                <span aria-hidden={true}>↗</span>
-              </a>
-            </article>
-          </li>
-
-          <li>
-            <article className="flex flex-col sm:flex-row gap-1 sm:gap-4">
-              <span className="w-28 flex-shrink-0">Twitter</span>
-              <a href="https://twitter.com/hybrid_alex">
-                hybrid_alex&nbsp;
-                <span aria-hidden={true}>↗</span>
-              </a>
-            </article>
-          </li>
-
-          <li>
-            <article className="flex flex-col sm:flex-row gap-1 sm:gap-4">
-              <span className="w-28 flex-shrink-0">Github</span>
-              <a href="https://github.com/alexcarpenter">
-                alexcarpenter&nbsp;
-                <span aria-hidden={true}>↗</span>
-              </a>
-            </article>
-          </li>
-
-          <li>
-            <article className="flex flex-col sm:flex-row gap-1 sm:gap-4">
-              <span className="w-28 flex-shrink-0">LinkedIn</span>
-              <a href="https://www.linkedin.com/in/imalexcarpenter/">
-                alexcarpenter&nbsp;
-                <span aria-hidden={true}>↗</span>
-              </a>
-            </article>
-          </li>
+          {posts.map((post, index) => {
+            return (
+              <li key={index}>
+                <article className="flex flex-col sm:flex-row gap-4">
+                  <span className="w-28 flex-shrink-0">
+                    <time dateTime={post.date}>
+                      {format(parseISO(post.date), "LLL d")}
+                    </time>
+                  </span>
+                  <div>
+                    <h3>
+                      <Link href={post.url}>
+                        <a className="underline">{post.title}</a>
+                      </Link>
+                    </h3>
+                    {post.description ? <p>{post.description}</p> : null}
+                  </div>
+                </article>
+              </li>
+            );
+          })}
         </ul>
       </section>
     </>

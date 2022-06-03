@@ -33,7 +33,29 @@
   h1,
   h2,
   h3,
-  a {
+  a,
+  th {
     @apply text-gray-800 dark:text-gray-200;
+  }
+
+  .prose * + * {
+    @apply mt-4;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-gray-200 dark:border-gray-700 pl-4 text-gray-800 dark:text-gray-200;
+  }
+
+  .prose table {
+    @apply border border-gray-200 dark:border-gray-700 w-full rounded-sm;
+  }
+
+  .prose thead {
+    @apply text-left font-normal border-b-4;
+  }
+
+  .prose th,
+  .prose td {
+    @apply px-4 py-2 border border-gray-200 dark:border-gray-700 font-normal;
   }
 }
