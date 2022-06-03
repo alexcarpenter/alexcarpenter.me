@@ -42,6 +42,10 @@
     @apply mt-4;
   }
 
+  .prose a {
+    @apply underline;
+  }
+
   .prose blockquote {
     @apply border-l-4 border-gray-200 dark:border-gray-700 pl-4 text-gray-800 dark:text-gray-200;
   }
