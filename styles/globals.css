@@ -40,4 +40,12 @@
   a {
     @apply text-gray-800 dark:text-gray-200;
   }
+
+  .prose * + * {
+    margin-top: 1rem;
+  }
+
+  .prose a {
+    @apply underline;
+  }
 }

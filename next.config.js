@@ -1,11 +1,3 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
-};
+const { withContentlayer } = require('next-contentlayer');
 
-module.exports = nextConfig;
+module.exports = withContentlayer({});
