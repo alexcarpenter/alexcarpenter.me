@@ -1,12 +1,28 @@
-import * as React from 'react';
-import type { NextPage } from 'next';
-import Image from 'next/image';
+import * as React from "react";
+import type { NextPage } from "next";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   const [allRecs, showAllRecs] = React.useReducer(() => true, false);
 
   return (
     <>
+      <header className="flex items-center gap-4">
+        <span className="flex rounded-full overflow-hidden w-16 h-16">
+          <Image
+            src="/img/me.jpeg"
+            width={64}
+            height={64}
+            alt="Alex Carpenter avatar"
+            priority
+          />
+        </span>
+        <span>
+          <h1 className="text-xl">Alex Carpenter</h1>
+          <p>UI Engineer</p>
+        </span>
+      </header>
+
       <section className="mt-16">
         <h2 className="mb-8">
           About&nbsp;<span aria-hidden={true}>¬</span>
@@ -96,15 +112,15 @@ const Home: NextPage = () => {
 
         <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
           {[
-            'Accessibility',
-            'CSS',
-            'Design Systems',
-            'Essentialism',
-            'Next.js',
-            'Performance',
-            'Pragmatism',
-            'React',
-            'TypeScript',
+            "Accessibility",
+            "CSS",
+            "Design Systems",
+            "Essentialism",
+            "Next.js",
+            "Performance",
+            "Pragmatism",
+            "React",
+            "TypeScript",
           ].map((interest, index) => {
             return <li key={index}>{interest}</li>;
           })}
