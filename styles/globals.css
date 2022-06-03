@@ -1,40 +1,29 @@
-@font-face {
-  font-family: 'JetBrains Mono Web';
-  font-display: swap;
-  font-style: normal;
-  src: url('/fonts/JetBrainsMono.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'JetBrains Mono Web';
-  font-display: swap;
-  font-style: normal;
-  font-weight: 700;
-  src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
-}
-
-/* @font-face {
-  font-family: 'JetBrains Mono Web';
-  font-display: swap;
-  font-style: italic;
-  src: url('/fonts/JetBrainsMono-Italic.woff2') format('woff2');
-} */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: optional;
+  src: url(/fonts/inter-var-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
 @layer base {
   html {
-    @apply font-mono antialiased leading-relaxed bg-gray-100 text-gray-800;
+    @apply font-sans text-sm leading-relaxed text-gray-500;
   }
 
   html.dark {
-    @apply bg-black text-white;
+    @apply bg-black text-gray-400;
   }
 
   body {
-    @apply min-h-screen max-w-[800px] w-full mx-auto px-4 py-8 sm:p-8 md:p-16 flex flex-col;
+    @apply min-h-screen max-w-[650px] w-full mx-auto px-4 py-8 sm:p-8 md:p-16 flex flex-col;
   }
 
   #__next {
@@ -45,23 +34,10 @@
     @apply mb-auto;
   }
 
-  kbd {
-    @apply px-1 rounded-sm border-b bg-gray-50 border-gray-200 dark:bg-gray-800 dark:border-gray-700;
-  }
-
-  mark {
-    @apply bg-yellow-100 dark:bg-gray-800 text-inherit;
-  }
-
-  .section + .section {
-    @apply pt-12 mt-12 border-t border-gray-200 dark:border-gray-700;
-  }
-
-  blockquote {
-    @apply pl-4 border-l-4 border-gray-200 dark:border-gray-700;
-  }
-
-  code {
-    @apply bg-gray-200 dark:bg-gray-800 px-1 rounded;
+  h1,
+  h2,
+  h3,
+  a {
+    @apply text-gray-800 dark:text-gray-200;
   }
 }
