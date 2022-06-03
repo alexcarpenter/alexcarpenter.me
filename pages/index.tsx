@@ -346,7 +346,7 @@ const Home: NextPage<{
                 <article className="flex flex-col sm:flex-row gap-4">
                   <span className="w-28 flex-shrink-0">
                     <time dateTime={post.date}>
-                      {format(parseISO(post.date), "LLLL d")}
+                      {format(parseISO(post.date), "LLL d")}
                     </time>
                   </span>
                   <div>
