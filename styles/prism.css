@@ -1,7 +1,9 @@
 code[class*="language-"],
 pre[class*="language-"] {
   color: #403f53;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.925rem;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -118,7 +120,8 @@ pre[class*="language-"] {
   code[class*="language-"],
   pre[class*="language-"] {
     color: #d6deeb;
-    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
