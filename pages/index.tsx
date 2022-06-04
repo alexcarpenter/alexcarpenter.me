@@ -40,7 +40,7 @@ const Home: NextPage<{
 
         <ol className="grid gap-8">
           <li>
-            <article className="flex flex-col sm:flex-row gap-4">
+            <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <span className="w-28 flex-shrink-0">2021 &mdash; Now</span>
               <div>
                 <h3>
@@ -55,7 +55,7 @@ const Home: NextPage<{
           </li>
 
           <li>
-            <article className="flex flex-col sm:flex-row gap-4">
+            <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <span className="w-28 flex-shrink-0">2018 &mdash; 2021</span>
               <div>
                 <h3>
@@ -70,7 +70,7 @@ const Home: NextPage<{
           </li>
 
           <li>
-            <article className="flex flex-col sm:flex-row gap-4">
+            <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <span className="w-28 flex-shrink-0">2015 &mdash; 2018</span>
               <div>
                 <h3>
@@ -85,7 +85,7 @@ const Home: NextPage<{
           </li>
 
           <li>
-            <article className="flex flex-col sm:flex-row gap-4">
+            <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <span className="w-28 flex-shrink-0">2012 &mdash; 2015</span>
               <div>
                 <h3>
@@ -130,7 +130,7 @@ const Home: NextPage<{
 
         <ul className="grid gap-8">
           <li>
-            <article className="flex flex-col sm:flex-row gap-4">
+            <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <span className="w-28 flex-shrink-0">
                 <span className="inline-flex rounded-full overflow-hidden">
                   <Image
@@ -159,7 +159,7 @@ const Home: NextPage<{
           </li>
 
           <li>
-            <article className="flex flex-col sm:flex-row gap-4">
+            <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <span className="w-28 flex-shrink-0">
                 <span className="inline-flex rounded-full overflow-hidden">
                   <Image
@@ -189,7 +189,7 @@ const Home: NextPage<{
           </li>
 
           <li>
-            <article className="flex flex-col sm:flex-row gap-4">
+            <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <span className="w-28 flex-shrink-0">
                 <span className="inline-flex rounded-full overflow-hidden">
                   <Image
@@ -217,7 +217,7 @@ const Home: NextPage<{
           {allRecs ? (
             <>
               <li>
-                <article className="flex flex-col sm:flex-row gap-4">
+                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                   <span className="w-28 flex-shrink-0">
                     <span className="inline-flex rounded-full overflow-hidden">
                       <Image
@@ -245,7 +245,7 @@ const Home: NextPage<{
               </li>
 
               <li>
-                <article className="flex flex-col sm:flex-row gap-4">
+                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                   <span className="w-28 flex-shrink-0">
                     <span className="inline-flex rounded-full overflow-hidden">
                       <Image
@@ -273,7 +273,7 @@ const Home: NextPage<{
               </li>
 
               <li>
-                <article className="flex flex-col sm:flex-row gap-4">
+                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                   <span className="w-28 flex-shrink-0">
                     <span className="inline-flex rounded-full overflow-hidden">
                       <Image
@@ -300,7 +300,7 @@ const Home: NextPage<{
               </li>
 
               <li>
-                <article className="flex flex-col sm:flex-row gap-4">
+                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                   <span className="w-28 flex-shrink-0">
                     <span className="inline-flex rounded-full overflow-hidden">
                       <Image
@@ -343,7 +343,7 @@ const Home: NextPage<{
           {posts.map((post, index) => {
             return (
               <li key={index}>
-                <article className="flex flex-col sm:flex-row gap-4">
+                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
                   <span className="w-28 flex-shrink-0">
                     <time dateTime={post.date}>
                       {format(parseISO(post.date), "LLL d")}
