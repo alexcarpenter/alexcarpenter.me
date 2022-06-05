@@ -7,7 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const { title, description } = pageProps?.post || {};
+  const { title, description } = pageProps?.post || pageProps || {};
   const metaTitle = title
     ? `${title} - Alex Carpenter`
     : "Alex Carpenter - UI Engineer";
