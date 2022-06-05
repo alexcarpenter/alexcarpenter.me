@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import "@/styles/prism.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { ThemeProvider } from "next-themes";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -14,7 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     ? description
     : "UI Engineer from Grand Rapids, MI";
   return (
-    <>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      disableTransitionOnChange
+    >
       <Head>
         <title>{metaTitle}</title>
         <meta property="og:title" content={metaTitle} />
@@ -36,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </main>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
 

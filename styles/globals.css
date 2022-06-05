@@ -15,7 +15,11 @@
 
 @layer base {
   html {
-    @apply font-sans text-sm leading-relaxed text-gray-500 dark:bg-black dark:text-gray-400;
+    @apply font-sans text-sm leading-relaxed text-gray-500;
+  }
+
+  html.dark {
+    @apply bg-black text-gray-400;
   }
 
   body {
