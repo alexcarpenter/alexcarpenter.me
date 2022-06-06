@@ -117,15 +117,15 @@ const Home: NextPage<{
                     </span>
                     <div>
                       <p>“{recommendation.text}”</p>
-                      <div className="mt-2 flex items-start gap-4">
-                        {/* <span className="inline-flex rounded-full overflow-hidden">
+                      <div className="mt-4 flex items-start gap-4">
+                        <span className="inline-flex rounded-full overflow-hidden">
                           <Image
                             src={recommendation.avatar}
                             width={32}
                             height={32}
                             alt="Jimmy Merritello avatar"
                           />
-                        </span> */}
+                        </span>
                         <p>
                           <span className="text-gray-800 dark:text-gray-200">
                             {recommendation.name}
