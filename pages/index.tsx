@@ -6,9 +6,11 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 
 export async function getStaticProps() {
-  const posts = allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date));
-  });
+  const posts = allPosts
+    .sort((a, b) => {
+      return compareDesc(new Date(a.date), new Date(b.date));
+    })
+    .slice(0, 3);
   return { props: { posts } };
 }
 
@@ -362,6 +364,13 @@ const Home: NextPage<{
             );
           })}
         </ul>
+
+        <div className="mt-8 flex gap-4">
+          <span className="hidden sm:block w-28 flex-shrink-0" />
+          <Link href="/posts">
+            <a>View all</a>
+          </Link>
+        </div>
       </section>
     </>
   );
