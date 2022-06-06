@@ -38,6 +38,7 @@
   h2,
   h3,
   a,
+  button,
   th {
     @apply text-gray-800 dark:text-gray-200;
   }
