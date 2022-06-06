@@ -5,9 +5,8 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { Components } from "@/components/MDXComponents";
 
 export async function getStaticPaths() {
-  const paths = allPosts.map((post) => post.url);
   return {
-    paths,
+    paths: allPosts.map((post) => ({ params: { slug: post.slug } })),
     fallback: false,
   };
 }
@@ -19,7 +18,7 @@ export async function getStaticProps({
     slug: string;
   };
 }) {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+  const post = allPosts.find((post) => post.slug === params.slug);
   return {
     props: {
       post,

@@ -116,123 +116,115 @@ pre[class*="language-"] {
   font-weight: 700;
 }
 
-@media (prefers-color-scheme: dark) {
-  code[class*="language-"],
-  pre[class*="language-"] {
-    color: #d6deeb;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      "Liberation Mono", "Courier New", monospace;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    line-height: 1.5;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-  }
-  code[class*="language-"] ::-moz-selection,
-  code[class*="language-"]::-moz-selection,
-  pre[class*="language-"] ::-moz-selection,
-  pre[class*="language-"]::-moz-selection {
-    text-shadow: none;
-    background: rgba(29, 59, 83, 0.99);
-  }
-  code[class*="language-"] ::selection,
-  code[class*="language-"]::selection,
-  pre[class*="language-"] ::selection,
-  pre[class*="language-"]::selection {
-    text-shadow: none;
-    background: rgba(29, 59, 83, 0.99);
-  }
-  @media print {
-    code[class*="language-"],
-    pre[class*="language-"] {
-      text-shadow: none;
-    }
-  }
-  pre[class*="language-"] {
-    padding: 1em;
-    margin: 0.5em 0;
-    overflow: auto;
-  }
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-    color: #fff;
-    @apply bg-gray-900;
-  }
-  :not(pre) > code[class*="language-"] {
-    padding: 0.1em;
-    border-radius: 0.3em;
-    white-space: normal;
-  }
-  .token.cdata,
-  .token.comment,
-  .token.prolog {
-    color: #637777;
-  }
-  .token.punctuation {
-    color: #c792ea;
-  }
-  .namespace {
-    color: #b2ccd6;
-  }
-  .token.deleted {
-    color: rgba(239, 83, 80, 0.56);
-  }
-  .token.property,
-  .token.symbol {
-    color: #80cbc4;
-  }
-  .token.keyword,
-  .token.operator,
-  .token.tag {
-    color: #7fdbca;
-  }
-  .token.boolean {
-    color: #ff5874;
-  }
-  .token.number {
-    color: #f78c6c;
-  }
-  .token.builtin,
-  .token.char,
-  .token.constant,
-  .token.function {
-    color: #82aaff;
-  }
-  .token.doctype,
-  .token.selector {
-    color: #c792ea;
-  }
-  .token.attr-name,
-  .token.inserted {
-    color: #addb67;
-  }
-  .language-css .token.string,
-  .style .token.string,
-  .token.entity,
-  .token.string,
-  .token.url {
-    color: #addb67;
-  }
-  .token.atrule,
-  .token.attr-value,
-  .token.class-name {
-    color: #ffcb8b;
-  }
-  .token.important,
-  .token.regex,
-  .token.variable {
-    color: #d6deeb;
-  }
-  .token.bold,
-  .token.important {
-    font-weight: 700;
-  }
+.dark code[class*="language-"],
+.dark pre[class*="language-"] {
+  color: #d6deeb;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+.dark code[class*="language-"] ::-moz-selection,
+.dark code[class*="language-"]::-moz-selection,
+.dark pre[class*="language-"] ::-moz-selection,
+.dark pre[class*="language-"]::-moz-selection {
+  text-shadow: none;
+  background: rgba(29, 59, 83, 0.99);
+}
+.dark code[class*="language-"] ::selection,
+.dark code[class*="language-"]::selection,
+.dark pre[class*="language-"] ::selection,
+.dark pre[class*="language-"]::selection {
+  text-shadow: none;
+  background: rgba(29, 59, 83, 0.99);
+}
+.dark pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+.dark :not(pre) > code[class*="language-"],
+.dark pre[class*="language-"] {
+  color: #fff;
+  @apply bg-gray-900;
+}
+.dark :not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+.dark .token.cdata,
+.dark .token.comment,
+.dark .token.prolog {
+  color: #637777;
+}
+.dark .token.punctuation {
+  color: #c792ea;
+}
+.dark .namespace {
+  color: #b2ccd6;
+}
+.dark .token.deleted {
+  color: rgba(239, 83, 80, 0.56);
+}
+.dark .token.property,
+.dark .token.symbol {
+  color: #80cbc4;
+}
+.dark .token.keyword,
+.dark .token.operator,
+.dark .token.tag {
+  color: #7fdbca;
+}
+.dark .token.boolean {
+  color: #ff5874;
+}
+.dark .token.number {
+  color: #f78c6c;
+}
+.dark .token.builtin,
+.dark .token.char,
+.dark .token.constant,
+.dark .token.function {
+  color: #82aaff;
+}
+.dark .token.doctype,
+.dark .token.selector {
+  color: #c792ea;
+}
+.dark .token.attr-name,
+.dark .token.inserted {
+  color: #addb67;
+}
+.dark .language-css .token.string,
+.dark .style .token.string,
+.dark .token.entity,
+.dark .token.string,
+.dark .token.url {
+  color: #addb67;
+}
+.dark .token.atrule,
+.dark .token.attr-value,
+.dark .token.class-name {
+  color: #ffcb8b;
+}
+.dark .token.important,
+.dark .token.regex,
+.dark .token.variable {
+  color: #d6deeb;
+}
+.dark .token.bold,
+.dark .token.important {
+  font-weight: 700;
 }

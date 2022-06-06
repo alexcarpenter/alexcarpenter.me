@@ -1,7 +1,8 @@
 import type { NextPage } from "next/types";
+import type { Post } from "contentlayer/generated";
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
-import { allPosts, Post } from "contentlayer/generated";
+import { allPosts } from "contentlayer/generated";
 
 export async function getStaticProps() {
   const posts = allPosts.sort((a, b) => {
@@ -15,7 +16,7 @@ const Posts: NextPage<{
 }> = ({ posts }) => {
   return (
     <>
-      <section className="mt-12">
+      <section className="mt-16">
         <h2 className="mb-8">
           Posts&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
@@ -31,7 +32,7 @@ const Posts: NextPage<{
                   </span>
                   <div>
                     <h3>
-                      <Link href={post.url}>
+                      <Link href={`/posts/${post.slug}`}>
                         <a className="underline">{post.title}</a>
                       </Link>
                     </h3>
