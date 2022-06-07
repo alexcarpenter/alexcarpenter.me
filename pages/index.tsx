@@ -21,14 +21,32 @@ export async function getStaticProps() {
     return compareDesc(new Date(a.date), new Date(b.date));
   });
 
-  return { props: { posts, jobs, recommendations } };
+  return {
+    props: {
+      posts,
+      jobs,
+      recommendations,
+      interests: [
+        "Accessibility",
+        "CSS",
+        "Design Systems",
+        "Essentialism",
+        "Next.js",
+        "Performance",
+        "Pragmatism",
+        "React",
+        "TypeScript",
+      ],
+    },
+  };
 }
 
 const Home: NextPage<{
   posts: Post[];
   jobs: Job[];
   recommendations: Recommendation[];
-}> = ({ posts, jobs, recommendations }) => {
+  interests: string[];
+}> = ({ posts, jobs, recommendations, interests }) => {
   const [allRecs, showAllRecs] = React.useReducer(() => true, false);
   return (
     <>
@@ -68,6 +86,9 @@ const Home: NextPage<{
                       </a>
                     </h3>
                     <p>{job.location || "Remote"}</p>
+                    {job.description ? (
+                      <p className="mt-2">{job.description}</p>
+                    ) : null}
                   </div>
                 </article>
               </li>
@@ -82,17 +103,7 @@ const Home: NextPage<{
         </h2>
 
         <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-          {[
-            "Accessibility",
-            "CSS",
-            "Design Systems",
-            "Essentialism",
-            "Next.js",
-            "Performance",
-            "Pragmatism",
-            "React",
-            "TypeScript",
-          ].map((interest, index) => {
+          {interests.map((interest, index) => {
             return <li key={index}>{interest}</li>;
           })}
         </ul>
@@ -144,7 +155,7 @@ const Home: NextPage<{
         {!allRecs ? (
           <div className="mt-8 flex gap-4">
             <span className="hidden sm:block w-28 flex-shrink-0" />
-            <button onClick={showAllRecs}>View all</button>
+            <button onClick={showAllRecs}>Load all</button>
           </div>
         ) : null}
       </section>

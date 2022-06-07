@@ -60,6 +60,10 @@ export const Job = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    description: {
+      type: "string",
+      required: false,
+    },
   },
 }));
 
