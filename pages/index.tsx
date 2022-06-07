@@ -6,6 +6,62 @@ import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
 
+const RecommendationsList = ({
+  recommendations,
+}: {
+  recommendations: Recommendation[];
+}) => {
+  const [allRecs, showAllRecs] = React.useReducer(() => true, false);
+  return (
+    <>
+      <ul className="grid gap-8">
+        {recommendations
+          .slice(0, allRecs ? recommendations.length : 3)
+          .map((recommendation, index) => {
+            return (
+              <li key={index}>
+                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                  <span className="w-28 flex-shrink-0">
+                    <time dateTime={recommendation.date}>
+                      {format(parseISO(recommendation.date), "y")}
+                    </time>
+                  </span>
+                  <div>
+                    <p>“{recommendation.text}”</p>
+                    <div className="mt-4 flex items-start gap-4">
+                      <span className="inline-flex rounded-full overflow-hidden">
+                        <Image
+                          src={recommendation.avatar}
+                          width={32}
+                          height={32}
+                          alt={`${recommendation.name} avatar`}
+                        />
+                      </span>
+                      <p>
+                        <span className="text-gray-800 dark:text-gray-200">
+                          {recommendation.name}
+                        </span>
+                        <br />
+                        {recommendation.title}, {recommendation.company}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+      </ul>
+
+      {!allRecs ? (
+        <div className="mt-8 flex gap-4">
+          <span className="hidden sm:block w-28 flex-shrink-0" />
+          <button onClick={showAllRecs}>Load all</button>
+        </div>
+      ) : null}
+    </>
+  );
+};
+
 export async function getStaticProps() {
   const posts = allPosts
     .sort((a, b) => {
@@ -47,7 +103,8 @@ const Home: NextPage<{
   recommendations: Recommendation[];
   interests: string[];
 }> = ({ posts, jobs, recommendations, interests }) => {
-  const [allRecs, showAllRecs] = React.useReducer(() => true, false);
+  const renderCounter = React.useRef(0);
+  renderCounter.current = renderCounter.current + 1;
   return (
     <>
       <section className="mt-16">
@@ -60,7 +117,7 @@ const Home: NextPage<{
           interested in CSS architecture, React, TypeScript, design systems, and
           state machines. Currently working at HashiCorp, helping build and
           maintain public-facing HashiCorp websites and web applications with
-          Next.js.
+          Next.js. {renderCounter.current}
         </p>
       </section>
 
@@ -114,50 +171,7 @@ const Home: NextPage<{
           Recommendations&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
 
-        <ul className="grid gap-8">
-          {recommendations
-            .slice(0, allRecs ? recommendations.length : 3)
-            .map((recommendation, index) => {
-              return (
-                <li key={index}>
-                  <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                    <span className="w-28 flex-shrink-0">
-                      <time dateTime={recommendation.date}>
-                        {format(parseISO(recommendation.date), "y")}
-                      </time>
-                    </span>
-                    <div>
-                      <p>“{recommendation.text}”</p>
-                      <div className="mt-4 flex items-start gap-4">
-                        <span className="inline-flex rounded-full overflow-hidden">
-                          <Image
-                            src={recommendation.avatar}
-                            width={32}
-                            height={32}
-                            alt="Jimmy Merritello avatar"
-                          />
-                        </span>
-                        <p>
-                          <span className="text-gray-800 dark:text-gray-200">
-                            {recommendation.name}
-                          </span>
-                          <br />
-                          {recommendation.title}, {recommendation.company}
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                </li>
-              );
-            })}
-        </ul>
-
-        {!allRecs ? (
-          <div className="mt-8 flex gap-4">
-            <span className="hidden sm:block w-28 flex-shrink-0" />
-            <button onClick={showAllRecs}>Load all</button>
-          </div>
-        ) : null}
+        <RecommendationsList recommendations={recommendations} />
       </section>
 
       <section className="mt-16">
