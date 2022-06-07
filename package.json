@@ -19,6 +19,7 @@
     "react-dom": "18.1.0",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-code-titles": "^1.1.0",
+    "rehype-pretty-code": "^0.3.2",
     "rehype-prism-plus": "^1.4.0",
     "remark-gfm": "^3.0.1"
   },
