@@ -103,8 +103,6 @@ const Home: NextPage<{
   recommendations: Recommendation[];
   interests: string[];
 }> = ({ posts, jobs, recommendations, interests }) => {
-  const renderCounter = React.useRef(0);
-  renderCounter.current = renderCounter.current + 1;
   return (
     <>
       <section className="mt-16">
@@ -117,7 +115,7 @@ const Home: NextPage<{
           interested in CSS architecture, React, TypeScript, design systems, and
           state machines. Currently working at HashiCorp, helping build and
           maintain public-facing HashiCorp websites and web applications with
-          Next.js. {renderCounter.current}
+          Next.js.
         </p>
       </section>
 
