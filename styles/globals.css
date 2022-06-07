@@ -75,6 +75,7 @@ th {
 
 div[data-rehype-pretty-code-fragment] pre {
   overflow-x: auto;
+  font-size: 0.9rem;
   @apply py-4;
 }
 
