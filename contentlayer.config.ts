@@ -104,6 +104,30 @@ export const Recommendation = defineDocumentType(() => ({
   },
 }));
 
+export const Event = defineDocumentType(() => ({
+  name: "Event",
+  filePathPattern: `events/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    link: {
+      type: "string",
+      required: false,
+    },
+  },
+  computedFields: {
+    date: {
+      type: "date",
+      resolve: (e) => {
+        return e._raw.sourceFileName.replace(/\.mdx$/, "");
+      },
+    },
+  },
+}));
+
 const rehypePrettyCodeOptions: Partial<Options> = {
   theme: {
     light: "github-light",
@@ -133,7 +157,7 @@ const rehypePrettyCodeOptions: Partial<Options> = {
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Job, Post, Recommendation],
+  documentTypes: [Event, Job, Post, Recommendation],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
