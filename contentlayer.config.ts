@@ -113,6 +113,10 @@ export const Event = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    description: {
+      type: "string",
+      required: false,
+    },
     link: {
       type: "string",
       required: false,

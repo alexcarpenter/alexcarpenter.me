@@ -21,6 +21,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      title: "Timeline",
       events,
     },
   };
@@ -35,6 +36,13 @@ const Timeline: NextPage<{
         <h2>
           Timeline&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
+        {/* <div className="mt-2">
+          <label htmlFor="category">Filter by:</label>
+          <select name="category" id="category">
+            <option value="work">work</option>
+            <option value="life">life</option>
+          </select>
+        </div> */}
       </header>
       {Object.entries(events)
         .reverse()
@@ -69,6 +77,9 @@ const Timeline: NextPage<{
                           </h3>
                           {event.link ? (
                             <p>{new URL(event.link).hostname}</p>
+                          ) : null}
+                          {event.description ? (
+                            <p>{event.description}</p>
                           ) : null}
                         </div>
                       </article>
