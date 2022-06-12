@@ -1,10 +1,13 @@
 import slugify from "@sindresorhus/slugify";
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import {
+  defineDocumentType,
+  defineNestedType,
+  makeSource,
+} from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
-import fs from "fs";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -104,6 +107,16 @@ export const Recommendation = defineDocumentType(() => ({
   },
 }));
 
+const Image = defineNestedType(() => ({
+  name: "Image",
+  fields: {
+    src: { type: "string", required: true },
+    width: { type: "number", required: true },
+    height: { type: "number", required: true },
+    alt: { type: "string", required: true },
+  },
+}));
+
 export const Event = defineDocumentType(() => ({
   name: "Event",
   filePathPattern: `events/*.mdx`,
@@ -119,6 +132,16 @@ export const Event = defineDocumentType(() => ({
     },
     link: {
       type: "string",
+      required: false,
+    },
+    category: {
+      type: "enum",
+      options: ["work", "life"],
+      required: true,
+    },
+    media: {
+      type: "list",
+      of: Image,
       required: false,
     },
   },

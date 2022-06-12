@@ -1,12 +1,30 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { compareDesc, format, parseISO } from "date-fns";
 import type { Event } from "contentlayer/generated";
 import { allEvents } from "contentlayer/generated";
 
-export async function getStaticProps() {
+export async function getStaticPaths() {
+  return {
+    paths: ["work", "life"].map((category) => {
+      return {
+        params: {
+          category,
+        },
+      };
+    }),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(context: {
+  params: { category: Event["category"] };
+}) {
+  const { category } = context.params;
   const events = allEvents
+    .filter((event) => event.category === category)
     .sort((a, b) => {
       return compareDesc(new Date(a.date), new Date(b.date));
     })
@@ -38,7 +56,12 @@ const Timeline: NextPage<{
         </h2>
         {/* <div className="mt-2">
           <label htmlFor="category">Filter by:</label>
-          <select name="category" id="category">
+          <select
+            name="category"
+            id="category"
+            onChange={(e) => console.log(e.target.value)}
+          >
+            <option value="all">all</option>
             <option value="work">work</option>
             <option value="life">life</option>
           </select>
@@ -80,6 +103,26 @@ const Timeline: NextPage<{
                           ) : null}
                           {event.description ? (
                             <p>{event.description}</p>
+                          ) : null}
+                          {event.media ? (
+                            <div className="mt-4 grid grid-cols-5 gap-4">
+                              {event.media.map((media, index) => {
+                                return (
+                                  <div
+                                    key={index}
+                                    className="flex border rounded-sm aspect-square overflow-hidden"
+                                  >
+                                    <Image
+                                      objectFit="cover"
+                                      src={media.src}
+                                      width={media.width}
+                                      height={media.height}
+                                      alt={media.alt}
+                                    />
+                                  </div>
+                                );
+                              })}
+                            </div>
                           ) : null}
                         </div>
                       </article>
