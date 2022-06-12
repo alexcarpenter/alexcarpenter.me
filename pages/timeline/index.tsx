@@ -48,16 +48,11 @@ const Timeline: NextPage<{
             onChange={(e) => {
               router.push(`/timeline/${e.target.value}`);
             }}
+            value={category || ""}
           >
-            <option value="" selected={category === null}>
-              all
-            </option>
-            <option value="work" selected={category === "work"}>
-              work
-            </option>
-            <option value="life" selected={category === "life"}>
-              life
-            </option>
+            <option value="">all</option>
+            <option value="work">work</option>
+            <option value="life">life</option>
           </select>
         </div>
       </header>
