@@ -2,6 +2,7 @@ import * as React from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import { compareDesc, format, parseISO } from "date-fns";
 import type { Event } from "contentlayer/generated";
 import { allEvents } from "contentlayer/generated";
@@ -48,24 +49,34 @@ export async function getStaticProps(context: {
 const Timeline: NextPage<{
   events: Record<string, Event[]>;
 }> = ({ events }) => {
+  const router = useRouter();
+  const { category } = router.query;
   return (
     <>
       <header className="mt-16 mb-8">
         <h2>
           Timeline&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
-        {/* <div className="mt-2">
+        <div className="mt-2">
           <label htmlFor="category">Filter by:</label>
           <select
             name="category"
             id="category"
-            onChange={(e) => console.log(e.target.value)}
+            onChange={(e) => {
+              router.push(`/timeline/${e.target.value}`);
+            }}
           >
-            <option value="all">all</option>
-            <option value="work">work</option>
-            <option value="life">life</option>
+            <option value="" selected={category === null}>
+              all
+            </option>
+            <option value="work" selected={category === "work"}>
+              work
+            </option>
+            <option value="life" selected={category === "life"}>
+              life
+            </option>
           </select>
-        </div> */}
+        </div>
       </header>
       {Object.entries(events)
         .reverse()
