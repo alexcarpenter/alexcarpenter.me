@@ -117,6 +117,11 @@ const Home: NextPage<{
           maintain public-facing HashiCorp websites and web applications with
           Next.js.
         </p>
+        <p className="mt-4">
+          <Link href="/timeline">
+            <a>View timeline</a>
+          </Link>
+        </p>
       </section>
 
       <section className="mt-16">
