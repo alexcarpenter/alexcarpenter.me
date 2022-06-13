@@ -96,6 +96,10 @@ export const Recommendation = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    link: {
+      type: "string",
+      required: true,
+    },
   },
   computedFields: {
     avatar: {

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
+import Facepile from "@/components/Facepile";
 
 const RecommendationsList = ({
   recommendations,
@@ -28,22 +29,16 @@ const RecommendationsList = ({
                   </span>
                   <div>
                     <p>“{recommendation.text}”</p>
-                    <div className="mt-4 flex items-start gap-4">
-                      <span className="inline-flex rounded-full overflow-hidden">
-                        <Image
-                          src={recommendation.avatar}
-                          width={32}
-                          height={32}
-                          alt={`${recommendation.name} avatar`}
-                        />
-                      </span>
-                      <p>
-                        <span className="text-gray-800 dark:text-gray-200">
-                          {recommendation.name}
-                        </span>
-                        <br />
-                        {recommendation.title}, {recommendation.company}
-                      </p>
+                    <div className="mt-2 flex items-start gap-4">
+                      <Facepile
+                        people={[
+                          {
+                            name: recommendation.name,
+                            image: recommendation.avatar,
+                            link: recommendation.link,
+                          },
+                        ]}
+                      />
                     </div>
                   </div>
                 </article>
