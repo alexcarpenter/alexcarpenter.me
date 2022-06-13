@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { compareDesc, format, parseISO } from "date-fns";
 import type { Event } from "contentlayer/generated";
 import { allEvents } from "contentlayer/generated";
+import Lightbox from "@/components/Lightbox";
 
 export async function getStaticPaths() {
   return {
@@ -112,22 +113,36 @@ const Timeline: NextPage<{
                           ) : null}
                           {event.media ? (
                             <div className="mt-4 grid grid-cols-5 gap-4">
-                              {event.media.map((media, index) => {
-                                return (
-                                  <div
-                                    key={index}
-                                    className="flex border rounded-sm aspect-square overflow-hidden"
-                                  >
-                                    <Image
-                                      objectFit="cover"
-                                      src={media.src}
-                                      width={media.width}
-                                      height={media.height}
-                                      alt={media.alt}
-                                    />
-                                  </div>
-                                );
-                              })}
+                              <Lightbox images={event.media}>
+                                {({
+                                  images,
+                                  handlers,
+                                }: {
+                                  images: any;
+                                  handlers: any;
+                                }) => {
+                                  return images.map(
+                                    (image: any, index: number) => {
+                                      return (
+                                        <button
+                                          key={index}
+                                          onClick={() => handlers.show(index)}
+                                        >
+                                          <div className="flex border rounded-sm aspect-square overflow-hidden">
+                                            <Image
+                                              objectFit="cover"
+                                              src={image.src}
+                                              width={image.width}
+                                              height={image.height}
+                                              alt={image.alt}
+                                            />
+                                          </div>
+                                        </button>
+                                      );
+                                    }
+                                  );
+                                }}
+                              </Lightbox>
                             </div>
                           ) : null}
                         </div>
