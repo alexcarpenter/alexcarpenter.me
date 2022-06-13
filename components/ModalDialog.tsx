@@ -3,7 +3,7 @@ import { useOverlay, usePreventScroll, useModal } from "@react-aria/overlays";
 import { useDialog } from "@react-aria/dialog";
 import { FocusScope } from "@react-aria/focus";
 
-const ModalDialog = (props) => {
+const ModalDialog = (props: any) => {
   let { title, children } = props;
 
   // Handle interacting outside the dialog and pressing
