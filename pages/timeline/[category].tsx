@@ -129,7 +129,7 @@ const Timeline: NextPage<{
                                           onClick={() => handlers.show(index)}
                                           className="cursor-zoom-in"
                                         >
-                                          <div className="flex border rounded-sm aspect-square overflow-hidden">
+                                          <div className="flex border border-gray-200 dark:border-gray-700 rounded-sm aspect-square overflow-hidden">
                                             <Image
                                               objectFit="cover"
                                               src={image.src}
