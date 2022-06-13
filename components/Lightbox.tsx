@@ -6,6 +6,7 @@ import { useKeyboard } from "@react-aria/interactions";
 import { motion } from "framer-motion";
 import useWrappingIndex from "@alexcarpenter/use-wrapping-index";
 import ModalDialog from "./ModalDialog";
+import clsx from "clsx";
 
 interface LightboxProps {
   title: string;
@@ -89,6 +90,34 @@ const Lightbox = (props: LightboxProps) => {
                 );
               })}
             </div>
+            {images.length > 1 ? (
+              <nav className="absolute bottom-4 left-0 right-0">
+                <ol className="flex justify-center gap-2">
+                  {images.map((_, index) => {
+                    const isActive = index === activeIndex;
+                    return (
+                      <li key={index}>
+                        <button
+                          onClick={() => setActiveIndex(index)}
+                          className="w-8 h-8 grid place-items-center"
+                        >
+                          <span className="sr-only">
+                            View image {index + 1}
+                          </span>
+                          <span
+                            className={clsx(
+                              "block w-3 h-3 rounded-full z-20 transition-colors",
+                              { "bg-gray-200 dark:bg-gray-500": !isActive },
+                              { "bg-gray-500 dark:bg-gray-200": isActive }
+                            )}
+                          />
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </nav>
+            ) : null}
           </ModalDialog>
         </OverlayContainer>
       ) : null}

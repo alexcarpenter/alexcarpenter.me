@@ -50,6 +50,7 @@ const Timeline: NextPage<{
               router.push(`/timeline/${e.target.value}`);
             }}
             value={category || ""}
+            className="bg-transparent"
           >
             <option value="">all</option>
             <option value="work">work</option>

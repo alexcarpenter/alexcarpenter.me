@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
-import Facepile from "@/components/Facepile";
 
 const RecommendationsList = ({
   recommendations,
@@ -29,16 +28,18 @@ const RecommendationsList = ({
                   </span>
                   <div>
                     <p>“{recommendation.text}”</p>
-                    <div className="mt-2 flex items-start gap-4">
-                      <Facepile
-                        people={[
-                          {
-                            name: recommendation.name,
-                            image: recommendation.avatar,
-                            link: recommendation.link,
-                          },
-                        ]}
-                      />
+                    <div className="mt-4 flex items-center gap-4">
+                      <span className="grid overflow-hidden rounded-full">
+                        <Image
+                          src={recommendation.avatar}
+                          width={24}
+                          height={24}
+                          alt={`${recommendation.name} avatar`}
+                        />
+                      </span>
+                      <p>
+                        {recommendation.name}, {recommendation.company}
+                      </p>
                     </div>
                   </div>
                 </article>
@@ -50,7 +51,9 @@ const RecommendationsList = ({
       {!allRecs ? (
         <div className="mt-8 flex gap-4">
           <span className="hidden sm:block w-28 flex-shrink-0" />
-          <button onClick={showAllRecs}>Load all</button>
+          <button onClick={showAllRecs} aria-label="Load all recommendations">
+            Load all
+          </button>
         </div>
       ) : null}
     </>
@@ -204,7 +207,7 @@ const Home: NextPage<{
         <div className="mt-8 flex gap-4">
           <span className="hidden sm:block w-28 flex-shrink-0" />
           <Link href="/posts">
-            <a>View all</a>
+            <a aria-label="View all posts">View all</a>
           </Link>
         </div>
       </section>

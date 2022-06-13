@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     : "UI Engineer from Grand Rapids, MI";
   return (
     <SSRProvider>
-      <OverlayProvider>
+      <OverlayProvider className="flex flex-col grow">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

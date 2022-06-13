@@ -21,10 +21,10 @@ const ModalDialog = (props: any) => {
 
   return (
     <div
-      className="fixed z-50 inset-0 bg-white/75 backdrop-blur-sm"
+      className="fixed z-50 inset-0 bg-white/75 dark:bg-black/75 backdrop-blur-sm"
       {...underlayProps}
     >
-      <div className="px-4 py-8 grid place-items-center w-full h-full overflow-auto">
+      <div className="px-4 py-16 grid place-items-center w-full h-full overflow-auto">
         <FocusScope contain restoreFocus autoFocus>
           <div
             {...overlayProps}
