@@ -21,23 +21,25 @@ const ModalDialog = (props) => {
 
   return (
     <div
-      className="fixed z-50 inset-0 bg-white/75 backdrop-blur-sm grid place-items-center"
+      className="fixed z-50 inset-0 bg-white/75 backdrop-blur-sm"
       {...underlayProps}
     >
-      <FocusScope contain restoreFocus autoFocus>
-        <div
-          {...overlayProps}
-          {...dialogProps}
-          {...modalProps}
-          ref={ref}
-          className="max-w-3xl mx-auto"
-        >
-          <h3 {...titleProps} className="sr-only">
-            {title}
-          </h3>
-          {children}
-        </div>
-      </FocusScope>
+      <div className="p-4 grid place-items-center w-full h-full overflow-auto">
+        <FocusScope contain restoreFocus autoFocus>
+          <div
+            {...overlayProps}
+            {...dialogProps}
+            {...modalProps}
+            ref={ref}
+            className="max-w-3xl mx-auto"
+          >
+            <h3 {...titleProps} className="sr-only">
+              {title}
+            </h3>
+            {children}
+          </div>
+        </FocusScope>
+      </div>
     </div>
   );
 };

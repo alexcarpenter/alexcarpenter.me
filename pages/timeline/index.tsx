@@ -110,6 +110,7 @@ const Timeline: NextPage<{
                                         <button
                                           key={index}
                                           onClick={() => handlers.show(index)}
+                                          className="cursor-zoom-in"
                                         >
                                           <div className="flex border rounded-sm aspect-square overflow-hidden">
                                             <Image
