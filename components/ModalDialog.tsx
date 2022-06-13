@@ -4,7 +4,7 @@ import { useDialog } from "@react-aria/dialog";
 import { FocusScope } from "@react-aria/focus";
 
 const ModalDialog = (props: any) => {
-  let { title, children } = props;
+  let { onClose, title, children } = props;
 
   // Handle interacting outside the dialog and pressing
   // the Escape key to close the modal.
@@ -24,7 +24,7 @@ const ModalDialog = (props: any) => {
       className="fixed z-50 inset-0 bg-white/75 backdrop-blur-sm"
       {...underlayProps}
     >
-      <div className="p-4 grid place-items-center w-full h-full overflow-auto">
+      <div className="px-4 py-8 grid place-items-center w-full h-full overflow-auto">
         <FocusScope contain restoreFocus autoFocus>
           <div
             {...overlayProps}
@@ -33,6 +33,12 @@ const ModalDialog = (props: any) => {
             ref={ref}
             className="max-w-3xl mx-auto"
           >
+            <button
+              onClick={() => onClose()}
+              className="absolute top-4 right-4"
+            >
+              Close
+            </button>
             <h3 {...titleProps} className="sr-only">
               {title}
             </h3>

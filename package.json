@@ -13,6 +13,7 @@
     "@react-aria/dialog": "^3.2.0",
     "@react-aria/interactions": "^3.9.0",
     "@react-aria/overlays": "^3.9.0",
+    "@react-aria/ssr": "^3.2.0",
     "@react-aria/tooltip": "^3.2.0",
     "@sindresorhus/slugify": "^2.1.0",
     "clsx": "^1.1.1",

@@ -113,7 +113,10 @@ const Timeline: NextPage<{
                           ) : null}
                           {event.media ? (
                             <div className="mt-4 grid grid-cols-5 gap-4">
-                              <Lightbox images={event.media}>
+                              <Lightbox
+                                title={`${event.title} images`}
+                                images={event.media}
+                              >
                                 {({
                                   images,
                                   handlers,
@@ -129,6 +132,9 @@ const Timeline: NextPage<{
                                           onClick={() => handlers.show(index)}
                                           className="cursor-zoom-in"
                                         >
+                                          <span className="sr-only">{`View image ${
+                                            index + 1
+                                          } in lightbox`}</span>
                                           <div className="flex border border-gray-200 dark:border-gray-700 rounded-sm aspect-square overflow-hidden">
                                             <Image
                                               objectFit="cover"

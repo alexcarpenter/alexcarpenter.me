@@ -8,12 +8,13 @@ import useWrappingIndex from "@alexcarpenter/use-wrapping-index";
 import ModalDialog from "./ModalDialog";
 
 interface LightboxProps {
+  title: string;
   children: any;
   images: Array<ImageProps>;
 }
 
 const Lightbox = (props: LightboxProps) => {
-  const { children, images } = props;
+  const { title, children, images } = props;
   const { activeIndex, setActiveIndex, moveToNextIndex, moveToPreviousIndex } =
     useWrappingIndex({
       maxIndex: images.length,
@@ -54,7 +55,12 @@ const Lightbox = (props: LightboxProps) => {
       {children({ images, handlers })}
       {isOpen ? (
         <OverlayContainer {...keyboardProps}>
-          <ModalDialog isOpen onClose={handlers.hide} isDismissable>
+          <ModalDialog
+            title={title}
+            isOpen
+            onClose={handlers.hide}
+            isDismissable
+          >
             <div className="grid">
               {images.map((image, index) => {
                 return (
