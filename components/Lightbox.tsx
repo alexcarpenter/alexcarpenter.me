@@ -91,26 +91,49 @@ const Lightbox = (props: LightboxProps) => {
               })}
             </div>
             {images.length > 1 ? (
-              <nav className="absolute bottom-4 left-0 right-0">
-                <ol className="flex justify-center gap-2">
+              <nav className="absolute bottom-4 left-0 right-0 flex justify-center">
+                <ol
+                  className={clsx(
+                    "flex gap-1 border py-2 px-3 rounded-full",
+                    "bg-white border-gray-200",
+                    "dark:bg-black dark:border-gray-700"
+                  )}
+                >
                   {images.map((_, index) => {
                     const isActive = index === activeIndex;
                     return (
                       <li key={index}>
                         <button
                           onClick={() => setActiveIndex(index)}
-                          className="w-8 h-8 grid place-items-center"
+                          className="w-8 h-8 grid place-items-center rounded-full relative"
+                          aria-current={isActive ? true : undefined}
                         >
                           <span className="sr-only">
                             View image {index + 1}
                           </span>
                           <span
                             className={clsx(
-                              "block w-3 h-3 rounded-full z-20 transition-colors",
-                              { "bg-gray-200 dark:bg-gray-500": !isActive },
-                              { "bg-gray-500 dark:bg-gray-200": isActive }
+                              "block w-3 h-3 rounded-full z-20",
+                              "bg-gray-500",
+                              "dark:bg-gray-200"
                             )}
+                            style={{
+                              gridArea: "1/1",
+                            }}
                           />
+                          {isActive ? (
+                            <motion.span
+                              layoutId="indicator"
+                              className={clsx(
+                                "w-8 h-8 rounded-full",
+                                "bg-gray-200",
+                                "dark:bg-gray-700"
+                              )}
+                              style={{
+                                gridArea: "1/1",
+                              }}
+                            />
+                          ) : null}
                         </button>
                       </li>
                     );
