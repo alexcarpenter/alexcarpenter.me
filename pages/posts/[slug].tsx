@@ -30,7 +30,7 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
   const MDXContent = useMDXComponent(post.body.code);
   return (
     <>
-      <article className="mt-12">
+      <article className="mt-16">
         <h2>{post.title}</h2>
         <time dateTime={post.date}>
           {format(parseISO(post.date), "LLLL d, yyyy")}
