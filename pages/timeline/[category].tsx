@@ -58,21 +58,21 @@ const Timeline: NextPage<{
         <h2>
           Timeline&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
-        <div className="mt-2">
-          <label htmlFor="category">Filter by:</label>
-          <select
-            name="category"
-            id="category"
-            onChange={(e) => {
-              router.push(`/timeline/${e.target.value}`);
-            }}
-            value={category || ""}
-          >
-            <option value="">all</option>
-            <option value="work">work</option>
-            <option value="life">life</option>
-          </select>
-        </div>
+        <nav className="mt-2">
+          Filter by{" "}
+          <Link href="/timeline">
+            <a aria-current="page">all</a>
+          </Link>
+          ,{" "}
+          <Link href="/timeline/work">
+            <a aria-current={category === "work" ? "page" : undefined}>work</a>
+          </Link>
+          ,{" "}
+          <Link href="/timeline/life">
+            <a aria-current={category === "life" ? "page" : undefined}>life</a>
+          </Link>
+          .
+        </nav>
       </header>
       {Object.entries(events)
         .reverse()

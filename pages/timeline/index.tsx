@@ -33,30 +33,27 @@ export async function getStaticProps() {
 const Timeline: NextPage<{
   events: Record<string, Event[]>;
 }> = ({ events }) => {
-  const router = useRouter();
-  const { category } = router.query;
   return (
     <>
       <header className="mt-16 mb-8">
         <h2>
           Timeline&nbsp;<span aria-hidden={true}>¬</span>
         </h2>
-        <div className="mt-2">
-          <label htmlFor="category">Filter by:</label>
-          <select
-            name="category"
-            id="category"
-            onChange={(e) => {
-              router.push(`/timeline/${e.target.value}`);
-            }}
-            value={category || ""}
-            className="bg-transparent"
-          >
-            <option value="">all</option>
-            <option value="work">work</option>
-            <option value="life">life</option>
-          </select>
-        </div>
+        <p className="mt-2">
+          Filter by{" "}
+          <Link href="/timeline">
+            <a aria-current="page">all</a>
+          </Link>
+          ,{" "}
+          <Link href="/timeline/work">
+            <a>work</a>
+          </Link>
+          ,{" "}
+          <Link href="/timeline/life">
+            <a>life</a>
+          </Link>
+          .
+        </p>
       </header>
       {Object.entries(events)
         .reverse()
