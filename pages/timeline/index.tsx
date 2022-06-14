@@ -70,7 +70,7 @@ const Timeline: NextPage<{
                 {events.map((event, index) => {
                   return (
                     <li key={index}>
-                      <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                      <article className="flex flex-col sm:flex-row sm:gap-4">
                         <span className="w-28 flex-shrink-0">
                           <time dateTime={event.date}>
                             {format(parseISO(event.date), "LLL d")}
