@@ -28,7 +28,7 @@ const RecommendationsList = ({
                   </span>
                   <div>
                     <p>“{recommendation.text}”</p>
-                    <div className="mt-4 flex items-center gap-4">
+                    <div className="mt-4 flex items-center gap-2">
                       <span className="grid overflow-hidden rounded-full">
                         <Image
                           src={recommendation.avatar}
@@ -131,7 +131,7 @@ const Home: NextPage<{
           {jobs.map((job, index) => {
             return (
               <li key={index}>
-                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                <article className="flex flex-col sm:flex-row sm:gap-4">
                   <span className="w-28 flex-shrink-0">
                     {format(parseISO(job.startDate), "y")} &mdash;{" "}
                     {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
@@ -184,7 +184,7 @@ const Home: NextPage<{
           {posts.map((post, index) => {
             return (
               <li key={index}>
-                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                <article className="flex flex-col sm:flex-row sm:gap-4">
                   <span className="w-28 flex-shrink-0">
                     <time dateTime={post.date}>
                       {format(parseISO(post.date), "LLL d")}
