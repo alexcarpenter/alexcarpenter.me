@@ -118,30 +118,28 @@ const Timeline: NextPage<{
                                 images={event.media}
                               >
                                 {({ images, handlers }) => {
-                                  return images.map(
-                                    (image: any, index: number) => {
-                                      return (
-                                        <button
-                                          key={index}
-                                          onClick={() => handlers.show(index)}
-                                          className="cursor-zoom-in"
-                                        >
-                                          <span className="sr-only">{`View image ${
-                                            index + 1
-                                          } in lightbox`}</span>
-                                          <div className="flex border border-gray-200 dark:border-gray-700 rounded-sm aspect-square overflow-hidden">
-                                            <Image
-                                              objectFit="cover"
-                                              src={image.src}
-                                              width={image.width}
-                                              height={image.height}
-                                              alt={image.alt}
-                                            />
-                                          </div>
-                                        </button>
-                                      );
-                                    }
-                                  );
+                                  return images.map((image, index) => {
+                                    return (
+                                      <button
+                                        key={index}
+                                        onClick={() => handlers.show(index)}
+                                        className="cursor-zoom-in"
+                                      >
+                                        <span className="sr-only">{`View image ${
+                                          index + 1
+                                        } in lightbox`}</span>
+                                        <div className="flex border border-gray-200 dark:border-gray-700 rounded-sm aspect-square overflow-hidden">
+                                          <Image
+                                            objectFit="cover"
+                                            src={image.src}
+                                            width={image.width}
+                                            height={image.height}
+                                            alt={image.alt}
+                                          />
+                                        </div>
+                                      </button>
+                                    );
+                                  });
                                 }}
                               </Lightbox>
                             </div>
