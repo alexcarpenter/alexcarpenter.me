@@ -117,13 +117,7 @@ const Timeline: NextPage<{
                                 title={`${event.title} images`}
                                 images={event.media}
                               >
-                                {({
-                                  images,
-                                  handlers,
-                                }: {
-                                  images: any;
-                                  handlers: any;
-                                }) => {
+                                {({ images, handlers }) => {
                                   return images.map(
                                     (image: any, index: number) => {
                                       return (

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { compareDesc, format, parseISO } from "date-fns";
 import type { Event } from "contentlayer/generated";
 import { allEvents } from "contentlayer/generated";
-import { useRouter } from "next/router";
 import Lightbox from "@/components/Lightbox";
 
 export async function getStaticProps() {
@@ -98,13 +97,7 @@ const Timeline: NextPage<{
                                 title={`${event.title} images`}
                                 images={event.media}
                               >
-                                {({
-                                  images,
-                                  handlers,
-                                }: {
-                                  images: any;
-                                  handlers: any;
-                                }) => {
+                                {({ images, handlers }) => {
                                   return images.map(
                                     (image: any, index: number) => {
                                       return (

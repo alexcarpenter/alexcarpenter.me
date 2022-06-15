@@ -8,9 +8,17 @@ import useWrappingIndex from "@alexcarpenter/use-wrapping-index";
 import ModalDialog from "./ModalDialog";
 import clsx from "clsx";
 
+interface ChildrenProps {
+  images: Array<ImageProps>;
+  handlers: {
+    show: (index: number) => void;
+    hide: () => void;
+  };
+}
+
 interface LightboxProps {
   title: string;
-  children: any;
+  children: (props: ChildrenProps) => React.ReactNode;
   images: Array<ImageProps>;
 }
 
