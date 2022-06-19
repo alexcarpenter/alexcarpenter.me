@@ -46,7 +46,7 @@ const Lightbox = (props: LightboxProps) => {
     onKeyDown: (e) => {
       switch (e.key) {
         case "ArrowLeft": {
-          moveToNextIndex();
+          moveToPreviousIndex();
           break;
         }
         case "ArrowRight": {
