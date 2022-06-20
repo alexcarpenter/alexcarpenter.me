@@ -117,7 +117,7 @@ const Home: NextPage<{
         </p>
         <p className="mt-4">
           <Link href="/timeline">
-            <a>View timeline</a>
+            <a className="underline">View timeline</a>
           </Link>
         </p>
       </section>

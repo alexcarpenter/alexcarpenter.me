@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import { format, parseISO } from "date-fns";
@@ -9,6 +10,9 @@ import Lightbox from "@/components/Lightbox";
 const Timeline: NextPage<{
   events: Record<string, Event[]>;
 }> = ({ events }) => {
+  const router = useRouter();
+  const { category } = router.query;
+
   return (
     <>
       <header className="mt-16 mb-8">
@@ -18,15 +22,30 @@ const Timeline: NextPage<{
         <p className="mt-2">
           Filter by{" "}
           <Link href="/timeline">
-            <a aria-current="page">all</a>
+            <a
+              className="underline"
+              aria-current={category === undefined ? "page" : undefined}
+            >
+              all
+            </a>
           </Link>
           ,{" "}
           <Link href="/timeline/work">
-            <a>work</a>
+            <a
+              className="underline"
+              aria-current={category === "work" ? "page" : undefined}
+            >
+              work
+            </a>
           </Link>
           ,{" "}
           <Link href="/timeline/life">
-            <a>life</a>
+            <a
+              className="underline"
+              aria-current={category === "life" ? "page" : undefined}
+            >
+              life
+            </a>
           </Link>
           .
         </p>
