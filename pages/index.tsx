@@ -207,7 +207,9 @@ const Home: NextPage<{
         <div className="mt-8 flex gap-4">
           <span className="hidden sm:block w-28 flex-shrink-0" />
           <Link href="/posts">
-            <a aria-label="View all posts">View all</a>
+            <a className="underline" aria-label="View all posts">
+              View all
+            </a>
           </Link>
         </div>
       </section>
