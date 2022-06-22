@@ -29,7 +29,7 @@ export const CommandBar = () => {
   }));
   return showing ? (
     <OverlayContainer>
-      <FocusScope contain restoreFocus>
+      <FocusScope contain restoreFocus autoFocus>
         <KBarPositioner
           className={clsx(
             "fixed inset-0 z-50 backdrop-blur-sm",
