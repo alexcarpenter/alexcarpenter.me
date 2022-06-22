@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useKBar } from "kbar";
 
 export const Header = () => {
+  const { query } = useKBar();
   return (
     <header className="flex items-center justify-between gap-4">
       <div className="flex items-center gap-4">
@@ -37,7 +39,10 @@ export const Header = () => {
           <p>UI Engineer</p>
         </span>
       </div>
-      {/* <button className="w-8 h-8 grid place-items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+      <button
+        onClick={query.toggle}
+        className="w-8 h-8 grid place-items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+      >
         <svg
           width="16"
           height="16"
@@ -49,7 +54,7 @@ export const Header = () => {
           <circle cx="8.01" cy="8.01" r="1.26" fill="currentColor"></circle>
           <circle cx="12.26" cy="8.01" r="1.26" fill="currentColor"></circle>
         </svg>
-      </button> */}
+      </button>
     </header>
   );
 };
