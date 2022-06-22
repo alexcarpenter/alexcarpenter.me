@@ -43,6 +43,7 @@ export const Header = () => {
         onClick={query.toggle}
         className="w-8 h-8 grid place-items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
       >
+        <span className="sr-only">View menu</span>
         <svg
           width="16"
           height="16"
