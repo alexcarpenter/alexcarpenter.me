@@ -88,6 +88,14 @@ export const CommandBar = ({ children }: { children: React.ReactNode }) => {
       perform: () => router.push("/posts"),
     },
     {
+      id: "timeline",
+      name: "Timeline",
+      shortcut: ["g", "t"],
+      keywords: "go-timeline",
+      section: "Go To",
+      perform: () => router.push("/timeline"),
+    },
+    {
       id: "github",
       name: "Github",
       shortcut: ["c", "g"],
