@@ -4,7 +4,7 @@ import Head from "next/head";
 import { SSRProvider } from "@react-aria/ssr";
 import { OverlayProvider } from "@react-aria/overlays";
 import { ThemeProvider } from "next-themes";
-import { CommandBar } from "@/components/CommandBar";
+import { CommandBar, CommandBarProvider } from "@/components/CommandBar";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const metaDescription = description
     ? description
     : "UI Engineer from Grand Rapids, MI";
+
   return (
     <SSRProvider>
       <OverlayProvider className="flex flex-col grow">
@@ -24,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           defaultTheme="system"
           disableTransitionOnChange
         >
-          <CommandBar>
+          <CommandBarProvider>
             <Head>
               <title>{metaTitle}</title>
               <meta
@@ -50,7 +51,8 @@ function MyApp({ Component, pageProps }: AppProps) {
               <Component {...pageProps} />
             </main>
             <Footer />
-          </CommandBar>
+            <CommandBar />
+          </CommandBarProvider>
         </ThemeProvider>
       </OverlayProvider>
     </SSRProvider>
