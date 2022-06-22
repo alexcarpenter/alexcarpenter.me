@@ -176,7 +176,7 @@ function RenderResults() {
         ) : (
           <div
             className={clsx(
-              "px-4 py-2",
+              "px-4 py-2 pl-8",
               "bg-trasparent",
               active && "bg-gray-100 dark:bg-gray-800"
             )}
