@@ -66,21 +66,22 @@ function RenderResults() {
   return (
     <KBarResults
       items={results}
-      onRender={({ item, active }) =>
-        typeof item === "string" ? (
+      onRender={({ item, active }) => {
+        return typeof item === "string" ? (
           <p className="px-4 py-2">{item}</p>
         ) : (
           <div
             className={clsx(
-              "px-4 py-2 pl-8 cursor-pointer",
+              "flex items-center gap-4 px-4 py-2 cursor-pointer",
               "bg-trasparent",
               active && "bg-gray-100 dark:bg-gray-800"
             )}
           >
+            {item.icon ? <span className="w-4 h-4">{item.icon}</span> : null}
             {item.name}
           </div>
-        )
-      }
+        );
+      }}
     />
   );
 }

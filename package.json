@@ -26,6 +26,7 @@
     "next-themes": "^0.2.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-feather": "^2.0.10",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-code-titles": "^1.1.0",
     "rehype-pretty-code": "^0.3.2",

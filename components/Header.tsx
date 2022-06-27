@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useKBar } from "kbar";
+import { Command } from "react-feather";
 
 export const Header = () => {
   const { query } = useKBar();
@@ -44,17 +45,7 @@ export const Header = () => {
         className="w-8 h-8 grid place-items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
       >
         <span className="sr-only">View menu</span>
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="3.76" cy="8.01" r="1.26" fill="currentColor"></circle>
-          <circle cx="8.01" cy="8.01" r="1.26" fill="currentColor"></circle>
-          <circle cx="12.26" cy="8.01" r="1.26" fill="currentColor"></circle>
-        </svg>
+        <Command className="w-4 h-4" />
       </button>
     </header>
   );
