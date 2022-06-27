@@ -10,8 +10,12 @@ export const Toaster = () => {
   const { startPause, endPause } = handlers;
   const reducedMotion = useReducedMotion();
   return (
-    <div className="fixed inset-0 p-8 pointer-events-none grid items-end justify-end">
-      <div onMouseEnter={startPause} onMouseLeave={endPause}>
+    <div className="fixed inset-0 p-4 pointer-events-none grid items-end justify-end">
+      <div
+        onMouseEnter={startPause}
+        onMouseLeave={endPause}
+        className="grid gap-4"
+      >
         <AnimatePresence initial={false}>
           {toasts
             .filter((t) => t.visible)
