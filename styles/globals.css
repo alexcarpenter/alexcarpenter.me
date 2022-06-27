@@ -126,18 +126,14 @@ pre[data-theme="dark"] {
   @apply bg-gray-800 rounded-sm;
 }
 
-@media (prefers-color-scheme: dark) {
-  div[data-theme="light"],
-  pre[data-theme="light"],
-  code[data-theme="light"] {
-    display: none;
-  }
+html.dark div[data-theme="light"],
+html.dark pre[data-theme="light"],
+html.dark code[data-theme="light"] {
+  display: none;
 }
 
-@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
-  div[data-theme="dark"],
-  pre[data-theme="dark"],
-  code[data-theme="dark"] {
-    display: none;
-  }
+html.light div[data-theme="dark"],
+html.light pre[data-theme="dark"],
+html.light code[data-theme="dark"] {
+  display: none;
 }
