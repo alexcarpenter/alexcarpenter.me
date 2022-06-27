@@ -13,6 +13,7 @@ import {
   Sunrise,
   Sunset,
 } from "react-feather";
+import toast from "react-hot-toast";
 
 export function useActions() {
   const router = useRouter();
@@ -25,7 +26,12 @@ export function useActions() {
       shortcut: ["u"],
       keywords: "copy-url",
       section: "General",
-      perform: () => navigator.clipboard.writeText(window.location.href),
+      perform: () => {
+        navigator.clipboard.writeText(window.location.href);
+        setTimeout(() => {
+          toast.success("Copied URL to clipboard");
+        }, 200);
+      },
       icon: <Copy className="w-4 h-4" />,
     },
     {
@@ -42,7 +48,12 @@ export function useActions() {
       keywords: "dark theme",
       section: "",
       shortcut: ["d"],
-      perform: () => setTheme("dark"),
+      perform: () => {
+        setTheme("dark");
+        setTimeout(() => {
+          toast.success("Dark theme enabled");
+        }, 200);
+      },
       parent: "theme",
       icon: <Sunset className="w-4 h-4" />,
     },
@@ -52,7 +63,12 @@ export function useActions() {
       keywords: "light theme",
       section: "",
       shortcut: ["l"],
-      perform: () => setTheme("light"),
+      perform: () => {
+        setTheme("light");
+        setTimeout(() => {
+          toast.success("Light theme enabled");
+        }, 200);
+      },
       parent: "theme",
       icon: <Sunrise className="w-4 h-4" />,
     },
@@ -62,7 +78,12 @@ export function useActions() {
       keywords: "system theme",
       section: "",
       shortcut: ["s"],
-      perform: () => setTheme("system"),
+      perform: () => {
+        setTheme("system");
+        setTimeout(() => {
+          toast.success("System theme enabled");
+        }, 200);
+      },
       parent: "theme",
       icon: <Monitor className="w-4 h-4" />,
     },
