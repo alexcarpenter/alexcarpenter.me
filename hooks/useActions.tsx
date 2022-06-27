@@ -29,7 +29,9 @@ export function useActions() {
       perform: () => {
         navigator.clipboard.writeText(window.location.href);
         setTimeout(() => {
-          toast.success("Copied URL to clipboard");
+          toast.success("Copied URL to clipboard", {
+            id: "copy-clipboard",
+          });
         }, 200);
       },
       icon: <Copy className="w-4 h-4" />,
@@ -46,12 +48,14 @@ export function useActions() {
       id: "darkTheme",
       name: "Dark",
       keywords: "dark theme",
-      section: "",
+      section: "Theme",
       shortcut: ["d"],
       perform: () => {
         setTheme("dark");
         setTimeout(() => {
-          toast.success("Dark theme enabled");
+          toast.success("Dark theme enabled", {
+            id: "theme-switch",
+          });
         }, 200);
       },
       parent: "theme",
@@ -61,12 +65,14 @@ export function useActions() {
       id: "lightTheme",
       name: "Light",
       keywords: "light theme",
-      section: "",
+      section: "Theme",
       shortcut: ["l"],
       perform: () => {
         setTheme("light");
         setTimeout(() => {
-          toast.success("Light theme enabled");
+          toast.success("Light theme enabled", {
+            id: "theme-switch",
+          });
         }, 200);
       },
       parent: "theme",
@@ -76,12 +82,14 @@ export function useActions() {
       id: "systemTheme",
       name: "System",
       keywords: "system theme",
-      section: "",
+      section: "Theme",
       shortcut: ["s"],
       perform: () => {
         setTheme("system");
         setTimeout(() => {
-          toast.success("System theme enabled");
+          toast.success("System theme enabled", {
+            id: "theme-switch",
+          });
         }, 200);
       },
       parent: "theme",
