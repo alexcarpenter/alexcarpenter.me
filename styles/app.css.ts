@@ -1,4 +1,5 @@
 import { globalStyle, globalFontFace } from "@vanilla-extract/css";
+import { tokens } from "./tokens.css";
 import { vars } from "./theme.css";
 
 globalFontFace("Inter", {
@@ -15,15 +16,13 @@ globalStyle("html", {
 });
 
 globalStyle("body", {
-  fontFamily: vars.font.sans,
+  fontFamily: tokens.font.sans,
+  backgroundColor: vars.color.page,
+  color: vars.color.foreground,
 });
 
-globalStyle("html.light body", {
-  backgroundColor: vars.color.gray1,
-  color: vars.color.gray12,
-});
-
-globalStyle("html.dark body", {
-  backgroundColor: vars.color.gray12,
-  color: vars.color.gray1,
+globalStyle("body, #__next, [data-overlay-container]", {
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
 });

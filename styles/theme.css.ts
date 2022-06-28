@@ -1,11 +1,29 @@
-import { createGlobalTheme } from "@vanilla-extract/css";
-import { gray, grayDark } from "@radix-ui/colors";
+import {
+  createGlobalThemeContract,
+  createGlobalTheme,
+} from "@vanilla-extract/css";
+import { tokens } from "./tokens.css";
 
-export const vars = createGlobalTheme(":root", {
-  font: {
-    sans: "Inter",
-  },
+export const vars = createGlobalThemeContract({
   color: {
-    ...gray,
+    page: "color-page",
+    foreground: "color-foreground",
+    foregroundHighlight: "color-foreground-highlight",
+  },
+});
+
+createGlobalTheme("html.light", vars, {
+  color: {
+    page: tokens.color.gray.light.gray1,
+    foreground: tokens.color.gray.light.gray11,
+    foregroundHighlight: tokens.color.gray.light.gray12,
+  },
+});
+
+createGlobalTheme("html.dark", vars, {
+  color: {
+    page: tokens.color.gray.dark.gray1,
+    foreground: tokens.color.gray.dark.gray11,
+    foregroundHighlight: tokens.color.gray.dark.gray12,
   },
 });
