@@ -16,12 +16,15 @@ export const root = style({
 
 export const toasts = style({
   display: "grid",
-  gap: tokens.spacing.md,
+  gap: tokens.spacing.lg,
+  width: "100%",
+  maxWidth: "30ch",
 });
 
 export const toast = style({
   pointerEvents: "auto",
   display: "flex",
+  width: "100%",
   alignItems: "center",
   gap: tokens.spacing.md,
   padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
@@ -38,6 +41,7 @@ export const toastIcon = style({
 export const toastDismiss = style({
   display: "grid",
   placeItems: "center",
+  marginLeft: "auto",
   width: "2rem",
   height: "2rem",
   backgroundColor: "transparent",
