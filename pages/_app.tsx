@@ -1,4 +1,5 @@
-import "@/styles/globals.css";
+import "the-new-css-reset";
+import "@/styles/app.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { SSRProvider } from "@react-aria/ssr";
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <SSRProvider>
-      <OverlayProvider className="flex flex-col grow">
+      <OverlayProvider>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
