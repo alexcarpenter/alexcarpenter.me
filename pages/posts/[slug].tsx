@@ -26,7 +26,7 @@ export async function getStaticProps({
   };
 }
 
-const Post: NextPage<{ post: Post }> = ({ post }) => {
+const PostPage: NextPage<{ post: Post }> = ({ post }) => {
   const MDXContent = useMDXComponent(post.body.code);
   return (
     <>
@@ -43,4 +43,4 @@ const Post: NextPage<{ post: Post }> = ({ post }) => {
   );
 };
 
-export default Post;
+export default PostPage;
