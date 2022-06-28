@@ -34,7 +34,7 @@ export function useActions() {
           });
         }, 200);
       },
-      icon: <Copy className="w-4 h-4" />,
+      icon: <Copy width="1rem" height="1rem" />,
     },
     {
       id: "theme",
@@ -42,7 +42,7 @@ export function useActions() {
       keywords: "interface color dark light",
       shortcut: ["t"],
       section: "General",
-      icon: <Monitor className="w-4 h-4" />,
+      icon: <Monitor width="1rem" height="1rem" />,
     },
     {
       id: "darkTheme",
@@ -59,7 +59,7 @@ export function useActions() {
         }, 200);
       },
       parent: "theme",
-      icon: <Sunset className="w-4 h-4" />,
+      icon: <Sunset width="1rem" height="1rem" />,
     },
     {
       id: "lightTheme",
@@ -76,7 +76,7 @@ export function useActions() {
         }, 200);
       },
       parent: "theme",
-      icon: <Sunrise className="w-4 h-4" />,
+      icon: <Sunrise width="1rem" height="1rem" />,
     },
     {
       id: "systemTheme",
@@ -93,7 +93,7 @@ export function useActions() {
         }, 200);
       },
       parent: "theme",
-      icon: <Monitor className="w-4 h-4" />,
+      icon: <Monitor width="1rem" height="1rem" />,
     },
     {
       id: "source",
@@ -106,7 +106,7 @@ export function useActions() {
           "https://github.com/alexcarpenter/alexcarpenter-next",
           "_blank"
         ),
-      icon: <GitHub className="w-4 h-4" />,
+      icon: <GitHub width="1rem" height="1rem" />,
     },
     {
       id: "home",
@@ -115,7 +115,7 @@ export function useActions() {
       keywords: "go-home",
       section: "Go To",
       perform: () => router.push("/"),
-      icon: <Home className="w-4 h-4" />,
+      icon: <Home width="1rem" height="1rem" />,
     },
     {
       id: "posts",
@@ -124,7 +124,7 @@ export function useActions() {
       keywords: "go-posts",
       section: "Go To",
       perform: () => router.push("/posts"),
-      icon: <Edit className="w-4 h-4" />,
+      icon: <Edit width="1rem" height="1rem" />,
     },
     {
       id: "timeline",
@@ -133,7 +133,7 @@ export function useActions() {
       keywords: "go-timeline",
       section: "Go To",
       perform: () => router.push("/timeline"),
-      icon: <Clock className="w-4 h-4" />,
+      icon: <Clock width="1rem" height="1rem" />,
     },
     {
       id: "github",
@@ -142,7 +142,7 @@ export function useActions() {
       keywords: "go-github",
       section: "Connect",
       perform: () => window.open("https://github.com/alexcarpenter", "_blank"),
-      icon: <GitHub className="w-4 h-4" />,
+      icon: <GitHub width="1rem" height="1rem" />,
     },
     {
       id: "twitter",
@@ -151,7 +151,7 @@ export function useActions() {
       keywords: "go-twitter",
       section: "Connect",
       perform: () => window.open("https://twitter.com/hybrid_alex", "_blank"),
-      icon: <Twitter className="w-4 h-4" />,
+      icon: <Twitter width="1rem" height="1rem" />,
     },
     {
       id: "linkedin",
@@ -161,7 +161,7 @@ export function useActions() {
       section: "Connect",
       perform: () =>
         window.open("https://www.linkedin.com/in/imalexcarpenter/", "_blank"),
-      icon: <Linkedin className="w-4 h-4" />,
+      icon: <Linkedin width="1rem" height="1rem" />,
     },
     {
       id: "instagram",
@@ -171,7 +171,7 @@ export function useActions() {
       section: "Connect",
       perform: () =>
         window.open("https://www.instagram.com/alexcarp/", "_blank"),
-      icon: <Instagram className="w-4 h-4" />,
+      icon: <Instagram width="1rem" height="1rem" />,
     },
   ];
 

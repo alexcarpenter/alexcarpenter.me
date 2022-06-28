@@ -1,6 +1,6 @@
 import { globalStyle, globalFontFace } from "@vanilla-extract/css";
 import { tokens } from "./tokens.css";
-import { vars } from "./theme.css";
+import { themeVars } from "./theme.css";
 
 globalFontFace("Inter", {
   fontStyle: "normal",
@@ -13,16 +13,53 @@ globalFontFace("Inter", {
 
 globalStyle("html", {
   fontSize: "0.875rem",
+  lineHeight: 1.4,
 });
 
 globalStyle("body", {
+  WebkitFontSmoothing: "antialiased",
+  MozOsxFontSmoothing: "grayscale",
+  textRendering: "optimizeLegibility",
   fontFamily: tokens.font.sans,
-  backgroundColor: vars.color.page,
-  color: vars.color.foreground,
+  backgroundColor: themeVars.color.page,
+  color: themeVars.color.foreground,
 });
 
-globalStyle("body, #__next, [data-overlay-container]", {
+globalStyle("body, #__next, .container", {
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
+});
+
+globalStyle(".container", {
+  paddingTop: tokens.spacing.xxxl,
+  paddingRight: tokens.spacing.lg,
+  paddingBottom: tokens.spacing.xxxl,
+  paddingLeft: tokens.spacing.lg,
+  width: "100%",
+  maxWidth: tokens.maxWidth.md,
+  marginRight: "auto",
+  marginLeft: "auto",
+});
+
+globalStyle("a, button", {
+  color: themeVars.color.foregroundHighlight,
+});
+
+globalStyle("button:focus-visible", {
+  outlineWidth: "2px",
+  outlineStyle: "solid",
+  outlineOffset: "2px",
+  outlineColor: themeVars.color.outline,
+});
+
+globalStyle("a:focus-visible", {
+  outlineWidth: "2px",
+  outlineStyle: "solid",
+  outlineOffset: "2px",
+  outlineColor: themeVars.color.outline,
+});
+
+globalStyle("section + section", {
+  marginTop: tokens.spacing.xxl,
 });

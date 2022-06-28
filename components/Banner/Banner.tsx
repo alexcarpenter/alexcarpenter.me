@@ -2,22 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { useKBar } from "kbar";
 import { Command } from "react-feather";
+import { VisuallyHidden } from "@/components/VisuallyHidden";
+import * as styles from "./Banner.css";
 
-export const Header = () => {
+export const Banner = () => {
   const { query } = useKBar();
   return (
-    <header className="flex items-center justify-between gap-4">
-      <div className="flex items-center gap-4">
+    <header className={styles.root}>
+      <div className={styles.lockup}>
         <Link href="/">
-          <a className="flex items-start relative rounded-full overflow-hidden w-16 h-16 group">
+          <a className={styles.avatar}>
             <Image
               src="/img/me.jpeg"
-              width={64}
-              height={64}
+              width={56}
+              height={56}
               alt="Alex Carpenter avatar"
               priority
             />
-            <span className="absolute inset-0 rounded-md flex items-center justify-center opacity-0 group-focus:opacity-100 group-hover:opacity-100 transition-opacity">
+            <span className={styles.logo}>
               <svg
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,16 +38,13 @@ export const Header = () => {
           </a>
         </Link>
         <span>
-          <h1 className="text-xl">Alex Carpenter</h1>
+          <h1 className={styles.heading}>Alex Carpenter</h1>
           <p>UI Engineer</p>
         </span>
       </div>
-      <button
-        onClick={query.toggle}
-        className="w-8 h-8 grid place-items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-      >
-        <span className="sr-only">View menu</span>
-        <Command className="w-4 h-4" />
+      <button onClick={query.toggle} className={styles.toggle}>
+        <VisuallyHidden>View menu</VisuallyHidden>
+        <Command width="1rem" height="1rem" />
       </button>
     </header>
   );

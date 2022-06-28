@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
+import { Heading } from "@/components/Heading";
+import { List, ListItem } from "@/components/List";
+import { Item, ItemMeta, ItemContent } from "@/components/Item";
 
 const RecommendationsList = ({
   recommendations,
@@ -14,21 +17,24 @@ const RecommendationsList = ({
   const [allRecs, showAllRecs] = React.useReducer(() => true, false);
   return (
     <>
-      <ul className="grid gap-8">
+      <List>
         {recommendations
           .slice(0, allRecs ? recommendations.length : 3)
           .map((recommendation, index) => {
             return (
-              <li key={index}>
-                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                  <span className="w-28 flex-shrink-0">
+              <ListItem key={index}>
+                <Item>
+                  <ItemMeta>
                     <time dateTime={recommendation.date}>
                       {format(parseISO(recommendation.date), "y")}
                     </time>
-                  </span>
-                  <div>
+                  </ItemMeta>
+                  <ItemContent>
                     <p>“{recommendation.text}”</p>
-                    <div className="mt-4 flex items-center gap-2">
+                    <p>
+                      {recommendation.name}, {recommendation.company}
+                    </p>
+                    {/* <div className="mt-4 flex items-center gap-2">
                       <span className="grid overflow-hidden rounded-full">
                         <Image
                           src={recommendation.avatar}
@@ -40,22 +46,22 @@ const RecommendationsList = ({
                       <p>
                         {recommendation.name}, {recommendation.company}
                       </p>
-                    </div>
-                  </div>
-                </article>
-              </li>
+                    </div> */}
+                  </ItemContent>
+                </Item>
+              </ListItem>
             );
           })}
-      </ul>
+      </List>
 
-      {!allRecs ? (
+      {/* {!allRecs ? (
         <div className="mt-8 flex gap-4">
           <span className="hidden sm:block w-28 flex-shrink-0" />
           <button onClick={showAllRecs} aria-label="Load all recommendations">
             Load all
           </button>
         </div>
-      ) : null}
+      ) : null} */}
     </>
   );
 };
@@ -103,10 +109,8 @@ const Home: NextPage<{
 }> = ({ posts, jobs, recommendations, interests }) => {
   return (
     <>
-      <section className="mt-16">
-        <h2 className="mb-8">
-          About&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
+      {/* <section>
+        <Heading decorated>About</Heading>
 
         <p>
           Hey, I&apos;m Alex. A detail oriented user interface engineer
@@ -115,28 +119,26 @@ const Home: NextPage<{
           maintain public-facing HashiCorp websites and web applications with
           Next.js.
         </p>
-        <p className="mt-4">
+
+        <p>
           <Link href="/timeline">
-            <a className="underline">View timeline</a>
+            <a>View timeline</a>
           </Link>
         </p>
-      </section>
+      </section> */}
 
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Experience&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
-
-        <ol className="grid gap-8">
+      {/* <section
+        <Heading>Experience</Heading>
+        <List>
           {jobs.map((job, index) => {
             return (
-              <li key={index}>
-                <article className="flex flex-col sm:flex-row sm:gap-4">
-                  <span className="w-28 flex-shrink-0">
+              <ListItem key={index}>
+                <Item>
+                  <ItemMeta>
                     {format(parseISO(job.startDate), "y")} &mdash;{" "}
                     {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
-                  </span>
-                  <div>
+                  </ItemMeta>
+                  <ItemContent>
                     <h3>
                       <a href="https://hashicorp.com">
                         {job.title} at {job.company}&nbsp;
@@ -147,45 +149,37 @@ const Home: NextPage<{
                     {job.description ? (
                       <p className="mt-2">{job.description}</p>
                     ) : null}
-                  </div>
-                </article>
-              </li>
+                  </ItemContent>
+                </Item>
+              </ListItem>
             );
           })}
-        </ol>
-      </section>
+        </List>
+      </section> */}
 
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Interests&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
+      {/* <section>
+        <Heading>Interests</Heading>
 
-        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <ul>
           {interests.map((interest, index) => {
             return <li key={index}>{interest}</li>;
           })}
         </ul>
-      </section>
+      </section> */}
 
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Recommendations&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
-
+      {/* <section>
+        <Heading>Recommendations</Heading>
         <RecommendationsList recommendations={recommendations} />
-      </section>
+      </section> */}
 
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Posts&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
-
-        <ul className="grid gap-8">
+      {/* <section>
+        <Heading>Posts</Heading>
+        <List>
           {posts.map((post, index) => {
             return (
-              <li key={index}>
-                <article className="flex flex-col sm:flex-row sm:gap-4">
-                  <span className="w-28 flex-shrink-0">
+              <ListItem key={index}>
+                <Item>
+                  <span>
                     <time dateTime={post.date}>
                       {format(parseISO(post.date), "LLL d")}
                     </time>
@@ -193,26 +187,23 @@ const Home: NextPage<{
                   <div>
                     <h3>
                       <Link href={`/posts/${post.slug}`}>
-                        <a className="underline">{post.title}</a>
+                        <a>{post.title}</a>
                       </Link>
                     </h3>
                     {post.description ? <p>{post.description}</p> : null}
                   </div>
-                </article>
-              </li>
+                </Item>
+              </ListItem>
             );
           })}
-        </ul>
+        </List>
 
-        <div className="mt-8 flex gap-4">
-          <span className="hidden sm:block w-28 flex-shrink-0" />
+        <p>
           <Link href="/posts">
-            <a className="underline" aria-label="View all posts">
-              View all
-            </a>
+            <a aria-label="View all posts">View all</a>
           </Link>
-        </div>
-      </section>
+        </p>
+      </section> */}
     </>
   );
 };

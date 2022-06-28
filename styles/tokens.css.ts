@@ -1,4 +1,4 @@
-import { gray, grayDark } from "@radix-ui/colors";
+import { gray, grayDark, blue, blueDark } from "@radix-ui/colors";
 import { createGlobalTheme } from "@vanilla-extract/css";
 
 export const tokens = createGlobalTheme(":root", {
@@ -6,18 +6,34 @@ export const tokens = createGlobalTheme(":root", {
     sans: "'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
   },
   color: {
-    gray: {
-      light: {
-        ...gray,
-      },
-      dark: {
-        ...grayDark,
-      },
+    light: {
+      ...gray,
+      ...blue,
+    },
+    dark: {
+      ...grayDark,
+      ...blueDark,
     },
   },
+  spacing: {
+    xs: "0.125rem",
+    sm: ".25rem",
+    md: ".5rem",
+    lg: "1rem",
+    xl: "2rem",
+    xxl: "3rem",
+    xxxl: "4rem",
+  },
   radius: {
-    sm: "0.125rem",
-    md: "0.25rem",
+    xs: "0.125rem",
+    sm: "0.25rem",
     full: "9999px",
+  },
+  maxWidth: {
+    md: "70ch",
+  },
+  transition: {
+    easing: "ease-in-out",
+    duration: "0.1s",
   },
 });
