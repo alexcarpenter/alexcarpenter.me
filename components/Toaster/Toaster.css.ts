@@ -6,7 +6,7 @@ export const root = style({
   position: "fixed",
   inset: 0,
   width: "100%",
-  height: "100vh",
+  height: "100%",
   display: "grid",
   alignItems: "end",
   placeItems: "end",
