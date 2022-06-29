@@ -126,9 +126,10 @@ const Home: NextPage<{
           <Link href="/timeline">View timeline</Link>
         </p>
       </section>
-
-      {/* <section
-        <Heading>Experience</Heading>
+      <Spacer size="xxxl" />
+      <section>
+        <Heading decorated>Experience</Heading>
+        <Spacer size="xl" />
         <List>
           {jobs.map((job, index) => {
             return (
@@ -155,7 +156,7 @@ const Home: NextPage<{
             );
           })}
         </List>
-      </section> */}
+      </section>
 
       {/* <section>
         <Heading>Interests</Heading>

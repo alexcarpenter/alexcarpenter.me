@@ -59,7 +59,3 @@ globalStyle("a:focus-visible", {
   outlineOffset: "2px",
   outlineColor: themeVars.color.outline,
 });
-
-globalStyle("section + section", {
-  marginTop: tokens.spacing.xxl,
-});
