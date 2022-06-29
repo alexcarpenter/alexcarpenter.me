@@ -2,12 +2,14 @@ import { Heading } from "@/components/Heading";
 import { List, ListItem } from "@/components/List";
 import { Link } from "@/components/Link";
 import { Item, ItemContent, ItemMeta } from "@/components/Item";
+import { Spacer } from "@/components/Spacer";
 import * as styles from "./ContentInfo.css";
 
 export const ContentInfo = () => {
   return (
     <footer className={styles.root}>
-      <Heading>Connect</Heading>
+      <Heading decorated>Connect</Heading>
+      <Spacer size="xl" />
       <List>
         <ListItem>
           <Item>

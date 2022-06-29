@@ -14,11 +14,11 @@ export const Heading = ({
   return (
     <Component className={styles.root}>
       {children}
-      {/* {decorated ? (
+      {decorated ? (
         <>
           &nbsp;<span aria-hidden={true}>¬</span>
         </>
-      ) : null} */}
+      ) : null}
     </Component>
   );
 };

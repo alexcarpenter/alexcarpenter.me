@@ -2,12 +2,14 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Post, Job, Recommendation } from "contentlayer/generated";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
 import { Heading } from "@/components/Heading";
 import { List, ListItem } from "@/components/List";
+import { Link } from "@/components/Link";
 import { Item, ItemMeta, ItemContent } from "@/components/Item";
+import { Spacer } from "@/components/Spacer";
 
 const RecommendationsList = ({
   recommendations,
@@ -109,9 +111,9 @@ const Home: NextPage<{
 }> = ({ posts, jobs, recommendations, interests }) => {
   return (
     <>
-      {/* <section>
+      <section>
         <Heading decorated>About</Heading>
-
+        <Spacer size="xl" />
         <p>
           Hey, I&apos;m Alex. A detail oriented user interface engineer
           interested in CSS architecture, React, TypeScript, design systems, and
@@ -119,13 +121,11 @@ const Home: NextPage<{
           maintain public-facing HashiCorp websites and web applications with
           Next.js.
         </p>
-
+        <Spacer size="lg" />
         <p>
-          <Link href="/timeline">
-            <a>View timeline</a>
-          </Link>
+          <Link href="/timeline">View timeline</Link>
         </p>
-      </section> */}
+      </section>
 
       {/* <section
         <Heading>Experience</Heading>

@@ -13,7 +13,7 @@ globalFontFace("Inter", {
 
 globalStyle("html", {
   fontSize: "0.875rem",
-  lineHeight: 1.4,
+  lineHeight: 1.5,
 });
 
 globalStyle("body", {
