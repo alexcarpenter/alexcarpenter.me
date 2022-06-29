@@ -1,15 +1,15 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import Image from "next/image";
+// import Image from "next/image";
 import { format, parseISO } from "date-fns";
 import type { Event } from "contentlayer/generated";
 // import Lightbox from "@/components/Lightbox";
+import { Box } from "@/components/Box";
 import { Heading } from "@/components/Heading";
 import { Link } from "@/components/Link";
 import { Spacer } from "@/components/Spacer";
 import { List, ListItem } from "@/components/List";
-import { Item, ItemMeta, ItemContent } from "@/components/Item";
 
 const Timeline: NextPage<{
   events: Record<string, Event[]>;
@@ -61,13 +61,18 @@ const Timeline: NextPage<{
                   {events.map((event, index) => {
                     return (
                       <ListItem key={index}>
-                        <Item>
-                          <ItemMeta>
-                            <time dateTime={event.date}>
-                              {format(parseISO(event.date), "LLL d")}
-                            </time>
-                          </ItemMeta>
-                          <ItemContent>
+                        <Box
+                          display="grid"
+                          columnGap="xl"
+                          gridTemplateColumns={{
+                            sm: "1fr",
+                            md: "8rem 1fr",
+                          }}
+                        >
+                          <time dateTime={event.date}>
+                            {format(parseISO(event.date), "LLL d")}
+                          </time>
+                          <div>
                             <Heading as="h3">
                               {event.link ? (
                                 <Link href={event.link}>
@@ -119,8 +124,8 @@ const Timeline: NextPage<{
                               </Lightbox>
                             </div>
                           ) : null} */}
-                          </ItemContent>
-                        </Item>
+                          </div>
+                        </Box>
                       </ListItem>
                     );
                   })}

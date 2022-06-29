@@ -2,10 +2,10 @@ import type { NextPage } from "next/types";
 import type { Post } from "contentlayer/generated";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
+import { Box } from "@/components/Box";
 import { Heading } from "@/components/Heading";
 import { Link } from "@/components/Link";
 import { List, ListItem } from "@/components/List";
-import { Item, ItemContent, ItemMeta } from "@/components/Item";
 import { Spacer } from "@/components/Spacer";
 
 export async function getStaticProps() {
@@ -27,13 +27,18 @@ const Posts: NextPage<{
           {posts.map((post, index) => {
             return (
               <ListItem key={index}>
-                <Item>
-                  <ItemMeta>
-                    <time dateTime={post.date}>
-                      {format(parseISO(post.date), "LLL d")}
-                    </time>
-                  </ItemMeta>
-                  <ItemContent>
+                <Box
+                  display="grid"
+                  columnGap="xl"
+                  gridTemplateColumns={{
+                    sm: "1fr",
+                    md: "8rem 1fr",
+                  }}
+                >
+                  <time dateTime={post.date}>
+                    {format(parseISO(post.date), "LLL d")}
+                  </time>
+                  <div>
                     <Heading as="h3">
                       <Link href={`/posts/${post.slug}`}>{post.title}</Link>
                     </Heading>
@@ -43,8 +48,8 @@ const Posts: NextPage<{
                         <p>{post.description}</p>
                       </>
                     ) : null}
-                  </ItemContent>
-                </Item>
+                  </div>
+                </Box>
               </ListItem>
             );
           })}

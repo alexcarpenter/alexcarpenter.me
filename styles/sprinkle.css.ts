@@ -6,11 +6,11 @@ export type Space = keyof typeof space;
 
 const responsiveProperties = defineProperties({
   conditions: {
-    mobile: {},
-    tablet: { "@media": "screen and (min-width: 768px)" },
-    desktop: { "@media": "screen and (min-width: 1024px)" },
+    sm: {},
+    md: { "@media": "screen and (min-width: 768px)" },
+    lg: { "@media": "screen and (min-width: 1024px)" },
   },
-  defaultCondition: "mobile",
+  defaultCondition: "sm",
   properties: {
     display: ["none", "flex", "grid", "block", "inline"],
     flexDirection: ["row", "column"],
@@ -30,6 +30,15 @@ const responsiveProperties = defineProperties({
     gap: space,
     columnGap: space,
     rowGap: space,
+    gridTemplateColumns: [
+      "1fr",
+      "8rem 1fr",
+      "repeat(2, 1fr)",
+      "repeat(3, 1fr)",
+      "repeat(4, 1fr)",
+    ],
+    gridColumnStart: [1, 2, 3, 4],
+    gridColumnEnd: [1, 2, 3, 4],
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],

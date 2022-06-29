@@ -29,17 +29,16 @@ export const dialog = style({
 export const searchInput = style({
   padding: tokens.spacing.lg,
   width: "100%",
-  borderBottom: "1px solid",
-  borderColor: themeVars.color.border,
+  borderBottom: `1px solid ${themeVars.color.border}`,
 });
 
 export const resultHeading = style({
-  padding: tokens.spacing.lg,
+  padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
   color: themeVars.color.foregroundHighlight,
 });
 
 export const result = style({
-  padding: tokens.spacing.lg,
+  padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
   display: "flex",
   alignItems: "center",
   gap: tokens.spacing.md,

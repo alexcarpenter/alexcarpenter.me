@@ -6,7 +6,6 @@ import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
 import { Heading } from "@/components/Heading";
 import { List, ListItem } from "@/components/List";
 import { Link } from "@/components/Link";
-import { Item, ItemMeta, ItemContent } from "@/components/Item";
 import { Spacer } from "@/components/Spacer";
 import { Avatar } from "@/components/Avatar/Avatar";
 import { Box } from "@/components/Box";
@@ -25,13 +24,18 @@ const RecommendationsList = ({
           .map((recommendation, index) => {
             return (
               <ListItem key={index}>
-                <Item>
-                  <ItemMeta>
-                    <time dateTime={recommendation.date}>
-                      {format(parseISO(recommendation.date), "y")}
-                    </time>
-                  </ItemMeta>
-                  <ItemContent>
+                <Box
+                  display="grid"
+                  columnGap="xl"
+                  gridTemplateColumns={{
+                    sm: "1fr",
+                    md: "8rem 1fr",
+                  }}
+                >
+                  <time dateTime={recommendation.date}>
+                    {format(parseISO(recommendation.date), "y")}
+                  </time>
+                  <div>
                     <p>“{recommendation.text}”</p>
                     <Spacer height="lg" />
                     <Box display="flex" alignItems="center" gap="lg">
@@ -43,8 +47,8 @@ const RecommendationsList = ({
                         {recommendation.name}, {recommendation.company}
                       </p>
                     </Box>
-                  </ItemContent>
-                </Item>
+                  </div>
+                </Box>
               </ListItem>
             );
           })}
@@ -53,16 +57,27 @@ const RecommendationsList = ({
       {!allRecs ? (
         <>
           <Spacer height="xl" />
-          <Item>
-            <ItemContent>
+          <Box
+            display="grid"
+            columnGap="xl"
+            gridTemplateColumns={{
+              sm: "1fr",
+              md: "8rem 1fr",
+            }}
+          >
+            <Box
+              gridColumnStart={{
+                md: 2,
+              }}
+            >
               <button
                 onClick={showAllRecs}
                 aria-label="Load all recommendations"
               >
                 Load all
               </button>
-            </ItemContent>
-          </Item>
+            </Box>
+          </Box>
         </>
       ) : null}
     </>
@@ -135,12 +150,19 @@ const Home: NextPage<{
           {jobs.map((job, index) => {
             return (
               <ListItem key={index}>
-                <Item>
-                  <ItemMeta>
+                <Box
+                  display="grid"
+                  columnGap="xl"
+                  gridTemplateColumns={{
+                    sm: "1fr",
+                    md: "8rem 1fr",
+                  }}
+                >
+                  <span>
                     {format(parseISO(job.startDate), "y")} &mdash;{" "}
                     {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
-                  </ItemMeta>
-                  <ItemContent>
+                  </span>
+                  <div>
                     <Heading as="h3">
                       <Link href={job.link}>
                         {job.title} at {job.company}&nbsp;
@@ -149,25 +171,38 @@ const Home: NextPage<{
                     <Spacer height="xs" />
                     <p>{job.location || "Remote"}</p>
                     {job.description ? (
-                      <p className="mt-2">{job.description}</p>
+                      <>
+                        <Spacer height="sm" />
+                        <p>{job.description}</p>
+                      </>
                     ) : null}
-                  </ItemContent>
-                </Item>
+                  </div>
+                </Box>
               </ListItem>
             );
           })}
         </List>
       </section>
 
-      {/* <section>
-        <Heading>Interests</Heading>
+      <Spacer height="xxxl" />
 
-        <ul>
+      <section>
+        <Heading decorated>Interests</Heading>
+        <Spacer height="xl" />
+        <Box
+          as="ul"
+          display="grid"
+          gridTemplateColumns={{
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+          }}
+          gap="lg"
+        >
           {interests.map((interest, index) => {
             return <li key={index}>{interest}</li>;
           })}
-        </ul>
-      </section> */}
+        </Box>
+      </section>
 
       <Spacer height="xxxl" />
 
@@ -186,13 +221,18 @@ const Home: NextPage<{
           {posts.map((post, index) => {
             return (
               <ListItem key={index}>
-                <Item>
-                  <ItemMeta>
-                    <time dateTime={post.date}>
-                      {format(parseISO(post.date), "LLL d")}
-                    </time>
-                  </ItemMeta>
-                  <ItemContent>
+                <Box
+                  display="grid"
+                  columnGap="xl"
+                  gridTemplateColumns={{
+                    sm: "1fr",
+                    md: "8rem 1fr",
+                  }}
+                >
+                  <time dateTime={post.date}>
+                    {format(parseISO(post.date), "LLL d")}
+                  </time>
+                  <div>
                     <Heading as="h3">
                       <Link href={`/posts/${post.slug}`}>{post.title}</Link>
                     </Heading>
@@ -202,8 +242,8 @@ const Home: NextPage<{
                         <p>{post.description}</p>
                       </>
                     ) : null}
-                  </ItemContent>
-                </Item>
+                  </div>
+                </Box>
               </ListItem>
             );
           })}
@@ -211,13 +251,24 @@ const Home: NextPage<{
 
         <Spacer height="xl" />
 
-        <Item as="div">
-          <ItemContent>
+        <Box
+          display="grid"
+          columnGap="xl"
+          gridTemplateColumns={{
+            sm: "1fr",
+            md: "8rem 1fr",
+          }}
+        >
+          <Box
+            gridColumnStart={{
+              md: 2,
+            }}
+          >
             <Link href="/posts" aria-label="View all posts">
               View all
             </Link>
-          </ItemContent>
-        </Item>
+          </Box>
+        </Box>
       </section>
     </>
   );

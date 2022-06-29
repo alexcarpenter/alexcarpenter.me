@@ -1,5 +1,4 @@
 import { createElement, AllHTMLAttributes, ElementType } from "react";
-
 import { sprinkles, Sprinkles } from "@/styles/sprinkle.css";
 import clsx from "clsx";
 
@@ -13,7 +12,7 @@ export interface BoxProps
 }
 
 export const Box = ({
-  component = "div",
+  as: component = "div",
   className,
   padding,
   paddingTop,
@@ -30,6 +29,9 @@ export const Box = ({
   gap,
   columnGap,
   rowGap,
+  gridTemplateColumns,
+  gridColumnStart,
+  gridColumnEnd,
   ...restProps
 }: BoxProps) => {
   const atomClasses = clsx(
@@ -49,6 +51,9 @@ export const Box = ({
       gap,
       columnGap,
       rowGap,
+      gridTemplateColumns,
+      gridColumnStart,
+      gridColumnEnd,
     }),
     className
   );

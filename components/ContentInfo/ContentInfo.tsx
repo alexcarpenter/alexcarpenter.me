@@ -1,9 +1,36 @@
+import { Box } from "@/components/Box";
 import { Heading } from "@/components/Heading";
 import { List, ListItem } from "@/components/List";
 import { Link } from "@/components/Link";
-import { Item, ItemContent, ItemMeta } from "@/components/Item";
 import { Spacer } from "@/components/Spacer";
 import * as styles from "./ContentInfo.css";
+
+const items: Array<{
+  heading: string;
+  link: string;
+  label: string;
+}> = [
+  {
+    heading: "Email",
+    link: "mailto:im.alexcarpenter@gmail.com",
+    label: "im.alexcarpenter@gmail.com",
+  },
+  {
+    heading: "Twitter",
+    link: "https://twitter.com/hybrid_alex",
+    label: "hybrid_alex",
+  },
+  {
+    heading: "Github",
+    link: "https://github.com/alexcarpenter",
+    label: "alexcarpenter",
+  },
+  {
+    heading: "LinkedIn",
+    link: "https://www.linkedin.com/in/imalexcarpenter/",
+    label: "alexcarpenter",
+  },
+];
 
 export const ContentInfo = () => {
   return (
@@ -11,42 +38,25 @@ export const ContentInfo = () => {
       <Heading decorated>Connect</Heading>
       <Spacer height="xl" />
       <List>
-        <ListItem>
-          <Item>
-            <ItemMeta>Email</ItemMeta>
-            <ItemContent>
-              <Link href="mailto:im.alexcarpenter@gmail.com">
-                im.alexcarpenter@gmail.com
-              </Link>
-            </ItemContent>
-          </Item>
-        </ListItem>
-        <ListItem>
-          <Item>
-            <ItemMeta>Twitter</ItemMeta>
-            <ItemContent>
-              <Link href="https://twitter.com/hybrid_alex">hybrid_alex</Link>
-            </ItemContent>
-          </Item>
-        </ListItem>
-        <ListItem>
-          <Item>
-            <ItemMeta>Github</ItemMeta>
-            <ItemContent>
-              <Link href="https://github.com/alexcarpenter">alexcarpenter</Link>
-            </ItemContent>
-          </Item>
-        </ListItem>
-        <ListItem>
-          <Item>
-            <ItemMeta>LinkedIn</ItemMeta>
-            <ItemContent>
-              <Link href="https://www.linkedin.com/in/imalexcarpenter/">
-                alexcarpenter
-              </Link>
-            </ItemContent>
-          </Item>
-        </ListItem>
+        {items.map((item) => {
+          return (
+            <ListItem key={item.heading}>
+              <Box
+                display="grid"
+                columnGap="xl"
+                gridTemplateColumns={{
+                  sm: "1fr",
+                  md: "8rem 1fr",
+                }}
+              >
+                <span>{item.heading}</span>
+                <div>
+                  <Link href={item.link}>{item.label}</Link>
+                </div>
+              </Box>
+            </ListItem>
+          );
+        })}
       </List>
     </footer>
   );
