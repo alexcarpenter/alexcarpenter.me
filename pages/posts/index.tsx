@@ -1,8 +1,12 @@
 import type { NextPage } from "next/types";
 import type { Post } from "contentlayer/generated";
-import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
+import { Box } from "@/components/Box";
+import { Heading } from "@/components/Heading";
+import { Link } from "@/components/Link";
+import { List, ListItem } from "@/components/List";
+import { Spacer } from "@/components/Spacer";
 
 export async function getStaticProps() {
   const posts = allPosts.sort((a, b) => {
@@ -16,33 +20,40 @@ const Posts: NextPage<{
 }> = ({ posts }) => {
   return (
     <>
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Posts&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
-        <ul className="grid gap-8">
+      <section>
+        <Heading decorated>Posts</Heading>
+        <Spacer height="xl" />
+        <List>
           {posts.map((post, index) => {
             return (
-              <li key={index}>
-                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                  <span className="w-28 flex-shrink-0">
-                    <time dateTime={post.date}>
-                      {format(parseISO(post.date), "LLL d")}
-                    </time>
-                  </span>
+              <ListItem key={index}>
+                <Box
+                  display="grid"
+                  columnGap="xl"
+                  gridTemplateColumns={{
+                    sm: "1fr",
+                    md: "8rem 1fr",
+                  }}
+                >
+                  <time dateTime={post.date}>
+                    {format(parseISO(post.date), "LLL d")}
+                  </time>
                   <div>
-                    <h3>
-                      <Link href={`/posts/${post.slug}`}>
-                        <a className="underline">{post.title}</a>
-                      </Link>
-                    </h3>
-                    {post.description ? <p>{post.description}</p> : null}
+                    <Heading as="h3">
+                      <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+                    </Heading>
+                    {post.description ? (
+                      <>
+                        <Spacer height="xs" />
+                        <p>{post.description}</p>
+                      </>
+                    ) : null}
                   </div>
-                </article>
-              </li>
+                </Box>
+              </ListItem>
             );
           })}
-        </ul>
+        </List>
       </section>
     </>
   );

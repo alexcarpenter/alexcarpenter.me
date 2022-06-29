@@ -1,5 +1,6 @@
 import * as React from "react";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import {
   KBarProvider,
   KBarPositioner,
@@ -13,6 +14,7 @@ import {
 import { OverlayContainer } from "@react-aria/overlays";
 import { FocusScope } from "@react-aria/focus";
 import { useActions } from "@/hooks/useActions";
+import * as styles from "./CommandBar.css";
 
 export const CommandBarProvider = ({
   children,
@@ -30,26 +32,10 @@ export const CommandBar = () => {
   return showing ? (
     <OverlayContainer>
       <FocusScope contain restoreFocus autoFocus>
-        <KBarPositioner
-          className={clsx(
-            "fixed inset-0 z-50 backdrop-blur-sm",
-            "bg-white/75",
-            "dark:bg-black/75"
-          )}
-        >
-          <KBarAnimator
-            className={clsx(
-              "max-w-[600px] mx-auto w-full border rounded-md overflow-hidden",
-              "bg-white border-gray-200",
-              "dark:bg-black dark:border-gray-700"
-            )}
-          >
+        <KBarPositioner className={styles.overlay}>
+          <KBarAnimator className={styles.dialog}>
             <KBarSearch
-              className={clsx(
-                "p-4 w-full border-b outline-none",
-                "bg-white border-gray-200",
-                "dark:bg-gray-800 dark:border-gray-700"
-              )}
+              className={styles.searchInput}
               placeholder="Type a command or search…"
             />
             <RenderResults />
@@ -68,16 +54,10 @@ function RenderResults() {
       items={results}
       onRender={({ item, active }) => {
         return typeof item === "string" ? (
-          <p className="px-4 py-2">{item}</p>
+          <p className={styles.resultHeading}>{item}</p>
         ) : (
-          <div
-            className={clsx(
-              "flex items-center gap-4 px-4 py-2 cursor-pointer",
-              "bg-trasparent",
-              active && "bg-gray-100 dark:bg-gray-800"
-            )}
-          >
-            {item.icon ? <span className="w-4 h-4">{item.icon}</span> : null}
+          <div className={clsx(styles.result, active && styles.active)}>
+            {item.icon ? item.icon : null}
             {item.name}
           </div>
         );

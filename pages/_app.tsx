@@ -1,12 +1,13 @@
-import "@/styles/globals.css";
+import "the-new-css-reset";
+import "@/styles/app.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { SSRProvider } from "@react-aria/ssr";
 import { OverlayProvider } from "@react-aria/overlays";
 import { ThemeProvider } from "next-themes";
 import { CommandBar, CommandBarProvider } from "@/components/CommandBar";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Banner } from "@/components/Banner";
+import { ContentInfo } from "@/components/ContentInfo";
 import { Toaster } from "@/components/Toaster";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <SSRProvider>
-      <OverlayProvider className="flex flex-col grow">
+      <OverlayProvider className="container">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -47,11 +48,11 @@ function MyApp({ Component, pageProps }: AppProps) {
               />
               <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
             </Head>
-            <Header />
+            <Banner />
             <main>
               <Component {...pageProps} />
             </main>
-            <Footer />
+            <ContentInfo />
             <CommandBar />
             <Toaster />
           </CommandBarProvider>

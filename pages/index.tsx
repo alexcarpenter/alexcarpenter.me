@@ -1,10 +1,14 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import type { Post, Job, Recommendation } from "contentlayer/generated";
-import Image from "next/image";
-import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
+import { Heading } from "@/components/Heading";
+import { List, ListItem } from "@/components/List";
+import { Link } from "@/components/Link";
+import { Spacer } from "@/components/Spacer";
+import { Avatar } from "@/components/Avatar/Avatar";
+import { Box } from "@/components/Box";
 
 const RecommendationsList = ({
   recommendations,
@@ -14,47 +18,67 @@ const RecommendationsList = ({
   const [allRecs, showAllRecs] = React.useReducer(() => true, false);
   return (
     <>
-      <ul className="grid gap-8">
+      <List>
         {recommendations
           .slice(0, allRecs ? recommendations.length : 3)
           .map((recommendation, index) => {
             return (
-              <li key={index}>
-                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                  <span className="w-28 flex-shrink-0">
-                    <time dateTime={recommendation.date}>
-                      {format(parseISO(recommendation.date), "y")}
-                    </time>
-                  </span>
+              <ListItem key={index}>
+                <Box
+                  display="grid"
+                  columnGap="xl"
+                  gridTemplateColumns={{
+                    sm: "1fr",
+                    md: "8rem 1fr",
+                  }}
+                >
+                  <time dateTime={recommendation.date}>
+                    {format(parseISO(recommendation.date), "y")}
+                  </time>
                   <div>
                     <p>“{recommendation.text}”</p>
-                    <div className="mt-4 flex items-center gap-2">
-                      <span className="grid overflow-hidden rounded-full">
-                        <Image
-                          src={recommendation.avatar}
-                          width={24}
-                          height={24}
-                          alt={`${recommendation.name} avatar`}
-                        />
-                      </span>
+                    <Spacer height="lg" />
+                    <Box display="flex" alignItems="center" gap="lg">
+                      <Avatar
+                        src={recommendation.avatar}
+                        alt={`${recommendation.name} avatar`}
+                      />
                       <p>
                         {recommendation.name}, {recommendation.company}
                       </p>
-                    </div>
+                    </Box>
                   </div>
-                </article>
-              </li>
+                </Box>
+              </ListItem>
             );
           })}
-      </ul>
+      </List>
 
       {!allRecs ? (
-        <div className="mt-8 flex gap-4">
-          <span className="hidden sm:block w-28 flex-shrink-0" />
-          <button onClick={showAllRecs} aria-label="Load all recommendations">
-            Load all
-          </button>
-        </div>
+        <>
+          <Spacer height="xl" />
+          <Box
+            display="grid"
+            columnGap="xl"
+            gridTemplateColumns={{
+              sm: "1fr",
+              md: "8rem 1fr",
+            }}
+          >
+            <Box
+              gridColumnStart={{
+                md: 2,
+              }}
+            >
+              <button
+                onClick={showAllRecs}
+                aria-label="Load all recommendations"
+              >
+                Load all
+              </button>
+            </Box>
+          </Box>
+        </>
       ) : null}
     </>
   );
@@ -103,11 +127,9 @@ const Home: NextPage<{
 }> = ({ posts, jobs, recommendations, interests }) => {
   return (
     <>
-      <section className="mt-16">
-        <h2 className="mb-8">
-          About&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
-
+      <section>
+        <Heading decorated>About</Heading>
+        <Spacer height="xl" />
         <p>
           Hey, I&apos;m Alex. A detail oriented user interface engineer
           interested in CSS architecture, React, TypeScript, design systems, and
@@ -115,103 +137,138 @@ const Home: NextPage<{
           maintain public-facing HashiCorp websites and web applications with
           Next.js.
         </p>
-        <p className="mt-4">
-          <Link href="/timeline">
-            <a className="underline">View timeline</a>
-          </Link>
+        <Spacer height="lg" />
+        <p>
+          <Link href="/timeline">View timeline</Link>
         </p>
       </section>
-
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Experience&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
-
-        <ol className="grid gap-8">
+      <Spacer height="xxxl" />
+      <section>
+        <Heading decorated>Experience</Heading>
+        <Spacer height="xl" />
+        <List>
           {jobs.map((job, index) => {
             return (
-              <li key={index}>
-                <article className="flex flex-col sm:flex-row sm:gap-4">
-                  <span className="w-28 flex-shrink-0">
+              <ListItem key={index}>
+                <Box
+                  display="grid"
+                  columnGap="xl"
+                  gridTemplateColumns={{
+                    sm: "1fr",
+                    md: "8rem 1fr",
+                  }}
+                >
+                  <span>
                     {format(parseISO(job.startDate), "y")} &mdash;{" "}
                     {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
                   </span>
                   <div>
-                    <h3>
-                      <a href="https://hashicorp.com">
+                    <Heading as="h3">
+                      <Link href={job.link}>
                         {job.title} at {job.company}&nbsp;
-                        <span aria-hidden={true}>↗</span>
-                      </a>
-                    </h3>
+                      </Link>
+                    </Heading>
+                    <Spacer height="xs" />
                     <p>{job.location || "Remote"}</p>
                     {job.description ? (
-                      <p className="mt-2">{job.description}</p>
+                      <>
+                        <Spacer height="sm" />
+                        <p>{job.description}</p>
+                      </>
                     ) : null}
                   </div>
-                </article>
-              </li>
+                </Box>
+              </ListItem>
             );
           })}
-        </ol>
+        </List>
       </section>
 
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Interests&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
+      <Spacer height="xxxl" />
 
-        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <section>
+        <Heading decorated>Interests</Heading>
+        <Spacer height="xl" />
+        <Box
+          as="ul"
+          display="grid"
+          gridTemplateColumns={{
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+          }}
+          gap="lg"
+        >
           {interests.map((interest, index) => {
             return <li key={index}>{interest}</li>;
           })}
-        </ul>
+        </Box>
       </section>
 
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Recommendations&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
+      <Spacer height="xxxl" />
 
+      <section>
+        <Heading decorated>Recommendations</Heading>
+        <Spacer height="xl" />
         <RecommendationsList recommendations={recommendations} />
       </section>
 
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Posts&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
+      <Spacer height="xxxl" />
 
-        <ul className="grid gap-8">
+      <section>
+        <Heading decorated>Posts</Heading>
+        <Spacer height="xl" />
+        <List>
           {posts.map((post, index) => {
             return (
-              <li key={index}>
-                <article className="flex flex-col sm:flex-row sm:gap-4">
-                  <span className="w-28 flex-shrink-0">
-                    <time dateTime={post.date}>
-                      {format(parseISO(post.date), "LLL d")}
-                    </time>
-                  </span>
+              <ListItem key={index}>
+                <Box
+                  display="grid"
+                  columnGap="xl"
+                  gridTemplateColumns={{
+                    sm: "1fr",
+                    md: "8rem 1fr",
+                  }}
+                >
+                  <time dateTime={post.date}>
+                    {format(parseISO(post.date), "LLL d")}
+                  </time>
                   <div>
-                    <h3>
-                      <Link href={`/posts/${post.slug}`}>
-                        <a className="underline">{post.title}</a>
-                      </Link>
-                    </h3>
-                    {post.description ? <p>{post.description}</p> : null}
+                    <Heading as="h3">
+                      <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+                    </Heading>
+                    {post.description ? (
+                      <>
+                        <Spacer height="xs" />
+                        <p>{post.description}</p>
+                      </>
+                    ) : null}
                   </div>
-                </article>
-              </li>
+                </Box>
+              </ListItem>
             );
           })}
-        </ul>
+        </List>
 
-        <div className="mt-8 flex gap-4">
-          <span className="hidden sm:block w-28 flex-shrink-0" />
-          <Link href="/posts">
-            <a className="underline" aria-label="View all posts">
+        <Spacer height="xl" />
+
+        <Box
+          display="grid"
+          columnGap="xl"
+          gridTemplateColumns={{
+            sm: "1fr",
+            md: "8rem 1fr",
+          }}
+        >
+          <Box
+            gridColumnStart={{
+              md: 2,
+            }}
+          >
+            <Link href="/posts" aria-label="View all posts">
               View all
-            </a>
-          </Link>
-        </div>
+            </Link>
+          </Box>
+        </Box>
       </section>
     </>
   );

@@ -1,11 +1,15 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { format, parseISO } from "date-fns";
 import type { Event } from "contentlayer/generated";
-import Lightbox from "@/components/Lightbox";
+// import Lightbox from "@/components/Lightbox";
+import { Box } from "@/components/Box";
+import { Heading } from "@/components/Heading";
+import { Link } from "@/components/Link";
+import { Spacer } from "@/components/Spacer";
+import { List, ListItem } from "@/components/List";
 
 const Timeline: NextPage<{
   events: Record<string, Event[]>;
@@ -15,79 +19,79 @@ const Timeline: NextPage<{
 
   return (
     <>
-      <header className="mt-16 mb-8">
-        <h2>
-          Timeline&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
-        <p className="mt-2">
+      <header>
+        <Heading decorated>Timeline</Heading>
+        <Spacer height="sm" />
+        <p>
           Filter by{" "}
-          <Link href="/timeline">
-            <a
-              className="underline"
-              aria-current={category === undefined ? "page" : undefined}
-            >
-              all
-            </a>
+          <Link
+            href="/timeline"
+            aria-current={category === undefined ? "page" : undefined}
+          >
+            all
           </Link>
           ,{" "}
-          <Link href="/timeline/work">
-            <a
-              className="underline"
-              aria-current={category === "work" ? "page" : undefined}
-            >
-              work
-            </a>
+          <Link
+            href="/timeline/work"
+            aria-current={category === "work" ? "page" : undefined}
+          >
+            work
           </Link>
           ,{" "}
-          <Link href="/timeline/life">
-            <a
-              className="underline"
-              aria-current={category === "life" ? "page" : undefined}
-            >
-              life
-            </a>
+          <Link
+            href="/timeline/life"
+            aria-current={category === "life" ? "page" : undefined}
+          >
+            life
           </Link>
           .
         </p>
       </header>
+      <Spacer height="xl" />
       {Object.entries(events)
         .reverse()
-        .map(([year, events]) => {
+        .map(([year, events], index) => {
           return (
-            <section key={year} className="mt-16">
-              <h2>
-                {year}&nbsp;<span aria-hidden={true}>¬</span>
-              </h2>
-              <ol className="mt-8 grid gap-8">
-                {events.map((event, index) => {
-                  return (
-                    <li key={index}>
-                      <article className="flex flex-col sm:flex-row sm:gap-4">
-                        <span className="w-28 flex-shrink-0">
+            <React.Fragment key={year}>
+              {index !== 0 ? <Spacer height="xxl" /> : null}
+              <section>
+                <Heading>{year}</Heading>
+                <Spacer height="xl" />
+                <List as="ol">
+                  {events.map((event, index) => {
+                    return (
+                      <ListItem key={index}>
+                        <Box
+                          display="grid"
+                          columnGap="xl"
+                          gridTemplateColumns={{
+                            sm: "1fr",
+                            md: "8rem 1fr",
+                          }}
+                        >
                           <time dateTime={event.date}>
                             {format(parseISO(event.date), "LLL d")}
                           </time>
-                        </span>
-                        <div>
-                          <h3>
-                            {event.link ? (
-                              <Link href={event.link}>
-                                <a>
+                          <div>
+                            <Heading as="h3">
+                              {event.link ? (
+                                <Link href={event.link}>
                                   {event.title}&nbsp;
-                                  <span aria-hidden={true}>↗</span>
-                                </a>
-                              </Link>
-                            ) : (
-                              event.title
-                            )}
-                          </h3>
-                          {event.link ? (
-                            <p>{new URL(event.link).hostname}</p>
-                          ) : null}
-                          {event.description ? (
-                            <p>{event.description}</p>
-                          ) : null}
-                          {event.media ? (
+                                </Link>
+                              ) : (
+                                event.title
+                              )}
+                            </Heading>
+                            {event.link || event.description ? (
+                              <Spacer height="xs" />
+                            ) : null}
+                            {event.link ? (
+                              <p>{new URL(event.link).hostname}</p>
+                            ) : null}
+                            {event.description ? (
+                              <p>{event.description}</p>
+                            ) : null}
+                            {/* {event.media ? (
                             <div className="mt-4 grid grid-cols-5 gap-4">
                               <Lightbox
                                 title={`${event.title} images`}
@@ -119,14 +123,15 @@ const Timeline: NextPage<{
                                 }}
                               </Lightbox>
                             </div>
-                          ) : null}
-                        </div>
-                      </article>
-                    </li>
-                  );
-                })}
-              </ol>
-            </section>
+                          ) : null} */}
+                          </div>
+                        </Box>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </section>
+            </React.Fragment>
           );
         })}
     </>

@@ -1,7 +1,10 @@
 import Image from "next/image";
-import { Note } from "./Note";
+import { Link, LinkProps } from "@/components/Link";
+import { Heading, HeadingProps } from "@/components/Heading";
 
 export const Components = {
   Image,
-  Note,
+  a: (props: LinkProps) => <Link {...props} />,
+  h2: (props: HeadingProps) => <Heading as="h2" {...props} />,
+  h3: (props: HeadingProps) => <Heading as="h3" {...props} />,
 };
