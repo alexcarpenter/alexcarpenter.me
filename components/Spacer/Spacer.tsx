@@ -12,7 +12,7 @@ export const Spacer = ({ height, width }: SpacerProps) => {
     <span
       className={clsx(
         height && styles.heightVariants[height],
-        width && styles.heightVariants[width]
+        width && styles.widthVariants[width]
       )}
     />
   );

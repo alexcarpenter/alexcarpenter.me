@@ -4,6 +4,7 @@ import { createGlobalTheme } from "@vanilla-extract/css";
 export const tokens = createGlobalTheme(":root", {
   font: {
     sans: "'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
+    mono: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
   },
   color: {
     light: {
@@ -40,6 +41,10 @@ export const tokens = createGlobalTheme(":root", {
   },
   maxWidth: {
     md: "70ch",
+  },
+  contentWidth: {
+    standard: "70ch",
+    itemMeta: "8rem",
   },
   transition: {
     easing: "ease-in-out",
