@@ -9,6 +9,7 @@ import { List, ListItem } from "@/components/List";
 import { Link } from "@/components/Link";
 import { Item, ItemMeta, ItemContent } from "@/components/Item";
 import { Spacer } from "@/components/Spacer";
+import { Avatar } from "@/components/Avatar/Avatar";
 
 const RecommendationsList = ({
   recommendations,
@@ -33,6 +34,10 @@ const RecommendationsList = ({
                   <ItemContent>
                     <p>“{recommendation.text}”</p>
                     <Spacer size="lg" />
+                    {/* <Avatar
+                      src={recommendation.avatar}
+                      alt={`${recommendation.name} avatar`}
+                    /> */}
                     <p>
                       &mdash; {recommendation.name}, {recommendation.company}
                     </p>
