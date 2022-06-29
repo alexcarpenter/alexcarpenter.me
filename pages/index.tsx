@@ -1,7 +1,6 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import type { Post, Job, Recommendation } from "contentlayer/generated";
-import Image from "next/image";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
 import { Heading } from "@/components/Heading";
