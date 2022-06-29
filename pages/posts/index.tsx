@@ -34,10 +34,15 @@ const Posts: NextPage<{
                     </time>
                   </ItemMeta>
                   <ItemContent>
-                    <h3>
+                    <Heading as="h3">
                       <Link href={`/posts/${post.slug}`}>{post.title}</Link>
-                    </h3>
-                    {post.description ? <p>{post.description}</p> : null}
+                    </Heading>
+                    {post.description ? (
+                      <>
+                        <Spacer size="xs" />
+                        <p>{post.description}</p>
+                      </>
+                    ) : null}
                   </ItemContent>
                 </Item>
               </ListItem>

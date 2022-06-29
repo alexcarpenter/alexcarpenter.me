@@ -139,12 +139,12 @@ const Home: NextPage<{
                     {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
                   </ItemMeta>
                   <ItemContent>
-                    <h3>
-                      <a href={job.link}>
+                    <Heading as="h3">
+                      <Link href={job.link}>
                         {job.title} at {job.company}&nbsp;
-                        <span aria-hidden={true}>↗</span>
-                      </a>
-                    </h3>
+                      </Link>
+                    </Heading>
+                    <Spacer size="xs" />
                     <p>{job.location || "Remote"}</p>
                     {job.description ? (
                       <p className="mt-2">{job.description}</p>
@@ -190,10 +190,15 @@ const Home: NextPage<{
                     </time>
                   </ItemMeta>
                   <ItemContent>
-                    <h3>
+                    <Heading as="h3">
                       <Link href={`/posts/${post.slug}`}>{post.title}</Link>
-                    </h3>
-                    {post.description ? <p>{post.description}</p> : null}
+                    </Heading>
+                    {post.description ? (
+                      <>
+                        <Spacer size="xs" />
+                        <p>{post.description}</p>
+                      </>
+                    ) : null}
                   </ItemContent>
                 </Item>
               </ListItem>

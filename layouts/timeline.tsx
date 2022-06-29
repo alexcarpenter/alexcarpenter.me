@@ -78,7 +78,7 @@ const Timeline: NextPage<{
                               )}
                             </Heading>
                             {event.link || event.description ? (
-                              <Spacer size="sm" />
+                              <Spacer size="xs" />
                             ) : null}
                             {event.link ? (
                               <p>{new URL(event.link).hostname}</p>
