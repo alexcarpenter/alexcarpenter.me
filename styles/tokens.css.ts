@@ -1,4 +1,11 @@
-import { gray, grayDark, blue, blueDark } from "@radix-ui/colors";
+import {
+  gray,
+  grayDark,
+  blue,
+  blueDark,
+  yellow,
+  yellowDark,
+} from "@radix-ui/colors";
 import { createGlobalTheme } from "@vanilla-extract/css";
 
 export const tokens = createGlobalTheme(":root", {
@@ -10,10 +17,12 @@ export const tokens = createGlobalTheme(":root", {
     light: {
       ...gray,
       ...blue,
+      ...yellow,
     },
     dark: {
       ...grayDark,
       ...blueDark,
+      ...yellowDark,
     },
   },
   spacing: {

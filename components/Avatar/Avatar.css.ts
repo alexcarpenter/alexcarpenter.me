@@ -1,5 +1,5 @@
 import { tokens } from "@/styles/tokens.css";
-import { style } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 
 export const root = style({
   position: "relative",
@@ -8,12 +8,12 @@ export const root = style({
   overflow: "hidden",
 });
 
-export const xl = style({
-  width: tokens.sizing.xl,
-  height: tokens.sizing.xl,
-});
+const sizes = {
+  xl: tokens.sizing.xl,
+  xxxl: tokens.sizing.xxxl,
+} as const;
 
-export const xxxl = style({
-  width: tokens.sizing.xxxl,
-  height: tokens.sizing.xxxl,
-});
+export const sizeVariants = styleVariants(sizes, (size) => [
+  root,
+  { width: size, height: size },
+]);

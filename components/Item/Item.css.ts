@@ -6,15 +6,15 @@ export const root = style({
   gridTemplateColumns: "1fr",
   columnGap: tokens.spacing.xl,
   "@media": {
-    "screen and (min-width: 500px)": {
-      gridTemplateColumns: "8rem 1fr",
+    "screen and (min-width: 768px)": {
+      gridTemplateColumns: `${tokens.contentWidth.itemMeta} 1fr`,
     },
   },
 });
 
 export const meta = style({
   "@media": {
-    "screen and (min-width: 500px)": {
+    "screen and (min-width: 768px)": {
       gridColumnStart: 1,
       gridRowStart: 1,
     },
@@ -23,7 +23,7 @@ export const meta = style({
 
 export const content = style({
   "@media": {
-    "screen and (min-width: 500px)": {
+    "screen and (min-width: 768px)": {
       gridRowStart: 1,
       gridColumnStart: 2,
     },
