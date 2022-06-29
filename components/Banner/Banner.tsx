@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useKBar } from "kbar";
-import { Command } from "react-feather";
+import { Icon } from "@/components/Icon";
 import { VisuallyHidden } from "@/components/VisuallyHidden";
 import * as styles from "./Banner.css";
 
@@ -44,7 +44,7 @@ export const Banner = () => {
       </div>
       <button onClick={query.toggle} className={styles.toggle}>
         <VisuallyHidden>View menu</VisuallyHidden>
-        <Command width="1rem" height="1rem" />
+        <Icon name="command" />
       </button>
     </header>
   );

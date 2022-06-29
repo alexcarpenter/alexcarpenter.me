@@ -1,9 +1,8 @@
 import { toast, useToaster } from "react-hot-toast";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { CheckCircle, X } from "react-feather";
-import clsx from "clsx";
-import * as styles from "./Toaster.css";
 import { VisuallyHidden } from "../VisuallyHidden";
+import * as styles from "./Toaster.css";
 
 export const Toaster = () => {
   const { toasts, handlers } = useToaster({

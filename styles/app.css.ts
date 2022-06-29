@@ -44,6 +44,7 @@ globalStyle(".container", {
 
 globalStyle("a, button", {
   color: themeVars.color.foregroundHighlight,
+  cursor: "pointer",
 });
 
 globalStyle("button:focus-visible", {
