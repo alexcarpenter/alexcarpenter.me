@@ -10,6 +10,7 @@ import { Link } from "@/components/Link";
 import { Item, ItemMeta, ItemContent } from "@/components/Item";
 import { Spacer } from "@/components/Spacer";
 import { Avatar } from "@/components/Avatar/Avatar";
+import { Box } from "@/components/Box";
 
 const RecommendationsList = ({
   recommendations,
@@ -34,26 +35,15 @@ const RecommendationsList = ({
                   <ItemContent>
                     <p>“{recommendation.text}”</p>
                     <Spacer size="lg" />
-                    {/* <Avatar
-                      src={recommendation.avatar}
-                      alt={`${recommendation.name} avatar`}
-                    /> */}
-                    <p>
-                      &mdash; {recommendation.name}, {recommendation.company}
-                    </p>
-                    {/* <div className="mt-4 flex items-center gap-2">
-                      <span className="grid overflow-hidden rounded-full">
-                        <Image
-                          src={recommendation.avatar}
-                          width={24}
-                          height={24}
-                          alt={`${recommendation.name} avatar`}
-                        />
-                      </span>
+                    <Box display="flex" alignItems="center" gap="lg">
+                      <Avatar
+                        src={recommendation.avatar}
+                        alt={`${recommendation.name} avatar`}
+                      />
                       <p>
                         {recommendation.name}, {recommendation.company}
                       </p>
-                    </div> */}
+                    </Box>
                   </ItemContent>
                 </Item>
               </ListItem>
