@@ -2,7 +2,6 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Post, Job, Recommendation } from "contentlayer/generated";
 import Image from "next/image";
-// import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
 import { Heading } from "@/components/Heading";
@@ -141,7 +140,7 @@ const Home: NextPage<{
                   </ItemMeta>
                   <ItemContent>
                     <h3>
-                      <a href="https://hashicorp.com">
+                      <a href={job.link}>
                         {job.title} at {job.company}&nbsp;
                         <span aria-hidden={true}>↗</span>
                       </a>
@@ -173,38 +172,45 @@ const Home: NextPage<{
         <RecommendationsList recommendations={recommendations} />
       </section> */}
 
-      {/* <section>
-        <Heading>Posts</Heading>
+      <Spacer size="xxxl" />
+
+      <section>
+        <Heading decorated>Posts</Heading>
+
+        <Spacer size="xl" />
+
         <List>
           {posts.map((post, index) => {
             return (
               <ListItem key={index}>
                 <Item>
-                  <span>
+                  <ItemMeta>
                     <time dateTime={post.date}>
                       {format(parseISO(post.date), "LLL d")}
                     </time>
-                  </span>
-                  <div>
+                  </ItemMeta>
+                  <ItemContent>
                     <h3>
-                      <Link href={`/posts/${post.slug}`}>
-                        <a>{post.title}</a>
-                      </Link>
+                      <Link href={`/posts/${post.slug}`}>{post.title}</Link>
                     </h3>
                     {post.description ? <p>{post.description}</p> : null}
-                  </div>
+                  </ItemContent>
                 </Item>
               </ListItem>
             );
           })}
         </List>
 
-        <p>
-          <Link href="/posts">
-            <a aria-label="View all posts">View all</a>
-          </Link>
-        </p>
-      </section> */}
+        <Spacer size="xl" />
+
+        <Item>
+          <ItemContent>
+            <Link href="/posts" aria-label="View all posts">
+              View all
+            </Link>
+          </ItemContent>
+        </Item>
+      </section>
     </>
   );
 };
