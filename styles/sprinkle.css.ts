@@ -1,10 +1,4 @@
-import {
-  defineProperties,
-  createSprinkles,
-  createMapValueFn,
-  createNormalizeValueFn,
-  ConditionalValue,
-} from "@vanilla-extract/sprinkles";
+import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import { tokens } from "./tokens.css";
 
 const space = tokens.spacing;
