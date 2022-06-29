@@ -32,8 +32,9 @@ const RecommendationsList = ({
                   </ItemMeta>
                   <ItemContent>
                     <p>“{recommendation.text}”</p>
+                    <Spacer size="lg" />
                     <p>
-                      {recommendation.name}, {recommendation.company}
+                      &mdash; {recommendation.name}, {recommendation.company}
                     </p>
                     {/* <div className="mt-4 flex items-center gap-2">
                       <span className="grid overflow-hidden rounded-full">
@@ -55,14 +56,21 @@ const RecommendationsList = ({
           })}
       </List>
 
-      {/* {!allRecs ? (
-        <div className="mt-8 flex gap-4">
-          <span className="hidden sm:block w-28 flex-shrink-0" />
-          <button onClick={showAllRecs} aria-label="Load all recommendations">
-            Load all
-          </button>
-        </div>
-      ) : null} */}
+      {!allRecs ? (
+        <>
+          <Spacer size="xl" />
+          <Item>
+            <ItemContent>
+              <button
+                onClick={showAllRecs}
+                aria-label="Load all recommendations"
+              >
+                Load all
+              </button>
+            </ItemContent>
+          </Item>
+        </>
+      ) : null}
     </>
   );
 };
@@ -167,18 +175,19 @@ const Home: NextPage<{
         </ul>
       </section> */}
 
-      {/* <section>
-        <Heading>Recommendations</Heading>
+      <Spacer size="xxxl" />
+
+      <section>
+        <Heading decorated>Recommendations</Heading>
+        <Spacer size="xl" />
         <RecommendationsList recommendations={recommendations} />
-      </section> */}
+      </section>
 
       <Spacer size="xxxl" />
 
       <section>
         <Heading decorated>Posts</Heading>
-
         <Spacer size="xl" />
-
         <List>
           {posts.map((post, index) => {
             return (
