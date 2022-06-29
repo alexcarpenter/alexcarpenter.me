@@ -21,7 +21,7 @@ const Timeline: NextPage<{
     <>
       <header>
         <Heading decorated>Timeline</Heading>
-        <Spacer size="sm" />
+        <Spacer height="sm" />
         <p>
           Filter by{" "}
           <Link
@@ -47,16 +47,16 @@ const Timeline: NextPage<{
           .
         </p>
       </header>
-      <Spacer size="xl" />
+      <Spacer height="xl" />
       {Object.entries(events)
         .reverse()
         .map(([year, events], index) => {
           return (
             <React.Fragment key={year}>
-              {index !== 0 ? <Spacer size="xxl" /> : null}
+              {index !== 0 ? <Spacer height="xxl" /> : null}
               <section>
                 <Heading>{year}</Heading>
-                <Spacer size="xl" />
+                <Spacer height="xl" />
                 <List as="ol">
                   {events.map((event, index) => {
                     return (
@@ -78,7 +78,7 @@ const Timeline: NextPage<{
                               )}
                             </Heading>
                             {event.link || event.description ? (
-                              <Spacer size="xs" />
+                              <Spacer height="xs" />
                             ) : null}
                             {event.link ? (
                               <p>{new URL(event.link).hostname}</p>

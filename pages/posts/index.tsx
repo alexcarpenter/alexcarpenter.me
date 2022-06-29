@@ -22,7 +22,7 @@ const Posts: NextPage<{
     <>
       <section>
         <Heading decorated>Posts</Heading>
-        <Spacer size="xl" />
+        <Spacer height="xl" />
         <List>
           {posts.map((post, index) => {
             return (
@@ -39,7 +39,7 @@ const Posts: NextPage<{
                     </Heading>
                     {post.description ? (
                       <>
-                        <Spacer size="xs" />
+                        <Spacer height="xs" />
                         <p>{post.description}</p>
                       </>
                     ) : null}

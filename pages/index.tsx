@@ -34,7 +34,7 @@ const RecommendationsList = ({
                   </ItemMeta>
                   <ItemContent>
                     <p>“{recommendation.text}”</p>
-                    <Spacer size="lg" />
+                    <Spacer height="lg" />
                     <Box display="flex" alignItems="center" gap="lg">
                       <Avatar
                         src={recommendation.avatar}
@@ -53,7 +53,7 @@ const RecommendationsList = ({
 
       {!allRecs ? (
         <>
-          <Spacer size="xl" />
+          <Spacer height="xl" />
           <Item>
             <ItemContent>
               <button
@@ -115,7 +115,7 @@ const Home: NextPage<{
     <>
       <section>
         <Heading decorated>About</Heading>
-        <Spacer size="xl" />
+        <Spacer height="xl" />
         <p>
           Hey, I&apos;m Alex. A detail oriented user interface engineer
           interested in CSS architecture, React, TypeScript, design systems, and
@@ -123,15 +123,15 @@ const Home: NextPage<{
           maintain public-facing HashiCorp websites and web applications with
           Next.js.
         </p>
-        <Spacer size="lg" />
+        <Spacer height="lg" />
         <p>
           <Link href="/timeline">View timeline</Link>
         </p>
       </section>
-      <Spacer size="xxxl" />
+      <Spacer height="xxxl" />
       <section>
         <Heading decorated>Experience</Heading>
-        <Spacer size="xl" />
+        <Spacer height="xl" />
         <List>
           {jobs.map((job, index) => {
             return (
@@ -147,7 +147,7 @@ const Home: NextPage<{
                         {job.title} at {job.company}&nbsp;
                       </Link>
                     </Heading>
-                    <Spacer size="xs" />
+                    <Spacer height="xs" />
                     <p>{job.location || "Remote"}</p>
                     {job.description ? (
                       <p className="mt-2">{job.description}</p>
@@ -170,19 +170,19 @@ const Home: NextPage<{
         </ul>
       </section> */}
 
-      <Spacer size="xxxl" />
+      <Spacer height="xxxl" />
 
       <section>
         <Heading decorated>Recommendations</Heading>
-        <Spacer size="xl" />
+        <Spacer height="xl" />
         <RecommendationsList recommendations={recommendations} />
       </section>
 
-      <Spacer size="xxxl" />
+      <Spacer height="xxxl" />
 
       <section>
         <Heading decorated>Posts</Heading>
-        <Spacer size="xl" />
+        <Spacer height="xl" />
         <List>
           {posts.map((post, index) => {
             return (
@@ -199,7 +199,7 @@ const Home: NextPage<{
                     </Heading>
                     {post.description ? (
                       <>
-                        <Spacer size="xs" />
+                        <Spacer height="xs" />
                         <p>{post.description}</p>
                       </>
                     ) : null}
@@ -210,7 +210,7 @@ const Home: NextPage<{
           })}
         </List>
 
-        <Spacer size="xl" />
+        <Spacer height="xl" />
 
         <Item as="div">
           <ItemContent>

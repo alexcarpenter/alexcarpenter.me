@@ -1,19 +1,19 @@
-import { tokens } from "@/styles/tokens.css";
-import { root } from "./Spacer.css";
+import type { heightVariants, widthVariants } from "./Spacer.css";
+import * as styles from "./Spacer.css";
+import clsx from "clsx";
 
 interface SpacerProps {
-  axis?: "x" | "y";
-  size?: keyof typeof tokens.spacing;
+  height?: keyof typeof heightVariants;
+  width?: keyof typeof widthVariants;
 }
 
-export const Spacer = ({ axis = "y", size = "xs" }: SpacerProps) => {
+export const Spacer = ({ height, width }: SpacerProps) => {
   return (
     <span
-      aria-hidden={true}
-      className={root({
-        axis,
-        size,
-      })}
+      className={clsx(
+        height && styles.heightVariants[height],
+        width && styles.heightVariants[width]
+      )}
     />
   );
 };

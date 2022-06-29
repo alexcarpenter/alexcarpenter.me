@@ -9,7 +9,7 @@ export const ContentInfo = () => {
   return (
     <footer className={styles.root}>
       <Heading decorated>Connect</Heading>
-      <Spacer size="xl" />
+      <Spacer height="xl" />
       <List>
         <ListItem>
           <Item>

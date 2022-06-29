@@ -38,7 +38,7 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
         <time dateTime={post.date}>
           {format(parseISO(post.date), "LLLL d, yyyy")}
         </time>
-        <Spacer size="xl" />
+        <Spacer height="xl" />
         <Prose>
           <MDXContent components={Components} />
         </Prose>
