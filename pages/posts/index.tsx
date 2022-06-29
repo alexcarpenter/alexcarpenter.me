@@ -1,8 +1,12 @@
 import type { NextPage } from "next/types";
 import type { Post } from "contentlayer/generated";
-import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
+import { Heading } from "@/components/Heading";
+import { Link } from "@/components/Link";
+import { List, ListItem } from "@/components/List";
+import { Item, ItemContent, ItemMeta } from "@/components/Item";
+import { Spacer } from "@/components/Spacer";
 
 export async function getStaticProps() {
   const posts = allPosts.sort((a, b) => {
@@ -16,33 +20,30 @@ const Posts: NextPage<{
 }> = ({ posts }) => {
   return (
     <>
-      <section className="mt-16">
-        <h2 className="mb-8">
-          Posts&nbsp;<span aria-hidden={true}>¬</span>
-        </h2>
-        <ul className="grid gap-8">
+      <section>
+        <Heading decorated>Posts</Heading>
+        <Spacer size="xl" />
+        <List>
           {posts.map((post, index) => {
             return (
-              <li key={index}>
-                <article className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                  <span className="w-28 flex-shrink-0">
+              <ListItem key={index}>
+                <Item>
+                  <ItemMeta>
                     <time dateTime={post.date}>
                       {format(parseISO(post.date), "LLL d")}
                     </time>
-                  </span>
-                  <div>
+                  </ItemMeta>
+                  <ItemContent>
                     <h3>
-                      <Link href={`/posts/${post.slug}`}>
-                        <a className="underline">{post.title}</a>
-                      </Link>
+                      <Link href={`/posts/${post.slug}`}>{post.title}</Link>
                     </h3>
                     {post.description ? <p>{post.description}</p> : null}
-                  </div>
-                </article>
-              </li>
+                  </ItemContent>
+                </Item>
+              </ListItem>
             );
           })}
-        </ul>
+        </List>
       </section>
     </>
   );

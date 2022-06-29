@@ -203,7 +203,7 @@ const Home: NextPage<{
 
         <Spacer size="xl" />
 
-        <Item>
+        <Item as="div">
           <ItemContent>
             <Link href="/posts" aria-label="View all posts">
               View all

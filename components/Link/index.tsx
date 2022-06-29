@@ -1,9 +1,13 @@
-import type { LinkProps } from "next/link";
+import type { LinkProps as NextLinkProps } from "next/link";
 import { default as NextLink } from "next/link";
 import clsx from "clsx";
 import * as styles from "./Link.css";
 
-export const Link = (props: LinkProps & { children: React.ReactNode }) => {
+export type LinkProps = NextLinkProps & {
+  children: React.ReactNode;
+};
+
+export const Link = (props: LinkProps) => {
   const { href, children, ...rest } = props;
   const isInternalLink =
     href &&

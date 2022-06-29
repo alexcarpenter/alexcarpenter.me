@@ -1,6 +1,6 @@
 import * as styles from "./Heading.css";
 
-interface HeadingProps {
+export interface HeadingProps {
   as?: "h2" | "h3";
   decorated?: boolean;
   children: React.ReactNode;
