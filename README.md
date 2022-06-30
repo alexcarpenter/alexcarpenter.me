@@ -1,6 +1,6 @@
 # alexcarpenter.me
 
-> Personal website built with Next.js, TypeScript, Contentlayer, and Tailwind CSS.
+> Personal website built with Next.js, TypeScript, Contentlayer, and vanilla-extract.
 
 ## Getting Started
 
