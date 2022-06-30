@@ -1,28 +1,24 @@
+import { style } from "@vanilla-extract/css";
+import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import { tokens } from "@/styles/tokens.css";
-import { style, styleVariants } from "@vanilla-extract/css";
+
+const space = tokens.sizing;
+
+const responsiveProperties = defineProperties({
+  conditions: {
+    sm: {},
+    md: { "@media": "screen and (min-width: 768px)" },
+    lg: { "@media": "screen and (min-width: 1024px)" },
+  },
+  defaultCondition: "sm",
+  properties: {
+    width: space,
+    height: space,
+  },
+});
 
 export const root = style({
   display: "block",
-  height: 1,
-  width: 1,
 });
-
-const sizes = {
-  xs: tokens.sizing.xs,
-  sm: tokens.sizing.sm,
-  md: tokens.sizing.md,
-  lg: tokens.sizing.lg,
-  xl: tokens.sizing.xl,
-  xxl: tokens.sizing.xxl,
-  xxxl: tokens.sizing.xxxl,
-} as const;
-
-export const heightVariants = styleVariants(sizes, (size) => [
-  root,
-  { height: size, minHeight: size },
-]);
-
-export const widthVariants = styleVariants(sizes, (size) => [
-  root,
-  { width: size, minWidth: size },
-]);
+export const spacerSprinkles = createSprinkles(responsiveProperties);
+export type SpacerSprinkles = Parameters<typeof spacerSprinkles>[0];

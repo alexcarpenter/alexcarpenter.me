@@ -1,19 +1,6 @@
-import type { heightVariants, widthVariants } from "./Spacer.css";
-import * as styles from "./Spacer.css";
 import clsx from "clsx";
+import { root, spacerSprinkles, SpacerSprinkles } from "./Spacer.css";
 
-interface SpacerProps {
-  height?: keyof typeof heightVariants;
-  width?: keyof typeof widthVariants;
-}
-
-export const Spacer = ({ height, width }: SpacerProps) => {
-  return (
-    <span
-      className={clsx(
-        height && styles.heightVariants[height],
-        width && styles.widthVariants[width]
-      )}
-    />
-  );
+export const Spacer = ({ height, width }: SpacerSprinkles) => {
+  return <span className={clsx(root, spacerSprinkles({ width, height }))} />;
 };
