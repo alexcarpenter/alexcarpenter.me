@@ -1,6 +1,8 @@
-import clsx from "clsx";
-import { root, spacerSprinkles, SpacerSprinkles } from "./Spacer.css";
+import type { BoxProps } from "@/components/Box";
+import { Box } from "@/components/Box";
 
-export const Spacer = ({ height, width }: SpacerSprinkles) => {
-  return <span className={clsx(root, spacerSprinkles({ width, height }))} />;
+interface SpacerProps extends Pick<BoxProps, "width" | "height"> {}
+
+export const Spacer = ({ height, width }: SpacerProps) => {
+  return <Box as="span" display="block" height={height} width={width} />;
 };

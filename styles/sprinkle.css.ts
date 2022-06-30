@@ -39,6 +39,8 @@ const responsiveProperties = defineProperties({
     ],
     gridColumnStart: [1, 2, 3, 4],
     gridColumnEnd: [1, 2, 3, 4],
+    width: space,
+    height: space,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
