@@ -6,13 +6,13 @@ export const root = style({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  marginBottom: tokens.spacing.xxl,
+  marginBottom: tokens.sizing.xxl,
 });
 
 export const lockup = style({
   display: "flex",
   alignItems: "center",
-  gap: tokens.spacing.lg,
+  gap: tokens.sizing.lg,
 });
 
 export const avatar = style({

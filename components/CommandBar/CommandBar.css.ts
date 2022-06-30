@@ -17,7 +17,7 @@ export const overlay = style({
 
 export const dialog = style({
   width: "100%",
-  maxWidth: "70ch",
+  maxWidth: tokens.contentWidth.standard,
   backgroundColor: themeVars.color.page,
   border: "1px solid",
   borderColor: themeVars.color.border,
@@ -27,21 +27,21 @@ export const dialog = style({
 });
 
 export const searchInput = style({
-  padding: tokens.spacing.lg,
+  padding: tokens.sizing.lg,
   width: "100%",
   borderBottom: `1px solid ${themeVars.color.border}`,
 });
 
 export const resultHeading = style({
-  padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
+  padding: `${tokens.sizing.md} ${tokens.sizing.lg}`,
   color: themeVars.color.foregroundHighlight,
 });
 
 export const result = style({
-  padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
+  padding: `${tokens.sizing.md} ${tokens.sizing.lg}`,
   display: "flex",
   alignItems: "center",
-  gap: tokens.spacing.md,
+  gap: tokens.sizing.md,
   cursor: "pointer",
 });
 

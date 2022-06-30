@@ -11,12 +11,12 @@ export const root = style({
   alignItems: "end",
   placeItems: "end",
   pointerEvents: "none",
-  padding: tokens.spacing.lg,
+  padding: tokens.sizing.lg,
 });
 
 export const toasts = style({
   display: "grid",
-  gap: tokens.spacing.lg,
+  gap: tokens.sizing.lg,
   width: "100%",
   maxWidth: "30ch",
 });
@@ -26,8 +26,8 @@ export const toast = style({
   display: "flex",
   width: "100%",
   alignItems: "center",
-  gap: tokens.spacing.md,
-  padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
+  gap: tokens.sizing.md,
+  padding: `${tokens.sizing.md} ${tokens.sizing.lg}`,
   backgroundColor: themeVars.color.surface,
   border: "1px solid",
   borderColor: themeVars.color.border,

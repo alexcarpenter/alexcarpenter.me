@@ -3,5 +3,5 @@ import { tokens } from "@/styles/tokens.css";
 
 export const root = style({
   display: "grid",
-  gap: tokens.spacing.xl,
+  gap: tokens.sizing.xl,
 });

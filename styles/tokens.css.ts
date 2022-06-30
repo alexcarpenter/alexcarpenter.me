@@ -25,15 +25,6 @@ export const tokens = createGlobalTheme(":root", {
       ...yellowDark,
     },
   },
-  spacing: {
-    xs: "0.125rem",
-    sm: ".25rem",
-    md: ".5rem",
-    lg: "1rem",
-    xl: "2rem",
-    xxl: "3rem",
-    xxxl: "4rem",
-  },
   sizing: {
     xs: "0.125rem",
     sm: ".25rem",
@@ -47,9 +38,6 @@ export const tokens = createGlobalTheme(":root", {
     xs: "0.125rem",
     sm: "0.25rem",
     full: "9999px",
-  },
-  maxWidth: {
-    md: "70ch",
   },
   contentWidth: {
     standard: "70ch",

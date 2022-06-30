@@ -3,5 +3,5 @@ import { style } from "@vanilla-extract/css";
 
 export const root = style({
   marginTop: "auto",
-  paddingTop: tokens.spacing.xxl,
+  paddingTop: tokens.sizing.xxl,
 });

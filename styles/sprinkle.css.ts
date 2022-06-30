@@ -1,7 +1,7 @@
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import { tokens } from "./tokens.css";
 
-const space = tokens.spacing;
+const space = tokens.sizing;
 export type Space = keyof typeof space;
 
 const responsiveProperties = defineProperties({

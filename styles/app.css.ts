@@ -32,12 +32,12 @@ globalStyle("body, #__next, .container", {
 });
 
 globalStyle(".container", {
-  paddingTop: tokens.spacing.xxxl,
-  paddingRight: tokens.spacing.lg,
-  paddingBottom: tokens.spacing.xxxl,
-  paddingLeft: tokens.spacing.lg,
+  paddingTop: tokens.sizing.xxxl,
+  paddingRight: tokens.sizing.lg,
+  paddingBottom: tokens.sizing.xxxl,
+  paddingLeft: tokens.sizing.lg,
   width: "100%",
-  maxWidth: tokens.maxWidth.md,
+  maxWidth: tokens.contentWidth.standard,
   marginRight: "auto",
   marginLeft: "auto",
 });

@@ -3,7 +3,7 @@ import { tokens } from "@/styles/tokens.css";
 import { globalStyle } from "@vanilla-extract/css";
 
 globalStyle(".prose > * + *", {
-  marginTop: tokens.spacing.lg,
+  marginTop: tokens.sizing.lg,
 });
 
 /*
@@ -41,15 +41,15 @@ globalStyle("div[data-rehype-pretty-code-fragment] code", {
 
 globalStyle("div[data-rehype-pretty-code-fragment] pre", {
   overflowX: "auto",
-  paddingTop: tokens.spacing.lg,
-  paddingBottom: tokens.spacing.lg,
+  paddingTop: tokens.sizing.lg,
+  paddingBottom: tokens.sizing.lg,
 });
 
 globalStyle("div[data-rehype-pretty-code-fragment] .syntax-line", {
   borderLeft: "4px solid",
   borderLeftColor: "transparent",
-  paddingRight: tokens.spacing.lg,
-  paddingLeft: tokens.spacing.lg,
+  paddingRight: tokens.sizing.lg,
+  paddingLeft: tokens.sizing.lg,
 });
 
 /* Line highlighting */
@@ -68,6 +68,6 @@ globalStyle("code[data-line-numbers] .syntax-line::before", {
   content: "counter(line)",
   display: "inline-block",
   textAlign: "right",
-  marginRight: tokens.spacing.lg,
+  marginRight: tokens.sizing.lg,
   opacity: 0.5,
 });
