@@ -14,6 +14,7 @@ export interface BoxProps
 
 export const Box = ({
   as: component = "div",
+  position,
   className,
   padding,
   paddingTop,
@@ -35,10 +36,12 @@ export const Box = ({
   gridColumnEnd,
   width,
   height,
+  aspectRatio,
   ...restProps
 }: BoxProps) => {
   const atomClasses = clsx(
     sprinkles({
+      position,
       padding,
       paddingTop,
       paddingRight,
@@ -59,6 +62,7 @@ export const Box = ({
       gridColumnEnd,
       width,
       height,
+      aspectRatio,
     }),
     className
   );

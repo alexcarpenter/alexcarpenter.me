@@ -2,8 +2,10 @@ import * as React from "react";
 import { useOverlay, usePreventScroll, useModal } from "@react-aria/overlays";
 import { useDialog } from "@react-aria/dialog";
 import { FocusScope } from "@react-aria/focus";
+import * as styles from "./ModalDialog.css";
+import { VisuallyHidden } from "../VisuallyHidden";
 
-const ModalDialog = (props: any) => {
+export const ModalDialog = (props: any) => {
   let { onClose, title, children } = props;
 
   // Handle interacting outside the dialog and pressing
@@ -20,34 +22,24 @@ const ModalDialog = (props: any) => {
   let { dialogProps, titleProps } = useDialog(props, ref);
 
   return (
-    <div
-      className="fixed z-50 inset-0 bg-white/75 dark:bg-black/75 backdrop-blur-sm"
-      {...underlayProps}
-    >
-      <div className="px-4 py-16 grid place-items-center w-full h-full overflow-auto">
-        <FocusScope contain restoreFocus autoFocus>
-          <div
-            {...overlayProps}
-            {...dialogProps}
-            {...modalProps}
-            ref={ref}
-            className="max-w-3xl mx-auto"
-          >
-            <button
-              onClick={() => onClose()}
-              className="absolute top-4 right-4"
-            >
+    <div className={styles.root} {...underlayProps}>
+      <FocusScope contain restoreFocus autoFocus>
+        <div
+          className={styles.overlay}
+          {...overlayProps}
+          {...dialogProps}
+          {...modalProps}
+          ref={ref}
+        >
+          <header className={styles.header}>
+            <h2 {...titleProps}>{title}</h2>
+            <button onClick={() => onClose()} className={styles.dismiss}>
               Close
             </button>
-            <h3 {...titleProps} className="sr-only">
-              {title}
-            </h3>
-            {children}
-          </div>
-        </FocusScope>
-      </div>
+          </header>
+          {children}
+        </div>
+      </FocusScope>
     </div>
   );
 };
-
-export default ModalDialog;

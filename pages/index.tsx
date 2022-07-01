@@ -9,6 +9,7 @@ import { Link } from "@/components/Link";
 import { Spacer } from "@/components/Spacer";
 import { Avatar } from "@/components/Avatar/Avatar";
 import { Box } from "@/components/Box";
+import { ModalDialog } from "@/components/ModalDialog";
 
 const RecommendationsList = ({
   recommendations,

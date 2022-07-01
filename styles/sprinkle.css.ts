@@ -12,6 +12,7 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "sm",
   properties: {
+    position: ["relative", "absolute"],
     display: ["none", "flex", "grid", "block", "inline"],
     flexDirection: ["row", "column"],
     justifyContent: [
@@ -41,6 +42,7 @@ const responsiveProperties = defineProperties({
     gridColumnEnd: [1, 2, 3, 4],
     width: space,
     height: space,
+    aspectRatio: ["1/1", "4/3"],
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
