@@ -67,9 +67,12 @@ const Timeline: NextPage<{
                             md: "8rem 1fr",
                           }}
                         >
-                          <time dateTime={event.date}>
-                            {format(parseISO(event.date), "LLL d")}
-                          </time>
+                          <span>
+                            <time dateTime={event.date}>
+                              {format(parseISO(event.date), "LLL d")}
+                            </time>
+                            <Spacer height="xs" />
+                          </span>
                           <div>
                             <Heading as="h3">
                               {event.link ? (

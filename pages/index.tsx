@@ -33,9 +33,12 @@ const RecommendationsList = ({
                     md: "8rem 1fr",
                   }}
                 >
-                  <time dateTime={recommendation.date}>
-                    {format(parseISO(recommendation.date), "y")}
-                  </time>
+                  <span>
+                    <time dateTime={recommendation.date}>
+                      {format(parseISO(recommendation.date), "y")}
+                    </time>
+                    <Spacer height="lg" />
+                  </span>
                   <div>
                     <p>“{recommendation.text}”</p>
                     <Spacer height="lg" />
@@ -162,6 +165,7 @@ const Home: NextPage<{
                   <span>
                     {format(parseISO(job.startDate), "y")} &mdash;{" "}
                     {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
+                    <Spacer height="xs" />
                   </span>
                   <div>
                     <Heading as="h3">
@@ -230,9 +234,12 @@ const Home: NextPage<{
                     md: "8rem 1fr",
                   }}
                 >
-                  <time dateTime={post.date}>
-                    {format(parseISO(post.date), "LLL d")}
-                  </time>
+                  <span>
+                    <time dateTime={post.date}>
+                      {format(parseISO(post.date), "LLL d")}
+                    </time>
+                    <Spacer height="xs" />
+                  </span>
                   <div>
                     <Heading as="h3">
                       <Link href={`/posts/${post.slug}`}>{post.title}</Link>

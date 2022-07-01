@@ -35,9 +35,12 @@ const Posts: NextPage<{
                     md: "8rem 1fr",
                   }}
                 >
-                  <time dateTime={post.date}>
-                    {format(parseISO(post.date), "LLL d")}
-                  </time>
+                  <span>
+                    <time dateTime={post.date}>
+                      {format(parseISO(post.date), "LLL d")}
+                    </time>
+                    <Spacer height="xs" />
+                  </span>
                   <div>
                     <Heading as="h3">
                       <Link href={`/posts/${post.slug}`}>{post.title}</Link>
