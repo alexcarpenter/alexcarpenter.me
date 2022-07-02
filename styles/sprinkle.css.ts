@@ -1,8 +1,11 @@
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
+import { themeVars } from "./theme.css";
 import { tokens } from "./tokens.css";
 
 const space = tokens.sizing;
 export type Space = keyof typeof space;
+const radius = tokens.radius;
+export type Radius = keyof typeof radius;
 
 const responsiveProperties = defineProperties({
   conditions: {
@@ -43,6 +46,7 @@ const responsiveProperties = defineProperties({
     width: space,
     height: space,
     aspectRatio: ["1/1", "4/3"],
+    overflow: ["visible", "hidden"],
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
@@ -52,6 +56,16 @@ const responsiveProperties = defineProperties({
   },
 });
 
-export const sprinkles = createSprinkles(responsiveProperties);
+const unresponsiveProperties = defineProperties({
+  properties: {
+    borderRadius: radius,
+    border: { true: `1px solid ${themeVars.color.border}` },
+  },
+});
+
+export const sprinkles = createSprinkles(
+  responsiveProperties,
+  unresponsiveProperties
+);
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];
