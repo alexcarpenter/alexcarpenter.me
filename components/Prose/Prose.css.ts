@@ -29,10 +29,16 @@ globalStyle("code", {
   fontSize: "0.9rem",
 });
 
+globalStyle("[data-rehype-pretty-code-title]", {
+  padding: `${tokens.sizing.md} ${tokens.sizing.lg}`,
+  backgroundColor: themeVars.color.surface,
+  color: themeVars.color.foregroundHighlight,
+  fontSize: "0.9rem",
+});
+
 globalStyle("pre[data-language]", {
   whiteSpace: "pre",
   backgroundColor: themeVars.color.code,
-  borderRadius: tokens.radius.xs,
 });
 
 globalStyle("div[data-rehype-pretty-code-fragment] code", {
