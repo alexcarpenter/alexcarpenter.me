@@ -14,6 +14,7 @@ globalFontFace("Inter", {
 globalStyle("html", {
   fontSize: "0.875rem",
   lineHeight: 1.5,
+  WebkitTextSizeAdjust: "100%",
 });
 
 globalStyle("body", {
