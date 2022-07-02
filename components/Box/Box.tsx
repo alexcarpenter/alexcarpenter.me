@@ -5,7 +5,7 @@ import type { Sprinkles } from "@/styles/sprinkle.css";
 import { sprinkles } from "@/styles/sprinkle.css";
 import clsx from "clsx";
 
-type BoxProps<C extends React.ElementType> = PolymorphicComponentProps<
+export type BoxProps<C extends React.ElementType> = PolymorphicComponentProps<
   C,
   Sprinkles
 >;
