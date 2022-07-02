@@ -1,19 +1,17 @@
-import { createElement, AllHTMLAttributes, ElementType } from "react";
+import * as React from "react";
+import { createElement } from "react";
+import type { PolymorphicComponentProps } from "types";
 import type { Sprinkles } from "@/styles/sprinkle.css";
 import { sprinkles } from "@/styles/sprinkle.css";
 import clsx from "clsx";
 
-export interface BoxProps
-  extends Omit<
-      AllHTMLAttributes<HTMLElement>,
-      "content" | "height" | "translate" | "color" | "width" | "cursor"
-    >,
-    Sprinkles {
-  component?: ElementType;
-}
+type BoxProps<C extends React.ElementType> = PolymorphicComponentProps<
+  C,
+  Sprinkles
+>;
 
-export const Box = ({
-  as: component = "div",
+export const Box = <C extends React.ElementType = "div">({
+  as,
   position,
   className,
   padding,
@@ -37,8 +35,11 @@ export const Box = ({
   width,
   height,
   aspectRatio,
+  borderRadius,
+  overflow,
+  border,
   ...restProps
-}: BoxProps) => {
+}: BoxProps<C>) => {
   const atomClasses = clsx(
     sprinkles({
       position,
@@ -63,8 +64,12 @@ export const Box = ({
       width,
       height,
       aspectRatio,
+      borderRadius,
+      overflow,
+      border,
     }),
     className
   );
+  const component = as || "div";
   return createElement(component, { className: atomClasses, ...restProps });
 };
