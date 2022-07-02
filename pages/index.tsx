@@ -9,7 +9,6 @@ import { Link } from "@/components/Link";
 import { Spacer } from "@/components/Spacer";
 import { Avatar } from "@/components/Avatar/Avatar";
 import { Box } from "@/components/Box";
-import { ModalDialog } from "@/components/ModalDialog";
 
 const RecommendationsList = ({
   recommendations,
@@ -195,17 +194,29 @@ const Home: NextPage<{
         <Heading decorated>Interests</Heading>
         <Spacer height="xl" />
         <Box
-          as="ul"
           display="grid"
+          columnGap="xl"
           gridTemplateColumns={{
-            sm: "repeat(2, 1fr)",
-            md: "repeat(3, 1fr)",
+            sm: "1fr",
+            md: "8rem 1fr",
           }}
-          gap="lg"
         >
-          {interests.map((interest, index) => {
-            return <li key={index}>{interest}</li>;
-          })}
+          <Box
+            as="ul"
+            display="grid"
+            gridTemplateColumns={{
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+            }}
+            gap="lg"
+            gridColumnStart={{
+              md: 2,
+            }}
+          >
+            {interests.map((interest, index) => {
+              return <li key={index}>{interest}</li>;
+            })}
+          </Box>
         </Box>
       </section>
 
