@@ -1,6 +1,6 @@
 import type { NextPage } from "next/types";
 import type { Post } from "contentlayer/generated";
-import { compareDesc, format, parseISO } from "date-fns";
+// import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 import { Box } from "@/components/Box";
 import { Heading } from "@/components/Heading";
@@ -9,10 +9,10 @@ import { List, ListItem } from "@/components/List";
 import { Spacer } from "@/components/Spacer";
 
 export async function getStaticProps() {
-  const posts = allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date));
-  });
-  return { props: { title: "Posts", posts } };
+  // const posts = allPosts.sort((a, b) => {
+  //   return compareDesc(new Date(a.date), new Date(b.date));
+  // });
+  return { props: { title: "Posts", posts: allPosts } };
 }
 
 const Posts: NextPage<{
@@ -36,9 +36,9 @@ const Posts: NextPage<{
                   }}
                 >
                   <span>
-                    <time dateTime={post.date}>
+                    {/* <time dateTime={post.date}>
                       {format(parseISO(post.date), "LLL d")}
-                    </time>
+                    </time> */}
                     <Spacer height="xs" />
                   </span>
                   <div>

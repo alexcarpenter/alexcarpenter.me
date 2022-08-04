@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import type { Post, Job, Recommendation } from "contentlayer/generated";
-import { compareDesc, format, parseISO } from "date-fns";
+// import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
 import { Heading } from "@/components/Heading";
 import { List, ListItem } from "@/components/List";
@@ -9,6 +9,7 @@ import { Link } from "@/components/Link";
 import { Spacer } from "@/components/Spacer";
 import { Avatar } from "@/components/Avatar/Avatar";
 import { Box } from "@/components/Box";
+// import { Status } from "@/components/Status";
 
 const RecommendationsList = ({
   recommendations,
@@ -33,9 +34,9 @@ const RecommendationsList = ({
                   }}
                 >
                   <span>
-                    <time dateTime={recommendation.date}>
+                    {/* <time dateTime={recommendation.date}>
                       {format(parseISO(recommendation.date), "y")}
-                    </time>
+                    </time> */}
                     <Spacer height="lg" />
                   </span>
                   <div>
@@ -88,25 +89,25 @@ const RecommendationsList = ({
 };
 
 export async function getStaticProps() {
-  const posts = allPosts
-    .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date));
-    })
-    .slice(0, 3);
+  // const posts = allPosts
+  //   .sort((a, b) => {
+  //     return compareDesc(new Date(a.date), new Date(b.date));
+  //   })
+  //   .slice(0, 3);
 
-  const jobs = allJobs.sort((a, b) => {
-    return compareDesc(new Date(a.startDate), new Date(b.startDate));
-  });
+  // const jobs = allJobs.sort((a, b) => {
+  //   return compareDesc(new Date(a.startDate), new Date(b.startDate));
+  // });
 
-  const recommendations = allRecommendations.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date));
-  });
+  // const recommendations = allRecommendations.sort((a, b) => {
+  //   return compareDesc(new Date(a.date), new Date(b.date));
+  // });
 
   return {
     props: {
-      posts,
-      jobs,
-      recommendations,
+      posts: allPosts,
+      jobs: allJobs,
+      recommendations: allRecommendations,
       interests: [
         "Accessibility",
         "CSS",
@@ -130,6 +131,11 @@ const Home: NextPage<{
 }> = ({ posts, jobs, recommendations, interests }) => {
   return (
     <>
+      {/* <Status>
+        Currently leading the web core team at HashiCorp. Building out our web
+        marketing component library along side the design team.
+      </Status>
+      <Spacer height="xxxl" /> */}
       <section>
         <Heading decorated>About</Heading>
         <Spacer height="xl" />
@@ -161,11 +167,11 @@ const Home: NextPage<{
                     md: "8rem 1fr",
                   }}
                 >
-                  <span>
+                  {/* <span>
                     {format(parseISO(job.startDate), "y")} &mdash;{" "}
                     {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
                     <Spacer height="xs" />
-                  </span>
+                  </span> */}
                   <div>
                     <Heading as="h3">
                       <Link href={job.link}>
@@ -174,12 +180,30 @@ const Home: NextPage<{
                     </Heading>
                     <Spacer height="xs" />
                     <p>{job.location || "Remote"}</p>
-                    {job.description ? (
+                    {/* {job.description ? (
                       <>
                         <Spacer height="sm" />
                         <p>{job.description}</p>
                       </>
-                    ) : null}
+                    ) : null} */}
+                    {/* {job.projects ? (
+                      <>
+                        <Spacer height="md" />
+                        <p>
+                          Projects:{" "}
+                          {job.projects.map((p, i) => (
+                            <>
+                              <Link key={i} href={p}>
+                                {new URL(p).hostname}
+                              </Link>
+                              {i !== (job.projects && job.projects?.length - 1)
+                                ? ", "
+                                : ""}
+                            </>
+                          ))}
+                        </p>
+                      </>
+                    ) : null} */}
                   </div>
                 </Box>
               </ListItem>
@@ -246,9 +270,9 @@ const Home: NextPage<{
                   }}
                 >
                   <span>
-                    <time dateTime={post.date}>
+                    {/* <time dateTime={post.date}>
                       {format(parseISO(post.date), "LLL d")}
-                    </time>
+                    </time> */}
                     <Spacer height="xs" />
                   </span>
                   <div>
