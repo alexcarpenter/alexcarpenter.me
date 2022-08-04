@@ -25,4 +25,6 @@ export async function getStaticProps() {
   };
 }
 
-export default Timeline;
+export default function Timeline() {
+  return <p>Hello world</p>;
+}
