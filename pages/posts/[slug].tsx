@@ -1,5 +1,5 @@
 import { NextPage } from "next/types";
-// import { format, parseISO } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { Components } from "@/components/MDXComponents";
@@ -35,9 +35,9 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
     <>
       <article>
         <Heading>{post.title}</Heading>
-        {/* <time dateTime={post.date}>
+        <time dateTime={post.date}>
           {format(parseISO(post.date), "LLLL d, yyyy")}
-        </time> */}
+        </time>
         <Spacer height="xl" />
         <Prose>
           <MDXContent components={Components} />

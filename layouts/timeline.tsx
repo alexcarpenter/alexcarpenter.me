@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-// import { format, parseISO } from "date-fns";
+import { format, parseISO } from "date-fns";
 import type { Event } from "contentlayer/generated";
 import { Box } from "@/components/Box";
 import { Heading } from "@/components/Heading";
@@ -45,27 +45,6 @@ const Timeline: NextPage<{
           .
         </p>
       </header>
-      <Spacer height="xxl" />
-      <section>
-        <Box
-          display="grid"
-          columnGap="xl"
-          gridTemplateColumns={{
-            sm: "1fr",
-            md: "8rem 1fr",
-          }}
-        >
-          <Heading>Currently</Heading>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-              molestias doloribus pariatur consequatur quaerat tenetur nisi
-              recusandae voluptate sunt molestiae? Repellat deserunt in, laborum
-              eligendi suscipit repellendus dicta labore repudiandae.
-            </p>
-          </div>
-        </Box>
-      </section>
       <Spacer height="xl" />
       {Object.entries(events)
         .reverse()
@@ -90,7 +69,7 @@ const Timeline: NextPage<{
                         >
                           <span>
                             <time dateTime={event.date}>
-                              {/* {format(parseISO(event.date), "LLL d")} */}
+                              {format(parseISO(event.date), "LLL d")}
                             </time>
                             <Spacer height="xs" />
                           </span>
