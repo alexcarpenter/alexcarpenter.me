@@ -1,7 +1,7 @@
 import { compareDesc, format, parseISO } from "date-fns";
 import type { Event } from "contentlayer/generated";
 import { allEvents } from "contentlayer/generated";
-// import Timeline from "@/layouts/timeline";
+import Timeline from "@/layouts/timeline";
 
 export async function getStaticProps() {
   const events = allEvents
