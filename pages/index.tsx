@@ -5,8 +5,8 @@ import { NextSeo } from "next-seo";
 const Home: NextPage = () => {
   return (
     <>
-      <NextSeo title="Home" />
-      <h1>Hello world</h1>
+      <NextSeo title="Design Engineer" />
+      <h1>Design Engineer</h1>
     </>
   );
 };

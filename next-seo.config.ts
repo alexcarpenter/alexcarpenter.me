@@ -14,4 +14,15 @@ export default {
     handle: "@hybrid_alex",
     cardType: "summary_large_image",
   },
+  additionalLinkTags: [
+    {
+      rel: "icon",
+      href: "/favicon.svg",
+    },
+    {
+      rel: "apple-touch-icon",
+      href: "/apple-touch-icon.png",
+      sizes: "180x180",
+    },
+  ],
 } as NextSeoProps;
