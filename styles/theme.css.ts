@@ -22,7 +22,7 @@ export const themeVars = createGlobalThemeContract({
 createGlobalTheme(":root.light", themeVars, {
   color: {
     page: tokens.color.light.gray1,
-    foreground: tokens.color.light.gray11,
+    foreground: tokens.color.light.gray12,
     foregroundHighlight: tokens.color.light.gray12,
     surface: tokens.color.light.gray3,
     surfaceHover: tokens.color.light.gray5,

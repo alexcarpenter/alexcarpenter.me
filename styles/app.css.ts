@@ -12,7 +12,6 @@ globalFontFace("Inter", {
 });
 
 globalStyle("html", {
-  fontSize: "0.875rem",
   lineHeight: 1.5,
   WebkitTextSizeAdjust: "100%",
 });
@@ -26,38 +25,8 @@ globalStyle("body", {
   color: themeVars.color.foreground,
 });
 
-globalStyle("body, #__next, .container", {
+globalStyle("body, #__next", {
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
-});
-
-globalStyle(".container", {
-  paddingTop: tokens.sizing.xxxl,
-  paddingRight: tokens.sizing.lg,
-  paddingBottom: tokens.sizing.xxxl,
-  paddingLeft: tokens.sizing.lg,
-  width: "100%",
-  maxWidth: tokens.contentWidth.standard,
-  marginRight: "auto",
-  marginLeft: "auto",
-});
-
-globalStyle("a, button", {
-  color: themeVars.color.foregroundHighlight,
-  cursor: "pointer",
-});
-
-globalStyle("button:focus-visible", {
-  outlineWidth: "2px",
-  outlineStyle: "solid",
-  outlineOffset: "2px",
-  outlineColor: themeVars.color.outline,
-});
-
-globalStyle("a:focus-visible", {
-  outlineWidth: "2px",
-  outlineStyle: "solid",
-  outlineOffset: "2px",
-  outlineColor: themeVars.color.outline,
 });
