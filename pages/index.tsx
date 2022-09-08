@@ -13,18 +13,6 @@ const Home: NextPage = () => {
         machines. Currently working at HashiCorp, helping build and maintain
         public-facing HashiCorp websites and web applications with Next.js.
       </Text>
-      <Text>
-        Hey, I&apos;m Alex. A detail oriented user interface engineer interested
-        in CSS architecture, React, TypeScript, design systems, and state
-        machines. Currently working at HashiCorp, helping build and maintain
-        public-facing HashiCorp websites and web applications with Next.js.
-      </Text>
-      <Text>
-        Hey, I&apos;m Alex. A detail oriented user interface engineer interested
-        in CSS architecture, React, TypeScript, design systems, and state
-        machines. Currently working at HashiCorp, helping build and maintain
-        public-facing HashiCorp websites and web applications with Next.js.
-      </Text>
     </>
   );
 };

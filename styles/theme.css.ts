@@ -1,26 +1,38 @@
+import { gray, grayDark, blackA, whiteA } from "@radix-ui/colors";
 import {
   createGlobalThemeContract,
   createGlobalTheme,
 } from "@vanilla-extract/css";
-import { tokens } from "./tokens.css";
 
 export const themeVars = createGlobalThemeContract({
   color: {
     page: "color-page",
     foreground: "color-foreground",
+    foregroundNeutral: "color-foreground-neutral",
+    surface: "color-surface",
+    border: "color-border",
+    overlay: "color-overlay",
   },
 });
 
 createGlobalTheme(":root.light", themeVars, {
   color: {
-    page: tokens.color.light.gray1,
-    foreground: tokens.color.light.gray11,
+    page: gray.gray1,
+    foreground: gray.gray12,
+    foregroundNeutral: gray.gray11,
+    surface: gray.gray2,
+    border: gray.gray6,
+    overlay: whiteA.whiteA11,
   },
 });
 
 createGlobalTheme(":root.dark", themeVars, {
   color: {
-    page: tokens.color.dark.gray1,
-    foreground: tokens.color.dark.gray11,
+    page: grayDark.gray1,
+    foreground: grayDark.gray12,
+    foregroundNeutral: grayDark.gray11,
+    surface: grayDark.gray3,
+    border: grayDark.gray6,
+    overlay: blackA.blackA11,
   },
 });

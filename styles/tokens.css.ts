@@ -1,11 +1,3 @@
-import {
-  gray,
-  grayDark,
-  blue,
-  blueDark,
-  yellow,
-  yellowDark,
-} from "@radix-ui/colors";
 import { createGlobalTheme } from "@vanilla-extract/css";
 
 export const tokens = createGlobalTheme(":root", {
@@ -13,17 +5,13 @@ export const tokens = createGlobalTheme(":root", {
     sans: "'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
     mono: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
   },
-  color: {
-    light: {
-      ...gray,
-      ...blue,
-      ...yellow,
-    },
-    dark: {
-      ...grayDark,
-      ...blueDark,
-      ...yellowDark,
-    },
+  fontSize: {
+    xs: "0.75rem",
+    sm: "0.875rem",
+    md: "1rem",
+    lg: "1.125rem",
+    xl: "1.25rem",
+    xxl: "1.5rem",
   },
   sizing: {
     none: "0",
@@ -42,10 +30,8 @@ export const tokens = createGlobalTheme(":root", {
   },
   contentWidth: {
     standard: "70ch",
-    itemMeta: "8rem",
   },
   transition: {
-    easing: "ease-in-out",
-    duration: "0.1s",
+    duration: "200ms",
   },
 });

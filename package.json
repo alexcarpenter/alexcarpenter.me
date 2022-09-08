@@ -23,6 +23,7 @@
     "@vanilla-extract/recipes": "^0.2.5",
     "@vanilla-extract/sprinkles": "^1.4.1",
     "clsx": "^1.1.1",
+    "cmdk": "^0.1.20",
     "contentlayer": "^0.2.5",
     "date-fns": "^2.28.0",
     "framer-motion": "^6.3.11",
