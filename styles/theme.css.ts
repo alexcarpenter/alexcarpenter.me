@@ -13,14 +13,14 @@ export const themeVars = createGlobalThemeContract({
 
 createGlobalTheme(":root.light", themeVars, {
   color: {
-    page: tokens.color.light.gray2,
-    foreground: tokens.color.light.gray12,
+    page: tokens.color.light.gray1,
+    foreground: tokens.color.light.gray11,
   },
 });
 
 createGlobalTheme(":root.dark", themeVars, {
   color: {
-    page: tokens.color.dark.gray2,
-    foreground: tokens.color.dark.gray12,
+    page: tokens.color.dark.gray1,
+    foreground: tokens.color.dark.gray11,
   },
 });
