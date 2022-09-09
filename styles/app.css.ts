@@ -12,7 +12,7 @@ globalFontFace("Inter", {
 });
 
 globalStyle("html", {
-  lineHeight: 1.15,
+  lineHeight: 1.25,
   WebkitTextSizeAdjust: "100%",
 });
 
@@ -22,7 +22,6 @@ globalStyle("body", {
   textRendering: "optimizeLegibility",
   fontFamily: tokens.font.sans,
   backgroundColor: themeVars.color.page,
-  // color: themeVars.color.foreground,
 });
 
 globalStyle("body, #__next", {

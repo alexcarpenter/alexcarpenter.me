@@ -12,7 +12,6 @@ globalStyle("[cmdk-overlay]", {
 globalStyle("[cmdk-root]", {});
 
 globalStyle("[cmdk-input]", {
-  marginBottom: tokens.sizing.lg,
   backgroundColor: themeVars.color.page,
   border: "none",
   width: "100%",
@@ -25,10 +24,13 @@ globalStyle("[cmdk-input]", {
 
 globalStyle("[cmdk-list]", {
   minHeight: 300,
+  backgroundColor: themeVars.color.page,
   height: "var(--cmdk-list-height)",
   maxHeight: 500,
   transition: "height 100ms ease",
-  scrollPaddingBlock: 8,
+  overflow: "auto",
+  paddingBlock: tokens.sizing.lg,
+  scrollPaddingBlock: tokens.sizing.lg,
 });
 
 globalStyle("*:not([hidden]) + [cmdk-group]", {

@@ -1,7 +1,6 @@
 import "the-new-css-reset";
 import "styles/app.css";
 import type { AppProps } from "next/app";
-import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 import SEO from "next-seo.config";
