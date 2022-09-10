@@ -49,6 +49,7 @@ const responsiveProperties = defineProperties({
 
 const unresponsiveProperties = defineProperties({
   properties: {
+    color: themeVars.color,
     borderRadius: radius,
     border: { true: `1px solid ${themeVars.color.border}` },
   },

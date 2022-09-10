@@ -3,29 +3,29 @@ import clsx from "clsx";
 import type { PolymorphicComponentProps } from "types";
 import type { Sprinkles } from "styles/sprinkles.css";
 import { sprinkles } from "styles/sprinkles.css";
-import * as styles from "./Text.css";
+import * as styles from "./Heading.css";
 
-type TextProps<C extends React.ElementType> = PolymorphicComponentProps<
+type HeadingProps<C extends React.ElementType> = PolymorphicComponentProps<
   C,
   {
-    as?: "p" | "span" | "strong" | "em" | "time";
+    as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
     fontSize?: Sprinkles["fontSize"];
     color?: Extract<Sprinkles["color"], "foreground" | "foregroundNeutral">;
     children: React.ReactNode;
   }
 >;
 
-const Text = <C extends React.ElementType = "p">({
+const Heading = <C extends React.ElementType = "p">({
   as,
   fontSize = "md",
   color = "foreground",
   ...restProps
-}: TextProps<C>) => {
-  const component = as || "p";
+}: HeadingProps<C>) => {
+  const component = as || "h2";
   return React.createElement(component, {
     className: clsx(styles.root, sprinkles({ fontSize, color })),
     ...restProps,
   });
 };
 
-export { Text };
+export { Heading };

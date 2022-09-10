@@ -1,7 +1,7 @@
 import type { NextSeoProps } from "next-seo";
 
 export default {
-  titleTemplate: "%s | Alex Carpenter",
+  titleTemplate: "%s // Alex Carpenter",
   title: "Alex Carpenter",
   description: "Design Engineer",
   openGraph: {

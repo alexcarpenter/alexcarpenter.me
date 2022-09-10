@@ -9,8 +9,6 @@ globalStyle("[cmdk-overlay]", {
   backdropFilter: "blur(4px)",
 });
 
-globalStyle("[cmdk-root]", {});
-
 globalStyle("[cmdk-input]", {
   backgroundColor: themeVars.color.page,
   border: "none",
