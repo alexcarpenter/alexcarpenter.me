@@ -4,7 +4,6 @@ import Image from "next/image";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
-import { Entry } from "components/Entry";
 import { Heading } from "components/Heading";
 import { List } from "components/List";
 import { Text } from "components/Text";
@@ -48,10 +47,10 @@ const Home: NextPage<{
       <section>
         <Heading fontSize="xl">Experience</Heading>
         <Spacer height="xxl" />
-        <ul>
+        <List>
           {jobs.map((job) => {
             return (
-              <li key={job._id}>
+              <List.Item key={job._id}>
                 <Text color="foregroundNeutral" fontSize="sm">
                   {format(parseISO(job.startDate), "y")} &mdash;{" "}
                   {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
@@ -64,10 +63,10 @@ const Home: NextPage<{
                 <Text color="foregroundNeutral">
                   {job.location ? job.location : "Remote"}
                 </Text>
-              </li>
+              </List.Item>
             );
           })}
-        </ul>
+        </List>
       </section>
 
       <Spacer height="xxxxl" />
@@ -75,10 +74,10 @@ const Home: NextPage<{
       <section>
         <Heading fontSize="xl">Recommendations</Heading>
         <Spacer height="xxl" />
-        <ul>
+        <List>
           {recommendations.map((rec) => {
             return (
-              <li key={rec._id}>
+              <List.Item key={rec._id}>
                 <figure key={rec._id}>
                   <blockquote>
                     <Text>{rec.text}</Text>
@@ -90,10 +89,10 @@ const Home: NextPage<{
                     </Text>
                   </figcaption>
                 </figure>
-              </li>
+              </List.Item>
             );
           })}
-        </ul>
+        </List>
       </section>
 
       <Spacer height="xxxxl" />
@@ -101,34 +100,34 @@ const Home: NextPage<{
       <section>
         <Heading fontSize="xl">Connect</Heading>
         <Spacer height="xxl" />
-        <ul>
-          <li>
+        <List>
+          <List.Item>
             <Text color="foregroundNeutral">
               <a href="mailto:im.alexcarpenter@gmail.com">
                 im.alexcarpenter@gmail.com
               </a>{" "}
               ↗
             </Text>
-          </li>
-          <li>
+          </List.Item>
+          <List.Item>
             <Text color="foregroundNeutral">
               <a href="https://twitter.com/hybrid_alex">Twitter</a> ↗
             </Text>
-          </li>
-          <li>
+          </List.Item>
+          <List.Item>
             <Text color="foregroundNeutral">
               <a href="https://github.com/alexcarpenter">Github</a> ↗
             </Text>
-          </li>
-          <li>
+          </List.Item>
+          <List.Item>
             <Text color="foregroundNeutral">
               <a href="https://www.linkedin.com/in/imalexcarpenter/">
                 LinkedIn
               </a>{" "}
               ↗
             </Text>
-          </li>
-        </ul>
+          </List.Item>
+        </List>
       </section>
     </>
   );

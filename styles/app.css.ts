@@ -26,10 +26,3 @@ globalStyle("body", {
   fontFamily: tokens.font.sans,
   backgroundColor: themeVars.color.page,
 });
-
-globalStyle("li + li", {
-  borderTop: "1px solid",
-  borderColor: themeVars.color.border,
-  marginBlockStart: tokens.spacing.xl,
-  paddingBlockStart: tokens.spacing.xl,
-});
