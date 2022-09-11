@@ -50,6 +50,18 @@ const Home: NextPage<{
             <React.Fragment key={job._id}>
               <Spacer height="xxl" />
               <article key={job._id}>
+                {job.logo ? (
+                  <Image
+                    src={job.logo}
+                    width={32}
+                    height={32}
+                    alt="Headshot"
+                    style={{
+                      borderRadius: 6,
+                    }}
+                  />
+                ) : null}
+                <Spacer height="sm" />
                 <Text fontSize="sm" color="foregroundNeutral">
                   {format(parseISO(job.startDate), "y")} &mdash;{" "}
                   {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
@@ -81,6 +93,18 @@ const Home: NextPage<{
                   <Text color="foregroundNeutral">
                     {rec.name}, {rec.title}, {rec.company}
                   </Text>
+                  <Spacer height="sm" />
+                  {rec.avatar ? (
+                    <Image
+                      src={rec.avatar}
+                      width={32}
+                      height={32}
+                      alt="Headshot"
+                      style={{
+                        borderRadius: 6,
+                      }}
+                    />
+                  ) : null}
                 </figcaption>
               </figure>
             </React.Fragment>
