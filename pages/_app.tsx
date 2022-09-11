@@ -6,7 +6,6 @@ import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import SEO from "next-seo.config";
-import { CommandMenu } from "components/CommandMenu";
 
 const composeProviders =
   (...providers: any[]) =>
@@ -35,7 +34,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <main>
         <Component {...pageProps} />
       </main>
-      <CommandMenu />
     </Providers>
   );
 }
