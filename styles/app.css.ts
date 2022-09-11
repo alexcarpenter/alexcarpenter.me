@@ -19,7 +19,7 @@ globalStyle("html", {
 globalStyle("body", {
   position: "relative",
   paddingInline: tokens.spacing.lg,
-  paddingBlock: tokens.spacing.xxl,
+  paddingBlock: tokens.spacing.xxxxl,
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
   textRendering: "optimizeLegibility",

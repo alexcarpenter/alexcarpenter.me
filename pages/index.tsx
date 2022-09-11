@@ -18,9 +18,17 @@ const Home: NextPage<{
       <NextSeo title="Design Engineer" />
 
       <header>
-        <Text>Alex Carpenter // Design Engineer</Text>
+        <Image
+          src="/img/me.jpeg"
+          width={48}
+          height={48}
+          alt="Headshot"
+          priority
+        />
         <Spacer height="lg" />
-        <Text>
+        <Text fontSize="xxxl">Design Engineer</Text>
+        <Spacer height="lg" />
+        <Text fontSize="xl">
           A detail oriented user interface engineer interested in CSS
           architecture, React, TypeScript, and design systems. Currently working
           at HashiCorp, helping build and maintain public-facing HashiCorp
