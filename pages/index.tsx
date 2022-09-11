@@ -61,7 +61,9 @@ const Home: NextPage<{
                   {job.title} at {job.company}
                 </Heading>
                 <Spacer height="sm" />
-                <Text color="foregroundNeutral">{job.description}</Text>
+                <Text color="foregroundNeutral">
+                  {job.location ? job.location : "Remote"}
+                </Text>
               </li>
             );
           })}
