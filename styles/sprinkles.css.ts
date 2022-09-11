@@ -2,7 +2,7 @@ import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import { themeVars } from "./theme.css";
 import { tokens } from "./tokens.css";
 
-const space = tokens.sizing;
+const space = tokens.spacing;
 export type Space = keyof typeof space;
 const radius = tokens.radius;
 export type Radius = keyof typeof radius;

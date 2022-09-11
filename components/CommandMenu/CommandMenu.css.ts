@@ -9,36 +9,52 @@ globalStyle("[cmdk-overlay]", {
   backdropFilter: "blur(4px)",
 });
 
+globalStyle("[cmdk-dialog]", {
+  position: "fixed",
+  top: "8rem",
+  left: "50%",
+  maxWidth: "40rem",
+  width: "100%",
+  transform: "translateX(-50%)",
+});
+
 globalStyle("[cmdk-input]", {
   backgroundColor: themeVars.color.page,
-  border: "none",
   width: "100%",
-  padding: tokens.sizing.md,
+  padding: tokens.spacing.md,
   outline: "none",
-  borderBottom: "1px solid",
+  border: "1px solid",
   borderColor: themeVars.color.border,
   borderRadius: 0,
+  borderTopLeftRadius: tokens.radius.sm,
+  borderTopRightRadius: tokens.radius.sm,
 });
 
 globalStyle("[cmdk-list]", {
-  minHeight: 300,
+  minHeight: 100,
   backgroundColor: themeVars.color.page,
   height: "var(--cmdk-list-height)",
   maxHeight: 500,
   transition: "height 100ms ease",
   overflow: "auto",
-  paddingBlock: tokens.sizing.lg,
-  scrollPaddingBlock: tokens.sizing.lg,
+  paddingInline: tokens.spacing.sm,
+  paddingBlock: tokens.spacing.lg,
+  scrollPaddingBlock: tokens.spacing.lg,
+  border: "1px solid",
+  borderColor: themeVars.color.border,
+  borderTop: 0,
+  borderBottomLeftRadius: tokens.radius.sm,
+  borderBottomRightRadius: tokens.radius.sm,
 });
 
 globalStyle("*:not([hidden]) + [cmdk-group]", {
-  marginTop: tokens.sizing.sm,
+  marginTop: tokens.spacing.sm,
 });
 
 globalStyle("[cmdk-group-heading]", {
-  marginBottom: tokens.sizing.sm,
-  fontSize: tokens.fontSize.xs,
-  paddingInline: tokens.sizing.md,
+  marginBottom: tokens.spacing.sm,
+  fontSize: tokens.fontSize.sm,
+  paddingInline: tokens.spacing.md,
   color: themeVars.color.foregroundNeutral,
 });
 
@@ -47,13 +63,13 @@ globalStyle("[cmdk-item]", {
   contentVisibility: "auto",
   cursor: "pointer",
   borderRadius: tokens.radius.sm,
-  fontSize: tokens.fontSize.sm,
-  padding: tokens.sizing.md,
+  fontSize: tokens.fontSize.md,
+  padding: tokens.spacing.md,
   userSelect: "none",
 });
 
 globalStyle("[cmdk-item] + [cmdk-item]", {
-  marginTop: tokens.sizing.sm,
+  marginTop: tokens.spacing.sm,
 });
 
 globalStyle('[cmdk-item][aria-selected="true"]', {

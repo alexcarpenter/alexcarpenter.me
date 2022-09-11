@@ -1,5 +1,6 @@
 import * as React from "react";
 import { compareDesc, format, parseISO } from "date-fns";
+import Image from "next/image";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
@@ -19,12 +20,7 @@ const Home: NextPage<{
       <header>
         <Text>Alex Carpenter // Design Engineer</Text>
         <Spacer height="lg" />
-        <Text
-          fontSize={{
-            sm: "xl",
-            md: "xxxl",
-          }}
-        >
+        <Text>
           A detail oriented user interface engineer interested in CSS
           architecture, React, TypeScript, and design systems. Currently working
           at HashiCorp, helping build and maintain public-facing HashiCorp
@@ -32,15 +28,20 @@ const Home: NextPage<{
         </Text>
       </header>
 
-      <Spacer height="xxl" />
+      <Spacer height="4xl" />
 
       <section>
-        <Heading fontSize="lg">Experience</Heading>
+        <Heading>Experience</Heading>
         {jobs.map((job) => {
           return (
             <>
-              <Spacer height="xl" />
+              <Spacer height="2xl" />
               <article key={job._id}>
+                <Text fontSize="sm" color="foregroundNeutral">
+                  {format(parseISO(job.startDate), "y")} &mdash;{" "}
+                  {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
+                </Text>
+                <Spacer height="md" />
                 <Text>{job.title}</Text>
                 <Spacer height="md" />
                 <Text color="foregroundNeutral">{job.company}</Text>
@@ -50,14 +51,14 @@ const Home: NextPage<{
         })}
       </section>
 
-      <Spacer height="xxl" />
+      <Spacer height="4xl" />
 
       <section>
-        <Heading fontSize="lg">Recommendations</Heading>
+        <Heading>Recommendations</Heading>
         {recommendations.map((rec) => {
           return (
             <>
-              <Spacer height="xl" />
+              <Spacer height="2xl" />
               <figure key={rec._id}>
                 <blockquote>
                   <Text>{rec.text}</Text>

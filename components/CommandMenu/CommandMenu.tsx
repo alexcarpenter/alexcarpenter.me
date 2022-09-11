@@ -26,7 +26,7 @@ const CommandMenu = () => {
       label="Global Command Menu"
       className={styles.root}
     >
-      <Command.Input />
+      <Command.Input placeholder="Type a command or search..." />
       <Command.List>
         <Command.Empty>No results found.</Command.Empty>
         <Command.Group heading="Navigation">

@@ -37,7 +37,7 @@ export const Post = defineDocumentType(() => ({
 
 export const Job = defineDocumentType(() => ({
   name: "Job",
-  filePathPattern: `experience/*.mdx`,
+  filePathPattern: `jobs/*.mdx`,
   contentType: "mdx",
   fields: {
     company: {
@@ -65,6 +65,10 @@ export const Job = defineDocumentType(() => ({
       required: true,
     },
     description: {
+      type: "string",
+      required: false,
+    },
+    logo: {
       type: "string",
       required: false,
     },

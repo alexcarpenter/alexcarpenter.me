@@ -17,6 +17,9 @@ globalStyle("html", {
 });
 
 globalStyle("body", {
+  position: "relative",
+  paddingInline: tokens.spacing.lg,
+  paddingBlock: tokens.spacing.xxl,
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
   textRendering: "optimizeLegibility",
