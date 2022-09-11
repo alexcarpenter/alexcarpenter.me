@@ -1,1 +1,0 @@
-export { Prose } from "./Prose";

@@ -1,50 +1,38 @@
+import { gray, grayDark, blackA, whiteA } from "@radix-ui/colors";
 import {
   createGlobalThemeContract,
   createGlobalTheme,
 } from "@vanilla-extract/css";
-import { tokens } from "./tokens.css";
 
 export const themeVars = createGlobalThemeContract({
   color: {
     page: "color-page",
     foreground: "color-foreground",
-    foregroundHighlight: "color-foreground-highlight",
+    foregroundNeutral: "color-foreground-neutral",
     surface: "color-surface",
-    surfaceHover: "color-surface-hover",
-    code: "color-code",
-    codeHightlight: "color-code-hightlight",
-    codeAccent: "color-code-accent",
     border: "color-border",
-    outline: "color-outline",
+    overlay: "color-overlay",
   },
 });
 
 createGlobalTheme(":root.light", themeVars, {
   color: {
-    page: tokens.color.light.gray1,
-    foreground: tokens.color.light.gray11,
-    foregroundHighlight: tokens.color.light.gray12,
-    surface: tokens.color.light.gray3,
-    surfaceHover: tokens.color.light.gray5,
-    code: tokens.color.light.gray2,
-    codeHightlight: tokens.color.light.gray3,
-    codeAccent: tokens.color.light.yellow6,
-    border: tokens.color.light.gray6,
-    outline: tokens.color.light.blue9,
+    page: gray.gray1,
+    foreground: gray.gray12,
+    foregroundNeutral: gray.gray11,
+    surface: gray.gray2,
+    border: gray.gray6,
+    overlay: whiteA.whiteA11,
   },
 });
 
 createGlobalTheme(":root.dark", themeVars, {
   color: {
-    page: tokens.color.dark.gray1,
-    foreground: tokens.color.dark.gray11,
-    foregroundHighlight: tokens.color.dark.gray12,
-    surface: tokens.color.dark.gray3,
-    surfaceHover: tokens.color.dark.gray5,
-    code: tokens.color.dark.gray2,
-    codeHightlight: tokens.color.dark.gray3,
-    codeAccent: tokens.color.light.yellow6,
-    border: tokens.color.dark.gray6,
-    outline: tokens.color.dark.blue9,
+    page: grayDark.gray1,
+    foreground: grayDark.gray12,
+    foregroundNeutral: grayDark.gray11,
+    surface: grayDark.gray3,
+    border: grayDark.gray6,
+    overlay: blackA.blackA11,
   },
 });

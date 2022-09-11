@@ -1,11 +1,3 @@
-import {
-  gray,
-  grayDark,
-  blue,
-  blueDark,
-  yellow,
-  yellowDark,
-} from "@radix-ui/colors";
 import { createGlobalTheme } from "@vanilla-extract/css";
 
 export const tokens = createGlobalTheme(":root", {
@@ -13,39 +5,36 @@ export const tokens = createGlobalTheme(":root", {
     sans: "'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
     mono: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
   },
-  color: {
-    light: {
-      ...gray,
-      ...blue,
-      ...yellow,
-    },
-    dark: {
-      ...grayDark,
-      ...blueDark,
-      ...yellowDark,
-    },
+  fontSize: {
+    xs: "0.75rem",
+    sm: "0.875rem",
+    md: "1rem",
+    lg: "1.125rem",
+    xl: "1.25rem",
+    xxl: "1.5rem",
+    xxxl: "2rem",
   },
-  sizing: {
+  spacing: {
     none: "0",
-    xs: "0.125rem",
-    sm: ".25rem",
-    md: ".5rem",
-    lg: "1rem",
-    xl: "2rem",
-    xxl: "3rem",
-    xxxl: "4rem",
+    xs: "0.25rem",
+    sm: ".5rem",
+    md: "1rem",
+    lg: "1.125rem",
+    xl: "1.25rem",
+    xxl: "1.5rem",
+    xxxl: "2rem",
+    xxxxl: "4rem",
   },
   radius: {
-    xs: "0.125rem",
-    sm: "0.25rem",
+    sm: "2px",
+    md: "6px",
+    lg: "10px",
     full: "9999px",
   },
   contentWidth: {
     standard: "70ch",
-    itemMeta: "8rem",
   },
   transition: {
-    easing: "ease-in-out",
-    duration: "0.1s",
+    duration: "200ms",
   },
 });

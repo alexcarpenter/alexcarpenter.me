@@ -1,99 +1,141 @@
 import * as React from "react";
-import type { NextPage } from "next";
-import type { Post, Job, Recommendation } from "contentlayer/generated";
 import { compareDesc, format, parseISO } from "date-fns";
-import { allPosts, allJobs, allRecommendations } from "contentlayer/generated";
-import { Heading } from "@/components/Heading";
-import { List, ListItem } from "@/components/List";
-import { Link } from "@/components/Link";
-import { Spacer } from "@/components/Spacer";
-import { Avatar } from "@/components/Avatar/Avatar";
-import { Box } from "@/components/Box";
+import Image from "next/image";
+import type { NextPage } from "next";
+import type { Job, Recommendation } from "contentlayer/generated";
+import { NextSeo } from "next-seo";
+import { Heading } from "components/Heading";
+import { List } from "components/List";
+import { Text } from "components/Text";
+import { Spacer } from "components/Spacer";
+import { allJobs, allRecommendations } from "contentlayer/generated";
 
-const RecommendationsList = ({
-  recommendations,
-}: {
+const Home: NextPage<{
+  jobs: Job[];
   recommendations: Recommendation[];
-}) => {
-  const [allRecs, showAllRecs] = React.useReducer(() => true, false);
+}> = ({ jobs, recommendations }) => {
   return (
     <>
-      <List>
-        {recommendations
-          .slice(0, allRecs ? recommendations.length : 3)
-          .map((recommendation, index) => {
+      <NextSeo title="Design Engineer" />
+
+      <header>
+        <Image
+          src="/img/me.jpeg"
+          width={48}
+          height={48}
+          alt="Headshot"
+          style={{
+            borderRadius: 10,
+          }}
+          priority
+        />
+        <Spacer height="lg" />
+        <Heading fontSize="xxxl" as="h1">
+          Design Engineer
+        </Heading>
+        <Spacer height="xl" />
+        <Text fontSize="xl" color="foregroundNeutral">
+          A detail oriented user interface engineer interested in CSS
+          architecture, React, TypeScript, and design systems. Currently working
+          at HashiCorp, helping build and maintain public-facing HashiCorp
+          websites and web applications with Next.js.
+        </Text>
+      </header>
+
+      <Spacer height="xxxxl" />
+
+      <section>
+        <Heading fontSize="xl">Experience</Heading>
+        <Spacer height="xxl" />
+        <List>
+          {jobs.map((job) => {
             return (
-              <ListItem key={index}>
-                <Box
-                  display="grid"
-                  columnGap="xl"
-                  gridTemplateColumns={{
-                    sm: "1fr",
-                    md: "8rem 1fr",
-                  }}
-                >
-                  <span>
-                    <time dateTime={recommendation.date}>
-                      {format(parseISO(recommendation.date), "y")}
-                    </time>
-                    <Spacer height="lg" />
-                  </span>
-                  <div>
-                    <p>“{recommendation.text}”</p>
-                    <Spacer height="lg" />
-                    <Box display="flex" alignItems="center" gap="lg">
-                      <Avatar
-                        src={recommendation.avatar}
-                        alt={`${recommendation.name} avatar`}
-                      />
-                      <p>
-                        {recommendation.name}, {recommendation.company}
-                      </p>
-                    </Box>
-                  </div>
-                </Box>
-              </ListItem>
+              <List.Item key={job._id}>
+                <Text color="foregroundNeutral" fontSize="sm">
+                  {format(parseISO(job.startDate), "y")} &mdash;{" "}
+                  {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
+                </Text>
+                <Spacer height="sm" />
+                <Heading>
+                  {job.title} at {job.company}
+                </Heading>
+                <Spacer height="sm" />
+                <Text color="foregroundNeutral">
+                  {job.location ? job.location : "Remote"}
+                </Text>
+              </List.Item>
             );
           })}
-      </List>
+        </List>
+      </section>
 
-      {!allRecs ? (
-        <>
-          <Spacer height="xl" />
-          <Box
-            display="grid"
-            columnGap="xl"
-            gridTemplateColumns={{
-              sm: "1fr",
-              md: "8rem 1fr",
-            }}
-          >
-            <Box
-              gridColumnStart={{
-                md: 2,
-              }}
-            >
-              <button
-                onClick={showAllRecs}
-                aria-label="Load all recommendations"
-              >
-                Load all
-              </button>
-            </Box>
-          </Box>
-        </>
-      ) : null}
+      <Spacer height="xxxxl" />
+
+      <section>
+        <Heading fontSize="xl">Recommendations</Heading>
+        <Spacer height="xxl" />
+        <List>
+          {recommendations.map((rec) => {
+            return (
+              <List.Item key={rec._id}>
+                <figure key={rec._id}>
+                  <blockquote>
+                    <Text>{rec.text}</Text>
+                  </blockquote>
+                  <Spacer height="sm" />
+                  <figcaption>
+                    <Text color="foregroundNeutral">
+                      {rec.name}, {rec.title}, {rec.company}
+                    </Text>
+                  </figcaption>
+                </figure>
+              </List.Item>
+            );
+          })}
+        </List>
+      </section>
+
+      <Spacer height="xxxxl" />
+
+      <section>
+        <Heading fontSize="xl">Connect</Heading>
+        <Spacer height="xxl" />
+        <List>
+          <List.Item>
+            <Text color="foregroundNeutral">
+              <a href="mailto:im.alexcarpenter@gmail.com">
+                im.alexcarpenter@gmail.com
+              </a>{" "}
+              ↗
+            </Text>
+          </List.Item>
+          <List.Item>
+            <Text color="foregroundNeutral">
+              <a href="https://twitter.com/hybrid_alex">Twitter</a> ↗
+            </Text>
+          </List.Item>
+          <List.Item>
+            <Text color="foregroundNeutral">
+              <a href="https://github.com/alexcarpenter">Github</a> ↗
+            </Text>
+          </List.Item>
+          <List.Item>
+            <Text color="foregroundNeutral">
+              <a href="https://www.linkedin.com/in/imalexcarpenter/">
+                LinkedIn
+              </a>{" "}
+              ↗
+            </Text>
+          </List.Item>
+        </List>
+      </section>
     </>
   );
 };
 
-export async function getStaticProps() {
-  const posts = allPosts
-    .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date));
-    })
-    .slice(0, 3);
+export default Home;
 
+export async function getStaticProps() {
   const jobs = allJobs.sort((a, b) => {
     return compareDesc(new Date(a.startDate), new Date(b.startDate));
   });
@@ -104,193 +146,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts,
       jobs,
       recommendations,
-      interests: [
-        "Accessibility",
-        "CSS",
-        "Design Systems",
-        "Essentialism",
-        "Next.js",
-        "Performance",
-        "Pragmatism",
-        "React",
-        "TypeScript",
-      ],
     },
   };
 }
-
-const Home: NextPage<{
-  posts: Post[];
-  jobs: Job[];
-  recommendations: Recommendation[];
-  interests: string[];
-}> = ({ posts, jobs, recommendations, interests }) => {
-  return (
-    <>
-      <section>
-        <Heading decorated>About</Heading>
-        <Spacer height="xl" />
-        <p>
-          Hey, I&apos;m Alex. A detail oriented user interface engineer
-          interested in CSS architecture, React, TypeScript, design systems, and
-          state machines. Currently working at HashiCorp, helping build and
-          maintain public-facing HashiCorp websites and web applications with
-          Next.js.
-        </p>
-        <Spacer height="lg" />
-        <p>
-          <Link href="/timeline">View timeline</Link>
-        </p>
-      </section>
-      <Spacer height="xxxl" />
-      <section>
-        <Heading decorated>Experience</Heading>
-        <Spacer height="xl" />
-        <List>
-          {jobs.map((job, index) => {
-            return (
-              <ListItem key={index}>
-                <Box
-                  display="grid"
-                  columnGap="xl"
-                  gridTemplateColumns={{
-                    sm: "1fr",
-                    md: "8rem 1fr",
-                  }}
-                >
-                  <span>
-                    {format(parseISO(job.startDate), "y")} &mdash;{" "}
-                    {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
-                    <Spacer height="xs" />
-                  </span>
-                  <div>
-                    <Heading as="h3">
-                      <Link href={job.link}>
-                        {job.title} at {job.company}&nbsp;
-                      </Link>
-                    </Heading>
-                    <Spacer height="xs" />
-                    <p>{job.location || "Remote"}</p>
-                    {job.description ? (
-                      <>
-                        <Spacer height="sm" />
-                        <p>{job.description}</p>
-                      </>
-                    ) : null}
-                  </div>
-                </Box>
-              </ListItem>
-            );
-          })}
-        </List>
-      </section>
-
-      <Spacer height="xxxl" />
-
-      <section>
-        <Heading decorated>Interests</Heading>
-        <Spacer height="xl" />
-        <Box
-          display="grid"
-          columnGap="xl"
-          gridTemplateColumns={{
-            sm: "1fr",
-            md: "8rem 1fr",
-          }}
-        >
-          <Box
-            as="ul"
-            display="grid"
-            gridTemplateColumns={{
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-            }}
-            gap="lg"
-            gridColumnStart={{
-              md: 2,
-            }}
-          >
-            {interests.map((interest, index) => {
-              return <li key={index}>{interest}</li>;
-            })}
-          </Box>
-        </Box>
-      </section>
-
-      <Spacer height="xxxl" />
-
-      <section>
-        <Heading decorated>Recommendations</Heading>
-        <Spacer height="xl" />
-        <RecommendationsList recommendations={recommendations} />
-      </section>
-
-      <Spacer height="xxxl" />
-
-      <section>
-        <Heading decorated>Posts</Heading>
-        <Spacer height="xl" />
-        <List>
-          {posts.map((post, index) => {
-            return (
-              <ListItem key={index}>
-                <Box
-                  display="grid"
-                  columnGap="xl"
-                  gridTemplateColumns={{
-                    sm: "1fr",
-                    md: "8rem 1fr",
-                  }}
-                >
-                  <span>
-                    <time dateTime={post.date}>
-                      {format(parseISO(post.date), "LLL d")}
-                    </time>
-                    <Spacer height="xs" />
-                  </span>
-                  <div>
-                    <Heading as="h3">
-                      <Link href={`/posts/${post.slug}`}>{post.title}</Link>
-                    </Heading>
-                    {post.description ? (
-                      <>
-                        <Spacer height="xs" />
-                        <p>{post.description}</p>
-                      </>
-                    ) : null}
-                  </div>
-                </Box>
-              </ListItem>
-            );
-          })}
-        </List>
-
-        <Spacer height="xl" />
-
-        <Box
-          display="grid"
-          columnGap="xl"
-          gridTemplateColumns={{
-            sm: "1fr",
-            md: "8rem 1fr",
-          }}
-        >
-          <Box
-            gridColumnStart={{
-              md: 2,
-            }}
-          >
-            <Link href="/posts" aria-label="View all posts">
-              View all
-            </Link>
-          </Box>
-        </Box>
-      </section>
-    </>
-  );
-};
-
-export default Home;

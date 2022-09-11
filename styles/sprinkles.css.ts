@@ -2,10 +2,12 @@ import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import { themeVars } from "./theme.css";
 import { tokens } from "./tokens.css";
 
-const space = tokens.sizing;
+const space = tokens.spacing;
 export type Space = keyof typeof space;
 const radius = tokens.radius;
 export type Radius = keyof typeof radius;
+const fontSize = tokens.fontSize;
+export type FontSize = keyof typeof fontSize;
 
 const responsiveProperties = defineProperties({
   conditions: {
@@ -32,21 +34,10 @@ const responsiveProperties = defineProperties({
     paddingLeft: space,
     paddingRight: space,
     gap: space,
-    columnGap: space,
-    rowGap: space,
-    gridTemplateColumns: [
-      "1fr",
-      "8rem 1fr",
-      "repeat(2, 1fr)",
-      "repeat(3, 1fr)",
-      "repeat(4, 1fr)",
-    ],
-    gridColumnStart: [1, 2, 3, 4],
-    gridColumnEnd: [1, 2, 3, 4],
+    aspectRatio: ["1/1", "4/3"],
     width: space,
     height: space,
-    aspectRatio: ["1/1", "4/3"],
-    overflow: ["visible", "hidden"],
+    fontSize,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
@@ -58,6 +49,7 @@ const responsiveProperties = defineProperties({
 
 const unresponsiveProperties = defineProperties({
   properties: {
+    color: themeVars.color,
     borderRadius: radius,
     border: { true: `1px solid ${themeVars.color.border}` },
   },

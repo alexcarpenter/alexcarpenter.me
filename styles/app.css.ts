@@ -12,52 +12,17 @@ globalFontFace("Inter", {
 });
 
 globalStyle("html", {
-  fontSize: "0.875rem",
-  lineHeight: 1.5,
+  lineHeight: 1.25,
   WebkitTextSizeAdjust: "100%",
 });
 
 globalStyle("body", {
+  position: "relative",
+  paddingInline: tokens.spacing.lg,
+  paddingBlock: tokens.spacing.xxxxl,
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
   textRendering: "optimizeLegibility",
   fontFamily: tokens.font.sans,
   backgroundColor: themeVars.color.page,
-  color: themeVars.color.foreground,
-});
-
-globalStyle("body, #__next, .container", {
-  display: "flex",
-  flexDirection: "column",
-  minHeight: "100vh",
-});
-
-globalStyle(".container", {
-  paddingTop: tokens.sizing.xxxl,
-  paddingRight: tokens.sizing.lg,
-  paddingBottom: tokens.sizing.xxxl,
-  paddingLeft: tokens.sizing.lg,
-  width: "100%",
-  maxWidth: tokens.contentWidth.standard,
-  marginRight: "auto",
-  marginLeft: "auto",
-});
-
-globalStyle("a, button", {
-  color: themeVars.color.foregroundHighlight,
-  cursor: "pointer",
-});
-
-globalStyle("button:focus-visible", {
-  outlineWidth: "2px",
-  outlineStyle: "solid",
-  outlineOffset: "2px",
-  outlineColor: themeVars.color.outline,
-});
-
-globalStyle("a:focus-visible", {
-  outlineWidth: "2px",
-  outlineStyle: "solid",
-  outlineOffset: "2px",
-  outlineColor: themeVars.color.outline,
 });

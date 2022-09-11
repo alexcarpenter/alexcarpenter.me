@@ -1,10 +1,17 @@
-import { PartialPick } from "types";
-import type { BoxProps } from "@/components/Box";
-import { Box } from "@/components/Box";
+import * as React from "react";
+import type { Sprinkles } from "styles/sprinkles.css";
+import { sprinkles } from "styles/sprinkles.css";
+import clsx from "clsx";
 
-export const Spacer = ({
-  height,
-  width,
-}: PartialPick<BoxProps<"span">, "width" | "height">) => {
-  return <Box as="span" display="block" height={height} width={width} />;
+interface SpacerProps {
+  width?: Sprinkles["width"];
+  height?: Sprinkles["height"];
+}
+
+const Spacer = ({ width, height }: SpacerProps) => {
+  return React.createElement("span", {
+    className: clsx(sprinkles({ display: "block", width, height })),
+  });
 };
+
+export { Spacer };

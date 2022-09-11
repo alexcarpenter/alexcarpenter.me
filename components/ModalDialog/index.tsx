@@ -1,1 +1,0 @@
-export { ModalDialog } from "./ModalDialog";
