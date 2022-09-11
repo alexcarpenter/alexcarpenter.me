@@ -34,7 +34,7 @@ const Home: NextPage<{
         <Heading fontSize="xxxl" as="h1">
           Design Engineer
         </Heading>
-        <Spacer height="lg" />
+        <Spacer height="xl" />
         <Text fontSize="xl" color="foregroundNeutral">
           A detail oriented user interface engineer interested in CSS
           architecture, React, TypeScript, and design systems. Currently working
@@ -47,11 +47,11 @@ const Home: NextPage<{
 
       <section>
         <Heading fontSize="xl">Experience</Heading>
+        <Spacer height="xxl" />
         <ul>
           {jobs.map((job) => {
             return (
               <li key={job._id}>
-                <Spacer height="xxl" />
                 <Text color="foregroundNeutral" fontSize="sm">
                   {format(parseISO(job.startDate), "y")} &mdash;{" "}
                   {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
@@ -72,11 +72,11 @@ const Home: NextPage<{
 
       <section>
         <Heading fontSize="xl">Recommendations</Heading>
+        <Spacer height="xxl" />
         <ul>
           {recommendations.map((rec) => {
             return (
               <li key={rec._id}>
-                <Spacer height="xxl" />
                 <figure key={rec._id}>
                   <blockquote>
                     <Text>{rec.text}</Text>
@@ -98,29 +98,32 @@ const Home: NextPage<{
 
       <section>
         <Heading fontSize="xl">Connect</Heading>
+        <Spacer height="xxl" />
         <ul>
           <li>
-            <Spacer height="xxl" />
             <Text color="foregroundNeutral">
-              <a href="">im.alexcarpenter@gmail.com</a> ↗
+              <a href="mailto:im.alexcarpenter@gmail.com">
+                im.alexcarpenter@gmail.com
+              </a>{" "}
+              ↗
             </Text>
           </li>
           <li>
-            <Spacer height="xxl" />
             <Text color="foregroundNeutral">
-              <a href="">Twitter</a> ↗
+              <a href="https://twitter.com/hybrid_alex">Twitter</a> ↗
             </Text>
           </li>
           <li>
-            <Spacer height="xxl" />
             <Text color="foregroundNeutral">
-              <a href="">Github</a> ↗
+              <a href="https://github.com/alexcarpenter">Github</a> ↗
             </Text>
           </li>
           <li>
-            <Spacer height="xxl" />
             <Text color="foregroundNeutral">
-              <a href="">LinkedIn</a> ↗
+              <a href="https://www.linkedin.com/in/imalexcarpenter/">
+                LinkedIn
+              </a>{" "}
+              ↗
             </Text>
           </li>
         </ul>
