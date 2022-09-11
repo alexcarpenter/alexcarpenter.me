@@ -28,20 +28,20 @@ const Home: NextPage<{
         </Text>
       </header>
 
-      <Spacer height="4xl" />
+      <Spacer height="xxxxl" />
 
       <section>
         <Heading>Experience</Heading>
         {jobs.map((job) => {
           return (
             <>
-              <Spacer height="2xl" />
+              <Spacer height="xxl" />
               <article key={job._id}>
                 <Text fontSize="sm" color="foregroundNeutral">
                   {format(parseISO(job.startDate), "y")} &mdash;{" "}
                   {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
                 </Text>
-                <Spacer height="md" />
+                <Spacer height="sm" />
                 <Text>{job.title}</Text>
                 <Spacer height="md" />
                 <Text color="foregroundNeutral">{job.company}</Text>
@@ -51,14 +51,14 @@ const Home: NextPage<{
         })}
       </section>
 
-      <Spacer height="4xl" />
+      <Spacer height="xxxxl" />
 
       <section>
         <Heading>Recommendations</Heading>
         {recommendations.map((rec) => {
           return (
             <>
-              <Spacer height="2xl" />
+              <Spacer height="xxl" />
               <figure key={rec._id}>
                 <blockquote>
                   <Text>{rec.text}</Text>

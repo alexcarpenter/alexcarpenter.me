@@ -26,25 +26,29 @@ globalStyle("[cmdk-input]", {
   border: "1px solid",
   borderColor: themeVars.color.border,
   borderRadius: 0,
-  borderTopLeftRadius: tokens.radius.sm,
-  borderTopRightRadius: tokens.radius.sm,
+  borderTopLeftRadius: tokens.radius.md,
+  borderTopRightRadius: tokens.radius.md,
+});
+
+globalStyle("[cmdk-input]::placeholder", {
+  color: themeVars.color.foregroundNeutral,
 });
 
 globalStyle("[cmdk-list]", {
-  minHeight: 100,
+  minHeight: 150,
   backgroundColor: themeVars.color.page,
   height: "var(--cmdk-list-height)",
-  maxHeight: 500,
+  maxHeight: 350,
   transition: "height 100ms ease",
-  overflow: "auto",
+  overflowY: "auto",
   paddingInline: tokens.spacing.sm,
   paddingBlock: tokens.spacing.lg,
   scrollPaddingBlock: tokens.spacing.lg,
   border: "1px solid",
   borderColor: themeVars.color.border,
   borderTop: 0,
-  borderBottomLeftRadius: tokens.radius.sm,
-  borderBottomRightRadius: tokens.radius.sm,
+  borderBottomLeftRadius: tokens.radius.md,
+  borderBottomRightRadius: tokens.radius.md,
 });
 
 globalStyle("*:not([hidden]) + [cmdk-group]", {
@@ -62,7 +66,7 @@ globalStyle("[cmdk-item]", {
   position: "relative",
   contentVisibility: "auto",
   cursor: "pointer",
-  borderRadius: tokens.radius.sm,
+  borderRadius: tokens.radius.md,
   fontSize: tokens.fontSize.md,
   padding: tokens.spacing.md,
   userSelect: "none",
