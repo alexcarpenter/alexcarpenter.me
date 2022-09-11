@@ -4,7 +4,9 @@ import Image from "next/image";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
+import { Entry } from "components/Entry";
 import { Heading } from "components/Heading";
+import { List } from "components/List";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
 import { allJobs, allRecommendations } from "contentlayer/generated";
@@ -45,71 +47,83 @@ const Home: NextPage<{
 
       <section>
         <Heading fontSize="xl">Experience</Heading>
-        {jobs.map((job) => {
-          return (
-            <React.Fragment key={job._id}>
-              <Spacer height="xxl" />
-              <article key={job._id}>
-                {job.logo ? (
-                  <Image
-                    src={job.logo}
-                    width={32}
-                    height={32}
-                    alt="Headshot"
-                    style={{
-                      borderRadius: 6,
-                    }}
-                  />
-                ) : null}
-                <Spacer height="sm" />
-                <Text fontSize="sm" color="foregroundNeutral">
+        <ul>
+          {jobs.map((job) => {
+            return (
+              <li key={job._id}>
+                <Spacer height="xxl" />
+                <Text color="foregroundNeutral" fontSize="sm">
                   {format(parseISO(job.startDate), "y")} &mdash;{" "}
                   {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
                 </Text>
                 <Spacer height="sm" />
-                <Text>{job.title}</Text>
-                <Spacer height="md" />
-                <Text color="foregroundNeutral">{job.company}</Text>
-              </article>
-            </React.Fragment>
-          );
-        })}
+                <Heading>
+                  {job.title} at {job.company}
+                </Heading>
+                <Spacer height="sm" />
+                <Text color="foregroundNeutral">{job.description}</Text>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       <Spacer height="xxxxl" />
 
       <section>
         <Heading fontSize="xl">Recommendations</Heading>
-        {recommendations.map((rec) => {
-          return (
-            <React.Fragment key={rec._id}>
-              <Spacer height="xxl" />
-              <figure key={rec._id}>
-                <blockquote>
-                  <Text>{rec.text}</Text>
-                </blockquote>
-                <Spacer height="md" />
-                <figcaption>
-                  <Text color="foregroundNeutral">
-                    {rec.name}, {rec.title}, {rec.company}
-                  </Text>
+        <ul>
+          {recommendations.map((rec) => {
+            return (
+              <li key={rec._id}>
+                <Spacer height="xxl" />
+                <figure key={rec._id}>
+                  <blockquote>
+                    <Text>{rec.text}</Text>
+                  </blockquote>
                   <Spacer height="sm" />
-                  {rec.avatar ? (
-                    <Image
-                      src={rec.avatar}
-                      width={32}
-                      height={32}
-                      alt="Headshot"
-                      style={{
-                        borderRadius: 6,
-                      }}
-                    />
-                  ) : null}
-                </figcaption>
-              </figure>
-            </React.Fragment>
-          );
-        })}
+                  <figcaption>
+                    <Text color="foregroundNeutral">
+                      {rec.name}, {rec.title}, {rec.company}
+                    </Text>
+                  </figcaption>
+                </figure>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <Spacer height="xxxxl" />
+
+      <section>
+        <Heading fontSize="xl">Connect</Heading>
+        <ul>
+          <li>
+            <Spacer height="xxl" />
+            <Text color="foregroundNeutral">
+              <a href="">im.alexcarpenter@gmail.com</a> ↗
+            </Text>
+          </li>
+          <li>
+            <Spacer height="xxl" />
+            <Text color="foregroundNeutral">
+              <a href="">Twitter</a> ↗
+            </Text>
+          </li>
+          <li>
+            <Spacer height="xxl" />
+            <Text color="foregroundNeutral">
+              <a href="">Github</a> ↗
+            </Text>
+          </li>
+          <li>
+            <Spacer height="xxl" />
+            <Text color="foregroundNeutral">
+              <a href="">LinkedIn</a> ↗
+            </Text>
+          </li>
+        </ul>
       </section>
     </>
   );
