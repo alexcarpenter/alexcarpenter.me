@@ -23,12 +23,17 @@ const Home: NextPage<{
           width={48}
           height={48}
           alt="Headshot"
+          style={{
+            borderRadius: 10,
+          }}
           priority
         />
         <Spacer height="lg" />
-        <Text fontSize="xxxl">Design Engineer</Text>
+        <Heading fontSize="xxxl" as="h1">
+          Design Engineer
+        </Heading>
         <Spacer height="lg" />
-        <Text fontSize="xl">
+        <Text fontSize="xl" color="foregroundNeutral">
           A detail oriented user interface engineer interested in CSS
           architecture, React, TypeScript, and design systems. Currently working
           at HashiCorp, helping build and maintain public-facing HashiCorp
@@ -39,7 +44,7 @@ const Home: NextPage<{
       <Spacer height="xxxxl" />
 
       <section>
-        <Heading>Experience</Heading>
+        <Heading fontSize="xl">Experience</Heading>
         {jobs.map((job) => {
           return (
             <>
@@ -62,7 +67,7 @@ const Home: NextPage<{
       <Spacer height="xxxxl" />
 
       <section>
-        <Heading>Recommendations</Heading>
+        <Heading fontSize="xl">Recommendations</Heading>
         {recommendations.map((rec) => {
           return (
             <>
