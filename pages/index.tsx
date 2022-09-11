@@ -47,7 +47,7 @@ const Home: NextPage<{
         <Heading fontSize="xl">Experience</Heading>
         {jobs.map((job) => {
           return (
-            <>
+            <React.Fragment key={job._id}>
               <Spacer height="xxl" />
               <article key={job._id}>
                 <Text fontSize="sm" color="foregroundNeutral">
@@ -59,7 +59,7 @@ const Home: NextPage<{
                 <Spacer height="md" />
                 <Text color="foregroundNeutral">{job.company}</Text>
               </article>
-            </>
+            </React.Fragment>
           );
         })}
       </section>
@@ -70,7 +70,7 @@ const Home: NextPage<{
         <Heading fontSize="xl">Recommendations</Heading>
         {recommendations.map((rec) => {
           return (
-            <>
+            <React.Fragment key={rec._id}>
               <Spacer height="xxl" />
               <figure key={rec._id}>
                 <blockquote>
@@ -83,7 +83,7 @@ const Home: NextPage<{
                   </Text>
                 </figcaption>
               </figure>
-            </>
+            </React.Fragment>
           );
         })}
       </section>

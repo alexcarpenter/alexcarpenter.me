@@ -26,9 +26,3 @@ globalStyle("body", {
   fontFamily: tokens.font.sans,
   backgroundColor: themeVars.color.page,
 });
-
-globalStyle("body, #__next", {
-  display: "flex",
-  flexDirection: "column",
-  minHeight: "100vh",
-});
