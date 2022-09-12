@@ -4,7 +4,6 @@ import "styles/app.css";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
 import SEO from "next-seo.config";
 
 const composeProviders =
@@ -15,17 +14,14 @@ const composeProviders =
       return <Provider {...props}>{acc}</Provider>;
     }, children);
 
-const Providers = composeProviders(
-  [
-    ThemeProvider,
-    {
-      attribute: "class",
-      defaultTheme: "system",
-      disableTransitionOnChange: true,
-    },
-  ],
-  [TooltipProvider]
-);
+const Providers = composeProviders([
+  ThemeProvider,
+  {
+    attribute: "class",
+    defaultTheme: "system",
+    disableTransitionOnChange: true,
+  },
+]);
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
