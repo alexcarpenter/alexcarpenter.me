@@ -1,9 +1,5 @@
 import slugify from "@sindresorhus/slugify";
-import {
-  defineDocumentType,
-  defineNestedType,
-  makeSource,
-} from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
@@ -115,54 +111,6 @@ export const Recommendation = defineDocumentType(() => ({
   },
 }));
 
-const Image = defineNestedType(() => ({
-  name: "Image",
-  fields: {
-    src: { type: "string", required: true },
-    width: { type: "number", required: true },
-    height: { type: "number", required: true },
-    alt: { type: "string", required: true },
-  },
-}));
-
-export const Event = defineDocumentType(() => ({
-  name: "Event",
-  filePathPattern: `events/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    title: {
-      type: "string",
-      required: true,
-    },
-    description: {
-      type: "string",
-      required: false,
-    },
-    link: {
-      type: "string",
-      required: false,
-    },
-    category: {
-      type: "enum",
-      options: ["work", "life"],
-      required: true,
-    },
-    media: {
-      type: "list",
-      of: Image,
-      required: false,
-    },
-  },
-  computedFields: {
-    date: {
-      type: "date",
-      resolve: (e) => {
-        return e._raw.sourceFileName.replace(/\.mdx$/, "");
-      },
-    },
-  },
-}));
-
 const rehypePrettyCodeOptions: Partial<Options> = {
   theme: {
     light: "github-light",
@@ -192,7 +140,7 @@ const rehypePrettyCodeOptions: Partial<Options> = {
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Event, Job, Post, Recommendation],
+  documentTypes: [Job, Post, Recommendation],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
