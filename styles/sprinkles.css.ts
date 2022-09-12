@@ -34,6 +34,8 @@ const responsiveProperties = defineProperties({
     paddingLeft: space,
     paddingRight: space,
     gap: space,
+    rowGap: space,
+    columnGap: space,
     aspectRatio: ["1/1", "4/3"],
     width: space,
     height: space,
@@ -52,6 +54,7 @@ const unresponsiveProperties = defineProperties({
     color: themeVars.color,
     borderRadius: radius,
     border: { true: `1px solid ${themeVars.color.border}` },
+    flexShrink: [0],
   },
 });
 

@@ -4,11 +4,14 @@ import Image from "next/image";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
+import { Box } from "components/Box";
 import { Heading } from "components/Heading";
 import { List } from "components/List";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
 import { allJobs, allRecommendations } from "contentlayer/generated";
+
+const formatTags = new Intl.ListFormat("en", { type: "conjunction" });
 
 const Home: NextPage<{
   jobs: Job[];
@@ -55,18 +58,41 @@ const Home: NextPage<{
           {jobs.map((job) => {
             return (
               <List.Item key={job._id}>
-                <Text color="foregroundNeutral" fontSize="sm">
-                  {format(parseISO(job.startDate), "y")} &mdash;{" "}
-                  {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
-                </Text>
-                <Spacer height="sm" />
-                <Heading>
-                  {job.title} at {job.company}
-                </Heading>
-                <Spacer height="sm" />
-                <Text color="foregroundNeutral">
-                  {job.location ? job.location : "Remote"}
-                </Text>
+                <Box display="flex" gap="md">
+                  {job.logo ? (
+                    <Box display="flex" alignItems="flex-start" flexShrink={0}>
+                      <Image
+                        src={job.logo}
+                        width={32}
+                        height={32}
+                        alt=""
+                        style={{ borderRadius: 6 }}
+                      />
+                    </Box>
+                  ) : null}
+                  <div>
+                    <Text color="foregroundNeutral" fontSize="sm">
+                      {format(parseISO(job.startDate), "y")} &mdash;{" "}
+                      {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
+                    </Text>
+                    <Spacer height="sm" />
+                    <Heading>
+                      {job.title} at {job.company}
+                    </Heading>
+                    <Spacer height="sm" />
+                    <Text color="foregroundNeutral">
+                      {job.location ? job.location : "Remote"}
+                    </Text>
+                    {job.tags ? (
+                      <>
+                        <Spacer height="sm" />
+                        <Text fontSize="sm" color="foregroundNeutral">
+                          {formatTags.format(job.tags)}
+                        </Text>
+                      </>
+                    ) : null}
+                  </div>
+                </Box>
               </List.Item>
             );
           })}
@@ -82,17 +108,30 @@ const Home: NextPage<{
           {recommendations.map((rec) => {
             return (
               <List.Item key={rec._id}>
-                <figure key={rec._id}>
-                  <blockquote>
-                    <Text>{rec.text}</Text>
-                  </blockquote>
-                  <Spacer height="sm" />
-                  <figcaption>
-                    <Text color="foregroundNeutral">
-                      {rec.name}, {rec.title}, {rec.company}
-                    </Text>
-                  </figcaption>
-                </figure>
+                <Box display="flex" gap="md">
+                  {rec.avatar ? (
+                    <Box display="flex" alignItems="flex-start" flexShrink={0}>
+                      <Image
+                        src={rec.avatar}
+                        width={32}
+                        height={32}
+                        alt=""
+                        style={{ borderRadius: 6 }}
+                      />
+                    </Box>
+                  ) : null}
+                  <figure key={rec._id}>
+                    <blockquote>
+                      <Text>{rec.text}</Text>
+                    </blockquote>
+                    <Spacer height="sm" />
+                    <figcaption>
+                      <Text color="foregroundNeutral">
+                        {rec.name}, {rec.title}, {rec.company}
+                      </Text>
+                    </figcaption>
+                  </figure>
+                </Box>
               </List.Item>
             );
           })}
