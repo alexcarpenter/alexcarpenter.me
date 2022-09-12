@@ -31,6 +31,10 @@ const Home: NextPage<{
         />
         <Spacer height="lg" />
         <Heading fontSize="xxxl" as="h1">
+          Alex Carpenter{" "}
+          <span role="separator" aria-orientation="vertical">
+            {"//"}
+          </span>{" "}
           Design Engineer
         </Heading>
         <Spacer height="xl" />
