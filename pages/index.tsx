@@ -5,7 +5,6 @@ import { compareDesc, format, parseISO } from "date-fns";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { Box } from "components/Box";
-import { Card } from "components/Card";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";
 import { List } from "components/List";
@@ -95,10 +94,7 @@ const Home: NextPage<{
                       </Heading>
                     </Box>
                     <Spacer height="sm" />
-                    <Text>
-                      {job.location ? job.location : "Remote"}
-                      {/* {job.description} */}
-                    </Text>
+                    <Text>{job.location ? job.location : "Remote"}</Text>
                     {job.tags ? (
                       <>
                         <Spacer height="sm" />
@@ -142,7 +138,7 @@ const Home: NextPage<{
                     </blockquote>
                     <Spacer height="sm" />
                     <figcaption>
-                      <Text color="foregroundNeutral">
+                      <Text color="foregroundNeutral" fontSize="sm">
                         {rec.name}, {rec.title}, {rec.company}
                       </Text>
                     </figcaption>

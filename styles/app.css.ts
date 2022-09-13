@@ -27,3 +27,10 @@ globalStyle("body", {
   backgroundColor: themeVars.color.page,
   overflowX: "hidden",
 });
+
+globalStyle("ul:not([class])", {
+  listStyleType: "disc",
+  display: "grid",
+  paddingInlineStart: tokens.spacing.md,
+  gap: tokens.spacing.sm,
+});
