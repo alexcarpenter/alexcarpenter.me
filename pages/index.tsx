@@ -82,9 +82,7 @@ const Home: NextPage<{
                       alignItems={{ md: "center" }}
                       justifyContent={{ md: "space-between" }}
                       gap="sm"
-                      style={{
-                        maxWidth: "60ch",
-                      }}
+                      maxWidth="characterWidth"
                     >
                       <Text color="foregroundNeutral" fontSize="sm">
                         {format(parseISO(job.startDate), "y")} &mdash;{" "}

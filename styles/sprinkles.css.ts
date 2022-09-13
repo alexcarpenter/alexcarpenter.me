@@ -8,6 +8,8 @@ const radius = tokens.radius;
 export type Radius = keyof typeof radius;
 const fontSize = tokens.fontSize;
 export type FontSize = keyof typeof fontSize;
+const maxWidth = tokens.contentWidth;
+export type MaxWidth = keyof typeof maxWidth;
 
 const responsiveProperties = defineProperties({
   conditions: {
@@ -37,6 +39,7 @@ const responsiveProperties = defineProperties({
     rowGap: space,
     columnGap: space,
     aspectRatio: ["1/1", "4/3"],
+    maxWidth: maxWidth,
     width: space,
     height: space,
     fontSize,

@@ -32,6 +32,7 @@ export const Box = ({
   gap,
   columnGap,
   rowGap,
+  maxWidth,
   ...restProps
 }: BoxProps) => {
   const atomClasses = clsx(
@@ -53,6 +54,7 @@ export const Box = ({
       gap,
       columnGap,
       rowGap,
+      maxWidth,
     }),
     className
   );
