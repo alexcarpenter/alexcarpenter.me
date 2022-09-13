@@ -35,7 +35,7 @@ const Home: NextPage<{
           priority
         />
         <Spacer height="lg" />
-        <Heading fontSize="xxxl" as="h1">
+        <Heading fontSize={{ sm: "xxl", md: "xxxl" }} as="h1">
           Alex Carpenter{" "}
           <span role="separator" aria-orientation="vertical">
             {"//"}
@@ -43,7 +43,7 @@ const Home: NextPage<{
           Design Engineer
         </Heading>
         <Spacer height="xl" />
-        <Text fontSize="xl" color="foregroundNeutral">
+        <Text fontSize={{ sm: "lg", md: "xl" }} color="foregroundNeutral">
           A detail oriented user interface engineer interested in CSS
           architecture, React, TypeScript, and design systems. Currently working
           at HashiCorp, helping build and maintain public-facing HashiCorp
