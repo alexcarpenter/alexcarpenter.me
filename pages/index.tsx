@@ -1,11 +1,13 @@
 import * as React from "react";
-import { compareDesc, format, parseISO } from "date-fns";
-import Image from "next/image";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
+import { compareDesc, format, parseISO } from "date-fns";
+import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { Box } from "components/Box";
+import { Card } from "components/Card";
 import { Heading } from "components/Heading";
+import { Link } from "components/Link";
 import { List } from "components/List";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
@@ -70,18 +72,34 @@ const Home: NextPage<{
                       />
                     </Box>
                   ) : null}
-                  <div>
-                    <Text color="foregroundNeutral" fontSize="sm">
-                      {format(parseISO(job.startDate), "y")} &mdash;{" "}
-                      {job.endDate ? format(parseISO(job.endDate), "y") : "Now"}
-                    </Text>
+                  <Box flexGrow={1}>
+                    <Box
+                      display="flex"
+                      flexDirection={{
+                        sm: "column",
+                        md: "row-reverse",
+                      }}
+                      alignItems={{ md: "center" }}
+                      justifyContent={{ md: "space-between" }}
+                      gap="sm"
+                      style={{
+                        maxWidth: "60ch",
+                      }}
+                    >
+                      <Text color="foregroundNeutral" fontSize="sm">
+                        {format(parseISO(job.startDate), "y")} &mdash;{" "}
+                        {job.endDate
+                          ? format(parseISO(job.endDate), "y")
+                          : "Now"}
+                      </Text>
+                      <Heading>
+                        {job.title} at {job.company}
+                      </Heading>
+                    </Box>
                     <Spacer height="sm" />
-                    <Heading>
-                      {job.title} at {job.company}
-                    </Heading>
-                    <Spacer height="sm" />
-                    <Text color="foregroundNeutral">
+                    <Text>
                       {job.location ? job.location : "Remote"}
+                      {/* {job.description} */}
                     </Text>
                     {job.tags ? (
                       <>
@@ -91,7 +109,7 @@ const Home: NextPage<{
                         </Text>
                       </>
                     ) : null}
-                  </div>
+                  </Box>
                 </Box>
               </List.Item>
             );
@@ -146,28 +164,26 @@ const Home: NextPage<{
         <List>
           <List.Item>
             <Text color="foregroundNeutral">
-              <a href="mailto:im.alexcarpenter@gmail.com">
+              <Link href="mailto:im.alexcarpenter@gmail.com">
                 im.alexcarpenter@gmail.com
-              </a>{" "}
-              ↗
+              </Link>
             </Text>
           </List.Item>
           <List.Item>
             <Text color="foregroundNeutral">
-              <a href="https://twitter.com/hybrid_alex">Twitter</a> ↗
+              <Link href="https://twitter.com/hybrid_alex">Twitter</Link>
             </Text>
           </List.Item>
           <List.Item>
             <Text color="foregroundNeutral">
-              <a href="https://github.com/alexcarpenter">Github</a> ↗
+              <Link href="https://github.com/alexcarpenter">Github</Link>
             </Text>
           </List.Item>
           <List.Item>
             <Text color="foregroundNeutral">
-              <a href="https://www.linkedin.com/in/imalexcarpenter/">
+              <Link href="https://www.linkedin.com/in/imalexcarpenter/">
                 LinkedIn
-              </a>{" "}
-              ↗
+              </Link>
             </Text>
           </List.Item>
         </List>

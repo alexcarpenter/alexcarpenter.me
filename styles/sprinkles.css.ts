@@ -19,7 +19,7 @@ const responsiveProperties = defineProperties({
   properties: {
     position: ["relative", "absolute"],
     display: ["none", "flex", "grid", "block", "inline"],
-    flexDirection: ["row", "column"],
+    flexDirection: ["row", "row-reverse", "column"],
     justifyContent: [
       "stretch",
       "flex-start",
@@ -55,6 +55,7 @@ const unresponsiveProperties = defineProperties({
     borderRadius: radius,
     border: { true: `1px solid ${themeVars.color.border}` },
     flexShrink: [0],
+    flexGrow: [0, 1],
   },
 });
 

@@ -18,7 +18,7 @@ const Providers = composeProviders([
   ThemeProvider,
   {
     attribute: "class",
-    defaultTheme: "dark",
+    defaultTheme: "system",
     disableTransitionOnChange: true,
   },
 ]);
