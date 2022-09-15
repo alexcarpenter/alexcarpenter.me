@@ -32,7 +32,8 @@ export const tokens = createGlobalTheme(":root", {
     full: "9999px",
   },
   contentWidth: {
-    characterWidth: "60ch",
+    text: "60ch",
+    container: "50rem",
   },
   transition: {
     duration: "200ms",

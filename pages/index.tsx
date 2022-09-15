@@ -2,9 +2,11 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
 import { compareDesc, format, parseISO } from "date-fns";
+import { partition } from "lib/utils";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { Box } from "components/Box";
+import { Card } from "components/Card";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";
 import { List } from "components/List";
@@ -16,13 +18,18 @@ const formatTags = new Intl.ListFormat("en", { type: "conjunction" });
 
 const Home: NextPage<{
   jobs: Job[];
-  recommendations: Recommendation[];
+  recommendations: Recommendation[][];
 }> = ({ jobs, recommendations }) => {
   return (
     <>
       <NextSeo title="Design Engineer" />
 
-      <header>
+      <Box
+        as="header"
+        textAlign={{ md: "center" }}
+        maxWidth="container"
+        marginX="auto"
+      >
         <Image
           src="/img/me.jpeg"
           width={48}
@@ -34,7 +41,7 @@ const Home: NextPage<{
           priority
         />
         <Spacer height="lg" />
-        <Heading fontSize={{ sm: "xxl", md: "xxxl" }} as="h1">
+        <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
           Alex Carpenter{" "}
           <span role="separator" aria-orientation="vertical">
             {"//"}
@@ -42,18 +49,26 @@ const Home: NextPage<{
           Design Engineer
         </Heading>
         <Spacer height="xl" />
-        <Text fontSize={{ sm: "lg", md: "xl" }} color="foregroundNeutral">
+        <Text
+          fontSize={{ xs: "lg", sm: "xl" }}
+          color="foregroundNeutral"
+          style={{
+            display: "inline-flex",
+          }}
+        >
           A detail oriented user interface engineer interested in CSS
           architecture, React, TypeScript, and design systems. Currently working
           at HashiCorp, helping build and maintain public-facing HashiCorp
-          websites and web applications with Next.js.
+          websites and web applications with&nbsp;Next.js.
         </Text>
-      </header>
+      </Box>
 
       <Spacer height="xxxxl" />
 
-      <section>
-        <Heading fontSize="xl">Experience</Heading>
+      <Box as="section" maxWidth={{ md: "text" }} marginX="auto">
+        <header>
+          <Heading fontSize="xl">Experience</Heading>
+        </header>
         <Spacer height="xxl" />
         <List>
           {jobs.map((job) => {
@@ -75,13 +90,13 @@ const Home: NextPage<{
                     <Box
                       display="flex"
                       flexDirection={{
-                        sm: "column",
-                        md: "row-reverse",
+                        xs: "column",
+                        sm: "row-reverse",
                       }}
-                      alignItems={{ md: "center" }}
-                      justifyContent={{ md: "space-between" }}
+                      alignItems={{ sm: "center" }}
+                      justifyContent={{ sm: "space-between" }}
                       gap="sm"
-                      maxWidth="characterWidth"
+                      maxWidth="text"
                     >
                       <Text color="foregroundNeutral" fontSize="sm">
                         {format(parseISO(job.startDate), "y")} &mdash;{" "}
@@ -109,51 +124,77 @@ const Home: NextPage<{
             );
           })}
         </List>
-      </section>
+      </Box>
 
       <Spacer height="xxxxl" />
 
-      <section>
-        <Heading fontSize="xl">Recommendations</Heading>
+      <Box as="section" maxWidth="container" marginX="auto">
+        <Box as="header" maxWidth={{ md: "text" }} marginX="auto">
+          <Heading fontSize="xl">Recommendations</Heading>
+        </Box>
         <Spacer height="xxl" />
-        <List>
-          {recommendations.map((rec) => {
+        <Box
+          display="flex"
+          flexDirection={{ xs: "column", sm: "row" }}
+          alignItems={{ sm: "flex-start" }}
+          gap="md"
+        >
+          {recommendations.map((col, colIdx) => {
             return (
-              <List.Item key={rec._id}>
-                <Box display="flex" gap="md">
-                  {rec.avatar ? (
-                    <Box display="flex" alignItems="flex-start" flexShrink={0}>
-                      <Image
-                        src={rec.avatar}
-                        width={32}
-                        height={32}
-                        alt=""
-                        style={{ borderRadius: 6 }}
-                      />
-                    </Box>
-                  ) : null}
-                  <figure key={rec._id}>
-                    <blockquote>
-                      <Text>{rec.text}</Text>
-                    </blockquote>
-                    <Spacer height="sm" />
-                    <figcaption>
-                      <Text color="foregroundNeutral" fontSize="sm">
-                        {rec.name}, {rec.title}, {rec.company}
-                      </Text>
-                    </figcaption>
-                  </figure>
-                </Box>
-              </List.Item>
+              <Box
+                key={colIdx}
+                display="flex"
+                flexDirection="column"
+                flexGrow={1}
+                gap="md"
+              >
+                {col.map((rec, recIdx) => {
+                  return (
+                    <Card key={recIdx}>
+                      <figure>
+                        <blockquote>
+                          <Text>{rec.text}</Text>
+                        </blockquote>
+                        <Spacer height="md" />
+                        <Box as="figcaption" display="flex" gap="sm">
+                          {rec.avatar ? (
+                            <Box
+                              display="flex"
+                              alignItems="flex-start"
+                              flexShrink={0}
+                            >
+                              <Image
+                                src={rec.avatar}
+                                width={32}
+                                height={32}
+                                alt=""
+                                style={{ borderRadius: 6 }}
+                              />
+                            </Box>
+                          ) : null}
+                          <Box>
+                            <Text>{rec.name}</Text>
+                            <Text color="foregroundNeutral" fontSize="sm">
+                              {rec.title}, {rec.company}
+                            </Text>
+                          </Box>
+                        </Box>
+                      </figure>
+                    </Card>
+                  );
+                })}
+              </Box>
             );
           })}
-        </List>
-      </section>
+        </Box>
+      </Box>
 
       <Spacer height="xxxxl" />
 
-      <section>
-        <Heading fontSize="xl">Connect</Heading>
+      <Box as="section" maxWidth="text" marginX="auto">
+        <header>
+          <Heading fontSize="xl">Connect</Heading>
+        </header>
         <Spacer height="xxl" />
         <List>
           <List.Item>
@@ -181,7 +222,7 @@ const Home: NextPage<{
             </Text>
           </List.Item>
         </List>
-      </section>
+      </Box>
     </>
   );
 };
@@ -200,7 +241,13 @@ export async function getStaticProps() {
   return {
     props: {
       jobs,
-      recommendations,
+      recommendations: partition(
+        (rec: Recommendation) =>
+          ["Jimmy Merritello", "Amy Stuart", "Andrew Possehl"].includes(
+            rec.name
+          ),
+        recommendations
+      ),
     },
   };
 }

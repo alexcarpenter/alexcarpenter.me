@@ -22,6 +22,9 @@ export const Box = ({
   paddingLeft,
   paddingX,
   paddingY,
+  marginTop,
+  marginX,
+  marginBottom,
   display,
   flexDirection,
   flexShrink,
@@ -33,6 +36,7 @@ export const Box = ({
   columnGap,
   rowGap,
   maxWidth,
+  textAlign,
   ...restProps
 }: BoxProps) => {
   const atomClasses = clsx(
@@ -44,6 +48,9 @@ export const Box = ({
       paddingLeft,
       paddingX,
       paddingY,
+      marginTop,
+      marginX,
+      marginBottom,
       display,
       flexDirection,
       flexShrink,
@@ -55,6 +62,7 @@ export const Box = ({
       columnGap,
       rowGap,
       maxWidth,
+      textAlign,
     }),
     className
   );

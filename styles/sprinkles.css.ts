@@ -13,11 +13,12 @@ export type MaxWidth = keyof typeof maxWidth;
 
 const responsiveProperties = defineProperties({
   conditions: {
-    sm: {},
+    xs: {},
+    sm: { "@media": "screen and (min-width: 576px)" },
     md: { "@media": "screen and (min-width: 768px)" },
     lg: { "@media": "screen and (min-width: 1024px)" },
   },
-  defaultCondition: "sm",
+  defaultCondition: "xs",
   properties: {
     position: ["relative", "absolute"],
     display: ["none", "flex", "grid", "block", "inline"],
@@ -35,6 +36,10 @@ const responsiveProperties = defineProperties({
     paddingBottom: space,
     paddingLeft: space,
     paddingRight: space,
+    marginTop: ["auto"],
+    marginRight: ["auto"],
+    marginBottom: ["auto"],
+    marginLeft: ["auto"],
     gap: space,
     rowGap: space,
     columnGap: space,
@@ -43,12 +48,14 @@ const responsiveProperties = defineProperties({
     width: space,
     height: space,
     fontSize,
+    textAlign: ["left", "center", "right"],
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
     paddingX: ["paddingLeft", "paddingRight"],
     paddingY: ["paddingTop", "paddingBottom"],
     placeItems: ["justifyContent", "alignItems"],
+    marginX: ["marginLeft", "marginRight"],
   },
 });
 
