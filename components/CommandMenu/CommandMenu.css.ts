@@ -22,8 +22,7 @@ globalStyle("[cmdk-dialog]", {
 globalStyle("[cmdk-root]", {
   width: "100%",
   backgroundColor: themeVars.color.surface,
-  border: "1px solid",
-  borderColor: themeVars.color.border,
+  border: `1px solid ${themeVars.color.border}`,
   borderRadius: tokens.radius.md,
 });
 
@@ -32,8 +31,7 @@ globalStyle("[cmdk-input]", {
   fontSize: tokens.fontSize.md,
   width: "100%",
   padding: tokens.spacing.md,
-  borderBottom: "1px solid",
-  borderColor: themeVars.color.border,
+  borderBottom: `1px solid ${themeVars.color.border}`,
 });
 
 globalStyle("[cmdk-input]::placeholder", {
