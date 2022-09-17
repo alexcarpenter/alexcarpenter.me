@@ -32,6 +32,7 @@ globalStyle("[cmdk-root]", {
 });
 
 globalStyle("[cmdk-input]", {
+  position: "relative",
   fontFamily: tokens.font.sans,
   fontSize: tokens.fontSize.md,
   width: "100%",
@@ -91,4 +92,5 @@ globalStyle("[cmdk-item][aria-selected='true']::after", {
 
 globalStyle("[cmdk-empty]", {
   textAlign: "center",
+  color: themeVars.color.foregroundNeutral,
 });
