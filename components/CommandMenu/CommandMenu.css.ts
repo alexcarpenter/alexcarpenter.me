@@ -11,12 +11,17 @@ globalStyle("[cmdk-overlay]", {
 
 globalStyle("[cmdk-dialog]", {
   position: "fixed",
-  top: "8rem",
+  top: tokens.spacing.xxxxl,
   left: "50%",
   transform: "translateX(-50%)",
   maxWidth: 640,
   width: "100%",
   paddingInline: tokens.spacing.md,
+  "@media": {
+    "screen and (min-width: 576px)": {
+      paddingTop: "8rem",
+    },
+  },
 });
 
 globalStyle("[cmdk-root]", {
