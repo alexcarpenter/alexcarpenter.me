@@ -30,17 +30,6 @@ const Home: NextPage<{
         maxWidth="container"
         marginX="auto"
       >
-        <Image
-          src="/img/me.jpeg"
-          width={48}
-          height={48}
-          alt="Headshot"
-          style={{
-            borderRadius: 10,
-          }}
-          priority
-        />
-        <Spacer height="lg" />
         <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
           Alex Carpenter{" "}
           <span role="separator" aria-orientation="vertical">
@@ -105,7 +94,11 @@ const Home: NextPage<{
                           : "Now"}
                       </Text>
                       <Heading>
-                        {job.title} at {job.company}
+                        {job.title}{" "}
+                        <span role="separator" aria-orientation="vertical">
+                          {"//"}
+                        </span>{" "}
+                        {job.company}
                       </Heading>
                     </Box>
                     <Spacer height="sm" />

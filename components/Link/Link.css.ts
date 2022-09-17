@@ -5,6 +5,9 @@ export const root = style({
   ":hover": {
     textDecoration: "underline",
   },
+  ":focus": {
+    outline: "transparent",
+  },
   ":focus-visible": {
     outlineWidth: "2px",
     outlineStyle: "solid",

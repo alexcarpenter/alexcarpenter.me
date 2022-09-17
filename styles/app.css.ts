@@ -17,15 +17,18 @@ globalStyle("html", {
 });
 
 globalStyle("body", {
-  position: "relative",
-  paddingInline: tokens.spacing.lg,
-  paddingBlock: tokens.spacing.xxxxl,
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
   textRendering: "optimizeLegibility",
   fontFamily: tokens.font.sans,
   backgroundColor: themeVars.color.page,
   overflowX: "hidden",
+});
+
+globalStyle(".container", {
+  position: "relative",
+  paddingInline: tokens.spacing.lg,
+  paddingBlock: tokens.spacing.xxxxl,
 });
 
 globalStyle("ul:not([class])", {
