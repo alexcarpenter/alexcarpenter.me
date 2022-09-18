@@ -1,7 +1,17 @@
-import { globalStyle } from "@vanilla-extract/css";
+import { globalStyle, keyframes } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { themeVars } from "styles/theme.css";
 import { tokens } from "styles/tokens.css";
+
+const fadeIn = keyframes({
+  "0%": { opacity: "0" },
+  "100%": { opacity: "1" },
+});
+
+const fadeInUp = keyframes({
+  "0%": { opacity: "0", transform: "translateY(20px)" },
+  "100%": { opacity: "1", transform: "none" },
+});
 
 globalStyle("[cmdk-overlay]", {
   position: "fixed",
@@ -13,16 +23,25 @@ globalStyle("[cmdk-overlay]", {
 globalStyle("[cmdk-dialog]", {
   position: "fixed",
   top: tokens.spacing.xxxxl,
-  left: "50%",
+  left: calc.subtract("50% - 320px"),
   maxWidth: 640,
   width: "100%",
-  transform: "translateX(-50%)",
   paddingInline: tokens.spacing.md,
   "@media": {
     "screen and (min-width: 576px)": {
       paddingTop: "8rem",
     },
   },
+});
+
+globalStyle('[cmdk-overlay][data-state="open"]', {
+  animationName: fadeIn,
+  animationDuration: "150ms",
+});
+
+globalStyle('[cmdk-dialog][data-state="open"]', {
+  animationName: fadeInUp,
+  animationDuration: "200ms",
 });
 
 globalStyle("[cmdk-root]", {
