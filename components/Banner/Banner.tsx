@@ -1,3 +1,4 @@
+import { VisuallyHidden } from "components/VisuallyHidden";
 import Image from "next/image";
 import Link from "next/link";
 import * as styles from "./Banner.css";
@@ -41,6 +42,7 @@ const Banner = ({
           </a>
         </Link>
         <button className={styles.toggle} onClick={() => setOpen(true)}>
+          <VisuallyHidden>Open command menu</VisuallyHidden>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

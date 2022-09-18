@@ -1,6 +1,8 @@
+/* eslint-disable react/no-unknown-property */
 import * as React from "react";
 import { Command } from "cmdk";
 import { useTheme } from "next-themes";
+import { Twitter, Linkedin, GitHub, Sun, Moon, Monitor } from "react-feather";
 import "./CommandMenu.css";
 
 const CommandMenu = ({
@@ -35,7 +37,17 @@ const CommandMenu = ({
       onOpenChange={setOpen}
       label="Global Command Menu"
     >
-      <Command.Input placeholder="Type a command..." />
+      <div cmdk-header="">
+        <Command.Input placeholder="Type a command or search..." />
+        <button
+          aria-label="Close command menu"
+          cmdk-header-esc=""
+          onClick={() => setOpen(false)}
+          tabIndex={-1}
+        >
+          ESC
+        </button>
+      </div>
       <Command.List>
         <Command.Empty>No results found.</Command.Empty>
 
@@ -44,10 +56,45 @@ const CommandMenu = ({
           <Command.Item>Posts</Command.Item>
         </Command.Group> */}
 
-        <Command.Group heading="Theme">
-          <Command.Item onSelect={handleSetTheme}>System</Command.Item>
-          <Command.Item onSelect={handleSetTheme}>Light</Command.Item>
-          <Command.Item onSelect={handleSetTheme}>Dark</Command.Item>
+        <Command.Group heading="Connect">
+          <Command.Item
+            onSelect={() =>
+              window.open("https://twitter.com/hybrid_alex", "_blank")
+            }
+          >
+            <Twitter width={".9rem"} /> <span>Twitter</span>
+          </Command.Item>
+          <Command.Item
+            onSelect={() =>
+              window.open("https://github.com/alexcarpenter", "_blank")
+            }
+          >
+            <GitHub width={".9rem"} />
+            <span>Github</span>
+          </Command.Item>
+          <Command.Item
+            onSelect={() =>
+              window.open(
+                "https://www.linkedin.com/in/imalexcarpenter/",
+                "_blank"
+              )
+            }
+          >
+            <Linkedin width={".9rem"} />
+            <span>LinkedIn</span>
+          </Command.Item>
+        </Command.Group>
+
+        <Command.Group heading="Appearance">
+          <Command.Item onSelect={handleSetTheme}>
+            <Monitor width={".9rem"} /> <span>System</span>
+          </Command.Item>
+          <Command.Item onSelect={handleSetTheme}>
+            <Sun width={".9rem"} /> <span>Light</span>
+          </Command.Item>
+          <Command.Item onSelect={handleSetTheme}>
+            <Moon width={".9rem"} /> <span>Dark</span>
+          </Command.Item>
         </Command.Group>
       </Command.List>
     </Command.Dialog>
