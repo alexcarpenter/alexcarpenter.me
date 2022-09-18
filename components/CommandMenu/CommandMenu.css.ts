@@ -9,8 +9,8 @@ const fadeIn = keyframes({
 });
 
 const fadeInUp = keyframes({
-  "0%": { opacity: "0", transform: "translateY(20px)" },
-  "100%": { opacity: "1", transform: "none" },
+  "0%": { opacity: "0", transform: "translate(-50%, 20px)" },
+  "100%": { opacity: "1", transform: "translate(-50%, 0)" },
 });
 
 globalStyle("[cmdk-overlay]", {
@@ -23,13 +23,13 @@ globalStyle("[cmdk-overlay]", {
 globalStyle("[cmdk-dialog]", {
   position: "fixed",
   top: tokens.spacing.xxxxl,
-  left: calc.subtract("50% - 320px"),
+  left: "50%",
+  transform: "translateX(-50%)",
   maxWidth: 640,
-  width: "100%",
-  paddingInline: tokens.spacing.md,
+  width: calc.subtract("100%", calc.multiply(tokens.spacing.md, 2)),
   "@media": {
     "screen and (min-width: 576px)": {
-      paddingTop: "8rem",
+      marginTop: "8rem",
     },
   },
 });
@@ -66,7 +66,6 @@ globalStyle("[cmdk-header-esc]", {
   borderRadius: tokens.radius.md,
   cursor: "pointer",
   border: `1px solid ${themeVars.color.border}`,
-  // backgroundColor: themeVars.color.surfaceHover,
 });
 
 globalStyle("[cmdk-input]", {
