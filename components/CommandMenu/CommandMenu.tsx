@@ -3,6 +3,7 @@ import * as React from "react";
 import { useRouter } from "next/router";
 import { Command } from "cmdk";
 import { useTheme } from "next-themes";
+import tinykeys from "tinykeys";
 import {
   Twitter,
   Linkedin,
@@ -27,14 +28,15 @@ const CommandMenu = ({
 
   // Toggle the menu when ⌘K is pressed
   React.useEffect(() => {
-    const down = (e: { key: string; metaKey: any }) => {
-      if (e.key === "k" && e.metaKey) {
+    let unsubscribe = tinykeys(window, {
+      "$mod+KeyK": () => {
         setOpen((open) => !open);
-      }
+      },
+    });
+    return () => {
+      unsubscribe();
     };
-
-    document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSetTheme = (val: string) => {

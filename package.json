@@ -33,7 +33,8 @@
     "rehype-pretty-code": "^0.3.2",
     "rehype-prism-plus": "^1.4.0",
     "remark-gfm": "^3.0.1",
-    "the-new-css-reset": "^1.7.2"
+    "the-new-css-reset": "^1.7.2",
+    "tinykeys": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "17.0.38",
