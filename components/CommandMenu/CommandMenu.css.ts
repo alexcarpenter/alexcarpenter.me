@@ -9,7 +9,7 @@ const fadeIn = keyframes({
 });
 
 const fadeInUp = keyframes({
-  "0%": { opacity: "0", transform: "translate(-50%, 20px)" },
+  "0%": { opacity: "0", transform: "translate(-50%, 50px)" },
   "100%": { opacity: "1", transform: "translate(-50%, 0)" },
 });
 
