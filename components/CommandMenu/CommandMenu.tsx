@@ -88,6 +88,7 @@ const CommandMenu = ({
             onSelect={() =>
               window.open("https://twitter.com/hybrid_alex", "_blank")
             }
+            value="twitter"
           >
             <Twitter /> <span>Twitter</span>
           </Command.Item>
@@ -95,6 +96,7 @@ const CommandMenu = ({
             onSelect={() =>
               window.open("https://github.com/alexcarpenter", "_blank")
             }
+            value="github"
           >
             <GitHub />
             <span>Github</span>
@@ -106,6 +108,7 @@ const CommandMenu = ({
                 "_blank"
               )
             }
+            value="linkedin"
           >
             <Linkedin />
             <span>LinkedIn</span>
@@ -113,13 +116,13 @@ const CommandMenu = ({
         </Command.Group>
 
         <Command.Group heading="Appearance">
-          <Command.Item onSelect={handleSetTheme}>
+          <Command.Item onSelect={handleSetTheme} value="system">
             <Monitor /> <span>System</span>
           </Command.Item>
-          <Command.Item onSelect={handleSetTheme}>
+          <Command.Item onSelect={handleSetTheme} value="light">
             <Sun /> <span>Light</span>
           </Command.Item>
-          <Command.Item onSelect={handleSetTheme}>
+          <Command.Item onSelect={handleSetTheme} value="dark">
             <Moon /> <span>Dark</span>
           </Command.Item>
         </Command.Group>
