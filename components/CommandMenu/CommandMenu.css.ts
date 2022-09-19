@@ -8,9 +8,9 @@ const fadeIn = keyframes({
   "100%": { opacity: "1" },
 });
 
-const fadeInUp = keyframes({
-  "0%": { opacity: "0", transform: "translate(-50%, 50px)" },
-  "100%": { opacity: "1", transform: "translate(-50%, 0)" },
+const enter = keyframes({
+  "0%": { opacity: "0", transform: "scale(.85) translateX(-50%)" },
+  "100%": { opacity: "1", transform: "scale(1) translateX(-50%)" },
 });
 
 globalStyle("[cmdk-overlay]", {
@@ -21,6 +21,7 @@ globalStyle("[cmdk-overlay]", {
 });
 
 globalStyle("[cmdk-dialog]", {
+  transformOrigin: "0 0",
   position: "fixed",
   top: tokens.spacing.xxxxl,
   left: "50%",
@@ -40,7 +41,7 @@ globalStyle('[cmdk-overlay][data-state="open"]', {
 });
 
 globalStyle('[cmdk-dialog][data-state="open"]', {
-  animationName: fadeInUp,
+  animationName: enter,
   animationDuration: "200ms",
 });
 
@@ -126,6 +127,7 @@ globalStyle("[cmdk-item]::after", {
 });
 
 globalStyle("[cmdk-item] svg", {
+  width: ".9rem",
   color: themeVars.color.foregroundNeutral,
 });
 

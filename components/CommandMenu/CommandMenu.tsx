@@ -1,8 +1,18 @@
 /* eslint-disable react/no-unknown-property */
 import * as React from "react";
+import { useRouter } from "next/router";
 import { Command } from "cmdk";
 import { useTheme } from "next-themes";
-import { Twitter, Linkedin, GitHub, Sun, Moon, Monitor } from "react-feather";
+import {
+  Twitter,
+  Linkedin,
+  GitHub,
+  Sun,
+  Moon,
+  Monitor,
+  Home,
+  Edit,
+} from "react-feather";
 import "./CommandMenu.css";
 
 const CommandMenu = ({
@@ -12,6 +22,7 @@ const CommandMenu = ({
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const router = useRouter();
   const { setTheme } = useTheme();
 
   // Toggle the menu when ⌘K is pressed
@@ -52,8 +63,24 @@ const CommandMenu = ({
         <Command.Empty>No results found.</Command.Empty>
 
         {/* <Command.Group heading="Navigation">
-          <Command.Item>Home</Command.Item>
-          <Command.Item>Posts</Command.Item>
+          <Command.Item
+            onSelect={() => {
+              router.push("/");
+              setOpen(false);
+            }}
+          >
+            <Home />
+            <span>Home</span>
+          </Command.Item>
+          <Command.Item
+            onSelect={() => {
+              router.push("/posts");
+              setOpen(false);
+            }}
+          >
+            <Edit />
+            <span>Posts</span>
+          </Command.Item>
         </Command.Group> */}
 
         <Command.Group heading="Connect">
@@ -62,14 +89,14 @@ const CommandMenu = ({
               window.open("https://twitter.com/hybrid_alex", "_blank")
             }
           >
-            <Twitter width={".9rem"} /> <span>Twitter</span>
+            <Twitter /> <span>Twitter</span>
           </Command.Item>
           <Command.Item
             onSelect={() =>
               window.open("https://github.com/alexcarpenter", "_blank")
             }
           >
-            <GitHub width={".9rem"} />
+            <GitHub />
             <span>Github</span>
           </Command.Item>
           <Command.Item
@@ -80,20 +107,20 @@ const CommandMenu = ({
               )
             }
           >
-            <Linkedin width={".9rem"} />
+            <Linkedin />
             <span>LinkedIn</span>
           </Command.Item>
         </Command.Group>
 
         <Command.Group heading="Appearance">
           <Command.Item onSelect={handleSetTheme}>
-            <Monitor width={".9rem"} /> <span>System</span>
+            <Monitor /> <span>System</span>
           </Command.Item>
           <Command.Item onSelect={handleSetTheme}>
-            <Sun width={".9rem"} /> <span>Light</span>
+            <Sun /> <span>Light</span>
           </Command.Item>
           <Command.Item onSelect={handleSetTheme}>
-            <Moon width={".9rem"} /> <span>Dark</span>
+            <Moon /> <span>Dark</span>
           </Command.Item>
         </Command.Group>
       </Command.List>
