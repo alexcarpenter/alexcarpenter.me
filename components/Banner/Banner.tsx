@@ -13,11 +13,12 @@ const Banner = ({
       <header className={styles.banner}>
         <Link href="/">
           <a className={styles.avatar}>
+            <VisuallyHidden>Home</VisuallyHidden>
             <Image
               src="/img/me.jpeg"
               width={48}
               height={48}
-              alt="Headshot"
+              alt="Photo of Alex Carpenter at desk"
               style={{
                 borderRadius: 10,
               }}
@@ -30,6 +31,7 @@ const Banner = ({
                 viewBox="0 0 32 32"
                 width={32}
                 height={32}
+                focusable={false}
               >
                 <path
                   fillRule="evenodd"

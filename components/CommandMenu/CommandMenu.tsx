@@ -64,7 +64,7 @@ const CommandMenu = ({
       <Command.List>
         <Command.Empty>No results found.</Command.Empty>
 
-        {/* <Command.Group heading="Navigation">
+        <Command.Group heading="Navigation">
           <Command.Item
             onSelect={() => {
               router.push("/");
@@ -83,7 +83,7 @@ const CommandMenu = ({
             <Edit />
             <span>Posts</span>
           </Command.Item>
-        </Command.Group> */}
+        </Command.Group>
 
         <Command.Group heading="Connect">
           <Command.Item

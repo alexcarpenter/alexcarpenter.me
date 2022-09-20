@@ -12,15 +12,24 @@ import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
 
 export async function getStaticProps() {
-  const posts = allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date));
-  });
-  return { props: { title: "Posts", posts } };
+  const postsByYear = allPosts
+    .sort((a, b) => {
+      return compareDesc(new Date(a.date), new Date(b.date));
+    })
+    .reduce((years, post) => {
+      const year = format(parseISO(post.date), "Y");
+      if (!years[year]) {
+        years[year] = [];
+      }
+      years[year].push(post);
+      return years;
+    }, {} as Record<string, Post[]>);
+  return { props: { title: "Posts", postsByYear } };
 }
 
 const Posts: NextPage<{
-  posts: Post[];
-}> = ({ posts }) => {
+  postsByYear: Record<string, Post[]>;
+}> = ({ postsByYear }) => {
   return (
     <>
       <NextSeo title="Posts" />
@@ -48,36 +57,59 @@ const Posts: NextPage<{
 
       <Spacer height="xxxxl" />
 
-      <Box as="section" maxWidth={{ md: "text" }} marginX="auto">
-        <List>
-          {posts.map((post) => {
-            return (
-              <List.Item key={post._id}>
-                <Box
-                  display="flex"
-                  flexDirection={{
-                    xs: "column",
-                    sm: "row-reverse",
-                  }}
-                  alignItems={{ sm: "center" }}
-                  justifyContent={{ sm: "space-between" }}
-                  gap="sm"
-                  maxWidth="text"
-                >
-                  <Text color="foregroundNeutral" fontSize="sm">
-                    {format(parseISO(post.date), "MM/dd")}
-                  </Text>
-                  <Heading>
-                    <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+      {Object.entries(postsByYear)
+        .reverse()
+        .map(([year, posts], i) => {
+          return (
+            <React.Fragment key={year}>
+              {i > 0 ? <Spacer height="xxxxl" /> : null}
+              <Box as="section" maxWidth={{ md: "text" }} marginX="auto">
+                <header>
+                  <Heading fontSize="xl" id={year}>
+                    {year}
                   </Heading>
-                </Box>
-                <Spacer height={{ xs: "sm", sm: "md" }} />
-                <Text color="foregroundNeutral">{post.description}</Text>
-              </List.Item>
-            );
-          })}
-        </List>
-      </Box>
+                </header>
+                <Spacer height="xxl" />
+                <List>
+                  {posts.map((post) => {
+                    return (
+                      <List.Item key={post._id}>
+                        <Box
+                          display="flex"
+                          flexDirection={{
+                            xs: "column",
+                            sm: "row-reverse",
+                          }}
+                          alignItems={{ sm: "center" }}
+                          justifyContent={{ sm: "space-between" }}
+                          gap="sm"
+                          maxWidth="text"
+                        >
+                          <Text color="foregroundNeutral" fontSize="sm">
+                            {format(parseISO(post.date), "MM/dd")}
+                          </Text>
+                          <Heading>
+                            <Link href={`/posts/${post.slug}`}>
+                              {post.title}
+                            </Link>
+                          </Heading>
+                        </Box>
+                        {post.description ? (
+                          <>
+                            <Spacer height={{ xs: "sm", sm: "md" }} />
+                            <Text color="foregroundNeutral">
+                              {post.description}
+                            </Text>
+                          </>
+                        ) : null}
+                      </List.Item>
+                    );
+                  })}
+                </List>
+              </Box>
+            </React.Fragment>
+          );
+        })}
     </>
   );
 };

@@ -49,7 +49,7 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
           </Heading>
           <Spacer height="xl" />
           <Text as="time" dateTime={post.date} color="foregroundNeutral">
-            {format(parseISO(post.date), "MM/dd/yy")}
+            {format(parseISO(post.date), "MM/dd/Y")}
           </Text>
         </Box>
 
