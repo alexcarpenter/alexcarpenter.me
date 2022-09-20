@@ -65,7 +65,7 @@ const Posts: NextPage<{
                   maxWidth="text"
                 >
                   <Text color="foregroundNeutral" fontSize="sm">
-                    {format(parseISO(post.date), "y")}
+                    {format(parseISO(post.date), "MM/dd")}
                   </Text>
                   <Heading>
                     <Link href={`/posts/${post.slug}`}>{post.title}</Link>
