@@ -8,9 +8,19 @@ const fadeIn = keyframes({
   "100%": { opacity: "1" },
 });
 
+const fadeOut = keyframes({
+  "0%": { opacity: "1" },
+  "100%": { opacity: "0" },
+});
+
 const enter = keyframes({
   "0%": { opacity: "0", transform: "scale(.85) translateX(-50%)" },
   "100%": { opacity: "1", transform: "scale(1) translateX(-50%)" },
+});
+
+const exit = keyframes({
+  "0%": { opacity: "1", transform: "scale(1) translateX(-50%)" },
+  "100%": { opacity: "0", transform: "scale(.95) translateX(-50%)" },
 });
 
 globalStyle("[cmdk-overlay]", {
@@ -40,9 +50,19 @@ globalStyle('[cmdk-overlay][data-state="open"]', {
   animationDuration: "150ms",
 });
 
+globalStyle('[cmdk-overlay][data-state="closed"]', {
+  animationName: fadeOut,
+  animationDuration: "200ms",
+});
+
 globalStyle('[cmdk-dialog][data-state="open"]', {
   animationName: enter,
   animationDuration: "200ms",
+});
+
+globalStyle('[cmdk-dialog][data-state="closed"]', {
+  animationName: exit,
+  animationDuration: "150ms",
 });
 
 globalStyle("[cmdk-root]", {

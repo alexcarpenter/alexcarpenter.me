@@ -10,6 +10,10 @@ globalStyle(".prose > * + h2", {
   marginTop: tokens.spacing.xl,
 });
 
+globalStyle(".prose strong", {
+  fontWeight: 600,
+});
+
 /*
  * Code syntax
  */

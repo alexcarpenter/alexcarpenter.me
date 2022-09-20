@@ -6,7 +6,7 @@ export const banner = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  maxWidth: tokens.contentWidth.container,
+  maxWidth: tokens.contentWidth.text,
   marginInline: "auto",
   marginBlockEnd: tokens.spacing.xxl,
   textAlign: "center",
