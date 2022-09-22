@@ -45,6 +45,7 @@ const Banner = ({
         </Link>
         <button className={styles.toggle} onClick={() => setOpen(true)}>
           <VisuallyHidden>Open command menu</VisuallyHidden>
+          <span className={styles.toggleHighlight} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

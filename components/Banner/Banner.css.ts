@@ -57,6 +57,7 @@ export const logo = style({
 });
 
 export const toggle = style({
+  position: "relative",
   width: tokens.spacing.xxxl,
   height: tokens.spacing.xxxl,
   display: "grid",
@@ -66,9 +67,6 @@ export const toggle = style({
   transitionTimingFunction: "ease-in-out",
   transitionDuration: "200ms",
   transitionProperty: "background-color",
-  ":hover": {
-    backgroundColor: themeVars.color.surfaceHover,
-  },
   ":focus": {
     outline: "transparent",
   },
@@ -77,5 +75,26 @@ export const toggle = style({
     outlineStyle: "solid",
     outlineOffset: "2px",
     outlineColor: themeVars.color.outline,
+  },
+});
+
+export const toggleHighlight = style({
+  position: "absolute",
+  inset: 0,
+  backgroundColor: themeVars.color.surfaceHover,
+  borderRadius: tokens.radius.md,
+  zIndex: "-1",
+  opacity: 0,
+  transform: "scale(0)",
+  transition: "all ease-in-out 200ms",
+  selectors: {
+    [`${toggle}:hover &`]: {
+      opacity: 1,
+      transform: "scale(1)",
+    },
+    [`${toggle}:focus-visible &`]: {
+      opacity: 1,
+      transform: "scale(1)",
+    },
   },
 });
