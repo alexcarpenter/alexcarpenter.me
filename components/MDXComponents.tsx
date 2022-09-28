@@ -3,9 +3,11 @@ import Image from "next/image";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";
 import { Text } from "components/Text";
+import { YoutubeEmbed } from "components/YoutubeEmbed";
 
 export const Components = {
   Image,
+  YoutubeEmbed,
   a: (props: any) => <Link {...props} />,
   p: (props: any) => <Text {...props} />,
   h2: (props: any) => (

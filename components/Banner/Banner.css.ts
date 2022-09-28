@@ -8,7 +8,7 @@ export const banner = style({
   alignItems: "center",
   maxWidth: tokens.contentWidth.text,
   marginInline: "auto",
-  marginBlockEnd: tokens.spacing.xxl,
+  marginBlockEnd: tokens.spacing.xxxl,
   textAlign: "center",
   "@media": {
     "screen and (min-width: 768px)": {

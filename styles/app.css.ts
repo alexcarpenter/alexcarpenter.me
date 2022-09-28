@@ -1,6 +1,7 @@
 import { globalStyle, globalFontFace } from "@vanilla-extract/css";
 import { tokens } from "./tokens.css";
 import { themeVars } from "./theme.css";
+import { yellow, yellowDark } from "@radix-ui/colors";
 
 globalFontFace("Inter", {
   fontStyle: "normal",
@@ -36,4 +37,9 @@ globalStyle("ul:not([class])", {
   display: "grid",
   paddingInlineStart: tokens.spacing.md,
   gap: tokens.spacing.sm,
+});
+
+globalStyle("mark", {
+  backgroundColor: themeVars.color.highlight,
+  paddingInline: 2,
 });

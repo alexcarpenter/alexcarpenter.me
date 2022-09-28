@@ -40,20 +40,20 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
       <article>
         <Box
           as="header"
-          textAlign={{ md: "center" }}
-          maxWidth="container"
+          maxWidth="text"
           marginX="auto"
+          textAlign={{ md: "center" }}
         >
-          <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
+          <Heading fontSize="xxl" as="h1">
             {post.title}
           </Heading>
-          <Spacer height="xl" />
+          <Spacer height="sm" />
           <Text as="time" dateTime={post.date} color="foregroundNeutral">
             {format(parseISO(post.date), "MM/dd/Y")}
           </Text>
         </Box>
 
-        <Spacer height="xxxxl" />
+        <Spacer height="xxxl" />
 
         <Box maxWidth="text" marginX="auto">
           <Prose>
