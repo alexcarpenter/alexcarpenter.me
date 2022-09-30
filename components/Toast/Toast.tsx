@@ -20,7 +20,7 @@ const Toast = ({ title, content, ...props }: ToastProps) => {
       </ToastPrimitive.Description>
       <ToastPrimitive.Close aria-label="Close" className={styles.close}>
         <span className={styles.closeHighlight} />
-        <span aria-hidden>
+        <span aria-hidden className={styles.closeIcon}>
           <X width={16} />
         </span>
       </ToastPrimitive.Close>

@@ -45,8 +45,8 @@ export const close = style({
   position: "absolute",
   top: tokens.spacing.sm,
   right: tokens.spacing.sm,
-  width: tokens.spacing.xxxl,
-  height: tokens.spacing.xxxl,
+  width: tokens.spacing.xxl,
+  height: tokens.spacing.xxl,
   display: "grid",
   placeItems: "center",
   borderRadius: tokens.radius.md,
@@ -68,9 +68,8 @@ export const close = style({
 export const closeHighlight = style({
   position: "absolute",
   inset: 0,
-  backgroundColor: "red",
+  backgroundColor: themeVars.color.surfaceHover,
   borderRadius: tokens.radius.md,
-  zIndex: "-1",
   opacity: 0,
   transform: "scale(0)",
   transition: "all ease-in-out 200ms",
@@ -84,4 +83,9 @@ export const closeHighlight = style({
       transform: "scale(1)",
     },
   },
+});
+
+export const closeIcon = style({
+  position: "relative",
+  zIndex: 1,
 });
