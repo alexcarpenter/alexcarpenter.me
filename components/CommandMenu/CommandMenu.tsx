@@ -14,7 +14,14 @@ import {
   Home,
   Edit,
 } from "react-feather";
+import { Toast } from "components/Toast";
 import "./CommandMenu.css";
+
+const THEMES = {
+  system: "System",
+  dark: "Dark",
+  light: "Light",
+};
 
 const CommandMenu = ({
   open,
@@ -24,7 +31,8 @@ const CommandMenu = ({
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const router = useRouter();
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
+  const [showThemeToast, setShowThemeToast] = React.useState(false);
 
   // Toggle the menu when ⌘K is pressed
   React.useEffect(() => {
@@ -41,95 +49,104 @@ const CommandMenu = ({
 
   const handleSetTheme = (val: string) => {
     setTheme(val);
+    setShowThemeToast(true);
     setOpen(false);
   };
 
   return (
-    <Command.Dialog
-      open={open}
-      onOpenChange={setOpen}
-      label="Global Command Menu"
-    >
-      <div cmdk-header="">
-        <Command.Input placeholder="Type a command or search..." />
-        <button
-          aria-label="Close command menu"
-          cmdk-header-esc=""
-          onClick={() => setOpen(false)}
-          tabIndex={-1}
-        >
-          ESC
-        </button>
-      </div>
-      <Command.List>
-        <Command.Empty>No results found.</Command.Empty>
+    <>
+      <Toast
+        key={theme}
+        content={`${THEMES[theme as keyof typeof THEMES]} theme enabled`}
+        open={showThemeToast}
+        onOpenChange={setShowThemeToast}
+      />
+      <Command.Dialog
+        open={open}
+        onOpenChange={setOpen}
+        label="Global Command Menu"
+      >
+        <div cmdk-header="">
+          <Command.Input placeholder="Type a command or search..." />
+          <button
+            aria-label="Close command menu"
+            cmdk-header-esc=""
+            onClick={() => setOpen(false)}
+            tabIndex={-1}
+          >
+            ESC
+          </button>
+        </div>
+        <Command.List>
+          <Command.Empty>No results found.</Command.Empty>
 
-        <Command.Group heading="Navigation">
-          <Command.Item
-            onSelect={() => {
-              router.push("/");
-              setOpen(false);
-            }}
-          >
-            <Home />
-            <span>Home</span>
-          </Command.Item>
-          <Command.Item
-            onSelect={() => {
-              router.push("/posts");
-              setOpen(false);
-            }}
-          >
-            <Edit />
-            <span>Posts</span>
-          </Command.Item>
-        </Command.Group>
+          <Command.Group heading="Navigation">
+            <Command.Item
+              onSelect={() => {
+                router.push("/");
+                setOpen(false);
+              }}
+            >
+              <Home />
+              <span>Home</span>
+            </Command.Item>
+            <Command.Item
+              onSelect={() => {
+                router.push("/posts");
+                setOpen(false);
+              }}
+            >
+              <Edit />
+              <span>Posts</span>
+            </Command.Item>
+          </Command.Group>
 
-        <Command.Group heading="Connect">
-          <Command.Item
-            onSelect={() =>
-              window.open("https://twitter.com/hybrid_alex", "_blank")
-            }
-            value="twitter"
-          >
-            <Twitter /> <span>Twitter</span>
-          </Command.Item>
-          <Command.Item
-            onSelect={() =>
-              window.open("https://github.com/alexcarpenter", "_blank")
-            }
-            value="github"
-          >
-            <GitHub />
-            <span>Github</span>
-          </Command.Item>
-          <Command.Item
-            onSelect={() =>
-              window.open(
-                "https://www.linkedin.com/in/imalexcarpenter/",
-                "_blank"
-              )
-            }
-            value="linkedin"
-          >
-            <Linkedin />
-            <span>LinkedIn</span>
-          </Command.Item>
-        </Command.Group>
+          <Command.Group heading="Connect">
+            <Command.Item
+              onSelect={() =>
+                window.open("https://twitter.com/hybrid_alex", "_blank")
+              }
+              value="twitter"
+            >
+              <Twitter /> <span>Twitter</span>
+            </Command.Item>
+            <Command.Item
+              onSelect={() =>
+                window.open("https://github.com/alexcarpenter", "_blank")
+              }
+              value="github"
+            >
+              <GitHub />
+              <span>Github</span>
+            </Command.Item>
+            <Command.Item
+              onSelect={() =>
+                window.open(
+                  "https://www.linkedin.com/in/imalexcarpenter/",
+                  "_blank"
+                )
+              }
+              value="linkedin"
+            >
+              <Linkedin />
+              <span>LinkedIn</span>
+            </Command.Item>
+          </Command.Group>
 
-        <Command.Group heading="Appearance">
-          <Command.Item onSelect={handleSetTheme} value="system">
-            <Monitor /> <span>System</span>
-          </Command.Item>
-          <Command.Item onSelect={handleSetTheme} value="light">
-            <Sun /> <span>Light</span>
-          </Command.Item>
-          <Command.Item onSelect={handleSetTheme} value="dark">
-            <Moon /> <span>Dark</span>
-          </Command.Item>
-        </Command.Group>
-      </Command.List>
-    </Command.Dialog>
+          <Command.Group heading="Appearance">
+            <Command.Item onSelect={handleSetTheme} value="system">
+              <Monitor /> <span>System</span>
+            </Command.Item>
+            <Command.Item onSelect={handleSetTheme} value="light">
+              <Sun /> <span>Light</span>
+            </Command.Item>
+            <Command.Item onSelect={handleSetTheme} value="dark">
+              <Moon /> <span>Dark</span>
+            </Command.Item>
+          </Command.Group>
+        </Command.List>
+      </Command.Dialog>
+    </>
   );
 };
 
