@@ -55,6 +55,12 @@ const CommandMenu = ({
     });
   };
 
+  const handleCopyUrl = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setOpen(false);
+    toast({ content: "Copied URL to clipboard" });
+  };
+
   return (
     <>
       <Command.Dialog
@@ -141,13 +147,7 @@ const CommandMenu = ({
             </Command.Item>
           </Command.Group>
           <Command.Group heading="Commands">
-            <Command.Item
-              onSelect={() => {
-                navigator.clipboard.writeText(window.location.href);
-                setOpen(false);
-                toast({ content: "Copied URL to clipboard" });
-              }}
-            >
+            <Command.Item onSelect={handleCopyUrl}>
               <Copy />
               <span>Copy current URL</span>
             </Command.Item>
