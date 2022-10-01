@@ -51,7 +51,6 @@ const CommandMenu = ({
     setTheme(val);
     setOpen(false);
     toast({
-      id: "test",
       content: `${THEMES[val as keyof typeof THEMES]} theme enabled`,
     });
   };
