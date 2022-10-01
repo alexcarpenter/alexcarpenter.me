@@ -2,33 +2,21 @@ import { style, keyframes } from "@vanilla-extract/css";
 import { themeVars } from "styles/theme.css";
 import { tokens } from "styles/tokens.css";
 
-const slideRight = keyframes({
-  from: { transform: "translateX(var(--radix-toast-swipe-end-x))" },
-  to: { transform: "translateX(100%)" },
+export const viewport = style({
+  position: "fixed",
+  right: tokens.spacing.md,
+  bottom: tokens.spacing.md,
 });
 
 export const root = style({
   position: "relative",
-  marginBlockEnd: tokens.spacing.md,
-  marginInlineEnd: tokens.spacing.md,
+  marginBlockStart: tokens.spacing.sm,
   maxWidth: 350,
   width: 350,
   padding: tokens.spacing.md,
-  backgroundColor: themeVars.color.page,
+  backgroundColor: themeVars.color.surface,
   border: `1px solid ${themeVars.color.border}`,
   borderRadius: tokens.radius.md,
-  selectors: {
-    '&[data-swipe="move"]': {
-      transform: "translateX(var(--radix-toast-swipe-move-x))",
-    },
-    '&[data-swipe="cancel"]': {
-      transform: "translateX(0)",
-      transition: "transform 200ms ease-out",
-    },
-    '&[data-swipe="end"]': {
-      animation: `${slideRight} 100ms ease-out`,
-    },
-  },
 });
 
 export const title = style({

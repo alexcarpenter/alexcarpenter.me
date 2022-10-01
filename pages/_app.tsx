@@ -4,11 +4,11 @@ import "styles/app.css";
 import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
-import { ToastProvider, ToastViewport } from "@radix-ui/react-toast";
-import * as Toast from "@radix-ui/react-toast";
+import { ToastProvider } from "@radix-ui/react-toast";
 import SEO from "next-seo.config";
 import { Banner } from "components/Banner";
 import { CommandMenu } from "components/CommandMenu";
+import { Toaster } from "components/Toast/Toast";
 
 const composeProviders =
   (...providers: any[]) =>
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </main>
         <CommandMenu open={open} setOpen={setOpen} />
-        <ToastViewport style={{ position: "fixed", bottom: 0, right: 0 }} />
+        <Toaster />
       </div>
     </Providers>
   );

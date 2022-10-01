@@ -13,8 +13,9 @@ import {
   Monitor,
   Home,
   Edit,
+  Copy,
 } from "react-feather";
-import { Toast } from "components/Toast";
+import { toast } from "components/Toast";
 import "./CommandMenu.css";
 
 const THEMES = {
@@ -31,8 +32,7 @@ const CommandMenu = ({
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const router = useRouter();
-  const { setTheme, theme } = useTheme();
-  const [showThemeToast, setShowThemeToast] = React.useState(false);
+  const { setTheme } = useTheme();
 
   // Toggle the menu when ⌘K is pressed
   React.useEffect(() => {
@@ -49,18 +49,15 @@ const CommandMenu = ({
 
   const handleSetTheme = (val: string) => {
     setTheme(val);
-    setShowThemeToast(true);
     setOpen(false);
+    toast({
+      id: "test",
+      content: `${THEMES[val as keyof typeof THEMES]} theme enabled`,
+    });
   };
 
   return (
     <>
-      <Toast
-        key={theme}
-        content={`${THEMES[theme as keyof typeof THEMES]} theme enabled`}
-        open={showThemeToast}
-        onOpenChange={setShowThemeToast}
-      />
       <Command.Dialog
         open={open}
         onOpenChange={setOpen}
@@ -142,6 +139,18 @@ const CommandMenu = ({
             </Command.Item>
             <Command.Item onSelect={handleSetTheme} value="dark">
               <Moon /> <span>Dark</span>
+            </Command.Item>
+          </Command.Group>
+          <Command.Group heading="Commands">
+            <Command.Item
+              onSelect={() => {
+                navigator.clipboard.writeText(window.location.href);
+                setOpen(false);
+                toast({ content: "Copied URL to clipboard" });
+              }}
+            >
+              <Copy />
+              <span>Copy current URL</span>
             </Command.Item>
           </Command.Group>
         </Command.List>
