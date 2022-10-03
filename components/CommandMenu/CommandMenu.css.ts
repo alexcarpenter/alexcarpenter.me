@@ -81,7 +81,7 @@ globalStyle("[cmdk-header-esc]", {
   top: "50%",
   transform: "translateY(-50%)",
   right: tokens.spacing.md,
-  fontSize: tokens.fontSize.sm,
+  fontSize: tokens.fontSize.xs,
   padding: `${tokens.spacing.xs} ${tokens.spacing.sm}`,
   color: themeVars.color.foregroundNeutral,
   borderRadius: tokens.radius.md,
@@ -119,40 +119,46 @@ globalStyle("*:not([hidden]) + [cmdk-group]", {
 });
 
 globalStyle("[cmdk-group-heading]", {
+  position: "relative",
   userSelect: "none",
-  fontSize: tokens.fontSize.sm,
+  fontSize: tokens.fontSize.xs,
   color: themeVars.color.foregroundNeutral,
   paddingInline: tokens.spacing.md,
   marginBlockEnd: tokens.spacing.sm,
+  zIndex: 10,
 });
 
 globalStyle("[cmdk-item]", {
   display: "flex",
   alignItems: "center",
   gap: tokens.spacing.sm,
-  contentVisibility: "auto",
+  position: "relative",
   cursor: "pointer",
-  height: 48,
+  fontSize: tokens.fontSize.sm,
   paddingInline: tokens.spacing.md,
+  paddingBlock: tokens.spacing.sm,
 });
 
-globalStyle("[cmdk-item]::after", {
-  content: "",
+globalStyle("[cmdk-item] .content", {
+  display: "flex",
+  alignItems: "center",
+  gap: tokens.spacing.sm,
+  position: "relative",
+  zIndex: 10,
+});
+
+globalStyle("[cmdk-item] .highlight", {
   position: "absolute",
   inset: `0 ${tokens.spacing.sm}`,
-  backgroundColor: themeVars.color.surfaceHover,
   borderRadius: tokens.radius.md,
-  opacity: 0,
-  zIndex: -1,
+  backgroundColor: themeVars.color.surfaceHover,
 });
 
 globalStyle("[cmdk-item] svg", {
   width: ".9rem",
   color: themeVars.color.foregroundNeutral,
-});
-
-globalStyle("[cmdk-item][aria-selected='true']::after", {
-  opacity: 1,
+  transition: "ease-in-out 0.2s",
+  transitionDelay: "0.2s",
 });
 
 globalStyle("[cmdk-item][aria-selected='true'] svg", {
@@ -162,4 +168,5 @@ globalStyle("[cmdk-item][aria-selected='true'] svg", {
 globalStyle("[cmdk-empty]", {
   textAlign: "center",
   color: themeVars.color.foregroundNeutral,
+  fontSize: tokens.fontSize.sm,
 });

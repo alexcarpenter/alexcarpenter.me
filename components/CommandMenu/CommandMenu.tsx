@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import * as React from "react";
 import { useRouter } from "next/router";
-import { Command } from "cmdk";
+import { Command, useCommandState } from "cmdk";
 import { useTheme } from "next-themes";
 import tinykeys from "tinykeys";
 import {
@@ -16,12 +16,33 @@ import {
   Copy,
 } from "react-feather";
 import { toast } from "components/Toast";
+import { motion } from "framer-motion";
 import "./CommandMenu.css";
 
 const THEMES = {
   system: "System",
   dark: "Dark",
   light: "Light",
+};
+
+const CommandItem = ({
+  onSelect,
+  value,
+  children,
+}: {
+  onSelect?: (value: string) => void;
+  value: string;
+  children: React.ReactNode;
+}) => {
+  const currentValue = useCommandState((state) => state.value);
+  return (
+    <Command.Item onSelect={onSelect} value={value}>
+      <span className="content">{children}</span>
+      {currentValue === value ? (
+        <motion.span layoutId="highlight" className="highlight" />
+      ) : null}
+    </Command.Item>
+  );
 };
 
 const CommandMenu = ({
@@ -83,36 +104,38 @@ const CommandMenu = ({
           <Command.Empty>No results found.</Command.Empty>
 
           <Command.Group heading="Navigation">
-            <Command.Item
+            <CommandItem
               onSelect={() => {
                 router.push("/");
                 setOpen(false);
               }}
+              value="home"
             >
               <Home />
               <span>Home</span>
-            </Command.Item>
-            <Command.Item
+            </CommandItem>
+            <CommandItem
               onSelect={() => {
                 router.push("/posts");
                 setOpen(false);
               }}
+              value="posts"
             >
               <Edit />
               <span>Posts</span>
-            </Command.Item>
+            </CommandItem>
           </Command.Group>
 
           <Command.Group heading="Connect">
-            <Command.Item
+            <CommandItem
               onSelect={() =>
                 window.open("https://twitter.com/hybrid_alex", "_blank")
               }
               value="twitter"
             >
               <Twitter /> <span>Twitter</span>
-            </Command.Item>
-            <Command.Item
+            </CommandItem>
+            <CommandItem
               onSelect={() =>
                 window.open("https://github.com/alexcarpenter", "_blank")
               }
@@ -120,8 +143,8 @@ const CommandMenu = ({
             >
               <GitHub />
               <span>Github</span>
-            </Command.Item>
-            <Command.Item
+            </CommandItem>
+            <CommandItem
               onSelect={() =>
                 window.open(
                   "https://www.linkedin.com/in/imalexcarpenter/",
@@ -132,25 +155,25 @@ const CommandMenu = ({
             >
               <Linkedin />
               <span>LinkedIn</span>
-            </Command.Item>
+            </CommandItem>
           </Command.Group>
 
           <Command.Group heading="Appearance">
-            <Command.Item onSelect={handleSetTheme} value="system">
+            <CommandItem onSelect={handleSetTheme} value="system">
               <Monitor /> <span>System</span>
-            </Command.Item>
-            <Command.Item onSelect={handleSetTheme} value="light">
+            </CommandItem>
+            <CommandItem onSelect={handleSetTheme} value="light">
               <Sun /> <span>Light</span>
-            </Command.Item>
-            <Command.Item onSelect={handleSetTheme} value="dark">
+            </CommandItem>
+            <CommandItem onSelect={handleSetTheme} value="dark">
               <Moon /> <span>Dark</span>
-            </Command.Item>
+            </CommandItem>
           </Command.Group>
           <Command.Group heading="Commands">
-            <Command.Item onSelect={handleCopyUrl}>
+            <CommandItem onSelect={handleCopyUrl} value="copy">
               <Copy />
               <span>Copy current URL</span>
-            </Command.Item>
+            </CommandItem>
           </Command.Group>
         </Command.List>
       </Command.Dialog>
