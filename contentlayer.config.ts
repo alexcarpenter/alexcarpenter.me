@@ -1,9 +1,35 @@
 import slugify from "@sindresorhus/slugify";
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import {
+  defineDocumentType,
+  defineNestedType,
+  makeSource,
+} from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+
+const Project = defineNestedType(() => ({
+  name: "Project",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: false,
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+    link: {
+      type: "string",
+      required: true,
+    },
+  },
+}));
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -68,9 +94,9 @@ export const Job = defineDocumentType(() => ({
       type: "string",
       required: false,
     },
-    highlights: {
+    projects: {
       type: "list",
-      of: { type: "string" },
+      of: Project,
       required: false,
     },
     tags: {

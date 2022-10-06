@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 import { ToastProvider } from "@radix-ui/react-toast";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 import SEO from "next-seo.config";
 import { Banner } from "components/Banner";
 import { CommandMenu } from "components/CommandMenu";
@@ -27,7 +28,8 @@ const Providers = composeProviders(
       disableTransitionOnChange: true,
     },
   ],
-  [ToastProvider]
+  [ToastProvider],
+  [TooltipProvider]
 );
 
 function MyApp({ Component, pageProps }: AppProps) {

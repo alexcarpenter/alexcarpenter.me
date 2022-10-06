@@ -1,7 +1,6 @@
 import { globalStyle, globalFontFace } from "@vanilla-extract/css";
 import { tokens } from "./tokens.css";
 import { themeVars } from "./theme.css";
-import { yellow, yellowDark } from "@radix-ui/colors";
 
 globalFontFace("Inter", {
   fontStyle: "normal",
@@ -13,7 +12,7 @@ globalFontFace("Inter", {
 });
 
 globalStyle("html", {
-  lineHeight: 1.25,
+  lineHeight: 1.3,
   WebkitTextSizeAdjust: "100%",
 });
 

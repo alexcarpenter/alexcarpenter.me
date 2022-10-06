@@ -11,6 +11,7 @@
   "dependencies": {
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-toast": "^1.0.0",
+    "@radix-ui/react-tooltip": "^1.0.0",
     "@sindresorhus/slugify": "^2.1.0",
     "@vanilla-extract/babel-plugin": "^1.1.7",
     "@vanilla-extract/css": "^1.7.2",
