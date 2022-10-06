@@ -59,19 +59,18 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
         ) : null}
       </Box>
 
-      <Spacer height="xxxxl" />
+      {job.currently ? (
+        <>
+          <Spacer height="xxxxl" />
 
-      <Box as="section" maxWidth={{ md: "text" }} marginX={{ md: "auto" }}>
-        <Prose>
-          <Heading fontSize="xl">Currently</Heading>
-          <Text color="foregroundNeutral">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-            ducimus id nisi dolor incidunt ipsum illo dicta ipsa distinctio
-            cumque libero minus fuga enim, laudantium reprehenderit quo vel
-            possimus voluptates!
-          </Text>
-        </Prose>
-      </Box>
+          <Box as="section" maxWidth={{ md: "text" }} marginX={{ md: "auto" }}>
+            <Prose>
+              <Heading fontSize="xl">Currently</Heading>
+              <Text color="foregroundNeutral">{job.currently}</Text>
+            </Prose>
+          </Box>
+        </>
+      ) : null}
 
       <Spacer height="xxxxl" />
 
@@ -96,7 +95,12 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
                   gap="sm"
                   maxWidth="text"
                 >
-                  <Text color="foregroundNeutral" fontSize="sm">
+                  <Text
+                    color="foregroundNeutral"
+                    fontSize="sm"
+                    as="time"
+                    dateTime={project.date}
+                  >
                     {format(parseISO(project.date), "MM/dd/Y")}
                   </Text>
                   <Heading as="h3">
