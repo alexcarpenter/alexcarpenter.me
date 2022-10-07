@@ -61,6 +61,24 @@ const Home: NextPage<{
         <Spacer height="xxl" />
         <List>
           {jobs.map((job) => {
+            const heading =
+              job.company === "HashiCorp" ? (
+                <Link href="/experience/hashicorp" underline>
+                  {job.title}{" "}
+                  <span role="separator" aria-orientation="vertical">
+                    {"//"}
+                  </span>{" "}
+                  {job.company}
+                </Link>
+              ) : (
+                <>
+                  {job.title}{" "}
+                  <span role="separator" aria-orientation="vertical">
+                    {"//"}
+                  </span>{" "}
+                  {job.company}
+                </>
+              );
             return (
               <List.Item key={job._id}>
                 <Box display="flex" gap="md">
@@ -93,13 +111,7 @@ const Home: NextPage<{
                           ? format(parseISO(job.endDate), "y")
                           : "Now"}
                       </Text>
-                      <Heading>
-                        {job.title}{" "}
-                        <span role="separator" aria-orientation="vertical">
-                          {"//"}
-                        </span>{" "}
-                        {job.company}
-                      </Heading>
+                      <Heading>{heading}</Heading>
                     </Box>
                     <Spacer height="sm" />
                     <Text>{job.location ? job.location : "Remote"}</Text>

@@ -5,17 +5,21 @@ import * as styles from "./Link.css";
 
 export type LinkProps = NextLinkProps & {
   children: React.ReactNode;
+  underline?: boolean;
 };
 
 export const Link = (props: LinkProps) => {
-  const { href, children, ...rest } = props;
+  const { href, children, underline, ...rest } = props;
   const isInternalLink =
     href &&
     (href.toString().startsWith("/") || href.toString().startsWith("#"));
   return (
     <>
       <NextLink href={href}>
-        <a {...rest} className={clsx(styles.root)}>
+        <a
+          {...rest}
+          className={clsx(styles.root, underline && styles.underline)}
+        >
           {children}
         </a>
       </NextLink>

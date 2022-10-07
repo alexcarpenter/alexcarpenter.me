@@ -15,3 +15,10 @@ export const root = style({
     outlineColor: themeVars.color.outline,
   },
 });
+
+export const underline = style({
+  textDecoration: "underline",
+  ":hover": {
+    textDecoration: "none",
+  },
+});
