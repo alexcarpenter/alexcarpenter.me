@@ -69,7 +69,7 @@ export const Toaster = () => {
                   removeToast(id!);
                 }
               }}
-              duration={5000}
+              duration={8000}
             >
               <motion.div
                 layout={reducedMotion ? false : "position"}
@@ -77,9 +77,6 @@ export const Toaster = () => {
                 animate={{
                   opacity: 1,
                   y: 0,
-                  transition: {
-                    delay: 0.2,
-                  },
                 }}
                 exit={{
                   opacity: 0,

@@ -6,6 +6,7 @@ export const viewport = style({
   position: "fixed",
   right: tokens.spacing.md,
   bottom: tokens.spacing.md,
+  display: "grid",
 });
 
 export const root = style({
