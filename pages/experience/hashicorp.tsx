@@ -2,7 +2,6 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Job } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
-import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { Box } from "components/Box";
 import { Heading } from "components/Heading";
@@ -11,6 +10,7 @@ import { List } from "components/List";
 import { Prose } from "components/Prose";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
+import { HashiCorpHero } from "components/Hero";
 import { allJobs } from "contentlayer/generated";
 
 const formatTags = new Intl.ListFormat("en", { type: "conjunction" });
@@ -26,6 +26,8 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
         maxWidth="container"
         marginX="auto"
       >
+        <HashiCorpHero />
+        <Spacer height="xl" />
         <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
           {job.company}
         </Heading>
@@ -34,7 +36,7 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
             <Spacer height="xl" />
             <Text
               fontSize={{ xs: "lg", sm: "xl" }}
-              color="foregroundNeutral"
+              // color="foregroundNeutral"
               style={{
                 display: "inline-flex",
               }}

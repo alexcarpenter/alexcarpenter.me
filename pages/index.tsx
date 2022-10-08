@@ -158,11 +158,7 @@ const Home: NextPage<{
                     <Card key={recIdx}>
                       <figure>
                         <blockquote>
-                          <Text
-                            dangerouslySetInnerHTML={{
-                              __html: rec.text,
-                            }}
-                          />
+                          <Text>{rec.text}</Text>
                         </blockquote>
                         <Spacer height="md" />
                         <Box as="figcaption" display="flex" gap="sm">

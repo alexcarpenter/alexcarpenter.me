@@ -39,7 +39,13 @@ const CommandItem = ({
     <Command.Item onSelect={onSelect} value={value}>
       <span className="content">{children}</span>
       {currentValue === value ? (
-        <motion.span layoutId="highlight" className="highlight" />
+        <motion.span
+          layoutId="highlight"
+          className="highlight"
+          transition={{
+            duration: 0.2,
+          }}
+        />
       ) : null}
     </Command.Item>
   );

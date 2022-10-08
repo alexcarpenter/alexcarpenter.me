@@ -37,8 +37,3 @@ globalStyle("ul:not([class])", {
   paddingInlineStart: tokens.spacing.md,
   gap: tokens.spacing.sm,
 });
-
-globalStyle("mark", {
-  backgroundColor: themeVars.color.highlight,
-  paddingInline: 2,
-});

@@ -38,6 +38,7 @@ globalStyle("[cmdk-dialog]", {
   transform: "translateX(-50%)",
   maxWidth: 640,
   width: calc.subtract("100%", calc.multiply(tokens.spacing.md, 2)),
+  zIndex: 9999,
   "@media": {
     "screen and (min-width: 576px)": {
       marginTop: "8rem",
@@ -157,8 +158,8 @@ globalStyle("[cmdk-item] .highlight", {
 globalStyle("[cmdk-item] svg", {
   width: ".9rem",
   color: themeVars.color.foregroundNeutral,
-  transition: "ease-in-out 0.2s",
-  transitionDelay: "0.2s",
+  transition: "ease-in-out 0.1s",
+  transitionDelay: "0.1s",
 });
 
 globalStyle("[cmdk-item][aria-selected='true'] svg", {

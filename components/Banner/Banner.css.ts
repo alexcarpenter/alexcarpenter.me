@@ -6,12 +6,12 @@ export const banner = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  maxWidth: tokens.contentWidth.text,
   marginInline: "auto",
   marginBlockEnd: tokens.spacing.xxxl,
   textAlign: "center",
   "@media": {
     "screen and (min-width: 768px)": {
+      maxWidth: tokens.contentWidth.text,
       "::before": {
         content: "",
         width: tokens.spacing.xxxl,
@@ -24,6 +24,7 @@ export const avatar = style({
   position: "relative",
   display: "inline-flex",
   borderRadius: tokens.radius.lg,
+  border: `1px solid ${themeVars.color.border}`,
   overflow: "hidden",
   ":focus": {
     outline: "transparent",
