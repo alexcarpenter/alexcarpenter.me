@@ -2,6 +2,7 @@ import * as React from "react";
 import "the-new-css-reset";
 import "styles/app.css";
 import type { AppProps } from "next/app";
+import { MotionConfig } from "framer-motion";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 import { ToastProvider } from "@radix-ui/react-toast";
@@ -20,6 +21,7 @@ const composeProviders =
     }, children);
 
 const Providers = composeProviders(
+  [MotionConfig, { reducedMotion: "user" }],
   [
     ThemeProvider,
     {
