@@ -5,7 +5,7 @@ const HashiCorpHero = () => {
   return (
     <div className={styles.root}>
       <div className={styles.pattern}>
-        <motion.svg
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           width="800"
           height="500"
@@ -27,18 +27,11 @@ const HashiCorpHero = () => {
                 shapeRendering="crispEdges"
               />
             </g>
-            <motion.path
+            <path
               d="m755.612 112.708-345.81 199.636-121.089-69.904 345.81-199.636 121.089 69.904Z"
               stroke="url(#f)"
               strokeOpacity=".8"
               strokeWidth="2.768"
-              animate={{ pathLength: [0, 1], pathOffset: [0, 1] }}
-              transition={{
-                delay: 0.1,
-                duration: 7,
-                repeat: Infinity,
-                repeatType: "mirror",
-              }}
             />
             <g filter="url(#g)">
               <path
@@ -139,17 +132,11 @@ const HashiCorpHero = () => {
                 shapeRendering="crispEdges"
               />
             </g>
-            <motion.path
+            <path
               d="m788.301-108.877-.692-.399-.692.399-358.81 207.141-2.076 1.199 2.076 1.198 123.857 71.503.692.399.691-.399 358.81-207.141 2.076-1.199-2.076-1.198-123.856-71.503Z"
               stroke="url(#z)"
               strokeOpacity=".6"
               strokeWidth="2.768"
-              animate={{ pathLength: [0, 1], pathOffset: [0, 1] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                repeatType: "mirror",
-              }}
             />
             <path
               opacity=".2"
@@ -291,18 +278,11 @@ const HashiCorpHero = () => {
                 shapeRendering="crispEdges"
               />
             </g>
-            <motion.path
+            <path
               d="m699.267 170.625-.69-.392-.686.396-466.606 269.396-2.092 1.207 2.1 1.194 203.425 115.677.69.392.686-.396L902.7 288.704l2.092-1.208-2.099-1.194-203.426-115.677Z"
               stroke="url(#U)"
               strokeOpacity=".8"
               strokeWidth="2.768"
-              animate={{ pathLength: [0, 1], pathOffset: [0, 1] }}
-              transition={{
-                delay: 0.2,
-                duration: 7,
-                repeat: Infinity,
-                repeatType: "mirror",
-              }}
             />
             <path
               d="m358.199 378.9 9.534-5.504v58.954l-9.534 5.504V378.9Z"
@@ -352,17 +332,11 @@ const HashiCorpHero = () => {
                 shapeRendering="crispEdges"
               />
             </g>
-            <motion.path
+            <path
               d="m726.113 92.581-.692-.4-.692.4L428.361 263.69l-2.076 1.198 2.076 1.198 306.748 177.102.692.399.692-.399L1032.86 272.08l2.08-1.199-2.08-1.198L726.113 92.581Z"
               stroke="url(#ad)"
               strokeOpacity=".8"
               strokeWidth="2.768"
-              animate={{ pathLength: [0, 1], pathOffset: [0, 1] }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                repeatType: "mirror",
-              }}
             />
             <g filter="url(#ae)">
               <path
@@ -1453,7 +1427,7 @@ const HashiCorpHero = () => {
               <path fill="#fff" d="M0 0h800v500H0z" />
             </clipPath>
           </defs>
-        </motion.svg>
+        </svg>
       </div>
       <div className={styles.logo}>
         <svg
