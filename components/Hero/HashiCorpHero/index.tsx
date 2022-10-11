@@ -32,12 +32,7 @@ const HashiCorpHero = () => {
               stroke="url(#f)"
               strokeOpacity=".8"
               strokeWidth="2.768"
-              initial={{
-                pathLength: 1,
-              }}
-              animate={{
-                pathLength: 0,
-              }}
+              animate={{ pathLength: [0, 1], pathOffset: [0, 1] }}
               transition={{
                 delay: 0.1,
                 duration: 7,
@@ -149,12 +144,7 @@ const HashiCorpHero = () => {
               stroke="url(#z)"
               strokeOpacity=".6"
               strokeWidth="2.768"
-              initial={{
-                pathLength: 0,
-              }}
-              animate={{
-                pathLength: 1,
-              }}
+              animate={{ pathLength: [0, 1], pathOffset: [0, 1] }}
               transition={{
                 duration: 5,
                 repeat: Infinity,
@@ -306,12 +296,7 @@ const HashiCorpHero = () => {
               stroke="url(#U)"
               strokeOpacity=".8"
               strokeWidth="2.768"
-              initial={{
-                pathLength: 1,
-              }}
-              animate={{
-                pathLength: 0,
-              }}
+              animate={{ pathLength: [0, 1], pathOffset: [0, 1] }}
               transition={{
                 delay: 0.2,
                 duration: 7,
@@ -372,12 +357,7 @@ const HashiCorpHero = () => {
               stroke="url(#ad)"
               strokeOpacity=".8"
               strokeWidth="2.768"
-              initial={{
-                pathLength: 0,
-              }}
-              animate={{
-                pathLength: 1,
-              }}
+              animate={{ pathLength: [0, 1], pathOffset: [0, 1] }}
               transition={{
                 duration: 7,
                 repeat: Infinity,
