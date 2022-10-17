@@ -1,51 +1,45 @@
-import { style } from "@vanilla-extract/css";
+import { style, keyframes } from "@vanilla-extract/css";
 import { themeVars } from "styles/theme.css";
 import { tokens } from "styles/tokens.css";
 
+const rotate = keyframes({
+  "0%": { transform: "rotate(0deg)" },
+  "100%": { transform: "rotate(360deg)" },
+});
+
 export const root = style({
   position: "relative",
-  height: 200,
   display: "grid",
   placeItems: "center",
-  overflow: "hidden",
+  padding: 1,
   borderRadius: tokens.radius.lg,
-  border: `1px solid ${themeVars.color.border}`,
-  backgroundColor: "hsl(0, 0%, 8.5%)",
-  "@media": {
-    "screen and (min-width: 576px)": {
-      height: 300,
-    },
-  },
-});
-
-export const logo = style({
-  position: "relative",
-  gridArea: "1/1",
-  width: 50,
-  marginInline: tokens.spacing.xxxxl,
-  "@media": {
-    "screen and (min-width: 576px)": {
-      justifySelf: "flex-start",
-      width: 80,
-    },
-  },
-});
-
-export const pattern = style({
-  gridArea: "1/1",
+  backgroundColor: themeVars.color.border,
   overflow: "hidden",
 });
 
-export const patternSvg = style({
+export const glow = style({
   position: "absolute",
-  top: -125,
-  right: -100,
-  "@media": {
-    "screen and (min-width: 576px)": {
-      right: -75,
-    },
-    "screen and (min-width: 768px)": {
-      right: 0,
-    },
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  display: "grid",
+  placeItems: "center",
+  "::before": {
+    content: "",
+    position: "absolute",
+    minHeight: "200vw",
+    minWidth: "200vw",
+    animationName: rotate,
+    animationDuration: "5s",
+    animationIterationCount: "infinite",
+    backgroundImage:
+      "conic-gradient(transparent 135deg, rgba(255, 255, 255, .25) 180deg, transparent 225deg)",
   },
+});
+
+export const inner = style({
+  display: "grid",
+  borderRadius: tokens.radius.lg,
+  backgroundColor: themeVars.color.page,
+  overflow: "hidden",
 });
