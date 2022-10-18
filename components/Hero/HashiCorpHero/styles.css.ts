@@ -24,6 +24,8 @@ export const glow = style({
   transform: "translate(-50%, -50%)",
   display: "grid",
   placeItems: "center",
+  opacity: 0,
+  transition: "opacity ease-in 0.5s",
   "::before": {
     content: "",
     position: "absolute",
@@ -34,6 +36,11 @@ export const glow = style({
     animationIterationCount: "infinite",
     backgroundImage:
       "conic-gradient(transparent 135deg, rgba(255, 255, 255, .25) 180deg, transparent 225deg)",
+  },
+  selectors: {
+    [`${root}[data-state="loaded"] &`]: {
+      opacity: 1,
+    },
   },
 });
 
