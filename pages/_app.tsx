@@ -10,6 +10,7 @@ import { TooltipProvider } from "@radix-ui/react-tooltip";
 import SEO from "next-seo.config";
 import { Banner } from "components/Banner";
 import { CommandMenu } from "components/CommandMenu";
+import { SkipLink } from "components/SkipLink";
 import { Toaster } from "components/Toast/Toast";
 
 const composeProviders =
@@ -39,9 +40,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Providers>
       <DefaultSeo {...SEO} />
+      <SkipLink />
       <div className="container">
         <Banner setOpen={setOpen} />
-        <main>
+        <main id="main">
           <Component {...pageProps} />
         </main>
         <CommandMenu open={open} setOpen={setOpen} />
