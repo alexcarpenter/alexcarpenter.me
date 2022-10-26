@@ -15,13 +15,12 @@ export const Link = (props: LinkProps) => {
     (href.toString().startsWith("/") || href.toString().startsWith("#"));
   return (
     <>
-      <NextLink href={href}>
-        <a
-          {...rest}
-          className={clsx(styles.root, underline && styles.underline)}
-        >
-          {children}
-        </a>
+      <NextLink
+        {...rest}
+        href={href}
+        className={clsx(styles.root, underline && styles.underline)}
+      >
+        {children}
       </NextLink>
       {isInternalLink ? null : (
         <>

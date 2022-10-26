@@ -45,6 +45,7 @@ export const glow = style({
 });
 
 export const inner = style({
+  position: "relative",
   display: "grid",
   borderRadius: tokens.radius.lg,
   backgroundColor: themeVars.color.page,

@@ -25,12 +25,12 @@
     "date-fns": "^2.28.0",
     "framer-motion": "^7.5.1",
     "nanoid": "^4.0.0",
-    "next": "^12.3.0",
+    "next": "^13.0.0",
     "next-contentlayer": "^0.2.8",
     "next-seo": "^5.5.0",
     "next-themes": "^0.2.1",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-lite-youtube-embed": "^2.3.1",
     "react-lite-yt-embed": "^1.2.7",
@@ -48,7 +48,7 @@
     "@types/react": "18.0.10",
     "@types/react-dom": "18.0.5",
     "eslint": "8.16.0",
-    "eslint-config-next": "12.1.6",
+    "eslint-config-next": "^13.0.0",
     "typescript": "4.7.2"
   }
 }
