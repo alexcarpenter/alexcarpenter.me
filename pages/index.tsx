@@ -1,8 +1,7 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
-import { compareDesc, format, parseISO } from "date-fns";
-import { partition } from "lib/utils";
+import { partition, formatTags } from "lib/utils";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { Box } from "components/Box";
@@ -13,8 +12,6 @@ import { List } from "components/List";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
 import { allJobs, allRecommendations } from "contentlayer/generated";
-
-const formatTags = new Intl.ListFormat("en", { type: "conjunction" });
 
 const Home: NextPage<{
   jobs: Job[];
@@ -106,9 +103,9 @@ const Home: NextPage<{
                       maxWidth="text"
                     >
                       <Text color="foregroundNeutral" fontSize="sm">
-                        {format(parseISO(job.startDate), "y")} &mdash;{" "}
+                        {new Date(job.startDate).getFullYear()} &mdash;{" "}
                         {job.endDate
-                          ? format(parseISO(job.endDate), "y")
+                          ? new Date(job.endDate).getFullYear()
                           : "Now"}
                       </Text>
                       <Heading>{heading}</Heading>
@@ -236,11 +233,11 @@ export default Home;
 
 export async function getStaticProps() {
   const jobs = allJobs.sort((a, b) => {
-    return compareDesc(new Date(a.startDate), new Date(b.startDate));
+    return Number(new Date(b.startDate)) - Number(new Date(a.startDate));
   });
 
   const recommendations = allRecommendations.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date));
+    return Number(new Date(b.date)) - Number(new Date(a.date));
   });
 
   return {

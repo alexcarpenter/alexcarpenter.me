@@ -1,5 +1,7 @@
 export { clsx as cn } from "clsx";
 
+export const formatTags = new Intl.ListFormat("en", { type: "conjunction" });
+
 /**
  * Takes a predicate and a list of values and returns a a tuple (2-item array),
  *  with each item containing the subset of the list that matches the predicate

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { compareDesc, format, parseISO } from "date-fns";
 import type { NextPage } from "next";
 import type { Post } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
@@ -14,10 +13,10 @@ import { Spacer } from "components/Spacer";
 export async function getStaticProps() {
   const postsByYear = allPosts
     .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date));
+      return Number(new Date(b.date)) - Number(new Date(a.date));
     })
     .reduce((years, post) => {
-      const year = format(parseISO(post.date), "Y");
+      const year = new Date(post.date).getFullYear();
       if (!years[year]) {
         years[year] = [];
       }
@@ -86,7 +85,7 @@ const Posts: NextPage<{
                           maxWidth="text"
                         >
                           <Text color="foregroundNeutral" fontSize="sm">
-                            {format(parseISO(post.date), "MM/dd")}
+                            {new Date(post.date).toLocaleDateString()}
                           </Text>
                           <Heading>
                             <Link href={`/posts/${post.slug}`}>
