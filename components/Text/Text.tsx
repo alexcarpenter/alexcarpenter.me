@@ -1,5 +1,5 @@
 import * as React from "react";
-import clsx from "clsx";
+import { cn } from "lib/utils";
 import type { PolymorphicComponentProps } from "types";
 import type { Sprinkles } from "styles/sprinkles.css";
 import { sprinkles } from "styles/sprinkles.css";
@@ -22,7 +22,7 @@ const Text = <C extends React.ElementType = "p">({
 }: TextProps<C>) => {
   const component = as || "p";
   return React.createElement(component, {
-    className: clsx(styles.root, sprinkles({ fontSize, color })),
+    className: cn(styles.root, sprinkles({ fontSize, color })),
     ...restProps,
   });
 };

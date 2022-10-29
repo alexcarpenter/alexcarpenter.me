@@ -1,6 +1,6 @@
 import type { LinkProps as NextLinkProps } from "next/link";
 import { default as NextLink } from "next/link";
-import clsx from "clsx";
+import { cn } from "lib/utils";
 import * as styles from "./Link.css";
 
 export type LinkProps = NextLinkProps & {
@@ -16,10 +16,7 @@ export const Link = (props: LinkProps) => {
   return (
     <>
       <NextLink href={href}>
-        <a
-          {...rest}
-          className={clsx(styles.root, underline && styles.underline)}
-        >
+        <a {...rest} className={cn(styles.root, underline && styles.underline)}>
           {children}
         </a>
       </NextLink>

@@ -1,7 +1,7 @@
 import type { Sprinkles } from "styles/sprinkles.css";
 import { createElement, AllHTMLAttributes, ElementType } from "react";
 import { sprinkles } from "styles/sprinkles.css";
-import clsx from "clsx";
+import { cn } from "lib/utils";
 
 export interface BoxProps
   extends Omit<
@@ -39,7 +39,7 @@ export const Box = ({
   textAlign,
   ...restProps
 }: BoxProps) => {
-  const atomClasses = clsx(
+  const atomClasses = cn(
     sprinkles({
       padding,
       paddingTop,

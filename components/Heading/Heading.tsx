@@ -1,5 +1,5 @@
 import * as React from "react";
-import clsx from "clsx";
+import { cn } from "lib/utils";
 import type { PolymorphicComponentProps } from "types";
 import type { Sprinkles } from "styles/sprinkles.css";
 import { sprinkles } from "styles/sprinkles.css";
@@ -23,7 +23,7 @@ const Heading = <C extends React.ElementType = "p">({
 }: HeadingProps<C>) => {
   const component = as || "h2";
   return React.createElement(component, {
-    className: clsx(styles.root, sprinkles({ fontSize, color })),
+    className: cn(styles.root, sprinkles({ fontSize, color })),
     ...restProps,
   });
 };
