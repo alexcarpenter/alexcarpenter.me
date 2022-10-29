@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import type { Post } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
 import { allPosts } from "contentlayer/generated";
+import { formatDate } from "lib/utils";
 import { Box } from "components/Box";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";
@@ -85,7 +86,7 @@ const Posts: NextPage<{
                           maxWidth="text"
                         >
                           <Text color="foregroundNeutral" fontSize="sm">
-                            {new Date(post.date).toLocaleDateString()}
+                            {formatDate(post.date)}
                           </Text>
                           <Heading>
                             <Link href={`/posts/${post.slug}`}>

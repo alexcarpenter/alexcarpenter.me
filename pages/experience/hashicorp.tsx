@@ -1,8 +1,8 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import type { Job } from "contentlayer/generated";
-import { format, parseISO } from "date-fns";
 import { NextSeo } from "next-seo";
+import { formatTags, formatDate } from "lib/utils";
 import { Box } from "components/Box";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";
@@ -12,8 +12,6 @@ import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
 import { HashiCorpHero } from "components/Hero";
 import { allJobs } from "contentlayer/generated";
-
-const formatTags = new Intl.ListFormat("en", { type: "conjunction" });
 
 const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
   return (
@@ -103,7 +101,7 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
                     as="time"
                     dateTime={project.date}
                   >
-                    {format(parseISO(project.date), "MM/dd/Y")}
+                    {formatDate(project.date)}
                   </Text>
                   <Heading as="h3">
                     <Link href={project.link}>{project.title}</Link>

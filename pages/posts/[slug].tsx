@@ -1,8 +1,8 @@
 import type { NextPage } from "next/types";
-import { format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { NextSeo } from "next-seo";
+import { formatDate } from "lib/utils";
 import { Box } from "components/Box";
 import { Components } from "components/MDXComponents";
 import { Heading } from "components/Heading";
@@ -49,7 +49,7 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
           </Heading>
           <Spacer height="sm" />
           <Text as="time" dateTime={post.date} color="foregroundNeutral">
-            {format(parseISO(post.date), "MM/dd/Y")}
+            {formatDate(post.date)}
           </Text>
         </Box>
 

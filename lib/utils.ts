@@ -2,6 +2,14 @@ export { clsx as cn } from "clsx";
 
 export const formatTags = new Intl.ListFormat("en", { type: "conjunction" });
 
+export const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+};
+
 /**
  * Takes a predicate and a list of values and returns a a tuple (2-item array),
  *  with each item containing the subset of the list that matches the predicate
