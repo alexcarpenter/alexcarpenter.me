@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Analytics } from "@vercel/analytics/react";
 import "the-new-css-reset";
 import "styles/app.css";
 import type { AppProps } from "next/app";
@@ -38,18 +39,21 @@ const Providers = composeProviders(
 function MyApp({ Component, pageProps }: AppProps) {
   const [open, setOpen] = React.useState(false);
   return (
-    <Providers>
-      <DefaultSeo {...SEO} />
-      <SkipLink />
-      <div className="container">
-        <Banner setOpen={setOpen} />
-        <main id="main">
-          <Component {...pageProps} />
-        </main>
-        <CommandMenu open={open} setOpen={setOpen} />
-        <Toaster />
-      </div>
-    </Providers>
+    <>
+      <Providers>
+        <DefaultSeo {...SEO} />
+        <SkipLink />
+        <div className="container">
+          <Banner setOpen={setOpen} />
+          <main id="main">
+            <Component {...pageProps} />
+          </main>
+          <CommandMenu open={open} setOpen={setOpen} />
+          <Toaster />
+        </div>
+      </Providers>
+      <Analytics />
+    </>
   );
 }
 
