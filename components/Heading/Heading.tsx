@@ -23,7 +23,11 @@ const Heading = <C extends React.ElementType = "p">({
 }: HeadingProps<C>) => {
   const component = as || "h2";
   return React.createElement(component, {
-    className: cn(styles.root, sprinkles({ fontSize, color })),
+    className: cn(
+      styles.root,
+      styles.tracking[component],
+      sprinkles({ fontSize, color })
+    ),
     ...restProps,
   });
 };
