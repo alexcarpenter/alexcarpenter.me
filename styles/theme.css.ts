@@ -24,6 +24,7 @@ export const themeVars = createGlobalThemeContract({
     overlay: "color-overlay",
     outline: "color-outline",
     highlight: "color-highlight",
+    codeHighlight: "color-code-highlight",
   },
 });
 
@@ -38,6 +39,7 @@ createGlobalTheme(":root.light", themeVars, {
     overlay: whiteA.whiteA11,
     outline: blue.blue11,
     highlight: yellow.yellow4,
+    codeHighlight: gray.gray3,
   },
 });
 
@@ -52,5 +54,6 @@ createGlobalTheme(":root.dark", themeVars, {
     overlay: blackA.blackA11,
     outline: blueDark.blue11,
     highlight: yellowDark.yellow7,
+    codeHighlight: grayDark.gray4,
   },
 });

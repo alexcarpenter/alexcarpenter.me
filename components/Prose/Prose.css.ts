@@ -81,8 +81,8 @@ globalStyle("div[data-rehype-pretty-code-fragment] .syntax-line", {
 
 /* Line highlighting */
 globalStyle("div[data-rehype-pretty-code-fragment] .syntax-line--highlighted", {
-  // backgroundColor: themeVars.color.codeHightlight,
-  // borderColor: themeVars.color.codeAccent,
+  backgroundColor: themeVars.color.codeHighlight,
+  borderColor: themeVars.color.highlight,
 });
 
 /* Numbered lines */
