@@ -36,7 +36,15 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
   const MDXContent = useMDXComponent(post.body.code);
   return (
     <>
-      <NextSeo title={post.title} description={post.description} />
+      <NextSeo
+        title={post.title}
+        description={post.description}
+        openGraph={{
+          title: post.title,
+          description: post.description,
+          url: `https://alexcarpenter.me/posts/${post.slug}`,
+        }}
+      />
       <article>
         <Box
           as="header"

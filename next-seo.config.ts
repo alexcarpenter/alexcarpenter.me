@@ -24,9 +24,5 @@ export default {
       href: "https://alexcarpenter.me/apple-touch-icon.png",
       sizes: "180x180",
     },
-    {
-      name: "twitter:image",
-      content: "https://alexcarpenter.me/apple-touch-icon.png",
-    },
   ],
 } as NextSeoProps;
