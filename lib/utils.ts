@@ -1,9 +1,35 @@
 export { clsx as cn } from "clsx";
 
-export const formatTags = new Intl.ListFormat("en", { type: "conjunction" });
+/**
+ * Returns a language-specific formatted string representing the elements of the list.
+ *
+ * @param {Array} arr The list to format
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/ListFormat
+ *
+ * @example
+ *
+ *     const tags = [one, two, three]
+ *     formatTags(tags)
+ *     // => one, two, and three
+ */
+export const formatTags = (arr: string[]): string =>
+  new Intl.ListFormat("en", { type: "conjunction" }).format(arr);
 
+/**
+ * Returns a string with a language-sensitive representation of the date portion of the specified date in the user agent's timezone.
+ *
+ * @param {Date} date
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+ *
+ * @example
+ *
+ *     formatDate('2022-10-31T00:00:00.000Z')
+ *     // => 10/30/2022
+ */
 export const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString("en-us", {
+  return new Date(date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",

@@ -53,7 +53,7 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
                 display: "inline-flex",
               }}
             >
-              {formatTags.format(job.tags)}
+              {formatTags(job.tags)}
             </Text>
           </>
         ) : null}

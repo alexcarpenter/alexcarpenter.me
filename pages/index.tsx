@@ -116,7 +116,7 @@ const Home: NextPage<{
                       <>
                         <Spacer height="sm" />
                         <Text fontSize="sm" color="foregroundNeutral">
-                          {formatTags.format(job.tags)}
+                          {formatTags(job.tags)}
                         </Text>
                       </>
                     ) : null}
