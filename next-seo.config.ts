@@ -9,10 +9,11 @@ export default {
     type: "website",
     url: "https://alexcarpenter.me",
     site_name: "Alex Carpenter",
+    images: [{ url: "https://alexcarpenter.me/apple-touch-icon.png" }],
   },
   twitter: {
     handle: "@hybrid_alex",
-    cardType: "summary_large_image",
+    cardType: "summary",
   },
   additionalLinkTags: [
     {
@@ -21,7 +22,7 @@ export default {
     },
     {
       rel: "apple-touch-icon",
-      href: "/apple-touch-icon.png",
+      href: "https://alexcarpenter.me/apple-touch-icon.png",
       sizes: "180x180",
     },
   ],
