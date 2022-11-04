@@ -9,8 +9,8 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
-const Project = defineNestedType(() => ({
-  name: "Project",
+const Event = defineNestedType(() => ({
+  name: "Event",
   fields: {
     title: {
       type: "string",
@@ -26,7 +26,7 @@ const Project = defineNestedType(() => ({
     },
     link: {
       type: "string",
-      required: true,
+      required: false,
     },
   },
 }));
@@ -94,9 +94,9 @@ export const Job = defineDocumentType(() => ({
       type: "string",
       required: false,
     },
-    projects: {
+    timeline: {
       type: "list",
-      of: Project,
+      of: Event,
       required: false,
     },
     tags: {

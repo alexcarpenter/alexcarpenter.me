@@ -75,12 +75,12 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
       <Spacer height="xxxxl" />
 
       <Box as="section" maxWidth={{ md: "text" }} marginX={{ md: "auto" }}>
-        <Heading fontSize="xl">Projects</Heading>
+        <Heading fontSize="xl">Timeline</Heading>
 
         <Spacer height="xxl" />
 
         <List>
-          {job.projects?.map((project, index) => {
+          {job.timeline?.map((event, index) => {
             return (
               <List.Item key={index}>
                 <Box
@@ -99,18 +99,22 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
                     color="foregroundNeutral"
                     fontSize="sm"
                     as="time"
-                    dateTime={project.date}
+                    dateTime={event.date}
                   >
-                    {formatDate(project.date)}
+                    {formatDate(event.date)}
                   </Text>
                   <Heading as="h3">
-                    <Link href={project.link}>{project.title}</Link>
+                    {event.link ? (
+                      <Link href={event.link}>{event.title}</Link>
+                    ) : (
+                      event.title
+                    )}
                   </Heading>
                 </Box>
-                {project.description ? (
+                {event.description ? (
                   <>
                     <Spacer height={{ xs: "sm", sm: "md" }} />
-                    <Text color="foregroundNeutral">{project.description}</Text>
+                    <Text color="foregroundNeutral">{event.description}</Text>
                   </>
                 ) : null}
               </List.Item>
