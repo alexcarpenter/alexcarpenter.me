@@ -13,7 +13,14 @@ import { allActivities } from "contentlayer/generated";
 const ActivityPage: NextPage<{ activities: Activity[] }> = ({ activities }) => {
   return (
     <>
-      <NextSeo title="Activity" />
+      <NextSeo
+        title="Activity"
+        description="Short form thoughts and updates."
+        openGraph={{
+          title: "Activity",
+          description: "Short form thoughts and updates.",
+        }}
+      />
 
       <Box
         as="header"
