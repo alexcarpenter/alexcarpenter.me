@@ -36,10 +36,10 @@ const responsiveProperties = defineProperties({
     paddingBottom: space,
     paddingLeft: space,
     paddingRight: space,
-    marginTop: ["auto"],
-    marginRight: ["auto"],
-    marginBottom: ["auto"],
-    marginLeft: ["auto"],
+    marginTop: space,
+    marginRight: space,
+    marginBottom: space,
+    marginLeft: space,
     gap: space,
     rowGap: space,
     columnGap: space,
@@ -56,6 +56,7 @@ const responsiveProperties = defineProperties({
     paddingY: ["paddingTop", "paddingBottom"],
     placeItems: ["justifyContent", "alignItems"],
     marginX: ["marginLeft", "marginRight"],
+    marginY: ["marginTop", "marginBottom"],
   },
 });
 

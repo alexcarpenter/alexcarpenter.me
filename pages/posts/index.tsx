@@ -32,7 +32,14 @@ const Posts: NextPage<{
 }> = ({ postsByYear }) => {
   return (
     <>
-      <NextSeo title="Posts" />
+      <NextSeo
+        title="Posts"
+        description="Strong opinions, loosely held."
+        openGraph={{
+          title: "Posts",
+          description: "Strong opinions, loosely held.",
+        }}
+      />
 
       <Box
         as="header"

@@ -14,6 +14,13 @@ globalStyle(".prose strong", {
   fontWeight: 600,
 });
 
+globalStyle(".prose hr", {
+  marginTop: tokens.spacing.xl,
+  marginBottom: tokens.spacing.xl,
+  height: 1,
+  backgroundColor: themeVars.color.border,
+});
+
 /*
  * Code syntax
  */
