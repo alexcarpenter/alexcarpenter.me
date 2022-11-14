@@ -151,6 +151,24 @@ export const Recommendation = defineDocumentType(() => ({
   },
 }));
 
+export const Activity = defineDocumentType(() => ({
+  name: "Activity",
+  filePathPattern: `activity/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    date: {
+      type: "date",
+      required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
+    },
+  },
+}));
+
 const rehypePrettyCodeOptions: Partial<Options> = {
   theme: {
     light: "github-light",
@@ -180,7 +198,7 @@ const rehypePrettyCodeOptions: Partial<Options> = {
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Job, Post, Recommendation],
+  documentTypes: [Activity, Job, Post, Recommendation],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

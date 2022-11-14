@@ -14,6 +14,7 @@ import {
   Home,
   Edit,
   Copy,
+  Activity,
 } from "react-feather";
 import { toast } from "components/Toast";
 import { motion } from "framer-motion";
@@ -129,6 +130,17 @@ const CommandMenu = ({
             >
               <Edit />
               <span>Posts</span>
+            </CommandItem>
+
+            <CommandItem
+              onSelect={() => {
+                router.push("/activity");
+                setOpen(false);
+              }}
+              value="activity"
+            >
+              <Activity />
+              <span>Activity</span>
             </CommandItem>
           </Command.Group>
 
