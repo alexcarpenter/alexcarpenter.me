@@ -50,7 +50,7 @@ const Posts: NextPage<{
         <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
           Posts
         </Heading>
-        <Spacer height="xl" />
+        <Spacer height="md" />
         <Text
           fontSize={{ xs: "lg", sm: "xl" }}
           color="foregroundNeutral"

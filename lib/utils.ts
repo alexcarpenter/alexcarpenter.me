@@ -37,6 +37,28 @@ export const formatDate = (date: string) => {
 };
 
 /**
+ * Returns a string with a language-sensitive representation of the date portion of the specified date in the user agent's timezone.
+ *
+ * @param {Date} date
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+ *
+ * @example
+ *
+ *     formatDate('22-11-14T23:32:00.000Z')
+ *     // => 11/14/2022, 6:32 PM
+ */
+export const formatDateTime = (date: string) => {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+};
+
+/**
  * Takes a predicate and a list of values and returns a a tuple (2-item array),
  *  with each item containing the subset of the list that matches the predicate
  *  and the complement of the predicate respectively

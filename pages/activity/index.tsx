@@ -10,6 +10,17 @@ import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
 import { allActivities } from "contentlayer/generated";
 
+export async function getStaticProps() {
+  const activities = allActivities.sort((a, b) => {
+    return Number(new Date(b.date)) - Number(new Date(a.date));
+  });
+  return {
+    props: {
+      activities,
+    },
+  };
+}
+
 const ActivityPage: NextPage<{ activities: Activity[] }> = ({ activities }) => {
   return (
     <>
@@ -31,7 +42,7 @@ const ActivityPage: NextPage<{ activities: Activity[] }> = ({ activities }) => {
         <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
           Activity
         </Heading>
-        <Spacer height="xl" />
+        <Spacer height="md" />
         <Text
           fontSize={{ xs: "lg", sm: "xl" }}
           color="foregroundNeutral"
@@ -61,12 +72,3 @@ const ActivityPage: NextPage<{ activities: Activity[] }> = ({ activities }) => {
 };
 
 export default ActivityPage;
-
-export async function getStaticProps() {
-  const activities = allActivities;
-  return {
-    props: {
-      activities,
-    },
-  };
-}

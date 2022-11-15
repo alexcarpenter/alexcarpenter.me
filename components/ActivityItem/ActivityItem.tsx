@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Activity } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import { formatDateTime } from "lib/utils";
 import { Text } from "components/Text";
 import * as styles from "./ActivityItem.css";
 
@@ -19,11 +20,8 @@ const ActivityItem = ({ date, body }: Activity) => {
           }}
         />
       </div>
-      <Text as="time" dateTime={date} color="foregroundNeutral">
-        {new Date(date).toLocaleDateString("en-US", {
-          month: "short",
-          day: "2-digit",
-        })}
+      <Text as="time" dateTime={date} color="foregroundNeutral" fontSize="sm">
+        {formatDateTime(date)}
       </Text>
     </article>
   );

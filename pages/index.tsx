@@ -34,7 +34,7 @@ const Home: NextPage<{
           </span>{" "}
           Design Engineer
         </Heading>
-        <Spacer height="xl" />
+        <Spacer height="md" />
         <Text
           fontSize={{ xs: "lg", sm: "xl" }}
           color="foregroundNeutral"
