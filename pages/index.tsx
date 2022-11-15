@@ -60,7 +60,7 @@ const Home: NextPage<{
           {jobs.map((job) => {
             const heading =
               job.company === "HashiCorp" ? (
-                <Link href="/experience/hashicorp" underline>
+                <Link href="/experience/hashicorp">
                   {job.title}{" "}
                   <span role="separator" aria-orientation="vertical">
                     {"//"}
@@ -204,16 +204,22 @@ const Home: NextPage<{
               <Link href="mailto:im.alexcarpenter@gmail.com">
                 im.alexcarpenter@gmail.com
               </Link>
+              &nbsp;
+              <span aria-hidden={true}>↗</span>
             </Text>
           </List.Item>
           <List.Item>
             <Text color="foregroundNeutral">
               <Link href="https://twitter.com/hybrid_alex">Twitter</Link>
+              &nbsp;
+              <span aria-hidden={true}>↗</span>
             </Text>
           </List.Item>
           <List.Item>
             <Text color="foregroundNeutral">
               <Link href="https://github.com/alexcarpenter">Github</Link>
+              &nbsp;
+              <span aria-hidden={true}>↗</span>
             </Text>
           </List.Item>
           <List.Item>
@@ -221,6 +227,8 @@ const Home: NextPage<{
               <Link href="https://www.linkedin.com/in/imalexcarpenter/">
                 LinkedIn
               </Link>
+              &nbsp;
+              <span aria-hidden={true}>↗</span>
             </Text>
           </List.Item>
         </List>

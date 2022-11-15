@@ -1,10 +1,8 @@
-import { style } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { themeVars } from "styles/theme.css";
 
 export const root = style({
-  ":hover": {
-    textDecoration: "underline",
-  },
+  textDecoration: "underline",
   ":focus": {
     outline: "transparent",
   },
@@ -16,9 +14,7 @@ export const root = style({
   },
 });
 
-export const underline = style({
-  textDecoration: "underline",
-  ":hover": {
-    textDecoration: "none",
-  },
+export const variants = styleVariants({
+  highlight: [root, { textDecorationColor: themeVars.color.underline }],
+  neutral: [root, { textDecorationColor: themeVars.color.underlineNeutral }],
 });

@@ -8,7 +8,7 @@ import { YoutubeEmbed } from "components/YoutubeEmbed";
 export const Components = {
   Image,
   YoutubeEmbed,
-  a: (props: any) => <Link {...props} />,
+  a: (props: any) => <Link {...props} variant="highlight" />,
   p: (props: any) => <Text {...props} />,
   h2: (props: any) => (
     <Heading {...props} fontSize="xl" id={slugify(props.children)} />
