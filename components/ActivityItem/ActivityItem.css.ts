@@ -13,19 +13,3 @@ export const content = style({
 globalStyle(`${content} > * + *`, {
   marginTop: tokens.spacing.lg,
 });
-
-globalStyle(`${content} a`, {
-  textDecoration: "underline",
-  textDecorationColor: themeVars.color.underline,
-});
-
-globalStyle(`${content} a:focus`, {
-  outline: "transparent",
-});
-
-globalStyle(`${content} a:focus-visible`, {
-  outlineWidth: "2px",
-  outlineStyle: "solid",
-  outlineOffset: "2px",
-  outlineColor: themeVars.color.outline,
-});
