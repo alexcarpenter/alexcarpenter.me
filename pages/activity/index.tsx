@@ -43,7 +43,7 @@ const ActivityPage: NextPage<{ activities: Activity[] }> = ({ activities }) => {
           <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
             Activity
           </Heading>
-          <Box flexShrink={0}>
+          <Box flexShrink={0} color="foregroundAction">
             <svg
               width="1.25em"
               viewBox="0 0 24 24"
