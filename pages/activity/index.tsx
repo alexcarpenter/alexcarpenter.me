@@ -1,7 +1,8 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import type { Activity } from "contentlayer/generated";
+import type { FormattedActivity } from "components/ActivityItem";
 import { NextSeo } from "next-seo";
+import { formatDateTime } from "lib/utils";
 import { ActivityItem } from "components/ActivityItem";
 import { Box } from "components/Box";
 import { Heading } from "components/Heading";
@@ -11,9 +12,16 @@ import { Text } from "components/Text";
 import { allActivities } from "contentlayer/generated";
 
 export async function getStaticProps() {
-  const activities = allActivities.sort((a, b) => {
-    return Number(new Date(b.date)) - Number(new Date(a.date));
-  });
+  const activities = allActivities
+    .sort((a, b) => {
+      return Number(new Date(b.date)) - Number(new Date(a.date));
+    })
+    .map((x) => {
+      return {
+        ...x,
+        formattedDate: formatDateTime(x.date),
+      };
+    });
   return {
     props: {
       activities,
@@ -21,7 +29,9 @@ export async function getStaticProps() {
   };
 }
 
-const ActivityPage: NextPage<{ activities: Activity[] }> = ({ activities }) => {
+const ActivityPage: NextPage<{ activities: FormattedActivity[] }> = ({
+  activities,
+}) => {
   return (
     <>
       <NextSeo
