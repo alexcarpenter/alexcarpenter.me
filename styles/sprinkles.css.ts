@@ -8,6 +8,8 @@ const radius = tokens.radius;
 export type Radius = keyof typeof radius;
 const fontSize = tokens.fontSize;
 export type FontSize = keyof typeof fontSize;
+const fontWeight = tokens.fontWeight;
+export type FontWeight = keyof typeof fontWeight;
 const maxWidth = tokens.contentWidth;
 export type MaxWidth = keyof typeof maxWidth;
 
@@ -21,7 +23,7 @@ const responsiveProperties = defineProperties({
   defaultCondition: "xs",
   properties: {
     position: ["relative", "absolute"],
-    display: ["none", "flex", "grid", "block", "inline"],
+    display: ["none", "flex", "inline-flex", "grid", "block", "inline"],
     flexDirection: ["row", "row-reverse", "column"],
     justifyContent: [
       "stretch",
@@ -67,6 +69,7 @@ const unresponsiveProperties = defineProperties({
     border: { true: `1px solid ${themeVars.color.border}` },
     flexShrink: [0],
     flexGrow: [0, 1],
+    fontWeight,
   },
 });
 
