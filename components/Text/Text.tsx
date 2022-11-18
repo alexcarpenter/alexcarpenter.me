@@ -10,6 +10,7 @@ type TextProps<C extends React.ElementType> = PolymorphicComponentProps<
   {
     as?: "p" | "span" | "strong" | "em" | "time";
     fontSize?: Sprinkles["fontSize"];
+    fontWeight?: Sprinkles["fontWeight"];
     color?: Extract<Sprinkles["color"], "foreground" | "foregroundNeutral">;
   }
 >;
@@ -17,12 +18,13 @@ type TextProps<C extends React.ElementType> = PolymorphicComponentProps<
 const Text = <C extends React.ElementType = "p">({
   as,
   fontSize = "md",
+  fontWeight = "normal",
   color = "foreground",
   ...restProps
 }: TextProps<C>) => {
   const component = as || "p";
   return React.createElement(component, {
-    className: cn(styles.root, sprinkles({ fontSize, color })),
+    className: cn(styles.root, sprinkles({ fontSize, fontWeight, color })),
     ...restProps,
   });
 };

@@ -38,6 +38,7 @@ export const Box = ({
   rowGap,
   maxWidth,
   textAlign,
+  color,
   ...restProps
 }: BoxProps) => {
   const atomClasses = cn(
@@ -65,6 +66,7 @@ export const Box = ({
       rowGap,
       maxWidth,
       textAlign,
+      color,
     }),
     className
   );
