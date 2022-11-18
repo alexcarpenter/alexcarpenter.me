@@ -1,11 +1,13 @@
 import slugify from "@sindresorhus/slugify";
 import Image from "next/image";
+import { Carousel } from "components/Carousel";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";
 import { Text } from "components/Text";
 import { YoutubeEmbed } from "components/YoutubeEmbed";
 
 export const Components = {
+  Carousel,
   Image,
   YoutubeEmbed,
   a: (props: any) => <Link {...props} variant="highlight" />,
