@@ -19,13 +19,11 @@ export const item = style({
 
 export const pagination = style({
   position: "absolute",
-  top: "50%",
-  left: 0,
-  width: "100%",
+  inset: 0,
   display: "flex",
   justifyContent: "space-between",
-  paddingLeft: tokens.spacing.md,
-  paddingRight: tokens.spacing.md,
+  padding: tokens.spacing.md,
+  pointerEvents: "none",
 });
 
 export const button = style({
@@ -35,6 +33,9 @@ export const button = style({
   height: tokens.spacing.xxxl,
   borderRadius: tokens.radius.full,
   backgroundColor: themeVars.color.surface,
+  flexShrink: 0,
+  pointerEvents: "auto",
+  alignSelf: "center",
   ":focus": {
     outline: "transparent",
   },
@@ -48,4 +49,31 @@ export const button = style({
 
 export const next = style({
   marginLeft: "auto",
+});
+
+export const list = style({
+  position: "absolute",
+  bottom: tokens.spacing.md,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
+  gap: tokens.spacing.sm,
+});
+
+export const dot = style({
+  width: tokens.spacing.sm,
+  height: tokens.spacing.sm,
+  backgroundColor: themeVars.color.surface,
+  borderRadius: tokens.radius.full,
+  pointerEvents: "auto",
+  ":focus": {
+    outline: "transparent",
+  },
+  ":focus-visible": {
+    outlineWidth: "2px",
+    outlineStyle: "solid",
+    outlineOffset: "2px",
+    outlineColor: themeVars.color.outline,
+  },
 });

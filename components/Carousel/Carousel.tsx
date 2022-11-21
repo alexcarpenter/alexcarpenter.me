@@ -55,19 +55,34 @@ const Carousel = ({ children }: CarouselProps) => {
               </motion.button>
             )}
           </AnimatePresence>
+
+          <ol className={styles.list}>
+            {React.Children.map(children, (child, index) => {
+              return (
+                <li key={index}>
+                  <motion.button
+                    variants={{
+                      inactive: {
+                        opacity: 0.7,
+                      },
+                      active: {
+                        opacity: 1,
+                      },
+                    }}
+                    initial={"inactive"}
+                    animate={activeIndex === index ? "active" : "inactive"}
+                    whileHover={{ opacity: 1 }}
+                    className={styles.dot}
+                    onClick={() => setActiveIndex(index)}
+                    aria-current={activeIndex === index ? "true" : "false"}
+                  >
+                    <VisuallyHidden>View item {index + 1}</VisuallyHidden>
+                  </motion.button>
+                </li>
+              );
+            })}
+          </ol>
         </nav>
-        {/* <nav>
-          {React.Children.map(children, (child, index) => {
-            return (
-              <button
-                className={styles.item}
-                onClick={() => setActiveIndex(index)}
-              >
-                Set {index}
-              </button>
-            );
-          })}
-        </nav> */}
       </div>
     </MotionConfig>
   );
