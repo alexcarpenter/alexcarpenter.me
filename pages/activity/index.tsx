@@ -59,7 +59,7 @@ const ActivityPage: NextPage<{ activities: Activity[] }> = ({ activities }) => {
             </svg>
           </Box>
         </Box>
-        <Spacer height="md" />
+        <Spacer height="sm" />
         <Text
           fontSize={{ xs: "lg", sm: "xl" }}
           color="foregroundNeutral"
