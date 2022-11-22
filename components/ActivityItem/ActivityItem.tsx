@@ -14,7 +14,7 @@ const ActivityItem = ({ date, slug, body }: Activity) => {
         <MDXContent components={Components} />
       </div>
       <Link href={`/activity/${slug}`}>
-        <a>
+        <a className={styles.anchor}>
           <Text
             as="time"
             dateTime={date}

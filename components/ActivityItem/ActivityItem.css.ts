@@ -13,3 +13,18 @@ export const content = style({
 globalStyle(`${content} > * + *`, {
   marginTop: tokens.spacing.lg,
 });
+
+export const anchor = style({
+  ":hover": {
+    textDecoration: "underline",
+  },
+  ":focus": {
+    outline: "transparent",
+  },
+  ":focus-visible": {
+    outlineWidth: "2px",
+    outlineStyle: "solid",
+    outlineOffset: "2px",
+    outlineColor: themeVars.color.outline,
+  },
+});
