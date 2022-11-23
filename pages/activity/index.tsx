@@ -2,6 +2,7 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Activity } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
+import { generateActivityRss } from "lib/generateActivityRss";
 import { ActivityItem } from "components/ActivityItem";
 import { Box } from "components/Box";
 import { Heading } from "components/Heading";
@@ -14,6 +15,7 @@ export async function getStaticProps() {
   const activities = allActivities.sort((a, b) => {
     return Number(new Date(b.date)) - Number(new Date(a.date));
   });
+  generateActivityRss();
   return {
     props: {
       activities,
