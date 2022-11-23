@@ -17,6 +17,7 @@ globalStyle(`${content} > * + *`, {
 export const anchor = style({
   ":hover": {
     textDecoration: "underline",
+    textDecorationColor: "currentcolor",
   },
   ":focus": {
     outline: "transparent",
