@@ -1,0 +1,60 @@
+---
+title: useCounter hook with Framer Motion
+description: How to use Framer Motion animate hook to create a count up/down effect when in view.
+date: 2022-11-23
+---
+
+## useCounter Hook
+
+```tsx
+import * as React from "react";
+import { animate, useInView } from "framer-motion";
+
+function useCounter({ from = 0, to, duration }) {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+  });
+  const [value, setValue] = React.useState(from);
+
+  React.useEffect(() => {
+    if (!isInView) {
+      return;
+    }
+    const controls = animate(from, to, {
+      duration,
+      onUpdate(value) {
+        setValue(value);
+      },
+    });
+
+    return () => controls.stop();
+  }, [isInView, from, to, duration]);
+
+  return {
+    ref,
+    count: Intl.NumberFormat().format(value.toFixed(0)),
+  };
+}
+```
+
+## Usage
+
+```tsx
+import useCounter from "hooks/useCounter";
+
+export default function App() {
+  const { ref, count } = useCounter({
+    from: 0,
+    to: 1000,
+    duration: 2,
+  });
+  return (
+    <div className="App">
+      <p ref={ref}>{count}</p>
+    </div>
+  );
+}
+```
+
+View [demo](https://codesandbox.io/s/usecounter-hook-2wbwki?file=/src/App.js).
