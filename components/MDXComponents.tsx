@@ -1,5 +1,5 @@
 import slugify from "@sindresorhus/slugify";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Carousel } from "components/Carousel";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";

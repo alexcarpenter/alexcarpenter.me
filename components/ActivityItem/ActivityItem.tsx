@@ -13,17 +13,10 @@ const ActivityItem = ({ date, slug, body }: Activity) => {
       <div className={styles.content}>
         <MDXContent components={Components} />
       </div>
-      <Link href={`/activity/${slug}`}>
-        <a className={styles.anchor}>
-          <Text
-            as="time"
-            dateTime={date}
-            color="foregroundNeutral"
-            fontSize="sm"
-          >
-            {formatDateTime(date)}
-          </Text>
-        </a>
+      <Link href={`/activity/${slug}`} className={styles.anchor}>
+        <Text as="time" dateTime={date} color="foregroundNeutral" fontSize="sm">
+          {formatDateTime(date)}
+        </Text>
       </Link>
     </article>
   );

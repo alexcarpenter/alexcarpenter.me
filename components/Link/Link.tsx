@@ -9,13 +9,11 @@ export type LinkProps = NextLinkProps & {
 };
 
 export const Link = (props: LinkProps) => {
-  const { href, children, variant = "neutral", ...rest } = props;
+  const { children, variant = "neutral", ...rest } = props;
   return (
     <>
-      <NextLink href={href}>
-        <a {...rest} className={cn(styles.variants[variant])}>
-          {children}
-        </a>
+      <NextLink className={cn(styles.variants[variant])} {...rest}>
+        {children}
       </NextLink>
     </>
   );
