@@ -55,6 +55,17 @@ export const disc = style({
   display: "grid",
   placeItems: "center",
   borderRadius: tokens.radius.full,
+  selectors: {
+    [`${button}:focus &`]: {
+      outline: "transparent",
+    },
+    [`${button}:focus-visible &`]: {
+      outlineWidth: "2px",
+      outlineStyle: "solid",
+      outlineOffset: "2px",
+      outlineColor: themeVars.color.outline,
+    },
+  },
 });
 
 export const list = style({
