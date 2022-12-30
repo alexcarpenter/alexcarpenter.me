@@ -6,7 +6,7 @@ import { Text } from "components/Text";
 import { Components } from "components/MDXComponents";
 import * as styles from "./ActivityItem.css";
 
-const ActivityItem = ({ date, slug, body }: Activity) => {
+const ActivityItem = ({ date, formattedDate, slug, body }: Activity) => {
   const MDXContent = useMDXComponent(body.code);
   return (
     <article>
@@ -15,7 +15,7 @@ const ActivityItem = ({ date, slug, body }: Activity) => {
       </div>
       <Link href={`/activity/${slug}`} className={styles.anchor}>
         <Text as="time" dateTime={date} color="foregroundNeutral" fontSize="sm">
-          {formatDateTime(date)}
+          {formattedDate}
         </Text>
       </Link>
     </article>

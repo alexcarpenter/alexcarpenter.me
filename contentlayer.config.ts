@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import { formatDate, formatDateTime } from "./lib/utils";
 
 const Event = defineNestedType(() => ({
   name: "Event",
@@ -53,6 +54,10 @@ export const Post = defineDocumentType(() => ({
     slug: {
       type: "string",
       resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
+    },
+    formattedDate: {
+      type: "string",
+      resolve: (post) => formatDate(post.date),
     },
   },
 }));
@@ -165,6 +170,10 @@ export const Activity = defineDocumentType(() => ({
     slug: {
       type: "string",
       resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
+    },
+    formattedDate: {
+      type: "string",
+      resolve: (post) => formatDateTime(post.date),
     },
   },
 }));

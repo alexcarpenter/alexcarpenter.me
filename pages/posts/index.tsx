@@ -92,8 +92,13 @@ const Posts: NextPage<{
                           gap="sm"
                           maxWidth="text"
                         >
-                          <Text color="foregroundNeutral" fontSize="sm">
-                            {formatDate(post.date)}
+                          <Text
+                            as="time"
+                            dateTime={post.date}
+                            color="foregroundNeutral"
+                            fontSize="sm"
+                          >
+                            {post.formattedDate}
                           </Text>
                           <Heading>
                             <Link href={`/posts/${post.slug}`}>

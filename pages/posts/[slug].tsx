@@ -57,7 +57,7 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
           </Heading>
           <Spacer height="sm" />
           <Text as="time" dateTime={post.date} color="foregroundNeutral">
-            {formatDate(post.date)}
+            {post.formattedDate}
           </Text>
         </Box>
 

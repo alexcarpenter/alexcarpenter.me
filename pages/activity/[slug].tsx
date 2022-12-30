@@ -4,7 +4,6 @@ import type { Activity } from "contentlayer/generated";
 import { allActivities } from "contentlayer/generated";
 import { Box } from "components/Box";
 import { ActivityItem } from "components/ActivityItem";
-import { formatDateTime } from "lib/utils";
 
 export async function getStaticPaths() {
   return {
@@ -34,9 +33,9 @@ const ActivityItemPage: NextPage<{ item: Activity }> = ({ item }) => {
   return (
     <>
       <NextSeo
-        title={`Update: ${formatDateTime(item.date)}`}
+        title={`Update: ${item.formattedDate}`}
         openGraph={{
-          title: `Update: ${formatDateTime(item.date)}`,
+          title: `Update: ${item.formattedDate}`,
           url: `https://alexcarpenter.me/activity/${item.slug}`,
         }}
       />
