@@ -1,13 +1,16 @@
 import * as React from "react";
 import { motion, MotionConfig, AnimatePresence } from "framer-motion";
+import type { ImageProps } from "next/legacy/image";
+import Image from "next/legacy/image";
 import { cn } from "lib/utils";
 import { ArrowRight, ArrowLeft } from "react-feather";
 import { useRovingIndex } from "use-roving-index";
 import { VisuallyHidden } from "components/VisuallyHidden";
-import * as styles from "./Carousel.css";
+import * as styles from "./ImageCarousel.css";
 
 interface CarouselProps {
-  children: React.ReactNode;
+  aspectRatio?: "16/9" | "4/3";
+  items: ImageProps[];
 }
 
 const swipeConfidenceThreshold = 10000;
@@ -15,7 +18,7 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
 
-const Carousel = ({ children }: CarouselProps) => {
+const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
   const {
     activeIndex,
     setActiveIndex,
@@ -23,7 +26,7 @@ const Carousel = ({ children }: CarouselProps) => {
     moveBackwardDisabled,
     moveForward,
     moveForwardDisabled,
-  } = useRovingIndex({ maxIndex: React.Children.count(children) - 1 });
+  } = useRovingIndex({ maxIndex: items.length - 1 });
   return (
     <MotionConfig transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}>
       <div className={styles.root}>
@@ -45,8 +48,25 @@ const Carousel = ({ children }: CarouselProps) => {
             }
           }}
         >
-          {React.Children.map(children, (child) => {
-            return <div className={styles.item}>{child}</div>;
+          {items.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className={styles.item}
+                style={
+                  {
+                    "--aspect-ratio": aspectRatio,
+                  } as React.CSSProperties
+                }
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            );
           })}
         </motion.div>
         <nav className={styles.pagination}>
@@ -83,7 +103,7 @@ const Carousel = ({ children }: CarouselProps) => {
           </AnimatePresence>
 
           <ol className={styles.list}>
-            {React.Children.map(children, (child, index) => {
+            {items.map((_, index) => {
               return (
                 <li key={index}>
                   <motion.button
@@ -114,4 +134,4 @@ const Carousel = ({ children }: CarouselProps) => {
   );
 };
 
-export { Carousel };
+export { ImageCarousel };
