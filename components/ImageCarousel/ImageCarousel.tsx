@@ -69,6 +69,7 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: "none" }}
                 whileHover={{ opacity: 1 }}
+                whileFocus={{ opacity: 1 }}
                 onClick={() => moveBackward()}
                 className={cn(styles.button, styles.prev)}
               >
@@ -87,6 +88,7 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: "none" }}
                 whileHover={{ opacity: 1 }}
+                whileFocus={{ opacity: 1 }}
                 onClick={() => moveForward()}
                 className={cn(styles.button, styles.next)}
               >
@@ -114,6 +116,7 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
                     initial={"inactive"}
                     animate={activeIndex === index ? "active" : "inactive"}
                     whileHover={{ opacity: 1 }}
+                    whileFocus={{ opacity: 1 }}
                     className={styles.dot}
                     onClick={() => setActiveIndex(index)}
                     aria-current={activeIndex === index ? "true" : "false"}
