@@ -18,7 +18,7 @@ const swipePower = (offset: number, velocity: number) => {
 const Carousel = ({ children }: CarouselProps) => {
   const {
     activeIndex,
-    moveActiveIndex,
+    setActiveIndex,
     moveBackward,
     moveBackwardDisabled,
     moveForward,
@@ -99,7 +99,7 @@ const Carousel = ({ children }: CarouselProps) => {
                     animate={activeIndex === index ? "active" : "inactive"}
                     whileHover={{ opacity: 1 }}
                     className={styles.dot}
-                    onClick={() => moveActiveIndex(index)}
+                    onClick={() => setActiveIndex(index)}
                     aria-current={activeIndex === index ? "true" : "false"}
                   >
                     <VisuallyHidden>View item {index + 1}</VisuallyHidden>
