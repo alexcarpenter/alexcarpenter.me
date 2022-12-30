@@ -19,6 +19,7 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
+  const [antecedent, consequent] = aspectRatio.split("/");
   const {
     activeIndex,
     setActiveIndex,
@@ -50,20 +51,12 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
         >
           {items.map((item, index) => {
             return (
-              <div
-                key={index}
-                className={styles.item}
-                style={
-                  {
-                    "--aspect-ratio": aspectRatio,
-                  } as React.CSSProperties
-                }
-              >
+              <div key={index} className={styles.item}>
                 <Image
                   src={item.src}
                   alt={item.alt}
-                  layout="fill"
-                  objectFit="cover"
+                  width={800}
+                  height={(Number(consequent) / Number(antecedent)) * 800}
                 />
               </div>
             );

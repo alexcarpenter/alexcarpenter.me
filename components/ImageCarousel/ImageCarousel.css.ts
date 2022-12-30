@@ -16,7 +16,6 @@ export const item = style({
   position: "relative",
   display: "grid",
   minWidth: "100%",
-  aspectRatio: "var(--aspect-ratio)",
 });
 
 export const pagination = style({
