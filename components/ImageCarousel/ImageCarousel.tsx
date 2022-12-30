@@ -57,6 +57,7 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
                   alt={item.alt}
                   width={800}
                   height={(Number(consequent) / Number(antecedent)) * 800}
+                  objectFit="cover"
                 />
               </div>
             );
