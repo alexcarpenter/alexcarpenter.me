@@ -1,3 +1,4 @@
+import { red } from "@radix-ui/colors";
 import { style } from "@vanilla-extract/css";
 import { themeVars } from "styles/theme.css";
 import { tokens } from "styles/tokens.css";
@@ -28,28 +29,32 @@ export const pagination = style({
 });
 
 export const button = style({
+  position: "absolute",
+  top: 0,
+  height: "100%",
   display: "grid",
   placeItems: "center",
-  width: tokens.spacing.xxxl,
-  height: tokens.spacing.xxxl,
-  borderRadius: tokens.radius.full,
-  backgroundColor: themeVars.color.surface,
   flexShrink: 0,
   pointerEvents: "auto",
-  alignSelf: "center",
-  ":focus": {
-    outline: "transparent",
-  },
-  ":focus-visible": {
-    outlineWidth: "2px",
-    outlineStyle: "solid",
-    outlineOffset: "2px",
-    outlineColor: themeVars.color.outline,
-  },
+});
+
+export const prev = style({
+  left: 0,
+  paddingLeft: tokens.spacing.md,
 });
 
 export const next = style({
-  marginLeft: "auto",
+  right: 0,
+  paddingRight: tokens.spacing.md,
+});
+
+export const disc = style({
+  width: tokens.spacing.xxxl,
+  height: tokens.spacing.xxxl,
+  background: themeVars.color.surface,
+  display: "grid",
+  placeItems: "center",
+  borderRadius: tokens.radius.full,
 });
 
 export const list = style({

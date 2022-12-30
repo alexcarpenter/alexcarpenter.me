@@ -13,10 +13,10 @@ interface CarouselProps {
   items: ImageProps[];
 }
 
-const swipeConfidenceThreshold = 10000;
-const swipePower = (offset: number, velocity: number) => {
-  return Math.abs(offset) * velocity;
-};
+// const swipeConfidenceThreshold = 10000;
+// const swipePower = (offset: number, velocity: number) => {
+//   return Math.abs(offset) * velocity;
+// };
 
 const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
   const [antecedent, consequent] = aspectRatio.split("/");
@@ -30,24 +30,22 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
   } = useRovingIndex({ maxIndex: items.length - 1 });
   return (
     <MotionConfig transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}>
-      <div className={styles.root}>
+      <motion.div className={styles.root}>
         <motion.div
           className={styles.carousel}
           animate={{ x: `-${activeIndex * 100}%` }}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={1}
-          dragSnapToOrigin={true}
-          onDragEnd={(e, { offset, velocity }) => {
-            const swipe = swipePower(offset.x, velocity.x);
-            if (swipe < -swipeConfidenceThreshold) {
-              if (moveForwardDisabled) return;
-              moveForward();
-            } else if (swipe > swipeConfidenceThreshold) {
-              if (moveBackwardDisabled) return;
-              moveBackward();
-            }
-          }}
+          // drag="x"
+          // dragConstraints={{ left: 0, right: 0 }}
+          // dragElastic={0.25}
+          // dragSnapToOrigin={true}
+          // onDragEnd={(e, { offset, velocity }) => {
+          //   const swipe = swipePower(offset.x, velocity.x);
+          //   if (swipe < -swipeConfidenceThreshold) {
+          //     moveForward();
+          //   } else if (swipe > swipeConfidenceThreshold) {
+          //     moveBackward();
+          //   }
+          // }}
         >
           {items.map((item, index) => {
             return (
@@ -72,10 +70,12 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
                 exit={{ opacity: 0, pointerEvents: "none" }}
                 whileHover={{ opacity: 1 }}
                 onClick={() => moveBackward()}
-                className={styles.button}
+                className={cn(styles.button, styles.prev)}
               >
                 <VisuallyHidden>Previous</VisuallyHidden>
-                <ArrowLeft width="16" height="16" />
+                <span className={styles.disc}>
+                  <ArrowLeft width="16" height="16" />
+                </span>
               </motion.button>
             )}
           </AnimatePresence>
@@ -91,7 +91,9 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
                 className={cn(styles.button, styles.next)}
               >
                 <VisuallyHidden>Next</VisuallyHidden>
-                <ArrowRight width="16" height="16" />
+                <span className={styles.disc}>
+                  <ArrowRight width="16" height="16" />
+                </span>
               </motion.button>
             )}
           </AnimatePresence>
@@ -123,7 +125,7 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
             })}
           </ol>
         </nav>
-      </div>
+      </motion.div>
     </MotionConfig>
   );
 };
