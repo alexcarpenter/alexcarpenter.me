@@ -10,27 +10,8 @@ import rehypePrettyCode, { Options } from "rehype-pretty-code";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import { formatDate, formatDateTime } from "./lib/utils";
 
-const Event = defineNestedType(() => ({
-  name: "Event",
-  fields: {
-    title: {
-      type: "string",
-      required: true,
-    },
-    description: {
-      type: "string",
-      required: false,
-    },
-    date: {
-      type: "date",
-      required: true,
-    },
-    link: {
-      type: "string",
-      required: false,
-    },
-  },
-}));
+////////////////////////////////////////////////////////////////////////////////
+// Posts
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -58,6 +39,31 @@ export const Post = defineDocumentType(() => ({
     formattedDate: {
       type: "string",
       resolve: (post) => formatDate(post.date),
+    },
+  },
+}));
+
+////////////////////////////////////////////////////////////////////////////////
+// Jobs
+
+const Event = defineNestedType(() => ({
+  name: "Event",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: false,
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+    link: {
+      type: "string",
+      required: false,
     },
   },
 }));
@@ -116,6 +122,9 @@ export const Job = defineDocumentType(() => ({
   },
 }));
 
+////////////////////////////////////////////////////////////////////////////////
+// Recommendations
+
 export const Recommendation = defineDocumentType(() => ({
   name: "Recommendation",
   filePathPattern: `recommendations/*.mdx`,
@@ -156,6 +165,9 @@ export const Recommendation = defineDocumentType(() => ({
   },
 }));
 
+////////////////////////////////////////////////////////////////////////////////
+// Activities
+
 export const Activity = defineDocumentType(() => ({
   name: "Activity",
   filePathPattern: `activity/*.mdx`,
@@ -177,6 +189,45 @@ export const Activity = defineDocumentType(() => ({
     },
   },
 }));
+
+const IceBath = defineNestedType(() => ({
+  name: "IceBath",
+  fields: {
+    date: {
+      type: "date",
+      required: true,
+    },
+    duration: {
+      type: "number",
+      description: "Duration in seconds",
+      required: true,
+    },
+    temp: {
+      type: "number",
+      required: true,
+    },
+  },
+}));
+
+////////////////////////////////////////////////////////////////////////////////
+// Ice Baths
+
+const IceBaths = defineDocumentType(() => ({
+  name: "IceBaths",
+  filePathPattern: `data/ice-baths.yaml`,
+  isSingleton: true,
+  fields: {
+    data: {
+      type: "list",
+      of: IceBath,
+      required: true,
+    },
+  },
+  extensions: {},
+}));
+
+////////////////////////////////////////////////////////////////////////////////
+// Rehype Pretty Code
 
 const rehypePrettyCodeOptions: Partial<Options> = {
   theme: {
@@ -207,7 +258,7 @@ const rehypePrettyCodeOptions: Partial<Options> = {
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Activity, Job, Post, Recommendation],
+  documentTypes: [Activity, Job, Post, Recommendation, IceBaths],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

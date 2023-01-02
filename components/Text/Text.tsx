@@ -11,7 +11,10 @@ type TextProps<C extends React.ElementType> = PolymorphicComponentProps<
     as?: "p" | "span" | "strong" | "em" | "time";
     fontSize?: Sprinkles["fontSize"];
     fontWeight?: Sprinkles["fontWeight"];
-    color?: Extract<Sprinkles["color"], "foreground" | "foregroundNeutral">;
+    color?: Extract<
+      Sprinkles["color"],
+      "foreground" | "foregroundNeutral" | "foregroundAction"
+    >;
   }
 >;
 

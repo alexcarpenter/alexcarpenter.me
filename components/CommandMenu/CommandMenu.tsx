@@ -15,6 +15,7 @@ import {
   Edit,
   Copy,
   Activity,
+  Repeat,
 } from "react-feather";
 import { toast } from "components/Toast";
 import { motion } from "framer-motion";
@@ -141,6 +142,17 @@ const CommandMenu = ({
             >
               <Activity />
               <span>Activity</span>
+            </CommandItem>
+
+            <CommandItem
+              onSelect={() => {
+                router.push("/habits");
+                setOpen(false);
+              }}
+              value="habits"
+            >
+              <Repeat />
+              <span>Habits</span>
             </CommandItem>
           </Command.Group>
 

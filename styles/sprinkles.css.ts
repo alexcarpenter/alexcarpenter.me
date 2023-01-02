@@ -13,6 +13,13 @@ export type FontWeight = keyof typeof fontWeight;
 const maxWidth = tokens.contentWidth;
 export type MaxWidth = keyof typeof maxWidth;
 
+const columns = {
+  "1/1": `repeat(1, 1fr)`,
+  "1/2": `repeat(2, 1fr)`,
+  "1/3": `repeat(3, 1fr)`,
+  "1/4": `repeat(4, 1fr)`,
+} as const;
+
 const responsiveProperties = defineProperties({
   conditions: {
     xs: {},
@@ -45,6 +52,7 @@ const responsiveProperties = defineProperties({
     gap: space,
     rowGap: space,
     columnGap: space,
+    gridTemplateColumns: columns,
     aspectRatio: ["1/1", "4/3"],
     maxWidth: maxWidth,
     width: space,
@@ -59,6 +67,7 @@ const responsiveProperties = defineProperties({
     placeItems: ["justifyContent", "alignItems"],
     marginX: ["marginLeft", "marginRight"],
     marginY: ["marginTop", "marginBottom"],
+    columns: ["gridTemplateColumns"],
   },
 });
 
