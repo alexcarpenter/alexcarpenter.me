@@ -37,3 +37,8 @@ globalStyle("ul:not([class])", {
   paddingInlineStart: tokens.spacing.md,
   gap: tokens.spacing.sm,
 });
+
+globalStyle("ul:not([class]) ul:not([class])", {
+  marginTop: tokens.spacing.sm,
+  listStyleType: "circle",
+});
