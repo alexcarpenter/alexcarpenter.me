@@ -16,7 +16,7 @@ export async function getStaticProps() {
   return {
     props: {
       iceBaths: {
-        totalDuration: iceBathTotalSeconds / 3600,
+        totalDuration: (iceBathTotalSeconds / 3600).toFixed(2),
         totalCount: iceBath.data.length,
         averageTemp:
           iceBath.data.reduce((acc, val) => acc + val.temp, 0) /
