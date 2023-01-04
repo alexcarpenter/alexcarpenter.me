@@ -2,6 +2,7 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Job } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
+import Balancer from "react-wrap-balancer";
 import { formatTags, formatDate } from "lib/utils";
 import { Box } from "components/Box";
 import { Heading } from "components/Heading";
@@ -34,12 +35,11 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
             <Spacer height="xl" />
             <Text
               fontSize={{ xs: "lg", sm: "xl" }}
-              // color="foregroundNeutral"
               style={{
                 display: "inline-flex",
               }}
             >
-              {job.description}
+              <Balancer ratio={0.5}>{job.description}</Balancer>
             </Text>
           </>
         ) : null}

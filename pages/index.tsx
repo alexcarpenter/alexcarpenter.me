@@ -4,6 +4,7 @@ import type { Job, Recommendation } from "contentlayer/generated";
 import { partition, formatTags } from "lib/utils";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
+import Balancer from "react-wrap-balancer";
 import { Box } from "components/Box";
 import { Card } from "components/Card";
 import { Heading } from "components/Heading";
@@ -42,10 +43,12 @@ const Home: NextPage<{
             display: "inline-flex",
           }}
         >
-          A detail oriented user interface engineer interested in CSS
-          architecture, React, TypeScript, and design systems. Currently working
-          at HashiCorp, helping build and maintain public-facing HashiCorp
-          websites and web applications with&nbsp;Next.js.
+          <Balancer ratio={0.25}>
+            A detail oriented user interface engineer interested in CSS
+            architecture, React, TypeScript, and design systems. Currently
+            working at HashiCorp, helping build and maintain public-facing
+            HashiCorp websites and web applications with Next.js.
+          </Balancer>
         </Text>
       </Box>
 
