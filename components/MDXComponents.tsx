@@ -9,7 +9,7 @@ import { YoutubeEmbed } from "components/YoutubeEmbed";
 
 export const Components = {
   ImageCarousel,
-  Image: (props: ImageProps & { rounded: boolean }) => {
+  Image: (props: ImageProps & { rounded?: boolean }) => {
     const { rounded = true } = props;
     return (
       <Image
