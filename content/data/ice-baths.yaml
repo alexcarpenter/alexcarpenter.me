@@ -1,4 +1,10 @@
 data:
+  - date: 2023-01-09
+    duration: 180
+    temp: 39
+  - date: 2023-01-08
+    duration: 180
+    temp: 43
   - date: 2023-01-04
     duration: 360
     temp: 43
