@@ -3,34 +3,36 @@ import { style } from "@vanilla-extract/css";
 export const root = style({
   position: "absolute",
   top: 0,
-  left: "50%",
-  width: 1200,
+  display: "flex",
+  left: 0,
+  right: 0,
+  maxWidth: 1200,
+  transform: "translate3d(0, -50%, 0)",
+});
+
+export const blob = style({
+  width: 600,
   height: 150,
-  transform: "translate3d(-50%, 0, 0)",
-  "::before": {
-    content: "",
-    position: "absolute",
-    top: 0,
-    left: "50%",
-    transform: "translate3d(calc(-50% - 150px), -50%, 0)",
-    width: 600,
-    height: 150,
-    background: "linear-gradient(to right, #63d0ff, #844fba)",
-    filter: "blur(80px)",
-    opacity: 0.6,
-    zIndex: 0,
+  filter: "blur(80px)",
+  zIndex: 0,
+});
+
+export const left = style({
+  background: "linear-gradient(to right, #63d0ff, #844fba)",
+  opacity: 0.6,
+  "@media": {
+    "screen and (min-width: 768px)": {
+      transform: "translate3d(150px, 0, 0)",
+    },
   },
-  "::after": {
-    content: "",
-    position: "absolute",
-    top: 0,
-    left: "50%",
-    transform: "translate3d(calc(-50% + 150px), -50%, 0)",
-    width: 600,
-    height: 100,
-    background: "linear-gradient(to right, #ffb2b8, #c74fb8)",
-    filter: "blur(80px)",
-    opacity: 0.3,
-    zIndex: 0,
+});
+
+export const right = style({
+  background: "linear-gradient(to right, #ffb2b8, #c74fb8)",
+  opacity: 0.3,
+  "@media": {
+    "screen and (min-width: 768px)": {
+      transform: "translate3d(-150px, 0, 0)",
+    },
   },
 });

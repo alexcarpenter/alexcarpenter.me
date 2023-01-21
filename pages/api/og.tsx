@@ -35,30 +35,6 @@ export default async function handler(req: NextRequest) {
             padding: 64,
           }}
         >
-          <div
-            style={{
-              width: "75%",
-              height: "50%",
-              position: "absolute",
-              top: "-10%",
-              left: "-10%",
-              backgroundImage: "linear-gradient(to right, #63d0ff, #844fba)",
-              filter: "blur(140px)",
-              opacity: 0.75,
-            }}
-          />
-          <div
-            style={{
-              width: "75%",
-              height: "100%",
-              position: "absolute",
-              top: "-10%",
-              right: "-10%",
-              backgroundImage: "linear-gradient(to right, #ffb2b8, #c74fb8)",
-              filter: "blur(140px)",
-              opacity: 0.15,
-            }}
-          />
           <img
             src={new URL(
               "../../public/img/me.jpeg",
@@ -69,7 +45,6 @@ export default async function handler(req: NextRequest) {
             alt=""
             style={{
               borderRadius: 8,
-              border: "1px solid rgba(255, 255, 255, .25)",
             }}
           />
           <div
@@ -77,6 +52,7 @@ export default async function handler(req: NextRequest) {
               display: "flex",
               flexDirection: "column",
               fontFamily: "Inter",
+              textAlign: "center",
             }}
           >
             <div
