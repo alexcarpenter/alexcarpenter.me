@@ -1,0 +1,36 @@
+import { style } from "@vanilla-extract/css";
+
+export const root = style({
+  position: "absolute",
+  top: 0,
+  left: "50%",
+  width: 1200,
+  height: 150,
+  transform: "translate3d(-50%, 0, 0)",
+  "::before": {
+    content: "",
+    position: "absolute",
+    top: 0,
+    left: "50%",
+    transform: "translate3d(calc(-50% - 150px), -50%, 0)",
+    width: 600,
+    height: 150,
+    background: "linear-gradient(to right, #63d0ff, #844fba)",
+    filter: "blur(80px)",
+    opacity: 0.6,
+    zIndex: 0,
+  },
+  "::after": {
+    content: "",
+    position: "absolute",
+    top: 0,
+    left: "50%",
+    transform: "translate3d(calc(-50% + 150px), -50%, 0)",
+    width: 600,
+    height: 100,
+    background: "linear-gradient(to right, #ffb2b8, #c74fb8)",
+    filter: "blur(80px)",
+    opacity: 0.3,
+    zIndex: 0,
+  },
+});
