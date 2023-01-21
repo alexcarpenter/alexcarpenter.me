@@ -40,8 +40,8 @@ export default async function handler(req: NextRequest) {
               "../../public/img/me.jpeg",
               import.meta.url
             ).toString()}
-            width={80}
-            height={80}
+            width={96}
+            height={96}
             alt=""
             style={{
               borderRadius: 8,
@@ -56,7 +56,7 @@ export default async function handler(req: NextRequest) {
           >
             <div
               style={{
-                fontSize: 64,
+                fontSize: title ? 56 : 64,
                 fontStyle: "normal",
                 color: "#171717",
                 whiteSpace: "pre-wrap",
