@@ -160,8 +160,8 @@ const Home: NextPage<{
                         <blockquote>
                           <Text>{rec.text}</Text>
                         </blockquote>
-                        <Spacer height="md" />
-                        <Box as="figcaption" display="flex" gap="sm">
+                        <Spacer height="lg" />
+                        <Box as="figcaption" display="flex" gap="md">
                           {rec.avatar ? (
                             <Box
                               display="flex"

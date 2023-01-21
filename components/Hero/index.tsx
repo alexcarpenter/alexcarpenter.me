@@ -1,1 +1,0 @@
-export { HashiCorpHero } from "./HashiCorpHero";

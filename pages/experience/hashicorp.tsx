@@ -11,7 +11,6 @@ import { List } from "components/List";
 import { Prose } from "components/Prose";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
-import { HashiCorpHero } from "components/Hero";
 import { allJobs } from "contentlayer/generated";
 
 const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
@@ -25,8 +24,6 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
         maxWidth="container"
         marginX="auto"
       >
-        <HashiCorpHero />
-        <Spacer height="xl" />
         <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
           {job.company}
         </Heading>
