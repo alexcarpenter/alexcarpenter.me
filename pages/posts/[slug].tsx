@@ -49,6 +49,9 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
             },
           ],
         }}
+        twitter={{
+          cardType: "summary_large_image",
+        }}
       />
       <article>
         <Box
