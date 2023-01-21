@@ -2,7 +2,7 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
 import { partition, formatTags } from "lib/utils";
-import Image from "next/image";
+// import Image from "next/image";
 import { NextSeo } from "next-seo";
 import Balancer from "react-wrap-balancer";
 import { Box } from "components/Box";
@@ -82,7 +82,7 @@ const Home: NextPage<{
             return (
               <List.Item key={job._id}>
                 <Box display="flex" gap="md">
-                  {job.logo ? (
+                  {/* {job.logo ? (
                     <Box
                       display={{ xs: "none", sm: "flex" }}
                       alignItems="flex-start"
@@ -96,7 +96,7 @@ const Home: NextPage<{
                         style={{ borderRadius: 6 }}
                       />
                     </Box>
-                  ) : null}
+                  ) : null} */}
                   <Box flexGrow={1}>
                     <Box
                       display="flex"
@@ -166,7 +166,7 @@ const Home: NextPage<{
                         </blockquote>
                         <Spacer height="lg" />
                         <Box as="figcaption" display="flex" gap="md">
-                          {rec.avatar ? (
+                          {/* {rec.avatar ? (
                             <Box
                               display="flex"
                               alignItems="flex-start"
@@ -180,7 +180,7 @@ const Home: NextPage<{
                                 style={{ borderRadius: 6 }}
                               />
                             </Box>
-                          ) : null}
+                          ) : null} */}
                           <Box>
                             <Text>{rec.name}</Text>
                             <Text color="foregroundNeutral" fontSize="sm">
