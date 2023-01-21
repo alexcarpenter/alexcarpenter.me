@@ -29,7 +29,7 @@ export default async function handler(req: NextRequest) {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            backgroundColor: "#f1f3f5",
+            backgroundColor: "#fcfcfc",
             height: "100%",
             width: "100%",
             padding: 64,
