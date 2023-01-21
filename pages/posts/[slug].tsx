@@ -43,6 +43,11 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
           title: post.title,
           description: post.description,
           url: `https://alexcarpenter.me/posts/${post.slug}`,
+          images: [
+            {
+              url: `https://alexcarpenter.me/api/og?title=${post.title}`,
+            },
+          ],
         }}
       />
       <article>
