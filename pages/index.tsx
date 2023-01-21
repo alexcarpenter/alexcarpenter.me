@@ -83,7 +83,11 @@ const Home: NextPage<{
               <List.Item key={job._id}>
                 <Box display="flex" gap="md">
                   {job.logo ? (
-                    <Box display="flex" alignItems="flex-start" flexShrink={0}>
+                    <Box
+                      display={{ xs: "none", sm: "flex" }}
+                      alignItems="flex-start"
+                      flexShrink={0}
+                    >
                       <Image
                         src={job.logo}
                         width={32}
