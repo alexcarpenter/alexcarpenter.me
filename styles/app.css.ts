@@ -22,6 +22,8 @@ globalStyle("body", {
   textRendering: "optimizeLegibility",
   fontFamily: tokens.font.sans,
   backgroundColor: themeVars.color.page,
+  width: "100%",
+  maxWidth: "100%",
   overflowX: "hidden",
 });
 
