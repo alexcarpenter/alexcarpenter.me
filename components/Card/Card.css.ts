@@ -21,5 +21,6 @@ export const root = style({
     backgroundImage: `linear-gradient(to bottom right, rgba(255, 255, 255, .1), ${themeVars.color.borderFaint}, rgba(255, 255, 255, .1))`,
     mask: "linear-gradient(#000, #000) content-box, linear-gradient(#000, #000)",
     maskComposite: "exclude",
+    pointerEvents: "none",
   },
 });
