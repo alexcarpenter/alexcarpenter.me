@@ -211,22 +211,16 @@ const Home: NextPage<{
               <Link href="mailto:im.alexcarpenter@gmail.com">
                 im.alexcarpenter@gmail.com
               </Link>
-              &nbsp;
-              <span aria-hidden={true}>↗</span>
             </Text>
           </List.Item>
           <List.Item>
             <Text color="foregroundNeutral">
               <Link href="https://twitter.com/hybrid_alex">Twitter</Link>
-              &nbsp;
-              <span aria-hidden={true}>↗</span>
             </Text>
           </List.Item>
           <List.Item>
             <Text color="foregroundNeutral">
               <Link href="https://github.com/alexcarpenter">Github</Link>
-              &nbsp;
-              <span aria-hidden={true}>↗</span>
             </Text>
           </List.Item>
           <List.Item>
@@ -234,8 +228,6 @@ const Home: NextPage<{
               <Link href="https://www.linkedin.com/in/imalexcarpenter/">
                 LinkedIn
               </Link>
-              &nbsp;
-              <span aria-hidden={true}>↗</span>
             </Text>
           </List.Item>
         </List>

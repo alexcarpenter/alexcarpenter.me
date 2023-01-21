@@ -104,8 +104,6 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
                     {event.link ? (
                       <>
                         <Link href={event.link}>{event.title}</Link>
-                        &nbsp;
-                        <span aria-hidden={true}>↗</span>
                       </>
                     ) : (
                       event.title
