@@ -142,7 +142,7 @@ const Home: NextPage<{
           display="flex"
           flexDirection={{ xs: "column", sm: "row" }}
           alignItems={{ sm: "flex-start" }}
-          gap="md"
+          gap="xl"
         >
           {recommendations.map((col, colIdx) => {
             return (
@@ -151,7 +151,7 @@ const Home: NextPage<{
                 display="flex"
                 flexDirection="column"
                 flexGrow={1}
-                gap="md"
+                gap="xl"
               >
                 {col.map((rec, recIdx) => {
                   return (

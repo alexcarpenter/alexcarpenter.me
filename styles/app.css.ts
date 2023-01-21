@@ -25,6 +25,34 @@ globalStyle("body", {
   overflowX: "hidden",
 });
 
+globalStyle("body::before", {
+  content: "",
+  position: "absolute",
+  top: 0,
+  left: "50%",
+  transform: "translate3d(calc(-50% - 150px), -50%, 0)",
+  width: 600,
+  height: 150,
+  background: "linear-gradient(to right, #63d0ff, #844fba)",
+  filter: "blur(80px)",
+  opacity: 0.6,
+  zIndex: 0,
+});
+
+globalStyle("body::after", {
+  content: "",
+  position: "absolute",
+  top: 0,
+  left: "50%",
+  transform: "translate3d(calc(-50% + 150px), -50%, 0)",
+  width: 600,
+  height: 100,
+  background: "linear-gradient(to right, #ffb2b8, #c74fb8)",
+  filter: "blur(80px)",
+  opacity: 0.3,
+  zIndex: 0,
+});
+
 globalStyle(".container", {
   position: "relative",
   paddingInline: tokens.spacing.lg,
