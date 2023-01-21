@@ -6,7 +6,7 @@ export const root = style({
   position: "relative",
   display: "flex",
   flexDirection: "column",
-  backgroundImage: `linear-gradient(to bottom right, ${themeVars.color.surface}, ${themeVars.color.surfaceFaint})`,
+  backgroundImage: `linear-gradient(to bottom right, ${themeVars.color.surface}, ${themeVars.color.page})`,
   border: "1px solid",
   borderColor: themeVars.color.borderFaint,
   borderRadius: tokens.spacing.md,
