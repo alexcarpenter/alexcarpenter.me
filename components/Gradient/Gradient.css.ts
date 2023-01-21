@@ -8,6 +8,7 @@ export const root = style({
   right: 0,
   maxWidth: 1200,
   transform: "translate3d(0, -50%, 0)",
+  transformOrigin: "top center",
   "@media": {
     "screen and (max-width: 768px)": {
       display: "none",
@@ -17,7 +18,7 @@ export const root = style({
 
 export const blob = style({
   width: 600,
-  height: 150,
+  height: 200,
   filter: "blur(80px)",
   zIndex: 0,
 });
