@@ -5,7 +5,7 @@ import * as styles from "./Gradient.css";
 const Gradient = () => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 200], [1, 0]);
-  const scale = useTransform(scrollY, [0, 100], [1, 0.7]);
+  const scale = useTransform(scrollY, [0, 100], [1, 0.5]);
   return (
     <motion.div
       className={styles.root}

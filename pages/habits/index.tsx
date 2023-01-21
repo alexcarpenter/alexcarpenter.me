@@ -20,9 +20,10 @@ export async function getStaticProps() {
         // data: iceBath.data,
         totalDuration: (iceBathTotalSeconds / 3600).toFixed(2),
         totalCount: iceBath.data.length,
-        averageTemp:
+        averageTemp: Math.round(
           iceBath.data.reduce((acc, val) => acc + val.temp, 0) /
-          iceBath.data.length,
+            iceBath.data.length
+        ),
       },
     },
   };
