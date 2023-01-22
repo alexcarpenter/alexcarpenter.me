@@ -1,17 +1,16 @@
 import { style, globalStyle } from "@vanilla-extract/css";
-import { themeVars } from "styles/theme.css";
-import { tokens } from "styles/tokens.css";
+import { vars } from "styles/vars.css";
 
 export const root = style({
   position: "relative",
 });
 
 export const content = style({
-  marginBottom: tokens.spacing.md,
+  marginBottom: vars.spacing.md,
 });
 
 globalStyle(`${content} > * + *`, {
-  marginTop: tokens.spacing.lg,
+  marginTop: vars.spacing.lg,
 });
 
 export const anchor = style({
@@ -26,6 +25,6 @@ export const anchor = style({
     outlineWidth: "2px",
     outlineStyle: "solid",
     outlineOffset: "2px",
-    outlineColor: themeVars.color.outline,
+    outlineColor: vars.color.outline,
   },
 });

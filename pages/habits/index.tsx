@@ -8,7 +8,6 @@ import { Link } from "components/Link";
 import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
 import { iceBath } from "contentlayer/generated";
-import { Table } from "components/Table";
 
 export async function getStaticProps() {
   const iceBathTotalSeconds = iceBath.data.reduce((acc, val) => {
@@ -118,37 +117,6 @@ const HabitsPage: NextPage<{
             </Text>
           </Card>
         </Box>
-
-        {/* <Spacer height="xl" />
-
-        <Table
-          columns={[
-            {
-              heading: "Date",
-              accessor: "date",
-            },
-            {
-              heading: "Temp",
-              accessor: "temp",
-            },
-            {
-              heading: "Duration",
-              accessor: "duration",
-            },
-          ]}
-          data={[
-            {
-              date: "2023-01-03",
-              temp: 30,
-              duration: 3,
-            },
-            {
-              date: "2023-01-03",
-              temp: 30,
-              duration: 3,
-            },
-          ]}
-        /> */}
       </Box>
     </>
   );

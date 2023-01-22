@@ -1,17 +1,11 @@
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
-import { themeVars } from "./theme.css";
-import { tokens } from "./tokens.css";
+import { vars } from "./vars.css";
 
-const space = tokens.spacing;
-export type Space = keyof typeof space;
-const radius = tokens.radius;
-export type Radius = keyof typeof radius;
-const fontSize = tokens.fontSize;
-export type FontSize = keyof typeof fontSize;
-const fontWeight = tokens.fontWeight;
-export type FontWeight = keyof typeof fontWeight;
-const maxWidth = tokens.contentWidth;
-export type MaxWidth = keyof typeof maxWidth;
+const space = vars.spacing;
+const radius = vars.radius;
+const fontSize = vars.fontSize;
+const fontWeight = vars.fontWeight;
+const maxWidth = vars.contentWidth;
 
 const columns = {
   "1/1": `repeat(1, 1fr)`,
@@ -73,9 +67,9 @@ const responsiveProperties = defineProperties({
 
 const unresponsiveProperties = defineProperties({
   properties: {
-    color: themeVars.color,
+    color: vars.color,
     borderRadius: radius,
-    border: { true: `1px solid ${themeVars.color.border}` },
+    border: { true: `1px solid ${vars.color.border}` },
     flexShrink: [0],
     flexGrow: [0, 1],
     fontWeight,

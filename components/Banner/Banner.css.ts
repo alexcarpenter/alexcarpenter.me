@@ -1,20 +1,19 @@
 import { style } from "@vanilla-extract/css";
-import { themeVars } from "styles/theme.css";
-import { tokens } from "styles/tokens.css";
+import { vars } from "styles/vars.css";
 
 export const banner = style({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   marginInline: "auto",
-  marginBlockEnd: tokens.spacing.xxxl,
+  marginBlockEnd: vars.spacing.xxxl,
   textAlign: "center",
   "@media": {
     "screen and (min-width: 768px)": {
-      maxWidth: tokens.contentWidth.text,
+      maxWidth: vars.contentWidth.text,
       "::before": {
         content: "",
-        width: tokens.spacing.xxxl,
+        width: vars.spacing.xxxl,
       },
     },
   },
@@ -23,8 +22,8 @@ export const banner = style({
 export const avatar = style({
   position: "relative",
   display: "inline-flex",
-  borderRadius: tokens.radius.lg,
-  border: `1px solid ${themeVars.color.border}`,
+  borderRadius: vars.radius.lg,
+  border: `1px solid ${vars.color.border}`,
   overflow: "hidden",
   ":focus": {
     outline: "transparent",
@@ -33,7 +32,7 @@ export const avatar = style({
     outlineWidth: "2px",
     outlineStyle: "solid",
     outlineOffset: "2px",
-    outlineColor: themeVars.color.outline,
+    outlineColor: vars.color.outline,
   },
 });
 
@@ -59,11 +58,11 @@ export const logo = style({
 
 export const toggle = style({
   position: "relative",
-  width: tokens.spacing.xxxl,
-  height: tokens.spacing.xxxl,
+  width: vars.spacing.xxxl,
+  height: vars.spacing.xxxl,
   display: "grid",
   placeItems: "center",
-  borderRadius: tokens.radius.md,
+  borderRadius: vars.radius.md,
   cursor: "pointer",
   transitionTimingFunction: "ease-in-out",
   transitionDuration: "200ms",
@@ -75,15 +74,15 @@ export const toggle = style({
     outlineWidth: "2px",
     outlineStyle: "solid",
     outlineOffset: "2px",
-    outlineColor: themeVars.color.outline,
+    outlineColor: vars.color.outline,
   },
 });
 
 export const toggleHighlight = style({
   position: "absolute",
   inset: 0,
-  backgroundColor: themeVars.color.surfaceHover,
-  borderRadius: tokens.radius.md,
+  backgroundColor: vars.color.surfaceHover,
+  borderRadius: vars.radius.md,
   zIndex: "-1",
   opacity: 0,
   transform: "scale(0)",

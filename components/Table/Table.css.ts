@@ -1,6 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { themeVars } from "styles/theme.css";
-import { tokens } from "styles/tokens.css";
+import { vars } from "styles/vars.css";
 
 export const root = style({
   borderCollapse: "separate",
@@ -9,14 +8,14 @@ export const root = style({
 });
 
 export const heading = style({
-  padding: tokens.spacing.sm,
-  fontSize: tokens.fontSize.sm,
-  color: themeVars.color.foregroundNeutral,
+  padding: vars.spacing.sm,
+  fontSize: vars.fontSize.sm,
+  color: vars.color.foregroundNeutral,
   textTransform: "uppercase",
 });
 
 export const cell = style({
-  padding: tokens.spacing.sm,
+  padding: vars.spacing.sm,
   borderTop: "1px solid",
-  borderColor: themeVars.color.border,
+  borderColor: vars.color.border,
 });

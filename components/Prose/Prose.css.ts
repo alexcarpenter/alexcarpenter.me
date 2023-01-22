@@ -1,13 +1,12 @@
-import { themeVars } from "styles/theme.css";
-import { tokens } from "styles/tokens.css";
 import { globalStyle } from "@vanilla-extract/css";
+import { vars } from "styles/vars.css";
 
 globalStyle(".prose > * + *", {
-  marginTop: tokens.spacing.lg,
+  marginTop: vars.spacing.lg,
 });
 
 globalStyle(".prose > * + h2", {
-  marginTop: tokens.spacing.xl,
+  marginTop: vars.spacing.xl,
 });
 
 globalStyle(".prose strong", {
@@ -15,10 +14,10 @@ globalStyle(".prose strong", {
 });
 
 globalStyle(".prose hr", {
-  marginTop: tokens.spacing.xl,
-  marginBottom: tokens.spacing.xl,
+  marginTop: vars.spacing.xl,
+  marginBottom: vars.spacing.xl,
   height: 1,
-  backgroundColor: themeVars.color.border,
+  backgroundColor: vars.color.border,
 });
 
 /*
@@ -40,27 +39,27 @@ globalStyle(
 );
 
 globalStyle("code", {
-  fontFamily: tokens.font.mono,
+  fontFamily: vars.font.mono,
   fontSize: "0.9rem",
 });
 
 globalStyle("[data-rehype-pretty-code-title]", {
-  padding: `${tokens.spacing.md} ${tokens.spacing.lg}`,
-  backgroundColor: themeVars.color.surface,
+  padding: `${vars.spacing.md} ${vars.spacing.lg}`,
+  backgroundColor: vars.color.surface,
   border: "1px solid",
-  borderColor: themeVars.color.border,
-  borderRadius: tokens.radius.md,
+  borderColor: vars.color.border,
+  borderRadius: vars.radius.md,
   borderBottomLeftRadius: 0,
   borderBottomRightRadius: 0,
-  fontSize: tokens.fontSize.sm,
+  fontSize: vars.fontSize.sm,
 });
 
 globalStyle("pre[data-language]", {
   whiteSpace: "pre",
-  backgroundColor: themeVars.color.surface,
+  backgroundColor: vars.color.surface,
   border: "1px solid",
-  borderColor: themeVars.color.border,
-  borderRadius: tokens.radius.md,
+  borderColor: vars.color.border,
+  borderRadius: vars.radius.md,
 });
 
 globalStyle("[data-rehype-pretty-code-title] + pre[data-language]", {
@@ -75,21 +74,21 @@ globalStyle("div[data-rehype-pretty-code-fragment] code", {
 
 globalStyle("div[data-rehype-pretty-code-fragment] pre", {
   overflowX: "auto",
-  paddingTop: tokens.spacing.lg,
-  paddingBottom: tokens.spacing.lg,
+  paddingTop: vars.spacing.lg,
+  paddingBottom: vars.spacing.lg,
 });
 
 globalStyle("div[data-rehype-pretty-code-fragment] .syntax-line", {
   borderLeft: "4px solid",
   borderLeftColor: "transparent",
-  paddingRight: tokens.spacing.lg,
-  paddingLeft: tokens.spacing.lg,
+  paddingRight: vars.spacing.lg,
+  paddingLeft: vars.spacing.lg,
 });
 
 /* Line highlighting */
 globalStyle("div[data-rehype-pretty-code-fragment] .syntax-line--highlighted", {
-  backgroundColor: themeVars.color.codeHighlight,
-  borderColor: themeVars.color.highlight,
+  backgroundColor: vars.color.codeHighlight,
+  borderColor: vars.color.highlight,
 });
 
 /* Numbered lines */
@@ -102,6 +101,6 @@ globalStyle("code[data-line-numbers] .syntax-line::before", {
   content: "counter(line)",
   display: "inline-block",
   textAlign: "right",
-  marginRight: tokens.spacing.lg,
+  marginRight: vars.spacing.lg,
   opacity: 0.5,
 });

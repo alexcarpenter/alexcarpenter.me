@@ -1,7 +1,6 @@
 import { globalStyle, keyframes } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { themeVars } from "styles/theme.css";
-import { tokens } from "styles/tokens.css";
+import { vars } from "styles/vars.css";
 
 const fadeIn = keyframes({
   "0%": { opacity: "0" },
@@ -26,18 +25,18 @@ const exit = keyframes({
 globalStyle("[cmdk-overlay]", {
   position: "fixed",
   inset: 0,
-  backgroundColor: themeVars.color.overlay,
+  backgroundColor: vars.color.overlay,
   backdropFilter: "blur(8px)",
 });
 
 globalStyle("[cmdk-dialog]", {
   transformOrigin: "0 0",
   position: "fixed",
-  top: tokens.spacing.xxxxl,
+  top: vars.spacing.xxxxl,
   left: "50%",
   transform: "translateX(-50%)",
   maxWidth: 640,
-  width: calc.subtract("100%", calc.multiply(tokens.spacing.md, 2)),
+  width: calc.subtract("100%", calc.multiply(vars.spacing.md, 2)),
   zIndex: 9999,
   "@media": {
     "screen and (min-width: 576px)": {
@@ -68,9 +67,9 @@ globalStyle('[cmdk-dialog][data-state="closed"]', {
 
 globalStyle("[cmdk-root]", {
   width: "100%",
-  backgroundColor: themeVars.color.surface,
-  border: `1px solid ${themeVars.color.border}`,
-  borderRadius: tokens.radius.md,
+  backgroundColor: vars.color.surface,
+  border: `1px solid ${vars.color.border}`,
+  borderRadius: vars.radius.md,
 });
 
 globalStyle("[cmdk-header]", {
@@ -81,27 +80,27 @@ globalStyle("[cmdk-header-esc]", {
   position: "absolute",
   top: "50%",
   transform: "translateY(-50%)",
-  right: tokens.spacing.md,
-  fontSize: tokens.fontSize.xs,
-  padding: `${tokens.spacing.xs} ${tokens.spacing.sm}`,
-  color: themeVars.color.foregroundNeutral,
-  borderRadius: tokens.radius.md,
+  right: vars.spacing.md,
+  fontSize: vars.fontSize.xs,
+  padding: `${vars.spacing.xs} ${vars.spacing.sm}`,
+  color: vars.color.foregroundNeutral,
+  borderRadius: vars.radius.md,
   cursor: "pointer",
-  border: `1px solid ${themeVars.color.border}`,
+  border: `1px solid ${vars.color.border}`,
 });
 
 globalStyle("[cmdk-input]", {
   position: "relative",
-  fontFamily: tokens.font.sans,
-  fontSize: tokens.fontSize.md,
+  fontFamily: vars.font.sans,
+  fontSize: vars.fontSize.md,
   width: "100%",
-  padding: tokens.spacing.md,
-  paddingInlineEnd: calc.add(calc.multiply(tokens.spacing.md, 2), "45px"),
-  borderBottom: `1px solid ${themeVars.color.border}`,
+  padding: vars.spacing.md,
+  paddingInlineEnd: calc.add(calc.multiply(vars.spacing.md, 2), "45px"),
+  borderBottom: `1px solid ${vars.color.border}`,
 });
 
 globalStyle("[cmdk-input]::placeholder", {
-  color: themeVars.color.foregroundNeutral,
+  color: vars.color.foregroundNeutral,
 });
 
 globalStyle("[cmdk-list]", {
@@ -111,63 +110,63 @@ globalStyle("[cmdk-list]", {
   overscrollBehavior: "contain",
   transition: "100ms ease",
   transitionProperty: "height",
-  paddingBlock: tokens.spacing.md,
-  scrollPaddingBlock: tokens.spacing.md,
+  paddingBlock: vars.spacing.md,
+  scrollPaddingBlock: vars.spacing.md,
 });
 
 globalStyle("*:not([hidden]) + [cmdk-group]", {
-  marginBlockStart: tokens.spacing.md,
+  marginBlockStart: vars.spacing.md,
 });
 
 globalStyle("[cmdk-group-heading]", {
   position: "relative",
   userSelect: "none",
-  fontSize: tokens.fontSize.xs,
-  color: themeVars.color.foregroundNeutral,
-  paddingInline: tokens.spacing.md,
-  marginBlockEnd: tokens.spacing.sm,
+  fontSize: vars.fontSize.xs,
+  color: vars.color.foregroundNeutral,
+  paddingInline: vars.spacing.md,
+  marginBlockEnd: vars.spacing.sm,
   zIndex: 10,
 });
 
 globalStyle("[cmdk-item]", {
   display: "flex",
   alignItems: "center",
-  gap: tokens.spacing.sm,
+  gap: vars.spacing.sm,
   position: "relative",
   cursor: "pointer",
-  fontSize: tokens.fontSize.sm,
-  paddingInline: tokens.spacing.md,
-  paddingBlock: tokens.spacing.sm,
+  fontSize: vars.fontSize.sm,
+  paddingInline: vars.spacing.md,
+  paddingBlock: vars.spacing.sm,
 });
 
 globalStyle("[cmdk-item] .content", {
   display: "flex",
   alignItems: "center",
-  gap: tokens.spacing.sm,
+  gap: vars.spacing.sm,
   position: "relative",
   zIndex: 10,
 });
 
 globalStyle("[cmdk-item] .highlight", {
   position: "absolute",
-  inset: `0 ${tokens.spacing.sm}`,
-  borderRadius: tokens.radius.md,
-  backgroundColor: themeVars.color.surfaceHover,
+  inset: `0 ${vars.spacing.sm}`,
+  borderRadius: vars.radius.md,
+  backgroundColor: vars.color.surfaceHover,
 });
 
 globalStyle("[cmdk-item] svg", {
   width: ".9rem",
-  color: themeVars.color.foregroundNeutral,
+  color: vars.color.foregroundNeutral,
   transition: "ease-in-out 0.1s",
   transitionDelay: "0.1s",
 });
 
 globalStyle("[cmdk-item][aria-selected='true'] svg", {
-  color: themeVars.color.foreground,
+  color: vars.color.foreground,
 });
 
 globalStyle("[cmdk-empty]", {
   textAlign: "center",
-  color: themeVars.color.foregroundNeutral,
-  fontSize: tokens.fontSize.sm,
+  color: vars.color.foregroundNeutral,
+  fontSize: vars.fontSize.sm,
 });

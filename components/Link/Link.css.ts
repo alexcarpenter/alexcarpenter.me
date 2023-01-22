@@ -1,5 +1,5 @@
 import { style, styleVariants } from "@vanilla-extract/css";
-import { themeVars } from "styles/theme.css";
+import { vars } from "styles/vars.css";
 
 export const root = style({
   textDecoration: "underline",
@@ -10,11 +10,11 @@ export const root = style({
     outlineWidth: "2px",
     outlineStyle: "solid",
     outlineOffset: "2px",
-    outlineColor: themeVars.color.outline,
+    outlineColor: vars.color.outline,
   },
 });
 
 export const variants = styleVariants({
-  highlight: [root, { textDecorationColor: themeVars.color.underline }],
-  neutral: [root, { textDecorationColor: themeVars.color.underlineNeutral }],
+  highlight: [root, { textDecorationColor: vars.color.underline }],
+  neutral: [root, { textDecorationColor: vars.color.underlineNeutral }],
 });

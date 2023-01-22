@@ -3,7 +3,6 @@ import type { NextPage } from "next";
 import type { Post } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
 import { allPosts } from "contentlayer/generated";
-import { formatDate } from "lib/utils";
 import { Box } from "components/Box";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";

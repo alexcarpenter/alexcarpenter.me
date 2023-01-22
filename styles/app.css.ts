@@ -1,6 +1,5 @@
 import { globalStyle, globalFontFace } from "@vanilla-extract/css";
-import { tokens } from "./tokens.css";
-import { themeVars } from "./theme.css";
+import { vars } from "./vars.css";
 
 globalFontFace("Inter", {
   fontStyle: "normal",
@@ -20,8 +19,8 @@ globalStyle("body", {
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
   textRendering: "optimizeLegibility",
-  fontFamily: tokens.font.sans,
-  backgroundColor: themeVars.color.page,
+  fontFamily: vars.font.sans,
+  backgroundColor: vars.color.page,
   width: "100%",
   maxWidth: "100%",
   overflowX: "hidden",
@@ -29,18 +28,18 @@ globalStyle("body", {
 
 globalStyle(".container", {
   position: "relative",
-  paddingInline: tokens.spacing.lg,
-  paddingBlock: tokens.spacing.xxxxl,
+  paddingInline: vars.spacing.lg,
+  paddingBlock: vars.spacing.xxxxl,
 });
 
 globalStyle("ul:not([class])", {
   listStyleType: "disc",
   display: "grid",
-  paddingInlineStart: tokens.spacing.md,
-  gap: tokens.spacing.sm,
+  paddingInlineStart: vars.spacing.md,
+  gap: vars.spacing.sm,
 });
 
 globalStyle("ul:not([class]) ul:not([class])", {
-  marginTop: tokens.spacing.sm,
+  marginTop: vars.spacing.sm,
   listStyleType: "circle",
 });

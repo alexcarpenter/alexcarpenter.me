@@ -1,11 +1,10 @@
 import { style } from "@vanilla-extract/css";
-import { themeVars } from "styles/theme.css";
-import { tokens } from "styles/tokens.css";
+import { vars } from "styles/vars.css";
 
 export const root = style({
   position: "relative",
   overflow: "hidden",
-  borderRadius: tokens.radius.lg,
+  borderRadius: vars.radius.lg,
 });
 
 export const carousel = style({
@@ -23,7 +22,7 @@ export const pagination = style({
   inset: 0,
   display: "flex",
   justifyContent: "space-between",
-  padding: tokens.spacing.md,
+  padding: vars.spacing.md,
   pointerEvents: "none",
 });
 
@@ -39,21 +38,21 @@ export const button = style({
 
 export const prev = style({
   left: 0,
-  paddingLeft: tokens.spacing.md,
+  paddingLeft: vars.spacing.md,
 });
 
 export const next = style({
   right: 0,
-  paddingRight: tokens.spacing.md,
+  paddingRight: vars.spacing.md,
 });
 
 export const disc = style({
-  width: tokens.spacing.xxxl,
-  height: tokens.spacing.xxxl,
-  background: themeVars.color.surface,
+  width: vars.spacing.xxxl,
+  height: vars.spacing.xxxl,
+  background: vars.color.surface,
   display: "grid",
   placeItems: "center",
-  borderRadius: tokens.radius.full,
+  borderRadius: vars.radius.full,
   selectors: {
     [`${button}:focus &`]: {
       outline: "transparent",
@@ -62,26 +61,26 @@ export const disc = style({
       outlineWidth: "2px",
       outlineStyle: "solid",
       outlineOffset: "2px",
-      outlineColor: themeVars.color.outline,
+      outlineColor: vars.color.outline,
     },
   },
 });
 
 export const list = style({
   position: "absolute",
-  bottom: tokens.spacing.md,
+  bottom: vars.spacing.md,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   width: "100%",
-  gap: tokens.spacing.sm,
+  gap: vars.spacing.sm,
 });
 
 export const dot = style({
-  width: tokens.spacing.sm,
-  height: tokens.spacing.sm,
-  backgroundColor: themeVars.color.surface,
-  borderRadius: tokens.radius.full,
+  width: vars.spacing.sm,
+  height: vars.spacing.sm,
+  backgroundColor: vars.color.surface,
+  borderRadius: vars.radius.full,
   pointerEvents: "auto",
   ":focus": {
     outline: "transparent",
@@ -90,6 +89,6 @@ export const dot = style({
     outlineWidth: "2px",
     outlineStyle: "solid",
     outlineOffset: "2px",
-    outlineColor: themeVars.color.outline,
+    outlineColor: vars.color.outline,
   },
 });
