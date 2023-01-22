@@ -15,6 +15,7 @@ export interface BoxProps
 export const Box = ({
   as: component = "div",
   className,
+  position,
   padding,
   paddingTop,
   paddingRight,
@@ -45,6 +46,7 @@ export const Box = ({
 }: BoxProps) => {
   const atomClasses = cn(
     sprinkles({
+      position,
       padding,
       paddingTop,
       paddingRight,

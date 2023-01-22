@@ -137,7 +137,24 @@ const Home: NextPage<{
 
       <Spacer height="xxxxl" />
 
-      <Box as="section" maxWidth="container" marginX="auto">
+      <Box as="section" maxWidth="container" marginX="auto" position="relative">
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            width: "100%",
+            height: "50%",
+            transform: "translate3d(-50%, -50%, 0)",
+            background: "orange",
+            backgroundImage:
+              "linear-gradient(to bottom right, #7928CA, #FF0080)",
+            filter: "blur(80px)",
+            zIndex: -1,
+            opacity: 0.1,
+          }}
+        />
         <Box as="header" maxWidth={{ md: "text" }} marginX="auto">
           <Heading fontSize="xl">Recommendations</Heading>
         </Box>
