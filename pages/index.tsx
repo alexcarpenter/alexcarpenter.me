@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { NextPage } from "next";
+import { motion, useScroll, useTransform } from "framer-motion";
 import type { Job, Recommendation } from "contentlayer/generated";
 import { partition, formatTags } from "lib/utils";
 // import Image from "next/image";
@@ -13,6 +14,32 @@ import { List } from "components/List";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
 import { allJobs, allRecommendations } from "contentlayer/generated";
+
+function RecommendationGradient() {
+  const gradientRef = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: gradientRef,
+    offset: ["end end", "start center"],
+  });
+  return (
+    <motion.div
+      ref={gradientRef}
+      aria-hidden
+      style={{
+        opacity: useTransform(scrollYProgress, [0, 1], [0, 0.5]),
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        width: "100%",
+        height: "50%",
+        transform: "translate3d(-50%, -50%, 0)",
+        background: "linear-gradient(to right, #63d0ff, #844fba)",
+        filter: "blur(80px)",
+        zIndex: -1,
+      }}
+    />
+  );
+}
 
 const Home: NextPage<{
   jobs: Job[];
@@ -138,23 +165,7 @@ const Home: NextPage<{
       <Spacer height="xxxxl" />
 
       <Box as="section" maxWidth="container" marginX="auto" position="relative">
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            width: "100%",
-            height: "50%",
-            transform: "translate3d(-50%, -50%, 0)",
-            background: "orange",
-            backgroundImage:
-              "linear-gradient(to bottom right, #7928CA, #FF0080)",
-            filter: "blur(80px)",
-            zIndex: -1,
-            opacity: 0.1,
-          }}
-        />
+        <RecommendationGradient />
         <Box as="header" maxWidth={{ md: "text" }} marginX="auto">
           <Heading fontSize="xl">Recommendations</Heading>
         </Box>
