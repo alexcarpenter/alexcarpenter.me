@@ -1,4 +1,7 @@
 data:
+  - date: 2023-01-23
+    duration: 78
+    temp: 38
   - date: 2023-01-18
     duration: 300
     temp: 43
