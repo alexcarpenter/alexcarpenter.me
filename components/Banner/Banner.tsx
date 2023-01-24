@@ -18,9 +18,6 @@ const Banner = ({
             width={48}
             height={48}
             alt="Photo of Alex Carpenter at desk"
-            style={{
-              borderRadius: 10,
-            }}
             priority
           />
           <span className={styles.logo}>

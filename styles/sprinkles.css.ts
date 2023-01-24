@@ -5,6 +5,7 @@ const space = vars.spacing;
 const radius = vars.radius;
 const fontSize = vars.fontSize;
 const fontWeight = vars.fontWeight;
+const fontFamily = vars.font;
 const maxWidth = vars.contentWidth;
 
 const columns = {
@@ -72,6 +73,7 @@ const unresponsiveProperties = defineProperties({
     border: { true: `1px solid ${vars.color.border}` },
     flexShrink: [0],
     flexGrow: [0, 1],
+    fontFamily,
     fontWeight,
   },
 });

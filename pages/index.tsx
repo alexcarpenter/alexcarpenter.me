@@ -1,6 +1,5 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import { motion, useScroll, useTransform } from "framer-motion";
 import type { Job, Recommendation } from "contentlayer/generated";
 import { partition, formatTags } from "lib/utils";
 // import Image from "next/image";
@@ -209,9 +208,7 @@ const Home: NextPage<{
         <List>
           <List.Item>
             <Text color="foregroundNeutral">
-              <Link href="mailto:im.alexcarpenter@gmail.com">
-                im.alexcarpenter@gmail.com
-              </Link>
+              <Link href="mailto:im.alexcarpenter@gmail.com">Email</Link>
             </Text>
           </List.Item>
           <List.Item>
@@ -229,6 +226,11 @@ const Home: NextPage<{
               <Link href="https://www.linkedin.com/in/imalexcarpenter/">
                 LinkedIn
               </Link>
+            </Text>
+          </List.Item>
+          <List.Item>
+            <Text color="foregroundNeutral">
+              <Link href="https://read.cv/alexcarpenter">Read.cv</Link>
             </Text>
           </List.Item>
         </List>

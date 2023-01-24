@@ -10,7 +10,6 @@ import { ToastProvider } from "@radix-ui/react-toast";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import SEO from "next-seo.config";
 import { Banner } from "components/Banner";
-import { Gradient } from "components/Gradient";
 import { CommandMenu } from "components/CommandMenu";
 import { SkipLink } from "components/SkipLink";
 import { Toaster } from "components/Toast/Toast";
@@ -44,7 +43,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Providers>
         <DefaultSeo {...SEO} />
         <SkipLink />
-        <Gradient />
         <div className="container">
           <Banner setOpen={setOpen} />
           <main id="main">
