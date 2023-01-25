@@ -5,6 +5,7 @@ import { NextSeo } from "next-seo";
 import Balancer from "react-wrap-balancer";
 import { formatTags, formatDate } from "lib/utils";
 import { Box } from "components/Box";
+import { HashiCorpHero } from "components/Hero";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";
 import { List } from "components/List";
@@ -24,6 +25,8 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
         maxWidth="container"
         marginX="auto"
       >
+        <HashiCorpHero />
+        <Spacer height="xl" />
         <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
           {job.company}
         </Heading>
