@@ -4,6 +4,7 @@ import slugify from "@sindresorhus/slugify";
 import { ImageCarousel } from "components/ImageCarousel";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";
+import { Note } from "components/Note";
 import { Text } from "components/Text";
 import { YoutubeEmbed } from "components/YoutubeEmbed";
 
@@ -21,6 +22,7 @@ export const Components = {
       />
     );
   },
+  Note,
   YoutubeEmbed,
   a: (props: any) => <Link {...props} variant="highlight" />,
   p: (props: any) => <Text {...props} />,
