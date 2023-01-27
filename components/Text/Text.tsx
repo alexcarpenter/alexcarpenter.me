@@ -16,6 +16,7 @@ type TextProps<C extends React.ElementType> = PolymorphicComponentProps<
       Sprinkles["color"],
       "foreground" | "foregroundNeutral" | "foregroundAction"
     >;
+    gradient?: boolean;
   }
 >;
 
@@ -25,12 +26,14 @@ const Text = <C extends React.ElementType = "p">({
   fontSize = "md",
   fontWeight = "normal",
   color = "foreground",
+  gradient = false,
   ...restProps
 }: TextProps<C>) => {
   const component = as || "p";
   return React.createElement(component, {
     className: cn(
       styles.root,
+      gradient && styles.gradient,
       sprinkles({ fontFamily, fontSize, fontWeight, color })
     ),
     ...restProps,

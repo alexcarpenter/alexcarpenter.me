@@ -39,6 +39,7 @@ const Home: NextPage<{
         <Text
           fontSize={{ xs: "lg", sm: "xl" }}
           color="foregroundNeutral"
+          gradient={true}
           style={{
             display: "inline-flex",
           }}
@@ -208,11 +209,6 @@ const Home: NextPage<{
         <List>
           <List.Item>
             <Text color="foregroundNeutral">
-              <Link href="mailto:im.alexcarpenter@gmail.com">Email</Link>
-            </Text>
-          </List.Item>
-          <List.Item>
-            <Text color="foregroundNeutral">
               <Link href="https://twitter.com/hybrid_alex">Twitter</Link>
             </Text>
           </List.Item>
@@ -233,11 +229,6 @@ const Home: NextPage<{
               <Link href="https://www.linkedin.com/in/imalexcarpenter/">
                 LinkedIn
               </Link>
-            </Text>
-          </List.Item>
-          <List.Item>
-            <Text color="foregroundNeutral">
-              <Link href="https://read.cv/alexcarpenter">Read.cv</Link>
             </Text>
           </List.Item>
         </List>
