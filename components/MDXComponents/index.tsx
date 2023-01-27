@@ -1,5 +1,3 @@
-import type { ImageProps } from "next/legacy/image";
-import Image from "next/legacy/image";
 import slugify from "@sindresorhus/slugify";
 import { ImageCarousel } from "components/ImageCarousel";
 import { Heading } from "components/Heading";
@@ -7,21 +5,11 @@ import { Link } from "components/Link";
 import { Note } from "components/Note";
 import { Text } from "components/Text";
 import { YoutubeEmbed } from "components/YoutubeEmbed";
+import { Image } from "./Image";
 
 export const Components = {
   ImageCarousel,
-  Image: (props: ImageProps & { rounded?: boolean }) => {
-    const { rounded = true } = props;
-    return (
-      <Image
-        {...props}
-        alt={props.alt}
-        style={{
-          borderRadius: rounded ? 10 : undefined,
-        }}
-      />
-    );
-  },
+  Image,
   Note,
   YoutubeEmbed,
   a: (props: any) => <Link {...props} variant="highlight" />,
