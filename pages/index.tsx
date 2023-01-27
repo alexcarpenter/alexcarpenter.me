@@ -223,6 +223,13 @@ const Home: NextPage<{
           </List.Item>
           <List.Item>
             <Text color="foregroundNeutral">
+              <Link href="https://www.youtube.com/channel/UC2jJoQlzvLPvnYfowAEVaOg">
+                YouTube
+              </Link>
+            </Text>
+          </List.Item>
+          <List.Item>
+            <Text color="foregroundNeutral">
               <Link href="https://www.linkedin.com/in/imalexcarpenter/">
                 LinkedIn
               </Link>
