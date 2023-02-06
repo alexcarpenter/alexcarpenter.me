@@ -49,7 +49,7 @@ export const Post = defineDocumentType(() => ({
 const Event = defineNestedType(() => ({
   name: "Event",
   fields: {
-    title: {
+    heading: {
       type: "string",
       required: true,
     },

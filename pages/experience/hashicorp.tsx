@@ -104,10 +104,10 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
                   <Heading as="h3">
                     {event.link ? (
                       <>
-                        <Link href={event.link}>{event.title}</Link>
+                        <Link href={event.link}>{event.heading}</Link>
                       </>
                     ) : (
-                      event.title
+                      event.heading
                     )}
                   </Heading>
                 </Box>
