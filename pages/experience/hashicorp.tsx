@@ -35,6 +35,7 @@ const HashiCorp: NextPage<{ job: Job }> = ({ job }) => {
               style={{
                 display: "inline-flex",
               }}
+              gradient={true}
             >
               <Balancer ratio={0.5}>{job.description}</Balancer>
             </Text>
