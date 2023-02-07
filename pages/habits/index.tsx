@@ -74,10 +74,8 @@ const HabitsPage: NextPage<{
         <Spacer height="md" />
         <Text>
           Practicing{" "}
-          <Link href="https://icebarrel.com/science/" variant="highlight">
-            cold water therapy
-          </Link>
-          . Goal is to do an ice bath every other day for 3-6 minutes each
+          <Link href="https://icebarrel.com/science/">cold water therapy</Link>.
+          Goal is to do an ice bath every other day for 3-6 minutes each
           session.
         </Text>
         <Spacer height="xxl" />

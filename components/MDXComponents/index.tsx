@@ -12,7 +12,7 @@ export const Components = {
   Image,
   Note,
   YoutubeEmbed,
-  a: (props: any) => <Link {...props} variant="highlight" />,
+  a: (props: any) => <Link {...props} />,
   p: (props: any) => <Text {...props} />,
   h2: (props: any) => (
     <Heading {...props} fontSize="xl" id={slugify(props.children)} />
