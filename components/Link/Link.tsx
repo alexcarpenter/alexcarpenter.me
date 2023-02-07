@@ -5,14 +5,13 @@ import * as styles from "./Link.css";
 
 export type LinkProps = NextLinkProps & {
   children: React.ReactNode;
-  variant?: "highlight" | "neutral";
 };
 
 export const Link = (props: LinkProps) => {
-  const { children, variant = "neutral", ...rest } = props;
+  const { children, ...rest } = props;
   return (
     <>
-      <NextLink className={cn(styles.variants[variant])} {...rest}>
+      <NextLink className={cn(styles.root)} {...rest}>
         {children}
       </NextLink>
     </>

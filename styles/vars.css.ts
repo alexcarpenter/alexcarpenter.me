@@ -5,6 +5,8 @@ import {
   whiteA,
   blue,
   blueDark,
+  purple,
+  purpleDark,
   yellow,
   yellowDark,
 } from "@radix-ui/colors";
@@ -30,6 +32,7 @@ const color = createGlobalThemeContract({
   outline: "color-outline",
   underline: "color-underline",
   underlineNeutral: "color-underline-neutral",
+  underlineVisited: "color-underline-visited",
   highlight: "color-highlight",
   codeHighlight: "color-code-highlight",
 });
@@ -48,6 +51,7 @@ createGlobalTheme(":root.light", color, {
   outline: blue.blue11,
   underline: blue.blue11,
   underlineNeutral: gray.gray9,
+  underlineVisited: purple.purple11,
   highlight: yellow.yellow4,
   codeHighlight: gray.gray3,
 });
@@ -66,6 +70,7 @@ createGlobalTheme(":root.dark", color, {
   outline: blueDark.blue11,
   underline: blueDark.blue11,
   underlineNeutral: grayDark.gray9,
+  underlineVisited: purpleDark.purple11,
   highlight: yellowDark.yellow7,
   codeHighlight: grayDark.gray4,
 });

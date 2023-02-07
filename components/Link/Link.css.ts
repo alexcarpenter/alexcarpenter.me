@@ -3,6 +3,10 @@ import { vars } from "styles/vars.css";
 
 export const root = style({
   textDecoration: "underline",
+  textDecorationColor: vars.color.underline,
+  ":visited": {
+    textDecorationColor: vars.color.underlineVisited,
+  },
   ":focus": {
     outline: "transparent",
   },
@@ -12,9 +16,4 @@ export const root = style({
     outlineOffset: "2px",
     outlineColor: vars.color.outline,
   },
-});
-
-export const variants = styleVariants({
-  highlight: [root, { textDecorationColor: vars.color.underline }],
-  neutral: [root, { textDecorationColor: vars.color.underlineNeutral }],
 });

@@ -208,24 +208,24 @@ const Home: NextPage<{
         <Spacer height="xxl" />
         <List>
           <List.Item>
-            <Text color="foregroundNeutral">
+            <Text>
               <Link href="https://twitter.com/hybrid_alex">Twitter</Link>
             </Text>
           </List.Item>
           <List.Item>
-            <Text color="foregroundNeutral">
+            <Text>
               <Link href="https://github.com/alexcarpenter">Github</Link>
             </Text>
           </List.Item>
           <List.Item>
-            <Text color="foregroundNeutral">
+            <Text>
               <Link href="https://www.youtube.com/channel/UC2jJoQlzvLPvnYfowAEVaOg">
                 YouTube
               </Link>
             </Text>
           </List.Item>
           <List.Item>
-            <Text color="foregroundNeutral">
+            <Text>
               <Link href="https://www.linkedin.com/in/imalexcarpenter/">
                 LinkedIn
               </Link>
