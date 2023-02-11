@@ -1,30 +1,15 @@
-import { style, globalStyle } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import { vars } from "styles/vars.css";
+import { focusVisible } from "styles/utils.css";
 
 export const root = style({
   position: "relative",
 });
 
-export const content = style({
-  marginBottom: vars.spacing.md,
-});
-
-globalStyle(`${content} > * + *`, {
-  marginTop: vars.spacing.lg,
-});
-
-export const anchor = style({
-  ":hover": {
-    textDecoration: "underline",
-    textDecorationColor: "currentcolor",
+export const anchor = style([
+  focusVisible,
+  {
+    marginTop: vars.spacing.lg,
+    display: "inline-flex",
   },
-  ":focus": {
-    outline: "transparent",
-  },
-  ":focus-visible": {
-    outlineWidth: "2px",
-    outlineStyle: "solid",
-    outlineOffset: "2px",
-    outlineColor: vars.color.outline,
-  },
-});
+]);
