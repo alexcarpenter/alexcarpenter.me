@@ -46,9 +46,9 @@ const Home: NextPage<{
         >
           <Balancer ratio={0.25}>
             A detail oriented user interface engineer interested in CSS
-            architecture, React, TypeScript, and design systems. Currently
-            working at HashiCorp, helping build and maintain public-facing
-            HashiCorp websites and web applications with Next.js.
+            architecture, React, TypeScript, animation, and design systems.
+            Currently working at HashiCorp, helping build and maintain
+            public-facing HashiCorp websites and web applications with Next.js.
           </Balancer>
         </Text>
       </Box>
