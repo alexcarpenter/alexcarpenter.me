@@ -83,21 +83,6 @@ const Home: NextPage<{
             return (
               <List.Item key={job._id}>
                 <Box display="flex" gap="md">
-                  {/* {job.logo ? (
-                    <Box
-                      display={{ xs: "none", sm: "flex" }}
-                      alignItems="flex-start"
-                      flexShrink={0}
-                    >
-                      <Image
-                        src={job.logo}
-                        width={32}
-                        height={32}
-                        alt=""
-                        style={{ borderRadius: 6 }}
-                      />
-                    </Box>
-                  ) : null} */}
                   <Box flexGrow={1}>
                     <Box
                       display="flex"
