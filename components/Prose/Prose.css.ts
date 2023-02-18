@@ -13,6 +13,12 @@ globalStyle(".prose strong", {
   fontWeight: 600,
 });
 
+globalStyle(".prose blockquote", {
+  paddingLeft: vars.spacing.xl,
+  borderLeft: "4px solid",
+  borderColor: vars.color.border,
+});
+
 globalStyle(".prose hr", {
   marginTop: vars.spacing.xl,
   marginBottom: vars.spacing.xl,
