@@ -1,4 +1,5 @@
 import slugify from "@sindresorhus/slugify";
+import { onlyText } from "react-children-utilities";
 import { ImageCarousel } from "components/ImageCarousel";
 import { Heading } from "components/Heading";
 import { Link } from "components/Link";
@@ -15,9 +16,14 @@ export const Components = {
   a: (props: any) => <Link {...props} />,
   p: (props: any) => <Text {...props} />,
   h2: (props: any) => (
-    <Heading {...props} fontSize="xl" id={slugify(props.children)} />
+    <Heading {...props} fontSize="xl" id={slugify(onlyText(props.children))} />
   ),
   h3: (props: any) => (
-    <Heading {...props} as="h3" fontSize="lg" id={slugify(props.children)} />
+    <Heading
+      {...props}
+      as="h3"
+      fontSize="lg"
+      id={slugify(onlyText(props.children))}
+    />
   ),
 };
