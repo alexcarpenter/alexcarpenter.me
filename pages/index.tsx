@@ -55,6 +55,10 @@ const Home: NextPage<{
 
                 <Grid.Column span="2/2">
                   <Text>{job.description}</Text>
+                  <Spacer height="sm" />
+                  <Text fontSize="sm">
+                    <VisuallyHidden>Title</VisuallyHidden>&ndash; {job.title}
+                  </Text>
                   {job.tags ? (
                     <>
                       <Spacer height="sm" />
