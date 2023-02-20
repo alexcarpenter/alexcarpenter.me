@@ -1,10 +1,18 @@
 import * as styles from "./List.css";
 
-const Container = ({ children }) => {
+interface ListContainerProps {
+  children: React.ReactNode;
+}
+
+const Container = ({ children }: ListContainerProps) => {
   return <ul className={styles.list}>{children}</ul>;
 };
 
-const Item = ({ children }) => {
+interface ListItemProps {
+  children: React.ReactNode;
+}
+
+const Item = ({ children }: ListItemProps) => {
   return <li className={styles.item}>{children}</li>;
 };
 
