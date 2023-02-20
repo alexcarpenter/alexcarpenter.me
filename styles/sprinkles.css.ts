@@ -12,6 +12,7 @@ const fontSize = vars.fontSize;
 const fontWeight = vars.fontWeight;
 const fontFamily = vars.font;
 const maxWidth = vars.contentWidth;
+const columns = ["1", "2", "3", "4", "-1"] as const;
 
 const responsiveProperties = defineProperties({
   conditions: {
@@ -38,6 +39,8 @@ const responsiveProperties = defineProperties({
     width: space,
     height: space,
     fontSize,
+    gridColumnStart: columns,
+    gridColumnEnd: columns,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
@@ -46,6 +49,8 @@ const responsiveProperties = defineProperties({
     margin: ["marginTop", "marginBottom", "marginRight", "marginLeft"],
     marginX: ["marginLeft", "marginRight"],
     marginY: ["marginTop", "marginBottom"],
+    colStart: ["gridColumnStart"],
+    colEnd: ["gridColumnEnd"],
   },
 });
 

@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
+import Link from "next/link";
 import { NextSeo } from "next-seo";
 import * as Grid from "components/Grid";
 import * as List from "components/List";
@@ -21,10 +22,11 @@ const Home: NextPage<{
 
       <VisuallyHidden as="h1">Index</VisuallyHidden>
 
-      <Spacer height="xxxl" />
-
       <Grid.Container>
-        <Grid.Column span="2/3">
+        <Grid.Column
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "-1", md: "4" }}
+        >
           <Text fontSize="lg" gradient={true}>
             A detail oriented user interface engineer interested in CSS
             architecture, React, TypeScript, animation, and design systems.
@@ -37,7 +39,10 @@ const Home: NextPage<{
       <Spacer height="xxxl" />
 
       <Grid.Container>
-        <Grid.Column span="2/3">
+        <Grid.Column
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "-1", md: "4" }}
+        >
           <Heading>Experience &not;</Heading>
         </Grid.Column>
       </Grid.Container>
@@ -48,16 +53,34 @@ const Home: NextPage<{
         {jobs.map((job) => {
           return (
             <List.Item key={job._id}>
-              <Grid.Container>
-                <Grid.Column span="1/1">
+              <Grid.Container rowGap="md">
+                <Grid.Column
+                  colStart={{ xs: "1" }}
+                  colEnd={{ xs: "-1", md: "1" }}
+                >
                   <Heading as="h3">{job.company}</Heading>
                 </Grid.Column>
 
-                <Grid.Column span="2/2">
-                  <Text>{job.description}</Text>
+                <Grid.Column
+                  colStart={{ xs: "1", md: "2" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
+                  <Text>
+                    {job.description}
+                    {job.slug === "hashicorp" ? (
+                      <>
+                        {" "}
+                        <Text as="span" color="foregroundNeutral">
+                          <Link href={`/experience/${job.slug}`}>
+                            Read more
+                          </Link>
+                        </Text>
+                      </>
+                    ) : null}
+                  </Text>
                   <Spacer height="sm" />
                   <Text fontSize="sm">
-                    <VisuallyHidden>Title</VisuallyHidden>&ndash; {job.title}
+                    <VisuallyHidden>Title</VisuallyHidden> {job.title}
                   </Text>
                   {job.tags ? (
                     <>
@@ -70,7 +93,10 @@ const Home: NextPage<{
                   ) : null}
                 </Grid.Column>
 
-                <Grid.Column span="4/4">
+                <Grid.Column
+                  colStart={{ xs: "1", md: "4" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
                   <Text color="foregroundNeutral" fontSize="sm">
                     <VisuallyHidden>Duration</VisuallyHidden>
                     {new Date(job.startDate).getFullYear()} &mdash;{" "}
@@ -90,7 +116,10 @@ const Home: NextPage<{
       <Spacer height="xxxl" />
 
       <Grid.Container>
-        <Grid.Column span="2/3">
+        <Grid.Column
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "-1", md: "4" }}
+        >
           <Heading>Recommendations &not;</Heading>
         </Grid.Column>
       </Grid.Container>
@@ -101,16 +130,25 @@ const Home: NextPage<{
         {recommendations.map((recommendation) => {
           return (
             <List.Item key={recommendation._id}>
-              <Grid.Container>
-                <Grid.Column span="1/1">
+              <Grid.Container rowGap="md">
+                <Grid.Column
+                  colStart={{ xs: "1" }}
+                  colEnd={{ xs: "-1", md: "1" }}
+                >
                   <Heading as="h3">{recommendation.name}</Heading>
                 </Grid.Column>
 
-                <Grid.Column span="2/2">
+                <Grid.Column
+                  colStart={{ xs: "1", md: "2" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
                   <Text>{recommendation.text}</Text>
                 </Grid.Column>
 
-                <Grid.Column span="4/4">
+                <Grid.Column
+                  colStart={{ xs: "1", md: "4" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
                   <Text color="foregroundNeutral" fontSize="sm">
                     {recommendation.title}
                   </Text>

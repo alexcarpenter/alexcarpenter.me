@@ -11,18 +11,6 @@ import { Text } from "components/Text";
 import { allPosts } from "contentlayer/generated";
 
 export async function getStaticProps() {
-  // const postsByYear = allPosts
-  //   .sort((a, b) => {
-  //     return Number(new Date(b.date)) - Number(new Date(a.date));
-  //   })
-  //   .reduce((years, post) => {
-  //     const year = new Date(post.date).getFullYear();
-  //     if (!years[year]) {
-  //       years[year] = [];
-  //     }
-  //     years[year].push(post);
-  //     return years;
-  //   }, {} as Record<string, Post[]>);
   const posts = allPosts.sort((a, b) => {
     return Number(new Date(b.date)) - Number(new Date(a.date));
   });
@@ -41,12 +29,13 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
         }}
       />
 
-      <Spacer height="xxxl" />
-
       <Grid.Container>
-        <Grid.Column span="2/3">
+        <Grid.Column
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "-1", md: "4" }}
+        >
           <Heading fontSize="xl">Posts</Heading>
-          <Spacer height="xxs" />
+          <Spacer height="xs" />
           <Text color="foregroundNeutral">Strong opinions, loosely held.</Text>
         </Grid.Column>
       </Grid.Container>
@@ -57,8 +46,11 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
         {posts.map((post) => {
           return (
             <List.Item key={post._id}>
-              <Grid.Container>
-                <Grid.Column>
+              <Grid.Container rowGap="md">
+                <Grid.Column
+                  colStart={{ xs: "1" }}
+                  colEnd={{ xs: "-1", sm: "1" }}
+                >
                   <Text
                     as="time"
                     dateTime={post.date}
@@ -68,7 +60,10 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
                     {post.formattedDate}
                   </Text>
                 </Grid.Column>
-                <Grid.Column span="2/3">
+                <Grid.Column
+                  colStart={{ xs: "1", sm: "2" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
                   <Heading>
                     <Link href={`/posts/${post.slug}`}>{post.title}</Link>
                   </Heading>

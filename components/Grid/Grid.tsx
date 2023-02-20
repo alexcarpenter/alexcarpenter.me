@@ -1,21 +1,40 @@
+import type { Sprinkles } from "styles/sprinkles.css";
 import { cn } from "lib/utils";
+import { sprinkles } from "styles/sprinkles.css";
 import * as styles from "./Grid.css";
 
 interface GridContainerProps {
   children: React.ReactNode;
+  rowGap?: Sprinkles["rowGap"];
 }
 
-const Container = ({ children }: GridContainerProps) => {
-  return <div className={styles.container}>{children}</div>;
+const Container = ({ rowGap = "none", children }: GridContainerProps) => {
+  return (
+    <div className={cn(styles.container, sprinkles({ rowGap }))}>
+      {children}
+    </div>
+  );
 };
 
 interface GridColumnProps {
   children: React.ReactNode;
-  span?: keyof typeof styles.column;
+  colStart?: Sprinkles["gridColumnStart"];
+  colEnd?: Sprinkles["gridColumnEnd"];
 }
 
-const Column = ({ span, children }: GridColumnProps) => {
-  return <div className={cn(span && styles.column[span])}>{children}</div>;
+const Column = ({ colStart, colEnd, children }: GridColumnProps) => {
+  return (
+    <div
+      className={cn(
+        sprinkles({
+          gridColumnStart: colStart,
+          gridColumnEnd: colEnd,
+        })
+      )}
+    >
+      {children}
+    </div>
+  );
 };
 
 export { Container, Column };

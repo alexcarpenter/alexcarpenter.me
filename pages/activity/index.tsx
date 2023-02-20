@@ -32,12 +32,13 @@ const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
         }}
       />
 
-      <Spacer height="xxxl" />
-
       <Grid.Container>
-        <Grid.Column span="2/3">
+        <Grid.Column
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "-1", md: "4" }}
+        >
           <Heading fontSize="xl">Activity</Heading>
-          <Spacer height="xxs" />
+          <Spacer height="xs" />
           <Text fontSize="md" color="foregroundNeutral">
             Short form thoughts and updates.
           </Text>
@@ -50,8 +51,11 @@ const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
         {activities.map((activity) => {
           return (
             <List.Item key={activity._id}>
-              <Grid.Container>
-                <Grid.Column>
+              <Grid.Container rowGap="md">
+                <Grid.Column
+                  colStart={{ xs: "1" }}
+                  colEnd={{ xs: "-1", sm: "1" }}
+                >
                   <Text
                     as="time"
                     dateTime={activity.date}
@@ -61,7 +65,12 @@ const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
                     {activity.formattedDate}
                   </Text>
                 </Grid.Column>
-                <Grid.Column span="2/3">Content goes here</Grid.Column>
+                <Grid.Column
+                  colStart={{ xs: "1", sm: "2" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
+                  Content goes here
+                </Grid.Column>
               </Grid.Container>
             </List.Item>
           );

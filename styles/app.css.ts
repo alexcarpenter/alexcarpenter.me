@@ -35,10 +35,6 @@ globalStyle("body", {
   overflowX: "hidden",
 });
 
-globalStyle("html, body, #root, #__next, .container", {
-  height: "100%",
-});
-
 globalStyle(".container", {
   paddingInline: vars.spacing.lg,
   paddingBlock: vars.spacing.xxxl,
