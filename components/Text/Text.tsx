@@ -12,10 +12,7 @@ type TextProps<C extends React.ElementType> = PolymorphicComponentProps<
     fontFamily?: Sprinkles["fontFamily"];
     fontSize?: Sprinkles["fontSize"];
     fontWeight?: Sprinkles["fontWeight"];
-    color?: Extract<
-      Sprinkles["color"],
-      "foreground" | "foregroundNeutral" | "foregroundAction"
-    >;
+    color?: Extract<Sprinkles["color"], "foreground" | "foregroundNeutral">;
     gradient?: boolean;
   }
 >;

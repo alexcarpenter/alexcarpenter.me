@@ -1,223 +1,118 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
-import { partition, formatTags } from "lib/utils";
-// import Image from "next/image";
 import { NextSeo } from "next-seo";
-import Balancer from "react-wrap-balancer";
-import { Box } from "components/Box";
-import { Card } from "components/Card";
+import * as Grid from "components/Grid";
+import * as List from "components/List";
 import { Heading } from "components/Heading";
-import { Link } from "components/Link";
-import { List } from "components/List";
-import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
+import { Text } from "components/Text";
 import { allJobs, allRecommendations } from "contentlayer/generated";
+import { VisuallyHidden } from "components/VisuallyHidden";
+import { formatTags } from "lib/utils";
 
 const Home: NextPage<{
   jobs: Job[];
-  recommendations: Recommendation[][];
+  recommendations: Recommendation[];
 }> = ({ jobs, recommendations }) => {
   return (
     <>
       <NextSeo title="Design Engineer" />
 
-      <Box
-        as="header"
-        textAlign={{ md: "center" }}
-        maxWidth="container"
-        marginX="auto"
-      >
-        <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
-          Alex Carpenter{" "}
-          <span role="separator" aria-orientation="vertical">
-            {"//"}
-          </span>{" "}
-          Design Engineer
-        </Heading>
-        <Spacer height="md" />
-        <Text
-          fontSize={{ xs: "lg", sm: "xl" }}
-          color="foregroundNeutral"
-          gradient={true}
-          style={{
-            display: "inline-flex",
-          }}
-        >
-          <Balancer ratio={0.25}>
+      <VisuallyHidden as="h1">Index</VisuallyHidden>
+
+      <Spacer height="xxxl" />
+
+      <Grid.Container>
+        <Grid.Column span="2/3">
+          <Text fontSize="lg" gradient={true}>
             A detail oriented user interface engineer interested in CSS
             architecture, React, TypeScript, animation, and design systems.
             Currently working at HashiCorp, helping build and maintain
             public-facing HashiCorp websites and web applications with Next.js.
-          </Balancer>
-        </Text>
-      </Box>
+          </Text>
+        </Grid.Column>
+      </Grid.Container>
 
-      <Spacer height="xxxxl" />
+      <Spacer height="xxxl" />
 
-      <Box as="section" maxWidth={{ md: "text" }} marginX="auto">
-        <header>
-          <Heading fontSize="xl">Experience</Heading>
-        </header>
-        <Spacer height="xxl" />
-        <List>
-          {jobs.map((job) => {
-            const heading =
-              job.company === "HashiCorp" ? (
-                <Link href="/experience/hashicorp">
-                  {job.title}{" "}
-                  <span role="separator" aria-orientation="vertical">
-                    {"//"}
-                  </span>{" "}
-                  {job.company}
-                </Link>
-              ) : (
-                <>
-                  {job.title}{" "}
-                  <span role="separator" aria-orientation="vertical">
-                    {"//"}
-                  </span>{" "}
-                  {job.company}
-                </>
-              );
-            return (
-              <List.Item key={job._id}>
-                <Box display="flex" gap="md">
-                  <Box flexGrow={1}>
-                    <Box
-                      display="flex"
-                      flexDirection={{
-                        xs: "column",
-                        sm: "row-reverse",
-                      }}
-                      alignItems={{ sm: "center" }}
-                      justifyContent={{ sm: "space-between" }}
-                      gap="sm"
-                      maxWidth="text"
-                    >
-                      <Text color="foregroundNeutral" fontSize="sm">
-                        {new Date(job.startDate).getFullYear()} &mdash;{" "}
-                        {job.endDate
-                          ? new Date(job.endDate).getFullYear()
-                          : "Now"}
+      <Grid.Container>
+        <Grid.Column span="2/3">
+          <Heading>Experience &not;</Heading>
+        </Grid.Column>
+      </Grid.Container>
+
+      <Spacer height="xl" />
+
+      <List.Container>
+        {jobs.map((job) => {
+          return (
+            <List.Item key={job._id}>
+              <Grid.Container>
+                <Grid.Column span="1/1">
+                  <Heading>{job.company}</Heading>
+                </Grid.Column>
+
+                <Grid.Column span="2/2">
+                  <Text>{job.description}</Text>
+                  {job.tags ? (
+                    <>
+                      <Spacer height="sm" />
+                      <Text fontSize="sm" color="foregroundNeutral">
+                        {formatTags(job.tags)}
                       </Text>
-                      <Heading>{heading}</Heading>
-                    </Box>
-                    <Spacer height="sm" />
-                    <Text>{job.location ? job.location : "Remote"}</Text>
-                    {job.tags ? (
-                      <>
-                        <Spacer height="sm" />
-                        <Text fontSize="sm" color="foregroundNeutral">
-                          {formatTags(job.tags)}
-                        </Text>
-                      </>
-                    ) : null}
-                  </Box>
-                </Box>
-              </List.Item>
-            );
-          })}
-        </List>
-      </Box>
+                    </>
+                  ) : null}
+                </Grid.Column>
 
-      <Spacer height="xxxxl" />
+                <Grid.Column span="4/4">
+                  <Text color="foregroundNeutral" fontSize="sm">
+                    {new Date(job.startDate).getFullYear()} &mdash;{" "}
+                    {job.endDate ? new Date(job.endDate).getFullYear() : "Now"}
+                  </Text>
+                </Grid.Column>
+              </Grid.Container>
+            </List.Item>
+          );
+        })}
+      </List.Container>
 
-      <Box as="section" maxWidth="container" marginX="auto" position="relative">
-        <Box as="header" maxWidth={{ md: "text" }} marginX="auto">
-          <Heading fontSize="xl">Recommendations</Heading>
-        </Box>
-        <Spacer height="xxl" />
-        <Box
-          display="flex"
-          flexDirection={{ xs: "column", sm: "row" }}
-          alignItems={{ sm: "flex-start" }}
-          gap="xl"
-        >
-          {recommendations.map((col, colIdx) => {
-            return (
-              <Box
-                key={colIdx}
-                display="flex"
-                flexDirection="column"
-                flexGrow={1}
-                gap="xl"
-              >
-                {col.map((rec, recIdx) => {
-                  return (
-                    <Card key={recIdx}>
-                      <figure>
-                        <blockquote>
-                          <Text>{rec.text}</Text>
-                        </blockquote>
-                        <Spacer height="lg" />
-                        <Box as="figcaption" display="flex" gap="md">
-                          {/* {rec.avatar ? (
-                            <Box
-                              display="flex"
-                              alignItems="flex-start"
-                              flexShrink={0}
-                            >
-                              <Image
-                                src={rec.avatar}
-                                width={32}
-                                height={32}
-                                alt=""
-                                style={{ borderRadius: 6 }}
-                              />
-                            </Box>
-                          ) : null} */}
-                          <Box>
-                            <Text>{rec.name}</Text>
-                            <Text color="foregroundNeutral" fontSize="sm">
-                              {rec.title}, {rec.company}
-                            </Text>
-                          </Box>
-                        </Box>
-                      </figure>
-                    </Card>
-                  );
-                })}
-              </Box>
-            );
-          })}
-        </Box>
-      </Box>
+      <Spacer height="xxxl" />
 
-      <Spacer height="xxxxl" />
+      <Grid.Container>
+        <Grid.Column span="2/3">
+          <Heading>Recommendations &not;</Heading>
+        </Grid.Column>
+      </Grid.Container>
 
-      <Box as="section" maxWidth="text" marginX="auto">
-        <header>
-          <Heading fontSize="xl">Connect</Heading>
-        </header>
-        <Spacer height="xxl" />
-        <List>
-          <List.Item>
-            <Text>
-              <Link href="https://twitter.com/hybrid_alex">Twitter</Link>
-            </Text>
-          </List.Item>
-          <List.Item>
-            <Text>
-              <Link href="https://github.com/alexcarpenter">Github</Link>
-            </Text>
-          </List.Item>
-          <List.Item>
-            <Text>
-              <Link href="https://www.youtube.com/channel/UC2jJoQlzvLPvnYfowAEVaOg">
-                YouTube
-              </Link>
-            </Text>
-          </List.Item>
-          <List.Item>
-            <Text>
-              <Link href="https://www.linkedin.com/in/imalexcarpenter/">
-                LinkedIn
-              </Link>
-            </Text>
-          </List.Item>
-        </List>
-      </Box>
+      <Spacer height="xl" />
+
+      <List.Container>
+        {recommendations.map((recommendation) => {
+          return (
+            <List.Item key={recommendation._id}>
+              <Grid.Container>
+                <Grid.Column span="1/1">
+                  <Heading>{recommendation.name}</Heading>
+                </Grid.Column>
+
+                <Grid.Column span="2/2">
+                  <Text>{recommendation.text}</Text>
+                </Grid.Column>
+
+                <Grid.Column span="4/4">
+                  <Text color="foregroundNeutral" fontSize="sm">
+                    {recommendation.title}
+                  </Text>
+                  <Text color="foregroundNeutral" fontSize="sm">
+                    {recommendation.company}
+                  </Text>
+                </Grid.Column>
+              </Grid.Container>
+            </List.Item>
+          );
+        })}
+      </List.Container>
     </>
   );
 };
@@ -236,13 +131,7 @@ export async function getStaticProps() {
   return {
     props: {
       jobs,
-      recommendations: partition(
-        (rec: Recommendation) =>
-          ["Jimmy Merritello", "Amy Stuart", "Andrew Possehl"].includes(
-            rec.name
-          ),
-        recommendations
-      ),
+      recommendations,
     },
   };
 }

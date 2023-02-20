@@ -6,7 +6,7 @@ type VisuallyHiddenProps<C extends React.ElementType> =
   PolymorphicComponentProps<
     C,
     {
-      as?: "h2" | "h3" | "p" | "span";
+      as?: "h1" | "h2" | "h3" | "p" | "span";
       children: React.ReactNode;
     }
   >;

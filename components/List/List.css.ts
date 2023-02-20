@@ -1,12 +1,13 @@
-import { globalStyle, style } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import { vars } from "styles/vars.css";
 
-export const root = style({});
+export const list = style({
+  position: "relative",
+});
 
-export const item = style({});
-
-globalStyle(`${root} > li + li`, {
-  borderTop: `1px solid ${vars.color.border}`,
-  marginBlockStart: vars.spacing.xxl,
-  paddingBlockStart: vars.spacing.xxl,
+export const item = style({
+  paddingTop: vars.spacing.lg,
+  paddingBottom: vars.spacing.lg,
+  borderTop: "1px solid",
+  borderColor: vars.color.border,
 });

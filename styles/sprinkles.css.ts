@@ -1,19 +1,17 @@
-import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
+import {
+  defineProperties,
+  createSprinkles,
+  createMapValueFn,
+  createNormalizeValueFn,
+} from "@vanilla-extract/sprinkles";
 import { vars } from "./vars.css";
 
 const space = vars.spacing;
-const radius = vars.radius;
+const borderRadius = vars.radii;
 const fontSize = vars.fontSize;
 const fontWeight = vars.fontWeight;
 const fontFamily = vars.font;
 const maxWidth = vars.contentWidth;
-
-const columns = {
-  "1/1": `repeat(1, 1fr)`,
-  "1/2": `repeat(2, 1fr)`,
-  "1/3": `repeat(3, 1fr)`,
-  "1/4": `repeat(4, 1fr)`,
-} as const;
 
 const responsiveProperties = defineProperties({
   conditions: {
@@ -24,18 +22,7 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "xs",
   properties: {
-    position: ["relative", "absolute"],
-    display: ["none", "flex", "inline-flex", "grid", "block", "inline"],
-    flexDirection: ["row", "row-reverse", "column"],
-    justifyContent: [
-      "stretch",
-      "flex-start",
-      "center",
-      "flex-end",
-      "space-around",
-      "space-between",
-    ],
-    alignItems: ["stretch", "flex-start", "center", "flex-end"],
+    display: ["block", "inline", "inline-flex", "inline-block", "flex", "grid"],
     paddingTop: space,
     paddingBottom: space,
     paddingLeft: space,
@@ -47,34 +34,27 @@ const responsiveProperties = defineProperties({
     gap: space,
     rowGap: space,
     columnGap: space,
-    gridTemplateColumns: columns,
-    aspectRatio: ["1/1", "4/3"],
     maxWidth: maxWidth,
     width: space,
     height: space,
     fontSize,
-    textAlign: ["left", "center", "right"],
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
     paddingX: ["paddingLeft", "paddingRight"],
     paddingY: ["paddingTop", "paddingBottom"],
-    placeItems: ["justifyContent", "alignItems"],
+    margin: ["marginTop", "marginBottom", "marginRight", "marginLeft"],
     marginX: ["marginLeft", "marginRight"],
     marginY: ["marginTop", "marginBottom"],
-    columns: ["gridTemplateColumns"],
   },
 });
 
 const unresponsiveProperties = defineProperties({
   properties: {
     color: vars.color,
-    borderRadius: radius,
-    border: { true: `1px solid ${vars.color.border}` },
-    flexShrink: [0],
-    flexGrow: [0, 1],
-    fontFamily,
-    fontWeight,
+    borderRadius: borderRadius,
+    fontFamily: fontFamily,
+    fontWeight: fontWeight,
   },
 });
 
@@ -84,3 +64,7 @@ export const sprinkles = createSprinkles(
 );
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];
+
+export const mapResponsiveValue = createMapValueFn(responsiveProperties);
+export const normalizeResponsiveValue =
+  createNormalizeValueFn(responsiveProperties);

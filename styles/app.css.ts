@@ -35,20 +35,11 @@ globalStyle("body", {
   overflowX: "hidden",
 });
 
+globalStyle("html, body, #root, #__next, .container", {
+  height: "100%",
+});
+
 globalStyle(".container", {
-  position: "relative",
   paddingInline: vars.spacing.lg,
-  paddingBlock: vars.spacing.xxxxl,
-});
-
-globalStyle("ul:not([class])", {
-  listStyleType: "disc",
-  display: "grid",
-  paddingInlineStart: vars.spacing.md,
-  gap: vars.spacing.sm,
-});
-
-globalStyle("ul:not([class]) ul:not([class])", {
-  marginTop: vars.spacing.sm,
-  listStyleType: "circle",
+  paddingBlock: vars.spacing.xxxl,
 });

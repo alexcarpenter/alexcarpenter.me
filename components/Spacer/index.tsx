@@ -1,1 +1,1 @@
-export { Spacer } from "./Spacer";
+export * from "./Spacer";
