@@ -1,0 +1,74 @@
+import * as React from "react";
+import type { NextPage } from "next";
+import type { Activity } from "contentlayer/generated";
+import { NextSeo } from "next-seo";
+import * as Grid from "components/Grid";
+import * as List from "components/List";
+import { Heading } from "components/Heading";
+import { Spacer } from "components/Spacer";
+import { Text } from "components/Text";
+import { allActivities } from "contentlayer/generated";
+
+export async function getStaticProps() {
+  const activities = allActivities.sort((a, b) => {
+    return Number(new Date(b.date)) - Number(new Date(a.date));
+  });
+  return {
+    props: {
+      activities,
+    },
+  };
+}
+
+const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
+  return (
+    <>
+      <NextSeo
+        title="Activity"
+        description="Short form thoughts and updates."
+        openGraph={{
+          title: "Activity",
+          description: "Short form thoughts and updates.",
+        }}
+      />
+
+      <Spacer height="xxxl" />
+
+      <Grid.Container>
+        <Grid.Column span="2/3">
+          <Heading fontSize="xl">Activity</Heading>
+          <Spacer height="xxs" />
+          <Text fontSize="md" color="foregroundNeutral">
+            Short form thoughts and updates.
+          </Text>
+        </Grid.Column>
+      </Grid.Container>
+
+      <Spacer height="xxxl" />
+
+      <List.Container>
+        {activities.map((activity) => {
+          return (
+            <List.Item key={activity._id}>
+              <Grid.Container>
+                <Grid.Column>
+                  <Text
+                    as="time"
+                    dateTime={activity.date}
+                    color="foregroundNeutral"
+                    fontSize="sm"
+                  >
+                    {activity.formattedDate}
+                  </Text>
+                </Grid.Column>
+                <Grid.Column span="2/3">Content goes here</Grid.Column>
+              </Grid.Container>
+            </List.Item>
+          );
+        })}
+      </List.Container>
+    </>
+  );
+};
+
+export default Activity;

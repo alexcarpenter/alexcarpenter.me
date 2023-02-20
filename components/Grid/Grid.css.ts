@@ -19,7 +19,7 @@ const columns = {
 export const container = style({
   display: "grid",
   gridTemplateColumns: `repeat(4, 1fr)`,
-  columnGap: vars.spacing.lg,
+  columnGap: vars.spacing.xxl,
 });
 
 // Column
