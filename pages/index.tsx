@@ -25,7 +25,7 @@ const Home: NextPage<{
       <Grid.Container>
         <Grid.Column
           colStart={{ xs: "1", md: "2" }}
-          colEnd={{ xs: "-1", md: "4" }}
+          colEnd={{ xs: "-1", lg: "4" }}
         >
           <Text fontSize="lg" gradient={true}>
             A detail oriented user interface engineer interested in CSS

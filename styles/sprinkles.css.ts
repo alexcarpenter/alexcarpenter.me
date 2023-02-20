@@ -49,8 +49,6 @@ const responsiveProperties = defineProperties({
     margin: ["marginTop", "marginBottom", "marginRight", "marginLeft"],
     marginX: ["marginLeft", "marginRight"],
     marginY: ["marginTop", "marginBottom"],
-    colStart: ["gridColumnStart"],
-    colEnd: ["gridColumnEnd"],
   },
 });
 
