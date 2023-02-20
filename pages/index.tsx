@@ -70,6 +70,9 @@ const Home: NextPage<{
                     {new Date(job.startDate).getFullYear()} &mdash;{" "}
                     {job.endDate ? new Date(job.endDate).getFullYear() : "Now"}
                   </Text>
+                  <Text color="foregroundNeutral" fontSize="sm">
+                    {job.location ? job.location : "Remote"}
+                  </Text>
                 </Grid.Column>
               </Grid.Container>
             </List.Item>
