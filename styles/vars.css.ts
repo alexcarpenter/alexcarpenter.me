@@ -31,7 +31,7 @@ createGlobalTheme(":root.dark", color, {
   page: grayDark.gray1,
   foreground: grayDark.gray12,
   foregroundNeutral: grayDark.gray11,
-  border: grayDark.gray6,
+  border: grayDark.gray7,
   borderFaint: grayDark.gray4,
   outline: blueDark.blue11,
   underline: blueDark.blue11,

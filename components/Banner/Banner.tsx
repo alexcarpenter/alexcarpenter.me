@@ -16,15 +16,17 @@ const Banner = () => {
         <Grid.Column>
           <Text fontWeight="bold">Routes</Text>
           <Spacer height="xxs" />
-          <Text color="foregroundNeutral">
-            <Link href="/">/index</Link>
-          </Text>
-          <Text color="foregroundNeutral">
-            <Link href="/posts">/posts</Link>
-          </Text>
-          <Text color="foregroundNeutral">
-            <Link href="/activity">/activity</Link>
-          </Text>
+          <nav>
+            <Text color="foregroundNeutral">
+              <Link href="/">/index</Link>
+            </Text>
+            <Text color="foregroundNeutral">
+              <Link href="/posts">/posts</Link>
+            </Text>
+            <Text color="foregroundNeutral">
+              <Link href="/activity">/activity</Link>
+            </Text>
+          </nav>
         </Grid.Column>
 
         <Grid.Column span="4/4">

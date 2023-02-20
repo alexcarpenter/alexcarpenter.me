@@ -50,7 +50,7 @@ const Home: NextPage<{
             <List.Item key={job._id}>
               <Grid.Container>
                 <Grid.Column span="1/1">
-                  <Heading>{job.company}</Heading>
+                  <Heading as="h3">{job.company}</Heading>
                 </Grid.Column>
 
                 <Grid.Column span="2/2">
@@ -59,6 +59,7 @@ const Home: NextPage<{
                     <>
                       <Spacer height="sm" />
                       <Text fontSize="sm" color="foregroundNeutral">
+                        <VisuallyHidden>Tools used:</VisuallyHidden>
                         {formatTags(job.tags)}
                       </Text>
                     </>
@@ -67,10 +68,12 @@ const Home: NextPage<{
 
                 <Grid.Column span="4/4">
                   <Text color="foregroundNeutral" fontSize="sm">
+                    <VisuallyHidden>Duration</VisuallyHidden>
                     {new Date(job.startDate).getFullYear()} &mdash;{" "}
                     {job.endDate ? new Date(job.endDate).getFullYear() : "Now"}
                   </Text>
                   <Text color="foregroundNeutral" fontSize="sm">
+                    <VisuallyHidden>Location</VisuallyHidden>
                     {job.location ? job.location : "Remote"}
                   </Text>
                 </Grid.Column>
@@ -96,7 +99,7 @@ const Home: NextPage<{
             <List.Item key={recommendation._id}>
               <Grid.Container>
                 <Grid.Column span="1/1">
-                  <Heading>{recommendation.name}</Heading>
+                  <Heading as="h3">{recommendation.name}</Heading>
                 </Grid.Column>
 
                 <Grid.Column span="2/2">
