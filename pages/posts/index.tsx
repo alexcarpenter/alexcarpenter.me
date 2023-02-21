@@ -34,9 +34,11 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xl">Posts</Heading>
+          <Heading fontSize="xxl">Posts</Heading>
           <Spacer height="xs" />
-          <Text color="foregroundNeutral">Strong opinions, loosely held.</Text>
+          <Text color="foregroundNeutral" fontSize="lg">
+            Strong opinions, loosely held.
+          </Text>
         </Grid.Column>
       </Grid.Container>
 

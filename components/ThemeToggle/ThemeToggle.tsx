@@ -2,7 +2,6 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { Monitor, Sun, Moon } from "react-feather";
 import { motion } from "framer-motion";
-import { cn } from "lib/utils";
 import { VisuallyHidden } from "components/VisuallyHidden";
 import * as styles from "./ThemeToggle.css";
 
@@ -17,7 +16,7 @@ const ThemeToggle = () => {
   }, []);
 
   if (!mounted) {
-    return null;
+    return <div className={styles.root} />;
   }
 
   const handleClick = (t: theme) => {

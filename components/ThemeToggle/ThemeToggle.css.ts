@@ -9,8 +9,7 @@ export const root = style({
   border: "1px solid",
   borderColor: vars.color.border,
   width: "max-content",
-  paddingTop: vars.spacing.xxs,
-  paddingBottom: vars.spacing.xxs,
+  height: "2.125rem",
   paddingLeft: vars.spacing.xxs,
   paddingRight: vars.spacing.xxs,
   borderRadius: vars.radii.full,
@@ -20,10 +19,22 @@ export const toggle = style({
   position: "relative",
   display: "grid",
   placeItems: "center",
-  width: 32,
-  height: 24,
+  width: "2rem",
+  height: "1.5rem",
   background: "transparent",
-  borderRadius: 24,
+  borderRadius: "1.5rem",
+  ":hover": {
+    color: vars.color.foreground,
+  },
+  ":focus": {
+    outline: "transparent",
+  },
+  ":focus-visible": {
+    outlineWidth: "2px",
+    outlineStyle: "solid",
+    outlineOffset: "2px",
+    outlineColor: vars.color.outline,
+  },
 });
 
 export const toggleVariant = styleVariants({
@@ -34,9 +45,9 @@ export const toggleVariant = styleVariants({
 export const shadow = style({
   position: "absolute",
   inset: 0,
-  width: 32,
-  height: 24,
+  width: "2rem",
+  height: "1.5rem",
   background: vars.color.borderFaint,
-  borderRadius: 24,
+  borderRadius: "1.5rem",
   zIndex: -1,
 });

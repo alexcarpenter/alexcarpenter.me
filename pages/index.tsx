@@ -27,7 +27,7 @@ const Home: NextPage<{
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", lg: "4" }}
         >
-          <Text fontSize="lg" gradient={true}>
+          <Text fontSize="xl" gradient={true}>
             A detail oriented user interface engineer interested in CSS
             architecture, React, TypeScript, animation, and design systems.
             Currently working at HashiCorp, helping build and maintain
@@ -72,7 +72,7 @@ const Home: NextPage<{
                         {" "}
                         <Text as="span" color="foregroundNeutral">
                           <Link href={`/experience/${job.slug}`}>
-                            Read more
+                            Read more&nbsp;→
                           </Link>
                         </Text>
                       </>

@@ -14,17 +14,15 @@ const color = createGlobalThemeContract({
   border: "color-border",
   borderFaint: "color-border-faint",
   outline: "color-outline",
-  underline: "color-underline",
 });
 
 createGlobalTheme(":root.light", color, {
   page: gray.gray1,
   foreground: gray.gray12,
   foregroundNeutral: gray.gray11,
-  border: gray.gray6,
+  border: gray.gray7,
   borderFaint: gray.gray4,
   outline: blue.blue11,
-  underline: blue.blue11,
 });
 
 createGlobalTheme(":root.dark", color, {
@@ -34,7 +32,6 @@ createGlobalTheme(":root.dark", color, {
   border: grayDark.gray7,
   borderFaint: grayDark.gray4,
   outline: blueDark.blue11,
-  underline: blueDark.blue11,
 });
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -49,9 +46,10 @@ const globals = createGlobalTheme(":root", {
     xs: ".75rem", // 12px
     sm: "0.875rem", // 14px
     md: "1rem", // 16px
-    lg: "1.25rem", // 20px
-    xl: "1.5rem", // 24px
-    xxl: "2rem", // 32px
+    lg: "1.125rem", // 18px
+    xl: "1.25rem", // 20px
+    xxl: "1.5rem", // 24px
+    xxxl: "2rem", // 32px
   },
   fontWeight: {
     normal: "400",
@@ -71,6 +69,7 @@ const globals = createGlobalTheme(":root", {
   },
   radii: {
     none: "0",
+    md: "4px",
     full: "9999px",
   },
   contentWidth: {

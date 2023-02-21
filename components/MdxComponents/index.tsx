@@ -1,0 +1,17 @@
+import slugify from "@sindresorhus/slugify";
+import { onlyText } from "react-children-utilities";
+import { Heading } from "components/Heading";
+import { Text } from "components/Text";
+
+export const Components = {
+  ImageCarousel: () => null,
+  Image: () => null,
+  YoutubeEmbed: () => null,
+  p: (props: any) => <Text {...props} />,
+  h2: (props: any) => (
+    <Heading {...props} fontSize="lg" id={slugify(onlyText(props.children))} />
+  ),
+  h3: (props: any) => (
+    <Heading {...props} as="h3" id={slugify(onlyText(props.children))} />
+  ),
+};

@@ -7,6 +7,7 @@ import { MotionConfig } from "framer-motion";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 import SEO from "next-seo.config";
+import { TooltipProvider } from "components/primitives/Tooltip";
 import { Banner } from "components/Banner";
 import { ContentInfo } from "components/ContentInfo";
 
@@ -27,7 +28,8 @@ const Providers = composeProviders(
       defaultTheme: "system",
       disableTransitionOnChange: true,
     },
-  ]
+  ],
+  [TooltipProvider]
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
