@@ -8,7 +8,7 @@ import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 import SEO from "next-seo.config";
 import { Banner } from "components/Banner";
-// import { ContentInfo } from "components/ContentInfo";
+import { ContentInfo } from "components/ContentInfo";
 
 const composeProviders =
   (...providers: any[]) =>
@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <main id="main">
             <Component {...pageProps} />
           </main>
-          {/* <ContentInfo /> */}
+          <ContentInfo />
         </div>
       </Providers>
       <Analytics />

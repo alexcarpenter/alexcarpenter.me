@@ -78,10 +78,6 @@ const Home: NextPage<{
                       </>
                     ) : null}
                   </Text>
-                  <Spacer height="sm" />
-                  <Text fontSize="sm">
-                    <VisuallyHidden>Title</VisuallyHidden> {job.title}
-                  </Text>
                   {job.tags ? (
                     <>
                       <Spacer height="sm" />
@@ -101,10 +97,6 @@ const Home: NextPage<{
                     <VisuallyHidden>Duration</VisuallyHidden>
                     {new Date(job.startDate).getFullYear()} &mdash;{" "}
                     {job.endDate ? new Date(job.endDate).getFullYear() : "Now"}
-                  </Text>
-                  <Text color="foregroundNeutral" fontSize="sm">
-                    <VisuallyHidden>Location</VisuallyHidden>
-                    {job.location ? job.location : "Remote"}
                   </Text>
                 </Grid.Column>
               </Grid.Container>

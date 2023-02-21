@@ -5,12 +5,19 @@ import * as styles from "./Grid.css";
 
 interface GridContainerProps {
   children: React.ReactNode;
+  colGap?: Sprinkles["columnGap"];
   rowGap?: Sprinkles["rowGap"];
 }
 
-const Container = ({ rowGap = "none", children }: GridContainerProps) => {
+const Container = ({
+  colGap = "xxxl",
+  rowGap = "none",
+  children,
+}: GridContainerProps) => {
   return (
-    <div className={cn(styles.container, sprinkles({ rowGap }))}>
+    <div
+      className={cn(styles.container, sprinkles({ columnGap: colGap, rowGap }))}
+    >
       {children}
     </div>
   );
