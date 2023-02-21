@@ -4,7 +4,7 @@ interface ProseProps {
   children: React.ReactNode;
 }
 
-const Prose = ({ children }) => {
+const Prose = ({ children }: ProseProps) => {
   return <div className={styles.root}>{children}</div>;
 };
 
