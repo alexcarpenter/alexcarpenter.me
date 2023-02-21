@@ -39,3 +39,18 @@ globalStyle(".container", {
   paddingInline: vars.spacing.lg,
   paddingBlock: vars.spacing.xxxl,
 });
+
+globalStyle("a:focus, button:focus", {
+  outlineColor: "transparent",
+});
+
+globalStyle("a:focus-visible, button:focus-visible", {
+  outlineWidth: "2px",
+  outlineStyle: "solid",
+  outlineOffset: "2px",
+  outlineColor: vars.color.outline,
+});
+
+globalStyle("img", {
+  height: "auto",
+});

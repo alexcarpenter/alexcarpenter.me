@@ -26,15 +26,6 @@ export const toggle = style({
   ":hover": {
     color: vars.color.foreground,
   },
-  ":focus": {
-    outline: "transparent",
-  },
-  ":focus-visible": {
-    outlineWidth: "2px",
-    outlineStyle: "solid",
-    outlineOffset: "2px",
-    outlineColor: vars.color.outline,
-  },
 });
 
 export const toggleVariant = styleVariants({

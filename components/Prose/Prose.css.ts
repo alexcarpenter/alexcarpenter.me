@@ -39,3 +39,9 @@ globalStyle(`${root} ul li + li`, {
 globalStyle(`${root} ul ul`, {
   marginTop: vars.spacing.xxs,
 });
+
+globalStyle(`${root} blockquote`, {
+  borderLeft: "4px solid",
+  borderColor: vars.color.border,
+  paddingLeft: vars.spacing.md,
+});

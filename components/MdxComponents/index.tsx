@@ -1,11 +1,13 @@
 import slugify from "@sindresorhus/slugify";
 import { onlyText } from "react-children-utilities";
+import Image from "next/image";
 import { Heading } from "components/Heading";
+import { ImageCarousel } from "components/ImageCarousel";
 import { Text } from "components/Text";
 
 export const Components = {
-  ImageCarousel: () => null,
-  Image: () => null,
+  ImageCarousel,
+  Image,
   YoutubeEmbed: () => null,
   p: (props: any) => <Text {...props} />,
   h2: (props: any) => (
