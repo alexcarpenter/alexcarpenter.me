@@ -134,7 +134,7 @@ const Home: NextPage<{
                   colStart={{ xs: "1", md: "2" }}
                   colEnd={{ xs: "-1", md: "4" }}
                 >
-                  <Text>{recommendation.text}</Text>
+                  <Text>&ldquo;{recommendation.text}&rdquo;</Text>
                 </Grid.Column>
 
                 <Grid.Column
