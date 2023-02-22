@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Heading } from "components/Heading";
 import { ImageCarousel } from "components/ImageCarousel";
 import { Text } from "components/Text";
+import { YoutubeEmbed } from "components/YoutubeEmbed";
 
 export const Components = {
   ImageCarousel,
@@ -16,4 +17,5 @@ export const Components = {
   h3: (props: any) => (
     <Heading {...props} as="h3" id={slugify(onlyText(props.children))} />
   ),
+  YoutubeEmbed,
 };
