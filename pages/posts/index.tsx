@@ -53,7 +53,7 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
                   colStart={{ xs: "1", sm: "2" }}
                   colEnd={{ xs: "-1", md: "4" }}
                 >
-                  <Heading>
+                  <Heading fontSize="lg">
                     <Link href={`/posts/${post.slug}`}>{post.title}</Link>
                   </Heading>
                   {post.description ? (
