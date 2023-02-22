@@ -9,7 +9,6 @@ import { YoutubeEmbed } from "components/YoutubeEmbed";
 export const Components = {
   ImageCarousel,
   Image,
-  YoutubeEmbed: () => null,
   p: (props: any) => <Text {...props} />,
   h2: (props: any) => (
     <Heading {...props} fontSize="lg" id={slugify(onlyText(props.children))} />
