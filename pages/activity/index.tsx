@@ -65,8 +65,16 @@ const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
             <List.Item key={activity._id}>
               <Grid.Container rowGap="md">
                 <Grid.Column
+                  colStart={{ xs: "1", sm: "2" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
+                  <ActivityItem activity={activity} />
+                </Grid.Column>
+
+                <Grid.Column
                   colStart={{ xs: "1" }}
                   colEnd={{ xs: "-1", sm: "1" }}
+                  rowStart={{ sm: "1" }}
                 >
                   <Text
                     as="time"
@@ -76,12 +84,6 @@ const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
                   >
                     {activity.formattedDate}
                   </Text>
-                </Grid.Column>
-                <Grid.Column
-                  colStart={{ xs: "1", sm: "2" }}
-                  colEnd={{ xs: "-1", md: "4" }}
-                >
-                  <ActivityItem activity={activity} />
                 </Grid.Column>
               </Grid.Container>
             </List.Item>

@@ -50,19 +50,6 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
             <List.Item key={post._id}>
               <Grid.Container rowGap="md">
                 <Grid.Column
-                  colStart={{ xs: "1" }}
-                  colEnd={{ xs: "-1", sm: "1" }}
-                >
-                  <Text
-                    as="time"
-                    dateTime={post.date}
-                    color="foregroundNeutral"
-                    fontSize="sm"
-                  >
-                    {post.formattedDate}
-                  </Text>
-                </Grid.Column>
-                <Grid.Column
                   colStart={{ xs: "1", sm: "2" }}
                   colEnd={{ xs: "-1", md: "4" }}
                 >
@@ -75,6 +62,21 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
                       <Text color="foregroundNeutral">{post.description}</Text>
                     </>
                   ) : null}
+                </Grid.Column>
+
+                <Grid.Column
+                  colStart={{ xs: "1" }}
+                  colEnd={{ xs: "-1", sm: "1" }}
+                  rowStart={{ sm: "1" }}
+                >
+                  <Text
+                    as="time"
+                    dateTime={post.date}
+                    color="foregroundNeutral"
+                    fontSize="sm"
+                  >
+                    {post.formattedDate}
+                  </Text>
                 </Grid.Column>
               </Grid.Container>
             </List.Item>

@@ -27,15 +27,25 @@ interface GridColumnProps {
   children: React.ReactNode;
   colStart?: Sprinkles["gridColumnStart"];
   colEnd?: Sprinkles["gridColumnEnd"];
+  rowStart?: Sprinkles["gridRowStart"];
+  rowEnd?: Sprinkles["gridRowEnd"];
 }
 
-const Column = ({ colStart, colEnd, children }: GridColumnProps) => {
+const Column = ({
+  colStart,
+  colEnd,
+  rowStart,
+  rowEnd,
+  children,
+}: GridColumnProps) => {
   return (
     <div
       className={cn(
         sprinkles({
           gridColumnStart: colStart,
           gridColumnEnd: colEnd,
+          gridRowStart: rowStart,
+          gridRowEnd: rowEnd,
         })
       )}
     >
