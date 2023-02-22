@@ -71,6 +71,7 @@ export const disc = style({
 export const list = style({
   position: "absolute",
   bottom: vars.spacing.md,
+  left: 0,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
