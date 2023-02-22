@@ -43,7 +43,7 @@ const Home: NextPage<{
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading>Experience &not;</Heading>
+          <Heading fontSize="lg">Experience &not;</Heading>
         </Grid.Column>
       </Grid.Container>
 
@@ -112,7 +112,7 @@ const Home: NextPage<{
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading>Recommendations &not;</Heading>
+          <Heading fontSize="lg">Recommendations &not;</Heading>
         </Grid.Column>
       </Grid.Container>
 

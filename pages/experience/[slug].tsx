@@ -79,7 +79,7 @@ const ExperiencePage: NextPage<{ job: Job }> = ({ job }) => {
               colStart={{ xs: "1", md: "2" }}
               colEnd={{ xs: "-1", md: "4" }}
             >
-              <Heading>Timeline &not;</Heading>
+              <Heading fontSize="lg">Timeline &not;</Heading>
             </Grid.Column>
           </Grid.Container>
 
@@ -107,7 +107,9 @@ const ExperiencePage: NextPage<{ job: Job }> = ({ job }) => {
                       colStart={{ xs: "1", md: "2" }}
                       colEnd={{ xs: "-1", md: "4" }}
                     >
-                      <Heading as="h3">{event.heading}</Heading>
+                      <Heading fontSize="lg" as="h3">
+                        {event.heading}
+                      </Heading>
                       {event.description ? (
                         <>
                           <Spacer height="sm" />
