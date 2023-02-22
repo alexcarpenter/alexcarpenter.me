@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { Menu } from "react-feather";
+import { useRouter } from "next/router";
+// import { Menu } from "react-feather";
 import * as Grid from "components/Grid";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
-import * as styles from "./Banner.css";
+// import * as styles from "./Banner.css";
 
 const Banner = () => {
+  const { asPath } = useRouter();
   return (
     <>
       <Grid.Container rowGap="md">
@@ -30,13 +32,25 @@ const Banner = () => {
           <Spacer height="xxs" />
           <nav>
             <Text color="foregroundNeutral">
-              <Link href="/">/index</Link>
+              <Link href="/" aria-current={asPath === "/" ? "page" : undefined}>
+                /index
+              </Link>
             </Text>
             <Text color="foregroundNeutral">
-              <Link href="/posts">/posts</Link>
+              <Link
+                href="/posts"
+                aria-current={asPath === "/posts" ? "page" : undefined}
+              >
+                /posts
+              </Link>
             </Text>
             <Text color="foregroundNeutral">
-              <Link href="/activity">/activity</Link>
+              <Link
+                href="/activity"
+                aria-current={asPath === "/activity" ? "page" : undefined}
+              >
+                /activity
+              </Link>
             </Text>
           </nav>
         </Grid.Column>
