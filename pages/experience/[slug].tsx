@@ -1,7 +1,6 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import type { Job } from "contentlayer/generated";
-import Link from "next/link";
 import { NextSeo } from "next-seo";
 import { formatTags, formatDate } from "lib/utils";
 import * as Grid from "components/Grid";
@@ -47,6 +46,10 @@ const ExperiencePage: NextPage<{ job: Job }> = ({ job }) => {
           <Spacer height="sm" />
           <Text fontSize="lg" color="foregroundNeutral">
             {job.description}
+          </Text>
+          <Spacer height="sm" />
+          <Text fontSize="lg" color="foregroundNeutral">
+            {job.currently}
           </Text>
           {job.tags ? (
             <>
