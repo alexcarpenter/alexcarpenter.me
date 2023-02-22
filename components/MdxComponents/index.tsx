@@ -2,9 +2,9 @@ import slugify from "@sindresorhus/slugify";
 import { onlyText } from "react-children-utilities";
 import Image from "next/image";
 import { Heading } from "components/Heading";
-import { ImageCarousel } from "components/ImageCarousel";
+import { ImageCarousel } from "components/MdxComponents/ImageCarousel";
 import { Text } from "components/Text";
-import { YoutubeEmbed } from "components/YoutubeEmbed";
+import { YoutubeEmbed } from "components/MdxComponents/YoutubeEmbed";
 
 export const Components = {
   ImageCarousel,
