@@ -43,12 +43,14 @@ const ExperiencePage: NextPage<{ job: Job }> = ({ job }) => {
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xl">{job.company}</Heading>
+          <Heading fontSize="xxl">{job.company}</Heading>
           <Spacer height="sm" />
-          <Text color="foregroundNeutral">{job.description}</Text>
+          <Text fontSize="lg" color="foregroundNeutral">
+            {job.description}
+          </Text>
           {job.tags ? (
             <>
-              <Spacer height="xs" />
+              <Spacer height="sm" />
               <Text color="foregroundNeutral" fontSize="sm">
                 {formatTags(job.tags)}
               </Text>

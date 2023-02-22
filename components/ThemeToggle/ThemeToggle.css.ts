@@ -23,6 +23,8 @@ export const toggle = style({
   height: "1.5rem",
   background: "transparent",
   borderRadius: "1.5rem",
+  transition: "0.2s",
+  transitionProperty: "color",
   ":hover": {
     color: vars.color.foreground,
   },
