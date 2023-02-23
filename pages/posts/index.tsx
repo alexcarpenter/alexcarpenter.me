@@ -34,7 +34,9 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xxl">Posts</Heading>
+          <Heading fontSize="xxl" as="h1">
+            Posts
+          </Heading>
           <Spacer height="xs" />
           <Text color="foregroundNeutral" fontSize="lg">
             Strong opinions, loosely held.

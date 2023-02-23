@@ -49,7 +49,9 @@ const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xxl">Activity</Heading>
+          <Heading fontSize="xxl" as="h1">
+            Activity
+          </Heading>
           <Spacer height="xs" />
           <Text fontSize="lg" color="foregroundNeutral">
             Short form thoughts and updates.

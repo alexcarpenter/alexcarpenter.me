@@ -59,15 +59,6 @@ const PostPage: NextPage<{ post: Post }> = ({ post }) => {
             colStart={{ xs: "1", md: "2" }}
             colEnd={{ xs: "-1", md: "4" }}
           >
-            {/* <Text
-              as="time"
-              dateTime={post.date}
-              color="foregroundNeutral"
-              fontSize="sm"
-            >
-              {post.formattedDate}
-            </Text>
-            <Spacer height="sm" /> */}
             <Heading fontSize="xxl" as="h1">
               {post.title}
             </Heading>
