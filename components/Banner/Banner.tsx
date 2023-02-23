@@ -23,6 +23,10 @@ const routes = [
     label: "activity",
     href: "/activity",
   },
+  {
+    label: "colophon",
+    href: "/colophon",
+  },
 ];
 
 const connect = [
