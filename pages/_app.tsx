@@ -6,13 +6,10 @@ import type { AppProps } from "next/app";
 import { MotionConfig } from "framer-motion";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
-import { ToastProvider } from "@radix-ui/react-toast";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
 import SEO from "next-seo.config";
+import { TooltipProvider } from "components/primitives/Tooltip";
 import { Banner } from "components/Banner";
-import { CommandMenu } from "components/CommandMenu";
-import { SkipLink } from "components/SkipLink";
-import { Toaster } from "components/Toast/Toast";
+import { ContentInfo } from "components/ContentInfo";
 
 const composeProviders =
   (...providers: any[]) =>
@@ -32,24 +29,20 @@ const Providers = composeProviders(
       disableTransitionOnChange: true,
     },
   ],
-  [ToastProvider],
   [TooltipProvider]
 );
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [open, setOpen] = React.useState(false);
   return (
     <>
       <Providers>
         <DefaultSeo {...SEO} />
-        <SkipLink />
         <div className="container">
-          <Banner setOpen={setOpen} />
+          <Banner />
           <main id="main">
             <Component {...pageProps} />
           </main>
-          <CommandMenu open={open} setOpen={setOpen} />
-          <Toaster />
+          <ContentInfo />
         </div>
       </Providers>
       <Analytics />

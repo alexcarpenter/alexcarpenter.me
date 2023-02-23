@@ -4,7 +4,6 @@ import { vars } from "styles/vars.css";
 export const root = style({
   position: "relative",
   overflow: "hidden",
-  borderRadius: vars.radius.lg,
 });
 
 export const carousel = style({
@@ -34,6 +33,9 @@ export const button = style({
   placeItems: "center",
   flexShrink: 0,
   pointerEvents: "auto",
+  ":focus-visible": {
+    outline: "transparent",
+  },
 });
 
 export const prev = style({
@@ -47,12 +49,12 @@ export const next = style({
 });
 
 export const disc = style({
-  width: vars.spacing.xxxl,
-  height: vars.spacing.xxxl,
+  width: vars.spacing.xl,
+  height: vars.spacing.xl,
   background: vars.color.surface,
   display: "grid",
   placeItems: "center",
-  borderRadius: vars.radius.full,
+  borderRadius: vars.radii.full,
   selectors: {
     [`${button}:focus &`]: {
       outline: "transparent",
@@ -69,6 +71,7 @@ export const disc = style({
 export const list = style({
   position: "absolute",
   bottom: vars.spacing.md,
+  left: 0,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -77,18 +80,9 @@ export const list = style({
 });
 
 export const dot = style({
-  width: vars.spacing.sm,
-  height: vars.spacing.sm,
+  width: vars.spacing.xs,
+  height: vars.spacing.xs,
   backgroundColor: vars.color.surface,
-  borderRadius: vars.radius.full,
+  borderRadius: vars.radii.full,
   pointerEvents: "auto",
-  ":focus": {
-    outline: "transparent",
-  },
-  ":focus-visible": {
-    outlineWidth: "2px",
-    outlineStyle: "solid",
-    outlineOffset: "2px",
-    outlineColor: vars.color.outline,
-  },
 });

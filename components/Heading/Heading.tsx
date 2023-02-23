@@ -10,10 +10,7 @@ type HeadingProps<C extends React.ElementType> = PolymorphicComponentProps<
   {
     as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
     fontSize?: Sprinkles["fontSize"];
-    color?: Extract<
-      Sprinkles["color"],
-      "foreground" | "foregroundNeutral" | "foregroundAction"
-    >;
+    color?: Extract<Sprinkles["color"], "foreground" | "foregroundNeutral">;
     children: React.ReactNode;
   }
 >;

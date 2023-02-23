@@ -36,19 +36,21 @@ globalStyle("body", {
 });
 
 globalStyle(".container", {
-  position: "relative",
   paddingInline: vars.spacing.lg,
-  paddingBlock: vars.spacing.xxxxl,
+  paddingBlock: vars.spacing.xxxl,
 });
 
-globalStyle("ul:not([class])", {
-  listStyleType: "disc",
-  display: "grid",
-  paddingInlineStart: vars.spacing.md,
-  gap: vars.spacing.sm,
+globalStyle("a:focus, button:focus", {
+  outlineColor: "transparent",
 });
 
-globalStyle("ul:not([class]) ul:not([class])", {
-  marginTop: vars.spacing.sm,
-  listStyleType: "circle",
+globalStyle("a:focus-visible, button:focus-visible", {
+  outlineWidth: "2px",
+  outlineStyle: "solid",
+  outlineOffset: "2px",
+  outlineColor: vars.color.outline,
+});
+
+globalStyle("img", {
+  height: "auto",
 });

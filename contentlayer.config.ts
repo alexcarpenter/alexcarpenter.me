@@ -120,6 +120,12 @@ export const Job = defineDocumentType(() => ({
       required: false,
     },
   },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (job) => job._raw.sourceFileName.replace(/\.mdx$/, ""),
+    },
+  },
 }));
 
 ////////////////////////////////////////////////////////////////////////////////

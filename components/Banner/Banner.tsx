@@ -1,61 +1,158 @@
-import { VisuallyHidden } from "components/VisuallyHidden";
-import Image from "next/image";
+import * as React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { Menu, X } from "react-feather";
+import * as Dialog from "components/primitives/Dialog";
+import * as Grid from "components/Grid";
+import { Text } from "components/Text";
+import { Spacer } from "components/Spacer";
 import * as styles from "./Banner.css";
+import { VisuallyHidden } from "components/VisuallyHidden";
 
-const Banner = ({
-  setOpen,
-}: {
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const routes = [
+  {
+    label: "index",
+    href: "/",
+  },
+  {
+    label: "posts",
+    href: "/posts",
+  },
+  {
+    label: "activity",
+    href: "/activity",
+  },
+];
+
+const connect = [
+  {
+    label: "Twitter",
+    href: "https://twitter.com/hybrid_alex",
+  },
+  {
+    label: "Github",
+    href: "https://github.com/alexcarpenter",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/imalexcarpenter",
+  },
+];
+
+const Banner = () => {
+  const { asPath } = useRouter();
   return (
     <>
-      <header className={styles.banner}>
-        <Link href="/" className={styles.avatar}>
-          <VisuallyHidden>Home</VisuallyHidden>
-          <Image
-            src="/img/me.jpeg"
-            width={48}
-            height={48}
-            alt="Photo of Alex Carpenter at desk"
-            priority
-          />
-          <span className={styles.logo}>
-            <svg
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              width={32}
-              height={32}
-              focusable={false}
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M16.403 8.22c1.655 0 3.579.45 5.203 1.35v7.421c0 2.494.391 3.275 1.413 3.275 1.443 0 2.496-1.502 2.496-6.369 0-5.228-2.888-8.442-9.141-8.442C9.909 5.455 6.3 9.811 6.3 16.061c0 6.398 3.488 10.424 10.103 10.424 2.075 0 4.36-.45 5.924-1.02l1.113 3.274c-1.895.72-4.541 1.261-7.066 1.261C7.654 30 2 24.563 2 16.06 2 7.889 8.013 2 16.403 2c8.54 0 13.382 5.678 13.382 11.838 0 5.437-2.586 9.373-6.556 9.373-2.405 0-3.698-1.593-4.028-3.065-.723 1.683-2.106 2.945-4.301 2.945-3.818 0-5.502-2.885-5.502-6.76 0-4.927 2.555-8.112 7.005-8.112zm-.872 11.896c1.083 0 1.715-.78 2.045-1.472v-7.15c-.451-.18-.811-.27-1.323-.27-1.563 0-2.556 1.261-2.556 5.137 0 2.764.572 3.755 1.834 3.755z"
-                fill="#fff"
-              />
-            </svg>
-          </span>
-        </Link>
-        <button className={styles.toggle} onClick={() => setOpen(true)}>
-          <VisuallyHidden>Open command menu</VisuallyHidden>
-          <span className={styles.toggleHighlight} />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
-          </svg>
-        </button>
-      </header>
+      <Grid.Container rowGap="md">
+        <Grid.Column colStart={{ xs: "1" }} colEnd={{ xs: "3", md: "1" }}>
+          <Text fontWeight="bold">Alex Carpenter</Text>
+          <Spacer height="xxs" />
+          <Text color="foregroundNeutral">Design Engineer</Text>
+        </Grid.Column>
+
+        <Grid.Column
+          className={styles.mobileColumn}
+          colStart={{ xs: "4" }}
+          colEnd={{ xs: "-1" }}
+        >
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <button className={styles.toggle}>
+                <span className={styles.toggleHighlight} />
+                <VisuallyHidden>Open menu</VisuallyHidden>
+                <Menu />
+              </button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Overlay className={styles.panelOverlay} />
+              <Dialog.Content className={styles.panelContent}>
+                <Text fontWeight="bold">Routes</Text>
+                <nav>
+                  {routes.map((route) => {
+                    return (
+                      <React.Fragment key={route.href}>
+                        <Spacer height="xs" />
+                        <Text color="foregroundNeutral" key={route.href}>
+                          <Link
+                            href={route.href}
+                            aria-current={
+                              asPath === route.href ? "page" : undefined
+                            }
+                          >
+                            /{route.label}
+                          </Link>
+                        </Text>
+                      </React.Fragment>
+                    );
+                  })}
+                </nav>
+
+                <Spacer height="xl" />
+
+                <Text fontWeight="bold">Connect</Text>
+                {connect.map((network) => {
+                  return (
+                    <>
+                      <Spacer height="xs" />
+                      <Text color="foregroundNeutral">
+                        <a href={network.href}>{network.label} ↗</a>
+                      </Text>
+                    </>
+                  );
+                })}
+                <Dialog.Close asChild>
+                  <button className={styles.panelClose}>
+                    <VisuallyHidden>Close menu</VisuallyHidden>
+                    <X />
+                  </button>
+                </Dialog.Close>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
+        </Grid.Column>
+
+        <Grid.Column
+          className={styles.desktopColumn}
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "2", md: "3" }}
+        >
+          <Text fontWeight="bold">Routes</Text>
+          <Spacer height="xxs" />
+          <nav>
+            {routes.map((route) => {
+              return (
+                <Text color="foregroundNeutral" key={route.href}>
+                  <Link
+                    href={route.href}
+                    aria-current={asPath === route.href ? "page" : undefined}
+                  >
+                    /{route.label}
+                  </Link>
+                </Text>
+              );
+            })}
+          </nav>
+        </Grid.Column>
+
+        <Grid.Column
+          className={styles.desktopColumn}
+          colStart={{ xs: "3", md: "4" }}
+          colEnd={{ xs: "-1" }}
+        >
+          <Text fontWeight="bold">Connect</Text>
+          <Spacer height="xxs" />
+          {connect.map((network) => {
+            return (
+              <>
+                <Text color="foregroundNeutral">
+                  <a href={network.href}>{network.label} ↗</a>
+                </Text>
+              </>
+            );
+          })}
+        </Grid.Column>
+      </Grid.Container>
+      <Spacer height="xxxl" />
     </>
   );
 };

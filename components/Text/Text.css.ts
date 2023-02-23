@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "styles/vars.css";
 
 export const root = style({
-  maxWidth: "60ch",
+  maxWidth: vars.contentWidth.prose,
 });
 
 export const gradient = style({

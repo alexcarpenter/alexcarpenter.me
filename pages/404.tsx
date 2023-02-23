@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import { Box } from "components/Box";
+import { NextSeo } from "next-seo";
+import * as Grid from "components/Grid";
 import { Heading } from "components/Heading";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
@@ -8,26 +9,20 @@ import { Spacer } from "components/Spacer";
 const FourOhFour: NextPage = () => {
   return (
     <>
-      <Box
-        as="header"
-        textAlign={{ md: "center" }}
-        maxWidth="container"
-        marginX="auto"
-      >
-        <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
-          404
-        </Heading>
-        <Spacer height="xl" />
-        <Text
-          fontSize={{ xs: "lg", sm: "xl" }}
-          color="foregroundNeutral"
-          style={{
-            display: "inline-flex",
-          }}
+      <NextSeo title="404" />
+
+      <Grid.Container>
+        <Grid.Column
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "-1", md: "4" }}
         >
-          Page not found
-        </Text>
-      </Box>
+          <Heading fontSize="xxl">404</Heading>
+          <Spacer height="sm" />
+          <Text fontSize="lg" color="foregroundNeutral">
+            Page not found
+          </Text>
+        </Grid.Column>
+      </Grid.Container>
     </>
   );
 };

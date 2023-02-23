@@ -2,33 +2,22 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Post } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
-import { allPosts } from "contentlayer/generated";
-import { Box } from "components/Box";
+import Link from "next/link";
+import * as Grid from "components/Grid";
+import * as List from "components/List";
 import { Heading } from "components/Heading";
-import { Link } from "components/Link";
-import { List } from "components/List";
-import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
+import { Text } from "components/Text";
+import { allPosts } from "contentlayer/generated";
 
 export async function getStaticProps() {
-  const postsByYear = allPosts
-    .sort((a, b) => {
-      return Number(new Date(b.date)) - Number(new Date(a.date));
-    })
-    .reduce((years, post) => {
-      const year = new Date(post.date).getFullYear();
-      if (!years[year]) {
-        years[year] = [];
-      }
-      years[year].push(post);
-      return years;
-    }, {} as Record<string, Post[]>);
-  return { props: { title: "Posts", postsByYear } };
+  const posts = allPosts.sort((a, b) => {
+    return Number(new Date(b.date)) - Number(new Date(a.date));
+  });
+  return { props: { title: "Posts", posts } };
 }
 
-const Posts: NextPage<{
-  postsByYear: Record<string, Post[]>;
-}> = ({ postsByYear }) => {
+const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
   return (
     <>
       <NextSeo
@@ -40,87 +29,60 @@ const Posts: NextPage<{
         }}
       />
 
-      <Box
-        as="header"
-        textAlign={{ md: "center" }}
-        maxWidth="container"
-        marginX="auto"
-      >
-        <Heading fontSize={{ xs: "xxl", sm: "xxxl" }} as="h1">
-          Posts
-        </Heading>
-        <Spacer height="sm" />
-        <Text
-          fontSize={{ xs: "lg", sm: "xl" }}
-          color="foregroundNeutral"
-          style={{
-            display: "inline-flex",
-          }}
+      <Grid.Container>
+        <Grid.Column
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "-1", md: "4" }}
         >
-          Strong opinions, loosely held.
-        </Text>
-      </Box>
+          <Heading fontSize="xxl">Posts</Heading>
+          <Spacer height="xs" />
+          <Text color="foregroundNeutral" fontSize="lg">
+            Strong opinions, loosely held.
+          </Text>
+        </Grid.Column>
+      </Grid.Container>
 
-      <Spacer height="xxxxl" />
+      <Spacer height="xxxl" />
 
-      {Object.entries(postsByYear)
-        .reverse()
-        .map(([year, posts], i) => {
+      <List.Container>
+        {posts.map((post) => {
           return (
-            <React.Fragment key={year}>
-              {i > 0 ? <Spacer height="xxxxl" /> : null}
-              <Box as="section" maxWidth={{ md: "text" }} marginX="auto">
-                <header>
-                  <Heading fontSize="xl" id={year}>
-                    {year}
+            <List.Item key={post._id}>
+              <Grid.Container rowGap="md">
+                <Grid.Column
+                  colStart={{ xs: "1", sm: "2" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
+                  <Heading fontSize="lg">
+                    <Link href={`/posts/${post.slug}`}>{post.title}</Link>
                   </Heading>
-                </header>
-                <Spacer height="xxl" />
-                <List>
-                  {posts.map((post) => {
-                    return (
-                      <List.Item key={post._id}>
-                        <Box
-                          display="flex"
-                          flexDirection={{
-                            xs: "column",
-                            sm: "row-reverse",
-                          }}
-                          alignItems={{ sm: "center" }}
-                          justifyContent={{ sm: "space-between" }}
-                          gap="sm"
-                          maxWidth="text"
-                        >
-                          <Text
-                            as="time"
-                            dateTime={post.date}
-                            color="foregroundNeutral"
-                            fontSize="sm"
-                          >
-                            {post.formattedDate}
-                          </Text>
-                          <Heading>
-                            <Link href={`/posts/${post.slug}`}>
-                              {post.title}
-                            </Link>
-                          </Heading>
-                        </Box>
-                        {post.description ? (
-                          <>
-                            <Spacer height={{ xs: "sm", sm: "md" }} />
-                            <Text color="foregroundNeutral">
-                              {post.description}
-                            </Text>
-                          </>
-                        ) : null}
-                      </List.Item>
-                    );
-                  })}
-                </List>
-              </Box>
-            </React.Fragment>
+                  {post.description ? (
+                    <>
+                      <Spacer height="sm" />
+                      <Text color="foregroundNeutral">{post.description}</Text>
+                    </>
+                  ) : null}
+                </Grid.Column>
+
+                <Grid.Column
+                  colStart={{ xs: "1" }}
+                  colEnd={{ xs: "-1", sm: "1" }}
+                  rowStart={{ sm: "1" }}
+                >
+                  <Text
+                    as="time"
+                    dateTime={post.date}
+                    color="foregroundNeutral"
+                    fontSize="sm"
+                  >
+                    {post.formattedDate}
+                  </Text>
+                </Grid.Column>
+              </Grid.Container>
+            </List.Item>
           );
         })}
+      </List.Container>
     </>
   );
 };

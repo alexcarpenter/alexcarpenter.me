@@ -1,100 +1,127 @@
-import { style } from "@vanilla-extract/css";
+import { style, keyframes } from "@vanilla-extract/css";
 import { vars } from "styles/vars.css";
 
-export const banner = style({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  marginInline: "auto",
-  marginBlockEnd: vars.spacing.xxxl,
-  textAlign: "center",
+export const mobileColumn = style({
+  display: "grid",
+  placeItems: "flex-end",
   "@media": {
     "screen and (min-width: 768px)": {
-      maxWidth: vars.contentWidth.text,
-      "::before": {
-        content: "",
-        width: vars.spacing.xxxl,
-      },
+      display: "none",
     },
   },
 });
 
-export const avatar = style({
-  position: "relative",
-  display: "inline-flex",
-  borderRadius: vars.radius.lg,
-  border: `1px solid ${vars.color.borderFaint}`,
-  overflow: "hidden",
-  ":focus": {
-    outline: "transparent",
-  },
-  ":focus-visible": {
-    outlineWidth: "2px",
-    outlineStyle: "solid",
-    outlineOffset: "2px",
-    outlineColor: vars.color.outline,
-  },
-});
-
-export const logo = style({
-  position: "absolute",
-  inset: 0,
-  display: "grid",
-  placeItems: "center",
-  backgroundColor: "rgba(0, 0, 0, .5)",
-  opacity: 0,
-  transitionTimingFunction: "ease-in-out",
-  transitionDuration: "200ms",
-  transitionProperty: "opacity",
-  selectors: {
-    [`${avatar}:hover &`]: {
-      opacity: 1,
-    },
-    [`${avatar}:focus &`]: {
-      opacity: 1,
+export const desktopColumn = style({
+  "@media": {
+    "screen and (max-width: 767px)": {
+      display: "none",
     },
   },
 });
 
 export const toggle = style({
   position: "relative",
-  width: vars.spacing.xxxl,
-  height: vars.spacing.xxxl,
   display: "grid",
   placeItems: "center",
-  borderRadius: vars.radius.md,
-  cursor: "pointer",
-  transitionTimingFunction: "ease-in-out",
-  transitionDuration: "200ms",
-  transitionProperty: "background-color",
-  ":focus": {
-    outline: "transparent",
-  },
-  ":focus-visible": {
-    outlineWidth: "2px",
-    outlineStyle: "solid",
-    outlineOffset: "2px",
-    outlineColor: vars.color.outline,
-  },
+  justifySelf: "flex-end",
+  width: 48,
+  height: 48,
+  borderRadius: vars.radii.full,
 });
 
 export const toggleHighlight = style({
   position: "absolute",
   inset: 0,
-  backgroundColor: vars.color.surfaceHover,
-  borderRadius: vars.radius.md,
-  zIndex: "-1",
-  opacity: 0,
+  backgroundColor: vars.color.surface,
+  zIndex: -1,
+  borderRadius: vars.radii.full,
   transform: "scale(0)",
-  transition: "all ease-in-out 200ms",
+  transition: "0.2s",
+  transitionProperty: "transform",
   selectors: {
     [`${toggle}:hover &`]: {
-      opacity: 1,
-      transform: "scale(1)",
-    },
-    [`${toggle}:focus-visible &`]: {
-      opacity: 1,
       transform: "scale(1)",
     },
   },
+});
+
+/**
+ * Mobile panel
+ */
+
+const fadeIn = keyframes({
+  "0%": { opacity: "0" },
+  "100%": { opacity: "1" },
+});
+
+const fadeOut = keyframes({
+  "0%": { opacity: "1" },
+  "100%": { opacity: "0" },
+});
+
+const slideIn = keyframes({
+  "0%": {
+    transform: "translateX(100%)",
+  },
+  "100%": {
+    transform: "translateX(0%)",
+  },
+});
+
+const slideOut = keyframes({
+  "0%": {
+    transform: "translateX(0%)",
+  },
+  "100%": {
+    transform: "translateX(100%)",
+  },
+});
+
+export const panelOverlay = style({
+  position: "fixed",
+  inset: 0,
+  backgroundColor: vars.color.overlay,
+  backdropFilter: "blur(8px)",
+  selectors: {
+    '&[data-state="open"]': {
+      animationName: fadeIn,
+      animationDuration: "175ms",
+    },
+    '&[data-state="closed"]': {
+      animationName: fadeOut,
+      animationDuration: "175ms",
+    },
+  },
+});
+
+export const panelContent = style({
+  position: "fixed",
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: vars.spacing.xxxxl,
+  backgroundColor: vars.color.surface,
+  padding: vars.spacing.lg,
+  selectors: {
+    '&[data-state="open"]': {
+      animationName: slideIn,
+      animationDuration: "250ms",
+    },
+    '&[data-state="closed"]': {
+      animationName: slideOut,
+      animationDuration: "175ms",
+    },
+  },
+});
+
+export const panelClose = style({
+  position: "absolute",
+  top: vars.spacing.sm,
+  right: vars.spacing.sm,
+  display: "grid",
+  placeItems: "center",
+  justifySelf: "flex-end",
+  width: 48,
+  height: 48,
+  borderRadius: vars.radii.full,
 });
