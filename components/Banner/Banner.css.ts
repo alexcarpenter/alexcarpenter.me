@@ -99,8 +99,10 @@ export const panelContent = style({
   top: 0,
   right: 0,
   bottom: 0,
-  left: vars.spacing.xxxxl,
+  left: vars.spacing.xl,
   backgroundColor: vars.color.surface,
+  borderLeft: "1px solid",
+  borderColor: vars.color.border,
   padding: vars.spacing.lg,
   selectors: {
     '&[data-state="open"]': {
