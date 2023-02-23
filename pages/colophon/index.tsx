@@ -191,7 +191,15 @@ const Colophon: NextPage = () => {
             colEnd={{ xs: "-1", md: "4" }}
           >
             <Prose>
-              <a href="">paco.sh</a>, <a href="">linusrogge.com</a>.
+              <a href="https://paco.me">paco.me</a>{" "}
+              <Text as="span" color="foregroundNeutral" role="none">
+                ⁕
+              </Text>{" "}
+              <a href="https://linusrogge.com">linusrogge.com</a>{" "}
+              <Text as="span" color="foregroundNeutral" role="none">
+                ⁕
+              </Text>{" "}
+              <a href="https://hamishsmyth.com">hamishsmyth.com</a>.
             </Prose>
           </Grid.Column>
         </Grid.Container>
