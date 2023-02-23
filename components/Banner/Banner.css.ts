@@ -82,10 +82,11 @@ export const panelOverlay = style({
   inset: 0,
   backgroundColor: vars.color.overlay,
   backdropFilter: "blur(8px)",
+  animationTimingFunction: "cubic-bezier(0.32, .72, 0, 1)",
   selectors: {
     '&[data-state="open"]': {
       animationName: fadeIn,
-      animationDuration: "175ms",
+      animationDuration: "250ms",
     },
     '&[data-state="closed"]': {
       animationName: fadeOut,
@@ -104,10 +105,11 @@ export const panelContent = style({
   borderLeft: "1px solid",
   borderColor: vars.color.border,
   padding: vars.spacing.lg,
+  animationTimingFunction: "cubic-bezier(0.32, .72, 0, 1)",
   selectors: {
     '&[data-state="open"]': {
       animationName: slideIn,
-      animationDuration: "250ms",
+      animationDuration: "500ms",
     },
     '&[data-state="closed"]': {
       animationName: slideOut,
