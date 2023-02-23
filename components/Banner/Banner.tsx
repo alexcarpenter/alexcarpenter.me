@@ -40,7 +40,20 @@ const connect = [
 ];
 
 const Banner = () => {
-  const { asPath } = useRouter();
+  const router = useRouter();
+  const [panelOpen, setPanelOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleRouteChange = () => {
+      setPanelOpen(false);
+    };
+    router.events.on("routeChangeStart", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <Grid.Container rowGap="md">
@@ -55,7 +68,7 @@ const Banner = () => {
           colStart={{ xs: "4" }}
           colEnd={{ xs: "-1" }}
         >
-          <Dialog.Root>
+          <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>
             <Dialog.Trigger asChild>
               <button className={styles.toggle}>
                 <span className={styles.toggleHighlight} />
@@ -76,7 +89,7 @@ const Banner = () => {
                           <Link
                             href={route.href}
                             aria-current={
-                              asPath === route.href ? "page" : undefined
+                              router.asPath === route.href ? "page" : undefined
                             }
                           >
                             /{route.label}
@@ -124,7 +137,9 @@ const Banner = () => {
                 <Text color="foregroundNeutral" key={route.href}>
                   <Link
                     href={route.href}
-                    aria-current={asPath === route.href ? "page" : undefined}
+                    aria-current={
+                      router.asPath === route.href ? "page" : undefined
+                    }
                   >
                     /{route.label}
                   </Link>
