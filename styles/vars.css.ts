@@ -1,4 +1,11 @@
-import { gray, grayDark, blue, blueDark } from "@radix-ui/colors";
+import {
+  blackA,
+  whiteA,
+  gray,
+  grayDark,
+  blue,
+  blueDark,
+} from "@radix-ui/colors";
 import {
   createGlobalThemeContract,
   createGlobalTheme,
@@ -15,6 +22,7 @@ const color = createGlobalThemeContract({
   border: "color-border",
   borderFaint: "color-border-faint",
   outline: "color-outline",
+  overlay: "color-overlay",
 });
 
 createGlobalTheme(":root.light", color, {
@@ -25,6 +33,7 @@ createGlobalTheme(":root.light", color, {
   border: gray.gray7,
   borderFaint: gray.gray4,
   outline: blue.blue11,
+  overlay: whiteA.whiteA11,
 });
 
 createGlobalTheme(":root.dark", color, {
@@ -35,6 +44,7 @@ createGlobalTheme(":root.dark", color, {
   border: grayDark.gray7,
   borderFaint: grayDark.gray4,
   outline: blueDark.blue11,
+  overlay: blackA.blackA11,
 });
 
 ////////////////////////////////////////////////////////////////////////////////

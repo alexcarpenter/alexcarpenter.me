@@ -25,6 +25,7 @@ const Container = ({
 
 interface GridColumnProps {
   children: React.ReactNode;
+  className?: string;
   colStart?: Sprinkles["gridColumnStart"];
   colEnd?: Sprinkles["gridColumnEnd"];
   rowStart?: Sprinkles["gridRowStart"];
@@ -37,6 +38,7 @@ const Column = ({
   rowStart,
   rowEnd,
   children,
+  className,
 }: GridColumnProps) => {
   return (
     <div
@@ -46,7 +48,8 @@ const Column = ({
           gridColumnEnd: colEnd,
           gridRowStart: rowStart,
           gridRowEnd: rowEnd,
-        })
+        }),
+        className
       )}
     >
       {children}

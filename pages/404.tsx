@@ -16,9 +16,11 @@ const FourOhFour: NextPage = () => {
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xl">404</Heading>
+          <Heading fontSize="xxl">404</Heading>
           <Spacer height="sm" />
-          <Text color="foregroundNeutral">Page not found</Text>
+          <Text fontSize="lg" color="foregroundNeutral">
+            Page not found
+          </Text>
         </Grid.Column>
       </Grid.Container>
     </>
