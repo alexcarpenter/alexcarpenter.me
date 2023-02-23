@@ -21,8 +21,8 @@ const Colophon: NextPage = () => {
           <Heading fontSize="xxl" as="h1">
             Colophon
           </Heading>
-          <Spacer height="xs" />
-          <Text color="foregroundNeutral">
+          <Spacer height="sm" />
+          <Text fontSize="sm" color="foregroundNeutral">
             <a href="https://github.com/alexcarpenter/alexcarpenter-next">
               View source on GitHub ↗
             </a>
@@ -164,6 +164,37 @@ const Colophon: NextPage = () => {
               >
                 <Text color="foregroundNeutral" fontSize="sm">
                   <a href="https://www.framer.com/motion/">Visit ↗</a>
+                </Text>
+              </Grid.Column>
+            </Grid.Container>
+          </List.Item>
+
+          <List.Item>
+            <Grid.Container>
+              <Grid.Column
+                colStart={{ xs: "1" }}
+                colEnd={{ xs: "-1", md: "1" }}
+              >
+                <Heading as="h3">Contentlayer</Heading>
+              </Grid.Column>
+
+              <Grid.Column
+                colStart={{ xs: "1", md: "2" }}
+                colEnd={{ xs: "-1", md: "4" }}
+              >
+                <Text>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Quisquam blanditiis totam velit exercitationem labore eum
+                  voluptatem ipsum earum? Commodi, distinctio?
+                </Text>
+              </Grid.Column>
+
+              <Grid.Column
+                colStart={{ xs: "1", md: "4" }}
+                colEnd={{ xs: "-1", md: "4" }}
+              >
+                <Text color="foregroundNeutral" fontSize="sm">
+                  <a href="https://www.contentlayer.dev/">Visit ↗</a>
                 </Text>
               </Grid.Column>
             </Grid.Container>
