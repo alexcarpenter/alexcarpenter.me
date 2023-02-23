@@ -199,7 +199,15 @@ const Colophon: NextPage = () => {
               <Text as="span" color="foregroundNeutral" role="none">
                 ⁕
               </Text>{" "}
-              <a href="https://hamishsmyth.com">hamishsmyth.com</a>.
+              <a href="https://hamishsmyth.com">hamishsmyth.com</a>{" "}
+              <Text as="span" color="foregroundNeutral" role="none">
+                ⁕
+              </Text>{" "}
+              <a href="https://berkeleygraphics.com">berkeleygraphics.com</a>{" "}
+              <Text as="span" color="foregroundNeutral" role="none">
+                ⁕
+              </Text>{" "}
+              <a href="https://www.sj.land">sj.land</a>.
             </Prose>
           </Grid.Column>
         </Grid.Container>
