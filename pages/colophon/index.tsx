@@ -19,8 +19,10 @@ const Colophon: NextPage = () => {
         >
           <Heading fontSize="xxl">Colophon</Heading>
           <Spacer height="xs" />
-          <Text fontSize="lg" color="foregroundNeutral">
-            About this site.
+          <Text color="foregroundNeutral">
+            <a href="https://github.com/alexcarpenter/alexcarpenter-next">
+              View source on GitHub ↗
+            </a>
           </Text>
         </Grid.Column>
       </Grid.Container>
