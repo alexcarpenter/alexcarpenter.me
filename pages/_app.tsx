@@ -7,7 +7,7 @@ import { MotionConfig } from "framer-motion";
 import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 import SEO from "next-seo.config";
-import { TooltipProvider } from "components/primitives/Tooltip";
+import { Provider as TooltipProvider } from "components/primitives/Tooltip";
 import { Banner } from "components/Banner";
 import { ContentInfo } from "components/ContentInfo";
 
