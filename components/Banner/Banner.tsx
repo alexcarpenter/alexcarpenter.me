@@ -59,6 +59,7 @@ const Banner = () => {
             <Dialog.Trigger asChild>
               <button className={styles.toggle}>
                 <span className={styles.toggleHighlight} />
+                <VisuallyHidden>Open menu</VisuallyHidden>
                 <Menu />
               </button>
             </Dialog.Trigger>
@@ -101,7 +102,7 @@ const Banner = () => {
                 })}
                 <Dialog.Close asChild>
                   <button className={styles.panelClose}>
-                    <VisuallyHidden>Close</VisuallyHidden>
+                    <VisuallyHidden>Close menu</VisuallyHidden>
                     <X />
                   </button>
                 </Dialog.Close>
