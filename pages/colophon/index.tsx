@@ -6,6 +6,7 @@ import * as List from "components/List";
 import { Heading } from "components/Heading";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
+import { Prose } from "components/Prose";
 
 const Colophon: NextPage = () => {
   return (
@@ -17,7 +18,9 @@ const Colophon: NextPage = () => {
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xxl">Colophon</Heading>
+          <Heading fontSize="xxl" as="h1">
+            Colophon
+          </Heading>
           <Spacer height="xs" />
           <Text color="foregroundNeutral">
             <a href="https://github.com/alexcarpenter/alexcarpenter-next">
@@ -166,6 +169,32 @@ const Colophon: NextPage = () => {
             </Grid.Container>
           </List.Item>
         </List.Container>
+      </section>
+
+      <Spacer height="xxxl" />
+
+      <section>
+        <Grid.Container>
+          <Grid.Column
+            colStart={{ xs: "1", md: "2" }}
+            colEnd={{ xs: "-1", md: "4" }}
+          >
+            <Heading fontSize="lg">Inspiration &not;</Heading>
+          </Grid.Column>
+        </Grid.Container>
+
+        <Spacer height="xl" />
+
+        <Grid.Container>
+          <Grid.Column
+            colStart={{ xs: "1", md: "2" }}
+            colEnd={{ xs: "-1", md: "4" }}
+          >
+            <Prose>
+              <a href="">paco.sh</a>, <a href="">linusrogge.com</a>.
+            </Prose>
+          </Grid.Column>
+        </Grid.Container>
       </section>
     </>
   );
