@@ -86,11 +86,11 @@ export const panelOverlay = style({
   selectors: {
     '&[data-state="open"]': {
       animationName: fadeIn,
-      animationDuration: "250ms",
+      animationDuration: "500ms",
     },
     '&[data-state="closed"]': {
       animationName: fadeOut,
-      animationDuration: "175ms",
+      animationDuration: "250ms",
     },
   },
 });
@@ -104,16 +104,19 @@ export const panelContent = style({
   backgroundColor: vars.color.surface,
   borderLeft: "1px solid",
   borderColor: vars.color.border,
-  padding: vars.spacing.lg,
+  paddingTop: vars.spacing.xxxl,
+  paddingRight: vars.spacing.lg,
+  paddingBottom: vars.spacing.xxxl,
+  paddingLeft: vars.spacing.lg,
   animationTimingFunction: "cubic-bezier(0.32, .72, 0, 1)",
   selectors: {
     '&[data-state="open"]': {
       animationName: slideIn,
-      animationDuration: "500ms",
+      animationDuration: "750ms",
     },
     '&[data-state="closed"]': {
       animationName: slideOut,
-      animationDuration: "175ms",
+      animationDuration: "250ms",
     },
   },
 });
