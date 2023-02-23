@@ -22,10 +22,21 @@ const routes = [
     label: "activity",
     href: "/activity",
   },
-  // {
-  //   label: "colophon",
-  //   href: "/colophon",
-  // },
+];
+
+const connect = [
+  {
+    label: "Twitter",
+    href: "https://twitter.com/hybrid_alex",
+  },
+  {
+    label: "Github",
+    href: "https://github.com/alexcarpenter",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/imalexcarpenter",
+  },
 ];
 
 const Banner = () => {
@@ -78,20 +89,16 @@ const Banner = () => {
                 <Spacer height="xl" />
 
                 <Text fontWeight="bold">Connect</Text>
-                <Spacer height="xs" />
-                <Text color="foregroundNeutral">
-                  <a href="https://twitter.com/hybrid_alex">Twitter ↗</a>
-                </Text>
-                <Spacer height="xs" />
-                <Text color="foregroundNeutral">
-                  <a href="https://github.com/alexcarpenter">Github ↗</a>
-                </Text>
-                <Spacer height="xs" />
-                <Text color="foregroundNeutral">
-                  <a href="https://www.linkedin.com/in/imalexcarpenter/">
-                    LinkedIn ↗
-                  </a>
-                </Text>
+                {connect.map((network) => {
+                  return (
+                    <>
+                      <Spacer height="xs" />
+                      <Text color="foregroundNeutral">
+                        <a href={network.href}>{network.label} ↗</a>
+                      </Text>
+                    </>
+                  );
+                })}
                 <Dialog.Close asChild>
                   <button className={styles.panelClose}>
                     <VisuallyHidden>Close</VisuallyHidden>
@@ -133,17 +140,15 @@ const Banner = () => {
         >
           <Text fontWeight="bold">Connect</Text>
           <Spacer height="xxs" />
-          <Text color="foregroundNeutral">
-            <a href="https://twitter.com/hybrid_alex">Twitter ↗</a>
-          </Text>
-          <Text color="foregroundNeutral">
-            <a href="https://github.com/alexcarpenter">Github ↗</a>
-          </Text>
-          <Text color="foregroundNeutral">
-            <a href="https://www.linkedin.com/in/imalexcarpenter/">
-              LinkedIn ↗
-            </a>
-          </Text>
+          {connect.map((network) => {
+            return (
+              <>
+                <Text color="foregroundNeutral">
+                  <a href={network.href}>{network.label} ↗</a>
+                </Text>
+              </>
+            );
+          })}
         </Grid.Column>
       </Grid.Container>
       <Spacer height="xxxl" />
