@@ -1,10 +1,10 @@
 export {
-  TooltipProvider,
-  Tooltip,
-  TooltipTrigger,
-  TooltipPortal,
-  TooltipContent,
-  TooltipArrow,
+  Provider,
+  Root,
+  Trigger,
+  Portal,
+  Content,
+  Arrow,
 } from "@radix-ui/react-tooltip";
 export type {
   TooltipProps,
