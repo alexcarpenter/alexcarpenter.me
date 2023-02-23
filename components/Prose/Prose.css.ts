@@ -3,6 +3,7 @@ import { vars } from "styles/vars.css";
 
 export const root = style({
   position: "relative",
+  maxWidth: vars.contentWidth.prose,
 });
 
 globalStyle(`${root} > * + *`, {
