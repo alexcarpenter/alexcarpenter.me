@@ -114,12 +114,12 @@ const Banner = () => {
                 <Text fontWeight="bold">Connect</Text>
                 {connect.map((network) => {
                   return (
-                    <>
+                    <React.Fragment key={network.href}>
                       <Spacer height="xs" />
                       <Text color="foregroundNeutral">
                         <a href={network.href}>{network.label} ↗</a>
                       </Text>
-                    </>
+                    </React.Fragment>
                   );
                 })}
                 <Dialog.Close asChild>

@@ -21,8 +21,8 @@ const Colophon: NextPage = () => {
           <Heading fontSize="xxl" as="h1">
             Colophon
           </Heading>
-          <Spacer height="sm" />
-          <Text fontSize="sm" color="foregroundNeutral">
+          <Spacer height="xs" />
+          <Text color="foregroundNeutral">
             <a href="https://github.com/alexcarpenter/alexcarpenter-next">
               View source on GitHub ↗
             </a>
@@ -46,7 +46,7 @@ const Colophon: NextPage = () => {
 
         <List.Container>
           <List.Item>
-            <Grid.Container>
+            <Grid.Container rowGap="md">
               <Grid.Column
                 colStart={{ xs: "1" }}
                 colEnd={{ xs: "-1", md: "1" }}
@@ -58,11 +58,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Quisquam blanditiis totam velit exercitationem labore eum
-                  voluptatem ipsum earum? Commodi, distinctio?
-                </Text>
+                <Text>Framework</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -77,7 +73,7 @@ const Colophon: NextPage = () => {
           </List.Item>
 
           <List.Item>
-            <Grid.Container>
+            <Grid.Container rowGap="md">
               <Grid.Column
                 colStart={{ xs: "1" }}
                 colEnd={{ xs: "-1", md: "1" }}
@@ -89,11 +85,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Quisquam blanditiis totam velit exercitationem labore eum
-                  voluptatem ipsum earum? Commodi, distinctio?
-                </Text>
+                <Text>Styling</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -108,7 +100,7 @@ const Colophon: NextPage = () => {
           </List.Item>
 
           <List.Item>
-            <Grid.Container>
+            <Grid.Container rowGap="md">
               <Grid.Column
                 colStart={{ xs: "1" }}
                 colEnd={{ xs: "-1", md: "1" }}
@@ -120,11 +112,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Quisquam blanditiis totam velit exercitationem labore eum
-                  voluptatem ipsum earum? Commodi, distinctio?
-                </Text>
+                <Text>Accessibility</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -139,7 +127,7 @@ const Colophon: NextPage = () => {
           </List.Item>
 
           <List.Item>
-            <Grid.Container>
+            <Grid.Container rowGap="md">
               <Grid.Column
                 colStart={{ xs: "1" }}
                 colEnd={{ xs: "-1", md: "1" }}
@@ -151,11 +139,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Quisquam blanditiis totam velit exercitationem labore eum
-                  voluptatem ipsum earum? Commodi, distinctio?
-                </Text>
+                <Text>Animation</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -170,7 +154,7 @@ const Colophon: NextPage = () => {
           </List.Item>
 
           <List.Item>
-            <Grid.Container>
+            <Grid.Container rowGap="md">
               <Grid.Column
                 colStart={{ xs: "1" }}
                 colEnd={{ xs: "-1", md: "1" }}
@@ -182,11 +166,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Quisquam blanditiis totam velit exercitationem labore eum
-                  voluptatem ipsum earum? Commodi, distinctio?
-                </Text>
+                <Text>Data</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -238,7 +218,15 @@ const Colophon: NextPage = () => {
               <Text as="span" color="foregroundNeutral" role="none">
                 ⁕
               </Text>{" "}
-              <a href="https://www.sj.land">sj.land</a>.
+              <a href="https://www.sj.land">sj.land</a>{" "}
+              <Text as="span" color="foregroundNeutral" role="none">
+                ⁕
+              </Text>{" "}
+              <a href="https://rauno.me">rauno.me</a>{" "}
+              <Text as="span" color="foregroundNeutral" role="none">
+                ⁕
+              </Text>{" "}
+              <a href="https://joebell.co.uk">joebell.co.uk</a>
             </Prose>
           </Grid.Column>
         </Grid.Container>
