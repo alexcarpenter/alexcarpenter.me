@@ -6,7 +6,7 @@ import { getState } from "./utils";
 
 const TextScrambler = ({
   children,
-  speed = 0.35,
+  speed = 0.3,
 }: {
   children: string;
   speed?: number;
@@ -17,13 +17,13 @@ const TextScrambler = ({
   const [[unscrambled, scrambled], setScrambledText] = React.useState(
     getState(children, size, 0)
   );
-  const [windowStart, increment] = React.useReducer((state) => state + 1, 0);
-  const finished = windowStart > size;
+  const [start, increment] = React.useReducer((state) => state + 1, 0);
+  const finished = start > size;
 
   useInterval(() => increment(), finished ? null : 30 / speed);
   useInterval(
     () => {
-      setScrambledText(getState(children, size, windowStart));
+      setScrambledText(getState(children, size, start));
     },
     finished ? null : 30 / speed
   );
