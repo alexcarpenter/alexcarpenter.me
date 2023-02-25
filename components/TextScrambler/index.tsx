@@ -17,13 +17,13 @@ const TextScrambler = ({
   const [[unscrambled, scrambled], setScrambledText] = React.useState(
     getState(children, size, 0)
   );
-  const [start, increment] = React.useReducer((state) => state + 1, 0);
-  const finished = start > size;
+  const [count, increment] = React.useReducer((state) => state + 1, 0);
+  const finished = count > size;
 
   useInterval(() => increment(), finished ? null : 30 / speed);
   useInterval(
     () => {
-      setScrambledText(getState(children, size, start));
+      setScrambledText(getState(children, size, count));
     },
     finished ? null : 30 / speed
   );
