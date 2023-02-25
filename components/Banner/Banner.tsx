@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Menu, X } from "react-feather";
 import * as Dialog from "components/primitives/Dialog";
+import { TextScrambler } from "components/TextScrambler";
 import * as Grid from "components/Grid";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
@@ -62,7 +63,9 @@ const Banner = () => {
             <Link href="/">Alex Carpenter</Link>
           </Text>
           <Spacer height="xxs" />
-          <Text color="foregroundNeutral">Design Engineer</Text>
+          <Text color="foregroundNeutral">
+            <TextScrambler>Design Engineer</TextScrambler>
+          </Text>
         </Grid.Column>
 
         <Grid.Column
