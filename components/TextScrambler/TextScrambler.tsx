@@ -9,13 +9,16 @@ import * as styles from "./TextScrambler.css";
  * @see https://www.nan.fyi/experiments/scrambled-text
  */
 
-const TextScrambler = ({
-  children,
-  speed = 0.3,
-}: {
+interface TextScramblerProps {
   children: string;
+  /**
+   * The speed at which to reveal the characters
+   * @default 0.3
+   */
   speed?: number;
-}) => {
+}
+
+const TextScrambler = ({ children, speed = 0.3 }: TextScramblerProps) => {
   const mounted = useMounted();
   const size = children.length;
 
