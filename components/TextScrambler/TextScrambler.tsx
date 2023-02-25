@@ -4,6 +4,8 @@ import { getScrambledState } from "./utils";
 import * as styles from "./TextScrambler.css";
 
 /**
+ * TextScrambler
+ *
  * @see https://www.nan.fyi/experiments/scrambled-text
  */
 
@@ -23,9 +25,9 @@ const TextScrambler = ({
   const [count, increment] = React.useReducer((state) => state + 1, 0);
   const finished = count > size;
 
-  useInterval(() => increment(), finished ? null : 30 / speed);
   useInterval(
     () => {
+      increment();
       setScrambledText(getScrambledState(children, size, count));
     },
     finished ? null : 30 / speed
