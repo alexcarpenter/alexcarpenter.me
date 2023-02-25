@@ -80,7 +80,7 @@ const CHARACTERS = [
   "?",
 ];
 
-const obfuscate = (text: string) => {
+const scramble = (text: string) => {
   const chars = text.split("");
   const obfuscatedChars = chars.map((char) => {
     if (/^\s$/.test(char)) {
@@ -92,12 +92,14 @@ const obfuscate = (text: string) => {
   return obfuscatedChars.join("");
 };
 
-const getState = (text: string, windowSize: number, windowStart: number) => {
+const getScrambledState = (
+  text: string,
+  windowSize: number,
+  windowStart: number
+) => {
   const unscrambled = text.slice(0, windowStart);
-  const scrambled = obfuscate(
-    text.slice(windowStart, windowStart + windowSize)
-  );
+  const scrambled = scramble(text.slice(windowStart, windowStart + windowSize));
   return [unscrambled, scrambled];
 };
 
-export { getState };
+export { getScrambledState };
