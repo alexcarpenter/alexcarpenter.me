@@ -58,7 +58,7 @@ const Banner = () => {
   return (
     <>
       <Grid.Container rowGap="md">
-        <Grid.Column colStart={{ xs: "1" }} colEnd={{ xs: "3", md: "1" }}>
+        <Grid.Column colStart={{ xs: "1" }} colEnd={{ xs: "4", md: "1" }}>
           <Text fontWeight="bold">
             <Link href="/">Alex Carpenter</Link>
           </Text>
