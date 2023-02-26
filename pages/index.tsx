@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
+import { formatTags } from "lib/utils";
 import * as Grid from "components/Grid";
 import * as List from "components/List";
 import { Heading } from "components/Heading";
@@ -10,7 +11,6 @@ import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
 import { allJobs, allRecommendations } from "contentlayer/generated";
 import { VisuallyHidden } from "components/VisuallyHidden";
-import { formatTags } from "lib/utils";
 
 const Home: NextPage<{
   jobs: Job[];

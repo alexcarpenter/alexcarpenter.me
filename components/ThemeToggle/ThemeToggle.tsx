@@ -2,18 +2,15 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { Monitor, Sun, Moon } from "react-feather";
 import { motion } from "framer-motion";
+import { useMounted } from "lib/hooks";
 import { VisuallyHidden } from "components/VisuallyHidden";
 import * as styles from "./ThemeToggle.css";
 
 type theme = "system" | "light" | "dark";
 
 const ThemeToggle = () => {
-  const [mounted, setMounted] = React.useState(false);
+  const mounted = useMounted();
   const { theme, setTheme } = useTheme();
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!mounted) {
     return <div className={styles.root} />;

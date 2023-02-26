@@ -58,7 +58,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>Framework</Text>
+                <Text>Framework... WIP</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -85,7 +85,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>Styling</Text>
+                <Text>Styling... WIP</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -112,7 +112,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>Accessibility</Text>
+                <Text>Accessibility... WIP</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -139,7 +139,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>Animation</Text>
+                <Text>Animation... WIP</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -166,7 +166,7 @@ const Colophon: NextPage = () => {
                 colStart={{ xs: "1", md: "2" }}
                 colEnd={{ xs: "-1", md: "4" }}
               >
-                <Text>Data</Text>
+                <Text>Data... WIP</Text>
               </Grid.Column>
 
               <Grid.Column
@@ -226,7 +226,11 @@ const Colophon: NextPage = () => {
               <Text as="span" color="foregroundNeutral" role="none">
                 ⁕
               </Text>{" "}
-              <a href="https://joebell.co.uk">joebell.co.uk</a>
+              <a href="https://joebell.co.uk">joebell.co.uk</a>{" "}
+              <Text as="span" color="foregroundNeutral" role="none">
+                ⁕
+              </Text>{" "}
+              <a href="https://www.hunterjennings.dev">hunterjennings.dev</a>
             </Prose>
           </Grid.Column>
         </Grid.Container>
