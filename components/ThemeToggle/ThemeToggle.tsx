@@ -21,7 +21,7 @@ const ThemeToggle = () => {
   };
 
   return (
-    <div className={styles.root}>
+    <motion.div className={styles.root} layout layoutRoot>
       <button
         className={
           styles.toggleVariant[theme === "system" ? "active" : "initial"]
@@ -33,6 +33,7 @@ const ThemeToggle = () => {
         {theme === "system" ? (
           <motion.span
             className={styles.shadow}
+            layout
             layoutId="theme-toggle-shadow"
           />
         ) : null}
@@ -48,6 +49,7 @@ const ThemeToggle = () => {
         {theme === "light" ? (
           <motion.span
             className={styles.shadow}
+            layout
             layoutId="theme-toggle-shadow"
           />
         ) : null}
@@ -63,11 +65,12 @@ const ThemeToggle = () => {
         {theme === "dark" ? (
           <motion.span
             className={styles.shadow}
+            layout
             layoutId="theme-toggle-shadow"
           />
         ) : null}
       </button>
-    </div>
+    </motion.div>
   );
 };
 
