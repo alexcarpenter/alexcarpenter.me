@@ -13,12 +13,12 @@ interface TextScramblerProps {
   children: string;
   /**
    * The speed at which to reveal the characters
-   * @default 0.3
+   * @default 0.5
    */
   speed?: number;
 }
 
-const TextScrambler = ({ children, speed = 0.3 }: TextScramblerProps) => {
+const TextScrambler = ({ children, speed = 0.5 }: TextScramblerProps) => {
   const mounted = useMounted();
   const size = children.length;
 

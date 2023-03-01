@@ -1,6 +1,34 @@
 import { style, keyframes } from "@vanilla-extract/css";
 import { vars } from "styles/vars.css";
 
+const fadeIn = keyframes({
+  "0%": { opacity: "0" },
+  "100%": { opacity: "1" },
+});
+
+const fadeOut = keyframes({
+  "0%": { opacity: "1" },
+  "100%": { opacity: "0" },
+});
+
+const slideIn = keyframes({
+  "0%": {
+    transform: "translateX(100%)",
+  },
+  "100%": {
+    transform: "translateX(0%)",
+  },
+});
+
+// const slideOut = keyframes({
+//   "0%": {
+//     transform: "translateX(0%)",
+//   },
+//   "100%": {
+//     transform: "translateX(100%)",
+//   },
+// });
+
 export const mobileColumn = style({
   display: "grid",
   placeItems: "flex-end",
@@ -49,34 +77,6 @@ export const toggleHighlight = style({
  * Mobile panel
  */
 
-const fadeIn = keyframes({
-  "0%": { opacity: "0" },
-  "100%": { opacity: "1" },
-});
-
-const fadeOut = keyframes({
-  "0%": { opacity: "1" },
-  "100%": { opacity: "0" },
-});
-
-const slideIn = keyframes({
-  "0%": {
-    transform: "translateX(100%)",
-  },
-  "100%": {
-    transform: "translateX(0%)",
-  },
-});
-
-const slideOut = keyframes({
-  "0%": {
-    transform: "translateX(0%)",
-  },
-  "100%": {
-    transform: "translateX(100%)",
-  },
-});
-
 export const panelOverlay = style({
   position: "fixed",
   inset: 0,
@@ -115,7 +115,7 @@ export const panelContent = style({
       animationDuration: "750ms",
     },
     '&[data-state="closed"]': {
-      animationName: slideOut,
+      animationName: fadeOut,
       animationDuration: "250ms",
     },
   },
