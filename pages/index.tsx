@@ -9,8 +9,8 @@ import * as List from "components/List";
 import { Heading } from "components/Heading";
 import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
-import { allJobs, allRecommendations } from "contentlayer/generated";
 import { VisuallyHidden } from "components/VisuallyHidden";
+import { allJobs, allRecommendations } from "contentlayer/generated";
 
 const Home: NextPage<{
   jobs: Job[];
@@ -69,17 +69,19 @@ const Home: NextPage<{
                     colStart={{ xs: "1", md: "2" }}
                     colEnd={{ xs: "-1", md: "4" }}
                   >
-                    <Text>{job.description}</Text>
-                    {job.slug === "hashicorp" ? (
-                      <>
-                        <Spacer height="xxs" />
-                        <Text color="foregroundNeutral">
-                          <Link href={`/experience/${job.slug}`}>
-                            Read more
-                          </Link>
-                        </Text>
-                      </>
-                    ) : null}
+                    <Text>
+                      {job.description}
+                      {job.slug === "hashicorp" ? (
+                        <>
+                          {" "}
+                          <Text as="span" color="foregroundNeutral">
+                            <Link href={`/experience/${job.slug}`}>
+                              Read more
+                            </Link>
+                          </Text>
+                        </>
+                      ) : null}
+                    </Text>
                     {job.tags ? (
                       <>
                         <Spacer height="sm" />
