@@ -6,6 +6,7 @@ import { NextSeo } from "next-seo";
 import { formatTags } from "lib/utils";
 import * as Grid from "components/Grid";
 import * as List from "components/List";
+import { Button } from "components/Button";
 import { Heading } from "components/Heading";
 import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
@@ -36,6 +37,12 @@ const Home: NextPage<{
               public-facing HashiCorp websites and web applications with
               Next.js.
             </Text>
+
+            <Spacer height="lg" />
+
+            <Button asChild>
+              <Link href="/">View resume</Link>
+            </Button>
           </Grid.Column>
         </Grid.Container>
       </header>
