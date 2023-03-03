@@ -107,9 +107,7 @@ const ExperiencePage: NextPage<{ job: Job }> = ({ job }) => {
                       colStart={{ xs: "1", md: "2" }}
                       colEnd={{ xs: "-1", md: "4" }}
                     >
-                      <Heading fontSize="lg" as="h3">
-                        {event.heading}
-                      </Heading>
+                      <Heading as="h3">{event.heading}</Heading>
                       {event.description ? (
                         <>
                           <Spacer height="sm" />
