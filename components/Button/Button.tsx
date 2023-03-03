@@ -1,11 +1,12 @@
 import { Slot } from "@radix-ui/react-slot";
 import * as styles from "./Button.css";
 
-type ButtonProps = ButtonVariants & {
+interface ButtonProps {
   asChild?: boolean;
-};
+  children?: React.ReactNode;
+}
 
-const Button = ({ asChild, size = "sm", ...props }: ButtonProps) => {
+const Button = ({ asChild, ...props }: ButtonProps) => {
   const Comp = asChild ? Slot : "button";
   return <Comp className={styles.root} {...props} />;
 };

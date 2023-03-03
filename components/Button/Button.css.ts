@@ -14,6 +14,10 @@ export const root = style({
   borderRadius: vars.radii.md,
 });
 
+globalStyle(`.dark ${root}`, {
+  backgroundImage: `linear-gradient(to bottom right, ${vars.color.surface}, ${vars.color.page})`,
+});
+
 globalStyle(`.dark ${root}::before`, {
   content: "",
   position: "absolute",
