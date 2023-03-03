@@ -12,6 +12,7 @@
     "@next/font": "^13.0.7",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-dialog": "^1.0.2",
+    "@radix-ui/react-slot": "^1.0.1",
     "@radix-ui/react-toast": "^1.0.0",
     "@radix-ui/react-tooltip": "^1.0.0",
     "@sindresorhus/slugify": "^2.1.0",
