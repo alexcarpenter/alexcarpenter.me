@@ -7,8 +7,8 @@ import * as Grid from "components/Grid";
 import { Text } from "components/Text";
 import { TextScrambler } from "components/TextScrambler";
 import { Spacer } from "components/Spacer";
-import * as styles from "./Banner.css";
 import { VisuallyHidden } from "components/VisuallyHidden";
+import * as styles from "./Banner.css";
 
 const routes = [
   {
