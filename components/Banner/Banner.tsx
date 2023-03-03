@@ -167,11 +167,9 @@ const Banner = () => {
           <Spacer height="xxs" />
           {connect.map((network) => {
             return (
-              <>
-                <Text color="foregroundNeutral">
-                  <a href={network.href}>{network.label} ↗</a>
-                </Text>
-              </>
+              <Text color="foregroundNeutral" key={network.href}>
+                <a href={network.href}>{network.label} ↗</a>
+              </Text>
             );
           })}
         </Grid.Column>
