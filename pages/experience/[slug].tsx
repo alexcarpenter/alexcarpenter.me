@@ -61,7 +61,7 @@ const ExperiencePage: NextPage<{ job: Job }> = ({ job }) => {
           ) : null}
           {job.tags ? (
             <>
-              <Spacer height="md" />
+              <Spacer height="lg" />
               <Text color="foregroundNeutral" fontSize="sm">
                 {formatTags(job.tags)}
               </Text>
