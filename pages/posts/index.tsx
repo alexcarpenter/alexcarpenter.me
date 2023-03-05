@@ -2,22 +2,29 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Post } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
-import Link from "next/link";
+import NextLink from "next/link";
 import * as Grid from "components/Grid";
 import * as List from "components/List";
 import { Heading } from "components/Heading";
+import { Link } from "components/Link";
 import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
 import { allPosts } from "contentlayer/generated";
 
 export async function getStaticProps() {
-  const posts = allPosts.sort((a, b) => {
-    return Number(new Date(b.date)) - Number(new Date(a.date));
-  });
+  const posts = allPosts
+    .sort((a, b) => {
+      return Number(new Date(b.date)) - Number(new Date(a.date));
+    })
+    .map(({ body, _raw, ...p }) => {
+      return p;
+    });
   return { props: { title: "Posts", posts } };
 }
 
-const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
+type PostWithoutBody = Omit<Post, "body" | "_raw">;
+
+const Posts: NextPage<{ posts: PostWithoutBody[] }> = ({ posts }) => {
   return (
     <>
       <NextSeo
@@ -56,7 +63,11 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
                   colEnd={{ xs: "-1", md: "4" }}
                 >
                   <Heading fontSize="lg">
-                    <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+                    <Link underlined={true}>
+                      <NextLink href={`/posts/${post.slug}`}>
+                        {post.title}
+                      </NextLink>
+                    </Link>
                   </Heading>
                   {post.description ? (
                     <>
