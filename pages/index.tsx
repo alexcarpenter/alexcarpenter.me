@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
-import Link from "next/link";
+import NextLink from "next/link";
 import { NextSeo } from "next-seo";
 import { formatTags } from "lib/utils";
 import * as Grid from "components/Grid";
@@ -11,6 +11,7 @@ import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
 import { VisuallyHidden } from "components/VisuallyHidden";
 import { allJobs, allRecommendations } from "contentlayer/generated";
+import { Link } from "components/Link";
 
 const Home: NextPage<{
   jobs: Job[];
@@ -74,11 +75,11 @@ const Home: NextPage<{
                       {job.slug === "hashicorp" ? (
                         <>
                           {" "}
-                          <Text as="span" color="foregroundNeutral">
-                            <Link href={`/experience/${job.slug}`}>
+                          <Link underlined={true}>
+                            <NextLink href={`/experience/${job.slug}`}>
                               Read more
-                            </Link>
-                          </Text>
+                            </NextLink>
+                          </Link>
                         </>
                       ) : null}
                     </Text>
