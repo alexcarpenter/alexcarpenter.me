@@ -10,7 +10,7 @@ interface SpacerProps {
 
 const Spacer = ({ width, height }: SpacerProps) => {
   return React.createElement("span", {
-    "aria-hidden": "",
+    "aria-hidden": "true",
     className: cn(
       sprinkles({ display: width ? "inline-block" : "block", width, height })
     ),
