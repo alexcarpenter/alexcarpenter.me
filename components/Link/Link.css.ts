@@ -3,7 +3,7 @@ import { vars } from "styles/vars.css";
 
 export const underlined = style({
   textDecoration: "underline",
-  textDecorationColor: vars.color.border,
+  textDecorationColor: vars.color.underline,
   textDecorationThickness: "1.5",
   textUnderlineOffset: "1.5",
   ":hover": {

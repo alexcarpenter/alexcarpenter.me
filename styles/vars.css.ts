@@ -21,6 +21,7 @@ const color = createGlobalThemeContract({
   surface: "color-surface",
   border: "color-border",
   borderFaint: "color-border-faint",
+  underline: "color-underline",
   outline: "color-outline",
   overlay: "color-overlay",
 });
@@ -32,6 +33,7 @@ createGlobalTheme(":root.light", color, {
   surface: gray.gray2,
   border: gray.gray7,
   borderFaint: gray.gray4,
+  underline: gray.gray7,
   outline: blue.blue11,
   overlay: whiteA.whiteA11,
 });
@@ -43,6 +45,7 @@ createGlobalTheme(":root.dark", color, {
   surface: grayDark.gray3,
   border: grayDark.gray7,
   borderFaint: grayDark.gray4,
+  underline: grayDark.gray8,
   outline: blueDark.blue11,
   overlay: blackA.blackA11,
 });
