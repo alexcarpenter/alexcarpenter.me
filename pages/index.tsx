@@ -38,10 +38,10 @@ const Home: NextPage<{
               Next.js.
             </Text>
 
-            <Spacer height="lg" />
+            <Spacer height="xl" />
 
             <Button asChild>
-              <Link href="/">View resume</Link>
+              <a href="https://read.cv/alexcarpenter">Read CV</a>
             </Button>
           </Grid.Column>
         </Grid.Container>
