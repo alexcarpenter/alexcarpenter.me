@@ -234,7 +234,11 @@ const Colophon: NextPage = () => {
               <Text as="span" color="foregroundNeutral" role="none">
                 ⁕
               </Text>{" "}
-              <a href="https://chasem.co">chasem.co</a>
+              <a href="https://chasem.co">chasem.co</a>{" "}
+              <Text as="span" color="foregroundNeutral" role="none">
+                ⁕
+              </Text>{" "}
+              <a href="https://frankchimero.com">frankchimero.com</a>
             </Prose>
           </Grid.Column>
         </Grid.Container>
