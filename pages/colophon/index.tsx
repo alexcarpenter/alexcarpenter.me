@@ -8,6 +8,19 @@ import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
 import { Prose } from "components/Prose";
 
+const inspiration = [
+  "https://paco.me/",
+  "https://linusrogge.com/",
+  "https://hamishsmyth.com/",
+  "https://berkeleygraphics.com/",
+  "https://www.sj.land/",
+  "https://rauno.me/",
+  "https://joebell.co.uk/",
+  "https://www.hunterjennings.dev/",
+  "https://chasem.co/",
+  "https://frankchimero.com/",
+];
+
 const Colophon: NextPage = () => {
   return (
     <>
@@ -202,43 +215,21 @@ const Colophon: NextPage = () => {
             colEnd={{ xs: "-1", md: "4" }}
           >
             <Prose>
-              <a href="https://paco.me">paco.me</a>{" "}
-              <Text as="span" color="foregroundNeutral" role="none">
-                ⁕
-              </Text>{" "}
-              <a href="https://linusrogge.com">linusrogge.com</a>{" "}
-              <Text as="span" color="foregroundNeutral" role="none">
-                ⁕
-              </Text>{" "}
-              <a href="https://hamishsmyth.com">hamishsmyth.com</a>{" "}
-              <Text as="span" color="foregroundNeutral" role="none">
-                ⁕
-              </Text>{" "}
-              <a href="https://berkeleygraphics.com">berkeleygraphics.com</a>{" "}
-              <Text as="span" color="foregroundNeutral" role="none">
-                ⁕
-              </Text>{" "}
-              <a href="https://www.sj.land">sj.land</a>{" "}
-              <Text as="span" color="foregroundNeutral" role="none">
-                ⁕
-              </Text>{" "}
-              <a href="https://rauno.me">rauno.me</a>{" "}
-              <Text as="span" color="foregroundNeutral" role="none">
-                ⁕
-              </Text>{" "}
-              <a href="https://joebell.co.uk">joebell.co.uk</a>{" "}
-              <Text as="span" color="foregroundNeutral" role="none">
-                ⁕
-              </Text>{" "}
-              <a href="https://www.hunterjennings.dev">hunterjennings.dev</a>{" "}
-              <Text as="span" color="foregroundNeutral" role="none">
-                ⁕
-              </Text>{" "}
-              <a href="https://chasem.co">chasem.co</a>{" "}
-              <Text as="span" color="foregroundNeutral" role="none">
-                ⁕
-              </Text>{" "}
-              <a href="https://frankchimero.com">frankchimero.com</a>
+              {inspiration.map((url, index) => {
+                return (
+                  <React.Fragment key={url}>
+                    <a href={url}>{new URL(url).hostname}</a>
+                    {index !== inspiration.length - 1 ? (
+                      <>
+                        {" "}
+                        <Text as="span" color="foregroundNeutral" role="none">
+                          ⁕
+                        </Text>{" "}
+                      </>
+                    ) : null}
+                  </React.Fragment>
+                );
+              })}
             </Prose>
           </Grid.Column>
         </Grid.Container>
