@@ -69,6 +69,7 @@ const globals = createGlobalTheme(":root", {
   },
   fontWeight: {
     normal: "400",
+    semiBold: "500",
     bold: "575",
   },
   spacing: {
@@ -86,6 +87,7 @@ const globals = createGlobalTheme(":root", {
   radii: {
     none: "0",
     md: "4px",
+    lg: "6px",
     full: "9999px",
   },
   contentWidth: {

@@ -3,7 +3,7 @@ import * as styles from "./Button.css";
 
 interface ButtonProps {
   asChild?: boolean;
-  children?: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const Button = ({ asChild, ...props }: ButtonProps) => {
