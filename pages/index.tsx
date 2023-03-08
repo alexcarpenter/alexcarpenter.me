@@ -4,9 +4,9 @@ import type { Job, Recommendation } from "contentlayer/generated";
 import NextLink from "next/link";
 import { NextSeo } from "next-seo";
 import { formatTags } from "lib/utils";
+import { buttonStyles } from "styles/button.css";
 import * as Grid from "components/Grid";
 import * as List from "components/List";
-import { Button } from "components/Button";
 import { Heading } from "components/Heading";
 import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
@@ -40,9 +40,9 @@ const Home: NextPage<{
 
             <Spacer height="xl" />
 
-            <Button asChild>
-              <a href="https://read.cv/alexcarpenter">Read CV</a>
-            </Button>
+            <a href="https://read.cv/alexcarpenter" className={buttonStyles}>
+              Read CV
+            </a>
           </Grid.Column>
         </Grid.Container>
       </header>
