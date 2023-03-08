@@ -62,7 +62,7 @@ const Posts: NextPage<{ posts: PostWithoutBody[] }> = ({ posts }) => {
                   colStart={{ xs: "1", sm: "2" }}
                   colEnd={{ xs: "-1", md: "4" }}
                 >
-                  <Heading fontSize="lg">
+                  <Heading>
                     <Link underlined={true}>
                       <NextLink href={`/posts/${post.slug}`}>
                         {post.title}

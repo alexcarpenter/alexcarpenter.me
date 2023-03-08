@@ -16,7 +16,7 @@ globalStyle(`${root} > * + h2, ${root} > * + h3`, {
 
 globalStyle(`${root} a`, {
   textDecoration: "underline",
-  textDecorationColor: vars.color.border,
+  textDecorationColor: vars.color.underline,
   textDecorationThickness: 1.5,
   textUnderlineOffset: 1.5,
 });
