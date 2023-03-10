@@ -40,7 +40,10 @@ const Home: NextPage<{
 
             <Spacer height="xl" />
 
-            <a href="https://read.cv/alexcarpenter" className={buttonStyles}>
+            <a
+              href="https://read.cv/alexcarpenter"
+              className={buttonStyles({ type: "filled" })}
+            >
               Read CV
             </a>
           </Grid.Column>

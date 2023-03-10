@@ -1,3 +1,4 @@
+import { gray } from "@radix-ui/colors";
 import { style, globalStyle } from "@vanilla-extract/css";
 import { vars } from "styles/vars.css";
 
@@ -87,6 +88,10 @@ globalStyle("[data-rehype-pretty-code-title]", {
 globalStyle("pre[data-language]", {
   whiteSpace: "pre",
   backgroundColor: vars.color.surface,
+});
+
+globalStyle("html.light pre[data-language]", {
+  backgroundColor: gray.gray1,
 });
 
 globalStyle("[data-rehype-pretty-code-title] + pre[data-language]", {
