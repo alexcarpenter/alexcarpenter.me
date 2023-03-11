@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useReducedMotion } from "framer-motion";
 import { useInterval, useMounted } from "lib/hooks";
 import { getScrambledState } from "./utils";
 import * as styles from "./TextScrambler.css";
@@ -20,6 +21,7 @@ interface TextScramblerProps {
 
 const TextScrambler = ({ children, speed = 0.5 }: TextScramblerProps) => {
   const mounted = useMounted();
+  const shouldReduceMotion = useReducedMotion();
   const size = children.length;
 
   const [[unscrambled, scrambled], setScrambledText] = React.useState(
@@ -35,6 +37,10 @@ const TextScrambler = ({ children, speed = 0.5 }: TextScramblerProps) => {
     },
     finished ? null : 30 / speed
   );
+
+  if (mounted && shouldReduceMotion) {
+    return <>{children}</>;
+  }
 
   return (
     <span className={styles.root}>

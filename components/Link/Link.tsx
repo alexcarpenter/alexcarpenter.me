@@ -8,8 +8,9 @@ interface LinkProps {
 }
 
 const Link = ({ ...props }: LinkProps) => {
+  const { underlined, ...restProps } = props;
   return (
-    <Slot {...props} className={cn(props.underlined && styles.underlined)} />
+    <Slot {...restProps} className={cn(underlined && styles.underlined)} />
   );
 };
 
