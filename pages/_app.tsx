@@ -36,8 +36,8 @@ const Providers = composeProviders(
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <SkipLink />
       <Providers>
+        <SkipLink />
         <DefaultSeo {...SEO} />
         <div className="container">
           <Banner />
