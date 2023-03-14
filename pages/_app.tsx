@@ -10,6 +10,7 @@ import SEO from "next-seo.config";
 import { Provider as TooltipProvider } from "components/primitives/Tooltip";
 import { Banner } from "components/Banner";
 import { ContentInfo } from "components/ContentInfo";
+import { SkipLink } from "components/SkipLink";
 
 const composeProviders =
   (...providers: any[]) =>
@@ -35,6 +36,7 @@ const Providers = composeProviders(
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <SkipLink />
       <Providers>
         <DefaultSeo {...SEO} />
         <div className="container">
