@@ -68,12 +68,15 @@ globalStyle('[cmdk-dialog][data-state="closed"]', {
 globalStyle("[cmdk-root]", {
   width: "100%",
   backgroundColor: vars.color.page,
+  backgroundImage: `linear-gradient(to bottom right, ${vars.color.page}, ${vars.color.surface})`,
   border: `1px solid ${vars.color.border}`,
   borderRadius: vars.radii.md,
+  overflow: "hidden",
 });
 
 globalStyle("[cmdk-header]", {
   position: "relative",
+  backgroundColor: vars.color.page,
 });
 
 globalStyle("[cmdk-header-esc]", {

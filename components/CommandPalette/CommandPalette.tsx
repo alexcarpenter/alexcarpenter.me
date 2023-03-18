@@ -95,7 +95,7 @@ const CommandPalette = () => {
         <Command.List>
           <Command.Empty>No results found.</Command.Empty>
 
-          <Command.Group heading="Navigation">
+          <Command.Group heading="Navigation &not;">
             <CommandItem
               onSelect={() => {
                 router.push("/");
@@ -140,7 +140,7 @@ const CommandPalette = () => {
             </CommandItem>
           </Command.Group>
 
-          <Command.Group heading="Connect">
+          <Command.Group heading="Connect &not;">
             <CommandItem
               onSelect={() =>
                 window.open("https://twitter.com/hybrid_alex", "_blank")
@@ -173,7 +173,7 @@ const CommandPalette = () => {
             </CommandItem>
           </Command.Group>
 
-          <Command.Group heading="Appearance">
+          <Command.Group heading="Appearance &not;">
             <CommandItem onSelect={handleSetTheme} value="system">
               <Monitor />
               <span>System</span>
@@ -187,7 +187,8 @@ const CommandPalette = () => {
               <span>Dark</span>
             </CommandItem>
           </Command.Group>
-          <Command.Group heading="Commands">
+
+          <Command.Group heading="Commands &not;">
             <CommandItem onSelect={handleCopyUrl} value="copy">
               <Copy />
               <span>Copy current URL</span>
