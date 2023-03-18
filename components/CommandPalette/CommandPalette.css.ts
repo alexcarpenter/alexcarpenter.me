@@ -134,9 +134,9 @@ globalStyle("[cmdk-item]", {
   gap: vars.spacing.sm,
   position: "relative",
   cursor: "pointer",
-  fontSize: vars.fontSize.md,
+  fontSize: vars.fontSize.sm,
   paddingInline: vars.spacing.md,
-  paddingBlock: vars.spacing.sm,
+  paddingBlock: vars.spacing.xs,
 });
 
 globalStyle("[cmdk-item] .content", {

@@ -19,13 +19,6 @@ import {
 } from "react-feather";
 import { motion } from "framer-motion";
 import "./CommandPalette.css";
-import * as styles from "./CommandPalette.css";
-
-const THEMES = {
-  system: "System",
-  dark: "Dark",
-  light: "Light",
-};
 
 const CommandItem = ({
   onSelect,
@@ -108,10 +101,10 @@ const CommandPalette = () => {
                 router.push("/");
                 toggleOpen();
               }}
-              value="home"
+              value="index"
             >
               <Home />
-              <span>Home</span>
+              <span>Index</span>
             </CommandItem>
             <CommandItem
               onSelect={() => {
