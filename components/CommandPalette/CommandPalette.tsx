@@ -18,6 +18,7 @@ import {
   Info,
 } from "react-feather";
 import { motion } from "framer-motion";
+import { useToggle } from "lib/hooks";
 import "./CommandPalette.css";
 
 const CommandItem = ({
@@ -49,7 +50,7 @@ const CommandItem = ({
 const CommandPalette = () => {
   const router = useRouter();
   const { setTheme } = useTheme();
-  const [open, toggleOpen] = React.useReducer((s) => !s, false);
+  const [open, toggleOpen] = useToggle();
 
   // Toggle the menu when ⌘K is pressed
   React.useEffect(() => {

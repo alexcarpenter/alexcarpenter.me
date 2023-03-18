@@ -9,11 +9,17 @@ const Container = ({ children }: ListContainerProps) => {
 };
 
 interface ListItemProps {
+  id?: string;
+  hidden?: boolean;
   children: React.ReactNode;
 }
 
-const Item = ({ children }: ListItemProps) => {
-  return <li className={styles.item}>{children}</li>;
+const Item = ({ id, hidden, children }: ListItemProps) => {
+  return (
+    <li className={styles.item} id={id} hidden={hidden}>
+      {children}
+    </li>
+  );
 };
 
 export { Container, Item };

@@ -16,12 +16,17 @@ export const buttonStyles = recipe({
     border: "1px solid",
     borderColor: "transparent",
     borderRadius: vars.radii.lg,
+    cursor: "pointer",
   },
   variants: {
     type: {
-      filled: {
+      highContrast: {
         backgroundColor: vars.color.surfaceInverted,
         color: vars.color.foregroundInverted,
+      },
+      neutral: {
+        backgroundColor: vars.color.surface,
+        color: vars.color.foreground,
       },
       outlined: {
         borderColor: vars.color.border,
@@ -36,6 +41,14 @@ export const buttonStyles = recipe({
           mask: "linear-gradient(#000, #000) content-box, linear-gradient(#000, #000)",
           maskComposite: "exclude",
           pointerEvents: "none",
+        },
+      },
+      text: {
+        backgroundColor: "transparent",
+        color: vars.color.foregroundNeutral,
+        padding: 0,
+        ":hover": {
+          color: vars.color.foreground,
         },
       },
     },

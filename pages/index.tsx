@@ -3,7 +3,8 @@ import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
 import NextLink from "next/link";
 import { NextSeo } from "next-seo";
-import { formatTags } from "lib/utils";
+import { formatTags, partition } from "lib/utils";
+import { useToggle } from "lib/hooks";
 import { buttonStyles } from "styles/button.css";
 import * as Grid from "components/Grid";
 import * as List from "components/List";
@@ -123,74 +124,132 @@ const Home: NextPage<{
         </List.Container>
       </section>
 
-      {/* <Spacer height="xxxl" />
-
-      <section>
-        <Grid.Container>
-          <Grid.Column
-            colStart={{ xs: "1", md: "2" }}
-            colEnd={{ xs: "-1", md: "4" }}
-          >
-            <Heading fontSize="lg">Interests &not;</Heading>
-          </Grid.Column>
-        </Grid.Container>
-
-        <Spacer height="xl" />
-      </section> */}
-
       <Spacer height="xxxl" />
 
-      <section>
-        <Grid.Container>
-          <Grid.Column
-            colStart={{ xs: "1", md: "2" }}
-            colEnd={{ xs: "-1", md: "4" }}
-          >
-            <Heading fontSize="lg">Recommendations &not;</Heading>
-          </Grid.Column>
-        </Grid.Container>
-
-        <Spacer height="xl" />
-
-        <List.Container>
-          {recommendations.map((recommendation) => {
-            return (
-              <List.Item key={recommendation._id}>
-                <Grid.Container rowGap="md">
-                  <Grid.Column
-                    colStart={{ xs: "1" }}
-                    colEnd={{ xs: "-1", md: "1" }}
-                  >
-                    <Heading as="h3">{recommendation.name}</Heading>
-                  </Grid.Column>
-
-                  <Grid.Column
-                    colStart={{ xs: "1", md: "2" }}
-                    colEnd={{ xs: "-1", md: "4" }}
-                  >
-                    <Text>&ldquo;{recommendation.text}&rdquo;</Text>
-                  </Grid.Column>
-
-                  <Grid.Column
-                    colStart={{ xs: "1", md: "4" }}
-                    colEnd={{ xs: "-1", md: "4" }}
-                  >
-                    <Text color="foregroundNeutral" fontSize="sm">
-                      {recommendation.title}
-                    </Text>
-                    <Text color="foregroundNeutral" fontSize="sm">
-                      {recommendation.company}
-                    </Text>
-                  </Grid.Column>
-                </Grid.Container>
-              </List.Item>
-            );
-          })}
-        </List.Container>
-      </section>
+      <Recommendations recommendations={recommendations} />
     </>
   );
 };
+
+function Recommendations({
+  recommendations,
+}: {
+  recommendations: Recommendation[];
+}) {
+  const [viewAll, toggleViewAll] = useToggle();
+  const [groupOne, groupTwo] = partition(
+    (r) => recommendations.indexOf(r) < 4,
+    recommendations
+  );
+  return (
+    <section>
+      <Grid.Container>
+        <Grid.Column
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "-1", md: "4" }}
+        >
+          <Heading fontSize="lg">Recommendations &not;</Heading>
+        </Grid.Column>
+      </Grid.Container>
+
+      <Spacer height="xl" />
+
+      <List.Container>
+        {groupOne.map((recommendation) => {
+          return (
+            <List.Item key={recommendation._id}>
+              <Grid.Container rowGap="md">
+                <Grid.Column
+                  colStart={{ xs: "1" }}
+                  colEnd={{ xs: "-1", md: "1" }}
+                >
+                  <Heading as="h3">{recommendation.name}</Heading>
+                </Grid.Column>
+
+                <Grid.Column
+                  colStart={{ xs: "1", md: "2" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
+                  <Text>&ldquo;{recommendation.text}&rdquo;</Text>
+                </Grid.Column>
+
+                <Grid.Column
+                  colStart={{ xs: "1", md: "4" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
+                  <Text color="foregroundNeutral" fontSize="sm">
+                    {recommendation.title}
+                  </Text>
+                  <Text color="foregroundNeutral" fontSize="sm">
+                    {recommendation.company}
+                  </Text>
+                </Grid.Column>
+              </Grid.Container>
+            </List.Item>
+          );
+        })}
+
+        {groupTwo.map((recommendation) => {
+          return (
+            <List.Item
+              key={recommendation._id}
+              id={recommendation._id}
+              hidden={viewAll ? false : true}
+            >
+              <Grid.Container rowGap="md">
+                <Grid.Column
+                  colStart={{ xs: "1" }}
+                  colEnd={{ xs: "-1", md: "1" }}
+                >
+                  <Heading as="h3">{recommendation.name}</Heading>
+                </Grid.Column>
+
+                <Grid.Column
+                  colStart={{ xs: "1", md: "2" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
+                  <Text>&ldquo;{recommendation.text}&rdquo;</Text>
+                </Grid.Column>
+
+                <Grid.Column
+                  colStart={{ xs: "1", md: "4" }}
+                  colEnd={{ xs: "-1", md: "4" }}
+                >
+                  <Text color="foregroundNeutral" fontSize="sm">
+                    {recommendation.title}
+                  </Text>
+                  <Text color="foregroundNeutral" fontSize="sm">
+                    {recommendation.company}
+                  </Text>
+                </Grid.Column>
+              </Grid.Container>
+            </List.Item>
+          );
+        })}
+      </List.Container>
+
+      <Spacer height="md" />
+
+      <Grid.Container>
+        <Grid.Column
+          colStart={{ xs: "1", md: "2" }}
+          colEnd={{ xs: "-1", md: "4" }}
+        >
+          <button
+            type="button"
+            className={buttonStyles({ type: "text" })}
+            onClick={toggleViewAll}
+            aria-expanded={viewAll ? "true" : "false"}
+            aria-controls={groupTwo.map((r) => r._id).toString()}
+          >
+            View{" "}
+            {viewAll ? "less" : `(${groupTwo.length}) more recommendations`}
+          </button>
+        </Grid.Column>
+      </Grid.Container>
+    </section>
+  );
+}
 
 export default Home;
 
