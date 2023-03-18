@@ -10,6 +10,7 @@ import SEO from "next-seo.config";
 import { Provider as TooltipProvider } from "components/primitives/Tooltip";
 import { Banner } from "components/Banner";
 import { ContentInfo } from "components/ContentInfo";
+import { CommandPalette } from "components/CommandPalette";
 import { SkipLink } from "components/SkipLink";
 
 const composeProviders =
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </main>
           <ContentInfo />
         </div>
+        <CommandPalette />
       </Providers>
       <Analytics />
     </>
