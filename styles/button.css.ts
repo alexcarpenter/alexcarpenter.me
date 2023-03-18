@@ -54,7 +54,7 @@ export const buttonStyles = recipe({
     },
   },
   defaultVariants: {
-    type: "filled",
+    type: "highContrast",
   },
 });
 
