@@ -15,6 +15,7 @@ import {
   Edit,
   Copy,
   Activity,
+  Info,
 } from "react-feather";
 import { motion } from "framer-motion";
 import "./CommandPalette.css";
@@ -109,7 +110,7 @@ const CommandPalette = () => {
               }}
               value="home"
             >
-              {/* <Home /> */}
+              <Home />
               <span>Home</span>
             </CommandItem>
             <CommandItem
@@ -119,7 +120,7 @@ const CommandPalette = () => {
               }}
               value="posts"
             >
-              {/* <Edit /> */}
+              <Edit />
               <span>Posts</span>
             </CommandItem>
 
@@ -130,7 +131,7 @@ const CommandPalette = () => {
               }}
               value="activity"
             >
-              {/* <Activity /> */}
+              <Activity />
               <span>Activity</span>
             </CommandItem>
 
@@ -141,7 +142,7 @@ const CommandPalette = () => {
               }}
               value="colophon"
             >
-              {/* <Activity /> */}
+              <Info />
               <span>Colophon</span>
             </CommandItem>
           </Command.Group>
@@ -153,7 +154,7 @@ const CommandPalette = () => {
               }
               value="twitter"
             >
-              {/* <Twitter /> */}
+              <Twitter />
               <span>Twitter</span>
             </CommandItem>
             <CommandItem
@@ -162,7 +163,7 @@ const CommandPalette = () => {
               }
               value="github"
             >
-              {/* <GitHub /> */}
+              <GitHub />
               <span>Github</span>
             </CommandItem>
             <CommandItem
@@ -174,28 +175,28 @@ const CommandPalette = () => {
               }
               value="linkedin"
             >
-              {/* <Linkedin /> */}
+              <Linkedin />
               <span>LinkedIn</span>
             </CommandItem>
           </Command.Group>
 
           <Command.Group heading="Appearance">
             <CommandItem onSelect={handleSetTheme} value="system">
-              {/* <Monitor /> */}
+              <Monitor />
               <span>System</span>
             </CommandItem>
             <CommandItem onSelect={handleSetTheme} value="light">
-              {/* <Sun /> */}
+              <Sun />
               <span>Light</span>
             </CommandItem>
             <CommandItem onSelect={handleSetTheme} value="dark">
-              {/* <Moon /> */}
+              <Moon />
               <span>Dark</span>
             </CommandItem>
           </Command.Group>
           <Command.Group heading="Commands">
             <CommandItem onSelect={handleCopyUrl} value="copy">
-              {/* <Copy /> */}
+              <Copy />
               <span>Copy current URL</span>
             </CommandItem>
           </Command.Group>
