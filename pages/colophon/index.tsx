@@ -34,7 +34,7 @@ const Colophon: NextPage = () => {
           <Heading fontSize="xxl" as="h1">
             Colophon
           </Heading>
-          <Spacer height="xs" />
+          <Spacer height="xxs" />
           <Text color="foregroundNeutral">
             <a href="https://github.com/alexcarpenter/alexcarpenter-next">
               View source on GitHub ↗

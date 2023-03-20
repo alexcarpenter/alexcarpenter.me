@@ -52,7 +52,7 @@ const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
           <Heading fontSize="xxl" as="h1">
             Activity
           </Heading>
-          <Spacer height="xs" />
+          <Spacer height="xxs" />
           <Text fontSize="lg" color="foregroundNeutral">
             Short form thoughts and updates.
           </Text>

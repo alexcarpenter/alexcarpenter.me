@@ -44,7 +44,7 @@ const Posts: NextPage<{ posts: PostWithoutBody[] }> = ({ posts }) => {
           <Heading fontSize="xxl" as="h1">
             Posts
           </Heading>
-          <Spacer height="xs" />
+          <Spacer height="xxs" />
           <Text color="foregroundNeutral" fontSize="lg">
             Strong opinions, loosely held.
           </Text>
