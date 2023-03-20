@@ -1,3 +1,4 @@
+import { gray, lime } from "@radix-ui/colors";
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import { vars } from "styles/vars.css";
 
@@ -21,8 +22,8 @@ export const buttonStyles = recipe({
   variants: {
     type: {
       highContrast: {
-        backgroundColor: vars.color.surfaceHighContrast,
-        color: vars.color.foregroundInverted,
+        backgroundColor: lime.lime9,
+        color: gray.gray12,
       },
       neutral: {
         backgroundColor: vars.color.surfaceNeutral,
