@@ -2,6 +2,7 @@ import * as React from "react";
 import type { NextPage } from "next";
 import type { Job, Recommendation } from "contentlayer/generated";
 import NextLink from "next/link";
+import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { formatTags, partition } from "lib/utils";
 import { useToggle } from "lib/hooks";
@@ -26,7 +27,25 @@ const Home: NextPage<{
       <header>
         <VisuallyHidden as="h1">Index</VisuallyHidden>
 
-        <Grid.Container>
+        <Grid.Container rowGap="lg">
+          <Grid.Column
+            rowStart="1"
+            colStart={{ xs: "1", md: "2", lg: "4" }}
+            colEnd={{ xs: "-1", lg: "-1" }}
+          >
+            <Image
+              src="/img/me.jpeg"
+              width="100"
+              height="100"
+              alt="Headshot of Alex at computer desk"
+              style={{
+                filter: "grayscale(1)",
+                opacity: 0.65,
+                borderRadius: 8,
+              }}
+            />
+          </Grid.Column>
+
           <Grid.Column
             colStart={{ xs: "1", md: "2" }}
             colEnd={{ xs: "-1", lg: "4" }}
