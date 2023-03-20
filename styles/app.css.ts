@@ -35,6 +35,30 @@ globalStyle("body", {
   overflowX: "hidden",
 });
 
+globalStyle("body::before", {
+  content: "",
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: vars.spacing.xxxl,
+  backgroundImage: `linear-gradient(to bottom, ${vars.color.page}, transparent)`,
+  zIndex: 100,
+  pointerEvents: "none",
+});
+
+globalStyle("body::after", {
+  content: "",
+  position: "fixed",
+  bottom: 0,
+  left: 0,
+  width: "100%",
+  height: vars.spacing.xxxl,
+  backgroundImage: `linear-gradient(to top, ${vars.color.page}, transparent)`,
+  zIndex: 100,
+  pointerEvents: "none",
+});
+
 globalStyle(".container", {
   paddingInline: vars.spacing.lg,
   paddingBlock: vars.spacing.xxxl,
