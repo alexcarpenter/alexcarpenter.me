@@ -7,6 +7,7 @@ export const root = style({
 export const placeholder = style({
   gridArea: "1/1",
   opacity: 0,
+  pointerEvents: "none",
 });
 
 export const scrambled = style({
