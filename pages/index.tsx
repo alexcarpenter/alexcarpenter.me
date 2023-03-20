@@ -43,7 +43,7 @@ const Home: NextPage<{
 
             <a
               href="https://read.cv/alexcarpenter"
-              className={buttonStyles({ type: "outlined" })}
+              className={buttonStyles({ type: "highContrast" })}
             >
               Read CV
             </a>

@@ -66,7 +66,6 @@ const Banner = () => {
           <Text fontWeight="bold">
             <Link href="/">Alex Carpenter</Link>
           </Text>
-          <Spacer height="xxs" />
           <Text color="foregroundNeutral">
             <TextScrambler>Design Engineer</TextScrambler>
           </Text>
@@ -139,7 +138,6 @@ const Banner = () => {
           colEnd={{ xs: "2", md: "3" }}
         >
           <Text fontWeight="bold">Routes</Text>
-          <Spacer height="xxs" />
           <nav>
             {routes.map((route) => {
               return (
@@ -164,7 +162,6 @@ const Banner = () => {
           colEnd={{ xs: "-1" }}
         >
           <Text fontWeight="bold">Connect</Text>
-          <Spacer height="xxs" />
           {connect.map((network) => {
             return (
               <Text color="foregroundNeutral" key={network.href}>

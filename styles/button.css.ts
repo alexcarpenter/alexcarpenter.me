@@ -21,11 +21,11 @@ export const buttonStyles = recipe({
   variants: {
     type: {
       highContrast: {
-        backgroundColor: vars.color.surfaceInverted,
+        backgroundColor: vars.color.surfaceHighContrast,
         color: vars.color.foregroundInverted,
       },
       neutral: {
-        backgroundColor: vars.color.surface,
+        backgroundColor: vars.color.surfaceNeutral,
         color: vars.color.foreground,
       },
       outlined: {
