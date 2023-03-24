@@ -38,8 +38,6 @@ globalStyle("body", {
   textRendering: "optimizeLegibility",
   fontFamily: vars.font.sans,
   backgroundColor: vars.color.page,
-  width: "100%",
-  maxWidth: "100%",
   overflowX: "hidden",
 });
 
