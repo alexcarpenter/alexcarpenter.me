@@ -9,16 +9,17 @@ import { Spacer } from "components/Spacer";
 import { Prose } from "components/Prose";
 
 const inspiration = [
-  "https://paco.me/",
-  "https://linusrogge.com/",
-  "https://hamishsmyth.com/",
   "https://berkeleygraphics.com/",
-  "https://www.sj.land/",
-  "https://rauno.me/",
-  "https://joebell.co.uk/",
-  "https://www.hunterjennings.dev/",
   "https://chasem.co/",
   "https://frankchimero.com/",
+  "https://hamishsmyth.com/",
+  "https://hunterjennings.dev/",
+  "https://joebell.co.uk/",
+  "https://linusrogge.com/",
+  "https://paco.me/",
+  "https://rauno.me/",
+  "https://sdrn.co/",
+  "https://sj.land/",
 ];
 
 const Colophon: NextPage = () => {
@@ -221,7 +222,7 @@ const Colophon: NextPage = () => {
                     <a href={url}>{new URL(url).hostname}</a>
                     {index !== inspiration.length - 1 ? (
                       <>
-                        {" "}
+                        &nbsp;
                         <Text as="span" color="foregroundNeutral" role="none">
                           ⁕
                         </Text>{" "}
