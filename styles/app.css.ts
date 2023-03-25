@@ -68,6 +68,8 @@ globalStyle("body::after", {
 globalStyle(".container", {
   paddingInline: vars.spacing.lg,
   paddingBlock: vars.spacing.xxxl,
+  maxInlineSize: "112.5rem",
+  marginInline: "auto",
 });
 
 globalStyle("a:focus, button:focus", {
