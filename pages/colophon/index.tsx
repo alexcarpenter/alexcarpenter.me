@@ -60,7 +60,7 @@ const Colophon: NextPage = () => {
 
         <List.Container>
           <List.Item>
-            <Grid.Container rowGap="md">
+            <Grid.Container rowGap="md" alignItems="baseline">
               <Grid.Column
                 colStart={{ xs: "1" }}
                 colEnd={{ xs: "-1", md: "1" }}

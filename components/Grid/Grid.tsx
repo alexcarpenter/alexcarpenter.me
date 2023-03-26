@@ -7,16 +7,21 @@ interface GridContainerProps {
   children: React.ReactNode;
   colGap?: Sprinkles["columnGap"];
   rowGap?: Sprinkles["rowGap"];
+  alignItems?: Sprinkles["alignItems"];
 }
 
 const Container = ({
   colGap = "xxxl",
   rowGap = "none",
+  alignItems,
   children,
 }: GridContainerProps) => {
   return (
     <div
-      className={cn(styles.container, sprinkles({ columnGap: colGap, rowGap }))}
+      className={cn(
+        styles.container,
+        sprinkles({ columnGap: colGap, rowGap, alignItems })
+      )}
     >
       {children}
     </div>

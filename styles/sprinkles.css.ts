@@ -25,6 +25,7 @@ const responsiveProperties = defineProperties({
   defaultCondition: "xs",
   properties: {
     display: ["block", "inline", "inline-flex", "inline-block", "flex", "grid"],
+    alignItems: ["flex-start", "flex-end", "center", "baseline"],
     paddingTop: space,
     paddingBottom: space,
     paddingLeft: space,

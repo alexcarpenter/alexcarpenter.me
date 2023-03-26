@@ -88,7 +88,7 @@ const Home: NextPage<{
           {jobs.map((job) => {
             return (
               <List.Item key={job._id}>
-                <Grid.Container rowGap="md">
+                <Grid.Container rowGap="md" alignItems="baseline">
                   <Grid.Column
                     colStart={{ xs: "1" }}
                     colEnd={{ xs: "-1", md: "1" }}
@@ -177,7 +177,7 @@ function Recommendations({
         {groupOne.map((recommendation) => {
           return (
             <List.Item key={recommendation._id}>
-              <Grid.Container rowGap="md">
+              <Grid.Container rowGap="md" alignItems="baseline">
                 <Grid.Column
                   colStart={{ xs: "1" }}
                   colEnd={{ xs: "-1", md: "1" }}
