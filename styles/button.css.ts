@@ -22,7 +22,7 @@ export const buttonStyles = recipe({
   variants: {
     type: {
       highContrast: {
-        backgroundColor: lime.lime9,
+        backgroundColor: vars.color.highlight,
         color: gray.gray12,
       },
       neutral: {

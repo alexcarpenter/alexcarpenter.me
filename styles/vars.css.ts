@@ -30,6 +30,7 @@ const color = createGlobalThemeContract({
   outline: "color-outline",
   overlay: "color-overlay",
   scrim: "color-scrim",
+  highlight: "color-highlight",
 });
 
 createGlobalTheme(":root.light", color, {
@@ -47,6 +48,7 @@ createGlobalTheme(":root.light", color, {
   outline: blue.blue11,
   overlay: whiteA.whiteA11,
   scrim: "0, 0%, 97.3%",
+  highlight: "#bef34d",
 });
 
 createGlobalTheme(":root.dark", color, {
@@ -64,6 +66,7 @@ createGlobalTheme(":root.dark", color, {
   outline: blueDark.blue11,
   overlay: blackA.blackA11,
   scrim: "0, 0%, 8.5%",
+  highlight: lime.lime9,
 });
 
 ////////////////////////////////////////////////////////////////////////////////
