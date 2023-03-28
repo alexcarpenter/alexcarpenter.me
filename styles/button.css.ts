@@ -1,4 +1,4 @@
-import { gray, lime } from "@radix-ui/colors";
+import { gray } from "@radix-ui/colors";
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import { vars } from "styles/vars.css";
 
