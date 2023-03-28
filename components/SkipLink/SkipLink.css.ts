@@ -11,6 +11,7 @@ export const root = style({
   paddingRight: vars.spacing.md,
   paddingLeft: vars.spacing.md,
   transform: "translateY(-100%)",
+  zIndex: 100,
   ":focus-visible": {
     transform: "none",
   },

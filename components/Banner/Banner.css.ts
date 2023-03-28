@@ -109,6 +109,7 @@ export const panelContent = style({
   paddingBottom: vars.spacing.xxxl,
   paddingLeft: vars.spacing.lg,
   animationTimingFunction: "cubic-bezier(0.32, .72, 0, 1)",
+  zIndex: 100,
   selectors: {
     '&[data-state="open"]': {
       animationName: slideIn,
