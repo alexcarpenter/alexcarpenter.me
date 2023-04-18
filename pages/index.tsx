@@ -17,7 +17,7 @@ import { allJobs, allRecommendations } from "contentlayer/generated";
 import { Link } from "components/Link";
 
 const Home: NextPage<{
-  jobs: Job[];
+  jobs: Omit<Job, "body" | "_raw">[];
   recommendations: Recommendation[];
 }> = ({ jobs, recommendations }) => {
   return (
@@ -273,9 +273,15 @@ function Recommendations({
 export default Home;
 
 export async function getStaticProps() {
-  const jobs = allJobs.sort((a, b) => {
-    return Number(new Date(b.startDate)) - Number(new Date(a.startDate));
-  });
+  const jobs = allJobs
+    .map(({ body, _raw, ...job }) => {
+      return {
+        ...job,
+      };
+    })
+    .sort((a, b) => {
+      return Number(new Date(b.startDate)) - Number(new Date(a.startDate));
+    });
 
   const recommendations = allRecommendations.sort((a, b) => {
     return Number(new Date(b.date)) - Number(new Date(a.date));
