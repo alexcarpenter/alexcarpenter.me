@@ -9,9 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^13.0.7",
     "@radix-ui/colors": "^0.1.8",
-    "@radix-ui/react-collapsible": "^1.0.2",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-slot": "^1.0.1",
     "@radix-ui/react-toast": "^1.0.0",
@@ -29,8 +27,7 @@
     "cmdk": "^0.1.22",
     "contentlayer": "^0.3.1",
     "framer-motion": "^10.0.0",
-    "nanoid": "^4.0.0",
-    "next": "^13.0.7",
+    "next": "^13.3.0",
     "next-contentlayer": "^0.3.1",
     "next-seo": "^5.5.0",
     "next-themes": "^0.2.1",
@@ -39,7 +36,6 @@
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-lite-youtube-embed": "^2.3.1",
-    "react-lite-yt-embed": "^1.2.7",
     "react-wrap-balancer": "^0.2.4",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-code-titles": "^1.1.0",
@@ -48,8 +44,7 @@
     "remark-gfm": "^3.0.1",
     "the-new-css-reset": "^1.7.2",
     "tinykeys": "^1.4.0",
-    "use-roving-index": "^2.0.0",
-    "zustand": "^4.1.1"
+    "use-roving-index": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "17.0.38",
