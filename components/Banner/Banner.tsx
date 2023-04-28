@@ -19,6 +19,10 @@ const routes = [
     label: "posts",
     href: "/posts",
   },
+  // {
+  //   label: "bookmarks",
+  //   href: "/bookmarks",
+  // },
   {
     label: "activity",
     href: "/activity",

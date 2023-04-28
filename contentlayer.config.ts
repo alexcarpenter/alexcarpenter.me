@@ -196,40 +196,31 @@ export const Activity = defineDocumentType(() => ({
   },
 }));
 
-const IceBath = defineNestedType(() => ({
-  name: "IceBath",
+////////////////////////////////////////////////////////////////////////////////
+// Bookmarks
+
+const Bookmark = defineDocumentType(() => ({
+  name: "Bookmark",
+  filePathPattern: `bookmarks/*.mdx`,
+  contentType: "mdx",
   fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: false,
+    },
     date: {
       type: "date",
       required: true,
     },
-    duration: {
-      type: "number",
-      description: "Duration in seconds",
-      required: true,
-    },
-    temp: {
-      type: "number",
-      required: true,
-    },
+    url: {
+      type: 'string',
+      required: true
+    }
   },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
-// Ice Baths
-
-const IceBaths = defineDocumentType(() => ({
-  name: "IceBaths",
-  filePathPattern: `data/ice-baths.yaml`,
-  isSingleton: true,
-  fields: {
-    data: {
-      type: "list",
-      of: IceBath,
-      required: true,
-    },
-  },
-  extensions: {},
 }));
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -264,7 +255,7 @@ const rehypePrettyCodeOptions: Partial<Options> = {
 
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Activity, Job, Post, Recommendation, IceBaths],
+  documentTypes: [Activity, Job, Post, Recommendation, Bookmark],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
