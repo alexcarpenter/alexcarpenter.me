@@ -50,7 +50,7 @@ const Home: NextPage<{
             colStart={{ xs: "1", md: "2" }}
             colEnd={{ xs: "-1", lg: "4" }}
           >
-            <Text fontSize="xl" gradient={true}>
+            <Text fontSize="xxxl" gradient={true} fontFamily="serif">
               A detail oriented user interface engineer interested in CSS
               architecture, React, TypeScript, animation, and design systems.
               Currently working at HashiCorp, helping build and maintain

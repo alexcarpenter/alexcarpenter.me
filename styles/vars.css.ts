@@ -75,6 +75,7 @@ createGlobalTheme(":root.dark", color, {
 const globals = createGlobalTheme(":root", {
   font: {
     sans: "'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
+    serif: "'Instrument Serif', serif",
     mono: "'JetBrainsMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
   },
   fontSize: {
@@ -84,7 +85,8 @@ const globals = createGlobalTheme(":root", {
     lg: "1.125rem", // 18px
     xl: "1.25rem", // 20px
     xxl: "1.5rem", // 24px
-    xxxl: "2rem", // 32px
+    xxxl: "1.75rem", // 28px
+    xxxxl: "2rem", // 32px
   },
   fontWeight: {
     normal: "400",
