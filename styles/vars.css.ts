@@ -72,10 +72,11 @@ createGlobalTheme(":root.dark", color, {
 ////////////////////////////////////////////////////////////////////////////////
 // Globals
 
+
 const globals = createGlobalTheme(":root", {
   font: {
     sans: "'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
-    serif: "'Instrument Serif', serif",
+    serif: 'serif',
     mono: "'JetBrainsMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
   },
   fontSize: {

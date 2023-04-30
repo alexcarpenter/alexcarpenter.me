@@ -1,9 +1,17 @@
 import * as React from "react";
+import { Instrument_Serif } from "next/font/google";
 import { cn } from "lib/utils";
 import type { PolymorphicComponentProps } from "types";
 import type { Sprinkles } from "styles/sprinkles.css";
 import { sprinkles } from "styles/sprinkles.css";
 import * as styles from "./Text.css";
+
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  style: "italic",
+  display: "swap",
+  subsets: ["latin"],
+});
 
 type TextProps<C extends React.ElementType> = PolymorphicComponentProps<
   C,
@@ -31,6 +39,7 @@ const Text = <C extends React.ElementType = "p">({
     className: cn(
       styles.root,
       gradient && styles.gradient,
+      fontFamily === "serif" && instrumentSerif.className,
       sprinkles({ fontFamily, fontSize, fontWeight, color })
     ),
     ...restProps,

@@ -54,9 +54,6 @@ const Home: NextPage<{
               fontSize={{ xs: "xxl", md: "xxxl" }}
               gradient={true}
               fontFamily="serif"
-              style={{
-                fontStyle: "italic",
-              }}
             >
               A detail oriented user interface engineer interested in CSS
               architecture, React, TypeScript, animation, and design systems.
