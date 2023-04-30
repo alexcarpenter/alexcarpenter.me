@@ -40,7 +40,7 @@ const Text = <C extends React.ElementType = "p">({
       styles.root,
       gradient && styles.gradient,
       fontFamily === "serif" && instrumentSerif.className,
-      sprinkles({ fontSize, fontWeight, color })
+      sprinkles({ fontFamily, fontSize, fontWeight, color })
     ),
     ...restProps,
   });
