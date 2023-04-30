@@ -6,10 +6,10 @@ import NextLink from "next/link";
 import * as Grid from "components/Grid";
 import * as List from "components/List";
 import { Heading } from "components/Heading";
-import { Link } from "components/Link";
 import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
 import { allPosts } from "contentlayer/generated";
+import { linkStyles } from "styles/link.css";
 
 export async function getStaticProps() {
   const posts = allPosts
@@ -63,11 +63,12 @@ const Posts: NextPage<{ posts: PostWithoutBody[] }> = ({ posts }) => {
                   colEnd={{ xs: "-1", md: "4" }}
                 >
                   <Heading>
-                    <Link underlined={true}>
-                      <NextLink href={`/posts/${post.slug}`}>
-                        {post.title}
-                      </NextLink>
-                    </Link>
+                    <NextLink
+                      href={`/posts/${post.slug}`}
+                      className={linkStyles()}
+                    >
+                      {post.title}
+                    </NextLink>
                   </Heading>
                   {post.description ? (
                     <>

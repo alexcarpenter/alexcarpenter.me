@@ -6,7 +6,7 @@ import * as List from "components/List";
 import { Heading } from "components/Heading";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
-import { Prose } from "components/Prose";
+import { linkStyles } from "styles/link.css";
 
 const inspiration = [
   "https://berkeleygraphics.com/",
@@ -215,23 +215,23 @@ const Colophon: NextPage = () => {
             colStart={{ xs: "1", md: "2" }}
             colEnd={{ xs: "-1", md: "4" }}
           >
-            <Prose>
-              {inspiration.map((url, index) => {
-                return (
-                  <React.Fragment key={url}>
-                    <a href={url}>{new URL(url).hostname}</a>
-                    {index !== inspiration.length - 1 ? (
-                      <>
-                        &nbsp;
-                        <Text as="span" color="foregroundNeutral" role="none">
-                          ⁕
-                        </Text>{" "}
-                      </>
-                    ) : null}
-                  </React.Fragment>
-                );
-              })}
-            </Prose>
+            {inspiration.map((url, index) => {
+              return (
+                <React.Fragment key={url}>
+                  <a href={url} className={linkStyles()}>
+                    {new URL(url).hostname}
+                  </a>
+                  {index !== inspiration.length - 1 ? (
+                    <>
+                      &nbsp;
+                      <Text as="span" color="foregroundNeutral" role="none">
+                        ⁕
+                      </Text>{" "}
+                    </>
+                  ) : null}
+                </React.Fragment>
+              );
+            })}
           </Grid.Column>
         </Grid.Container>
       </section>

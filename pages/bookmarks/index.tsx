@@ -9,7 +9,6 @@ import * as List from "components/List";
 import { Heading } from "components/Heading";
 import { Text } from "components/Text";
 import { Spacer } from "components/Spacer";
-import { Link } from "components/Link";
 import { allBookmarks } from "contentlayer/generated";
 
 export async function getStaticProps() {

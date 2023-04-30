@@ -14,7 +14,7 @@ import { Spacer } from "components/Spacer";
 import { Text } from "components/Text";
 import { VisuallyHidden } from "components/VisuallyHidden";
 import { allJobs, allRecommendations } from "contentlayer/generated";
-import { Link } from "components/Link";
+import { linkStyles } from "styles/link.css";
 
 const Home: NextPage<{
   jobs: Omit<Job, "body" | "_raw">[];
@@ -109,11 +109,12 @@ const Home: NextPage<{
                       {job.slug === "hashicorp" ? (
                         <>
                           {" "}
-                          <Link underlined={true}>
-                            <NextLink href={`/experience/${job.slug}`}>
-                              Read more
-                            </NextLink>
-                          </Link>
+                          <NextLink
+                            href={`/experience/${job.slug}`}
+                            className={linkStyles()}
+                          >
+                            Read more
+                          </NextLink>
                         </>
                       ) : null}
                     </Text>
