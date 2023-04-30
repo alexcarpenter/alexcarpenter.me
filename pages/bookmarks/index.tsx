@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import type { Bookmark } from "contentlayer/generated";
 import { NextSeo } from "next-seo";
 import { formatDate } from "lib/utils";
+import { linkStyles } from "styles/link.css";
 import * as Grid from "components/Grid";
 import * as List from "components/List";
 import { Heading } from "components/Heading";
@@ -52,23 +53,20 @@ const Bookmarks: NextPage<{
           {bookmarks.map(({ _id, title, description, date, url }) => {
             return (
               <List.Item key={_id}>
-                <Grid.Container key={_id} alignItems="baseline">
+                <Grid.Container key={_id} rowGap="md">
                   <Grid.Column
-                    colStart={{
-                      md: "2",
-                    }}
-                    colEnd={{
-                      md: "4",
-                    }}
+                    colStart={{ xs: "1", sm: "2" }}
+                    colEnd={{ xs: "-1", md: "4" }}
                   >
                     <Text color="foregroundNeutral" fontSize="sm">
                       {new URL(url).hostname}
                     </Text>
                     <Spacer height="xxs" />
                     <Heading>
-                      <Link underlined={true}>
-                        <a href={url}>{title}</a>
-                      </Link>
+                      <a href={url} className={linkStyles()}>
+                        {title}
+                      </a>{" "}
+                      ↗
                     </Heading>
                     {description ? (
                       <>
@@ -78,7 +76,11 @@ const Bookmarks: NextPage<{
                     ) : null}
                   </Grid.Column>
 
-                  {/* <Grid.Column>
+                  <Grid.Column
+                    colStart={{ xs: "1" }}
+                    colEnd={{ xs: "-1", sm: "1" }}
+                    rowStart={{ sm: "1" }}
+                  >
                     <Text
                       as="time"
                       dateTime={date}
@@ -87,7 +89,7 @@ const Bookmarks: NextPage<{
                     >
                       {formatDate(date)}
                     </Text>
-                  </Grid.Column> */}
+                  </Grid.Column>
                 </Grid.Container>
               </List.Item>
             );
