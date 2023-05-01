@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { NextPage } from "next";
-import type { Activity } from "contentlayer/generated";
+// import type { Activity } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { NextSeo } from "next-seo";
 import { Components } from "components/MdxComponents";
@@ -23,7 +23,7 @@ export async function getStaticProps() {
   };
 }
 
-function ActivityItem({ activity }: { activity: Activity }) {
+function ActivityItem({ activity }: { activity: any }) {
   const MDXContent = useMDXComponent(activity.body.code);
   return (
     <Prose>
@@ -32,7 +32,7 @@ function ActivityItem({ activity }: { activity: Activity }) {
   );
 }
 
-const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
+const Activity: NextPage<{ activities: any[] }> = ({ activities }) => {
   return (
     <>
       <NextSeo
