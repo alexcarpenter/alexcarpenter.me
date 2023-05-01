@@ -17,7 +17,7 @@ const ContentInfo = () => {
         </Grid.Column>
 
         <Grid.Column colStart={{ xs: "1", md: "4" }} colEnd={{ xs: "-1" }}>
-          <Text fontSize="sm" color="foregroundNeutral">
+          <Text fontSize="md" color="foregroundNeutral" fontFamily="serif">
             &ldquo;Less but better&rdquo;
           </Text>
 

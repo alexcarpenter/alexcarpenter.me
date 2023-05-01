@@ -49,11 +49,11 @@ const Activity: NextPage<{ activities: Activity[] }> = ({ activities }) => {
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xxl" as="h1">
+          <Heading fontSize="xxxxl" as="h1">
             Activity
           </Heading>
           <Spacer height="xxs" />
-          <Text fontSize="lg" color="foregroundNeutral">
+          <Text fontSize="xxl" color="foregroundNeutral" fontFamily="serif">
             Short form thoughts and updates.
           </Text>
         </Grid.Column>

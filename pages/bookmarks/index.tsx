@@ -35,11 +35,11 @@ const Bookmarks: NextPage<{
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xxl" as="h1">
+          <Heading fontSize="xxxxl" as="h1">
             Bookmarks
           </Heading>
           <Spacer height="xxs" />
-          <Text color="foregroundNeutral" fontSize="lg">
+          <Text color="foregroundNeutral" fontSize="xxl" fontFamily="serif">
             Saving for later.
           </Text>
         </Grid.Column>

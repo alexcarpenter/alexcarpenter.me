@@ -41,11 +41,11 @@ const Posts: NextPage<{ posts: PostWithoutBody[] }> = ({ posts }) => {
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xxl" as="h1">
+          <Heading fontSize="xxxxl" as="h1">
             Posts
           </Heading>
           <Spacer height="xxs" />
-          <Text color="foregroundNeutral" fontSize="lg">
+          <Text color="foregroundNeutral" fontSize="xxl" fontFamily="serif">
             Strong opinions, loosely held.
           </Text>
         </Grid.Column>

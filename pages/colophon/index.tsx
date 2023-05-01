@@ -32,7 +32,7 @@ const Colophon: NextPage = () => {
           colStart={{ xs: "1", md: "2" }}
           colEnd={{ xs: "-1", md: "4" }}
         >
-          <Heading fontSize="xxl" as="h1">
+          <Heading fontSize="xxxxl" as="h1">
             Colophon
           </Heading>
           <Spacer height="xxs" />
