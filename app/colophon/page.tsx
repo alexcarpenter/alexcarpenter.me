@@ -28,7 +28,7 @@ export default function Posts() {
             Colophon
           </h1>
           <a
-            href="https://github.com/alexcarpenter/alexcarpenter-next-tailwind"
+            href="https://github.com/alexcarpenter/alexcarpenter-next"
             className="mt-1 block w-max text-lg text-foreground-neutral"
           >
             View source on GitHub <span aria-hidden="true">↗</span>
