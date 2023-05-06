@@ -89,17 +89,10 @@ export function Header() {
                   className="absolute bottom-0 right-0 top-0 w-11/12 border-l bg-page px-4 py-16"
                 >
                   <Dialog.Close asChild>
-                    <motion.button
-                      transition={{ delay: 0.15 }}
-                      initial={{
-                        x: 100,
-                      }}
-                      animate={{ x: 0, rotate: -180 }}
-                      className="float-right mb-2 ml-2 grid h-10 w-10 place-items-center items-center rounded-full border bg-surface-neutral md:hidden"
-                    >
+                    <button className="float-right mb-2 ml-2 grid h-10 w-10 place-items-center items-center rounded-full border bg-surface-neutral md:hidden">
                       <span className="sr-only">Close menu</span>
                       <CloseIcon />
-                    </motion.button>
+                    </button>
                   </Dialog.Close>
 
                   <div>
