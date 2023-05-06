@@ -25,6 +25,10 @@
 }
 
 @layer components {
+  .prose {
+    @apply max-w-prose;
+  }
+
   .prose > * + * {
     @apply mt-4;
   }

@@ -67,7 +67,7 @@ export default function Home() {
                   </div>
 
                   <div className="col-span-2">
-                    <p>
+                    <p className="max-w-prose">
                       {description}
                       {slug === "hashicorp" ? (
                         <>
