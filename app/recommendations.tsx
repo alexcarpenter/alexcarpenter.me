@@ -27,7 +27,7 @@ export function Recommendations({
               </div>
 
               <div className="col-span-2">
-                <p>“{text}”</p>
+                <p className="max-w-prose">“{text}”</p>
               </div>
 
               <div>
