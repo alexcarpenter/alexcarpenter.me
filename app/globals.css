@@ -42,7 +42,7 @@
   }
 
   .prose pre[data-language] {
-    @apply overflow-x-auto whitespace-pre rounded-md bg-surface-neutral py-4 text-sm;
+    @apply overflow-x-auto whitespace-pre rounded-md bg-surface-neutral/50 py-4 text-sm;
   }
 
   .prose div[data-rehype-pretty-code-fragment] .syntax-line {
