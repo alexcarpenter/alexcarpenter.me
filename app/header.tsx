@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
+import { motion, AnimatePresence } from "framer-motion";
 
 const routes = [
   {
@@ -42,6 +43,9 @@ const accounts = [
   },
 ];
 
+const AnimatedDialogOverlay = motion(Dialog.Overlay);
+const AnimatedDialogContent = motion(Dialog.Content);
+
 export function Header() {
   const pathname = usePathname();
   const [panelOpen, setPanelOpen] = useState(false);
@@ -65,46 +69,74 @@ export function Header() {
               <MenuIcon />
             </button>
           </Dialog.Trigger>
-          <Dialog.Portal>
-            <Dialog.Overlay className="fixed inset-0 bg-page/70 backdrop-blur-sm" />
-            <Dialog.Content className="absolute bottom-0 right-0 top-0 w-11/12 border-l bg-page px-4 py-16">
-              <Dialog.Close asChild>
-                <button className="float-right mb-2 ml-2 grid h-10 w-10 place-items-center items-center rounded-full border bg-surface-neutral md:hidden">
-                  <span className="sr-only">Close menu</span>
-                  <CloseIcon />
-                </button>
-              </Dialog.Close>
+          <Dialog.Portal forceMount>
+            {panelOpen ? (
+              <>
+                <AnimatedDialogOverlay
+                  key="overlay"
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{ opacity: 1 }}
+                  className="fixed inset-0 bg-page/70 backdrop-blur-sm"
+                />
+                <AnimatedDialogContent
+                  key="content"
+                  initial={{ x: "100%" }}
+                  animate={{
+                    x: 0,
+                  }}
+                  className="absolute bottom-0 right-0 top-0 w-11/12 border-l bg-page px-4 py-16"
+                >
+                  <Dialog.Close asChild>
+                    <motion.button
+                      transition={{ delay: 0.15 }}
+                      initial={{
+                        x: 100,
+                      }}
+                      animate={{ x: 0, rotate: -180 }}
+                      className="float-right mb-2 ml-2 grid h-10 w-10 place-items-center items-center rounded-full border bg-surface-neutral md:hidden"
+                    >
+                      <span className="sr-only">Close menu</span>
+                      <CloseIcon />
+                    </motion.button>
+                  </Dialog.Close>
 
-              <div>
-                <p className="font-variable-semibold">Routes</p>
-                <nav>
-                  <ul>
-                    {routes.map(({ href, label }) => {
-                      return (
-                        <li key={href}>
-                          <Link href={href} className="text-foreground-neutral">
-                            {label}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </nav>
+                  <div>
+                    <p className="font-variable-semibold">Routes</p>
+                    <nav>
+                      <ul>
+                        {routes.map(({ href, label }) => {
+                          return (
+                            <li key={href}>
+                              <Link
+                                href={href}
+                                className="text-foreground-neutral"
+                              >
+                                {label}
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </nav>
 
-                <p className="font-variable-semibold mt-8">Connect</p>
-                <ul>
-                  {accounts.map(({ href, label }) => {
-                    return (
-                      <li key={href}>
-                        <a href={href} className="text-foreground-neutral">
-                          {label} <span aria-hidden="true">↗</span>
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </Dialog.Content>
+                    <p className="font-variable-semibold mt-8">Connect</p>
+                    <ul>
+                      {accounts.map(({ href, label }) => {
+                        return (
+                          <li key={href}>
+                            <a href={href} className="text-foreground-neutral">
+                              {label} <span aria-hidden="true">↗</span>
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </AnimatedDialogContent>
+              </>
+            ) : null}
           </Dialog.Portal>
         </Dialog.Root>
       </div>
