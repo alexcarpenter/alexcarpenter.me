@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --page: 0 0% 97.3%;
+    --foreground: 0 0% 9%;
+    --foreground-neutral: 0 0% 43.5%;
+    --border: 0 0% 85.9%;
+    --surface-action: 79.2 87.4% 62.7%;
+    --surface-neutral: 0 0% 92.9%;
+    --underline: 0 0% 85.9%;
+  }
+
+  .dark {
+    --page: 0 0% 8.6%;
+    --foreground: 0 0% 92.9%;
+    --foreground-neutral: 0 0% 62.7%;
+    --border: 0 0% 24.3%;
+    --surface-action: 81.1 67.1% 50%;
+    --surface-neutral: 0 0% 15.7%;
+    --underline: 0 0% 31.4%;
+  }
+}
+
+@layer components {
+  .prose {
+    @apply max-w-prose;
+  }
+
+  .prose > * + * {
+    @apply mt-4;
+  }
+
+  .prose a {
+    @apply underline decoration-underline hover:decoration-inherit;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 pl-4;
+  }
+
+  .prose pre[data-language] {
+    @apply overflow-x-auto whitespace-pre rounded-md bg-surface-neutral py-4 text-sm;
+  }
+
+  .prose div[data-rehype-pretty-code-fragment] .syntax-line {
+    @apply px-4;
+  }
+}
+
+@layer utilities {
+  .font-variable-semibold {
+    font-variation-settings: "wght" 575;
+  }
+}
+
+html.dark div[data-theme="light"],
+html.dark pre[data-theme="light"],
+html.dark code[data-theme="light"] {
+  display: none;
+}
+
+html.light div[data-theme="dark"],
+html.light pre[data-theme="dark"],
+html.light code[data-theme="dark"] {
+  display: none;
+}
