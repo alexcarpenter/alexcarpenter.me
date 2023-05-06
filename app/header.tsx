@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -43,6 +44,10 @@ const accounts = [
 
 export function Header() {
   const pathname = usePathname();
+  const [panelOpen, setPanelOpen] = useState(false);
+  useEffect(() => {
+    setPanelOpen(false);
+  }, [pathname]);
   return (
     <header className="grid grid-cols-2 items-start gap-x-16 gap-y-4 md:grid-cols-4">
       <div className="col-span-2 flex items-center justify-between md:col-span-1">
@@ -53,7 +58,7 @@ export function Header() {
           <p className="text-foreground-neutral">Design Engineer</p>
         </div>
 
-        <Dialog.Root>
+        <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>
           <Dialog.Trigger asChild>
             <button className="grid h-10 w-10 place-items-center items-center rounded-full border bg-surface-neutral md:hidden">
               <span className="sr-only">Open menu</span>
