@@ -1,0 +1,57 @@
+---
+title: Using focus-within to style input groups
+description: How to style wrapping elements based on nested input focus state.
+date: 2021-02-08
+---
+
+Input groups, popularlized by Bootstrap, is a pattern that includes an input with a label and/or a button element.
+
+```html
+<div class="input-group">
+  <div class="input-group-prepend">
+    <label for="name">Name</label>
+  </div>
+  <input type="text" name="name" id="name" />
+</div>
+```
+
+We wrap the elements in a div with a class of `input-group`. We will use this element to provide our focus styles. We also wrap our label in an element with a class of `input-group-prepend` which allows us to add a border to the right of the label. We could also have a `input-group-append` class which would add a border to the left of the label.
+
+Now that we have our markup structure in place, we can start to apply our styling to the elements.
+
+```scss
+.input-group {
+  display: inline-flex;
+  border: 1px solid #ddd;
+
+  input {
+    padding: 1rem;
+    border: 0;
+    font: inherit;
+
+    // Since we are providing an alternative focus
+    // style, it is safe to remove the focus styling
+    // from the input itself
+    &:focus {
+      outline: none;
+    }
+  }
+
+  label {
+    padding: 1rem;
+  }
+}
+```
+
+Now we can now watch for focus within our input group and adjust our border color and apply a box-shadow.
+
+```scss
+.input-group {
+  &:focus-within {
+    border-color: #05f;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+}
+```
+
+[View the demo](https://codepen.io/alexcarpenter/pen/PobzRXr).
