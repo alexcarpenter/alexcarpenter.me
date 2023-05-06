@@ -69,7 +69,7 @@ export default function Home() {
                   <div className="col-span-2">
                     <p className="max-w-prose">
                       {description}
-                      {slug === "hashicorp" ? (
+                      {/* {slug === "hashicorp" ? (
                         <>
                           {" "}
                           <Link
@@ -79,7 +79,7 @@ export default function Home() {
                             Read more
                           </Link>
                         </>
-                      ) : null}
+                      ) : null} */}
                     </p>
 
                     {tags ? (
