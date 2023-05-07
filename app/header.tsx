@@ -78,7 +78,7 @@ export function Header() {
                     opacity: 0,
                   }}
                   animate={{ opacity: 1 }}
-                  className="fixed inset-0 bg-page/70 backdrop-blur-sm"
+                  className="fixed inset-0 z-20 bg-page/70 backdrop-blur-sm"
                 />
                 <AnimatedDialogContent
                   key="content"
@@ -86,7 +86,7 @@ export function Header() {
                   animate={{
                     x: 0,
                   }}
-                  className="absolute bottom-0 right-0 top-0 w-11/12 border-l bg-page px-4 py-16"
+                  className="fixed bottom-0 right-0 top-0 z-20 w-11/12 border-l bg-page px-4 py-16"
                 >
                   <Dialog.Close asChild>
                     <button className="float-right mb-2 ml-2 grid h-10 w-10 place-items-center items-center rounded-full border bg-surface-neutral md:hidden">

@@ -80,7 +80,7 @@ body::after {
   left: 0;
   width: 100%;
   pointer-events: none;
-  z-index: 100;
+  z-index: 10;
   height: 4rem;
 }
 
