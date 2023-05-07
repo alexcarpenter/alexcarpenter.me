@@ -4,7 +4,7 @@ import { compareDesc, parseDateToString } from "@/lib/formatting";
 
 export const metadata: Metadata = {
   title: "Posts",
-  description: "Strong opinions, loosely held.",
+  description: "Strong opinions, loosely held",
 };
 
 export default function Posts() {
@@ -19,7 +19,7 @@ export default function Posts() {
             Posts
           </h1>
           <p className="mt-1 text-lg text-foreground-neutral">
-            Strong opinions, loosely held.
+            Strong opinions, loosely held
           </p>
         </div>
       </header>

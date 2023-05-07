@@ -5,7 +5,7 @@ import { Mdx } from "../mdx";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
-  description: "Saving for later.",
+  description: "Saving for later",
 };
 
 export default function Bookmarks() {
@@ -20,7 +20,7 @@ export default function Bookmarks() {
             Bookmarks
           </h1>
           <p className="mt-1 text-lg text-foreground-neutral">
-            Saving for later.
+            Saving for later
           </p>
         </div>
       </header>

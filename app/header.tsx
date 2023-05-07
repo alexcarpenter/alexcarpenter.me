@@ -60,6 +60,9 @@ export function Header() {
             <Link href="/">Alex Carpenter</Link>
           </p>
           <p className="text-foreground-neutral">Design Engineer</p>
+          <p className="text-foreground-neutral">
+            Currently on paternity leave
+          </p>
         </div>
 
         <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>

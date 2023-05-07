@@ -5,7 +5,7 @@ import { Mdx } from "@/app/mdx";
 
 export const metadata: Metadata = {
   title: "Activity",
-  description: "Short form thoughts and updates.",
+  description: "Short form thoughts and updates",
 };
 
 export default function Activity() {
@@ -20,7 +20,7 @@ export default function Activity() {
             Activity
           </h1>
           <p className="mt-1 text-lg text-foreground-neutral">
-            Short form thoughts and updates.
+            Short form thoughts and updates
           </p>
         </div>
       </header>
