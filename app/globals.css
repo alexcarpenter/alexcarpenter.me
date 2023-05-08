@@ -33,6 +33,10 @@
     @apply mt-4;
   }
 
+  .prose h2 {
+    @apply font-variable-semibold text-lg;
+  }
+
   .prose a {
     @apply underline decoration-underline hover:decoration-inherit;
   }
