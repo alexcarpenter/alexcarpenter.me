@@ -33,8 +33,13 @@
     @apply mt-4;
   }
 
+  .prose > * + h2,
+  .prose > * + h3 {
+    @apply mt-6;
+  }
+
   .prose h2 {
-    @apply font-variable-semibold text-lg;
+    @apply font-variable-semibold;
   }
 
   .prose a {
