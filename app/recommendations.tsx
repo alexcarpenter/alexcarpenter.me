@@ -66,12 +66,13 @@ export function Recommendations({
       </ul>
 
       <div className="grid gap-16 md:grid-cols-4">
-        <div className="md:col-start-2">
+        <div className="md:col-span-2 md:col-start-2">
           <button
             type="button"
             onClick={toggleViewAll}
             aria-expanded={viewAll ? "true" : "false"}
             aria-controls={groupTwo.map((r) => r._id).toString()}
+            className="text-left"
           >
             View{" "}
             {viewAll ? "less" : `(${groupTwo.length}) more recommendations`}
