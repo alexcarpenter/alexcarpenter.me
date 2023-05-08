@@ -43,11 +43,19 @@
   }
 
   .prose a {
-    @apply underline decoration-underline hover:decoration-inherit;
+    @apply underline decoration-underline transition-colors hover:decoration-inherit;
   }
 
   .prose blockquote {
     @apply border-l-4 pl-4;
+  }
+
+  .prose blockquote > * + * {
+    @apply mt-4;
+  }
+
+  .prose blockquote p:last-of-type em {
+    @apply not-italic text-foreground-neutral before:pr-1 before:content-['—'];
   }
 
   .prose pre[data-language] {

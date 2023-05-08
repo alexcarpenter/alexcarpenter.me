@@ -41,6 +41,14 @@ export default function Home() {
             >
               Read CV
             </a>
+            {/* <Link
+              href="/about"
+              className={buttonVariants({
+                size: "small",
+              })}
+            >
+              Learn more
+            </Link> */}
           </div>
         </div>
       </header>

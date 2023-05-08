@@ -40,7 +40,7 @@ export default function Bookmarks() {
                   <h2 className="font-variable-semibold">
                     <a
                       href={url}
-                      className="underline decoration-underline hover:decoration-inherit"
+                      className="underline decoration-underline transition-colors hover:decoration-inherit"
                     >
                       {title}
                     </a>{" "}

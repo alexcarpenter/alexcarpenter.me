@@ -9,7 +9,7 @@ export const buttonVariants = cva(
         action: "bg-surface-action text-[#171717]",
       },
       size: {
-        small: "px-2.5 py-1.5",
+        small: "px-3 py-1.5",
         medium: "px-4 py-2.5",
       },
     },

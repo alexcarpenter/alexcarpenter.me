@@ -1,5 +1,5 @@
 import type { Metadata } from "next/types";
-import { Fragment } from "react";
+import { parseDateTimeToString } from "@/lib/formatting";
 
 export const metadata: Metadata = {
   title: "Colophon",
@@ -20,6 +20,7 @@ const inspiration = [
 ];
 
 export default function Posts() {
+  const lastUpdated = parseDateTimeToString(new Date().toISOString());
   return (
     <>
       <header className="mt-16 grid gap-16 md:grid-cols-4">
@@ -27,12 +28,31 @@ export default function Posts() {
           <h1 className="font-variable-semibold text-3xl tracking-tight text-foreground">
             Colophon
           </h1>
-          <a
+          {/* <p className="mt-1 text-lg text-foreground-neutral">
+            Perpetually work-in-progress
+          </p> */}
+          {/* <a
             href="https://github.com/alexcarpenter/alexcarpenter-next"
             className="mt-1 block w-max text-lg text-foreground-neutral"
           >
             View source on GitHub <span aria-hidden="true">↗</span>
-          </a>
+          </a> */}
+          <div className="mt-4 space-y-4">
+            <p className="text-sm text-foreground-neutral">
+              Last updated: <br />
+              {lastUpdated}
+            </p>
+            <p className="text-sm text-foreground-neutral">
+              View source: <br />
+              <a
+                href="https://github.com/alexcarpenter/alexcarpenter-next"
+                className="transition-colors hover:text-foreground"
+              >
+                alexcarpenter/alexcarpenter-next{" "}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </p>
+          </div>
         </div>
       </header>
 
@@ -56,7 +76,10 @@ export default function Posts() {
             </div>
 
             <div>
-              <a href="https://nextjs.org/" className="text-foreground-neutral">
+              <a
+                href="https://nextjs.org/"
+                className="text-foreground-neutral transition-colors hover:text-foreground"
+              >
                 Vist <span aria-hidden="true">↗</span>
               </a>
             </div>
@@ -74,7 +97,7 @@ export default function Posts() {
             <div>
               <a
                 href="https://tailwindcss.com/"
-                className="text-foreground-neutral"
+                className="text-foreground-neutral transition-colors hover:text-foreground"
               >
                 Vist <span aria-hidden="true">↗</span>
               </a>
@@ -93,7 +116,7 @@ export default function Posts() {
             <div>
               <a
                 href="https://www.framer.com/motion/"
-                className="text-foreground-neutral"
+                className="text-foreground-neutral transition-colors hover:text-foreground"
               >
                 Vist <span aria-hidden="true">↗</span>
               </a>
@@ -112,7 +135,7 @@ export default function Posts() {
             <div>
               <a
                 href="https://www.contentlayer.dev/"
-                className="text-foreground-neutral"
+                className="text-foreground-neutral transition-colors hover:text-foreground"
               >
                 Vist <span aria-hidden="true">↗</span>
               </a>
@@ -132,7 +155,25 @@ export default function Posts() {
 
         <div className="mt-8 grid gap-16 md:grid-cols-4">
           <div className="md:col-span-2 md:col-start-2">
-            {inspiration.map((url, index) => {
+            <ul className="columns-2 gap-16">
+              {inspiration.map((url) => {
+                return (
+                  <li key={url}>
+                    <span className="text-foreground-neutral" role="none">
+                      ⁕
+                    </span>
+                    &nbsp;
+                    <a
+                      href={url}
+                      className="underline decoration-underline transition-colors hover:decoration-inherit"
+                    >
+                      {new URL(url).hostname}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+            {/* {inspiration.map((url, index) => {
               return (
                 <Fragment key={url}>
                   <a
@@ -151,7 +192,7 @@ export default function Posts() {
                   ) : null}
                 </Fragment>
               );
-            })}
+            })} */}
           </div>
         </div>
       </section>

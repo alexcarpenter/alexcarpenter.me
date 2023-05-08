@@ -27,7 +27,7 @@ export function Recommendations({
               </div>
 
               <div className="col-span-2">
-                <p className="max-w-prose">“{text}”</p>
+                <p className="max-w-prose -indent-1">“{text}”</p>
               </div>
 
               <div>
@@ -72,7 +72,7 @@ export function Recommendations({
             onClick={toggleViewAll}
             aria-expanded={viewAll ? "true" : "false"}
             aria-controls={groupTwo.map((r) => r._id).toString()}
-            className="text-left"
+            className="text-left text-foreground-neutral transition-colors hover:text-foreground"
           >
             View{" "}
             {viewAll ? "less" : `(${groupTwo.length}) more recommendations`}

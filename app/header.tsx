@@ -105,6 +105,9 @@ export function Header() {
                               <Link
                                 href={href}
                                 className="text-foreground-neutral"
+                                aria-current={
+                                  pathname === href ? "page" : undefined
+                                }
                               >
                                 {label}
                               </Link>
@@ -143,7 +146,7 @@ export function Header() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="block w-max text-foreground-neutral"
+                    className="block w-max text-foreground-neutral transition-colors hover:text-foreground"
                     aria-current={pathname === href ? "page" : undefined}
                   >
                     <span aria-hidden="true">/</span>
@@ -163,7 +166,7 @@ export function Header() {
             <a
               key={href}
               href={href}
-              className="block w-max text-foreground-neutral"
+              className="block w-max text-foreground-neutral transition-colors hover:text-foreground"
             >
               {label} <span aria-hidden="true">↗</span>
             </a>
