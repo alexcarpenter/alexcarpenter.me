@@ -49,6 +49,12 @@ const Bookmark = defineDocumentType(() => ({
       required: true,
     },
   },
+  computedFields: {
+    hostname: {
+      type: "string",
+      resolve: (bookmark) => new URL(bookmark.url).hostname,
+    },
+  },
 }));
 
 ////////////////////////////////////////////////////////////////////////////////
