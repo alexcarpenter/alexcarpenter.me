@@ -46,6 +46,14 @@
     @apply underline decoration-underline transition-colors hover:decoration-inherit;
   }
 
+  .prose ul {
+    @apply list-disc space-y-1 pl-7;
+  }
+
+  .prose ol {
+    @apply list-decimal space-y-1 pl-7;
+  }
+
   .prose blockquote {
     @apply border-l-4 pl-4;
   }
@@ -64,6 +72,18 @@
 
   .prose div[data-rehype-pretty-code-fragment] .syntax-line {
     @apply px-4;
+  }
+
+  .prose table {
+    @apply w-full max-w-full;
+  }
+
+  .prose table thead th {
+    @apply font-variable-semibold py-2;
+  }
+
+  .prose table tbody td {
+    @apply border-t py-2;
   }
 }
 

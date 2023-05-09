@@ -34,7 +34,7 @@ export default function Bookmarks() {
                 className="grid gap-x-16 gap-y-2 border-t py-8 md:grid-cols-4"
               >
                 <div className="md:col-span-2 md:col-start-2">
-                  <p className="text-sm text-foreground-neutral">
+                  <p className="mb-1 text-sm text-foreground-neutral">
                     {new URL(url).hostname}
                   </p>
                   <h2 className="font-variable-semibold">

@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "@/lib/classnames";
 
 export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 export const buttonVariants = cva(
-  "inline-flex font-medium text-sm rounded-md",
+  "inline-flex font-variable-semibold text-sm rounded-md",
   {
     variants: {
       intent: {
