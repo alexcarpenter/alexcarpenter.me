@@ -155,7 +155,7 @@ export default function Posts() {
 
         <div className="mt-8 grid gap-16 md:grid-cols-4">
           <div className="md:col-span-2 md:col-start-2">
-            <ul className="columns-2 gap-16">
+            <ul className="space-y-1 sm:columns-2 sm:gap-16 sm:space-y-0">
               {inspiration.map((url) => {
                 return (
                   <li key={url}>
