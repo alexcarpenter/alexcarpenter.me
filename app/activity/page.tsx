@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Short form thoughts and updates",
 };
 
-export default function Activity() {
+export default function Activities() {
   const sortedActivities = allActivities.sort(({ date: a }, { date: b }) =>
     compareDesc(new Date(a), new Date(b))
   );

@@ -61,16 +61,16 @@ export function Header() {
           </p>
           <p
             className="text-foreground-neutral"
-            style={{
-              textDecoration: "line-through",
-            }}
+            // style={{
+            //   textDecoration: "line-through",
+            // }}
           >
             Design Engineer
           </p>
           <p className="text-foreground-neutral">
             Currently on{" "}
             <Link
-              href="/activity#1684072544"
+              href="/activity/1684072544"
               className="underline decoration-underline hover:decoration-inherit"
             >
               paternity leave
