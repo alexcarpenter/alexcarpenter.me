@@ -27,10 +27,11 @@ export default function Activity() {
 
       <section className="mt-16">
         <ul>
-          {sortedActivities.map(({ _id, date, body }) => {
+          {sortedActivities.map(({ _id, date, body, slug }) => {
             return (
               <li
                 key={_id}
+                id={slug}
                 className="grid gap-x-16 gap-y-2 border-t py-8 md:grid-cols-4"
               >
                 <div className="md:col-span-2 md:col-start-2">

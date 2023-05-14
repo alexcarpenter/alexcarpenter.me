@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const routes = [
   {
@@ -59,7 +59,23 @@ export function Header() {
           <p className="font-variable-semibold text-foreground">
             <Link href="/">Alex Carpenter</Link>
           </p>
-          <p className="text-foreground-neutral">Design Engineer</p>
+          <p
+            className="text-foreground-neutral"
+            style={{
+              textDecoration: "line-through",
+            }}
+          >
+            Design Engineer
+          </p>
+          <p className="text-foreground-neutral">
+            Currently on{" "}
+            <Link
+              href="/activity#1684072544"
+              className="underline decoration-underline hover:decoration-inherit"
+            >
+              paternity leave
+            </Link>
+          </p>
         </div>
 
         <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>
