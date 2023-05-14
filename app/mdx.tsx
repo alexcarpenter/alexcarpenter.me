@@ -1,6 +1,9 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
+import Image from "next/image";
 
-const components = {};
+const components = {
+  Image,
+};
 
 interface MdxProps {
   code: string;
