@@ -1,4 +1,5 @@
 import type { Metadata } from "next/types";
+import Link from "next/link";
 import { parseDateTimeToString, compareDesc } from "@/lib/formatting";
 import { allActivities } from "@/.contentlayer/generated";
 import { Mdx } from "@/app/mdx";
@@ -41,12 +42,14 @@ export default function Activities() {
                 </div>
 
                 <div className="md:col-start-1 md:row-start-1">
-                  <time
-                    className="text-sm text-foreground-neutral"
-                    dateTime={date}
-                  >
-                    {parseDateTimeToString(date)}
-                  </time>
+                  <Link href={`/activity/${slug}`}>
+                    <time
+                      className="text-sm text-foreground-neutral"
+                      dateTime={date}
+                    >
+                      {parseDateTimeToString(date)}
+                    </time>
+                  </Link>
                 </div>
               </li>
             );

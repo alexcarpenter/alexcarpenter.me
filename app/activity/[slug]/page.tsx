@@ -49,7 +49,7 @@ export default async function Activity({ params }: PageProps) {
 
   return (
     <>
-      <article className="mt-16">
+      <article className="mt-16 border-t pt-8">
         <div className="grid gap-8 md:grid-cols-4 md:gap-16">
           <div className="md:col-span-3 md:col-start-2 lg:col-span-2 lg:col-start-2">
             <div className="prose">

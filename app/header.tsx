@@ -59,14 +59,7 @@ export function Header() {
           <p className="font-variable-semibold text-foreground">
             <Link href="/">Alex Carpenter</Link>
           </p>
-          <p
-            className="text-foreground-neutral"
-            // style={{
-            //   textDecoration: "line-through",
-            // }}
-          >
-            Design Engineer
-          </p>
+          <p className="text-foreground-neutral">Design Engineer</p>
           <p className="text-foreground-neutral">
             Currently on{" "}
             <Link
