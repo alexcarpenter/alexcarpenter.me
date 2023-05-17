@@ -32,7 +32,8 @@
     "rehype-pretty-code": "^0.9.5",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "use-roving-index": "^2.0.0"
   },
   "devDependencies": {
     "prettier": "^2.8.8",
