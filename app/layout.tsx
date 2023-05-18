@@ -16,6 +16,7 @@ const inter = localFont({
 const instrument = Instrument_Serif({
   variable: "--font-instrument",
   subsets: ["latin"],
+  display: "swap",
   weight: "400",
   style: "italic",
 });
