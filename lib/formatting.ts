@@ -12,4 +12,8 @@ export const formatTags = (arr: string[]): string => {
   return new Intl.ListFormat("en", { type: "conjunction" }).format(arr);
 };
 
+export const formatCommaSeperatedList = (arr: string[]): string => {
+  return new Intl.ListFormat("en", { type: "conjunction" }).format(arr);
+};
+
 export { compareDesc };

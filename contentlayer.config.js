@@ -143,6 +143,31 @@ export const Job = defineDocumentType(() => ({
 }));
 
 ////////////////////////////////////////////////////////////////////////////////
+// Pages
+
+export const Page = defineDocumentType(() => ({
+  name: "Page",
+  filePathPattern: `pages/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: false,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
+    },
+  },
+}));
+
+////////////////////////////////////////////////////////////////////////////////
 // Posts
 
 export const Post = defineDocumentType(() => ({
@@ -238,7 +263,7 @@ const rehypePrettyCodeOptions = {
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Activity, Bookmark, Job, Post, Recommendation],
+  documentTypes: [Activity, Bookmark, Job, Page, Post, Recommendation],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
