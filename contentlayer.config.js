@@ -158,6 +158,10 @@ export const Page = defineDocumentType(() => ({
       type: "string",
       required: false,
     },
+    updated: {
+      type: "date",
+      required: false,
+    },
   },
   computedFields: {
     slug: {
