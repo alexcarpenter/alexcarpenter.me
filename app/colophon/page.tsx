@@ -40,7 +40,22 @@ export default function Posts() {
           <div className="mt-4 space-y-4">
             <p className="text-sm text-foreground-neutral">
               Last updated: <br />
-              {lastUpdated} {process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}
+              <a
+                href={`https://github.com/alexcarpenter/alexcarpenter-next/commit/${process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}`}
+                className="transition-colors hover:text-foreground"
+              >
+                {lastUpdated}{" "}
+                {process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ? (
+                  <>
+                    {" "}
+                    {process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA.slice(
+                      0,
+                      7
+                    )}{" "}
+                    <span aria-hidden="true">↗</span>
+                  </>
+                ) : null}
+              </a>
             </p>
             <p className="text-sm text-foreground-neutral">
               View source: <br />
