@@ -40,7 +40,7 @@ export default function Posts() {
           <div className="mt-4 space-y-4">
             <p className="text-sm text-foreground-neutral">
               Last updated: <br />
-              {lastUpdated}
+              {lastUpdated} {process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}
             </p>
             <p className="text-sm text-foreground-neutral">
               View source: <br />
