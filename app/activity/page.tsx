@@ -35,13 +35,7 @@ export default function Activities() {
                 id={slug}
                 className="grid gap-x-16 gap-y-2 border-t py-8 md:grid-cols-4"
               >
-                <div className="md:col-span-2 md:col-start-2">
-                  <div className="prose">
-                    <Mdx code={body.code} />
-                  </div>
-                </div>
-
-                <div className="md:col-start-1 md:row-start-1">
+                <div>
                   <Link href={`/activity/${slug}`}>
                     <time
                       className="text-sm text-foreground-neutral"
@@ -50,6 +44,12 @@ export default function Activities() {
                       {parseDateTimeToString(date)}
                     </time>
                   </Link>
+                </div>
+
+                <div className="md:col-span-2 md:col-start-2">
+                  <div className="prose">
+                    <Mdx code={body.code} />
+                  </div>
                 </div>
               </li>
             );

@@ -156,6 +156,25 @@ export default function Posts() {
               </a>
             </div>
           </li>
+
+          <li className="grid gap-x-16 gap-y-2 border-t py-8 md:grid-cols-4">
+            <div className="">
+              <h2 className="font-variable-semibold">Fonts</h2>
+            </div>
+
+            <div className="col-span-2">
+              <p>Inter, Instrument Serif... WIP</p>
+            </div>
+
+            <div>
+              <a
+                href="https://www.contentlayer.dev/"
+                className="text-foreground-neutral transition-colors hover:text-foreground"
+              >
+                Vist <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </li>
         </ul>
       </section>
 

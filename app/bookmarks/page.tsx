@@ -33,6 +33,15 @@ export default function Bookmarks() {
                 key={_id}
                 className="grid gap-x-16 gap-y-2 border-t py-8 md:grid-cols-4"
               >
+                <div>
+                  <time
+                    className="text-sm text-foreground-neutral"
+                    dateTime={date}
+                  >
+                    {parseDateToString(date)}
+                  </time>
+                </div>
+
                 <div className="md:col-span-2 md:col-start-2">
                   <h2 className="font-variable-semibold">
                     <a
@@ -40,27 +49,18 @@ export default function Bookmarks() {
                       className="underline decoration-underline transition-colors hover:decoration-inherit"
                     >
                       {title}
-                    </a>{" "}
-                    ↗
+                    </a>
+                    &nbsp;↗
                   </h2>
                   <p className="mt-1 inline-flex items-center gap-1 text-sm text-foreground-neutral">
                     <RightHookArrowIcon />
                     {hostname}
                   </p>
-                  {body ? (
+                  {body?.raw ? (
                     <div className="prose mt-4">
                       <Mdx code={body.code} />
                     </div>
                   ) : null}
-                </div>
-
-                <div className="md:col-start-1 md:row-start-1">
-                  <time
-                    className="text-sm text-foreground-neutral"
-                    dateTime={date}
-                  >
-                    {parseDateToString(date)}
-                  </time>
                 </div>
               </li>
             );
