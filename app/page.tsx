@@ -35,20 +35,9 @@ export default function Home() {
             public-facing HashiCorp websites and web applications with Next.js.
           </p>
           <div className="mt-8">
-            <a
-              href="https://read.cv/alexcarpenter"
-              className={buttonVariants()}
-            >
-              Read CV
-            </a>
-            {/* <Link
-              href="/about"
-              className={buttonVariants({
-                size: "small",
-              })}
-            >
+            <Link href="/about" className={buttonVariants()}>
               Learn more
-            </Link> */}
+            </Link>
           </div>
         </div>
       </header>
