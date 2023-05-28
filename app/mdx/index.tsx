@@ -1,11 +1,14 @@
 "use client";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import { slugify } from "@/lib/formatting";
+import { onlyText } from "@/lib/utils";
 import Image from "next/image";
 import { ImageCarousel } from "./image-carousel";
 
 const components = {
   Image,
   ImageCarousel,
+  h2: (props: any) => <h2 {...props} id={slugify(onlyText(props.children))} />,
 };
 
 interface MdxProps {
