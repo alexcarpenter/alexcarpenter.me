@@ -8,7 +8,9 @@ import { ImageCarousel } from "./image-carousel";
 const components = {
   Image,
   ImageCarousel,
-  h2: (props: any) => <h2 {...props} id={slugify(onlyText(props.children))} />,
+  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h2 {...props} id={slugify(onlyText(props.children))} />
+  ),
 };
 
 interface MdxProps {
