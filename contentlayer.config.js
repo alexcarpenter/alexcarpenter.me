@@ -58,6 +58,39 @@ const Bookmark = defineDocumentType(() => ({
 }));
 
 ////////////////////////////////////////////////////////////////////////////////
+// Favorites
+
+export const Favorite = defineDocumentType(() => ({
+  name: "Favorite",
+  filePathPattern: `favorites/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: false,
+    },
+    published: {
+      type: "date",
+      required: true,
+    },
+    update: {
+      type: "date",
+      required: false,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
+    },
+  },
+}));
+
+////////////////////////////////////////////////////////////////////////////////
 // Jobs
 
 const Event = defineNestedType(() => ({
@@ -267,7 +300,15 @@ const rehypePrettyCodeOptions = {
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Activity, Bookmark, Job, Page, Post, Recommendation],
+  documentTypes: [
+    Activity,
+    Bookmark,
+    Favorite,
+    Job,
+    Page,
+    Post,
+    Recommendation,
+  ],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

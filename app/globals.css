@@ -22,6 +22,10 @@
     --surface-neutral: 0 0% 15.7%;
     --underline: 0 0% 31.4%;
   }
+
+  strong {
+    @apply font-variable-semibold;
+  }
 }
 
 @layer components {
@@ -84,6 +88,10 @@
 
   .prose table tbody td {
     @apply border-t py-2;
+  }
+
+  .prose hr {
+    @apply my-6;
   }
 }
 
