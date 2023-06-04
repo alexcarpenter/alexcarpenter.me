@@ -77,7 +77,7 @@ export const Favorite = defineDocumentType(() => ({
       type: "date",
       required: true,
     },
-    update: {
+    updated: {
       type: "date",
       required: false,
     },

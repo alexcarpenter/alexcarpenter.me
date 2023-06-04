@@ -64,13 +64,13 @@ export default async function About({ params }: PageProps) {
       </header>
 
       <section className="mt-8 border-t pt-8">
-        <div className="grid gap-4 md:grid-cols-4 md:gap-16">
-          {/* {page.updated ? (
+        <div className="grid gap-8 md:grid-cols-4 md:gap-16">
+          {page.updated ? (
             <div>
               <p className="text-sm text-foreground-neutral">
                 Last updated{" "}
                 <a
-                  href={`https://github.com/alexcarpenter/alexcarpenter-next/commits/main/content/pages/${page.slug}.mdx`}
+                  href={`https://github.com/alexcarpenter/alexcarpenter-next/commits/main/content/favorites/${page.slug}.mdx`}
                 >
                   <time dateTime={page.updated}>
                     {parseDateToString(page.updated)}
@@ -78,7 +78,7 @@ export default async function About({ params }: PageProps) {
                 </a>
               </p>
             </div>
-          ) : null} */}
+          ) : null}
           <div className="md:col-span-3 md:col-start-2 lg:col-span-2 lg:col-start-2">
             <div className="prose">
               <Mdx code={page.body.code} />

@@ -64,7 +64,7 @@ export default async function About({ params }: PageProps) {
       </header>
 
       <section className="mt-8 border-t pt-8">
-        <div className="grid gap-4 md:grid-cols-4 md:gap-16">
+        <div className="grid gap-8 md:grid-cols-4 md:gap-16">
           {page.updated ? (
             <div>
               <p className="text-sm text-foreground-neutral">
