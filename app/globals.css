@@ -91,7 +91,7 @@
   }
 
   .prose hr {
-    @apply my-6;
+    @apply my-8;
   }
 }
 
