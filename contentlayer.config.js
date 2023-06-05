@@ -8,27 +8,6 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode from "rehype-pretty-code";
 
 ////////////////////////////////////////////////////////////////////////////////
-// Activities
-
-export const Activity = defineDocumentType(() => ({
-  name: "Activity",
-  filePathPattern: `activities/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    date: {
-      type: "date",
-      required: true,
-    },
-  },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-  },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
 // Bookmarks
 
 const Bookmark = defineDocumentType(() => ({
@@ -269,6 +248,46 @@ export const Recommendation = defineDocumentType(() => ({
 }));
 
 ////////////////////////////////////////////////////////////////////////////////
+// Quotes
+
+export const Quote = defineDocumentType(() => ({
+  name: "Quote",
+  filePathPattern: `quotes/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    date: {
+      type: "date",
+      required: true,
+    },
+    cite: {
+      type: "string",
+      require: true,
+    },
+  },
+}));
+
+////////////////////////////////////////////////////////////////////////////////
+// Updates
+
+export const Update = defineDocumentType(() => ({
+  name: "Update",
+  filePathPattern: `updates/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    date: {
+      type: "date",
+      required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
+    },
+  },
+}));
+
+////////////////////////////////////////////////////////////////////////////////
 // Rehype Pretty Code
 
 const rehypePrettyCodeOptions = {
@@ -301,13 +320,14 @@ const rehypePrettyCodeOptions = {
 export default makeSource({
   contentDirPath: "./content",
   documentTypes: [
-    Activity,
     Bookmark,
     Favorite,
     Job,
     Page,
     Post,
     Recommendation,
+    Update,
+    Quote,
   ],
   mdx: {
     remarkPlugins: [remarkGfm],

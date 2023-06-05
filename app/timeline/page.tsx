@@ -1,5 +1,5 @@
 import type { Metadata } from "next/types";
-import type { Activity, Bookmark, Post } from "@/.contentlayer/generated";
+import type { Update, Bookmark, Post, Quote } from "@/.contentlayer/generated";
 import Link from "next/link";
 import {
   compareDesc,
@@ -7,13 +7,14 @@ import {
   parseDateToString,
 } from "@/lib/formatting";
 import {
-  allActivities,
+  allUpdates,
   allBookmarks,
   allPosts,
+  allQuotes,
 } from "@/.contentlayer/generated";
 import { Mdx } from "@/app/mdx";
 
-type EntryType = Activity | Bookmark | Post;
+type EntryType = Update | Bookmark | Post | Quote;
 
 export const metadata: Metadata = {
   title: "Timeline",
@@ -21,9 +22,12 @@ export const metadata: Metadata = {
 };
 
 export default function Timeline() {
-  const allEntries = [...allActivities, ...allBookmarks, ...allPosts].sort(
-    ({ date: a }, { date: b }) => compareDesc(new Date(a), new Date(b))
-  );
+  const allEntries = [
+    ...allUpdates,
+    ...allBookmarks,
+    ...allPosts,
+    ...allQuotes,
+  ].sort(({ date: a }, { date: b }) => compareDesc(new Date(a), new Date(b)));
   return (
     <>
       <header className="mt-16 grid gap-16 md:grid-cols-4">
@@ -31,9 +35,7 @@ export default function Timeline() {
           <h1 className="font-variable-semibold text-3xl tracking-tight text-foreground">
             Timeline
           </h1>
-          {/* <p className="mt-1 text-lg text-foreground-neutral">
-            Short form thoughts and updates
-          </p> */}
+          {/* <p className="mt-1 text-lg text-foreground-neutral"></p> */}
         </div>
       </header>
 
@@ -43,7 +45,7 @@ export default function Timeline() {
             return (
               <li
                 key={entry._id}
-                className="grid gap-x-16 gap-y-2 border-t py-8 md:grid-cols-4"
+                className="grid gap-x-16 gap-y-4 border-t py-8 md:grid-cols-4"
               >
                 <div>
                   {RenderMeta(entry)}
@@ -66,20 +68,22 @@ export default function Timeline() {
 
 function RenderMeta(entry: EntryType) {
   switch (entry.type) {
-    case "Activity": {
-      return (
-        <Link href={`/activity/${entry.slug}`}>
-          <time
-            className="text-sm text-foreground-neutral"
-            dateTime={entry.date}
-          >
-            {parseDateTimeToString(entry.date)}
-          </time>
-        </Link>
-      );
-    }
+    // case "Update": {
+    //   return (
+    //     <Link href={`/updates/${entry.slug}`}>
+    //       <time
+    //         className="text-sm text-foreground-neutral"
+    //         dateTime={entry.date}
+    //       >
+    //         {parseDateTimeToString(entry.date)}
+    //       </time>
+    //     </Link>
+    //   );
+    // }
+    case "Update":
     case "Bookmark":
-    case "Post": {
+    case "Post":
+    case "Quote": {
       return (
         <p className="text-sm text-foreground-neutral">
           {parseDateToString(entry.date)}
@@ -91,7 +95,7 @@ function RenderMeta(entry: EntryType) {
 
 function RenderContent(entry: EntryType) {
   switch (entry.type) {
-    case "Activity": {
+    case "Update": {
       return (
         <div className="prose">
           <Mdx code={entry.body.code} />
@@ -137,6 +141,20 @@ function RenderContent(entry: EntryType) {
             <p className="mt-2 text-foreground-neutral">{entry.description}</p>
           ) : null}
         </>
+      );
+    }
+    case "Quote": {
+      return (
+        <div className="prose">
+          <figure>
+            <blockquote>
+              <Mdx code={entry.body.code} />
+            </blockquote>
+            <figcaption className="mt-4 text-foreground-neutral">
+              &mdash; {entry.cite}
+            </figcaption>
+          </figure>
+        </div>
       );
     }
   }
