@@ -11,21 +11,17 @@ const routes = [
     href: "/",
   },
   {
-    label: "posts",
-    href: "/posts",
+    label: "about",
+    href: "/about",
   },
   {
-    label: "activity",
-    href: "/activity",
+    label: "timeline",
+    href: "/timeline",
   },
   {
-    label: "bookmarks",
-    href: "/bookmarks",
+    label: "colophon",
+    href: "/colophon",
   },
-  // {
-  //   label: "colophon",
-  //   href: "/colophon",
-  // },
 ];
 
 const accounts = [
