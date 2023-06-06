@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { allActivities } from "@/.contentlayer/generated";
+import { allNotes } from "@/.contentlayer/generated";
 import { Mdx } from "@/app/mdx";
 import { parseDateTimeToString } from "@/lib/formatting";
 
@@ -10,40 +10,40 @@ interface PageProps {
   };
 }
 
-async function getActivityFromParams(params: PageProps["params"]) {
-  const activity = allActivities.find(
-    (activity) => activity.slug === params.slug
-  );
+async function getNoteFromParams(params: PageProps["params"]) {
+  const note = allNotes.find((note) => note.slug === params.slug);
 
-  if (!activity) {
+  if (!note) {
     null;
   }
 
-  return activity;
+  return note;
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const activity = await getActivityFromParams(params);
+  const note = await getNoteFromParams(params);
 
-  if (!activity) {
+  if (!note) {
     return {};
   }
 
-  return {};
+  return {
+    title: note.date,
+  };
 }
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
-  return allActivities.map(({ slug }) => ({
+  return allNotes.map(({ slug }) => ({
     slug,
   }));
 }
 
-export default async function Activity({ params }: PageProps) {
-  const activity = await getActivityFromParams(params);
+export default async function Note({ params }: PageProps) {
+  const note = await getNoteFromParams(params);
 
-  if (!activity) {
+  if (!note) {
     notFound();
   }
 
@@ -53,16 +53,16 @@ export default async function Activity({ params }: PageProps) {
         <div className="grid gap-8 md:grid-cols-4 md:gap-16">
           <div className="md:col-span-3 md:col-start-2 lg:col-span-2 lg:col-start-2">
             <div className="prose">
-              <Mdx code={activity.body.code} />
+              <Mdx code={note.body.code} />
             </div>
           </div>
 
           <div className="md:col-start-1 md:row-start-1">
             <time
               className="text-sm text-foreground-neutral"
-              dateTime={activity.date}
+              dateTime={note.date}
             >
-              {parseDateTimeToString(activity.date)}
+              {parseDateTimeToString(note.date)}
             </time>
           </div>
         </div>

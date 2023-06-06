@@ -1,6 +1,11 @@
 import type { Metadata } from "next/types";
 import type { Bookmark, Note, Post, Quote } from "@/.contentlayer/generated";
-import { compareDesc, parseDateToString } from "@/lib/formatting";
+import Link from "next/link";
+import {
+  compareDesc,
+  parseDateTimeToString,
+  parseDateToString,
+} from "@/lib/formatting";
 import {
   allBookmarks,
   allNotes,
@@ -44,7 +49,7 @@ export default function Timeline() {
               >
                 <div>
                   <p className="text-sm text-foreground-neutral">
-                    {parseDateToString(entry.date)}
+                    {renderMeta(entry)}
                   </p>
                   <p className="flex items-center gap-1 text-sm text-foreground-neutral">
                     <RightHookArrowIcon /> {entry.type.toLowerCase()}
@@ -52,7 +57,7 @@ export default function Timeline() {
                 </div>
 
                 <div className="md:col-span-2 md:col-start-2">
-                  {RenderContent(entry)}
+                  {renderContent(entry)}
                 </div>
               </li>
             );
@@ -63,7 +68,27 @@ export default function Timeline() {
   );
 }
 
-function RenderContent(entry: EntryType) {
+function renderMeta(entry: EntryType) {
+  switch (entry.type) {
+    case "Bookmark":
+    case "Post":
+    case "Quote": {
+      return parseDateToString(entry.date);
+    }
+    case "Note": {
+      return (
+        <Link
+          href={`/notes/${entry.slug}`}
+          className="transition-colors hover:text-foreground"
+        >
+          {parseDateTimeToString(entry.date)}
+        </Link>
+      );
+    }
+  }
+}
+
+function renderContent(entry: EntryType) {
   switch (entry.type) {
     case "Bookmark": {
       return (
@@ -98,7 +123,7 @@ function RenderContent(entry: EntryType) {
     }
     case "Post": {
       return (
-        <>
+        <div className="max-w-prose">
           <h2 className="font-variable-semibold">
             <a
               href={`/posts/${entry.slug}`}
@@ -110,12 +135,12 @@ function RenderContent(entry: EntryType) {
           {entry.description ? (
             <p className="mt-2 text-foreground-neutral">{entry.description}</p>
           ) : null}
-        </>
+        </div>
       );
     }
     case "Quote": {
       return (
-        <figure className="border-l-4 pl-4">
+        <figure className="max-w-prose border-l-4 pl-4">
           <blockquote>
             <Mdx code={entry.body.code} />
           </blockquote>
