@@ -63,7 +63,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cx(
-          "mx-auto max-w-[112.5rem] bg-page px-4 py-16 font-sans antialiased",
+          "mx-auto max-w-[100rem] bg-page px-4 py-16 font-sans antialiased",
           inter.variable,
           instrument.variable
         )}
