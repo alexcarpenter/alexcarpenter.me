@@ -45,19 +45,17 @@ export default function Timeline() {
             return (
               <li
                 key={entry._id}
-                className="grid gap-x-16 gap-y-4 border-t py-8 md:grid-cols-4"
+                className="grid gap-x-16 gap-y-8 border-t py-8 md:grid-cols-4"
               >
-                <div>
+                <div className="md:col-span-2">{renderContent(entry)}</div>
+
+                <div className="md:col-start-1 md:row-start-1">
                   <p className="text-sm text-foreground-neutral">
                     {renderMeta(entry)}
                   </p>
                   <p className="flex items-center gap-1 text-sm text-foreground-neutral">
                     <RightHookArrowIcon /> {entry.type.toLowerCase()}
                   </p>
-                </div>
-
-                <div className="md:col-span-2 md:col-start-2">
-                  {renderContent(entry)}
                 </div>
               </li>
             );
