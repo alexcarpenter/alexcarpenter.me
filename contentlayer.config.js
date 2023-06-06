@@ -1,32 +1,7 @@
-import {
-  defineDocumentType,
-  defineNestedType,
-  makeSource,
-} from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode from "rehype-pretty-code";
-
-////////////////////////////////////////////////////////////////////////////////
-// Activities
-
-export const Activity = defineDocumentType(() => ({
-  name: "Activity",
-  filePathPattern: `activities/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    date: {
-      type: "date",
-      required: true,
-    },
-  },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-  },
-}));
 
 ////////////////////////////////////////////////////////////////////////////////
 // Bookmarks
@@ -93,28 +68,6 @@ export const Favorite = defineDocumentType(() => ({
 ////////////////////////////////////////////////////////////////////////////////
 // Jobs
 
-const Event = defineNestedType(() => ({
-  name: "Event",
-  fields: {
-    heading: {
-      type: "string",
-      required: true,
-    },
-    description: {
-      type: "string",
-      required: false,
-    },
-    date: {
-      type: "date",
-      required: true,
-    },
-    link: {
-      type: "string",
-      required: false,
-    },
-  },
-}));
-
 export const Job = defineDocumentType(() => ({
   name: "Job",
   filePathPattern: `jobs/*.mdx`,
@@ -148,15 +101,6 @@ export const Job = defineDocumentType(() => ({
       type: "string",
       required: false,
     },
-    logo: {
-      type: "string",
-      required: false,
-    },
-    timeline: {
-      type: "list",
-      of: Event,
-      required: false,
-    },
     tags: {
       type: "list",
       of: { type: "string" },
@@ -171,6 +115,27 @@ export const Job = defineDocumentType(() => ({
     slug: {
       type: "string",
       resolve: (job) => job._raw.sourceFileName.replace(/\.mdx$/, ""),
+    },
+  },
+}));
+
+////////////////////////////////////////////////////////////////////////////////
+// Notes
+
+export const Note = defineDocumentType(() => ({
+  name: "Note",
+  filePathPattern: `notes/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    date: {
+      type: "date",
+      required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
     },
   },
 }));
@@ -269,6 +234,25 @@ export const Recommendation = defineDocumentType(() => ({
 }));
 
 ////////////////////////////////////////////////////////////////////////////////
+// Quotes
+
+export const Quote = defineDocumentType(() => ({
+  name: "Quote",
+  filePathPattern: `quotes/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    date: {
+      type: "date",
+      required: true,
+    },
+    cite: {
+      type: "string",
+      require: true,
+    },
+  },
+}));
+
+////////////////////////////////////////////////////////////////////////////////
 // Rehype Pretty Code
 
 const rehypePrettyCodeOptions = {
@@ -301,13 +285,14 @@ const rehypePrettyCodeOptions = {
 export default makeSource({
   contentDirPath: "./content",
   documentTypes: [
-    Activity,
     Bookmark,
     Favorite,
     Job,
+    Note,
     Page,
     Post,
     Recommendation,
+    Quote,
   ],
   mdx: {
     remarkPlugins: [remarkGfm],

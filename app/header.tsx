@@ -11,21 +11,17 @@ const routes = [
     href: "/",
   },
   {
-    label: "posts",
-    href: "/posts",
+    label: "about",
+    href: "/about",
   },
   {
-    label: "activity",
-    href: "/activity",
+    label: "timeline",
+    href: "/timeline",
   },
   {
-    label: "bookmarks",
-    href: "/bookmarks",
+    label: "colophon",
+    href: "/colophon",
   },
-  // {
-  //   label: "colophon",
-  //   href: "/colophon",
-  // },
 ];
 
 const accounts = [
@@ -63,7 +59,7 @@ export function Header() {
           <p className="text-foreground-neutral">
             Currently on{" "}
             <Link
-              href="/activity/1684072544"
+              href="/notes/1684072544"
               className="underline decoration-underline hover:decoration-inherit"
             >
               paternity leave

@@ -28,7 +28,7 @@ export default function Home() {
         </div>
 
         <div className="md:col-span-3 md:col-start-2 lg:col-span-2 lg:col-start-2">
-          <p className="max-w-prose bg-gradient-to-br from-text-gradient-start to-text-gradient-end bg-clip-text font-serif text-2xl italic text-transparent md:text-3xl">
+          <p className="max-w-2xl bg-gradient-to-br from-text-gradient-start to-text-gradient-end bg-clip-text font-serif text-2xl italic text-transparent md:text-3xl">
             A detail oriented user interface engineer interested in CSS
             architecture, React, TypeScript, animation, and design systems.
             Currently working at HashiCorp, helping build and maintain
