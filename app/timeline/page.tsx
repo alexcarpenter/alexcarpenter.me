@@ -1,20 +1,15 @@
 import type { Metadata } from "next/types";
-import type { Update, Bookmark, Post, Quote } from "@/.contentlayer/generated";
-import Link from "next/link";
+import type { Bookmark, Note, Post, Quote } from "@/.contentlayer/generated";
+import { compareDesc, parseDateToString } from "@/lib/formatting";
 import {
-  compareDesc,
-  parseDateTimeToString,
-  parseDateToString,
-} from "@/lib/formatting";
-import {
-  allUpdates,
   allBookmarks,
+  allNotes,
   allPosts,
   allQuotes,
 } from "@/.contentlayer/generated";
 import { Mdx } from "@/app/mdx";
 
-type EntryType = Update | Bookmark | Post | Quote;
+type EntryType = Bookmark | Note | Post | Quote;
 
 export const metadata: Metadata = {
   title: "Timeline",
@@ -23,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function Timeline() {
   const allEntries = [
-    ...allUpdates,
     ...allBookmarks,
+    ...allNotes,
     ...allPosts,
     ...allQuotes,
   ].sort(({ date: a }, { date: b }) => compareDesc(new Date(a), new Date(b)));
@@ -48,7 +43,9 @@ export default function Timeline() {
                 className="grid gap-x-16 gap-y-4 border-t py-8 md:grid-cols-4"
               >
                 <div>
-                  {RenderMeta(entry)}
+                  <p className="text-sm text-foreground-neutral">
+                    {parseDateToString(entry.date)}
+                  </p>
                   <p className="flex items-center gap-1 text-sm text-foreground-neutral">
                     <RightHookArrowIcon /> {entry.type.toLowerCase()}
                   </p>
@@ -66,42 +63,8 @@ export default function Timeline() {
   );
 }
 
-function RenderMeta(entry: EntryType) {
-  switch (entry.type) {
-    // case "Update": {
-    //   return (
-    //     <Link href={`/updates/${entry.slug}`}>
-    //       <time
-    //         className="text-sm text-foreground-neutral"
-    //         dateTime={entry.date}
-    //       >
-    //         {parseDateTimeToString(entry.date)}
-    //       </time>
-    //     </Link>
-    //   );
-    // }
-    case "Update":
-    case "Bookmark":
-    case "Post":
-    case "Quote": {
-      return (
-        <p className="text-sm text-foreground-neutral">
-          {parseDateToString(entry.date)}
-        </p>
-      );
-    }
-  }
-}
-
 function RenderContent(entry: EntryType) {
   switch (entry.type) {
-    case "Update": {
-      return (
-        <div className="prose">
-          <Mdx code={entry.body.code} />
-        </div>
-      );
-    }
     case "Bookmark": {
       return (
         <>
@@ -126,6 +89,13 @@ function RenderContent(entry: EntryType) {
         </>
       );
     }
+    case "Note": {
+      return (
+        <div className="prose">
+          <Mdx code={entry.body.code} />
+        </div>
+      );
+    }
     case "Post": {
       return (
         <>
@@ -145,16 +115,14 @@ function RenderContent(entry: EntryType) {
     }
     case "Quote": {
       return (
-        <div className="prose">
-          <figure>
-            <blockquote>
-              <Mdx code={entry.body.code} />
-            </blockquote>
-            <figcaption className="mt-4 text-foreground-neutral">
-              &mdash; {entry.cite}
-            </figcaption>
-          </figure>
-        </div>
+        <figure className="border-l-4 pl-4">
+          <blockquote>
+            <Mdx code={entry.body.code} />
+          </blockquote>
+          <figcaption className="mt-4 text-foreground-neutral">
+            &mdash; {entry.cite}
+          </figcaption>
+        </figure>
       );
     }
   }

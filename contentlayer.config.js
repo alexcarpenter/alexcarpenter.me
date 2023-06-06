@@ -1,8 +1,4 @@
-import {
-  defineDocumentType,
-  defineNestedType,
-  makeSource,
-} from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -72,28 +68,6 @@ export const Favorite = defineDocumentType(() => ({
 ////////////////////////////////////////////////////////////////////////////////
 // Jobs
 
-const Event = defineNestedType(() => ({
-  name: "Event",
-  fields: {
-    heading: {
-      type: "string",
-      required: true,
-    },
-    description: {
-      type: "string",
-      required: false,
-    },
-    date: {
-      type: "date",
-      required: true,
-    },
-    link: {
-      type: "string",
-      required: false,
-    },
-  },
-}));
-
 export const Job = defineDocumentType(() => ({
   name: "Job",
   filePathPattern: `jobs/*.mdx`,
@@ -127,15 +101,6 @@ export const Job = defineDocumentType(() => ({
       type: "string",
       required: false,
     },
-    logo: {
-      type: "string",
-      required: false,
-    },
-    timeline: {
-      type: "list",
-      of: Event,
-      required: false,
-    },
     tags: {
       type: "list",
       of: { type: "string" },
@@ -150,6 +115,27 @@ export const Job = defineDocumentType(() => ({
     slug: {
       type: "string",
       resolve: (job) => job._raw.sourceFileName.replace(/\.mdx$/, ""),
+    },
+  },
+}));
+
+////////////////////////////////////////////////////////////////////////////////
+// Notes
+
+export const Note = defineDocumentType(() => ({
+  name: "Note",
+  filePathPattern: `notes/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    date: {
+      type: "date",
+      required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
     },
   },
 }));
@@ -267,27 +253,6 @@ export const Quote = defineDocumentType(() => ({
 }));
 
 ////////////////////////////////////////////////////////////////////////////////
-// Updates
-
-export const Update = defineDocumentType(() => ({
-  name: "Update",
-  filePathPattern: `updates/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    date: {
-      type: "date",
-      required: true,
-    },
-  },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-  },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
 // Rehype Pretty Code
 
 const rehypePrettyCodeOptions = {
@@ -323,10 +288,10 @@ export default makeSource({
     Bookmark,
     Favorite,
     Job,
+    Note,
     Page,
     Post,
     Recommendation,
-    Update,
     Quote,
   ],
   mdx: {
