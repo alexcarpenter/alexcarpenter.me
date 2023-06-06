@@ -30,7 +30,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: note.date,
+    title: `Note: ${parseDateTimeToString(note.date)}`,
   };
 }
 
