@@ -168,7 +168,7 @@ export default function Posts() {
 
             <div>
               <a
-                href="https://www.contentlayer.dev/"
+                href="https://fonts.google.com/"
                 className="text-foreground-neutral transition-colors hover:text-foreground"
               >
                 Vist <span aria-hidden="true">↗</span>
