@@ -39,7 +39,7 @@
 
   .prose > * + h2,
   .prose > * + h3 {
-    @apply mt-6;
+    @apply mt-8;
   }
 
   .prose h2 {
