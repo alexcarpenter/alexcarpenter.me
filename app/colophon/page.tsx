@@ -9,6 +9,7 @@ const inspiration = [
   "https://berkeleygraphics.com/",
   "https://chasem.co/",
   "https://frankchimero.com/",
+  "https://franvelas.co/",
   "https://hamishsmyth.com/",
   "https://hunterjennings.dev/",
   "https://joebell.co.uk/",
@@ -16,7 +17,6 @@ const inspiration = [
   "https://paco.me/",
   "https://rauno.me/",
   "https://sdrn.co/",
-  "https://sj.land/",
 ];
 
 export default function Posts() {
