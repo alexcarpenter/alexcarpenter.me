@@ -163,7 +163,7 @@ export default function Posts() {
             </div>
 
             <div className="col-span-2">
-              <p>Inter, Instrument Serif... WIP</p>
+              <p>Instrument Sans/Serif... WIP</p>
             </div>
 
             <div>
