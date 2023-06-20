@@ -1,6 +1,5 @@
 import "./globals.css";
 import { Instrument_Sans, Instrument_Serif } from "next/font/google";
-import localFont from "next/font/local";
 import { cx } from "@/lib/classnames";
 import { Analytics } from "./analytics";
 import { Header } from "./header";
