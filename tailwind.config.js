@@ -11,8 +11,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["var(--font-inter)", ...fontFamily.sans],
-      serif: ["var(--font-instrument)", ...fontFamily.serif],
+      sans: ["var(--font-instrument-sans)", ...fontFamily.sans],
+      serif: ["var(--font-instrument-serif)", ...fontFamily.serif],
     },
     extend: {
       gradientColorStops: {

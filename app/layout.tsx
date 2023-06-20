@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Instrument_Serif } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import { cx } from "@/lib/classnames";
 import { Analytics } from "./analytics";
@@ -7,14 +7,14 @@ import { Header } from "./header";
 import { Footer } from "./footer";
 import { Providers } from "./providers";
 
-const inter = localFont({
-  src: "../public/fonts/inter-var-latin.woff2",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
 });
 
-const instrument = Instrument_Serif({
-  variable: "--font-instrument",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
   display: "swap",
   weight: "400",
@@ -64,8 +64,8 @@ export default function RootLayout({
       <body
         className={cx(
           "mx-auto max-w-[100rem] bg-page px-4 py-16 font-sans antialiased",
-          inter.variable,
-          instrument.variable
+          instrumentSans.variable,
+          instrumentSerif.variable
         )}
       >
         <Providers>
