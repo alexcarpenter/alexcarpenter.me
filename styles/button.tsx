@@ -6,7 +6,7 @@ export const buttonVariants = cva(
   {
     variants: {
       intent: {
-        action: "bg-surface-action text-[#171717]",
+        action: "bg-surface-action text-foreground-action",
       },
       size: {
         small: "px-3 py-1.5",

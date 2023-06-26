@@ -28,6 +28,7 @@ module.exports = {
       textColor: {
         foreground: "hsl(var(--foreground))",
         "foreground-neutral": "hsl(var(--foreground-neutral))",
+        "foreground-action": "hsl(var(--foreground-action))",
       },
       borderColor: {
         DEFAULT: "hsl(var(--border))",
