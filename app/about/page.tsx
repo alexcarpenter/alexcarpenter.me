@@ -9,9 +9,22 @@ export const metadata: Metadata = {
 const sidebar: [string, React.ReactNode][] = [
   ["Current location", "Grand Rapids, MI."],
   ["Hometown", "Lowell, MI."],
-  ["Top bookmarks", "thestrategist.com, github.com, siteinspire.com"],
+  [
+    "Top bookmarks",
+    <>
+      <a href="https://thestrategist.com">thestrategist.com</a>,{" "}
+      <a href="https://github.com">github.com</a>,{" "}
+      <a href="https://siteinspire.com">siteinspire.com</a>
+    </>,
+  ],
   ["Top apps", "Visual Studio Code, iTerm 2, iA Writer, Todoist"],
-  ["Inspration", "berkleygraphics.com"],
+  [
+    "Inspration",
+    <>
+      <a href="https://berkleygraphics.com">berkleygraphics.com</a>,{" "}
+      <a href="https://www.instagram.com/whr/">whr.institute</a>
+    </>,
+  ],
 ];
 
 const content: React.ReactNode = (
@@ -58,7 +71,7 @@ export default function Posts() {
       </header>
 
       <section className="mt-8 border-t pt-8">
-        <div className="grid gap-16 md:grid-cols-4">
+        <div className="grid gap-x-16 gap-y-8 md:grid-cols-4">
           <div className="md:col-span-2 md:col-start-2">
             <div className="float-right mb-8 ml-8 w-1/3">
               <Image
