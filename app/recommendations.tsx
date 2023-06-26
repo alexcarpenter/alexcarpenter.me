@@ -31,8 +31,8 @@ export function Recommendations({
               </div>
 
               <div>
-                <p className="text-sm text-foreground-neutral">{title}</p>
-                <p className="text-sm text-foreground-neutral">{company}</p>
+                <p className="text-foreground-neutral">{title}</p>
+                <p className="text-foreground-neutral">{company}</p>
               </div>
             </li>
           );
@@ -57,8 +57,8 @@ export function Recommendations({
               </div>
 
               <div>
-                <p className="text-sm text-foreground-neutral">{title}</p>
-                <p className="text-sm text-foreground-neutral">{company}</p>
+                <p className="text-foreground-neutral">{title}</p>
+                <p className="text-foreground-neutral">{company}</p>
               </div>
             </li>
           );

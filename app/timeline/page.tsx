@@ -50,10 +50,8 @@ export default function Timeline() {
                 <div className="md:col-span-2">{renderContent(entry)}</div>
 
                 <div className="md:col-start-1 md:row-start-1">
-                  <p className="text-sm text-foreground-neutral">
-                    {renderMeta(entry)}
-                  </p>
-                  <p className="flex items-center gap-1 text-sm text-foreground-neutral">
+                  <p className="text-foreground-neutral">{renderMeta(entry)}</p>
+                  <p className="flex items-center gap-1 text-foreground-neutral">
                     <RightHookArrowIcon /> {entry.type.toLowerCase()}
                   </p>
                 </div>
@@ -100,7 +98,7 @@ function renderContent(entry: EntryType) {
             </a>
             &nbsp;↗
           </h2>
-          <p className="mt-1 inline-flex items-center gap-1 text-sm text-foreground-neutral">
+          <p className="mt-1 inline-flex items-center gap-1 text-foreground-neutral">
             <RightHookArrowIcon />
             {entry.hostname}
           </p>

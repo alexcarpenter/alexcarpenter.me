@@ -28,17 +28,8 @@ export default function Posts() {
           <h1 className="font-variable-semibold text-3xl tracking-tight text-foreground">
             Colophon
           </h1>
-          {/* <p className="mt-1 text-lg text-foreground-neutral">
-            Perpetually work-in-progress
-          </p> */}
-          {/* <a
-            href="https://github.com/alexcarpenter/alexcarpenter-next"
-            className="mt-1 block w-max text-lg text-foreground-neutral"
-          >
-            View source on GitHub <span aria-hidden="true">↗</span>
-          </a> */}
           <div className="mt-4 space-y-4">
-            <p className="text-sm text-foreground-neutral">
+            <p className="text-foreground-neutral">
               Last updated: <br />
               <a
                 href={`https://github.com/alexcarpenter/alexcarpenter-next/commit/${process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA}`}
@@ -57,7 +48,7 @@ export default function Posts() {
                 ) : null}
               </a>
             </p>
-            <p className="text-sm text-foreground-neutral">
+            <p className="text-foreground-neutral">
               View source: <br />
               <a
                 href="https://github.com/alexcarpenter/alexcarpenter-next"

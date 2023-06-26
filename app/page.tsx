@@ -80,7 +80,7 @@ export default function Home() {
                     </p>
 
                     {tags ? (
-                      <p className="mt-2 text-sm text-foreground-neutral">
+                      <p className="mt-2 text-foreground-neutral">
                         <span className="sr-only">Tools used:</span>
                         {formatTags(tags)}
                       </p>
@@ -88,7 +88,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <p className="text-sm text-foreground-neutral">
+                    <p className="text-foreground-neutral">
                       {new Date(startDate).getFullYear()} &mdash;{" "}
                       {endDate ? new Date(endDate).getFullYear() : "Now"}
                     </p>

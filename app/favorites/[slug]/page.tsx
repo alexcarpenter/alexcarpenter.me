@@ -67,7 +67,7 @@ export default async function About({ params }: PageProps) {
         <div className="grid gap-8 md:grid-cols-4 md:gap-16">
           {page.updated ? (
             <div>
-              <p className="text-sm text-foreground-neutral">
+              <p className="text-foreground-neutral">
                 Last updated{" "}
                 <a
                   href={`https://github.com/alexcarpenter/alexcarpenter-next/commits/main/content/favorites/${page.slug}.mdx`}

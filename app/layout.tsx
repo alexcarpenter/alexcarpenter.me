@@ -1,5 +1,9 @@
 import "./globals.css";
-import { Instrument_Sans, Instrument_Serif } from "next/font/google";
+import {
+  Instrument_Sans,
+  Instrument_Serif,
+  JetBrains_Mono,
+} from "next/font/google";
 import { cx } from "@/lib/classnames";
 import { Analytics } from "./analytics";
 import { Header } from "./header";
@@ -18,6 +22,13 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
   weight: "400",
   style: "italic",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
 });
 
 export const metadata = {
@@ -64,7 +75,8 @@ export default function RootLayout({
         className={cx(
           "mx-auto max-w-[100rem] bg-page px-4 py-16 font-sans antialiased",
           instrumentSans.variable,
-          instrumentSerif.variable
+          instrumentSerif.variable,
+          jetbrainsMono.variable
         )}
       >
         <Providers>

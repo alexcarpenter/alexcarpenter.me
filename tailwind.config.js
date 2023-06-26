@@ -13,6 +13,7 @@ module.exports = {
     fontFamily: {
       sans: ["var(--font-instrument-sans)", ...fontFamily.sans],
       serif: ["var(--font-instrument-serif)", ...fontFamily.serif],
+      mono: ["var(--font-jetbrains-mono)", ...fontFamily.mono],
     },
     extend: {
       gradientColorStops: {
