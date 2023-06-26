@@ -51,11 +51,10 @@ export default function Posts() {
             <p className="text-foreground-neutral">
               View source: <br />
               <a
-                href="https://github.com/alexcarpenter/alexcarpenter-next"
+                href="https://github.com/alexcarpenter/alexcarpenter.me"
                 className="transition-colors hover:text-foreground"
               >
-                alexcarpenter/alexcarpenter-next{" "}
-                <span aria-hidden="true">↗</span>
+                alexcarpenter/alexcarpenter.me <span aria-hidden="true">↗</span>
               </a>
             </p>
           </div>
