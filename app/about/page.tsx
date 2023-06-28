@@ -34,10 +34,10 @@ const content: React.ReactNode = (
       with my wife Stacey, my son Micah, and our mini dachshund Frankie.
     </p>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa quasi
-      eum, sapiente rerum vel ducimus non, eligendi veritatis provident
-      inventore quae aspernatur odit itaque placeat, at cupiditate impedit
-      architecto!
+      I grew up in a small farming town where my parents owned a feed mill in
+      the middle of town. I spent most of my my childhood and early adult years
+      working there. I think it was given that I would some day take over the
+      family business; not something I was really interested in doing though.
     </p>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa quasi
