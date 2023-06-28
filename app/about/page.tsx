@@ -29,6 +29,10 @@ const sidebar: [string, React.ReactNode][] = [
 
 const content: React.ReactNode = (
   <>
+    <p className="text-lg">
+      Hey there, my name is Alex Carpenter. I live in Grand Rapids, Michigan
+      with my wife Stacey, my son Micah, and our mini dachshund Frankie.
+    </p>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa quasi
       eum, sapiente rerum vel ducimus non, eligendi veritatis provident
