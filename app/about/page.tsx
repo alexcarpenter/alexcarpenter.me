@@ -40,22 +40,13 @@ const content: React.ReactNode = (
       family business; not something I was really interested in doing though.
     </p>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa quasi
-      eum, sapiente rerum vel ducimus non, eligendi veritatis provident
-      inventore quae aspernatur odit itaque placeat, at cupiditate impedit
-      architecto!
+      Unfortunately, fortunately? the business shut down due to the economy. I
+      was forced to find what I actually wanted to do with my life.
     </p>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa quasi
-      eum, sapiente rerum vel ducimus non, eligendi veritatis provident
-      inventore quae aspernatur odit itaque placeat, at cupiditate impedit
-      architecto!
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum ipsa quasi
-      eum, sapiente rerum vel ducimus non, eligendi veritatis provident
-      inventore quae aspernatur odit itaque placeat, at cupiditate impedit
-      architecto!
+      During that time I was making videos for local area businesses. I
+      eventually needed a website for the work that I was producing. I got my
+      feet wet tweaking tumblr themes.
     </p>
   </>
 );
