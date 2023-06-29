@@ -58,10 +58,7 @@ export default async function Note({ params }: PageProps) {
           </div>
 
           <div className="md:col-start-1 md:row-start-1">
-            <time
-              className="text-sm text-foreground-neutral"
-              dateTime={note.date}
-            >
+            <time className="text-foreground-neutral" dateTime={note.date}>
               {parseDateTimeToString(note.date)}
             </time>
           </div>
