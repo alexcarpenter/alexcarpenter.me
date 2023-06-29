@@ -55,7 +55,7 @@ export function Header() {
           <p className="font-variable-semibold text-foreground">
             <Link href="/">Alex Carpenter</Link>
           </p>
-          <p className="text-foreground-neutral">Design Engineer</p>
+          <p className="text-foreground-neutral">Web Engineer</p>
           <p className="text-foreground-neutral">
             Currently on{" "}
             <Link
