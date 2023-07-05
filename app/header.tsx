@@ -56,15 +56,6 @@ export function Header() {
             <Link href="/">Alex Carpenter</Link>
           </p>
           <p className="text-foreground-neutral">Web Engineer</p>
-          <p className="text-foreground-neutral">
-            Currently on{" "}
-            <Link
-              href="/notes/1684072544"
-              className="underline decoration-underline hover:decoration-inherit"
-            >
-              paternity leave
-            </Link>
-          </p>
         </div>
 
         <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>
