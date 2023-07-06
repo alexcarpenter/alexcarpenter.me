@@ -56,6 +56,10 @@
     @apply list-disc space-y-1 pl-7;
   }
 
+  .prose ul ul {
+    @apply list-circle space-y-1 pl-7 pt-1;
+  }
+
   .prose ol {
     @apply list-decimal space-y-1 pl-7;
   }

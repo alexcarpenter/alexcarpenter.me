@@ -68,7 +68,8 @@ export default async function About({ params }: PageProps) {
           {page.updated ? (
             <div>
               <p className="text-foreground-neutral">
-                Last updated{" "}
+                Last updated:
+                <br />
                 <a
                   href={`https://github.com/alexcarpenter/alexcarpenter-next/commits/main/content/pages/${page.slug}.mdx`}
                 >

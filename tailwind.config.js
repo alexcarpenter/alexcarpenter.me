@@ -36,6 +36,9 @@ module.exports = {
       textDecorationColor: {
         underline: "hsl(var(--underline))",
       },
+      listStyleType: {
+        circle: "circle",
+      },
     },
   },
   plugins: [],

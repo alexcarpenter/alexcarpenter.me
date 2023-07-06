@@ -80,6 +80,12 @@ export default function RootLayout({
         )}
       >
         <Providers>
+          <a
+            href="#main"
+            className="font-variable-semibold fixed left-0 top-0 z-10 -translate-y-full bg-surface-action px-2 py-1 text-sm text-foreground-action focus:translate-y-0"
+          >
+            Skip to main content
+          </a>
           <Header />
           <main id="main">{children}</main>
           <Footer />

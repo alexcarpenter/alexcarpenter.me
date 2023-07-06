@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useScramble } from "use-scramble";
 import * as Dialog from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
 
@@ -39,6 +40,8 @@ const accounts = [
   },
 ];
 
+const description = "Web Engineer";
+
 const AnimatedDialogOverlay = motion(Dialog.Overlay);
 const AnimatedDialogContent = motion(Dialog.Content);
 
@@ -48,6 +51,10 @@ export function Header() {
   useEffect(() => {
     setPanelOpen(false);
   }, [pathname]);
+  const { ref } = useScramble({
+    text: description,
+    speed: 0.2,
+  });
   return (
     <header className="grid grid-cols-2 items-start gap-x-16 gap-y-4 md:grid-cols-4">
       <div className="col-span-2 flex items-center justify-between md:col-span-1">
@@ -55,7 +62,17 @@ export function Header() {
           <p className="font-variable-semibold text-foreground">
             <Link href="/">Alex Carpenter</Link>
           </p>
-          <p className="text-foreground-neutral">Web Engineer</p>
+          <p className="grid text-foreground-neutral">
+            <span style={{ gridArea: " 1 / 1" }} className="opacity-0">
+              {description}
+            </span>
+            <span style={{ gridArea: " 1 / 1" }} aria-hidden="true" ref={ref} />
+          </p>
+          {/* <p
+            className="text-foreground-neutral"
+            aria-label={description}
+            ref={ref}
+          /> */}
         </div>
 
         <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>
