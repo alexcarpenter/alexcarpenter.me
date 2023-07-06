@@ -33,21 +33,6 @@ const content: React.ReactNode = (
       Hey there, my name is Alex Carpenter. I live in Grand Rapids, Michigan
       with my wife Stacey, my son Micah, and our mini dachshund Frankie.
     </p>
-    <p>
-      I grew up in a small farming town where my parents owned a feed mill in
-      the middle of town. I spent most of my my childhood and early adult years
-      working there. I think it was given that I would some day take over the
-      family business; not something I was really interested in doing though.
-    </p>
-    <p>
-      Unfortunately, fortunately? the business shut down due to the economy. I
-      was forced to find what I actually wanted to do with my life.
-    </p>
-    <p>
-      During that time I was making videos for local area businesses. I
-      eventually needed a website for the work that I was producing. I got my
-      feet wet tweaking tumblr themes.
-    </p>
   </>
 );
 
