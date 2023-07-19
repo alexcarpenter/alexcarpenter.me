@@ -62,6 +62,12 @@ export const metadata = {
   icons: {
     shortcut: "/favicon.svg",
   },
+  verification: {
+    other: {
+      "ahrefs-site-verification":
+        "23cb571e5b7e73cceaf780eef248f7f22c030dc0194ddc7b2acdb4e0c35e5e84",
+    },
+  },
 };
 
 export default function RootLayout({
