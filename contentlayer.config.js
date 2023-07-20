@@ -33,39 +33,6 @@ const Bookmark = defineDocumentType(() => ({
 }));
 
 ////////////////////////////////////////////////////////////////////////////////
-// Favorites
-
-export const Favorite = defineDocumentType(() => ({
-  name: "Favorite",
-  filePathPattern: `favorites/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    title: {
-      type: "string",
-      required: true,
-    },
-    description: {
-      type: "string",
-      required: false,
-    },
-    published: {
-      type: "date",
-      required: true,
-    },
-    updated: {
-      type: "date",
-      required: false,
-    },
-  },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-  },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
 // Jobs
 
 export const Job = defineDocumentType(() => ({
@@ -286,7 +253,6 @@ export default makeSource({
   contentDirPath: "./content",
   documentTypes: [
     Bookmark,
-    Favorite,
     Job,
     Note,
     Page,
