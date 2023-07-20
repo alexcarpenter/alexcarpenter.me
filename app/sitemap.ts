@@ -1,4 +1,4 @@
-import { allPosts, allPages } from "@/.contentlayer/generated";
+import { allNotes, allPages } from "@/.contentlayer/generated";
 
 export default async function sitemap() {
   const pages = allPages.map((page) => ({
@@ -6,17 +6,12 @@ export default async function sitemap() {
     lastModified: page.updated,
   }));
 
-  const posts = allPosts.map((post) => ({
-    url: `https://alexcarpenter.me/posts/${post.slug}`,
-    lastModified: post.date,
-  }));
-
-  const routes = ["", "/posts", "/about", "/timeline", "/colophon"].map(
+  const routes = ["", "/about", "/timeline", "/colophon"].map(
     (route) => ({
       url: `https://alexcarpenter.me${route}`,
       lastModified: new Date().toISOString().split("T")[0],
     })
   );
 
-  return [...routes, ...pages, ...posts];
+  return [...routes, ...pages];
 }
