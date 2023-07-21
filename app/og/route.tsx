@@ -25,6 +25,7 @@ export async function GET(req: NextRequest) {
           display: "flex",
           flexDirection: "column",
           padding: 104,
+          backgroundColor: "#f8f8f8",
         }}
       >
         <div
