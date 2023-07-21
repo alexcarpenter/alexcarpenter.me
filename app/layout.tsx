@@ -31,6 +31,8 @@ const jetbrainsMono = JetBrains_Mono({
   weight: "400",
 });
 
+const ogImage = `https://alexcarpenter.me/og`;
+
 export const metadata = {
   title: {
     default: "Alex Carpenter",
@@ -44,6 +46,11 @@ export const metadata = {
     siteName: "Alex Carpenter",
     locale: "en-US",
     type: "website",
+    images: [
+      {
+        url: ogImage,
+      },
+    ],
   },
   robots: {
     index: true,
@@ -58,6 +65,9 @@ export const metadata = {
   },
   twitter: {
     title: "Alex Carpenter",
+    description: "Web Engineer",
+    card: "summary_large_image",
+    images: [ogImage],
   },
   icons: {
     shortcut: "/favicon.svg",
