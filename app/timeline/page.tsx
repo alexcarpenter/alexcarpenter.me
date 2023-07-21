@@ -1,20 +1,15 @@
 import type { Metadata } from "next/types";
-import type { Bookmark, Note, Post, Quote } from "contentlayer/generated";
+import type { Bookmark, Note, Post } from "contentlayer/generated";
 import Link from "next/link";
 import {
   compareDesc,
   parseDateTimeToString,
   parseDateToString,
 } from "@/lib/formatting";
-import {
-  allBookmarks,
-  allNotes,
-  allPosts,
-  allQuotes,
-} from "contentlayer/generated";
+import { allBookmarks, allNotes, allPosts } from "contentlayer/generated";
 import { Mdx } from "@/app/mdx";
 
-type EntryType = Bookmark | Note | Post | Quote;
+type EntryType = Bookmark | Note | Post;
 
 const title = "Timeline";
 const description = "Short form thoughts and updates";
@@ -42,12 +37,9 @@ export const metadata: Metadata = {
 };
 
 export default function Timeline() {
-  const allEntries = [
-    ...allBookmarks,
-    ...allNotes,
-    ...allPosts,
-    ...allQuotes,
-  ].sort(({ date: a }, { date: b }) => compareDesc(new Date(a), new Date(b)));
+  const allEntries = [...allBookmarks, ...allNotes, ...allPosts].sort(
+    ({ date: a }, { date: b }) => compareDesc(new Date(a), new Date(b))
+  );
   return (
     <>
       <header className="mt-16 grid gap-16 md:grid-cols-4">
@@ -87,8 +79,7 @@ export default function Timeline() {
 function renderMeta(entry: EntryType) {
   switch (entry.type) {
     case "Bookmark":
-    case "Post":
-    case "Quote": {
+    case "Post": {
       return parseDateToString(entry.date);
     }
     case "Note": {

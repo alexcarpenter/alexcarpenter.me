@@ -205,25 +205,6 @@ export const Recommendation = defineDocumentType(() => ({
 }));
 
 ////////////////////////////////////////////////////////////////////////////////
-// Quotes
-
-export const Quote = defineDocumentType(() => ({
-  name: "Quote",
-  filePathPattern: `quotes/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    date: {
-      type: "date",
-      required: true,
-    },
-    cite: {
-      type: "string",
-      require: true,
-    },
-  },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
 // Rehype Pretty Code
 
 const rehypePrettyCodeOptions = {
@@ -262,7 +243,6 @@ export default makeSource({
     Page,
     Post,
     Recommendation,
-    Quote,
   ],
   mdx: {
     remarkPlugins: [remarkGfm],
