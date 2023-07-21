@@ -40,8 +40,13 @@
   }
 
   .prose > * + h2,
-  .prose > * + h3 {
+  .prose > * + h3,
+  .prose > * + .eyebrow {
     @apply mt-8;
+  }
+
+  .prose .eyebrow + h2 {
+    @apply mt-0;
   }
 
   .prose h2 {
