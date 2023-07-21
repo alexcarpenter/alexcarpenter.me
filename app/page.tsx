@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatTags, compareDesc } from "@/lib/formatting";
-import { allRecommendations, allJobs } from "@/.contentlayer/generated";
+import { allRecommendations, allJobs } from "contentlayer/generated";
 import { buttonVariants } from "@/styles/button";
 import { Recommendations } from "./recommendations";
 

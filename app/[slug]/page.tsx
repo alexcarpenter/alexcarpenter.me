@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Mdx } from "@/app/mdx";
 import { parseDateToString } from "@/lib/formatting";
-import { allPages } from "@/.contentlayer/generated";
+import { allPages } from "contentlayer/generated";
 
 interface PageProps {
   params: {
@@ -29,9 +29,27 @@ export async function generateMetadata({
     return {};
   }
 
+  const { slug, title, description } = page;
+  const ogImage = `https://alexcarpenter.me/og?title=${title}&description=${description}`;
+
   return {
-    title: page.title,
-    description: page.description,
+    title: title,
+    description: description,
+    openGraph: {
+      title,
+      description,
+      url: `https://alexcarpenter.me/${slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      title,
+      description,
+      images: [ogImage],
+    },
   };
 }
 

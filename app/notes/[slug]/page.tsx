@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { allNotes } from "@/.contentlayer/generated";
+import { allNotes } from "contentlayer/generated";
 import { Mdx } from "@/app/mdx";
 import { parseDateTimeToString } from "@/lib/formatting";
 

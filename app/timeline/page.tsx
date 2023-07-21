@@ -1,5 +1,5 @@
 import type { Metadata } from "next/types";
-import type { Bookmark, Note, Post, Quote } from "@/.contentlayer/generated";
+import type { Bookmark, Note, Post, Quote } from "contentlayer/generated";
 import Link from "next/link";
 import {
   compareDesc,
@@ -11,14 +11,34 @@ import {
   allNotes,
   allPosts,
   allQuotes,
-} from "@/.contentlayer/generated";
+} from "contentlayer/generated";
 import { Mdx } from "@/app/mdx";
 
 type EntryType = Bookmark | Note | Post | Quote;
 
+const title = "Timeline";
+const description = "Short form thoughts and updates";
+const ogImage = `https://alexcarpenter.me/og?title=${title}&description=${description}`;
+
 export const metadata: Metadata = {
-  title: "Timeline",
-  description: "Short form thoughts and updates",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: `https://alexcarpenter.me/timeline`,
+    images: [
+      {
+        url: ogImage,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [ogImage],
+  },
 };
 
 export default function Timeline() {

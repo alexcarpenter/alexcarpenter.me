@@ -1,8 +1,29 @@
 import type { Metadata } from "next/types";
 import { parseDateTimeToString } from "@/lib/formatting";
 
+const title = "Colophon";
+const description = "Tools used to build this site";
+const ogImage = `https://alexcarpenter.me/og?title=${title}&description=${description}`;
+
 export const metadata: Metadata = {
-  title: "Colophon",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: `https://alexcarpenter.me/colophon`,
+    images: [
+      {
+        url: ogImage,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [ogImage],
+  },
 };
 
 const inspiration = [

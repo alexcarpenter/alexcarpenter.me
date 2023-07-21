@@ -1,5 +1,5 @@
 "use client";
-import type { Recommendation } from "@/.contentlayer/generated";
+import type { Recommendation } from "contentlayer/generated";
 import { cx } from "@/lib/classnames";
 import { useToggle } from "@/hooks/use-toggle";
 
