@@ -140,7 +140,7 @@ function renderContent(entry: EntryType) {
             </a>
           </h2>
           {entry.description ? (
-            <p className="mt-2 text-foreground-neutral">{entry.description}</p>
+            <p className="mt-1 text-foreground-neutral">{entry.description}</p>
           ) : null}
         </div>
       );
