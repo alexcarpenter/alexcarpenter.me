@@ -52,17 +52,40 @@ export default async function Post({ params }: PageProps) {
       <article>
         <header className="mt-16 grid gap-16 md:grid-cols-4">
           <div className="md:col-span-3 md:col-start-2 lg:col-span-2 lg:col-start-2">
-            <p className="text-foreground-neutral">
-              <time dateTime={post.date}>{parseDateToString(post.date)}</time>
-            </p>
-            <h1 className="font-variable-semibold mt-2 text-3xl tracking-tight text-foreground">
+            <h1 className="font-variable-semibold text-3xl tracking-tight text-foreground">
               {post.title}
             </h1>
+            {post.description ? (
+              <p className="mt-1 text-lg text-foreground-neutral">
+                {post.description}
+              </p>
+            ) : null}
           </div>
         </header>
 
         <section className="mt-8 border-t pt-8">
           <div className="md:grid md:grid-cols-4 md:gap-16">
+            <div>
+              <p className="text-foreground-neutral">
+                {post.updated ? (
+                  <>
+                    Last updated:
+                    <br />
+                    <time dateTime={post.updated}>
+                      {parseDateToString(post.updated)}
+                    </time>
+                  </>
+                ) : (
+                  <>
+                    Posted:
+                    <br />
+                    <time dateTime={post.date}>
+                      {parseDateToString(post.date)}
+                    </time>
+                  </>
+                )}
+              </p>
+            </div>
             <div className="md:col-span-3 md:col-start-2 lg:col-span-2 lg:col-start-2">
               <div className="prose">
                 <Mdx code={post.body.code} />
