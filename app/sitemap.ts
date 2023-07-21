@@ -1,4 +1,4 @@
-import { allNotes, allPages } from "contentlayer/generated";
+import { allPages } from "contentlayer/generated";
 
 export default async function sitemap() {
   const pages = allPages.map((page) => ({
