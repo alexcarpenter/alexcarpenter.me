@@ -30,8 +30,8 @@ export async function GET(req: NextRequest) {
       >
         <div
           style={{
-            width: 200,
-            height: 200,
+            width: 160,
+            height: 160,
             borderRadius: 16,
             backgroundImage: "url(https://alexcarpenter.me/og-me.png)",
           }}
@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
             marginTop: "auto",
             display: "flex",
             fontFamily: "Instrument Sans SemiBold",
-            fontSize: 80,
+            fontSize: 64,
             fontStyle: "normal",
             whiteSpace: "pre-wrap",
           }}
@@ -52,7 +52,7 @@ export async function GET(req: NextRequest) {
           style={{
             display: "flex",
             fontFamily: "Instrument Sans Regular",
-            fontSize: 80,
+            fontSize: 64,
             fontStyle: "normal",
             color: "#6f6f6f",
             whiteSpace: "pre-wrap",
