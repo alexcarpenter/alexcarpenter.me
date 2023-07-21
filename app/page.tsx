@@ -20,7 +20,7 @@ export default function Home() {
         <div className="md:col-start-2 lg:col-start-4 lg:row-start-1">
           <Image
             className="rounded-md opacity-60 grayscale"
-            src="/images/me.webp"
+            src="/images/me.jpeg"
             width={100}
             height={100}
             alt="Headshot of Alex Carpenter at his desk"
