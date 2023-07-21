@@ -29,10 +29,10 @@ export async function GET(req: NextRequest) {
       >
         <div
           style={{
-            width: 144,
-            height: 144,
+            width: 200,
+            height: 200,
             borderRadius: 16,
-            backgroundImage: "url(https://alexcarpenter.me/me.jpeg)",
+            backgroundImage: "url(https://alexcarpenter.me/og-me.png)",
           }}
         />
         <div
