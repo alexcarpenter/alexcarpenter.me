@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          padding: 80,
+          padding: 104,
         }}
       >
         <div
@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
             marginTop: "auto",
             display: "flex",
             fontFamily: "Instrument Sans SemiBold",
-            fontSize: 64,
+            fontSize: 80,
             fontStyle: "normal",
             whiteSpace: "pre-wrap",
           }}
@@ -51,7 +51,7 @@ export async function GET(req: NextRequest) {
           style={{
             display: "flex",
             fontFamily: "Instrument Sans Regular",
-            fontSize: 64,
+            fontSize: 80,
             fontStyle: "normal",
             color: "#6f6f6f",
             whiteSpace: "pre-wrap",

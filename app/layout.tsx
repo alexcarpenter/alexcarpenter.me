@@ -38,10 +38,10 @@ export const metadata = {
     default: "Alex Carpenter",
     template: "%s // Alex Carpenter",
   },
-  description: "Design Engineer",
+  description: "Web Engineer",
   openGraph: {
     title: "Alex Carpenter",
-    description: "Design Engineer",
+    description: "Web Engineer",
     url: "https://alexcarpenter.me",
     siteName: "Alex Carpenter",
     locale: "en-US",
