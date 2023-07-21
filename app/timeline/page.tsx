@@ -145,18 +145,6 @@ function renderContent(entry: EntryType) {
         </div>
       );
     }
-    case "Quote": {
-      return (
-        <figure className="max-w-prose border-l-4 pl-4">
-          <blockquote>
-            <Mdx code={entry.body.code} />
-          </blockquote>
-          <figcaption className="mt-4 text-foreground-neutral">
-            &mdash; {entry.cite}
-          </figcaption>
-        </figure>
-      );
-    }
   }
 }
 
