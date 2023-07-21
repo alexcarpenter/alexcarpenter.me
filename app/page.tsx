@@ -51,7 +51,7 @@ export default function Home() {
 
         <ul className="mt-8">
           {sortedJobs.map(
-            ({ _id, company, description, tags, slug, startDate, endDate }) => {
+            ({ _id, company, description, tags, startDate, endDate }) => {
               return (
                 <li
                   key={_id}
@@ -62,20 +62,7 @@ export default function Home() {
                   </div>
 
                   <div className="col-span-2">
-                    <p className="max-w-prose">
-                      {description}
-                      {/* {slug === "hashicorp" ? (
-                        <>
-                          {" "}
-                          <Link
-                            href={`/experience/${slug}`}
-                            className="underline decoration-underline hover:decoration-inherit"
-                          >
-                            Read more
-                          </Link>
-                        </>
-                      ) : null} */}
-                    </p>
+                    <p className="max-w-prose">{description}</p>
 
                     {tags ? (
                       <p className="mt-2 text-foreground-neutral">
