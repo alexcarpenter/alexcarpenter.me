@@ -7,6 +7,15 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/favorites',
+        destination: '/posts/favorites',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = withContentlayer(nextConfig)
