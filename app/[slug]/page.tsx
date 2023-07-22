@@ -29,7 +29,6 @@ export async function generateMetadata({
   }
 
   const { slug, title, description } = page;
-  const ogImage = `https://alexcarpenter.me/og?title=${title}&description=${description}`;
 
   return {
     title: title,
@@ -38,17 +37,10 @@ export async function generateMetadata({
       title,
       description,
       url: `https://alexcarpenter.me/${slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
     },
     twitter: {
       title,
       description,
-      card: "summary_large_image",
-      images: [ogImage],
     },
   };
 }
