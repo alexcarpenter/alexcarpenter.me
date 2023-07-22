@@ -20,13 +20,11 @@ export default function Home() {
           <h2 className="mb-3 font-semibold">Pinned</h2>
           <ul className="-my-2 divide-y divide-dashed">
             {pinned.map((page) => {
+              const date = page.updated || page.published;
               return (
                 <li key={page._id} className="flex gap-8 py-2">
-                  <time
-                    className="flex-shrink-0 text-gray-500"
-                    dateTime={page.published}
-                  >
-                    {parseDateToString(page.published)}
+                  <time className="flex-shrink-0 text-gray-500" dateTime={date}>
+                    {parseDateToString(date)}
                   </time>
                   <Link href={`/${page.slug}`}>{page.title}</Link>
                 </li>
@@ -47,13 +45,11 @@ export default function Home() {
         <h2 className="mb-3 font-semibold">Latest</h2>
         <ul className="-my-2 divide-y divide-dashed">
           {latest.map((page) => {
+            const date = page.updated || page.published;
             return (
               <li key={page._id} className="flex gap-8 py-2">
-                <time
-                  className="flex-shrink-0 text-gray-500"
-                  dateTime={page.published}
-                >
-                  {parseDateToString(page.published)}
+                <time className="flex-shrink-0 text-gray-500" dateTime={date}>
+                  {parseDateToString(date)}
                 </time>
                 <Link href={`/${page.slug}`}>{page.title}</Link>
               </li>
