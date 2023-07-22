@@ -23,7 +23,7 @@ export default function Home() {
             {pinned.map((page) => {
               const date = page.updated || page.published;
               return (
-                <li key={page._id} className="flex gap-8 py-2">
+                <li key={page._id} className="flex gap-6 py-2">
                   <time className="flex-shrink-0 text-gray-500" dateTime={date}>
                     {parseDateToString(date)}
                   </time>
@@ -48,7 +48,7 @@ export default function Home() {
           {latest.map((page) => {
             const date = page.updated || page.published;
             return (
-              <li key={page._id} className="flex gap-8 py-2">
+              <li key={page._id} className="flex gap-6 py-2">
                 <time className="flex-shrink-0 text-gray-500" dateTime={date}>
                   {parseDateToString(date)}
                 </time>

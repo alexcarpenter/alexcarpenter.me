@@ -72,7 +72,7 @@ export default function RootLayout({
           jetbrainsMono.variable
         )}
       >
-        <header className="mb-6 flex items-end justify-between">
+        <header className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="font-semibold">
               <Link href="/">Alex Carpenter</Link>&nbsp;&not;
