@@ -11,6 +11,10 @@
     @apply mt-6;
   }
 
+  .prose > small + h2 {
+    @apply mt-0;
+  }
+
   .prose h2 {
     @apply font-semibold;
   }

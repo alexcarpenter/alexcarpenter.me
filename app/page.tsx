@@ -18,8 +18,8 @@ export default function Home() {
       <h1 className="sr-only">Index</h1>
       {pinned.length > 0 ? (
         <section className="mt-6">
-          <h2 className="mb-3 font-semibold">Pinned</h2>
-          <ul className="-my-2 divide-y divide-dashed">
+          <h2 className="mb-2 font-semibold">Pinned</h2>
+          <ul className="-mb-2 divide-y divide-dashed border-t-2">
             {pinned.map((page) => {
               const date = page.updated || page.published;
               return (
@@ -27,7 +27,9 @@ export default function Home() {
                   <time className="flex-shrink-0 text-gray-500" dateTime={date}>
                     {parseDateToString(date)}
                   </time>
-                  <Link href={`/${page.slug}`}>{page.title}</Link>
+                  <Link href={`/${page.slug}`} className="underline">
+                    {page.title}
+                  </Link>
                 </li>
               );
             })}
@@ -43,8 +45,8 @@ export default function Home() {
       </section> */}
 
       <section className="mt-6">
-        <h2 className="mb-3 font-semibold">Latest</h2>
-        <ul className="-my-2 divide-y divide-dashed">
+        <h2 className="mb-2 font-semibold">Latest</h2>
+        <ul className="-mb-2 divide-y divide-dashed border-t-2">
           {latest.map((page) => {
             const date = page.updated || page.published;
             return (
@@ -52,7 +54,9 @@ export default function Home() {
                 <time className="flex-shrink-0 text-gray-500" dateTime={date}>
                   {parseDateToString(date)}
                 </time>
-                <Link href={`/${page.slug}`}>{page.title}</Link>
+                <Link href={`/${page.slug}`} className="underline">
+                  {page.title}
+                </Link>
               </li>
             );
           })}
