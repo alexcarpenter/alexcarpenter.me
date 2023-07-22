@@ -3,7 +3,7 @@ import { allPages } from "contentlayer/generated";
 export default async function sitemap() {
   const pages = allPages.map((page) => ({
     url: `https://alexcarpenter.me/${page.slug}`,
-    lastModified: page.updated,
+    lastModified: page.published || page.updated,
   }));
 
   const routes = [""].map(
