@@ -2,7 +2,7 @@ import * as React from "react";
 import { motion, MotionConfig, AnimatePresence } from "framer-motion";
 import type { ImageProps } from "next/legacy/image";
 import Image from "next/legacy/image";
-import { cva } from "@/lib/classnames";
+import { cva } from "@/app/utils";
 import { useRovingIndex } from "use-roving-index";
 
 interface CarouselProps {
@@ -112,7 +112,7 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
                       whileFocus={{ opacity: 1 }}
                       onClick={() => setActiveIndex(index)}
                       aria-current={activeIndex === index ? "true" : "false"}
-                      className="h-2 w-2 rounded-full bg-surface-neutral outline-none focus:ring"
+                      className="bg-surface-neutral h-2 w-2 rounded-full outline-none focus:ring"
                     >
                       <span className="sr-only">View item {index + 1}</span>
                     </motion.button>

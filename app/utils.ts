@@ -1,5 +1,8 @@
-import { format, parseISO, compareDesc } from "date-fns";
+import { format, parseISO } from "date-fns";
 import slug from "slugify";
+export { cx, cva, type VariantProps } from "class-variance-authority";
+export { onlyText } from "react-children-utilities";
+
 
 export const parseDateToString = (date: string): string => {
   return format(parseISO(date), "yyyy-MM-dd");
@@ -20,5 +23,3 @@ export const slugify = (
     trim?: boolean;
   }
 ): string => slug(string, { lower: true, ...options });
-
-export { compareDesc };

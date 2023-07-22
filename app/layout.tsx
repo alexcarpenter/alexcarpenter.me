@@ -1,7 +1,7 @@
 import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
-import { cx } from "@/lib/classnames";
+import { cx } from "@/app/utils";
 import { Analytics } from "./analytics";
 
 const jetbrainsMono = JetBrains_Mono({

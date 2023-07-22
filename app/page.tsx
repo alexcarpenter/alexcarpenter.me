@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { allPages } from "contentlayer/generated";
 import * as R from "remeda";
-import { parseDateToString } from "@/lib/formatting";
+import { parseDateToString } from "@/app/utils";
 
 export default function Home() {
   const [pinned, latest] = R.pipe(

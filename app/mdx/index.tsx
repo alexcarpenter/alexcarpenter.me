@@ -1,7 +1,6 @@
 "use client";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { slugify } from "@/lib/formatting";
-import { onlyText } from "@/lib/utils";
+import { slugify, onlyText } from "@/app/utils";
 import Image from "next/image";
 import { ImageCarousel } from "./image-carousel";
 
