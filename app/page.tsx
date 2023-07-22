@@ -15,6 +15,7 @@ export default function Home() {
   );
   return (
     <>
+      <h1 className="sr-only">Index</h1>
       {pinned.length > 0 ? (
         <section className="mt-6">
           <h2 className="mb-3 font-semibold">Pinned</h2>
