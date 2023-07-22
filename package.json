@@ -1,5 +1,5 @@
 {
-  "name": "alexcarpenter-next-tailwind",
+  "name": "alexcarpenter-me",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,22 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "^1.0.3",
-    "@react-aria/interactions": "^3.15.0",
     "@types/node": "18.16.3",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
     "@vercel/analytics": "^1.0.1",
     "autoprefixer": "10.4.14",
-    "class-variance-authority": "^0.6.0",
+    "class-variance-authority": "^0.7.0",
     "contentlayer": "^0.3.2",
     "date-fns": "^2.30.0",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.4",
-    "framer-motion": "^10.12.7",
+    "framer-motion": "^10.13.0",
     "next": "^13.4.6",
     "next-contentlayer": "^0.3.2",
-    "next-themes": "^0.2.1",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-children-utilities": "^2.9.0",
@@ -32,13 +29,14 @@
     "rehype-code-titles": "^1.2.0",
     "rehype-pretty-code": "^0.9.5",
     "remark-gfm": "^3.0.1",
+    "remeda": "^1.24.0",
     "slugify": "^1.6.6",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4",
-    "use-roving-index": "^2.0.0",
-    "use-scramble": "^2.2.12"
+    "use-roving-index": "^2.0.0"
   },
   "devDependencies": {
+    "@types/lodash.partition": "^4.6.7",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8"
   }

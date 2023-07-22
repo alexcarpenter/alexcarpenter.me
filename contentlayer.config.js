@@ -3,116 +3,9 @@ import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode from "rehype-pretty-code";
 
-////////////////////////////////////////////////////////////////////////////////
-// Bookmarks
-
-const Bookmark = defineDocumentType(() => ({
-  name: "Bookmark",
-  filePathPattern: `bookmarks/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    title: {
-      type: "string",
-      required: true,
-    },
-    date: {
-      type: "date",
-      required: true,
-    },
-    url: {
-      type: "string",
-      required: true,
-    },
-  },
-  computedFields: {
-    hostname: {
-      type: "string",
-      resolve: (bookmark) => new URL(bookmark.url).hostname,
-    },
-  },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
-// Jobs
-
-export const Job = defineDocumentType(() => ({
-  name: "Job",
-  filePathPattern: `jobs/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    company: {
-      type: "string",
-      required: true,
-    },
-    startDate: {
-      type: "date",
-      required: true,
-    },
-    endDate: {
-      type: "date",
-      required: false,
-    },
-    title: {
-      type: "string",
-      required: true,
-    },
-    location: {
-      type: "string",
-      required: false,
-    },
-    link: {
-      type: "string",
-      required: true,
-    },
-    description: {
-      type: "string",
-      required: false,
-    },
-    tags: {
-      type: "list",
-      of: { type: "string" },
-      required: false,
-    },
-    currently: {
-      type: "string",
-      required: false,
-    },
-  },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (job) => job._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-  },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
-// Notes
-
-export const Note = defineDocumentType(() => ({
-  name: "Note",
-  filePathPattern: `notes/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    date: {
-      type: "date",
-      required: true,
-    },
-  },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-  },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
-// Pages
-
 export const Page = defineDocumentType(() => ({
   name: "Page",
-  filePathPattern: `pages/*.mdx`,
+  filePathPattern: `./*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
@@ -123,41 +16,16 @@ export const Page = defineDocumentType(() => ({
       type: "string",
       required: false,
     },
-    updated: {
-      type: "date",
-      required: false,
-    },
-  },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (post) => post._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-  },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
-// Posts
-
-export const Post = defineDocumentType(() => ({
-  name: "Post",
-  filePathPattern: `posts/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    title: {
-      type: "string",
-      required: true,
-    },
-    description: {
-      type: "string",
-      required: false,
-    },
-    date: {
+    published: {
       type: "date",
       required: true,
     },
     updated: {
       type: 'date',
+      required: false
+    },
+    pinned: {
+      type: 'boolean',
       required: false
     }
   },
@@ -168,44 +36,6 @@ export const Post = defineDocumentType(() => ({
     },
   },
 }));
-
-////////////////////////////////////////////////////////////////////////////////
-// Recommendations
-
-export const Recommendation = defineDocumentType(() => ({
-  name: "Recommendation",
-  filePathPattern: `recommendations/*.mdx`,
-  contentType: "mdx",
-  fields: {
-    date: {
-      type: "date",
-      required: true,
-    },
-    company: {
-      type: "string",
-      required: true,
-    },
-    title: {
-      type: "string",
-      required: true,
-    },
-    name: {
-      type: "string",
-      required: true,
-    },
-    text: {
-      type: "string",
-      required: true,
-    },
-    link: {
-      type: "string",
-      required: true,
-    },
-  },
-}));
-
-////////////////////////////////////////////////////////////////////////////////
-// Rehype Pretty Code
 
 const rehypePrettyCodeOptions = {
   theme: {
@@ -236,14 +66,7 @@ const rehypePrettyCodeOptions = {
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [
-    Bookmark,
-    Job,
-    Note,
-    Page,
-    Post,
-    Recommendation,
-  ],
+  documentTypes: [Page],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

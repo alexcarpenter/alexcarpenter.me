@@ -2,18 +2,10 @@ import { format, parseISO, compareDesc } from "date-fns";
 import slug from "slugify";
 
 export const parseDateToString = (date: string): string => {
-  return format(parseISO(date), "MM/dd/yyyy");
-};
-
-export const parseDateTimeToString = (date: string): string => {
-  return format(parseISO(date), "MM/dd/yyyy, h:mm a");
+  return format(parseISO(date), "yyyy-MM-dd");
 };
 
 export const formatTags = (arr: string[]): string => {
-  return new Intl.ListFormat("en", { type: "conjunction" }).format(arr);
-};
-
-export const formatCommaSeperatedList = (arr: string[]): string => {
   return new Intl.ListFormat("en", { type: "conjunction" }).format(arr);
 };
 

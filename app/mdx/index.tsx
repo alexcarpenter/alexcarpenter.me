@@ -11,12 +11,6 @@ const components = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2 {...props} id={slugify(onlyText(props.children))} />
   ),
-  Eyebrow: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p
-      {...props}
-      className="eyebrow font-variable-semibold tracking text-xs uppercase tracking-widest text-foreground-neutral"
-    />
-  ),
 };
 
 interface MdxProps {

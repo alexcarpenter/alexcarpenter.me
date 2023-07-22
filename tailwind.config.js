@@ -11,34 +11,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["var(--font-instrument-sans)", ...fontFamily.sans],
-      serif: ["var(--font-instrument-serif)", ...fontFamily.serif],
       mono: ["var(--font-jetbrains-mono)", ...fontFamily.mono],
-    },
-    extend: {
-      gradientColorStops: {
-        "text-gradient-start": "hsl(var(--foreground))",
-        "text-gradient-end": "hsl(var(--foreground-neutral))",
-      },
-      backgroundColor: {
-        page: "hsl(var(--page))",
-        "surface-action": "hsl(var(--surface-action))",
-        "surface-neutral": "hsl(var(--surface-neutral))",
-      },
-      textColor: {
-        foreground: "hsl(var(--foreground))",
-        "foreground-neutral": "hsl(var(--foreground-neutral))",
-        "foreground-action": "hsl(var(--foreground-action))",
-      },
-      borderColor: {
-        DEFAULT: "hsl(var(--border))",
-      },
-      textDecorationColor: {
-        underline: "hsl(var(--underline))",
-      },
-      listStyleType: {
-        circle: "circle",
-      },
     },
   },
   plugins: [],

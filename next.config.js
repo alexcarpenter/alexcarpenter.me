@@ -6,16 +6,7 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     appDir: true,
-  },
-  async redirects() {
-    return [
-      {
-        source: '/favorites',
-        destination: '/posts/favorites',
-        permanent: true,
-      },
-    ]
-  },
+  }
 }
 
 module.exports = withContentlayer(nextConfig)

@@ -3,112 +3,40 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --page: 0 0% 97.3%;
-    --foreground: 0 0% 9%;
-    --foreground-neutral: 0 0% 43.5%;
-    --foreground-action: 0 0% 9%;
-    --border: 0 0% 85.9%;
-    --surface-action: 79.2 87.4% 62.7%;
-    --surface-neutral: 0 0% 92.9%;
-    --underline: 0 0% 85.9%;
-  }
-
-  .dark {
-    --page: 0 0% 8.6%;
-    --foreground: 0 0% 92.9%;
-    --foreground-neutral: 0 0% 62.7%;
-    --foreground-action: 0 0% 9%;
-    --border: 0 0% 24.3%;
-    --surface-action: 81.1 67.1% 50%;
-    --surface-neutral: 0 0% 15.7%;
-    --underline: 0 0% 31.4%;
-  }
-
-  strong {
-    @apply font-variable-semibold;
-  }
-}
-
-@layer components {
-  .prose {
-    @apply max-w-prose;
-  }
-
   .prose > * + * {
-    @apply mt-4;
+    @apply mt-3;
   }
 
-  .prose > * + h2,
-  .prose > * + h3,
-  .prose > * + .eyebrow {
-    @apply mt-8;
-  }
-
-  .prose .eyebrow + h2 {
-    @apply mt-0;
+  .prose > * + h2 {
+    @apply mt-6;
   }
 
   .prose h2 {
-    @apply font-variable-semibold;
-  }
-
-  .prose a {
-    @apply underline decoration-underline transition-colors hover:decoration-inherit;
+    @apply font-semibold;
   }
 
   .prose ul {
-    @apply list-disc space-y-1 pl-7;
-  }
-
-  .prose ul ul {
-    @apply list-circle space-y-1 pl-7 pt-1;
-  }
-
-  .prose ol {
-    @apply list-decimal space-y-1 pl-7;
-  }
-
-  .prose blockquote {
-    @apply border-l-4 pl-4;
-  }
-
-  .prose blockquote > * + * {
-    @apply mt-4;
-  }
-
-  .prose blockquote p:last-of-type em {
-    @apply not-italic text-foreground-neutral before:pr-1 before:content-['—'];
-  }
-
-  .prose pre[data-language] {
-    @apply overflow-x-auto whitespace-pre rounded-md bg-surface-neutral/50 py-4 text-sm;
-  }
-
-  .prose div[data-rehype-pretty-code-fragment] .syntax-line {
-    @apply px-4;
-  }
-
-  .prose table {
-    @apply w-full max-w-full;
-  }
-
-  .prose table thead th {
-    @apply font-variable-semibold py-2;
-  }
-
-  .prose table tbody td {
-    @apply border-t py-2;
+    @apply space-y-1 list-disc pl-6 marker:text-stone-400;
   }
 
   .prose hr {
-    @apply my-8;
+    @apply my-6 border-dashed;
   }
-}
 
-@layer utilities {
-  .font-variable-semibold {
-    font-variation-settings: "wght" 575;
+  .prose a {
+    @apply underline;
+  }
+
+  .prose strong {
+    @apply font-semibold;
+  }
+
+  .prose small {
+    @apply text-gray-500 text-sm;
+  }
+
+  .prose span {
+    @apply text-gray-500;
   }
 }
 
@@ -122,98 +50,4 @@ html.light div[data-theme="dark"],
 html.light pre[data-theme="dark"],
 html.light code[data-theme="dark"] {
   display: none;
-}
-
-/**
- * Easing Linear Gradients
- * @see https://css-tricks.com/easing-linear-gradients/
- */
-
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
-  z-index: 10;
-  height: 4rem;
-}
-
-body::before {
-  top: 0;
-  background-image: linear-gradient(
-    to bottom,
-    hsl(0, 0%, 97.3%) 0%,
-    hsla(0, 0%, 97.3%, 0.738) 19%,
-    hsla(0, 0%, 97.3%, 0.541) 34%,
-    hsla(0, 0%, 97.3%, 0.382) 47%,
-    hsla(0, 0%, 97.3%, 0.278) 56.5%,
-    hsla(0, 0%, 97.3%, 0.194) 65%,
-    hsla(0, 0%, 97.3%, 0.126) 73%,
-    hsla(0, 0%, 97.3%, 0.075) 80.2%,
-    hsla(0, 0%, 97.3%, 0.042) 86.1%,
-    hsla(0, 0%, 97.3%, 0.021) 91%,
-    hsla(0, 0%, 97.3%, 0.008) 95.2%,
-    hsla(0, 0%, 97.3%, 0.002) 98.2%,
-    hsla(0, 0%, 97.3%, 0) 100%
-  );
-}
-
-body::after {
-  bottom: 0;
-  background-image: linear-gradient(
-    to top,
-    hsl(0, 0%, 97.3%) 0%,
-    hsla(0, 0%, 97.3%, 0.738) 19%,
-    hsla(0, 0%, 97.3%, 0.541) 34%,
-    hsla(0, 0%, 97.3%, 0.382) 47%,
-    hsla(0, 0%, 97.3%, 0.278) 56.5%,
-    hsla(0, 0%, 97.3%, 0.194) 65%,
-    hsla(0, 0%, 97.3%, 0.126) 73%,
-    hsla(0, 0%, 97.3%, 0.075) 80.2%,
-    hsla(0, 0%, 97.3%, 0.042) 86.1%,
-    hsla(0, 0%, 97.3%, 0.021) 91%,
-    hsla(0, 0%, 97.3%, 0.008) 95.2%,
-    hsla(0, 0%, 97.3%, 0.002) 98.2%,
-    hsla(0, 0%, 97.3%, 0) 100%
-  );
-}
-
-html.dark body::before {
-  background-image: linear-gradient(
-    to bottom,
-    hsl(0, 0%, 8.6%) 0%,
-    hsla(0, 0%, 8.6%, 0.738) 19%,
-    hsla(0, 0%, 8.6%, 0.541) 34%,
-    hsla(0, 0%, 8.6%, 0.382) 47%,
-    hsla(0, 0%, 8.6%, 0.278) 56.5%,
-    hsla(0, 0%, 8.6%, 0.194) 65%,
-    hsla(0, 0%, 8.6%, 0.126) 73%,
-    hsla(0, 0%, 8.6%, 0.075) 80.2%,
-    hsla(0, 0%, 8.6%, 0.042) 86.1%,
-    hsla(0, 0%, 8.6%, 0.021) 91%,
-    hsla(0, 0%, 8.6%, 0.008) 95.2%,
-    hsla(0, 0%, 8.6%, 0.002) 98.2%,
-    hsla(0, 0%, 8.6%, 0) 100%
-  );
-}
-
-html.dark body::after {
-  background-image: linear-gradient(
-    to top,
-    hsl(0, 0%, 8.6%) 0%,
-    hsla(0, 0%, 8.6%, 0.738) 19%,
-    hsla(0, 0%, 8.6%, 0.541) 34%,
-    hsla(0, 0%, 8.6%, 0.382) 47%,
-    hsla(0, 0%, 8.6%, 0.278) 56.5%,
-    hsla(0, 0%, 8.6%, 0.194) 65%,
-    hsla(0, 0%, 8.6%, 0.126) 73%,
-    hsla(0, 0%, 8.6%, 0.075) 80.2%,
-    hsla(0, 0%, 8.6%, 0.042) 86.1%,
-    hsla(0, 0%, 8.6%, 0.021) 91%,
-    hsla(0, 0%, 8.6%, 0.008) 95.2%,
-    hsla(0, 0%, 8.6%, 0.002) 98.2%,
-    hsla(0, 0%, 8.6%, 0) 100%
-  );
 }

@@ -69,43 +69,16 @@ export default async function About({ params }: PageProps) {
 
   return (
     <>
-      <header className="mt-16 grid gap-16 md:grid-cols-4">
-        <div className="md:col-span-2 md:col-start-2">
-          <h1 className="font-variable-semibold text-3xl tracking-tight text-foreground">
-            {page.title}
-          </h1>
-          {page.description ? (
-            <p className="mt-1 text-lg text-foreground-neutral">
-              {page.description}
-            </p>
-          ) : null}
-        </div>
+      <header className="mb-6 border-b border-dashed pb-6">
+        <h1 className="font-semibold">{page.title}</h1>
+        {page.description ? (
+          <p className="text-gray-500">{page.description}</p>
+        ) : null}
       </header>
 
-      <section className="mt-8 border-t pt-8">
-        <div className="grid gap-8 md:grid-cols-4 md:gap-16">
-          {page.updated ? (
-            <div>
-              <p className="text-foreground-neutral">
-                Last updated:
-                <br />
-                <a
-                  href={`https://github.com/alexcarpenter/alexcarpenter-next/commits/main/content/pages/${page.slug}.mdx`}
-                >
-                  <time dateTime={page.updated}>
-                    {parseDateToString(page.updated)}
-                  </time>
-                </a>
-              </p>
-            </div>
-          ) : null}
-          <div className="md:col-span-3 md:col-start-2 lg:col-span-2 lg:col-start-2">
-            <div className="prose">
-              <Mdx code={page.body.code} />
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="prose">
+        <Mdx code={page.body.code} />
+      </div>
     </>
   );
 }
