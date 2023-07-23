@@ -41,6 +41,7 @@ export async function generateMetadata({
     twitter: {
       title,
       description,
+      card: "summary",
     },
   };
 }
