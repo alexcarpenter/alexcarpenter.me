@@ -90,6 +90,22 @@
   .prose dd {
     @apply border-t border-dashed py-2;
   }
+
+  .prose pre[data-language] {
+    @apply overflow-x-auto whitespace-pre py-2 text-sm bg-neutral-100 dark:bg-neutral-800;
+  }
+
+  .prose div[data-rehype-pretty-code-fragment] .syntax-line {
+    @apply px-2;
+  }
+
+  .prose details summary {
+    @apply cursor-pointer;
+  }
+
+  .prose details summary + *{
+    @apply mt-2;
+  }
 }
 
 html.dark div[data-theme="light"],
