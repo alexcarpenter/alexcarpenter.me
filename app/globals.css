@@ -34,7 +34,7 @@
   }
 
   .prose ul {
-    @apply space-y-1 list-disc pl-6 marker:text-neutral-900 dark:marker:text-neutral-600;
+    @apply space-y-1 list-disc pl-6;
   }
 
   .prose hr {
