@@ -2,20 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --page: 255 255 255;
-    --foreground-primary: 23 23 23;
-    --foreground-secondary: 115 115 115;
-    --border: 229 229 229;
-  }
+:root {
+  --page: 255 255 255;
+  --foreground-primary: 23 23 23;
+  --foreground-secondary: 115 115 115;
+  --border: 229 229 229;
+}
 
-  .dark {
-    --page: 23 23 23;
-    --foreground-primary: 245 245 245;
-    --foreground-secondary: 163 163 163;
-    --border: 64 64 64;
-  }
+.dark {
+  --page: 23 23 23;
+  --foreground-primary: 245 245 245;
+  --foreground-secondary: 163 163 163;
+  --border: 64 64 64;
 }
 
 @layer components {
