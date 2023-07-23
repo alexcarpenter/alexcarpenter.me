@@ -60,7 +60,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cx(
-          "mx-auto max-w-xl px-4 py-16 font-mono text-gray-900 antialiased",
+          "mx-auto max-w-xl bg-white px-4 py-16 font-mono text-neutral-900 antialiased",
           jetbrainsMono.variable
         )}
       >
@@ -69,7 +69,7 @@ export default function RootLayout({
             <p className="font-semibold">
               <Link href="/">Alex Carpenter</Link>&nbsp;&not;
             </p>
-            <p className="text-gray-500">
+            <p className="text-neutral-500">
               Web engineer at{" "}
               <a href="https://watershed.com" className="underline">
                 Watershed
@@ -78,7 +78,7 @@ export default function RootLayout({
           </div>
 
           <div>
-            <p className="flex gap-3 text-gray-500">
+            <p className="flex gap-3 text-neutral-500">
               <a
                 href="https://github.com/alexcarpenter"
                 className="grid place-items-center"

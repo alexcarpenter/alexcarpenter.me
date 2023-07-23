@@ -20,7 +20,7 @@
   }
 
   .prose ul {
-    @apply space-y-1 list-disc pl-6 marker:text-stone-400;
+    @apply space-y-1 list-disc pl-6 marker:text-neutral-400;
   }
 
   .prose hr {
@@ -35,12 +35,16 @@
     @apply font-semibold;
   }
 
+  .prose blockquote {
+    @apply border-l-2 pl-3;
+  }
+
   .prose small {
-    @apply text-gray-500 text-sm;
+    @apply text-neutral-500 text-sm;
   }
 
   .prose span {
-    @apply text-gray-500;
+    @apply text-neutral-500;
   }
 
   .prose table {

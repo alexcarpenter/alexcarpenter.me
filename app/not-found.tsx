@@ -5,8 +5,8 @@ export default function NotFound() {
     <>
       <header>
         <h1 className="font-semibold">404&nbsp;&not;</h1>
-        <p className="text-gray-500">Could not find requested resource.</p>
-        <Link href="/" className="text-gray-500 underline">
+        <p className="text-neutral-500">Could not find requested resource.</p>
+        <Link href="/" className="text-neutral-500 underline">
           Back home
         </Link>
       </header>

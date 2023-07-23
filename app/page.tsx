@@ -24,7 +24,10 @@ export default function Home() {
               const date = page.updated || page.published;
               return (
                 <li key={page._id} className="flex gap-6 py-2">
-                  <time className="flex-shrink-0 text-gray-500" dateTime={date}>
+                  <time
+                    className="flex-shrink-0 text-neutral-500"
+                    dateTime={date}
+                  >
                     {parseDateToString(date)}
                   </time>
                   <Link href={`/${page.slug}`} className="underline">
@@ -44,7 +47,10 @@ export default function Home() {
             const date = page.updated || page.published;
             return (
               <li key={page._id} className="flex gap-6 py-2">
-                <time className="flex-shrink-0 text-gray-500" dateTime={date}>
+                <time
+                  className="flex-shrink-0 text-neutral-500"
+                  dateTime={date}
+                >
                   {parseDateToString(date)}
                 </time>
                 <Link href={`/${page.slug}`} className="underline">
