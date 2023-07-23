@@ -20,7 +20,7 @@
   }
 
   .prose ul {
-    @apply space-y-1 list-disc pl-6 marker:text-neutral-400;
+    @apply space-y-1 list-disc pl-6 marker:text-neutral-900;
   }
 
   .prose hr {
