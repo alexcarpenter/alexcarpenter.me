@@ -3,6 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --page: 255 255 255;
+    --foreground-primary: 23 23 23;
+    --foreground-secondary: 115 115 115;
+    --border: 229 229 229;
+  }
+
+  .dark {
+    --page: 23 23 23;
+    --foreground-primary: 245 245 245;
+    --foreground-secondary: 163 163 163;
+    --border: 64 64 64;
+  }
+
   .prose > * + * {
     @apply mt-3;
   }
@@ -20,7 +34,7 @@
   }
 
   .prose ul {
-    @apply space-y-1 list-disc pl-6 marker:text-neutral-900;
+    @apply space-y-1 list-disc pl-6 marker:text-neutral-900 dark:marker:text-neutral-600;
   }
 
   .prose hr {
@@ -40,11 +54,11 @@
   }
 
   .prose small {
-    @apply text-neutral-500 text-sm;
+    @apply text-secondary text-sm;
   }
 
   .prose span {
-    @apply text-neutral-500;
+    @apply text-secondary;
   }
 
   .prose table {

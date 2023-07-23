@@ -64,7 +64,7 @@ export default async function About({ params }: PageProps) {
       <header className="mb-6 border-b-2 pb-2">
         <h1 className="font-semibold">{page.title}</h1>
         {page.description ? (
-          <p className="text-neutral-500">{page.description}</p>
+          <p className="text-secondary">{page.description}</p>
         ) : null}
       </header>
 

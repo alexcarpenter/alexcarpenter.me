@@ -22,6 +22,7 @@
     "framer-motion": "^10.13.0",
     "next": "^13.4.6",
     "next-contentlayer": "^0.3.2",
+    "next-themes": "^0.2.1",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-children-utilities": "^2.9.0",

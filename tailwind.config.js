@@ -13,6 +13,18 @@ module.exports = {
     fontFamily: {
       mono: ["var(--font-jetbrains-mono)", ...fontFamily.mono],
     },
+    extend: {
+      backgroundColor: {
+        page: "rgb(var(--page))",
+      },
+      textColor: {
+        primary: "rgb(var(--foreground-primary))",
+        secondary: "rgb(var(--foreground-secondary))",
+      },
+      borderColor: {
+        DEFAULT: "rgb(var(--border))",
+      },
+    },
   },
   plugins: [],
 };
