@@ -60,7 +60,7 @@ export default async function About({ params }: PageProps) {
 
   return (
     <>
-      <header className="mb-6 border-b border-dashed pb-6">
+      <header className="mb-6 border-b-2 pb-2">
         <h1 className="font-semibold">{page.title}</h1>
         {page.description ? (
           <p className="text-gray-500">{page.description}</p>
