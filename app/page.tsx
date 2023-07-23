@@ -37,13 +37,6 @@ export default function Home() {
         </section>
       ) : null}
 
-      {/* <section className="mt-8">
-        <h2 className="mb-4 font-semibold">Topics&nbsp;&not;</h2>
-        <p>
-          <a href="">engineering</a>, <a href="">work</a>, <a href="">gear</a>
-        </p>
-      </section> */}
-
       <section className="mt-6">
         <h2 className="mb-2 font-semibold">Latest</h2>
         <ul className="-mb-2 divide-y divide-dashed border-t-2">

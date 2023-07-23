@@ -42,6 +42,18 @@
   .prose span {
     @apply text-gray-500;
   }
+
+  .prose table {
+    @apply w-full;
+  }
+
+  .prose table th {
+    @apply border-b-2 text-left pr-2 py-1 font-semibold;
+  }
+
+  .prose table td {
+    @apply border-t border-dashed pr-2 py-1;
+  }
 }
 
 html.dark div[data-theme="light"],
