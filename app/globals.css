@@ -16,7 +16,9 @@
     --foreground-secondary: 163 163 163;
     --border: 64 64 64;
   }
+}
 
+@layer components {
   .prose > * + * {
     @apply mt-3;
   }
@@ -71,6 +73,24 @@
 
   .prose table td {
     @apply border-t border-dashed pr-2 py-1;
+  }
+
+  .prose dl {
+    @apply grid;
+    grid-template-columns: max-content 1fr;
+  }
+
+  .prose dt {
+    @apply border-t border-dashed text-secondary pr-6 py-2;
+  }
+
+  .prose dt:first-of-type,
+  .prose dd:first-of-type {
+    @apply border-t-2 border-solid;
+  }
+
+  .prose dd {
+    @apply border-t border-dashed py-2;
   }
 }
 
