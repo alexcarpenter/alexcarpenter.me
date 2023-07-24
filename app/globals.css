@@ -41,6 +41,10 @@
     @apply mt-1 list-circle;
   }
 
+  .prose ul ul ul {
+    @apply mt-1 list-square;
+  }
+
   .prose hr {
     @apply my-6 border-dashed;
   }
