@@ -21,8 +21,15 @@
     @apply mt-3;
   }
 
-  .prose > * + h2 {
+  .prose > * + h2,
+  .prose > * + dl,
+  .prose > * + table {
     @apply mt-6;
+  }
+
+  .prose > dl + *,
+  .prose > table + * {
+    @apply mb-6;
   }
 
   .prose > small + h2 {
