@@ -37,6 +37,10 @@
     @apply space-y-1 list-disc pl-6;
   }
 
+  .prose ul ul {
+    @apply mt-1 list-circle;
+  }
+
   .prose hr {
     @apply my-6 border-dashed;
   }

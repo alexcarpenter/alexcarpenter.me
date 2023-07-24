@@ -24,6 +24,9 @@ module.exports = {
       borderColor: {
         DEFAULT: "rgb(var(--border))",
       },
+      listStyleType: {
+        circle: "circle",
+      },
     },
   },
   plugins: [],
