@@ -1,7 +1,7 @@
 import * as React from "react";
 import { motion, MotionConfig, AnimatePresence } from "framer-motion";
-import type { ImageProps } from "next/legacy/image";
-import Image from "next/legacy/image";
+import type { ImageProps } from "next/image";
+import Image from "next/image";
 import { cva } from "@/app/utils";
 import { useRovingIndex } from "use-roving-index";
 
@@ -23,7 +23,7 @@ const buttonStyles = cva(
 );
 
 const discStyles =
-  "grid h-8 w-8 place-items-center rounded-full bg-surface-neutral group-focus:ring";
+  "grid h-8 w-8 place-items-center rounded-full bg-neutral-700 group-focus:ring";
 
 const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
   const [antecedent, consequent] = aspectRatio.split("/");
@@ -37,7 +37,7 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
   } = useRovingIndex({ maxIndex: items.length - 1 });
   return (
     <MotionConfig transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}>
-      <motion.div className="relative overflow-hidden">
+      <motion.div className="image-carousel relative overflow-hidden">
         <motion.div className="flex" animate={{ x: `-${activeIndex * 100}%` }}>
           {items.map((item, index) => {
             return (
@@ -47,7 +47,6 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
                   alt={item.alt}
                   width={800}
                   height={(Number(consequent) / Number(antecedent)) * 800}
-                  objectFit="cover"
                 />
               </div>
             );
@@ -93,7 +92,7 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
               )}
             </AnimatePresence>
 
-            <ol className="absolute bottom-4 left-0 !m-0 flex w-full !list-none justify-center gap-4 !space-y-0 !p-0">
+            <ol className="absolute bottom-4 left-0 !m-0 flex w-full !list-none justify-center gap-2 !space-y-0 !p-0">
               {items.map((_, index) => {
                 return (
                   <li key={index}>
@@ -112,7 +111,7 @@ const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
                       whileFocus={{ opacity: 1 }}
                       onClick={() => setActiveIndex(index)}
                       aria-current={activeIndex === index ? "true" : "false"}
-                      className="bg-surface-neutral h-2 w-2 rounded-full outline-none focus:ring"
+                      className="h-2 w-2 rounded-full bg-white outline-none focus:ring"
                     >
                       <span className="sr-only">View item {index + 1}</span>
                     </motion.button>
@@ -141,6 +140,7 @@ function LeftArrowIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      className="text-white"
     >
       <line x1="19" y1="12" x2="5" y2="12" />
       <polyline points="12 19 5 12 12 5" />
@@ -160,6 +160,7 @@ function RightArrowIcon() {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      className="text-white"
     >
       <line x1="5" y1="12" x2="19" y2="12" />
       <polyline points="12 5 19 12 12 19" />

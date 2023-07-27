@@ -23,7 +23,9 @@
 
   .prose > * + h2,
   .prose > * + dl,
-  .prose > * + table {
+  .prose > * + table,
+  .prose > .image-carousel + *,
+  .prose > * + .image-carousel {
     @apply mt-6;
   }
 
