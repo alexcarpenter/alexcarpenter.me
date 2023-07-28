@@ -14,6 +14,9 @@ module.exports = {
       mono: ["var(--font-jetbrains-mono)", ...fontFamily.mono],
     },
     extend: {
+      colors: {
+        highlight: "rgb(var(--highlight))",
+      },
       backgroundColor: {
         page: "rgb(var(--page))",
       },

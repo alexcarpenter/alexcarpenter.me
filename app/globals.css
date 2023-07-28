@@ -7,6 +7,11 @@
   --foreground-primary: 23 23 23;
   --foreground-secondary: 115 115 115;
   --border: 229 229 229;
+  /*
+   * International Orange (Aerospace)
+   * see: https://en.wikipedia.org/wiki/International_orange#Aerospace
+   */
+  --highlight: 240 74 0;
 }
 
 .dark {
@@ -14,6 +19,11 @@
   --foreground-primary: 245 245 245;
   --foreground-secondary: 163 163 163;
   --border: 64 64 64;
+  /*
+   * International Orange (Golden Gate Bridge)
+   * see: https://en.wikipedia.org/wiki/International_orange#Golden_Gate_Bridge
+   */
+  --highlight: 255 79 0;
 }
 
 @layer components {
@@ -25,7 +35,9 @@
   .prose > * + dl,
   .prose > * + table,
   .prose > .image-carousel + *,
-  .prose > * + .image-carousel {
+  .prose > * + .image-carousel,
+  .prose > .note + *,
+  .prose > * + .note {
     @apply mt-6;
   }
 
