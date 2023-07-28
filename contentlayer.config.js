@@ -21,13 +21,13 @@ export const Page = defineDocumentType(() => ({
       required: true,
     },
     updated: {
-      type: 'date',
-      required: false
+      type: "date",
+      required: false,
     },
     pinned: {
-      type: 'boolean',
-      required: false
-    }
+      type: "boolean",
+      required: false,
+    },
   },
   computedFields: {
     slug: {
