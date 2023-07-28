@@ -9,9 +9,6 @@ const components = {
   Image,
   ImageCarousel,
   Note,
-  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 {...props} id={slugify(onlyText(props.children))} />
-  ),
 };
 
 interface MdxProps {

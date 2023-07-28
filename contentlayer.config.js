@@ -2,6 +2,7 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import remarkGfm from "remark-gfm";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
 
 export const Page = defineDocumentType(() => ({
   name: "Page",
@@ -71,6 +72,7 @@ export default makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeCodeTitles,
+      rehypeSlug,
       [rehypePrettyCode, rehypePrettyCodeOptions],
     ],
   },

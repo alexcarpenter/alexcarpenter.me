@@ -29,6 +29,7 @@
     "react-dom": "18.2.0",
     "rehype-code-titles": "^1.2.0",
     "rehype-pretty-code": "^0.9.5",
+    "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "remeda": "^1.24.0",
     "slugify": "^1.6.6",
