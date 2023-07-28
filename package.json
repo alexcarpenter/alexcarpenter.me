@@ -38,7 +38,6 @@
     "use-roving-index": "^2.0.0"
   },
   "devDependencies": {
-    "@types/lodash.partition": "^4.6.7",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.2.8"
   }
