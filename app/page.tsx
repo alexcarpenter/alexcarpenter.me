@@ -6,6 +6,17 @@ import { parseDateToString } from "@/app/utils";
 export default function Home() {
   const [pinned, latest] = R.pipe(
     allPages,
+    R.map(
+      R.pick([
+        "_id",
+        "description",
+        "pinned",
+        "published",
+        "slug",
+        "title",
+        "updated",
+      ])
+    ),
     R.sortBy([
       ({ updated, published }) =>
         updated ? new Date(updated) : new Date(published),
