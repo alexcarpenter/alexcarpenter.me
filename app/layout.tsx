@@ -48,6 +48,7 @@ export const metadata = {
     other: {
       "ahrefs-site-verification":
         "23cb571e5b7e73cceaf780eef248f7f22c030dc0194ddc7b2acdb4e0c35e5e84",
+      "google-site-verification": "nfhrXCwuzTQjasCO0xSgZ0BE92C7e45vkEgs1a6AtII",
     },
   },
   metadataBase: new URL("https://alexcarpenter.me"),
