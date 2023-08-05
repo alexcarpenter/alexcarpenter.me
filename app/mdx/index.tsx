@@ -1,12 +1,13 @@
 "use client";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { slugify, onlyText } from "@/app/utils";
 import Image from "next/image";
+import { ButtonLink } from "./button-link";
 import { ImageCarousel } from "./image-carousel";
 import { Note } from "./note";
 
 const components = {
   Image,
+  ButtonLink,
   ImageCarousel,
   Note,
 };
