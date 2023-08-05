@@ -26,6 +26,12 @@
   --highlight: 255 79 0;
 }
 
+@layer base {
+  mark {
+    @apply px-0.5;
+  }
+}
+
 @layer components {
   .prose > * + * {
     @apply mt-3;
