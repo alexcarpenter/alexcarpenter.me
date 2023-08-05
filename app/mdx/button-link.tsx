@@ -2,14 +2,11 @@ import { cx, cva, type VariantProps } from "@/app/utils";
 
 const buttonLink = cva(
   [
+    "button-link",
     "inline-flex",
     "items-center",
-    "gap-1.5",
     "border",
     "border-black/10",
-    "px-2",
-    "py-1",
-    "text-sm",
     "font-semibold",
     "uppercase",
     "text-white",
@@ -20,11 +17,17 @@ const buttonLink = cva(
       variant: {
         primary: "bg-blue-700",
         secondary: "bg-green-700",
+        neutral: "bg-black",
         highlight: "bg-highlight",
+      },
+      size: {
+        medium: ["text-sm", "px-2", "py-1", "gap-1.5"],
+        small: ["text-xs", "px-1.5", "py-0.5", "gap-1"],
       },
     },
     defaultVariants: {
       variant: "primary",
+      size: "medium",
     },
   }
 );
@@ -33,11 +36,11 @@ type ButtonLinkProps = ButtonLinkVariantProps &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 function ButtonLink(props: ButtonLinkProps) {
-  const { variant, children, ...restProps } = props;
+  const { variant, size, children, ...restProps } = props;
   return (
     <a
       {...restProps}
-      className={cx(buttonLink({ variant }))}
+      className={cx(buttonLink({ variant, size }))}
       style={{
         boxShadow: "2px 2px #bbb",
       }}
