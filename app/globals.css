@@ -28,120 +28,113 @@
   --highlight: 255 79 0;
 }
 
-@layer base {
-  mark {
-    @apply px-0.5;
-  }
-}
-
 @layer components {
-  .prose > * + * {
-    @apply mt-3;
-  }
+  .prose {
+    > * + * {
+      @apply mt-3;
+    }
 
-  .prose > * + h2,
-  .prose > * + dl,
-  .prose > * + table,
-  .prose > .image-carousel + *,
-  .prose > * + .image-carousel,
-  .prose > .note + *,
-  .prose > * + .note {
-    @apply mt-6;
-  }
+    h2, h3 {
+      @apply font-semibold;
+    }
 
-  .prose > dl + *,
-  .prose > table + * {
-    @apply mb-6;
-  }
+    a {
+      @apply underline;
+    }
 
-  .prose > small + h2 {
-    @apply mt-0;
-  }
+    ul {
+      @apply space-y-1 list-disc pl-6;
+    }
 
-  .prose h2 {
-    @apply font-semibold;
-  }
+    ul ul {
+      @apply mt-1 list-circle;
+    }
 
-  .prose ul {
-    @apply space-y-1 list-disc pl-6;
-  }
+    ul ul ul {
+      @apply mt-1 list-square;
+    }
 
-  .prose ul ul {
-    @apply mt-1 list-circle;
-  }
+    table {
+      @apply w-full;
+    }
 
-  .prose ul ul ul {
-    @apply mt-1 list-square;
-  }
+    table th {
+      @apply border-b-2 text-left pr-2 py-1 font-semibold;
+    }
 
-  .prose hr {
-    @apply my-6 border-dashed;
-  }
+    table td {
+      @apply border-t border-dashed pr-2 py-1;
+    }
 
-  .prose a {
-    @apply underline;
-  }
+    dl {
+      @apply grid;
+      grid-template-columns: max-content 1fr;
+    }
 
-  .prose strong {
-    @apply font-semibold;
-  }
+    dt {
+      @apply border-t text-secondary pr-6 py-2;
+    }
 
-  .prose blockquote {
-    @apply border-l-2 pl-3;
-  }
+    dd {
+      @apply border-t py-2;
+    }
 
-  .prose small {
-    @apply text-secondary text-sm;
-  }
+    dt:not(:first-of-type),
+    dd:not(:first-of-type) {
+      @apply border-dashed;
+    }
 
-  .prose span {
-    @apply text-secondary;
-  }
+    blockquote {
+      @apply border-l-2 pl-3;
+    }
 
-  .prose table {
-    @apply w-full;
-  }
+    hr {
+      @apply my-6 border-dashed;
+    }
 
-  .prose table th {
-    @apply border-b-2 text-left pr-2 py-1 font-semibold;
-  }
+    strong {
+      @apply font-semibold;
+    }
 
-  .prose table td {
-    @apply border-t border-dashed pr-2 py-1;
-  }
+    span {
+      @apply text-secondary;
+    }
 
-  .prose dl {
-    @apply grid;
-    grid-template-columns: max-content 1fr;
-  }
+    small {
+      @apply text-secondary text-sm;
+    }
 
-  .prose dt {
-    @apply border-t border-dashed text-secondary pr-6 py-2;
-  }
+    mark {
+      @apply px-0.5;
+    }
 
-  .prose dt:first-of-type,
-  .prose dd:first-of-type {
-    @apply border-t-2 border-solid;
-  }
+    pre[data-language] {
+      @apply overflow-x-auto whitespace-pre py-2 text-sm bg-neutral-100 dark:bg-neutral-800;
+    }
 
-  .prose dd {
-    @apply border-t border-dashed py-2;
-  }
+    div[data-rehype-pretty-code-fragment] .syntax-line {
+      @apply px-2;
+    }
 
-  .prose pre[data-language] {
-    @apply overflow-x-auto whitespace-pre py-2 text-sm bg-neutral-100 dark:bg-neutral-800;
-  }
+    /* Spacing */
+    * + h2,
+    * + h3,
+    /**/
+    *:not(h2):not(h3) + table,
+    *:not(h2):not(h3) + dl,
+    /**/
+    * + .image-carousel,
+    .image-carousel + * {
+      @apply mt-6;
+    }
 
-  .prose div[data-rehype-pretty-code-fragment] .syntax-line {
-    @apply px-2;
-  }
+    h2 + h3 {
+      @apply mt-3;
+    }
 
-  .prose details summary {
-    @apply cursor-pointer;
-  }
-
-  .prose details summary + *{
-    @apply mt-2;
+    small + h2 {
+      @apply mt-0;
+    }
   }
 }
 
