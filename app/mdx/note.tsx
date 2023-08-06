@@ -7,10 +7,10 @@ const Note = ({
 }) => {
   return (
     <aside className="note relative border border-dashed">
-      <p className="absolute left-1 top-0 -translate-y-1/2 bg-page px-2 text-sm font-semibold uppercase tracking-widest text-secondary">
+      <p className="absolute left-1 top-0 -translate-y-1/2 bg-page px-2 text-sm font-semibold uppercase text-secondary">
         {label || "Note"}
       </p>
-      <div className="space-y-2 p-3 pt-4 text-sm">{children}</div>
+      <div className="space-y-2 p-3 pt-4">{children}</div>
     </aside>
   );
 };
