@@ -7,17 +7,18 @@ const buttonLink = cva(
     "items-center",
     "border",
     "border-black/10",
+    "dark:border-white/10",
     "font-semibold",
     "uppercase",
     "text-white",
     "!no-underline",
+    // "shadow-btn",
   ],
   {
     variants: {
       variant: {
         primary: "bg-blue-700",
         secondary: "bg-green-700",
-        neutral: "bg-black",
         highlight: "bg-highlight",
       },
       size: {
@@ -38,13 +39,7 @@ type ButtonLinkProps = ButtonLinkVariantProps &
 function ButtonLink(props: ButtonLinkProps) {
   const { variant, size, children, ...restProps } = props;
   return (
-    <a
-      {...restProps}
-      className={cx(buttonLink({ variant, size }))}
-      style={{
-        boxShadow: "2px 2px #bbb",
-      }}
-    >
+    <a {...restProps} className={cx(buttonLink({ variant, size }))}>
       {children}
       <svg
         xmlns="http://www.w3.org/2000/svg"

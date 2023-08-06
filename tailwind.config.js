@@ -31,6 +31,9 @@ module.exports = {
         circle: "circle",
         square: "square",
       },
+      boxShadow: {
+        btn: "2px 2px rgb(var(--shadow))",
+      },
     },
   },
   plugins: [],

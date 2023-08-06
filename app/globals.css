@@ -7,6 +7,7 @@
   --foreground-primary: 23 23 23;
   --foreground-secondary: 115 115 115;
   --border: 229 229 229;
+  --shadow: 212 212 212;
   /*
    * International Orange (Aerospace)
    * see: https://en.wikipedia.org/wiki/International_orange#Aerospace
@@ -19,6 +20,7 @@
   --foreground-primary: 245 245 245;
   --foreground-secondary: 163 163 163;
   --border: 64 64 64;
+  --shadow: 64 64 64;
   /*
    * International Orange (Golden Gate Bridge)
    * see: https://en.wikipedia.org/wiki/International_orange#Golden_Gate_Bridge
