@@ -67,15 +67,15 @@
     }
 
     dl {
-      @apply grid;
+      @apply grid -mb-2;
       grid-template-columns: max-content 1fr;
     }
 
     dt {
-      @apply border-t text-secondary pr-6 py-2;
+      @apply text-secondary pr-6;
     }
 
-    dd {
+    dt, dd{
       @apply border-t py-2;
     }
 
@@ -101,7 +101,7 @@
     }
 
     small {
-      @apply text-secondary text-sm;
+      @apply text-secondary text-sm block;
     }
 
     mark {

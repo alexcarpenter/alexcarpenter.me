@@ -12,6 +12,7 @@ const buttonLink = cva(
     "uppercase",
     "text-white",
     "!no-underline",
+    "whitespace-nowrap",
     // "shadow-btn",
   ],
   {
