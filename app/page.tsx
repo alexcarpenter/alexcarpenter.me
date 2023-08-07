@@ -29,7 +29,7 @@ export default function Home() {
       <h1 className="sr-only">Index</h1>
       {pinned.length > 0 ? (
         <section className="mt-6">
-          <h2 className="mb-2 font-semibold uppercase">Pinned</h2>
+          <h2 className="mb-2 font-semibold">Pinned</h2>
           <ul className="-mb-2 divide-y divide-dashed border-t-2">
             {pinned.map((page) => {
               const date = page.updated || page.published;
@@ -52,7 +52,7 @@ export default function Home() {
       ) : null}
 
       <section className="mt-6">
-        <h2 className="mb-2 font-semibold uppercase">Latest</h2>
+        <h2 className="mb-2 font-semibold">Latest</h2>
         <ul className="-mb-2 divide-y divide-dashed border-t-2">
           {latest.map((page) => {
             const date = page.updated || page.published;
