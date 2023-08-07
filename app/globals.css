@@ -101,7 +101,7 @@
     }
 
     small {
-      @apply text-secondary text-sm block;
+      @apply text-secondary text-sm;
     }
 
     mark {
