@@ -34,7 +34,8 @@
       @apply mt-3;
     }
 
-    h2, h3 {
+    h2,
+    h3 {
       @apply font-semibold;
     }
 
@@ -43,7 +44,7 @@
     }
 
     ul {
-      @apply space-y-1 list-disc pl-6;
+      @apply list-disc space-y-1 pl-6;
     }
 
     ul ul {
@@ -59,23 +60,24 @@
     }
 
     table th {
-      @apply border-b-2 text-left pr-2 py-1 font-semibold;
+      @apply border-b-2 py-1 pr-2 text-left font-semibold;
     }
 
     table td {
-      @apply border-t border-dashed pr-2 py-1;
+      @apply border-t border-dashed py-1 pr-2;
     }
 
     dl {
-      @apply grid -mb-2;
+      @apply -mb-2 grid;
       grid-template-columns: max-content 1fr;
     }
 
     dt {
-      @apply text-secondary pr-6;
+      @apply pr-6 text-secondary;
     }
 
-    dt, dd{
+    dt,
+    dd {
       @apply border-t py-2;
     }
 
@@ -101,7 +103,11 @@
     }
 
     small {
-      @apply text-secondary text-sm;
+      @apply text-sm text-secondary;
+    }
+
+    kbd {
+      @apply rounded-[0.25em] border-b-[0.125em] border-t border-b-black/10 border-t-white bg-gradient-to-b from-black/10 to-black/5 p-[0.15em] px-[0.3em] text-[0.9375em] [box-shadow:0_0_0_1px_rgba(0,0,0,0.25)] dark:border-t-0 dark:border-b-black/40 dark:from-white/10 dark:to-white/[15%] dark:[box-shadow:0_0_0_1px_rgba(255,255,255,0.15)];
     }
 
     mark {
@@ -109,7 +115,7 @@
     }
 
     pre[data-language] {
-      @apply overflow-x-auto whitespace-pre py-2 text-sm bg-neutral-100 dark:bg-neutral-800;
+      @apply overflow-x-auto whitespace-pre bg-neutral-100 py-2 text-sm dark:bg-neutral-800;
     }
 
     div[data-rehype-pretty-code-fragment] .syntax-line {
