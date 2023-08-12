@@ -63,7 +63,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cx(
-          "mx-auto max-w-xl bg-page px-4 py-16 font-mono text-primary antialiased",
+          "mx-auto max-w-prose bg-page px-4 py-16 font-mono text-primary antialiased",
           jetbrainsMono.variable
         )}
       >
