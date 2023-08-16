@@ -3,12 +3,14 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "./button-link";
+import { Columns } from "./columns";
 import { ImageCarousel } from "./image-carousel";
 import { Note } from "./note";
 
 const components = {
   Image,
   ButtonLink,
+  Columns,
   ImageCarousel,
   Note,
   a: (props: any) => {
