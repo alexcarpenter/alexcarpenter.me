@@ -143,6 +143,7 @@
       @apply mt-0;
     }
 
+    /* Task list */
     .contains-task-list {
       @apply list-none pl-1;
     }
@@ -165,6 +166,7 @@
   }
 }
 
+/* Code */
 html.dark div[data-theme="light"],
 html.dark pre[data-theme="light"],
 html.dark code[data-theme="light"] {
