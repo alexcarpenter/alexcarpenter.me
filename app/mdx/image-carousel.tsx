@@ -6,7 +6,7 @@ import { cva } from "@/app/utils";
 import { useRovingIndex } from "use-roving-index";
 
 interface CarouselProps {
-  aspectRatio?: "16/9" | "4/3";
+  aspectRatio?: "16/9" | "4/3" | "3/2";
   items: ImageProps[];
 }
 
@@ -25,7 +25,7 @@ const buttonStyles = cva(
 const discStyles =
   "grid h-8 w-8 place-items-center rounded-full bg-neutral-700 group-focus:ring";
 
-const ImageCarousel = ({ aspectRatio = "4/3", items }: CarouselProps) => {
+const ImageCarousel = ({ aspectRatio = "3/2", items }: CarouselProps) => {
   const [antecedent, consequent] = aspectRatio.split("/");
   const {
     activeIndex,
