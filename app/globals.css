@@ -138,7 +138,8 @@
       @apply mt-3;
     }
 
-    small + h2 {
+    small + h2,
+    h2 + small {
       @apply mt-0;
     }
 
