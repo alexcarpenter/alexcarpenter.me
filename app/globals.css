@@ -103,7 +103,7 @@
     }
 
     small {
-      @apply block text-sm text-secondary;
+      @apply block text-sm uppercase tracking-wider text-secondary;
     }
 
     kbd {
