@@ -103,7 +103,7 @@
     }
 
     small {
-      @apply text-sm text-secondary;
+      @apply block text-sm text-secondary;
     }
 
     kbd {
