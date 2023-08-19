@@ -1,0 +1,21 @@
+---
+title: CSS diagonal border pattern
+published: 2023-08-19
+---
+
+```css
+.pattern {
+  --fill: #ddd;
+  background-image: linear-gradient(
+    45deg,
+    var(--fill) 7.25%,
+    transparent 0,
+    transparent 50%,
+    var(--fill) 0,
+    var(--fill) 57.25%,
+    transparent 0,
+    transparent
+  );
+  background-size: 8px 8px;
+}
+```
