@@ -1,6 +1,7 @@
 ---
 title: CSS snippets
 published: 2023-08-19
+updated: 2023-08-20
 ---
 
 ## Diagonal line pattern
@@ -56,3 +57,27 @@ h2::after {
   flex-grow: 1;
 }
 ```
+
+---
+
+## SVG texture
+
+```html
+<svg id="texture">
+  <filter id="noise">
+    <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="4" stitchTiles="stitch"></feTurbulence>
+    <feColorMatrix type="saturate" values="0"></feColorMatrix>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#noise)"></rect>
+</svg>
+```
+
+```css
+#texture {
+  opacity: .25;
+  pointer-events: none;
+  filter: contrast(120%) brightness(120%);
+}
+```
+
+View usage [ped.ro](https://ped.ro/)
