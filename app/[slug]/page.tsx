@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { Mdx } from "@/components/mdx";
 import { allPages } from "contentlayer/generated";
+import { getBacklinksBySlug } from "@/app/utils";
 
 const customPageSlugs = ["us-coffee-roasters"];
 
@@ -20,7 +22,9 @@ async function getPostFromParams(params: PageProps["params"]) {
     null;
   }
 
-  return page;
+  const backlinks = getBacklinksBySlug(params.slug);
+
+  return { ...page, backlinks };
 }
 
 export async function generateMetadata({
@@ -75,8 +79,25 @@ export default async function About({ params }: PageProps) {
       </header>
 
       <div className="prose">
-        <Mdx code={page.body.code} />
+        {page.body ? <Mdx code={page.body.code} /> : null}
       </div>
+
+      {page.backlinks.length > 0 ? (
+        <footer className="mt-8 border-t-2 pt-3">
+          <h2 className="font-semibold">Backlinks</h2>
+          <ul className="my-3 list-disc space-y-1 pl-6">
+            {page.backlinks.map(({ title, slug }) => {
+              return (
+                <li key={slug}>
+                  <Link className="underline" href={`/${slug}`}>
+                    {title}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </footer>
+      ) : null}
     </>
   );
 }
