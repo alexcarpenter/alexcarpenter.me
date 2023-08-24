@@ -4,7 +4,7 @@ import roasters from "./roasters.json";
 
 const page = {
   slug: "/us-coffee-roasters",
-  title: "US Coffee Roasters",
+  title: "US coffee roasters",
   description: "Crowd-sourced list of US coffee roasters",
 };
 
