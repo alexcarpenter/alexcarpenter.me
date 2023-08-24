@@ -56,7 +56,13 @@ export default function Roasters() {
                         return (
                           <li key={website}>
                             <p>
-                              <a href={website}>{name}</a>
+                              <a
+                                href={`https://${website}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {name}
+                              </a>
                             </p>
                             <p>
                               <small>{address}</small>
