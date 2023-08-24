@@ -140,7 +140,7 @@
 
     small + h2,
     h2 + small {
-      @apply mt-0;
+      @apply mt-px;
     }
 
     /* Task list */
