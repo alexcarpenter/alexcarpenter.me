@@ -143,6 +143,11 @@
       @apply mt-px;
     }
 
+    & > dl:first-child dt:first-of-type,
+    & > dl:first-child dd:first-of-type {
+      @apply border-t-0 pt-0;
+    }
+
     /* Task list */
     .contains-task-list {
       @apply list-none pl-1;
