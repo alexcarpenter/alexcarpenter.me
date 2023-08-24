@@ -3,8 +3,6 @@ import { notFound } from "next/navigation";
 import { Mdx } from "@/app/mdx";
 import { allPages } from "contentlayer/generated";
 
-const customPages = ["us-coffee-roasters"];
-
 interface PageProps {
   params: {
     slug: string;
@@ -12,9 +10,7 @@ interface PageProps {
 }
 
 async function getPostFromParams(params: PageProps["params"]) {
-  const page = allPages
-    .filter((page) => !customPages.includes(page.slug))
-    .find((page) => page.slug === params.slug);
+  const page = allPages.find((page) => page.slug === params.slug);
 
   if (!page) {
     null;
