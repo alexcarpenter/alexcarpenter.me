@@ -30,6 +30,7 @@ export async function generateMetadata() {
 export default function Roasters() {
   const roastersByState = R.pipe(
     roasters,
+    R.sortBy(({ state }) => state),
     R.groupBy(({ state }) => state)
   );
   return (
@@ -43,38 +44,36 @@ export default function Roasters() {
 
       <div className="prose">
         <dl>
-          {Object.keys(roastersByState)
-            .sort()
-            .map((state) => {
-              const _roasters = roastersByState[state];
-              return (
-                <React.Fragment key={state}>
-                  <dt>{state}</dt>
-                  <dd>
-                    <ul>
-                      {_roasters.map(({ name, address, website }) => {
-                        return (
-                          <li key={website}>
-                            <p>
-                              <a
-                                href={`https://${website}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {name}
-                              </a>
-                            </p>
-                            <p>
-                              <small>{address}</small>
-                            </p>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </dd>
-                </React.Fragment>
-              );
-            })}
+          {Object.keys(roastersByState).map((state) => {
+            const _roasters = roastersByState[state];
+            return (
+              <React.Fragment key={state}>
+                <dt>{state}</dt>
+                <dd>
+                  <ul>
+                    {_roasters.map(({ name, address, website }) => {
+                      return (
+                        <li key={website}>
+                          <p>
+                            <a
+                              href={`https://${website}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {name}
+                            </a>
+                          </p>
+                          <p>
+                            <small>{address}</small>
+                          </p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </dd>
+              </React.Fragment>
+            );
+          })}
         </dl>
       </div>
     </>
