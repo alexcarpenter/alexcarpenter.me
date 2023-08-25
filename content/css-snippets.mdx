@@ -1,7 +1,7 @@
 ---
 title: CSS snippets
 published: 2023-08-19
-updated: 2023-08-20
+updated: 2023-08-25
 ---
 
 ## Diagonal line pattern
@@ -52,6 +52,24 @@ updated: 2023-08-20
   margin-right: -50vw;
 }
 ```
+
+---
+
+## Nested border radius
+
+```css
+.parent {
+  --padding: 16px;
+  --radius: 4px;
+  --nested-radius: calc(var(--radius) - var(--padding));
+}
+
+.nested {
+  border-radius: var(--nested-radius);
+}
+```
+
+via [jy3yy](https://twitter.com/jh3yy/status/1688542283602231296)
 
 ---
 
