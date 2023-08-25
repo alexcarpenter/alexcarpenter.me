@@ -68,7 +68,7 @@
     }
 
     dl {
-      @apply -mb-2 grid;
+      @apply grid;
       grid-template-columns: max-content 1fr;
     }
 
@@ -76,14 +76,19 @@
       @apply pr-6 text-secondary;
     }
 
-    dt,
-    dd {
-      @apply border-t py-2;
+    dt:first-of-type,
+    dd:first-of-type {
+      @apply pb-2;
+    }
+
+    & > dl:not(:first-child) dt:first-of-type,
+    & > dl:not(:first-child) dd:first-of-type {
+      @apply border-t pt-2;
     }
 
     dt:not(:first-of-type),
     dd:not(:first-of-type) {
-      @apply border-dashed;
+      @apply border-t border-dashed py-2;
     }
 
     blockquote {
@@ -141,11 +146,6 @@
     small + h2,
     h2 + small {
       @apply mt-px;
-    }
-
-    & > dl:first-child dt:first-of-type,
-    & > dl:first-child dd:first-of-type {
-      @apply border-t-0 pt-0;
     }
 
     /* Task list */
