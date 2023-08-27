@@ -74,7 +74,12 @@ export default function RootLayout({
             </p>
             <p className="text-secondary">
               Web engineer at{" "}
-              <a href="https://watershed.com" className="underline">
+              <a
+                href="https://watershed.com"
+                className="underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Watershed
               </a>
             </p>
