@@ -1,0 +1,58 @@
+---
+title: Using css variables to manage nested states
+published: 2023-08-28
+---
+
+```css
+/*
+ * .parent is a link element
+ * <a href="" class="parent">...</a>
+ */
+.parent {...}
+
+/*
+ * .child is a heading element
+ * <h2 class="child">...</h2>
+ */
+.child {
+  color: red;
+}
+
+/*
+ * .icon is a SVG element
+ * <svg class="icon">...</svg>
+ */
+.icon {...}
+
+/**
+ * When hovering the parent element
+ * change the child color and translate the icon
+ */
+.parent:hover .child {
+  color: blue;
+}
+
+.parent:hover .icon {
+  transform: translateX(4px);
+}
+```
+
+```css
+.parent {
+  --color-child: red;
+  --transform-icon: 0;
+}
+
+.parent:hover {
+  --color-child: blue;
+  --transform-icon: 4px;
+}
+
+.child {
+  color: var(--color-child);
+}
+
+.icon {
+  transform: translateX(var(--transform-icon));
+}
+```
