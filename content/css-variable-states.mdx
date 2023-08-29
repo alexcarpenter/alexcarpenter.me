@@ -1,0 +1,64 @@
+---
+title: CSS variable states
+description: How to use CSS variables to control nested elements styles based on a parent elements state
+published: 2023-08-28
+---
+
+Lets say we have an element that is likely a link that when hovered modifies some nested elements states. If might look something like this.
+
+```css
+/*
+ * .parent is a link element
+ * <a href="" class="card">...</a>
+ */
+.card {...}
+
+/*
+ * .child is a heading element
+ * <h2 class="heading">...</h2>
+ */
+.heading {
+  color: red;
+}
+
+/*
+ * .icon is a SVG element
+ * <svg class="icon">...</svg>
+ */
+.icon {...}
+
+/**
+ * When hovering the parent element
+ * [1]: change the child color
+ * [2]: translate the icon
+ */
+.card:hover .heading {
+  color: blue; /* [1] */
+}
+
+.card:hover .icon {
+  transform: translateX(4px); /* [2] */
+}
+```
+
+Instead, lets use CSS variables to manage the changes needed for the child elements and scope them to the parent elements hover state.
+
+```css
+.card {
+  --heading-color: red;
+  --icon-transform: 0;
+}
+
+.card:hover {
+  --heading-color: blue;
+  --icon-transform: 4px;
+}
+
+.heading {
+  color: var(--heading-color);
+}
+
+.icon {
+  transform: translateX(var(--icon-transform));
+}
+```
