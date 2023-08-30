@@ -1,7 +1,7 @@
 ---
 title: CSS snippets
 published: 2023-08-19
-updated: 2023-08-25
+updated: 2023-08-30
 ---
 
 ## Diagonal line pattern
@@ -35,6 +35,19 @@ updated: 2023-08-25
     transparent 0
   );
   background-size: 8px 8px;
+}
+```
+
+---
+
+## Equal height grid rows
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Makes row heights equal */
+  grid-auto-rows: 1fr;
 }
 ```
 
