@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as R from "remeda";
 import roasters from "./roasters.json";
+import { ButtonLink } from "../mdx/button-link";
+import { Note } from "../mdx/note";
 
 const page = {
   slug: "/us-coffee-roasters",
@@ -43,7 +45,7 @@ export default function Roasters() {
       </header>
 
       <div className="prose">
-        <dl>
+        <dl className="mb-6">
           {Object.keys(roastersByState).map((state) => {
             const _roasters = roastersByState[state];
             return (
@@ -75,6 +77,25 @@ export default function Roasters() {
             );
           })}
         </dl>
+
+        <Note label="Submit a roaster">
+          This list is open source on{" "}
+          <a
+            href="https://github.com/alexcarpenter/alexcarpenter.me"
+            target="_blank"
+          >
+            GitHub
+          </a>
+          . If you don't see a roaster you know of on the list, feel free to
+          open a{" "}
+          <a
+            href="https://github.com/alexcarpenter/alexcarpenter.me/edit/main/app/us-coffee-roasters/roasters.json"
+            rel="noopener noreferrer"
+          >
+            pull request
+          </a>
+          .
+        </Note>
       </div>
     </>
   );
