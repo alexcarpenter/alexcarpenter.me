@@ -85,8 +85,8 @@ export default function Roasters() {
           >
             GitHub
           </a>
-          . If you don't see a roaster you know of on the list, feel free to
-          open a{" "}
+          . If you don&apos;t see a roaster you know of on the list, feel free
+          to open a{" "}
           <a
             href="https://github.com/alexcarpenter/alexcarpenter.me/edit/main/app/us-coffee-roasters/roasters.json"
             rel="noopener noreferrer"
