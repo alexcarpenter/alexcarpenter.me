@@ -1,8 +1,7 @@
 import * as React from "react";
 import * as R from "remeda";
 import roasters from "./roasters.json";
-import { ButtonLink } from "../mdx/button-link";
-import { Note } from "../mdx/note";
+import { Note } from "@/components/note";
 
 const page = {
   slug: "/us-coffee-roasters",

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Mdx } from "@/app/mdx";
+import { Mdx } from "@/components/mdx";
 import { allPages } from "contentlayer/generated";
 
 const customPageSlugs = ["us-coffee-roasters"];
