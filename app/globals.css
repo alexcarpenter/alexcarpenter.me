@@ -148,6 +148,11 @@
       @apply mt-px;
     }
 
+    /* Media object */
+    .media-object + .media-object {
+      @apply mt-6 border-t border-dashed pt-6;
+    }
+
     /* Task list */
     .contains-task-list {
       @apply list-none pl-1;
