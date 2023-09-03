@@ -71,20 +71,22 @@ export default async function About({ params }: PageProps) {
 
   return (
     <>
-      <header className="mb-6 border-b-2 pb-2">
-        <h1 className="font-semibold">{page.title}</h1>
-        {page.description ? (
-          <p className="text-secondary">{page.description}</p>
-        ) : null}
-      </header>
+      <main id="main" className="flex flex-1 flex-col">
+        <header className="mb-6 border-b-2 pb-2">
+          <h1 className="font-semibold">{page.title}</h1>
+          {page.description ? (
+            <p className="text-secondary">{page.description}</p>
+          ) : null}
+        </header>
 
-      <div className="prose">
-        {page.body ? <Mdx code={page.body.code} /> : null}
-      </div>
+        <div className="prose">
+          {page.body ? <Mdx code={page.body.code} /> : null}
+        </div>
+      </main>
 
-      {page.backlinks.length > 0 ? (
-        <footer className="relative mt-8 border-t-2 pt-3">
-          <h2 className="font-semibold">Linked mentions</h2>
+      <footer className="relative mt-8 border-t-2 pt-3">
+        <h2 className="font-semibold">Linked mentions</h2>
+        {page.backlinks.length > 0 ? (
           <ul className="my-3 list-disc space-y-1 pl-6">
             {page.backlinks.map(({ title, slug }) => {
               return (
@@ -96,8 +98,10 @@ export default async function About({ params }: PageProps) {
               );
             })}
           </ul>
-        </footer>
-      ) : null}
+        ) : (
+          <p className="text-secondary">No backlinks found</p>
+        )}
+      </footer>
     </>
   );
 }
