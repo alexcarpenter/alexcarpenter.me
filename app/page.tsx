@@ -25,10 +25,10 @@ export default function Home() {
     R.partition(({ pinned }) => pinned === true)
   );
   return (
-    <>
+    <main id="main">
       <h1 className="sr-only">Index</h1>
       {pinned.length > 0 ? (
-        <section className="mt-6">
+        <section>
           <h2 className="mb-2 font-semibold">Pinned</h2>
           <ul className="-mb-2 divide-y divide-dashed border-t-2">
             {pinned.map((page) => {
@@ -69,6 +69,6 @@ export default function Home() {
           })}
         </ul>
       </section>
-    </>
+    </main>
   );
 }
