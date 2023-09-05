@@ -52,9 +52,9 @@ export default function Roasters() {
                 <dt>{state}</dt>
                 <dd>
                   <ul>
-                    {_roasters.map(({ name, address, website }) => {
+                    {_roasters.map(({ name, address, website }, index) => {
                       return (
-                        <li key={website}>
+                        <li key={`${website}-${index}`}>
                           <p>
                             <a
                               href={`https://${website}`}
