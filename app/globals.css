@@ -68,8 +68,7 @@
     }
 
     dl {
-      @apply grid;
-      grid-template-columns: max-content 1fr;
+      @apply grid grid-cols-[max-content_1fr];
     }
 
     dt {
