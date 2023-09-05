@@ -84,7 +84,7 @@ export default async function About({ params }: PageProps) {
         </div>
       </main>
 
-      <footer className="relative mt-8 border-t-2 pt-3">
+      <footer className="relative mt-6 border-t-2 pt-3">
         <h2 className="font-semibold">Linked mentions</h2>
         {page.backlinks.length > 0 ? (
           <ul className="my-3 list-disc space-y-1 pl-6">
