@@ -62,10 +62,10 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
     }));
 }
 
-export default async function About({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const page = await getPostFromParams(params);
 
-  if (!page) {
+  if (!page.slug) {
     notFound();
   }
 
