@@ -1,4 +1,5 @@
 import "./globals.css";
+import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
 import { cx } from "@/app/utils";
@@ -11,7 +12,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: "Alex Carpenter",
     template: "%s // Alex Carpenter",
@@ -52,6 +53,12 @@ export const metadata = {
     },
   },
   metadataBase: new URL("https://alexcarpenter.me"),
+  alternates: {
+    canonical: "https://alexcarpenter.me",
+    types: {
+      "application/rss+xml": "https://alexcarpenter.me/atom",
+    },
+  },
 };
 
 export default function RootLayout({
