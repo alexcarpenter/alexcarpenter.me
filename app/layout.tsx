@@ -54,7 +54,6 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://alexcarpenter.me"),
   alternates: {
-    canonical: "https://alexcarpenter.me",
     types: {
       "application/rss+xml": "https://alexcarpenter.me/atom",
     },
