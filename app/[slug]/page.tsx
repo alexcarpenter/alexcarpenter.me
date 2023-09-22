@@ -5,7 +5,7 @@ import { Mdx } from "@/components/mdx";
 import { allPages } from "contentlayer/generated";
 import { getBacklinksBySlug } from "@/app/utils";
 
-const customPageSlugs = ["us-coffee-roasters"];
+const customPageSlugs = [""];
 
 interface PageProps {
   params: {
