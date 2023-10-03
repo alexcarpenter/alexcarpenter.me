@@ -79,7 +79,7 @@ export default function RootLayout({
               <Link href="/">Alex Carpenter</Link>&nbsp;&not;
             </p>
             <p className="text-secondary">
-              Web engineer at{" "}
+              Web Engineer at{" "}
               <a
                 href="https://watershed.com"
                 className="underline"
