@@ -1,7 +1,7 @@
-import { cx, cva, type VariantProps } from "@/app/utils";
+import { tv, type VariantProps } from "@/app/utils";
 
-const buttonLink = cva(
-  [
+const buttonLinkVariants = tv({
+  base: [
     "button-link",
     "inline-flex",
     "items-center",
@@ -15,32 +15,30 @@ const buttonLink = cva(
     "whitespace-nowrap",
     // "shadow-btn",
   ],
-  {
-    variants: {
-      variant: {
-        primary: "bg-blue-700",
-        secondary: "bg-green-700",
-        highlight: "bg-highlight",
-      },
-      size: {
-        medium: ["text-sm", "px-2", "py-1", "gap-1.5"],
-        small: ["text-xs", "px-1.5", "py-0.5", "gap-1"],
-      },
+  variants: {
+    variant: {
+      primary: "bg-blue-700",
+      secondary: "bg-green-700",
+      highlight: "bg-highlight",
     },
-    defaultVariants: {
-      variant: "primary",
-      size: "medium",
+    size: {
+      medium: ["text-sm", "px-2", "py-1", "gap-1.5"],
+      small: ["text-xs", "px-1.5", "py-0.5", "gap-1"],
     },
-  }
-);
-type ButtonLinkVariantProps = VariantProps<typeof buttonLink>;
-type ButtonLinkProps = ButtonLinkVariantProps &
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "medium",
+  },
+});
+type ButtonLinkVariants = VariantProps<typeof buttonLinkVariants>;
+type ButtonLinkProps = ButtonLinkVariants &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 function ButtonLink(props: ButtonLinkProps) {
   const { variant, size, children, ...restProps } = props;
   return (
-    <a {...restProps} className={cx(buttonLink({ variant, size }))}>
+    <a {...restProps} className={buttonLinkVariants({ variant, size })}>
       {children}
       <svg
         xmlns="http://www.w3.org/2000/svg"

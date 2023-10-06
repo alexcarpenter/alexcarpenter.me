@@ -2,7 +2,7 @@ import * as React from "react";
 import { motion, MotionConfig, AnimatePresence } from "framer-motion";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
-import { cva } from "@/app/utils";
+import { tv } from "@/app/utils";
 import { useRovingIndex } from "use-roving-index";
 
 interface CarouselProps {
@@ -10,17 +10,15 @@ interface CarouselProps {
   items: ImageProps[];
 }
 
-const buttonStyles = cva(
-  "group absolute top-0 h-full w-16 grid place-items-center focus:outline-none",
-  {
-    variants: {
-      dir: {
-        left: "left-0",
-        right: "right-0",
-      },
+const buttonStyles = tv({
+  base: "group absolute top-0 h-full w-16 grid place-items-center focus:outline-none",
+  variants: {
+    dir: {
+      left: "left-0",
+      right: "right-0",
     },
-  }
-);
+  },
+});
 
 const discStyles =
   "grid h-8 w-8 place-items-center rounded-full bg-neutral-700 group-focus:ring";

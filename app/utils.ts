@@ -1,6 +1,7 @@
 import { format, parseISO } from "date-fns";
 import slug from "slugify";
-export { cx, cva, type VariantProps } from "class-variance-authority";
+export { clsx as cx } from "clsx";
+export { tv, type VariantProps } from "tailwind-variants";
 export { onlyText } from "react-children-utilities";
 import { allDocuments, type DocumentTypes } from "contentlayer/generated";
 

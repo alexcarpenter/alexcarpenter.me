@@ -67,7 +67,7 @@
       @apply border-t border-dashed py-1 pr-2;
     }
 
-    dl {
+    dl:not([class]) {
       @apply grid grid-cols-[max-content_1fr];
     }
 
@@ -95,7 +95,12 @@
     }
 
     hr {
-      @apply my-6 border-dashed;
+      @apply my-4 border-dashed;
+    }
+
+    hr:has(~ h2),
+    hr:has(~ h3) {
+      @apply mt-6;
     }
 
     strong {
@@ -115,7 +120,7 @@
     }
 
     mark {
-      @apply px-0.5;
+      @apply border-b border-dashed border-highlight bg-transparent text-primary;
     }
 
     pre[data-language] {

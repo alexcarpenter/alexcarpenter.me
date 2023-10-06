@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "./button-link";
 import { Columns } from "./columns";
+import { DescriptionList } from "./description-list";
 import { ImageCarousel } from "./image-carousel";
 import { MediaObject } from "./media-object";
 import { Note } from "./note";
@@ -12,6 +13,7 @@ const components = {
   Image,
   ButtonLink,
   Columns,
+  DescriptionList,
   ImageCarousel,
   MediaObject,
   Note,
