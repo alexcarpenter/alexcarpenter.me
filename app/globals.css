@@ -131,6 +131,14 @@
       @apply px-2;
     }
 
+    details summary {
+      @apply font-semibold;
+    }
+
+    details[open] summary + * {
+      @apply mt-2;
+    }
+
     /* Spacing */
     * + h2,
     * + h3,
