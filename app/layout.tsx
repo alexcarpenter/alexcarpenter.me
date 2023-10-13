@@ -74,6 +74,20 @@ export default function RootLayout({
         )}
       >
         <Providers>
+          <div className="absolute right-6 top-6 flex gap-1 md:fixed">
+            <abbr
+              title="Production"
+              className="rounded-sm border border-transparent bg-highlight px-1.5 py-0.5 text-sm text-white no-underline"
+            >
+              PROD
+            </abbr>
+            <Link
+              href="https://github.com/alexcarpenter/alexcarpenter.me"
+              className="rounded-sm border bg-neutral-100 px-1.5 py-0.5 text-sm text-primary dark:bg-neutral-800"
+            >
+              v2.1.0
+            </Link>
+          </div>
           <header className="mb-6">
             <p className="font-semibold text-primary">
               <Link href="/">Alex Carpenter</Link>&nbsp;&not;
