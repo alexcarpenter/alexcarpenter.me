@@ -35,8 +35,13 @@
     }
 
     h2,
-    h3 {
+    h3,
+    h4 {
       @apply font-semibold;
+    }
+
+    h4 {
+      @apply text-secondary;
     }
 
     a {
@@ -156,7 +161,9 @@
     }
 
     small + h2,
-    h2 + small {
+    h2 + small,
+    small + h3,
+    h3 + small {
       @apply mt-px;
     }
 
