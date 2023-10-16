@@ -69,26 +69,27 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cx(
-          "mx-auto flex min-h-[100svh] max-w-prose flex-col bg-page px-4 py-16 font-mono text-primary antialiased",
+          "mx-auto flex min-h-[100svh] max-w-prose flex-col bg-page px-4 pb-16 pt-8 font-mono text-primary antialiased",
           jetbrainsMono.variable
         )}
       >
         <Providers>
-          <div className="absolute right-6 top-6 flex gap-1 md:fixed">
-            <abbr
-              title="Production"
-              className="rounded-sm border border-transparent bg-highlight px-1.5 py-0.5 text-sm text-white no-underline"
-            >
-              PROD
-            </abbr>
-            <Link
-              href="https://github.com/alexcarpenter/alexcarpenter.me"
-              className="rounded-sm border bg-neutral-100 px-1.5 py-0.5 text-sm text-primary dark:bg-neutral-800"
-            >
-              v2.1.0
-            </Link>
-          </div>
-          <header className="mb-6">
+          <header className="mb-6 flex flex-col">
+            <div className="mb-4 ml-auto flex gap-1">
+              <abbr
+                title="Production"
+                className="rounded-sm border border-transparent bg-highlight px-1.5 py-0.5 text-sm text-white no-underline"
+              >
+                PROD
+              </abbr>
+              <Link
+                href="https://github.com/alexcarpenter/alexcarpenter.me"
+                className="rounded-sm border bg-neutral-100 px-1.5 py-0.5 text-sm text-primary dark:bg-neutral-800"
+              >
+                v2.1.0
+              </Link>
+            </div>
+
             <p className="font-semibold text-primary">
               <Link href="/">Alex Carpenter</Link>&nbsp;&not;
             </p>
