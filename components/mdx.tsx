@@ -8,6 +8,7 @@ import { DescriptionList } from "./description-list";
 import { ImageCarousel } from "./image-carousel";
 import { MediaObject } from "./media-object";
 import { Note } from "./note";
+import { Spacer } from "./spacer";
 
 const components = {
   Image,
@@ -17,6 +18,7 @@ const components = {
   ImageCarousel,
   MediaObject,
   Note,
+  Spacer,
   a: (props: any) => {
     if (props.href.startsWith("/")) {
       return <Link {...props} />;
