@@ -10,6 +10,26 @@ const nextConfig = {
         destination: "https://uscoffeeroasters.app",
         permanent: true,
       },
+      {
+        source: "/experience",
+        destination: "/cv",
+        permanent: true,
+      },
+      {
+        source: "/recommendations",
+        destination: "/cv",
+        permanent: true,
+      },
+      // {
+      //   source: "/hashicorp",
+      //   destination: "/cv",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/watershed",
+      //   destination: "/cv",
+      //   permanent: true,
+      // },
     ];
   },
 };
