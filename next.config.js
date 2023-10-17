@@ -20,16 +20,16 @@ const nextConfig = {
         destination: "/cv",
         permanent: true,
       },
-      // {
-      //   source: "/hashicorp",
-      //   destination: "/cv",
-      //   permanent: true,
-      // },
-      // {
-      //   source: "/watershed",
-      //   destination: "/cv",
-      //   permanent: true,
-      // },
+      {
+        source: "/hashicorp",
+        destination: "/cv",
+        permanent: true,
+      },
+      {
+        source: "/watershed",
+        destination: "/cv",
+        permanent: true,
+      },
     ];
   },
 };
