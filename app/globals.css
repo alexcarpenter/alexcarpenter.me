@@ -167,6 +167,10 @@
       @apply mt-px;
     }
 
+    .spacer + * {
+      @apply mt-0;
+    }
+
     /* Media object */
     .media-object + .media-object {
       @apply mt-6 border-t border-dashed pt-6;
