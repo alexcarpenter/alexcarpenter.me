@@ -2,7 +2,7 @@ import { tv, type VariantProps } from "tailwind-variants";
 
 const spacerVariants = tv(
   {
-    base: "block",
+    base: "spacer block m-0",
     variants: {
       height: {
         px: "h-px",
