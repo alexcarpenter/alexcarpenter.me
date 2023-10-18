@@ -29,6 +29,10 @@ export const Page = defineDocumentType(() => ({
       type: "boolean",
       required: false,
     },
+    draft: {
+      type: "boolean",
+      required: false,
+    },
   },
   computedFields: {
     slug: {

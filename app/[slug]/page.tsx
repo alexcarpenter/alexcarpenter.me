@@ -15,6 +15,12 @@ interface PageProps {
 
 async function getPostFromParams(params: PageProps["params"]) {
   const page = allPages
+    .filter(({ draft }) => {
+      if (process.env.VERCEL_ENV !== "production") {
+        return true;
+      }
+      return !draft;
+    })
     .filter((page) => !customPageSlugs.includes(page.slug))
     .find((page) => page.slug === params.slug);
 
@@ -56,6 +62,12 @@ export async function generateMetadata({
 
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
   return allPages
+    .filter(({ draft }) => {
+      if (process.env.VERCEL_ENV !== "production") {
+        return true;
+      }
+      return !draft;
+    })
     .filter((page) => !customPageSlugs.includes(page.slug))
     .map(({ slug }) => ({
       slug,
