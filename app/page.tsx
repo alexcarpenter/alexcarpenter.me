@@ -15,8 +15,15 @@ export default function Home() {
         "slug",
         "title",
         "updated",
+        "draft",
       ])
     ),
+    R.filter(({ draft }) => {
+      if (process.env.VERCEL_ENV !== "production") {
+        return true;
+      }
+      return !draft;
+    }),
     R.sortBy([
       ({ updated, published }) =>
         updated ? new Date(updated) : new Date(published),
