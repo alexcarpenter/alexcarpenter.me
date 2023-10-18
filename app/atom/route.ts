@@ -16,8 +16,11 @@ export async function GET() {
       <name>Alex Carpenter</name>
       <email>im.alexcarpenter@gmail.com</email>
     </author>
-    ${allPages.slice(0, max).reduce((acc, post) => {
-      return `${acc}
+    ${allPages
+      .filter(({ draft }) => !draft)
+      .slice(0, max)
+      .reduce((acc, post) => {
+        return `${acc}
         <entry>
           <id>${post._id}</id>
           <title>${post.title}</title>
@@ -25,7 +28,7 @@ export async function GET() {
           <link href="https://alexcarpenter.me/${post.slug}"/>
           <updated>${post.updated ? post.updated : post.published}</updated>
         </entry>`;
-    }, "")}
+      }, "")}
   </feed>`,
     {
       headers: {
