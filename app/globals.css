@@ -60,6 +60,11 @@
       @apply mt-1 list-square;
     }
 
+    ol {
+      @apply space-y-1 pl-10;
+      list-style-type: decimal-leading-zero;
+    }
+
     table {
       @apply w-full;
     }
