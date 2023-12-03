@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { allPages } from "contentlayer/generated";
 import * as R from "remeda";
-import { parseDateToString } from "@/app/utils";
+import { cx, parseDateToString } from "@/app/utils";
 
 export default function Home() {
   const [pinned, latest] = R.pipe(
@@ -68,7 +68,15 @@ export default function Home() {
                 <time className="flex-shrink-0 text-secondary" dateTime={date}>
                   {parseDateToString(date)}
                 </time>
-                <Link href={`/${page.slug}`} className="underline">
+                <Link
+                  href={`/${page.slug}`}
+                  className={cx(
+                    "underline",
+                    page.draft &&
+                      process.env.VERCEL_ENV !== "production" &&
+                      "decoration-highlight"
+                  )}
+                >
                   {page.title}
                 </Link>
               </li>
