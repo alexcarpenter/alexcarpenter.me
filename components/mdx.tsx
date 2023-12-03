@@ -2,6 +2,7 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
+import { slugify } from "@/app/utils";
 import { ButtonLink } from "./button-link";
 import { Columns } from "./columns";
 import { DescriptionList } from "./description-list";
@@ -19,12 +20,23 @@ const components = {
   MediaObject,
   Note,
   Spacer,
+  SearchLink: (props: { children: string }) => {
+    return (
+      <a
+        href={`https://duckduckgo.com/?q=${props.children}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {props.children}
+      </a>
+    );
+  },
   a: (props: any) => {
     if (props.href.startsWith("/")) {
       return <Link {...props} />;
-    } else {
-      return <a {...props} />;
     }
+
+    return <a {...props} />;
   },
 };
 
