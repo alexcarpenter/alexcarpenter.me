@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     default: "Alex Carpenter",
     template: "%s // Alex Carpenter",
   },
-  description: "Web Engineer",
+  description: "UI Engineer",
   openGraph: {
     title: "Alex Carpenter",
-    description: "Web Engineer",
+    description: "UI Engineer",
     url: "https://alexcarpenter.me",
     siteName: "Alex Carpenter",
     locale: "en-US",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     title: "Alex Carpenter",
-    description: "Web Engineer",
+    description: "UI Engineer",
     card: "summary",
   },
   icons: {
@@ -93,17 +93,7 @@ export default function RootLayout({
             <p className="font-semibold text-primary">
               <Link href="/">Alex Carpenter</Link>&nbsp;&not;
             </p>
-            <p className="text-secondary">
-              Web Engineer at{" "}
-              <a
-                href="https://watershed.com"
-                className="underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Watershed
-              </a>
-            </p>
+            <p className="text-secondary">UI Engineer</p>
           </header>
           {children}
         </Providers>
