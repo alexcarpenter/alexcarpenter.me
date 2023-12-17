@@ -36,37 +36,3 @@ published: 2023-12-14
 updated: 2023-12-15
 draft: true
 ```
-
-## MDX components
-
-### `<Image />`
-
-### `<ButtonLink />`
-
-### `<Columns />`
-
-```md
-<Columns>
-- Lorem ipsum dolor
-- Lorem ipsum dolor
-- Lorem ipsum dolor
-</Columns>
-```
-
-### `<DescriptionList />`
-
-### `<ImageCarousel />`
-
-### `<MediaObject />`
-
-### `<Note />`
-
-### `<Spacer />`
-
-```md
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, pariatur.
-
-<Spacer height="lg" />
-
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat, pariatur.
-```
