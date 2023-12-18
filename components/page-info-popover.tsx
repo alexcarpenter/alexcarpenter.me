@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as Popover from "@radix-ui/react-popover";
 import { parseDateToString } from "@/app/utils";
+import { TouchTarget } from "@/components/touch-target";
 
 export const PageInfoPopover = ({
   slug,
@@ -18,22 +19,24 @@ export const PageInfoPopover = ({
       <Popover.Trigger asChild>
         <button className="absolute bottom-2.5 right-0 ml-auto grid h-6 w-6 place-content-center rounded-full border bg-neutral-100 dark:bg-neutral-800">
           <span className="sr-only">View page info</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden
-          >
-            <circle cx="12" cy="12" r="1" />
-            <circle cx="19" cy="12" r="1" />
-            <circle cx="5" cy="12" r="1" />
-          </svg>
+          <TouchTarget>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="19" cy="12" r="1" />
+              <circle cx="5" cy="12" r="1" />
+            </svg>
+          </TouchTarget>
         </button>
       </Popover.Trigger>
       <Popover.Portal>

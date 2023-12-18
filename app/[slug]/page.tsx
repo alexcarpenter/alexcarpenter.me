@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Mdx } from "@/components/mdx";
 import { allPages } from "contentlayer/generated";
 import { getBacklinksBySlug } from "@/app/utils";
-import { PageInfoPopover } from "@/components/info-popover";
+import { PageInfoPopover } from "@/components/page-info-popover";
 
 const customPageSlugs = [""];
 
