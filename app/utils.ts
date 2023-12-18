@@ -26,9 +26,16 @@ export const slugify = (
 ): string => slug(string, { lower: true, ...options });
 
 export const getBacklinksBySlug = (slug: string) => {
-  const backlinks = allDocuments.filter((doc) => {
-    return doc.body.raw.includes(`(/${slug})`);
-  }) as DocumentTypes[];
+  const backlinks = allDocuments
+    .filter(({ draft }) => {
+      if (process.env.VERCEL_ENV !== "production") {
+        return true;
+      }
+      return !draft;
+    })
+    .filter((doc) => {
+      return doc.body.raw.includes(`(/${slug})`);
+    }) as DocumentTypes[];
 
   return backlinks.map(({ title, slug }) => ({
     title,

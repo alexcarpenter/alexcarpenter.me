@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Mdx } from "@/components/mdx";
 import { allPages } from "contentlayer/generated";
 import { getBacklinksBySlug } from "@/app/utils";
+import { PageInfoPopover } from "@/components/info-popover";
 
 const customPageSlugs = [""];
 
@@ -84,11 +85,16 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <main id="main" className="flex flex-1 flex-col">
-        <header className="mb-6 border-b-2 pb-2">
+        <header className="relative mb-6 border-b-2 pb-2 pr-8">
           <h1 className="font-semibold">{page.title}</h1>
           {page.description ? (
             <p className="text-secondary">{page.description}</p>
           ) : null}
+          <PageInfoPopover
+            slug={page.slug}
+            published={page.published!}
+            updated={page.updated}
+          />
         </header>
 
         <div className="prose">

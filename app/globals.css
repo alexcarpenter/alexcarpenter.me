@@ -61,7 +61,7 @@
     }
 
     ol {
-      @apply space-y-1 pl-10;
+      @apply space-y-1 pl-12;
       list-style-type: decimal-leading-zero;
     }
 
