@@ -42,6 +42,7 @@ export const PageInfoPopover = ({
       <Popover.Portal>
         <Popover.Content
           sideOffset={2}
+          collisionPadding={8}
           className="grid gap-y-1 rounded-sm border bg-page p-4 dark:bg-neutral-800"
         >
           <p className="flex items-center justify-between gap-3 text-sm">
