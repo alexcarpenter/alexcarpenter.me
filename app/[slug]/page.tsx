@@ -85,10 +85,10 @@ export default async function Page({ params }: PageProps) {
   return (
     <>
       <main id="main" className="flex flex-1 flex-col">
-        <header className="relative mb-6 border-b-2 pb-2 pr-8">
+        <header className="relative mb-6 border-b-2 pb-2 pr-12">
           <h1 className="font-semibold">{page.title}</h1>
           {page.description ? (
-            <p className="text-secondary">{page.description}</p>
+            <p className="wrap-pretty text-secondary">{page.description}</p>
           ) : null}
           <PageInfoPopover
             slug={page.slug}

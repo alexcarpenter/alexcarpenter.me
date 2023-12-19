@@ -28,6 +28,16 @@
   --highlight: 255 79 0;
 }
 
+@layer utilities {
+  .wrap-balance {
+    text-wrap: balance;
+  }
+
+  .wrap-pretty {
+    text-wrap: pretty;
+  }
+}
+
 @layer components {
   .prose {
     > * + * {
