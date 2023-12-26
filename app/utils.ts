@@ -6,7 +6,9 @@ export { onlyText } from "react-children-utilities";
 import { allDocuments, type DocumentTypes } from "contentlayer/generated";
 
 export const parseDateToString = (date: string): string => {
-  return format(parseISO(date), "yyyy-MM-dd");
+  const d = new Date(date);
+  const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
+  return format(t, "yyyy-MM-dd");
 };
 
 export const formatTags = (arr: string[]): string => {
