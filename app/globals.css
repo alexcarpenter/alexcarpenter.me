@@ -127,7 +127,7 @@
       @apply font-semibold;
     }
 
-    span {
+    span:not([class]) {
       @apply text-secondary;
     }
 
