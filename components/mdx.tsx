@@ -2,7 +2,7 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
 import Image from "next/image";
 import Link from "next/link";
-import { slugify } from "@/app/utils";
+import { Badge } from "./badge";
 import { ButtonLink } from "./button-link";
 import { Columns } from "./columns";
 import { DescriptionList } from "./description-list";
@@ -12,10 +12,11 @@ import { Note } from "./note";
 import { Spacer } from "./spacer";
 
 const components = {
-  Image,
+  Badge,
   ButtonLink,
   Columns,
   DescriptionList,
+  Image,
   ImageCarousel,
   MediaObject,
   Note,

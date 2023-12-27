@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cx } from "@/app/utils";
 import { Analytics } from "./analytics";
 import { Providers } from "./providers";
+import { Badge } from "@/components/badge";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -82,12 +83,11 @@ export default function RootLayout({
               >
                 PROD
               </abbr>
-              <Link
-                href="https://github.com/alexcarpenter/alexcarpenter.me"
-                className="rounded-sm border bg-neutral-100 px-1.5 py-0.5 text-sm text-primary dark:bg-neutral-800"
-              >
-                v2.1.0
-              </Link>
+              <Badge asChild text="primary" border={true}>
+                <Link href="https://github.com/alexcarpenter/alexcarpenter.me">
+                  v2.1.0
+                </Link>
+              </Badge>
             </div>
 
             <p className="font-semibold text-primary">
