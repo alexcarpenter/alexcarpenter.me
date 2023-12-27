@@ -9,10 +9,12 @@ export const PageInfoPopover = ({
   slug,
   published,
   updated,
+  affiliateLinks,
 }: {
   slug: string;
   published: string;
   updated?: string;
+  affiliateLinks?: boolean;
 }) => {
   return (
     <Popover.Root>
@@ -78,6 +80,11 @@ export const PageInfoPopover = ({
               <path d="m29.1 18.43-6.19.44H0v-5.48h23.91l6.26.44L15.84 0h7.63l15.77 15.84v.58L23.47 32.26h-7.63Z" />
             </svg>
           </p>
+          {affiliateLinks ? (
+            <p className="mt-2 text-sm text-secondary">
+              Page contains affiliate links.
+            </p>
+          ) : null}
           <Popover.Arrow className="fill-[rgb(var(--border))]" />
         </Popover.Content>
       </Popover.Portal>

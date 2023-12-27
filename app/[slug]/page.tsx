@@ -94,6 +94,7 @@ export default async function Page({ params }: PageProps) {
             slug={page.slug}
             published={page.published!}
             updated={page.updated}
+            affiliateLinks={page.body?.code.includes("https://amzn.to/")}
           />
         </header>
 
