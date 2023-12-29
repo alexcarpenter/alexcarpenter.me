@@ -31,34 +31,24 @@ const { Content } = await page.render();
       <Content />
     </div>
   </main>
-  <footer class="relative mt-8 border-t-2 pt-3">
+  <footer class="relative mt-8 border-t-2 pt-3 text-center">
     <p class="text-sm text-secondary">
-      <span aria-hidden={true} class="select-none">├──</span> Published: <FormattedDate
-        date={page.data.published}
-      />
+      Published: <FormattedDate date={page.data.published} />
     </p>
     {
       page.data.updated ? (
         <p class="text-sm text-secondary">
-          <span aria-hidden={true} class="select-none">
-            ├──
-          </span>{" "}
           Last updated: <FormattedDate date={page.data.updated} />
         </p>
       ) : null
     }
     {
       page.body.includes("https://amzn.to") ? (
-        <p class="text-sm text-secondary">
-          <span aria-hidden={true} class="select-none">
-            ├──
-          </span>{" "}
-          Page contains affiliate links
-        </p>
+        <p class="text-sm text-secondary">Page contains affiliate links</p>
       ) : null
     }
     <p class="text-sm text-secondary">
-      <span aria-hidden={true} class="select-none">└──</span> View page{" "}<a
+      View page{" "}<a
         href={`https://github.com/alexcarpenter/alexcarpenter.me/commits/main/src/content/pages/${page.id}`}
         class="underline"
         target="_blank"
