@@ -35,6 +35,12 @@
     @apply mt-3;
   }
 
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply font-semibold;
+  }
+
   .prose a {
     @apply underline;
   }
