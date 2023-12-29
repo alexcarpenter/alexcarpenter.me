@@ -62,6 +62,14 @@
     list-style-type: decimal-leading-zero;
   }
 
+  .prose p:has(img) {
+    @apply relative aspect-4/3 overflow-hidden;
+  }
+
+  .prose p img {
+    @apply absolute inset-0 object-cover object-center;
+  }
+
   .prose table {
     @apply w-full;
   }

@@ -29,6 +29,9 @@ export default {
       boxShadow: {
         btn: "2px 2px rgb(var(--shadow))",
       },
+      aspectRatio: {
+        "4/3": "4 / 3",
+      },
     },
   },
   plugins: [],
