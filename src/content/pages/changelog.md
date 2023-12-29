@@ -2,10 +2,16 @@
 title: Changelog
 description: Notable changes across alexcarpenter.me
 published: 2023-09-08
-updated: 2023-12-18
+updated: 2023-12-29
 ---
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). View source on [Github](https://github.com/alexcarpenter/alexcarpenter.me).
+
+---
+
+## 2023-12-29
+
+- [Migrated](https://github.com/alexcarpenter/alexcarpenter.me/pull/136) from Next.js to Astro
 
 ---
 
