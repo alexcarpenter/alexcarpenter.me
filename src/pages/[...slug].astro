@@ -22,7 +22,7 @@ const { Content } = await page.render();
     <h1 class="font-semibold">{page.data.title}</h1>
     {
       page.data.description ? (
-        <p class="mt-0.5 text-pretty text-secondary">{page.data.description}</p>
+        <p class="text-pretty text-secondary">{page.data.description}</p>
       ) : null
     }
   </header>
@@ -67,6 +67,7 @@ const { Content } = await page.render();
           ></path>
         </svg>
       </p>
+      <p class="text-sm text-secondary select-none" aria-hidden={true}>:::</p>
     </div>
   </footer>
 </BaseLayout>
