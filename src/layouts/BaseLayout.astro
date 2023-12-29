@@ -1,0 +1,81 @@
+---
+import "@fontsource-variable/jetbrains-mono";
+import "../styles/global.css";
+import Badge from "@/components/Badge.astro";
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { title, description } = Astro.props;
+const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
+const metaDescription = description ? description : "UI Engineer";
+---
+
+<html lang="en">
+  <head>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{metaTitle}</title>
+    <meta name="title" content={metaTitle} />
+    <meta name="description" content={metaDescription} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={metaTitle} />
+    <meta property="twitter:description" content={metaDescription} />
+    <!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href={new URL("/sitemap-index.xml", Astro.site)} />
+
+    <!-- RSS -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href={new URL("/rss.xml", Astro.site)}
+    />
+  </head>
+
+  <body
+    class="mx-auto flex min-h-dvh max-w-prose flex-col bg-page px-4 pb-16 pt-8 font-mono text-primary antialiased"
+  >
+    <header class="mb-6 flex flex-col">
+      <div class="mb-4 ml-auto flex gap-1">
+        <abbr
+          title="Production"
+          class="rounded-sm border border-transparent bg-highlight px-1.5 py-0.5 text-sm text-white no-underline"
+        >
+          PROD
+        </abbr>
+        <Badge
+          as="a"
+          href="https://github.com/alexcarpenter/alexcarpenter.me"
+          text="primary"
+          border={true}
+        >
+          v3.0.0-alpha
+        </Badge>
+      </div>
+
+      <p class="font-semibold text-primary">
+        <a href="/">Alex Carpenter</a>&nbsp;&not;
+      </p>
+      <p class="text-secondary">UI Engineer</p>
+    </header>
+    <slot />
+  </body>
+</html>

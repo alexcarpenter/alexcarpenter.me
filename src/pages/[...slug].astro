@@ -1,0 +1,59 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
+  }));
+}
+
+type Props = CollectionEntry<"pages">;
+
+const page = Astro.props;
+const { Content } = await page.render();
+---
+
+<BaseLayout {...page.data}>
+  <header class="relative mb-6 border-b-2 pb-2 pr-12">
+    <h1 class="font-semibold">{page.data.title}</h1>
+    {
+      page.data.description ? (
+        <p class="text-pretty text-secondary">{page.data.description}</p>
+      ) : null
+    }
+  </header>
+  <main class="flex flex-1 flex-col">
+    <div class="prose">
+      <Content />
+    </div>
+  </main>
+  <footer class="relative mt-8 border-t-2 pt-3 text-center">
+    <p class="text-sm text-secondary">
+      Published: <FormattedDate date={page.data.published} />
+    </p>
+    {
+      page.data.updated ? (
+        <p class="text-sm text-secondary">
+          Last updated: <FormattedDate date={page.data.updated} />
+        </p>
+      ) : null
+    }
+    {
+      page.body.includes("https://amzn.to") ? (
+        <p class="text-sm text-secondary">Page contains affiliate links</p>
+      ) : null
+    }
+    <p class="text-sm text-secondary">
+      View page{" "}<a
+        href={`https://github.com/alexcarpenter/alexcarpenter.me/commits/main/src/content/pages/${page.id}`}
+        class="underline"
+        target="_blank"
+        rel="noopener noreferrer">changelog</a
+      >
+    </p>
+  </footer>
+</BaseLayout>

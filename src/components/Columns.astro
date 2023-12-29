@@ -1,0 +1,25 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+
+const columnsVariants = cva(
+  "[&>*]:gap-x-8 [&>*>li]:break-inside-avoid-column",
+  {
+    variants: {
+      count: {
+        one: "[&>*]:columns-1",
+        two: "[&>*]:columns-2",
+        three: "[&>*]:columns-3",
+      },
+    },
+    defaultVariants: {
+      count: "two",
+    },
+  }
+);
+
+type Props = VariantProps<typeof columnsVariants>;
+
+const { count } = Astro.props;
+---
+
+<div class={columnsVariants({ count })}><slot /></div>
