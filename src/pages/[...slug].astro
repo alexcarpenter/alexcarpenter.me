@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { type CollectionEntry, getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
+  }));
+}
+
+type Props = CollectionEntry<"pages">;
+
+const page = Astro.props;
+const { Content } = await page.render();
+---
+
+<BaseLayout {...page.data}>
+  <header class="relative mb-6 border-b-2 pb-2 pr-12">
+    <h1 class="font-semibold">{page.data.title}</h1>
+    {
+      page.data.description ? (
+        <p class="wrap-pretty text-secondary">{page.data.description}</p>
+      ) : null
+    }
+    <!-- <PageInfoPopover
+      slug={page.slug}
+      published={page.published!}
+      updated={page.updated}
+      affiliateLinks={page.body?.code.includes("https://amzn.to/")}
+    /> -->
+  </header>
+  <div class="prose">
+    <Content />
+  </div>
+</BaseLayout>

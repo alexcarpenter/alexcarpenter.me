@@ -1,0 +1,74 @@
+---
+import "@fontsource-variable/jetbrains-mono";
+import "../styles/global.css";
+
+function removeTrailingSlash(str: string) {
+  return str.replace(/\/+$/, "");
+}
+
+const canonicalURL = removeTrailingSlash(
+  new URL(Astro.url.pathname, Astro.site).toString()
+);
+const { title, description } = Astro.props;
+---
+
+<html lang="en" class="dark">
+  <head>
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+
+  <body
+    class="mx-auto flex min-h-[100svh] max-w-prose flex-col bg-page px-4 pb-16 pt-8 font-mono text-primary antialiased"
+  >
+    <header class="mb-6 flex flex-col">
+      <div class="mb-4 ml-auto flex gap-1">
+        <abbr
+          title="Production"
+          class="rounded-sm border border-transparent bg-highlight px-1.5 py-0.5 text-sm text-white no-underline"
+        >
+          PROD
+        </abbr>
+        <a
+          href="https://github.com/alexcarpenter/alexcarpenter.me"
+          class="rounded-sm bg-neutral-100 px-1.5 py-0.5 text-sm dark:bg-neutral-800 border text-primary"
+          >v2.1.0</a
+        >
+      </div>
+
+      <p class="font-semibold text-primary">
+        <a href="/">Alex Carpenter</a>&nbsp;&not;
+      </p>
+      <p class="text-secondary">UI Engineer</p>
+    </header>
+    <slot />
+  </body>
+</html>

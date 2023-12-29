@@ -1,0 +1,74 @@
+---
+import Base from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const pages = await getCollection("pages");
+import { format } from "date-fns";
+
+const parseDateToString = (date: string): string => {
+  const d = new Date(date);
+  const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
+  return format(t, "yyyy-MM-dd");
+};
+---
+
+<Base>
+  <section>
+    <h2 class="mb-2 font-semibold">Pinned</h2>
+    <ul class="-mb-2 divide-y divide-dashed border-t-2">
+      {
+        pages
+          .filter((page) => page.data.pinned)
+          .sort((a, b) => {
+            const aDate = a.data.updated || a.data.published;
+            const bDate = b.data.updated || b.data.published;
+            return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+          })
+          .map((page) => {
+            return (
+              <li class="flex gap-6 py-2">
+                <time
+                  class="flex-shrink-0 text-secondary"
+                  datetime={page.data.published.toISOString()}
+                >
+                  {parseDateToString(page.data.published.toString())}
+                </time>
+                <a href={page.slug} class="underline">
+                  {page.data.title}
+                </a>
+              </li>
+            );
+          })
+      }
+    </ul>
+  </section>
+
+  <section class="mt-6">
+    <h2 class="mb-2 font-semibold">Latest</h2>
+    <ul class="-mb-2 divide-y divide-dashed border-t-2">
+      {
+        pages
+          .filter((page) => !page.data.pinned)
+          .sort((a, b) => {
+            const aDate = a.data.updated || a.data.published;
+            const bDate = b.data.updated || b.data.published;
+            return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+          })
+          .map((page) => {
+            return (
+              <li class="flex gap-6 py-2">
+                <time
+                  class="flex-shrink-0 text-secondary"
+                  datetime={page.data.published.toISOString()}
+                >
+                  {parseDateToString(page.data.published.toString())}
+                </time>
+                <a href={page.slug} class="underline">
+                  {page.data.title}
+                </a>
+              </li>
+            );
+          })
+      }
+    </ul>
+  </section>
+</Base>

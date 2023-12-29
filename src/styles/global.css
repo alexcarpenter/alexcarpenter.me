@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --page: 255 255 255;
+  --foreground-primary: 23 23 23;
+  --foreground-secondary: 115 115 115;
+  --border: 229 229 229;
+  --shadow: 212 212 212;
+  /*
+   * International Orange (Aerospace)
+   * see: https://en.wikipedia.org/wiki/International_orange#Aerospace
+   */
+  --highlight: 240 74 0;
+}
+
+.dark {
+  --page: 23 23 23;
+  --foreground-primary: 245 245 245;
+  --foreground-secondary: 163 163 163;
+  --border: 64 64 64;
+  --shadow: 64 64 64;
+  /*
+   * International Orange (Golden Gate Bridge)
+   * see: https://en.wikipedia.org/wiki/International_orange#Golden_Gate_Bridge
+   */
+  --highlight: 255 79 0;
+}
+
+@layer components {
+  .prose > * + * {
+    @apply mt-3;
+  }
+
+  .prose a {
+    @apply underline;
+  }
+
+  .prose ul {
+    @apply list-disc space-y-1 pl-6;
+  }
+
+  .prose ul ul {
+    @apply mt-1 list-circle;
+  }
+
+  .prose ul ul ul {
+    @apply mt-1 list-square;
+  }
+
+  .prose ol {
+    @apply space-y-1 pl-12;
+    list-style-type: decimal-leading-zero;
+  }
+
+  .prose table {
+    @apply w-full;
+  }
+
+  .prose table th {
+    @apply border-b-2 py-1 pr-2 text-left font-semibold;
+  }
+
+  .prose table td {
+    @apply border-t border-dashed py-1 pr-2;
+  }
+
+  .prose dl:not([class]) {
+    @apply grid grid-cols-[max-content_1fr];
+  }
+
+  .prose dt {
+    @apply pr-6 text-secondary;
+  }
+
+  .prose dt:first-of-type,
+  .prose dd:first-of-type {
+    @apply pb-2;
+  }
+
+  .prose > dl:not(:first-child) dt:first-of-type,
+  .prose > dl:not(:first-child) dd:first-of-type {
+    @apply border-t pt-2;
+  }
+
+  .prose dt:not(:first-of-type),
+  .prose dd:not(:first-of-type) {
+    @apply border-t border-dashed py-2;
+  }
+
+  .prose * + h2,
+  .prose * + h3,
+  .prose *:not(h2):not(h3) + table,
+  .prose *:not(h2):not(h3) + dl {
+    @apply mt-6;
+  }
+
+  .prose hr {
+    @apply my-4 border-dashed;
+  }
+
+  .prose hr:has(~ h2),
+  .prose hr:has(~ h3) {
+    @apply mt-6;
+  }
+
+  .prose code:not([data-language]) {
+    @apply rounded-md bg-neutral-100 px-1.5 py-0.5 dark:bg-neutral-800;
+  }
+
+  .prose .contains-task-list {
+    @apply list-none pl-1;
+  }
+
+  .prose .task-list-item {
+    @apply relative pl-6;
+  }
+
+  .prose .task-list-item input {
+    @apply absolute left-0 top-1 h-4 w-4 appearance-none;
+    background-color: rgb(var(--foreground-secondary));
+    mask-size: contain;
+    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItY2lyY2xlIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PC9zdmc+");
+  }
+
+  .prose .task-list-item input[checked] {
+    @apply bg-highlight;
+    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItY2hlY2stY2lyY2xlIj48cGF0aCBkPSJNMjIgMTEuMDhWMTJhMTAgMTAgMCAxIDEtNS45My05LjE0Ij48L3BhdGg+PHBvbHlsaW5lIHBvaW50cz0iMjIgNCAxMiAxNC4wMSA5IDExLjAxIj48L3BvbHlsaW5lPjwvc3ZnPg==");
+  }
+}
