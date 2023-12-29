@@ -32,49 +32,38 @@ const { Content } = await page.render();
     </div>
   </main>
   <footer class="relative mt-8 border-t-2 pt-3">
-    <div class="text-center">
-      <p class="text-sm text-secondary">
-        Published: <FormattedDate date={page.data.published} />
-      </p>
-      {
-        page.data.updated ? (
-          <p class="text-sm text-secondary">
-            Last updated: <FormattedDate date={page.data.updated} />
-          </p>
-        ) : null
-      }
-      <p class="inline-flex items-center gap-1 text-sm text-secondary">
-        <span>View page</span>
-        <a
-          href={`https://github.com/alexcarpenter/alexcarpenter.me/commits/main/src/content/pages/${page.id}`}
-          class="underline"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          changelog
-        </a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 39.24 32.26"
-          height=".65em"
-          fill="currentColor"
-          aria-hidden="true"
-          focusable="false"
-          class="-rotate-45"
-        >
-          <path
-            d="m29.1 18.43-6.19.44H0v-5.48h23.91l6.26.44L15.84 0h7.63l15.77 15.84v.58L23.47 32.26h-7.63Z"
-          ></path>
-        </svg>
-      </p>
-      <p class="text-sm text-secondary select-none my-1" aria-hidden={true}>
-        :::
-      </p>
-      {
-        page.body.includes("https://amzn.to/") ? (
-          <p class="text-xs text-secondary">Page contains affiliate links</p>
-        ) : null
-      }
-    </div>
+    <p class="text-sm text-secondary">
+      <span aria-hidden={true} class="select-none">├──</span> Published: <FormattedDate
+        date={page.data.published}
+      />
+    </p>
+    {
+      page.data.updated ? (
+        <p class="text-sm text-secondary">
+          <span aria-hidden={true} class="select-none">
+            ├──
+          </span>{" "}
+          Last updated: <FormattedDate date={page.data.updated} />
+        </p>
+      ) : null
+    }
+    {
+      page.body.includes("https://amzn.to") ? (
+        <p class="text-sm text-secondary">
+          <span aria-hidden={true} class="select-none">
+            ├──
+          </span>{" "}
+          Page contains affiliate links
+        </p>
+      ) : null
+    }
+    <p class="text-sm text-secondary">
+      <span aria-hidden={true} class="select-none">└──</span> View page{" "}<a
+        href={`https://github.com/alexcarpenter/alexcarpenter.me/commits/main/src/content/pages/${page.id}`}
+        class="underline"
+        target="_blank"
+        rel="noopener noreferrer">changelog</a
+      >
+    </p>
   </footer>
 </BaseLayout>
