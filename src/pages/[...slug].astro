@@ -67,7 +67,9 @@ const { Content } = await page.render();
           ></path>
         </svg>
       </p>
-      <p class="text-sm text-secondary select-none" aria-hidden={true}>:::</p>
+      <p class="text-sm text-secondary select-none my-1" aria-hidden={true}>
+        :::
+      </p>
       {
         page.body.includes("https://amzn.to/") ? (
           <p class="text-xs text-secondary">Page contains affiliate links</p>
