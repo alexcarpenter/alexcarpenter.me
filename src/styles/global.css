@@ -15,17 +15,19 @@
   --highlight: 240 74 0;
 }
 
-.dark {
-  --page: 23 23 23;
-  --foreground-primary: 245 245 245;
-  --foreground-secondary: 163 163 163;
-  --border: 64 64 64;
-  --shadow: 64 64 64;
-  /*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: 23 23 23;
+    --foreground-primary: 245 245 245;
+    --foreground-secondary: 163 163 163;
+    --border: 64 64 64;
+    --shadow: 64 64 64;
+    /*
    * International Orange (Golden Gate Bridge)
    * see: https://en.wikipedia.org/wiki/International_orange#Golden_Gate_Bridge
    */
-  --highlight: 255 79 0;
+    --highlight: 255 79 0;
+  }
 }
 
 @layer components {
