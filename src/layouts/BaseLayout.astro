@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/jetbrains-mono";
 import "../styles/global.css";
+import Badge from "@/components/Badge.astro";
 
 function removeTrailingSlash(str: string) {
   return str.replace(/\/+$/, "");
@@ -45,7 +46,14 @@ const metaDescription = description ? description : "UI Engineer";
     <!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
 
     <!-- Sitemap -->
-    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="sitemap" href={new URL("/sitemap-index.xml", Astro.site)} />
+
+    <!-- RSS -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href={new URL("/rss.xml", Astro.site)}
+    />
   </head>
 
   <body
@@ -59,11 +67,14 @@ const metaDescription = description ? description : "UI Engineer";
         >
           PROD
         </abbr>
-        <a
+        <Badge
+          as="a"
           href="https://github.com/alexcarpenter/alexcarpenter.me"
-          class="rounded-sm bg-neutral-100 px-1.5 py-0.5 text-sm dark:bg-neutral-800 border text-primary"
-          >v3.0.0-alpha</a
+          text="primary"
+          border={true}
         >
+          v3.0.0-alpha
+        </Badge>
       </div>
 
       <p class="font-semibold text-primary">
