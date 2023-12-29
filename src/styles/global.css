@@ -97,6 +97,10 @@
     @apply border-t border-dashed py-2;
   }
 
+  .prose blockquote {
+    @apply space-y-3 pl-4 border-l-2;
+  }
+
   .prose * + h2,
   .prose * + h3,
   .prose *:not(h2):not(h3) + table,
@@ -111,6 +115,14 @@
   .prose hr:has(~ h2),
   .prose hr:has(~ h3) {
     @apply mt-6;
+  }
+
+  .prose .spacer + * {
+    @apply mt-0;
+  }
+
+  .prose h3 + small {
+    @apply mt-1 text-secondary text-sm uppercase block;
   }
 
   .prose code:not([data-language]) {
