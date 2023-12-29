@@ -3,13 +3,7 @@ import "@fontsource-variable/jetbrains-mono";
 import "../styles/global.css";
 import Badge from "@/components/Badge.astro";
 
-function removeTrailingSlash(str: string) {
-  return str.replace(/\/+$/, "");
-}
-
-const canonicalURL = removeTrailingSlash(
-  new URL(Astro.url.pathname, Astro.site).toString()
-);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
 const metaDescription = description ? description : "UI Engineer";

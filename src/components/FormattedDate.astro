@@ -1,17 +1,21 @@
 ---
+import type { CSSProperty } from "astro/types";
+import { format } from "date-fns";
+
+const parseDateToString = (date: string): string => {
+  const d = new Date(date);
+  const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
+  return format(t, "yyyy-MM-dd");
+};
+
 interface Props {
   date: Date;
+  class?: string;
 }
 
-const { date } = Astro.props;
+const { date, class: className } = Astro.props;
 ---
 
-<time datetime={date.toISOString()}>
-  {
-    date.toLocaleDateString("en-us", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    })
-  }
+<time datetime={date.toISOString()} class:list={className}>
+  {parseDateToString(date.toString())}
 </time>

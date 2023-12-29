@@ -1,13 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
-import { format } from "date-fns";
-
-const parseDateToString = (date: string): string => {
-  const d = new Date(date);
-  const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
-  return format(t, "yyyy-MM-dd");
-};
+import FormattedDate from "@/components/FormattedDate.astro";
 
 export async function getStaticPaths() {
   const pages = await getCollection("pages");
@@ -40,12 +34,12 @@ const { Content } = await page.render();
   <footer class="relative mt-8 border-t-2 pt-3">
     <div class="text-center">
       <p class="text-sm text-secondary">
-        Published: {parseDateToString(page.data.published.toString())}
+        Published: <FormattedDate date={page.data.published} />
       </p>
       {
         page.data.updated ? (
           <p class="text-sm text-secondary">
-            Last updated: {parseDateToString(page.data.updated.toString())}
+            Last updated: <FormattedDate date={page.data.updated} />
           </p>
         ) : null
       }

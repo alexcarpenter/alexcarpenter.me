@@ -1,14 +1,8 @@
 ---
 import Base from "@/layouts/BaseLayout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 import { getCollection } from "astro:content";
 const pages = await getCollection("pages");
-import { format } from "date-fns";
-
-const parseDateToString = (date: string): string => {
-  const d = new Date(date);
-  const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
-  return format(t, "yyyy-MM-dd");
-};
 ---
 
 <Base>
@@ -26,12 +20,10 @@ const parseDateToString = (date: string): string => {
           .map((page) => {
             return (
               <li class="flex gap-6 py-2">
-                <time
+                <FormattedDate
+                  date={page.data.updated || page.data.published}
                   class="flex-shrink-0 text-secondary"
-                  datetime={page.data.published.toISOString()}
-                >
-                  {parseDateToString(page.data.published.toString())}
-                </time>
+                />
                 <a href={page.slug} class="underline">
                   {page.data.title}
                 </a>
@@ -56,12 +48,10 @@ const parseDateToString = (date: string): string => {
           .map((page) => {
             return (
               <li class="flex gap-6 py-2">
-                <time
+                <FormattedDate
+                  date={page.data.updated || page.data.published}
                   class="flex-shrink-0 text-secondary"
-                  datetime={page.data.published.toISOString()}
-                >
-                  {parseDateToString(page.data.published.toString())}
-                </time>
+                />
                 <a href={page.slug} class="underline">
                   {page.data.title}
                 </a>
