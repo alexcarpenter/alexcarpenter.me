@@ -9,6 +9,8 @@ draft: true
 - [Patagonia Nano Puff Vest]() (Black)
 - [Outdoor Research Helium Rain Jacket](https://amzn.to/3RBZ8kT) (Black)
 
+---
+
 ## Tops
 
 - [Patagonia Capilene Cool Daily Hoody]() (Gray/Blue)
@@ -16,9 +18,13 @@ draft: true
 - [Proof 72-Hour Merino Hoodie]() (Magnet)
 - [Proof 72-Hour Merino Pocket]() T-Shirt (Magnet)
 
+---
+
 ## Bottoms
 
 - [Western Rise Evolution Pant 2.0](https://westernrise.com/products/evolution-pant) (Black)
+
+---
 
 ## Footwear
 

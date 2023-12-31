@@ -63,7 +63,7 @@
   }
 
   .prose p:has(img) {
-    @apply relative aspect-4/3 overflow-hidden;
+    @apply relative aspect-3/2 overflow-hidden;
   }
 
   .prose p img {
@@ -120,8 +120,8 @@
     @apply my-4 border-dashed;
   }
 
-  .prose hr:has(~ h2),
-  .prose hr:has(~ h3) {
+  .prose hr:has(+ h2),
+  .prose hr:has(+ h3) {
     @apply mt-6;
   }
 

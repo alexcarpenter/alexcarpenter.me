@@ -2,6 +2,7 @@
 title: 2023 review
 description: A quick look back at 2023
 published: 2023-12-22
+updated: 2023-12-31
 ---
 
 ## Highlights
@@ -9,6 +10,7 @@ published: 2023-12-22
 - Traveled to Maui for "baby moon"
 - Celebrated 10 year wedding anniversary
 - My wife and I welcomed our first [baby](/micah-lee-carpenter)
+  - ~3 months off of work
 - Started new job at Watershed
 - Finished our backyard renovations
 - Started golfing again
