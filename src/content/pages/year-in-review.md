@@ -1,11 +1,15 @@
 ---
-title: 2023 review
-description: A quick look back at 2023
+title: Year in review
+description: A quick look back at the previous year
 published: 2023-12-22
 updated: 2023-12-31
 ---
 
-## Highlights
+## 2023
+
+![Family portrait of myself with my son and wife](/img/family.webp)
+
+### Highlights
 
 - Traveled to Maui for "baby moon"
 - Celebrated 10 year wedding anniversary
@@ -16,7 +20,7 @@ updated: 2023-12-31
 - Started golfing again
 - Started playing pickleball
 
-## Some favorites of the year
+### Some favorites of the year
 
 - Music
   - Zach Bryan
@@ -31,9 +35,7 @@ updated: 2023-12-31
 - Honorable mentions
   - Roasted beets and sweet potatoes
 
----
-
-## 2024 goal
+### 2024 goals
 
 - produce > consume
 - contentment

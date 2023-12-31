@@ -70,6 +70,11 @@
     @apply absolute inset-0 w-full h-full object-cover object-center;
   }
 
+  .prose * + p:has(img),
+  .prose p:has(img) + * {
+    @apply mt-6;
+  }
+
   .prose table {
     @apply w-full;
   }
