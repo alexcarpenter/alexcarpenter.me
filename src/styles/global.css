@@ -67,7 +67,7 @@
   }
 
   .prose p img {
-    @apply absolute inset-0 object-cover object-center;
+    @apply absolute inset-0 w-full h-full object-cover object-center;
   }
 
   .prose table {

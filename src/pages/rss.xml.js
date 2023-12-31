@@ -5,7 +5,9 @@ import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
 
 export async function GET(context) {
-  const pages = await getCollection("pages");
+  const pages = await getCollection("pages", ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
   return rss({
     title: "Alex Carpenter",
     description: "A humble Astronaut’s guide to the stars",

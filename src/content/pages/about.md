@@ -6,6 +6,8 @@ updated: 2023-12-22
 pinned: true
 ---
 
+![Family portrait of myself with my son and wife](/img/family.webp)
+
 I am a UI engineer who enjoys working at the intersection of design and engineering teams. Currently enjoying the holiday break before starting a new job in the new year!
 
 Current location

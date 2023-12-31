@@ -4,7 +4,9 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 
 export async function getStaticPaths() {
-  const pages = await getCollection("pages");
+  const pages = await getCollection("pages", ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
   return pages.map((page) => ({
     params: { slug: page.slug },
     props: page,

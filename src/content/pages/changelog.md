@@ -9,6 +9,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## 2023-12-31
+
+- [Added]() status section to the homepage
+
+---
+
 ## 2023-12-29
 
 - [Migrated](https://github.com/alexcarpenter/alexcarpenter.me/pull/136) from Next.js to Astro

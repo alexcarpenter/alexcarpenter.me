@@ -8,6 +8,7 @@ const pages = defineCollection({
     published: z.coerce.date(),
     updated: z.coerce.date().optional(),
     pinned: z.boolean().optional(),
+    draft: z.boolean().optional(),
   }),
 });
 
