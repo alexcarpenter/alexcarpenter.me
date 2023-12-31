@@ -14,7 +14,7 @@ draft: true
 - [Patagonia Capilene Cool Daily Hoody]() (Gray/Blue)
 - [Proof 72-Hour Merino Henley]() (Falcon Heather)
 - [Proof 72-Hour Merino Hoodie]() (Magnet)
-- [Proof 72-Hour Merino Pockeet]() T-Shirt (Magnet)
+- [Proof 72-Hour Merino Pocket]() T-Shirt (Magnet)
 
 ## Bottoms
 
