@@ -94,6 +94,7 @@ pinned: true
 
 ## Outerwear
 
+- [Patagonia Nano Puff Vest](https://amzn.to/3tsK2GF)
 - [Outdoor Research Helium Rain Jacket](https://amzn.to/3RBZ8kT)
 - [REI Goretex Mittens](https://www.rei.com/product/194829/rei-co-op-minimalist-gtx-mittens-20?color=BLACK)
 
