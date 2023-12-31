@@ -1,5 +1,5 @@
 ---
-title: Year in review
+title: Years in review
 description: A quick look back at the previous year
 published: 2023-12-22
 updated: 2023-12-31
