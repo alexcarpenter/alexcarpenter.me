@@ -30,3 +30,10 @@ updated: 2023-12-31
   - BabyBjörn Bouncer
 - Honorable mentions
   - Roasted beets and sweet potatoes
+
+---
+
+## 2024 goal
+
+- produce > consume
+- contentment
