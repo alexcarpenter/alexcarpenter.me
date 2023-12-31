@@ -65,6 +65,7 @@ pinned: true
 
 - [AG1 Athletic Greens](https://www.drinkags1.com/)
 - [Armra Colostrum](https://tryarmra.com/)
+- [Immunity throat spray](https://amzn.to/41F4nVK) as recommended by [Matt](https://ma.tt/2023/12/the-bag-post/)
 - [LMNT Electrolytes](https://drinklmnt.com/)
 
 ---
