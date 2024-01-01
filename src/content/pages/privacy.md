@@ -2,6 +2,7 @@
 title: Privacy
 description: Staying safe online
 published: 2023-11-29
+updated: 2024-01-01
 ---
 
 - Browser: Firefox
@@ -13,7 +14,7 @@ published: 2023-11-29
 - Messaging: Signal
 - Email: Proton Mail
 - DNS: WARP by Cloudflare
-- Passwords: 1Password
+- Passwords: ~1Password~ Bitwarden
 
 ---
 

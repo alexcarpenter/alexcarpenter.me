@@ -2,7 +2,7 @@
 title: App defaults
 description: List of app defaults I am currently using
 published: 2023-11-28
-updated: 2023-12-18
+updated: 2024-01-01
 ---
 
 Following the [trend](https://defaults.rknight.me/) and sharing my "app defaults".
@@ -31,5 +31,5 @@ Following the [trend](https://defaults.rknight.me/) and sharing my "app defaults
 | News                           | N/A                   |
 | Music                          | YouTube Music         |
 | Podcasts                       | N/A                   |
-| Password Management            | 1Password             |
+| Password Management            | ~1Password~ Bitwarden |
 | Code                           | Visual Studio Code    |

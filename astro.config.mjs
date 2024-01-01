@@ -6,6 +6,7 @@ import {
   remarkDefinitionList,
   defListHastHandlers,
 } from "remark-definition-list";
+import remarkAdmonitions from "remark-github-beta-blockquote-admonitions";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -14,7 +15,7 @@ export default defineConfig({
   site: "https://alexcarpenter.me",
   integrations: [mdx(), sitemap(), tailwind()],
   markdown: {
-    remarkPlugins: [remarkGfm, remarkDefinitionList],
+    remarkPlugins: [remarkGfm, remarkDefinitionList, remarkAdmonitions],
     remarkRehype: {
       handlers: {
         ...defListHastHandlers,
