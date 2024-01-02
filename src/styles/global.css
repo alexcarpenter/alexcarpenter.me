@@ -32,7 +32,7 @@
 
 @layer components {
   .prose > * + * {
-    @apply mt-3;
+    @apply mt-4;
   }
 
   .prose h2,
