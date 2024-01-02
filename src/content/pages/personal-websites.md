@@ -2,13 +2,14 @@
 title: Personal websites
 description: Collection of inspiring personal websites
 published: 2023-07-23
-updated: 2023-12-26
+updated: 2024-01-02
 ---
 
 - [adamho.com](https://www.adamho.com/)
 - [berkeleygraphics.com](https://berkeleygraphics.com/)
 - [chasem.co](https://chasem.co/)
 - [cindy-wu.com](https://www.cindy-wu.com/)
+- [dylanatsmith.com](https://dylanatsmith.com/)
 - [frankchimero.com](https://frankchimero.com/)
 - [franvelas.co](https://franvelas.co/)
 - [gyford.com](https://www.gyford.com/)

@@ -2,7 +2,7 @@
 title: Favorites
 description: My favorite products, tools and gear
 published: 2023-07-19
-updated: 2023-12-24
+updated: 2024-01-01
 pinned: true
 ---
 
@@ -127,8 +127,9 @@ pinned: true
 
 ## Tools
 
-- [Milwaukee 12v Fuel Impact Driver](https://amzn.to/3viEejp)
-- [Wera 7-In-1 Bitholding Screwdriver with Removable Bayonet Blade](https://amzn.to/3NIdLSH)
+- [Klein Tools 14-1 Precision Screwdriver](https://amzn.to/41ElerP)
+- [Milwaukee Gen 3 12v Fuel Impact Driver](https://amzn.to/3viEejp)
+- [Wera 7-1 Bitholding Screwdriver with Removable Bayonet Blade](https://amzn.to/3NIdLSH)
 
 ---
 

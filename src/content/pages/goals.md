@@ -1,7 +1,7 @@
 ---
 title: Goals
 published: 2023-08-18
-updated: 2023-09-12
+updated: 2024-01-01
 ---
 
 - [x] Travel to Maui
@@ -10,5 +10,5 @@ updated: 2023-09-12
 - [ ] Travel to Iceland
 - [ ] Purchase a Rivian R1T
 - [ ] Become a staff level engineer
-- [ ] Become a principal level engineer
+- [ ] Financial independence
 - [ ] Build a "[boring](https://boringcashcow.com/)" business
