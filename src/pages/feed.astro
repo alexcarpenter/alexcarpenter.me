@@ -1,22 +1,23 @@
 ---
 import Base from "@/layouts/BaseLayout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
-const allNotes = await Astro.glob(`../content/notes/*.md`);
-const notes = allNotes.map((n) => ({
-  date: n.frontmatter.published,
-  Content: n.Content,
-}));
-const groupedNotes = notes.reduce<Record<string, any[]>>((groups, note) => {
-  const date = note.date.split("T")[0];
-  if (!groups[date]) {
-    groups[date] = [];
-  }
-  groups[date].push(note);
-  return groups;
-}, {});
+import { type CollectionEntry } from "astro:content";
+type Note = CollectionEntry<"notes">;
+const notes = await Astro.glob(`../content/notes/*.md`);
+const groupedNotes = notes.reduce(
+  (groups, note) => {
+    const date = note.frontmatter.published.split("T")[0];
+    if (!groups[date]) {
+      groups[date] = [];
+    }
+    groups[date].push(note);
+    return groups;
+  },
+  {} as Record<string, Note[]>
+);
 ---
 
-<Base>
+<Base title="Feed" description="Short form updates">
   <header class="relative mb-6 border-b-2 pb-2 pr-12">
     <h1 class="font-semibold">Feed</h1>
     <p class="text-pretty text-secondary">Short form updates</p>
@@ -31,11 +32,11 @@ const groupedNotes = notes.reduce<Record<string, any[]>>((groups, note) => {
                 <dt>
                   <FormattedDate date={new Date(date)} />
                 </dt>
-                {notes.map(({ Content }) => {
+                {notes.map(({ render }) => {
                   return (
                     <dd>
                       <div class="prose">
-                        <Content />
+                        {render}
                         <time class="text-sm text-secondary block">
                           12:00pm
                         </time>
