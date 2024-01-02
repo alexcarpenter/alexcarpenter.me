@@ -1,32 +1,14 @@
 ---
 import Base from "@/layouts/BaseLayout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 const pages = await getCollection("pages", ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
 });
-const status = await getEntry("pages", "status");
-const { Content: StatusContent } = await status.render();
 ---
 
 <Base>
-  <section
-    class="bg-neutral-100 dark:bg-neutral-800 p-3 relative border-l-2 border-l-highlight"
-  >
-    <h2 class="sr-only">Status</h2>
-    <div class="prose">
-      <StatusContent />
-      <p class="text-sm text-secondary">
-        Posted: <a href="/status"
-          ><FormattedDate
-            date={status.data.updated || status.data.published}
-          /></a
-        >
-      </p>
-    </div>
-  </section>
-
-  <section class="mt-6">
+  <section>
     <h2 class="mb-2 font-semibold">Pinned</h2>
     <ul class="-mb-2 divide-y divide-dashed border-t-2">
       {
@@ -60,7 +42,6 @@ const { Content: StatusContent } = await status.render();
       {
         pages
           .filter((page) => !page.data.pinned)
-          .filter((page) => page.slug !== "status")
           .sort((a, b) => {
             const aDate = a.data.updated || a.data.published;
             const bDate = b.data.updated || b.data.published;

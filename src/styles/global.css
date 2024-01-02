@@ -110,6 +110,10 @@
     @apply border-t border-dashed py-2;
   }
 
+  .prose dd {
+    @apply col-start-2;
+  }
+
   .prose blockquote {
     @apply space-y-3 pl-4 border-l-2;
   }
