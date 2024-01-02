@@ -30,4 +30,5 @@ updated: 2024-01-02
 - [shiflett.org](https://shiflett.org/)
 - [stephanango.com](https://stephanango.com/)
 - [taniarascia.com](https://www.taniarascia.com/)
+- [terrysutton.dev](https://terrysutton.dev/)
 - [wojtek.im](https://wojtek.im/)
