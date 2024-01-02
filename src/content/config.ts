@@ -12,4 +12,11 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { pages };
+const notes = defineCollection({
+  type: "content",
+  schema: z.object({
+    published: z.coerce.date(),
+  }),
+});
+
+export const collections = { pages, notes };
