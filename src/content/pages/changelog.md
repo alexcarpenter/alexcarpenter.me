@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2023-12-31
 
-- **Removed:** status section from the homepage in favor of a [feed](/feed) page
+- **Removed:** status section from the homepage in favor of a [notes](/notes) page
 
 ## 2023-12-31
 
