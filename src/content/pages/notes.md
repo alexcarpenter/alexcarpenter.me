@@ -7,6 +7,7 @@ pinned: true
 ---
 
 2024-01-03
+: 6:18 PM - Setting up a new work computer and still happy with my [VS Code settings](https://gist.github.com/alexcarpenter/fc13caa55f02af46b2b83a7ebe29d256) that I had saved for myself previously.
 : 5:44 PM - Watched [The Holdovers](https://www.imdb.com/title/tt14849194/), pretty good, less of a comedy and more on the drama side. Solid 3.5/5 stars.
 : 8:16 AM - 36 years old today.
 
