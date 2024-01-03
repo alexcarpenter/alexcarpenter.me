@@ -2,8 +2,11 @@
 title: Notes
 description: Short-form thoughts and updates
 published: 2023-12-31
-updated: 2024-01-02
+updated: 2024-01-03
 ---
+
+2024-01-03
+: 8:16 AM - 36 years old today.
 
 2024-01-02
 : 10:25 AM - Slowly transitioning from 1Password to Bitwarden. I can get all of the features I am using with 1Password for free in Bitwarden, and it's open source too.

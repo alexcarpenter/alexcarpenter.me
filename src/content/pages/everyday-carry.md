@@ -2,7 +2,7 @@
 title: Everyday carry
 description: What I carry with me on a daily occurrence
 published: 2023-10-11
-updated: 2023-12-23
+updated: 2024-01-03
 ---
 
 Knife
@@ -24,7 +24,7 @@ Watch
 : [Timex GMT][gmt] / [Apple Watch SE][appleWatch]
 
 Keys
-: [Corter Leather Bottle Hook][bottlehook]
+: [The James Brand Midland][keys]
 
 First aid
 : Boo boo kit
@@ -37,6 +37,6 @@ First aid
 [appleWatch]: https://www.apple.com/apple-watch-se/
 [3cardCase]: https://bellroy.com/products/phone-case-3-card
 [gmt]: https://www.timex.com/q-timex-gmt-38mm-stainless-steel-bracelet-watch/Q-Timex-GMT-38mm-Stainless-Steel-Bracelet-Watch.html
-[bottlehook]: https://corterleather.com/products/bottlehook
+[keys]: https://thejamesbrand.com/products/the-midland?variant=39293459005510
 [stylePs]: https://www.leatherman.com/style-ps-25.html
 [tinker]: https://www.victorinox.com/us/en/Products/Swiss-Army-Knives/Medium-Pocket-Knives/Deluxe-Tinker/p/1.4723
