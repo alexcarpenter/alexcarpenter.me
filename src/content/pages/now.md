@@ -2,11 +2,11 @@
 title: Now
 description: What I am up to now
 published: 2023-08-01
-updated: 2023-12-22
+updated: 2024-01-02
 pinned: true
 ---
 
-- Slowing down for the holidays
+- Onboarding at [Clerk](https://clerk.com)
 - Being a new dad to [Micah](/micah-lee-carpenter)
 - Practicing cold water therapy
 - [Listening](/listening), [watching](/watching), and [reading](/reading)

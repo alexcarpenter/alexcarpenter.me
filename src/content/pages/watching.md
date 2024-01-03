@@ -1,8 +1,13 @@
 ---
 title: Watching
 published: 2023-08-21
-updated: 2023-12-27
+updated: 2024-01-02
 ---
+
+## Currently
+
+- [Bluey](https://www.bluey.tv/) - Season 1, 2 & 3
+- [For All Mankind](https://www.imdb.com/title/tt7772588) - Season 5
 
 ## Completed
 
