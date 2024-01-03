@@ -3,9 +3,11 @@ title: Notes
 description: Short-form thoughts and updates
 published: 2023-12-31
 updated: 2024-01-03
+pinned: true
 ---
 
 2024-01-03
+: 5:44 PM - Watched [The Holdovers](https://www.imdb.com/title/tt14849194/), pretty good, less of a comedy and more on the drama side. Solid 3.5/5 stars.
 : 8:16 AM - 36 years old today.
 
 2024-01-02
