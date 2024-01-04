@@ -2,9 +2,12 @@
 title: Notes
 description: Short-form thoughts and updates
 published: 2023-12-31
-updated: 2024-01-03
+updated: 2024-01-04
 pinned: true
 ---
+
+2024-01-04
+: 12:23 PM - Officailly day one at [Clerk](https://clerk.com/), super excited to be joining the team as a UI Engineer working along side [Derek Briggs](https://twitter.com/PixelJanitor), [Joe Bell](https://twitter.com/joebell_) and [Brad Cornes](https://twitter.com/bradlc) on the design team.
 
 2024-01-03
 : 6:18 PM - Setting up a new work computer and still happy with my [VS Code settings](https://gist.github.com/alexcarpenter/fc13caa55f02af46b2b83a7ebe29d256) that I had saved for myself previously.
