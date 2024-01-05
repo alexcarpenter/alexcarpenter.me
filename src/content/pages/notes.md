@@ -7,6 +7,7 @@ pinned: true
 ---
 
 2024-01-04
+: 8:30 PM - Going down the home automation YouTube rabbit hole once again...
 : 12:23 PM - Officailly day one at [Clerk](https://clerk.com/), super excited to be joining the team as a UI Engineer working along side [Derek Briggs](https://twitter.com/PixelJanitor), [Joe Bell](https://twitter.com/joebell_) and [Brad Cornes](https://twitter.com/bradlc) on the design team.
 
 2024-01-03
