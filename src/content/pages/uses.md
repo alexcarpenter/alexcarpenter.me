@@ -2,7 +2,7 @@
 title: Uses
 description: The software and harware I use daily as a web engineer
 published: 2023-07-24
-updated: 2023-11-28
+updated: 2024-01-05
 ---
 
 ## Software
@@ -19,6 +19,7 @@ updated: 2023-11-28
 - Github Desktop
 - Google Chrome
 - Karabiner-Elements
+- Obsidian
 - Raycast
   - app launcher
   - clipboard manager
