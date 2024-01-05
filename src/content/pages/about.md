@@ -8,7 +8,7 @@ pinned: true
 
 ![Family portrait of myself with my son and wife](/img/family.webp)
 
-I am a UI engineer who enjoys working at the intersection of design and engineering teams. Currently enjoying the holiday break before starting a new job in the new year!
+I am a UI engineer who enjoys working at the intersection of design and engineering teams. Currently working as a UI engineer at Clerk, apart of the design team working on the dashboard UI and marketing website.
 
 Current location
 : Grand Rapids, MI
