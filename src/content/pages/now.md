@@ -7,6 +7,7 @@ pinned: true
 ---
 
 - Onboarding at [Clerk](https://clerk.com)
+  - Working on the marketing website
 - Being a new dad to [Micah](/micah-lee-carpenter)
 - Practicing cold water therapy
 - [Listening](/listening), [watching](/watching), and [reading](/reading)

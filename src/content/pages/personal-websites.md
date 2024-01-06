@@ -15,6 +15,7 @@ updated: 2024-01-02
 - [franvelas.co](https://franvelas.co/)
 - [gyford.com](https://www.gyford.com/)
 - [hamishsmyth.com](https://hamishsmyth.com/)
+- [interconnected.org](https://interconnected.org/home/)
 - [kwon.nyc](https://kwon.nyc/)
 - [linusrogge.com](https://linusrogge.com/)
 - [longest.voyage](https://longest.voyage/)
