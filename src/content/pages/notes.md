@@ -7,6 +7,7 @@ pinned: true
 ---
 
 2024-01-06
+: 6:38 PM - Switched up the primary font family here to IA Writer Quattro. Feels a bit more readble in usage compared to JetBrains Mono.
 : 7:58 AM - Ever since Micah was born, we've always played Bob Marleys top songs on Saturday mornings. It's become a bit of a tradition for us now.
 
 2024-01-05

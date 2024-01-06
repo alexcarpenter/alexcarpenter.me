@@ -2,10 +2,14 @@
 title: Changelog
 description: Notable changes across alexcarpenter.me
 published: 2023-09-08
-updated: 2024-01-02
+updated: 2024-01-06
 ---
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). View source on [Github](https://github.com/alexcarpenter/alexcarpenter.me).
+
+## 2024-01-06
+
+- **Switched** font family to iA Writer Quattro
 
 ---
 
