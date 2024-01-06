@@ -6,6 +6,10 @@ updated: 2024-01-04
 pinned: true
 ---
 
+2024-01-05
+: 8:33 PM - Friday and in bed by 8:30pm, glorious.
+: 5:55 PM - [Damien Jurado](https://www.youtube.com/channel/UCyVlO8RAg7i0C5h4Wy2QRAw) on repeat today.
+
 2024-01-04
 : 8:30 PM - Going down the home automation YouTube rabbit hole once again...
 : 12:23 PM - Officially day one at [Clerk](https://clerk.com/), super excited to be joining the team as a UI Engineer working along side [Derek Briggs](https://twitter.com/PixelJanitor), [Joe Bell](https://twitter.com/joebell_) and [Brad Cornes](https://twitter.com/bradlc) on the design team.
