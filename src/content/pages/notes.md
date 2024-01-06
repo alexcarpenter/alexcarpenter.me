@@ -6,6 +6,9 @@ updated: 2024-01-04
 pinned: true
 ---
 
+2024-01-06
+: 7:58 AM - Ever since Micah was born, we've always played Bob Marleys top songs on Saturday mornings. It's become a bit of a tradition for us now.
+
 2024-01-05
 : 8:33 PM - Friday and in bed by 8:30pm, glorious.
 : 5:55 PM - [Damien Jurado](https://www.youtube.com/channel/UCyVlO8RAg7i0C5h4Wy2QRAw) on repeat today.
