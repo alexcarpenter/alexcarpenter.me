@@ -2,7 +2,7 @@
 title: Personal websites
 description: Collection of inspiring personal websites
 published: 2023-07-23
-updated: 2024-01-02
+updated: 2024-01-06
 ---
 
 - [aaronrolston.com](https://aaronrolston.com/)
@@ -13,10 +13,12 @@ updated: 2024-01-02
 - [dylanatsmith.com](https://dylanatsmith.com/)
 - [frankchimero.com](https://frankchimero.com/)
 - [franvelas.co](https://franvelas.co/)
+- [gemmacope.land](https://gemmacope.land/)
 - [gyford.com](https://www.gyford.com/)
 - [hamishsmyth.com](https://hamishsmyth.com/)
 - [interconnected.org](https://interconnected.org/home/)
 - [kwon.nyc](https://kwon.nyc/)
+- [linseyrendell.com](https://www.linseyrendell.com/)
 - [linusrogge.com](https://linusrogge.com/)
 - [longest.voyage](https://longest.voyage/)
 - [lynnandtonic.com](https://lynnandtonic.com/)

@@ -38,7 +38,7 @@
   .prose h2,
   .prose h3,
   .prose h4 {
-    @apply font-semibold;
+    @apply font-bold;
   }
 
   .prose a {
@@ -80,7 +80,7 @@
   }
 
   .prose table th {
-    @apply border-b-2 py-1 pr-2 text-left font-semibold;
+    @apply border-b-2 py-1 pr-2 text-left font-bold;
   }
 
   .prose table td {

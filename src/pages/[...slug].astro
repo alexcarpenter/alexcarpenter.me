@@ -21,7 +21,7 @@ const { Content } = await page.render();
 
 <BaseLayout {...page.data}>
   <header class="relative mb-6 border-b-2 pb-2 pr-12">
-    <h1 class="font-semibold">{page.data.title}</h1>
+    <h1 class="font-bold">{page.data.title}</h1>
     {
       page.data.description ? (
         <p class="text-pretty text-secondary">{page.data.description}</p>
