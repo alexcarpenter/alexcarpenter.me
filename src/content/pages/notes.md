@@ -2,9 +2,12 @@
 title: Notes
 description: Short-form thoughts and updates
 published: 2023-12-31
-updated: 2024-01-04
+updated: 2024-01-07
 pinned: true
 ---
+
+2024-01-07
+: 8:40 AM - Woke up to some snow on the ground and in the trees, finally.
 
 2024-01-06
 : 6:47 PM - I love discovering cool personal websites. Added a bunch more to my [collection](/personal-websites) tonight.
