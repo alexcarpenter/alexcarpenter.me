@@ -2,7 +2,7 @@
 title: Typefaces
 description: Collection of my favorites typefaces
 published: 2023-08-02
-updated: 2023-12-26
+updated: 2024-01-07
 ---
 
 ## Monospace
@@ -10,6 +10,7 @@ updated: 2023-12-26
 - [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono/) - by Berkeley Graphics
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - by JetBrains
 - [Input Mono](https://input.djr.com/) - by DJR & The Font Bureau, Inc.
+- [iA Writer Quattro](https://github.com/iaolo/iA-Fonts) - by iA
 
 ---
 
