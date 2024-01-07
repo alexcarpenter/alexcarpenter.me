@@ -1,13 +1,14 @@
 ---
 title: Watching
 published: 2023-08-21
-updated: 2024-01-02
+updated: 2024-01-07
 ---
 
 ## Currently
 
 - [Bluey](https://www.bluey.tv/) - Season 1, 2 & 3
 - [For All Mankind](https://www.imdb.com/title/tt7772588) - Season 5
+- [Fargo](https://www.imdb.com/title/tt2802850/) - Season 1
 
 ## Completed
 
