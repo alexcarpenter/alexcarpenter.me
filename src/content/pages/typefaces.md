@@ -8,9 +8,8 @@ updated: 2024-01-07
 ## Monospace
 
 - [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono/) - by Berkeley Graphics
-- [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - by JetBrains
 - [Input Mono](https://input.djr.com/) - by DJR & The Font Bureau, Inc.
-- [iA Writer Quattro](https://github.com/iaolo/iA-Fonts) - by iA
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - by JetBrains
 
 ---
 
@@ -18,6 +17,7 @@ updated: 2024-01-07
 
 - [Graphik](https://commercialtype.com/catalog/graphik) - by Commercial Type
 - [GT America](https://www.grillitype.com/typeface/gt-america) - by Grilli Type
+- [iA Writer Quattro](https://github.com/iaolo/iA-Fonts) - by iA
 - [Inter](https://rsms.me/inter/) - by Rasmus Andersson
 - [Univers](https://www.fontshop.com/families/univers) - by Adrian Frutiger
 
