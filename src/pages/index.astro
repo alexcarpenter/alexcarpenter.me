@@ -71,8 +71,11 @@ const pages = await getCollection("pages", ({ data }) => {
   </section>
 
   <footer class="relative mt-8 border-t-2 pt-3 text-center">
-    <p class="text-sm text-secondary">:::</p>
-    <p class="text-sm text-secondary">Always iterating</p>
-    <p class="text-sm text-secondary">:::</p>
+    <p class="text-sm text-secondary inline-flex gap-2">
+      <span aria-hidden class="select-none">&ndash;</span>Always iterating<span
+        aria-hidden
+        class="select-none">&ndash;</span
+      >
+    </p>
   </footer>
 </Base>
