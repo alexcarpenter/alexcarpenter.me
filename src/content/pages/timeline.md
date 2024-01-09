@@ -12,7 +12,7 @@ published: 2024-01-07
     - Joined [Watershed](https://watershed.com) as a Web Engineer
     - Celebrated 10 year wedding anniversary
   - May
-    - [Micah](/micah-lee-carpenter) was born in Grand Rapids, MI.
+    - [Micah](/micah) was born in Grand Rapids, MI.
 - 2021
   - Jul
     - Joined [HashiCorp](https://hashicorp.com) as a Web Engineer

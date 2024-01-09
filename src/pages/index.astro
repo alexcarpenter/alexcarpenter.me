@@ -54,7 +54,13 @@ const pages = await getCollection("pages", ({ data }) => {
                   date={page.data.updated || page.data.published}
                   class="flex-shrink-0 text-secondary"
                 />
-                <a href={page.slug} class="underline">
+                <a
+                  href={page.slug}
+                  class:list={[
+                    "underline",
+                    page.data.draft && "text-secondary",
+                  ]}
+                >
                   {page.data.title}
                 </a>
               </li>

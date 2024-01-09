@@ -1,5 +1,5 @@
 ---
-title: Micah Lee Carpenter
+title: Micah
 description: Born May 9, 2023 at 11:30pm
 published: 2023-05-09
 ---

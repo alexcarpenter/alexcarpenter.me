@@ -13,7 +13,7 @@ updated: 2023-12-31
 
 - Traveled to Maui for "baby moon"
 - Celebrated 10 year wedding anniversary
-- My wife and I welcomed our first [baby](/micah-lee-carpenter)
+- My wife and I welcomed our first [baby](/micah)
   - ~3 months off of work
 - Started new job at Watershed
 - Finished our backyard renovations
