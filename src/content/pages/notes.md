@@ -6,6 +6,9 @@ updated: 2024-01-07
 pinned: true
 ---
 
+2024-01-09
+: 7:43 AM - [Right Serif Mono](https://pangrampangram.com/products/right-serif-mono), A monospace serif font? Kind of dig it.
+
 2024-01-08
 : 7:45 AM - Enjoying mornings with my coffee and RSS feeds these days.
 
