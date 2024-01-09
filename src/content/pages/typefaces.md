@@ -2,7 +2,7 @@
 title: Typefaces
 description: Collection of my favorites typefaces
 published: 2023-08-02
-updated: 2024-01-07
+updated: 2024-01-09
 ---
 
 ## Monospace
@@ -26,3 +26,4 @@ updated: 2024-01-07
 ## Serif
 
 - [GT Sectra](https://www.grillitype.com/typeface/gt-sectra) - by Grilli Type
+- [Right Serif Mono](https://pangrampangram.com/products/right-serif-mono) - by Pangram Pangram Foundry
