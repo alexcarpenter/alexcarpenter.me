@@ -2,9 +2,12 @@
 title: Notes
 description: Short-form thoughts and updates
 published: 2023-12-31
-updated: 2024-01-07
+updated: 2024-01-10
 pinned: true
 ---
+
+2024-01-10
+: 7:41 AM - The 8 month sleep regression has been rough this week so far...
 
 2024-01-09
 : 7:43 AM - [Right Serif Mono](https://pangrampangram.com/products/right-serif-mono), A monospace serif font? Kind of dig it.

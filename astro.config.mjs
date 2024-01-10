@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import remarkGfm from "remark-gfm";
 import {
   remarkDefinitionList,
   defListHastHandlers,
@@ -15,7 +14,7 @@ export default defineConfig({
   site: "https://alexcarpenter.me",
   integrations: [mdx(), sitemap(), tailwind()],
   markdown: {
-    remarkPlugins: [remarkGfm, remarkDefinitionList, remarkAdmonitions],
+    remarkPlugins: [remarkDefinitionList, remarkAdmonitions],
     remarkRehype: {
       handlers: {
         ...defListHastHandlers,
