@@ -6,6 +6,9 @@ updated: 2024-01-10
 pinned: true
 ---
 
+2024-01-11
+: 7:09 PM - Teething kids are no joke...
+
 2024-01-10
 : 7:41 AM - The 8 month sleep regression has been rough this week so far...
 

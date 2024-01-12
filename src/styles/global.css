@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --page: 255 255 255;
+  --page: 250 250 250;
   --foreground-primary: 23 23 23;
   --foreground-secondary: 115 115 115;
   --border: 229 229 229;
