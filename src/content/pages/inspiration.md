@@ -2,12 +2,8 @@
 title: Inspiration
 description: Where I am drawing inspiration these days
 published: 2024-01-07
+updated: 2024-01-12
 ---
-
-## Artists
-
-- [Geoff McFetridge](https://www.instagram.com/mcfetridge/)
-- [Jean Jullien](https://www.instagram.com/jean_jullien/)
 
 ## Companies
 
@@ -17,3 +13,9 @@ published: 2024-01-07
 - [United States Graphics Company](https://berkeleygraphics.com/)
 - [Western Hydrodynamic Research](https://whr.institute/)
 - [Yucca Designs](https://www.instagram.com/yucca_designs/)
+
+## People
+
+- [Geoff McFetridge](https://www.instagram.com/mcfetridge/)
+- [Jean Jullien](https://www.instagram.com/jean_jullien/)
+- [Matt Mullenweg](https://ma.tt)
