@@ -173,4 +173,8 @@
   .prose .admonition-title {
     @apply absolute top-0 left-2 -translate-y-1/2 bg-page px-1 text-secondary text-sm uppercase;
   }
+
+  .prose mark {
+    @apply bg-yellow-800 text-primary;
+  }
 }

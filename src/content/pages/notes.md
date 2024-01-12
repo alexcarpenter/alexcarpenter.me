@@ -7,6 +7,7 @@ pinned: true
 ---
 
 2024-01-12
+: 7:59 AM - Finally pulled the trigger on some wall art from [rsms](https://shop.rsms.me/products/inter-a-poster-3) and [htmx](https://swag.htmx.org/products/hypermedia-systems-cover-poster)
 : 6:16 AM - Smart and really well executed [creme.com](https://creme.com/)
 
 2024-01-11
