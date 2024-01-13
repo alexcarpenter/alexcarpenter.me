@@ -70,16 +70,19 @@ const pages = await getCollection("pages", ({ data }) => {
     </ul>
   </section>
 
-  <footer
-    class="relative mt-8 border-t-2 pt-3 flex justify-center items-center gap-x-2"
-  >
-    <span aria-hidden class="relative flex size-2">
-      <span
-        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-highlight opacity-75"
-      ></span>
-      <span class="relative inline-flex rounded-full size-2 bg-highlight"
-      ></span>
-    </span>
-    <p class="text-secondary text-sm">All systems operational</p>
+  <footer class="relative mt-8 border-t-2 pt-3">
+    <div class="flex justify-center items-center gap-x-2">
+      <span aria-hidden class="relative flex size-2">
+        <span
+          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-highlight opacity-75"
+        ></span>
+        <span class="relative inline-flex rounded-full size-2 bg-highlight"
+        ></span>
+      </span>
+      <p class="text-secondary text-xs uppercase tracking-widest">
+        All systems operational
+      </p>
+      <p>{process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_MESSAGE}</p>
+    </div>
   </footer>
 </Base>
