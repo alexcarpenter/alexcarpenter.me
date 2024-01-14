@@ -35,6 +35,10 @@
     @apply mt-3;
   }
 
+  .prose p {
+    @apply text-pretty;
+  }
+
   .prose h2,
   .prose h3,
   .prose h4 {
