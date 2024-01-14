@@ -12,3 +12,4 @@ updated: 2024-01-01
 - [ ] Become a staff level engineer
 - [ ] Financial independence
 - [ ] Build a "[boring](https://boringcashcow.com/)" business
+- [ ] Get featured on [Gramparents](https://www.instagram.com/gramparents) as a grandpa
