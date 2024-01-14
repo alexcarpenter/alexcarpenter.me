@@ -26,6 +26,7 @@ updated: 2024-01-14
 - [manuelmoreale.com](https://manuelmoreale.com/)
 - [nat.org](https://nat.org/)
 - [nazhamid.com](https://nazhamid.com/)
+- [neil.computer](https://neil.computer)
 - [paco.me](https://paco.me/)
 - [paulrobertlloyd.com](https://paulrobertlloyd.com/)
 - [ped.ro](https://ped.ro/)
