@@ -17,7 +17,7 @@ Hometown
 : Lowell, MI
 
 Top bookmarks
-: [github.com](https://github.com/), [siteinspire.com](https://siteinspire.com/), [youtube](https://www.youtube.com/)
+: [github.com](https://github.com/), [siteinspire.com](https://siteinspire.com/), [youtube.com](https://www.youtube.com/)
 
 Top apps
 : VS Code, iTerm2, Apple Notes
