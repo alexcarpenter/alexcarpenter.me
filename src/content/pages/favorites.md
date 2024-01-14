@@ -129,6 +129,7 @@ pinned: true
 
 - [Klein Tools 14-1 Precision Screwdriver](https://amzn.to/41ElerP)
 - [Milwaukee Gen 3 12v Fuel Impact Driver](https://amzn.to/3viEejp)
+  - [Simon Tools Magnetic Bit Holder](https://amzn.to/3vAJnDx)
 - [Pica-Dry Longlife Automatic Pencil](https://amzn.to/48ArSS0)
 - [Wera 7-1 Bitholding Screwdriver with Removable Bayonet Blade](https://amzn.to/3NIdLSH)
 

@@ -6,6 +6,9 @@ updated: 2024-01-10
 pinned: true
 ---
 
+2024-01-14
+: 10:04 AM - This [magnetic bit holder](https://amzn.to/3vAJnDx) is so dang handy
+
 2024-01-12
 : 7:59 AM - Finally pulled the trigger on some wall art for the office from [rsms](https://shop.rsms.me/products/inter-a-poster-3) and [htmx](https://swag.htmx.org/products/hypermedia-systems-cover-poster)
 : 6:16 AM - Smart and really well executed [creme.com](https://creme.com/)
