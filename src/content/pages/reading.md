@@ -2,7 +2,7 @@
 title: Reading
 description: My digital bookshelf
 published: 2023-07-28
-updated: 2023-12-16
+updated: 2024-01-14
 ---
 
 ## On-deck
@@ -15,7 +15,7 @@ updated: 2023-12-16
 
 ## In-progress
 
-- [Four Thousand Weeks](https://www.amazon.com/Four-Thousand-Weeks-Management-Mortals/dp/0374159122): Time Management for Mortals - by Oliver Burkeman
+- [Project Hail Mary](https://amzn.to/47AHrrO): A Novel - by Andy Weir
 - [The Daily Dad](https://www.amazon.com/Daily-Dad-Meditations-Parenting-Raising/dp/0593539052/): 366 Meditations on Parenting, Love, and Raising Great Kids - by Ryan Holiday
 - [The Daily Stoic](https://www.amazon.com/Daily-Stoic-Meditations-Wisdom-Perseverance/dp/0735211736/): 366 Meditations on Wisdom, Perseverance, and the Art of Living - by Ryan Holiday
 
@@ -23,6 +23,7 @@ updated: 2023-12-16
 
 ## Completed
 
+- [Four Thousand Weeks](https://www.amazon.com/Four-Thousand-Weeks-Management-Mortals/dp/0374159122): Time Management for Mortals - by Oliver Burkeman
 - [Range](https://www.amazon.com/Range-Generalists-Triumph-Specialized-World/dp/0735214506/): Why Generalists Triumph in a Specialized World - by David Epstein
 - [The Creative Act](https://www.amazon.com/Creative-Act-Way-Being/dp/0593652886): A Way of Being - by Rick Rubin
 - [Essentialism](https://www.amazon.com/Essentialism-Disciplined-Pursuit-Greg-McKeown/dp/0804137382): The Disciplined Pursuit of Less - by Greg McKeown

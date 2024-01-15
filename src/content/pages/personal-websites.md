@@ -19,6 +19,7 @@ updated: 2024-01-14
 - [interconnected.org](https://interconnected.org/home/)
 - [interroban.gg](https://www.interroban.gg/)
 - [kwon.nyc](https://kwon.nyc/)
+- [kylefiedler.com](https://kylefiedler.com/)
 - [linseyrendell.com](https://www.linseyrendell.com/)
 - [linusrogge.com](https://linusrogge.com/)
 - [longest.voyage](https://longest.voyage/)
