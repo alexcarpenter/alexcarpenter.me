@@ -73,6 +73,12 @@ const metaDescription = description ? description : "UI Engineer";
       type="application/rss+xml"
       href={new URL("/rss.xml", Astro.site)}
     />
+
+    <!-- Plausible -->
+    <script
+      defer
+      data-domain="alexcarpenter.me"
+      src="https://plausible.io/js/script.js"></script>
   </head>
 
   <body
