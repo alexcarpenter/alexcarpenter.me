@@ -16,7 +16,7 @@
     "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.0.8",
-    "astro-font": "latest",
+    "astro-font": "^0.0.72",
     "class-variance-authority": "^0.7.0",
     "date-fns": "^3.0.6",
     "markdown-it": "^14.0.0",
