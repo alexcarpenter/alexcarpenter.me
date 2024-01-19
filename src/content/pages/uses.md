@@ -2,7 +2,7 @@
 title: Uses
 description: The software and harware I use daily as a web engineer
 published: 2023-07-24
-updated: 2024-01-05
+updated: 2024-01-19
 ---
 
 ## Software
@@ -37,7 +37,8 @@ See also [app defaults](/app-defaults)
 
 - Caldigit TS4 Thunderbolt Dock
 - Cloudlifter CL-1
-- Dell UltraSharp 27 Monitor
+- Apple Studio Display
+- Jarvis Single Monitor Arm
 - Focusrite Scarlett Solo 3rd Gen USB Audio Interface
 - M2 13" Macbook Air
 - Rode PodMic
