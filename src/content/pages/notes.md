@@ -6,6 +6,9 @@ updated: 2024-01-10
 pinned: true
 ---
 
+2024-01-20
+: 8:21 AM - Keep coming across nice fonts and they all end up being from [pangrampangram.com](https://pangrampangram.com)
+
 2024-01-18
 : 8:37 PM - New [clerk.com](https://clerk.com/) dropped today. Pumped to see this one go live and be working on this team. So many little details to discover sprinkled throughout the site. Amazing work by [Derek](https://twitter.com/PixelJanitor/), [Brad](https://twitter.com/bradlc), and [James](https://twitter.com/jamesm).
 
