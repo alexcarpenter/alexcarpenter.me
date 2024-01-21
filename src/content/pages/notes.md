@@ -2,7 +2,7 @@
 title: Notes
 description: Short-form thoughts and updates
 published: 2023-12-31
-updated: 2024-01-10
+updated: 2024-01-21
 pinned: true
 ---
 

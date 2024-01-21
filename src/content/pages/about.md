@@ -2,7 +2,7 @@
 title: About
 description: Husband, father, web engineer and serial hobbyist
 published: 2023-07-22
-updated: 2023-12-22
+updated: 2024-01-21
 pinned: true
 ---
 
