@@ -10,23 +10,23 @@ updated: 2024-01-19
 - Apple Notes
 - Apple Reminders
 - Fantastical
+- iTerm2
+  - Oh My Zsh
+    - agnoster theme
+    - git, jump plugins
+  - One Hunter Theme
+  - Jet Brains Mono
 - Github Desktop
 - Google Chrome
-- iTerm2
-  - agnoster theme
-  - git, jump plugins
 - Karabiner-Elements
 - Raycast
   - app launcher
   - clipboard manager
-  - color picker
-  - Jet Brains Mono
-  - Jet Brains Mono
-  - Oh My Zsh
-  - One Hunter Theme
-  - One Hunter Theme
   - window manager
+  - color picker
 - VS Code
+  - One Hunter Theme
+  - Jet Brains Mono
 
 See also [app defaults](/app-defaults)
 
@@ -34,11 +34,11 @@ See also [app defaults](/app-defaults)
 
 ## Hardware
 
-- Apple Studio Display
 - Caldigit TS4 Thunderbolt Dock
 - Cloudlifter CL-1
-- Focusrite Scarlett Solo 3rd Gen USB Audio Interface
+- Apple Studio Display
 - Jarvis Single Monitor Arm
+- Focusrite Scarlett Solo 3rd Gen USB Audio Interface
 - M2 13" Macbook Air
 - Rode PodMic
 - Sony WH1000XM4 headphones
@@ -55,6 +55,6 @@ See also [app defaults](/app-defaults)
 ## Misc.
 
 - Autonomous SmartDesk Core
-- BenQ ScreenBar Plus
 - Herman Miller Sayl chair
 - Twelve South Bookark Stand
+- BenQ ScreenBar Plus
