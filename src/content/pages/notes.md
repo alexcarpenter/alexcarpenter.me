@@ -6,6 +6,10 @@ updated: 2024-01-10
 pinned: true
 ---
 
+2024-01-21
+: 10:05 AM - It was actually sunny yesterday, so we took Micah out for his first sledding experience at my mother in laws. He enjoyed it and we're going out again today.
+: 08:24 AM - Rewrote my [about](/about) page this morning, as a list of course.
+
 2024-01-20
 : 9:07 AM - [Little man](/micah) is on the move now. Loves crawling to the door to play with [Frankies](/frankie) bell that she rings to go outside.
 : 8:21 AM - Keep coming across nice fonts and they all end up being from [pangrampangram.com](https://pangrampangram.com)
