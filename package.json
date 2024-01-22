@@ -10,21 +10,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.4",
-    "@astrojs/mdx": "^2.0.3",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "^3.0.4",
+    "@astrojs/check": "^0.4.1",
+    "@astrojs/mdx": "^2.0.6",
+    "@astrojs/rss": "^4.0.3",
+    "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.2.1",
+    "astro": "^4.2.2",
     "astro-font": "^0.0.77",
     "class-variance-authority": "^0.7.0",
     "date-fns": "^3.0.6",
     "markdown-it": "^14.0.0",
     "remark-definition-list": "^2.0.0",
     "remark-gfm": "^4.0.0",
-    "remark-github-beta-blockquote-admonitions": "^3.0.0",
+    "remark-github-beta-blockquote-admonitions": "^3.1.0",
     "sanitize-html": "^2.11.0",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   }
 }
