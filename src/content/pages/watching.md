@@ -1,19 +1,18 @@
 ---
 title: Watching
 published: 2023-08-21
-updated: 2024-01-07
+updated: 2024-01-22
 ---
 
 ## Currently
 
 - [Bluey](https://www.bluey.tv/) - Season 1, 2 & 3
-- [For All Mankind](https://www.imdb.com/title/tt7772588) - Season 5
 - [Fargo](https://www.imdb.com/title/tt2802850/) - Season 1
 
 ## Completed
 
 - [Five Days at Memorial](https://www.imdb.com/title/tt3283594) - Season 1
-- [For All Mankind](https://www.imdb.com/title/tt7772588) - Season 1, 2, 3 & 4
+- [For All Mankind](https://www.imdb.com/title/tt7772588) - Season 1, 2, 3, 4 & 5
 - [Hijack](https://www.imdb.com/title/tt19854762/) - Season 1
 - [Lessons in Chemistry](https://www.imdb.com/title/tt13911628/) - Season 1
 - [Peaky Blinders](https://www.imdb.com/title/tt2442560/) - Seasons 1, 2, 3, 4, 5 & 6
