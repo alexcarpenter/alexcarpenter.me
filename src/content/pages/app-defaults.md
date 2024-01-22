@@ -2,7 +2,7 @@
 title: App defaults
 description: List of app defaults I am currently using
 published: 2023-11-28
-updated: 2024-01-05
+updated: 2024-01-22
 ---
 
 Following the [trend](https://defaults.rknight.me/) and sharing my "app defaults".
@@ -10,7 +10,7 @@ Following the [trend](https://defaults.rknight.me/) and sharing my "app defaults
 | Type                           | App(s)                |
 | ------------------------------ | --------------------- |
 | Mail Client                    | Gmail/Proton          |
-| Notes                          | Apple Notes/Obsidian  |
+| Notes                          | Apple Notes           |
 | To-Do                          | Apple Reminders       |
 | iPhone Photo Shooting          | iPhone 15 Pro         |
 | Photo Management               | Synology Photos       |
