@@ -6,6 +6,9 @@ updated: 2024-01-21
 pinned: true
 ---
 
+2024-01-23
+: 7:49 AM - Giving [Logseq](https://logseq.com/) a go today. Reminds me of Workflowy which I loved.
+
 2024-01-21
 : 10:05 AM - It was actually sunny yesterday, so we took Micah out for his first sledding experience at my mother in laws. He enjoyed it and we're going out again today.
 : 08:24 AM - Rewrote my [about](/about) page this morning, as a list of course.
