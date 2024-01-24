@@ -7,6 +7,7 @@ pinned: true
 ---
 
 2024-01-23
+: 9:04 PM - True Detective season 4 is off to a great start.
 : 7:49 AM - Giving [Logseq](https://logseq.com/) a go today. Reminds me of Workflowy which I loved.
 
 2024-01-21
