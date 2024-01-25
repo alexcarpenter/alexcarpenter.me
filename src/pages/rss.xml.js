@@ -11,11 +11,7 @@ export async function GET(context) {
     description: "Short-form thoughts and updates",
     site: `${context.site}/notes/`,
     items: notes.map((note) => ({
-      title: `Note: ${new Date(
-        note.data.published
-      ).toLocaleDateString()} - ${new Date(
-        note.data.published
-      ).toLocaleTimeString()}`,
+      title: `Note: ${note.data.published}`,
       pubDate: note.data.published,
       content: sanitizeHtml(parser.render(note.body)),
     })),
