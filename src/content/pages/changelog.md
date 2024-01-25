@@ -2,10 +2,15 @@
 title: Changelog
 description: Notable changes across alexcarpenter.me
 published: 2023-09-08
-updated: 2024-01-06
+updated: 2024-01-25
 ---
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). View source on [Github](https://github.com/alexcarpenter/alexcarpenter.me).
+
+## 2024-01-25
+
+- Updates RSS feed to pull notes instead of pages
+- Moved notes to their own collection
 
 ## 2024-01-06
 

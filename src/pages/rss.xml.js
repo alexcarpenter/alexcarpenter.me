@@ -5,19 +5,19 @@ import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
 
 export async function GET(context) {
-  const pages = await getCollection("pages", ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true;
-  });
+  const notes = await getCollection("notes");
   return rss({
-    title: "Alex Carpenter",
-    description: "A humble Astronaut’s guide to the stars",
-    site: context.site,
-    items: pages.map((page) => ({
-      title: page.data.title,
-      pubDate: page.data.published,
-      description: page.data.description,
-      link: `/${page.slug}`,
-      content: sanitizeHtml(parser.render(page.body)),
+    title: "Alex Carpenter - Notes",
+    description: "Short-form thoughts and updates",
+    site: `${context.site}/notes/`,
+    items: notes.map((note) => ({
+      title: `Note: ${new Date(
+        note.data.published
+      ).toLocaleDateString()} - ${new Date(
+        note.data.published
+      ).toLocaleTimeString()}`,
+      pubDate: note.data.published,
+      content: sanitizeHtml(parser.render(note.body)),
     })),
   });
 }
