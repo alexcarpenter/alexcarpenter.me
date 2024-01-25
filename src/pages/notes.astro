@@ -54,4 +54,14 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
       </dl>
     </div>
   </main>
+  <footer class="relative mt-8 border-t-2 pt-3 text-center">
+    <p class="text-sm text-secondary">
+      Published: <FormattedDate
+        date={sortedNotes[sortedNotes.length - 1].data.published}
+      />
+    </p>
+    <p class="text-sm text-secondary">
+      Last updated: <FormattedDate date={sortedNotes[0].data.published} />
+    </p>
+  </footer>
 </Base>
