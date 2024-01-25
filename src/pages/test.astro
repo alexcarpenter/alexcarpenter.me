@@ -28,6 +28,7 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
 <Base>
   <header class="relative mb-6 border-b-2 pb-2 pr-12">
     <h1 class="font-bold">Notes</h1>
+    <p class="text-pretty text-secondary">Short-form thoughts and updates</p>
   </header>
   <main class="flex-grow">
     <div class="prose">
@@ -41,7 +42,7 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
                 </dt>
                 {notes.map((note) =>
                   note.render().then(({ Content }) => (
-                    <dd>
+                    <dd class="grid gap-y-2">
                       <Content />
                     </dd>
                   ))
