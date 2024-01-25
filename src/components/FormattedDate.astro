@@ -1,7 +1,7 @@
 ---
 import { format } from "date-fns";
 
-const parseDateToString = (date: string): string => {
+export const parseDateToString = (date: string): string => {
   const d = new Date(date);
   const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
   return format(t, "yyyy-MM-dd");
