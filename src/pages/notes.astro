@@ -1,0 +1,57 @@
+---
+import Base from "@/layouts/BaseLayout.astro";
+import FormattedDate, {
+  parseDateToString,
+} from "@/components/FormattedDate.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+type NoteProps = CollectionEntry<"notes">;
+const notes = await getCollection("notes");
+const sortedNotes = notes.sort((a, b) => {
+  const aDate = a.data.published;
+  const bDate = b.data.published;
+  return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+});
+const groupedNotes = groupByDay(sortedNotes);
+function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
+  const grouped: Record<string, NoteProps[]> = {};
+  items.forEach((item) => {
+    const key = parseDateToString(item.data.published.toString());
+    if (!grouped[key]) {
+      grouped[key] = [];
+    }
+    grouped[key].push(item);
+  });
+  return grouped;
+}
+---
+
+<Base>
+  <header class="relative mb-6 border-b-2 pb-2 pr-12">
+    <h1 class="font-bold">Notes</h1>
+    <p class="text-pretty text-secondary">Short-form thoughts and updates</p>
+  </header>
+  <main class="flex-grow">
+    <div class="prose">
+      <dl>
+        {
+          Object.entries(groupedNotes).map(([date, notes]) => {
+            return (
+              <>
+                <dt id={date}>
+                  <FormattedDate date={new Date(date)} />
+                </dt>
+                {notes.map((note) =>
+                  note.render().then(({ Content }) => (
+                    <dd class="grid gap-y-2">
+                      <Content />
+                    </dd>
+                  ))
+                )}
+              </>
+            );
+          })
+        }
+      </dl>
+    </div>
+  </main>
+</Base>

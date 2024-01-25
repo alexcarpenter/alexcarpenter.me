@@ -11,6 +11,10 @@ const pages = await getCollection("pages", ({ data }) => {
   <section>
     <h2 class="mb-2 font-bold">Pinned</h2>
     <ul class="-mb-2 divide-y divide-dashed border-t-2">
+      <li class="flex gap-6 py-2">
+        <FormattedDate date={new Date()} class="flex-shrink-0 text-secondary" />
+        <a href="/notes" class="underline"> Notes</a>
+      </li>
       {
         pages
           .filter((page) => page.data.pinned)

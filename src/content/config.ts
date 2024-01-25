@@ -1,5 +1,12 @@
 import { defineCollection, z } from "astro:content";
 
+const notes = defineCollection({
+  type: "content",
+  schema: z.object({
+    published: z.coerce.date(),
+  }),
+});
+
 const pages = defineCollection({
   type: "content",
   schema: z.object({
@@ -12,4 +19,4 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { pages };
+export const collections = { notes, pages };
