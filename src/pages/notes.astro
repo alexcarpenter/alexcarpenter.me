@@ -37,7 +37,7 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
           Object.entries(groupedNotes).map(([date, notes]) => {
             return (
               <>
-                <dt>
+                <dt id={date}>
                   <FormattedDate date={new Date(date)} />
                 </dt>
                 {notes.map((note) =>
