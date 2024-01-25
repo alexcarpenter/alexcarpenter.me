@@ -30,8 +30,6 @@ updated: 2024-01-19
 
 See also [app defaults](/app-defaults)
 
----
-
 ## Hardware
 
 - Caldigit TS4 Thunderbolt Dock
@@ -43,14 +41,10 @@ See also [app defaults](/app-defaults)
 - Rode PodMic
 - Sony WH1000XM4 headphones
 
----
-
 ## Storage
 
 - Synology DS224+
   - 8TB Seagate IronWolf HDD (2x)
-
----
 
 ## Misc.
 

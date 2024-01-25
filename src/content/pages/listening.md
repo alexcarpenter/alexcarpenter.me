@@ -22,8 +22,6 @@ updated: 2023-10-16
 - [Tyler Childers](https://www.youtube.com/@tylerchilders)
 - [Zach Bryan](https://www.youtube.com/channel/UCwK3C8Vgphad4PweezfUBAQ)
 
----
-
 ## Songs
 
 - [Days of Lantana](https://www.youtube.com/watch?v=U1BezmtNuKE) - by Ben Howard

@@ -13,16 +13,12 @@ pinned: true
 - [Halo Sleepsack Swaddle](https://amzn.to/3NFTUmY)
 - [OXO Tot Space Saving Drying Rack](https://amzn.to/3tnmOle)
 
----
-
 ## Bags
 
 - [Evergoods Civic Half Zip 22L](https://evergoods.us/collections/civic-half-zip-series/products/civic-half-zip-22l)
 - [Goruck Bullet Ruck Classic](https://www.goruck.com/products/bullet-ruck-15l)
 - [Tom Bihn Synapse 19](https://www.tombihn.com/collections/best-sellers/products/synapse-19)
 - [Tom Bihn Truck](https://www.tombihn.com/collections/tote-bags/products/the-truck)
-
----
 
 ## Clothing
 
@@ -32,8 +28,6 @@ pinned: true
 - [Proof 72-Hour Merino T-Shirt](https://huckberry.com/store/proof/category/p/78223-72-hour-tee-relaxed)
 - [Western Rise Evolution Pant](https://westernrise.com/products/evolution-pant)
 
----
-
 ## Coffee
 
 - [Breville Barista Express Espresso Machine](https://amzn.to/48oXg5Y)
@@ -42,15 +36,11 @@ pinned: true
 - [snow peak Ti-Double H450 Stacking Mug](https://amzn.to/3RBGSZa)
 - [YETI Rambler 12oz Hotshot Bottle](https://amzn.to/41CDWzS)
 
----
-
 ## Flashlights
 
 - [Foursevens Ti Mini Turbo MKIII](https://darksucks.com/products/mini-turbo-mkiii-ti-two-tone)
 - [Prometheus Ti Beta QRV2](https://darksucks.com/products/beta-qrv2-titanium)
 - [ZebraLight SC53c N](https://www.zebralight.com/SC53c-N-Neutral-White-High-CRI-AA-Flashlight_p_249.html)
-
----
 
 ## Footwear
 
@@ -59,16 +49,12 @@ pinned: true
 - [New Balance 990](https://amzn.to/48yHaXy)
 - [Xtratuf Deck Boots](https://amzn.to/4844WL7)
 
----
-
 ## Health and wellness
 
 - [AG1 Athletic Greens](https://www.drinkags1.com/)
 - [Armra Colostrum](https://tryarmra.com/)
 - [Immunity throat spray](https://amzn.to/41F4nVK) as recommended by [Matt](https://ma.tt/2023/12/the-bag-post/)
 - [LMNT Electrolytes](https://drinklmnt.com/)
-
----
 
 ## Kitchen
 
@@ -81,8 +67,6 @@ pinned: true
 - [Javelin PRO Digital Thermometer](https://amzn.to/4aCU74s)
 - [Traeger Ironwood 650 Pellet Grill](https://www.traeger.com/pellet-grills/ironwood/650)
 
----
-
 ## Knives
 
 - [Benchmade Mini Bugout](https://amzn.to/4avo5Y9)
@@ -90,15 +74,11 @@ pinned: true
 - [Milwaukee Fastback Utility Knife](https://www.milwaukeetool.com/Products/Hand-Tools/Cutting/Knives-and-Blades/48-22-1500)
 - [Spyderco Dragonfly II](https://amzn.to/41AnbFD)
 
----
-
 ## Outerwear
 
 - [Patagonia Nano Puff Vest](https://amzn.to/3tsK2GF)
 - [Outdoor Research Helium Rain Jacket](https://amzn.to/3RBZ8kT)
 - [REI Goretex Mittens](https://www.rei.com/product/194829/rei-co-op-minimalist-gtx-mittens-20?color=BLACK)
-
----
 
 ## Pouches
 
@@ -107,14 +87,10 @@ pinned: true
 - [Goruck Wire Dopp](https://www.goruck.com/products/wire-dopp)
 - [Peak Design Tech Pouch](https://www.peakdesign.com/products/tech-pouch)
 
----
-
 ## Toiletries
 
 - [Tweezerman G.E.A.R. Facial Hair Scissors](https://amzn.to/41D0osB)
 - [Zwilling J.A. Henckels Ultra-Slim Nail Clipper](https://amzn.to/3vjDN8E)
-
----
 
 ## Tech
 
@@ -123,8 +99,6 @@ pinned: true
 - [Sonos Beam](https://www.sonos.com/en-us/shop/beam)
 - [Sonos One SL](https://www.sonos.com)
 
----
-
 ## Tools
 
 - [Klein Tools 14-1 Precision Screwdriver](https://amzn.to/41ElerP)
@@ -132,8 +106,6 @@ pinned: true
   - [Simon Tools Magnetic Bit Holder](https://amzn.to/3vAJnDx)
 - [Pica-Dry Longlife Automatic Pencil](https://amzn.to/48ArSS0)
 - [Wera 7-1 Bitholding Screwdriver with Removable Bayonet Blade](https://amzn.to/3NIdLSH)
-
----
 
 ## Archive
 

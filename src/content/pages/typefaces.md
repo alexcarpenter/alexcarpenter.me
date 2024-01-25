@@ -11,8 +11,6 @@ updated: 2024-01-09
 - [Input Mono](https://input.djr.com/) - by DJR & The Font Bureau, Inc.
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - by JetBrains
 
----
-
 ## Sans serif
 
 - [Graphik](https://commercialtype.com/catalog/graphik) - by Commercial Type
@@ -20,8 +18,6 @@ updated: 2024-01-09
 - [iA Writer Quattro](https://github.com/iaolo/iA-Fonts) - by iA
 - [Inter](https://rsms.me/inter/) - by Rasmus Andersson
 - [Univers](https://www.fontshop.com/families/univers) - by Adrian Frutiger
-
----
 
 ## Serif
 
