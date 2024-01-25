@@ -11,15 +11,11 @@ updated: 2024-01-14
 - [The Age of Surveillance Capitalism](https://www.amazon.com/Age-Surveillance-Capitalism-Future-Frontier-ebook/dp/B01N2QEZE2): The Fight for a Human Future at the New Frontier of Power - by Shoshana Zuboff
 - [Outlive](https://www.amazon.com/Outlive-Science-Art-Longevity/dp/1785044559): The Science and Art of Longevity - by Peter Attia MD
 
----
-
 ## In-progress
 
 - [Project Hail Mary](https://amzn.to/47AHrrO): A Novel - by Andy Weir
 - [The Daily Dad](https://www.amazon.com/Daily-Dad-Meditations-Parenting-Raising/dp/0593539052/): 366 Meditations on Parenting, Love, and Raising Great Kids - by Ryan Holiday
 - [The Daily Stoic](https://www.amazon.com/Daily-Stoic-Meditations-Wisdom-Perseverance/dp/0735211736/): 366 Meditations on Wisdom, Perseverance, and the Art of Living - by Ryan Holiday
-
----
 
 ## Completed
 
