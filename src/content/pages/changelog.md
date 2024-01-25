@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## 2024-01-25
 
-- Updates RSS feed to pull notes instead of pages
+- Updated RSS feed to pull notes instead of pages
 - Moved notes to their own collection
 
 ## 2024-01-06
