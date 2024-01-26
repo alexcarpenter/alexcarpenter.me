@@ -42,7 +42,10 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
                 </dt>
                 {notes.map((note) =>
                   note.render().then(({ Content }) => (
-                    <dd class="grid gap-y-2" id={note.slug}>
+                    <dd
+                      class="grid gap-y-2 [&>blockquote]:italic"
+                      id={note.slug}
+                    >
                       <Content />
                     </dd>
                   ))
