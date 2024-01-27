@@ -35,4 +35,17 @@ function Button<T extends keyof React.JSX.IntrinsicElements>({
 }
 ```
 
+```tsx
+type ButtonOrLinkProps =
+  | (React.JSX.InstrinsicElements["button"] & { href?: undefined })
+  | (React.JSX.IntrinsicElements["a"] & { href: string });
+
+function Button(props: ButtonOrLinkProps) {
+  if (props.href !== null) {
+    return <a {...props} />;
+  }
+  return <button {...props} />;
+}
+```
+
 via [mattpocockuk](https://twitter.com/mattpocockuk/status/1713856343478542626)
