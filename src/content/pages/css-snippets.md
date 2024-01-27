@@ -18,6 +18,10 @@ published: 2024-01-26
 }
 ```
 
+```jsx
+<div className="bg-[conic-gradient(at_92%_8%,rgba(255,255,255,.5)_90deg,transparent_0_225deg,transparent_0)] bg-[length:15px_15px]" />
+```
+
 via [brotzky\_](https://twitter.com/brotzky_/status/1749506883663327557)
 
 ## Gradient border
@@ -54,7 +58,7 @@ via [brotzky\_](https://twitter.com/brotzky_/status/1750568966555340844)
 
 ## Shadow stack
 
-```css
+```css {1,3-4}
 .shadow-stack {
   background: linear-gradient(#fff, rgb(0 0 0 / 0.02));
   --shadow-color: rgb(0 0 0 / 0.06);
