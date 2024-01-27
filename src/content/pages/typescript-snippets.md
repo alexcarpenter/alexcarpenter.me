@@ -15,6 +15,8 @@ let arr2: ArraySubset<typeof arr1> = ["one", "two"]; // No error
 let arr3: ArraySubset<typeof arr1> = ["one", "two", "four"]; // Errors because 'four' is not within arr1
 ```
 
+---
+
 ## forwardRef function
 
 ```tsx
@@ -23,6 +25,8 @@ export function forwardRef<T extends React.FC>(render: T) {
   return Role as unknown as T;
 }
 ```
+
+---
 
 ## Polymorphic button
 

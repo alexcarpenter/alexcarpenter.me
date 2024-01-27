@@ -24,6 +24,8 @@ published: 2024-01-26
 
 via [brotzky\_](https://twitter.com/brotzky_/status/1749506883663327557)
 
+---
+
 ## Gradient border
 
 ```css
@@ -38,6 +40,8 @@ via [brotzky\_](https://twitter.com/brotzky_/status/1749506883663327557)
 ```
 
 via [brotzky\_](https://twitter.com/brotzky_/status/1750568966555340844)
+
+---
 
 ## Full width element
 
@@ -55,6 +59,8 @@ via [brotzky\_](https://twitter.com/brotzky_/status/1750568966555340844)
 ```jsx
 <div className="relative w-screen inset-x-1/2 mx-[-50vw]" />
 ```
+
+---
 
 ## Shadow stack
 
