@@ -22,8 +22,8 @@ export default defineConfig({
     },
     shikiConfig: {
       experimentalThemes: {
-        light: "github-light",
-        dark: "github-dark",
+        light: "min-light",
+        dark: "min-dark",
       },
     },
   },
