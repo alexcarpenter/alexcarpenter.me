@@ -188,6 +188,6 @@
   }
 
   .prose .astro-code {
-    @apply text-sm rounded-sm p-2;
+    @apply text-sm rounded-sm p-2 border dark:border-transparent;
   }
 }
