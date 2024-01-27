@@ -51,3 +51,21 @@ via [brotzky\_](https://twitter.com/brotzky_/status/1750568966555340844)
 ```jsx
 <div className="relative w-screen inset-x-1/2 mx-[-50vw]" />
 ```
+
+## Shadow stack
+
+```css
+.shadow-stack {
+  background: linear-gradient(#fff, rgb(0 0 0 / 0.02));
+  --shadow-color: rgb(0 0 0 / 0.06);
+  box-shadow: 0px 0px 0px 1px var(--shadow-color), 0px 1px 1px -0.5px var(--shadow-color),
+    0px 3px 3px -1.5px var(--shadow-color), 0px 6px 6px -3px var(--shadow-color),
+    0px 12px 12px -6px var(--shadow-color), 0px 24px 24px -12px var(--shadow-color);
+}
+```
+
+```jsx
+<div className="shadow-[0px_0px_0px_1px,0px_1px_1px_-0.5px,0px_3px_3px_-1.5px,0px_6px_6px_-3px,0px_12px_12px_-6px,0px_24px_24px_-12px] shadow-black/[0.06] bg-gradient-to-b from-white to-black/[0.02]" />
+```
+
+via [PixelJanitor](https://twitter.com/PixelJanitor/status/1736834112223109411)
