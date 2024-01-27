@@ -190,4 +190,8 @@
   .prose .astro-code {
     @apply text-sm rounded-sm p-2 border dark:border-transparent;
   }
+
+  .prose :not(pre) > code {
+    @apply text-sm bg-zinc-50 dark:bg-neutral-800 px-1 py-0.5 rounded-sm;
+  }
 }
