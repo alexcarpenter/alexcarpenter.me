@@ -20,5 +20,11 @@ export default defineConfig({
         ...defListHastHandlers,
       },
     },
+    shikiConfig: {
+      experimentalThemes: {
+        light: "github-light",
+        dark: "github-dark",
+      },
+    },
   },
 });
