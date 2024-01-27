@@ -19,12 +19,17 @@ let arr3: ArraySubset<typeof arr1> = ["one", "two", "four"]; // Errors because '
 
 ## forwardRef function
 
+The same as `React.forwardRef` but passes the `ref` as a prop and returns a component with the same generic type.
+
 ```tsx
-export function forwardRef<T extends React.FC>(render: T) {
-  const Role = React.forwardRef<any>((props, ref) => render({ ...props, ref }));
+export function forwardRef<T extends React.FC<any>>(render: T) {
+  const Role = React.forwardRef((props, ref) => render({ ...props, ref }));
+  Role.displayName = render.displayName || render.name;
   return Role as unknown as T;
 }
 ```
+
+via [Ariakit](https://github.com/ariakit/ariakit/blob/main/packages/ariakit-react-core/src/utils/system.tsx)
 
 ---
 
