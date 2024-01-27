@@ -177,4 +177,8 @@
   .prose mark {
     @apply bg-yellow-800 text-primary;
   }
+
+  .prose .astro-code {
+    @apply text-sm rounded-sm p-2;
+  }
 }
