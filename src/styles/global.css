@@ -151,8 +151,11 @@
     @apply mt-0;
   }
 
-  .prose h3 + small {
-    @apply mt-0.5 text-secondary text-sm uppercase block;
+  .prose h2 + small,
+  .prose h3 + small,
+  .prose h2 + p:has(small),
+  .prose h3 + p:has(small) {
+    @apply mt-0.5 text-secondary text-sm uppercase block *:text-sm;
   }
 
   .prose .contains-task-list {
