@@ -2,7 +2,7 @@
 title: Blogroll
 description: Personal blogs I enjoy following
 published: 2023-12-14
-updated: 2024-01-26
+updated: 2024-01-29
 ---
 
 - [baty.net](https://baty.net/)
@@ -14,6 +14,7 @@ updated: 2024-01-26
 - [ma.tt](https://ma.tt/)
 - [macwright.com](https://macwright.com/)
 - [manuelmoreale.com](https://manuelmoreale.com/)
+- [rachsmith.com](https://rachsmith.com/)
 - [robinrendle.com](https://robinrendle.com/)
 - [stephanango.com](https://stephanango.com/)
 - [tynan.com](https://tynan.com/)
