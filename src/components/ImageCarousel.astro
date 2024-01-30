@@ -1,21 +1,44 @@
 ---
-let images = ["one", "two", "three"];
+import { Image } from "astro:assets";
+interface Props {
+  images: Array<{
+    src: string;
+    alt: string;
+  }>;
+}
+const { images } = Astro.props;
 ---
 
 <div class="embla">
   <div class="embla__viewport overflow-hidden">
-    <div class="embla__container flex">
+    <div class="embla__container flex gap-x-2">
       {
-        images.map((image: unknown) => {
+        images.map(({ src, alt }) => {
           return (
-            <div class="embla__slide min-w-0 flex-[0_0_100%]">{image}</div>
+            <div class="embla__slide min-w-0 flex-[0_0_100%] aspect-3/2 overflow-hidden">
+              <Image
+                src={src}
+                alt={alt}
+                width="960"
+                height="640"
+                class="absolute w-full h-full object-cover"
+              />
+            </div>
           );
         })
       }
     </div>
   </div>
-  <button class="embla__prev">Prev</button>
-  <button class="embla__next">Next</button>
+  <div class="flex justify-center gap-x-4 mt-2">
+    <button
+      class="embla__prev disabled:text-secondary text-sm uppercase tracking-wide"
+      >Prev</button
+    >
+    <button
+      class="embla__next disabled:text-secondary text-sm uppercase tracking-wide"
+      >Next</button
+    >
+  </div>
 </div>
 
 <script>
