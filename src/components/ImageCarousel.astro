@@ -1,0 +1,53 @@
+---
+let images = ["one", "two", "three"];
+---
+
+<div class="embla">
+  <div class="embla__viewport overflow-hidden">
+    <div class="embla__container flex">
+      {
+        images.map((image: unknown) => {
+          return (
+            <div class="embla__slide min-w-0 flex-[0_0_100%]">{image}</div>
+          );
+        })
+      }
+    </div>
+  </div>
+  <button class="embla__prev">Prev</button>
+  <button class="embla__next">Next</button>
+</div>
+
+<script>
+  import EmblaCarousel, { type EmblaOptionsType } from "embla-carousel";
+  const rootNode = document.querySelector(".embla");
+  const viewportNode = rootNode?.querySelector(".embla__viewport");
+  const prevButtonNode = rootNode?.querySelector(".embla__prev");
+  const nextButtonNode = rootNode?.querySelector(".embla__next");
+  const options: EmblaOptionsType = { loop: false };
+  const emblaApi = EmblaCarousel(viewportNode as HTMLElement, options);
+  const scrollPrev = () => {
+    emblaApi.scrollPrev();
+  };
+  const scrollNext = () => {
+    emblaApi.scrollNext();
+  };
+  (prevButtonNode as HTMLElement).addEventListener("click", scrollPrev, false);
+  (nextButtonNode as HTMLElement).addEventListener("click", scrollNext, false);
+  const togglePrevNextBtnsState = () => {
+    if (emblaApi.canScrollPrev()) {
+      prevButtonNode?.removeAttribute("disabled");
+    } else {
+      prevButtonNode?.setAttribute("disabled", "disabled");
+    }
+    if (emblaApi.canScrollNext()) {
+      nextButtonNode?.removeAttribute("disabled");
+    } else {
+      nextButtonNode?.setAttribute("disabled", "disabled");
+    }
+  };
+  emblaApi
+    .on("select", togglePrevNextBtnsState)
+    .on("init", togglePrevNextBtnsState)
+    .on("reInit", togglePrevNextBtnsState);
+</script>

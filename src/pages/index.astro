@@ -1,5 +1,5 @@
 ---
-import Base from "@/layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import { getCollection } from "astro:content";
 const pages = await getCollection("pages", ({ data }) => {
@@ -7,7 +7,7 @@ const pages = await getCollection("pages", ({ data }) => {
 });
 ---
 
-<Base>
+<BaseLayout>
   <section>
     <h2 class="mb-2 font-bold">Pinned</h2>
     <ul class="-mb-2 divide-y divide-dashed border-t-2">
@@ -101,4 +101,4 @@ const pages = await getCollection("pages", ({ data }) => {
       </a>
     </p>
   </footer>
-</Base>
+</BaseLayout>

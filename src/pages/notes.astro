@@ -1,5 +1,5 @@
 ---
-import Base from "@/layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import FormattedDate, {
   parseDateToString,
 } from "@/components/FormattedDate.astro";
@@ -25,7 +25,7 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
 }
 ---
 
-<Base>
+<BaseLayout title="Notes" description="Short-form thoughts and updates">
   <header class="relative mb-6 border-b-2 pb-2 pr-12">
     <h1 class="font-bold">Notes</h1>
     <p class="text-pretty text-secondary">Short-form thoughts and updates</p>
@@ -67,4 +67,4 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
       Last updated: <FormattedDate date={sortedNotes[0].data.published} />
     </p>
   </footer>
-</Base>
+</BaseLayout>
