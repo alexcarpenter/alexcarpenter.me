@@ -194,7 +194,12 @@
     @apply text-sm rounded-sm p-2 border;
   }
 
-  .prose :not(pre) > code {
-    @apply text-sm bg-zinc-50 dark:bg-neutral-800 px-1 py-0.5 rounded-sm;
+  .prose :not(pre) > code,
+  .prose kbd {
+    @apply text-sm bg-zinc-50 dark:bg-neutral-800 px-1 py-0.5 rounded-sm text-primary;
   }
+
+  /* .prose kbd {
+    @apply rounded-[0.25em] border-b-[0.125em] border-t border-b-black/10 border-t-white bg-gradient-to-b from-black/10 to-black/5 px-[0.3em] text-sm [box-shadow:0_0_0_1px_rgba(0,0,0,0.25)] dark:border-t-0 dark:border-b-black/40 dark:from-white/10 dark:to-white/[15%] dark:[box-shadow:0_0_0_1px_rgba(255,255,255,0.15)];
+  } */
 }
