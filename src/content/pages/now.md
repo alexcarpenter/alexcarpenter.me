@@ -6,10 +6,8 @@ updated: 2024-01-14
 pinned: true
 ---
 
-- Onboarding at [Clerk](https://clerk.com)
-  - Working on the marketing website
+- Working on the [Clerk](https://clerk.com) dashboard
 - Re-reading [Project Hail Mary](https://amzn.to/47AHrrO)
-- Being a new dad to [Micah](/micah)
 - Practicing cold water therapy
 - [Listening](/listening), [watching](/watching), and [reading](/reading)
 
