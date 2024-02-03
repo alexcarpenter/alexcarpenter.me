@@ -1,17 +1,19 @@
 ---
 title: Watching
 published: 2023-08-21
-updated: 2024-01-23
+updated: 2024-02-03
 ---
 
 ## Currently
 
-- [Bluey](https://www.bluey.tv/) - Season 1, 2 & 3
-- [Fargo](https://www.imdb.com/title/tt2802850/) - Season 1
+- [Criminal Record](https://tv.apple.com/us/show/criminal-record/umc.cmc.1sbjeoma6tvxgda6l0h4bb0x3) - Season 1
+- [Masters of the Air](https://tv.apple.com/us/show/masters-of-the-air/umc.cmc.7bxcni0vwgll9kmicq738k5q2) - Season 1
 - [True Detective](https://www.imdb.com/title/tt2356777/) - Season 4
 
 ## Completed
 
+- [Bluey](https://www.bluey.tv/) - Season 1, 2 & 3
+- [Fargo](https://www.imdb.com/title/tt2802850/) - Season 1
 - [Five Days at Memorial](https://www.imdb.com/title/tt3283594) - Season 1
 - [For All Mankind](https://www.imdb.com/title/tt7772588) - Season 1, 2, 3, 4 & 5
 - [Hijack](https://www.imdb.com/title/tt19854762/) - Season 1
