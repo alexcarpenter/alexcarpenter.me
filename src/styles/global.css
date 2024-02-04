@@ -89,7 +89,7 @@
   }
 
   .prose table {
-    @apply w-full;
+    @apply w-full overflow-auto;
   }
 
   .prose table th {
@@ -98,6 +98,10 @@
 
   .prose table td {
     @apply border-t border-dashed py-1 pr-4 align-top;
+  }
+
+  .prose table time {
+    @apply text-nowrap text-secondary;
   }
 
   .prose dl:not([class]) {
