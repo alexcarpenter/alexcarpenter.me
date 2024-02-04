@@ -1,11 +1,14 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+// Remark plugins
 import {
   remarkDefinitionList,
   defListHastHandlers,
 } from "remark-definition-list";
 import remarkAdmonitions from "remark-github-beta-blockquote-admonitions";
+// Rehype plugins
+import rehypeWrap from "rehype-wrap-all";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -20,6 +23,9 @@ export default defineConfig({
         ...defListHastHandlers,
       },
     },
+    rehypePlugins: [
+      [rehypeWrap, { selector: "table", wrapper: "div.table-wrapper" }],
+    ],
     shikiConfig: {
       experimentalThemes: {
         light: "min-light",
