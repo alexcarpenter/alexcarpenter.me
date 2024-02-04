@@ -10,8 +10,8 @@ published: 2024-01-07
 | <time>2023-07-24</time> | Celebrated 10 year wedding anniversary                                                      | Life |
 | <time>2023-07-14</time> | Joined [Watershed](https://watershed.com) as a Web Engineer                                 | Work |
 | <time>2023-05-09</time> | [Micah](/micah) was born in Grand Rapids, MI                                                | Life |
-| <time>2022-11-15</time> | Promoted to Senior Web Engineer II at [HashiCorp](https://hashicorp.com)                    | Work |
-| <time>2021-07-01</time> | Joined [HashiCorp](https://hashicorp.com) as a Web Engineer                                 | Work |
+| <time>2022-11-15</time> | Promoted to Senior Web Engineer I at [HashiCorp](https://hashicorp.com)                     | Work |
+| <time>2021-07-01</time> | Joined [HashiCorp](https://hashicorp.com) as a Web Engineer II                              | Work |
 | <time>2018-11-02</time> | Joined [NationBuilder](http://nationbuilder.com) as a UI Engineer                           | Work |
 | <time>2018-07-07</time> | Picked up our new dog [Frankie](/frankie), a chocolate dapple mini long haired dachshund    | Life |
 | <time>2018-06-22</time> | Promoted to Senior Web Developer at [Mighty in the Midwest](https://mightyinthemidwest.com) | Work |
