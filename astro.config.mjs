@@ -7,8 +7,6 @@ import {
   defListHastHandlers,
 } from "remark-definition-list";
 import remarkAdmonitions from "remark-github-beta-blockquote-admonitions";
-// Rehype plugins
-import rehypeWrap from "rehype-wrap";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -23,9 +21,6 @@ export default defineConfig({
         ...defListHastHandlers,
       },
     },
-    rehypePlugins: [
-      [rehypeWrap, { selector: "table", wrapper: "div.table-wrapper" }],
-    ],
     shikiConfig: {
       experimentalThemes: {
         light: "min-light",
