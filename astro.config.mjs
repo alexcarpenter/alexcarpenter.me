@@ -8,7 +8,7 @@ import {
 } from "remark-definition-list";
 import remarkAdmonitions from "remark-github-beta-blockquote-admonitions";
 // Rehype plugins
-import rehypeWrap from "rehype-wrap-all";
+import rehypeWrap from "rehype-wrap";
 
 import tailwind from "@astrojs/tailwind";
 
