@@ -101,7 +101,7 @@
   }
 
   .prose table time {
-    @apply text-nowrap text-secondary;
+    @apply text-nowrap text-secondary min-w-max;
   }
 
   .prose dl:not([class]) {
