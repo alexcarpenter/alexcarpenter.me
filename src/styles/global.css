@@ -93,7 +93,7 @@
   }
 
   .prose table {
-    @apply w-full;
+    @apply w-full block overflow-auto;
   }
 
   .prose table th {
