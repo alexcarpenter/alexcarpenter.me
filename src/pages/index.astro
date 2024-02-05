@@ -8,71 +8,80 @@ const pages = await getCollection("pages", ({ data }) => {
 ---
 
 <BaseLayout>
-  <section>
-    <h2 class="mb-2 font-bold">Pinned</h2>
-    <ul class="-mb-2 divide-y divide-dashed border-t-2">
-      <li class="flex gap-6 py-2">
-        <FormattedDate date={new Date()} class="flex-shrink-0 text-secondary" />
-        <a href="/notes" class="underline"> Notes</a>
-      </li>
-      {
-        pages
-          .filter((page) => page.data.pinned)
-          .sort((a, b) => {
-            const aDate = a.data.updated || a.data.published;
-            const bDate = b.data.updated || b.data.published;
-            return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
-          })
-          .map((page) => {
-            return (
-              <li class="flex gap-6 py-2">
-                <FormattedDate
-                  date={page.data.updated || page.data.published}
-                  class="flex-shrink-0 text-secondary"
-                />
-                <a href={page.slug} class="underline">
-                  {page.data.title}
-                </a>
-              </li>
-            );
-          })
-      }
-    </ul>
-  </section>
+  <main id="main">
+    <section>
+      <h2 class="mb-2 font-bold">Pinned</h2>
+      <ul class="-mb-2 divide-y divide-dashed border-t-2">
+        <li class="flex gap-6 py-2">
+          <FormattedDate
+            date={new Date()}
+            class="flex-shrink-0 text-secondary"
+          />
+          <a href="/notes" class="underline"> Notes</a>
+        </li>
+        {
+          pages
+            .filter((page) => page.data.pinned)
+            .sort((a, b) => {
+              const aDate = a.data.updated || a.data.published;
+              const bDate = b.data.updated || b.data.published;
+              return (
+                Date.parse(bDate.toString()) - Date.parse(aDate.toString())
+              );
+            })
+            .map((page) => {
+              return (
+                <li class="flex gap-6 py-2">
+                  <FormattedDate
+                    date={page.data.updated || page.data.published}
+                    class="flex-shrink-0 text-secondary"
+                  />
+                  <a href={page.slug} class="underline">
+                    {page.data.title}
+                  </a>
+                </li>
+              );
+            })
+        }
+      </ul>
+    </section>
 
-  <section class="mt-6">
-    <h2 class="mb-2 font-bold">Latest</h2>
-    <ul class="-mb-2 divide-y divide-dashed border-t-2">
-      {
-        pages
-          .filter((page) => !page.data.pinned)
-          .sort((a, b) => {
-            const aDate = a.data.updated || a.data.published;
-            const bDate = b.data.updated || b.data.published;
-            return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
-          })
-          .map((page) => {
-            return (
-              <li class="flex gap-6 py-2">
-                <FormattedDate
-                  date={page.data.updated || page.data.published}
-                  class="flex-shrink-0 text-secondary"
-                />
-                <a
-                  href={page.slug}
-                  class:list={[
-                    "underline",
-                    page.data.draft && "text-secondary",
-                  ]}
-                >
-                  {page.data.title}
-                </a>
-              </li>
-            );
-          })
-      }
-    </ul>
-  </section>
+    <section class="mt-6">
+      <h2 class="mb-2 font-bold">Latest</h2>
+      <ul class="-mb-2 divide-y divide-dashed border-t-2">
+        {
+          pages
+            .filter((page) => !page.data.pinned)
+            .sort((a, b) => {
+              const aDate = a.data.updated || a.data.published;
+              const bDate = b.data.updated || b.data.published;
+              return (
+                Date.parse(bDate.toString()) - Date.parse(aDate.toString())
+              );
+            })
+            .map((page) => {
+              return (
+                <li class="flex gap-6 py-2">
+                  <FormattedDate
+                    date={page.data.updated || page.data.published}
+                    class="flex-shrink-0 text-secondary"
+                  />
+                  <a
+                    href={page.slug}
+                    class:list={[
+                      "underline",
+                      page.data.draft && "text-secondary",
+                    ]}
+                  >
+                    {page.data.title}
+                  </a>
+                </li>
+              );
+            })
+        }
+      </ul>
+    </section>
+  </main>
 
   <footer class="relative mt-8 border-t-2 pt-3 text-center">
     <p class="text-sm text-secondary uppercase tracking-wide">
