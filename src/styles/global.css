@@ -88,12 +88,8 @@
     @apply mt-6;
   }
 
-  .prose .table-wrapper {
-    @apply w-full overflow-auto;
-  }
-
   .prose table {
-    @apply w-full block overflow-auto;
+    @apply w-full overflow-auto;
   }
 
   .prose table th {
