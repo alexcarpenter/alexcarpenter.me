@@ -7,7 +7,6 @@ updated: 2024-01-14
 
 - [aaronrolston.com](https://aaronrolston.com/)
 - [adamho.com](https://www.adamho.com/)
-- [berkeleygraphics.com](https://berkeleygraphics.com/)
 - [chasem.co](https://chasem.co/)
 - [cindy-wu.com](https://www.cindy-wu.com/)
 - [dylanatsmith.com](https://dylanatsmith.com/)

@@ -2,7 +2,7 @@
 title: Listening
 description: What I am listening to and enjoying right now
 published: 2023-08-11
-updated: 2023-10-16
+updated: 2024-02-05
 ---
 
 ## Musicians
@@ -11,6 +11,7 @@ updated: 2023-10-16
 - [Bears Den](https://www.youtube.com/@bearsdenmusic)
 - [Ben Howard](https://www.youtube.com/channel/UC7P46taO0CdI8Gy44P1X2yA)
 - [Charles Wesley Godwin](https://www.youtube.com/channel/UCJCxcREP5KsQrFgNATnYPWg)
+- [Charley Crockett](https://www.youtube.com/@CharleyCrockett)
 - [Chris Stapleton](https://www.youtube.com/@chrisstapleton)
 - [Devon Gilfillian](https://www.youtube.com/@DevonGilfillian)
 - [Jake Xerxes Fussell](https://www.youtube.com/channel/UCb7Cc1suIkrnKTbI407id2A)
