@@ -93,11 +93,11 @@
   }
 
   .prose table th {
-    @apply border-b-2 py-1 pr-4 text-left font-bold;
+    @apply border-b-2 py-1 pr-4 sm:pr-6 text-left font-bold;
   }
 
   .prose table td {
-    @apply border-t border-dashed py-1 pr-4 align-top;
+    @apply border-t border-dashed py-1 pr-4 sm:pr-6 align-top;
   }
 
   .prose table time {
