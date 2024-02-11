@@ -56,6 +56,14 @@ pinned: true
 - [Immunity throat spray](https://amzn.to/41F4nVK) as recommended by [Matt](https://ma.tt/2023/12/the-bag-post/)
 - [LMNT Electrolytes](https://drinklmnt.com/)
 
+## Home automation
+
+- [Aqara Smart Lock U100](https://amzn.to/49mwQSS)
+- [LEVOIT Humidifiers](https://amzn.to/3uAR38A)
+- [Lutron Aurora Smart Bulb Dimmer Switch](https://amzn.to/3SB7ry7)
+- [meross Smart Plug](https://amzn.to/3HVWZfG)
+- [Philips Hue Light Bulbs](https://amzn.to/3OAnqLG)
+
 ## Kitchen
 
 - [Anyday Bowls Everyday Set](https://cookanyday.com/products/the-everyday-set)
