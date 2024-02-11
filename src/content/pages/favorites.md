@@ -58,6 +58,7 @@ pinned: true
 
 ## Home automation
 
+- [Apple HomePod Mini](https://www.bestbuy.com/site/apple-homepod-mini-white/6377590.p?skuId=6377590)
 - [Aqara Smart Lock U100](https://amzn.to/49mwQSS)
 - [LEVOIT Humidifiers](https://amzn.to/3uAR38A)
 - [Lutron Aurora Smart Bulb Dimmer Switch](https://amzn.to/3SB7ry7)
