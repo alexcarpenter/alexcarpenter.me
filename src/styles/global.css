@@ -75,7 +75,7 @@
   .prose h2,
   .prose h3,
   .prose h4 {
-    @apply font-bold;
+    @apply font-bold scroll-mt-6;
   }
 
   .prose a {
