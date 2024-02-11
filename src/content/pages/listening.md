@@ -15,6 +15,7 @@ updated: 2024-02-05
 - [Chris Stapleton](https://www.youtube.com/@chrisstapleton)
 - [Devon Gilfillian](https://www.youtube.com/@DevonGilfillian)
 - [Jake Xerxes Fussell](https://www.youtube.com/channel/UCb7Cc1suIkrnKTbI407id2A)
+- [Leon Bridges](https://www.youtube.com/channel/UCQr1Q3uFt1K7KhMkDxa9q2w)
 - [Manchester Orchestra](https://www.youtube.com/channel/UCxi28TQABtfZ0pfvMVozD7Q)
 - [Ryan Bingham](https://www.youtube.com/@ryanbingham)
 - [Sturgill Simpson](https://www.youtube.com/@sturgillsimpson)
