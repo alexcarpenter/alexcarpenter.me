@@ -18,5 +18,4 @@ updated: 2024-01-21
 
 - [Geoff McFetridge](https://www.instagram.com/mcfetridge/)
 - [Jean Jullien](https://www.instagram.com/jean_jullien/)
-- [Matt Mullenweg](https://ma.tt)
 - [Van Neistat](https://www.youtube.com/@vanneistat)
