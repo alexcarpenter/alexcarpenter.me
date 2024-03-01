@@ -16,15 +16,6 @@ const metaDescription = description ? description : "UI Engineer";
       type="font/woff2"
       crossorigin="anonymous"
     />
-    <link
-      rel="preload"
-      href="/fonts/GeistMonoVariableVF.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://rsms.me/" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
 
     <!-- Global Metadata -->
     <meta charset="utf-8" />
@@ -65,100 +56,27 @@ const metaDescription = description ? description : "UI Engineer";
     />
   </head>
 
-  <body class="antialiased text-neutral-800 flex flex-col min-h-dvh px-2">
+  <body class="antialiased text-neutral-700 flex flex-col min-h-dvh px-2">
     <div class="max-w-prose w-full mx-auto">
-      <div class="flex h-2 bg-black" aria-hidden>
-        <span class="bg-red-500 w-6"></span>
-        <span class="bg-green-500 w-6"></span>
-        <span class="bg-purple-500 w-6"></span>
-        <span class="bg-teal-500 w-6"></span>
-        <span class="bg-yellow-500 w-6"></span>
-        <span class="bg-pink-500 w-6"></span>
-        <span class="bg-black w-6"></span>
+      <div class="flex h-2 bg-neutral-950" aria-hidden>
+        <span class="bg-neutral-900 w-6"></span>
         <span class="bg-neutral-800 w-6"></span>
+        <span class="bg-neutral-700 w-6"></span>
         <span class="bg-neutral-600 w-6"></span>
+        <span class="bg-neutral-500 w-6"></span>
         <span class="bg-neutral-400 w-6"></span>
+        <span class="bg-neutral-300 w-6"></span>
         <span class="bg-neutral-200 w-6"></span>
         <span class="bg-neutral-100 w-6"></span>
-        <span class="bg-neutral-50 w-6"></span>
       </div>
       <header class="py-4 border-b border-neutral-100">
-        <p class="font-medium">
+        <p class="font-semibold">
           <a href="/">Alex Carpenter</a>
         </p>
-        <p class="text-neutral-500">UI Engineer at Clerk</p>
+        <p class="text-neutral-500a">UI Engineer at Clerk</p>
       </header>
 
-      <div class="py-4">
-        <h2 class="font-medium">Now</h2>
-        <p class="mt-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
-          esse. Cum eaque optio harum, voluptatem corporis dolor pariatur
-          voluptate, accusamus error quod facilis dolores ipsum fugit, facere
-          eum excepturi nostrum?
-        </p>
-        <p class="mt-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
-          esse. Cum eaque optio harum, voluptatem corporis dolor pariatur
-          voluptate, accusamus error quod facilis dolores ipsum fugit, facere
-          eum excepturi nostrum?
-        </p>
-      </div>
+      <!-- <slot /> -->
     </div>
-
-    <!-- <dl class="grid grid-cols-[max-content,1fr] gap-x-4">
-      <dt class="text-neutral-500 font-mono">2024-02-29</dt>
-      <dd>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias
-        excepturi cupiditate ab dolorem vitae possimus quis mollitia odit atque
-        quod itaque harum et totam in ullam, soluta architecto. A, porro?
-      </dd>
-      <dt class="text-neutral-500 font-mono">2024-02-29</dt>
-      <dd>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias
-        excepturi cupiditate ab dolorem vitae possimus quis mollitia odit atque
-        quod itaque harum et totam in ullam, soluta architecto. A, porro?
-      </dd>
-    </dl> -->
-    <!-- <div class="p-12">
-      <time datetime="" class="text-sm text-neutral-500">2024-02-29</time>
-      <h2 class="font-medium text-lg">30 days of photos</h2>
-      <div class="mt-4 max-w-prose space-y-4">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          doloremque, exercitationem ullam impedit accusamus possimus et quae
-          dicta blanditiis praesentium culpa quibusdam natus ex itaque sint
-          temporibus id, aliquam ad?
-        </p>
-        <ul class="list-disc pl-4 space-y-2">
-          <li>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic qui id
-            voluptas, est, quaerat unde corrupti error quo sunt deserunt,
-            dolores tempore. Sed voluptatum quasi commodi eum, ipsum odio ab!
-          </li>
-          <li>
-            Nesciunt voluptates officia eius quod modi perspiciatis dolorem
-            adipisci nisi molestiae asperiores fugit aspernatur deleniti illum
-            commodi aliquid distinctio, eligendi nostrum atque, similique
-            veritatis temporibus repudiandae in et. Quidem, hic!
-          </li>
-          <li>
-            Molestias laudantium velit sapiente consequatur illo inventore,
-            quaerat facere sed totam ex! Nisi suscipit est, eligendi dolorem
-            cumque mollitia? Animi alias cumque sequi at neque laboriosam autem,
-            ducimus corrupti minus?
-          </li>
-        </ul>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi
-          eaque, modi ab enim aperiam provident natus blanditiis non ut sequi
-          ducimus sunt similique quisquam architecto dolore accusantium eveniet
-          alias! Qui facilis atque porro commodi doloremque corrupti cupiditate
-          quidem sint quae, reprehenderit id quaerat voluptas maiores ab vero
-          adipisci unde delectus.
-        </p>
-      </div>
-    </div> -->
-    <!-- <slot /> -->
   </body>
 </html>
