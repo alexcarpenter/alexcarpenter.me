@@ -56,9 +56,9 @@ const metaDescription = description ? description : "UI Engineer";
     />
   </head>
 
-  <body class="antialiased text-neutral-700 flex flex-col min-h-dvh px-2">
-    <div class="max-w-prose w-full mx-auto">
-      <div class="flex h-2 bg-neutral-950" aria-hidden>
+  <body class="antialiased text-neutral-700 flex flex-col h-dvh px-2">
+    <div class="max-w-prose w-full mx-auto flex flex-col h-full">
+      <div class="flex h-2 bg-neutral-950 flex-none" aria-hidden>
         <span class="bg-neutral-900 w-6"></span>
         <span class="bg-neutral-800 w-6"></span>
         <span class="bg-neutral-700 w-6"></span>
@@ -75,6 +75,24 @@ const metaDescription = description ? description : "UI Engineer";
         </p>
         <p>UI Engineer at Clerk</p>
       </header>
+
+      <div class="pb-8 pt-40 border-b border-neutral-200">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
+          cum quo sint libero consectetur accusamus eligendi similique, tempore
+          nobis voluptate, molestias nisi maxime alias animi saepe? Ipsa
+          suscipit in ab.
+        </p>
+        <p class="mt-4">
+          <a href="">View experience</a>
+        </p>
+      </div>
+
+      <div class="py-4 flex-1"></div>
+
+      <footer class="border-t border-neutral-200 py-8">
+        <p>Footer</p>
+      </footer>
 
       <!-- <slot /> -->
     </div>
