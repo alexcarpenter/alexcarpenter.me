@@ -76,25 +76,13 @@ const metaDescription = description ? description : "UI Engineer";
         <p>UI Engineer at Clerk</p>
       </header>
 
-      <div class="pb-8 pt-40 border-b border-neutral-200">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus
-          cum quo sint libero consectetur accusamus eligendi similique, tempore
-          nobis voluptate, molestias nisi maxime alias animi saepe? Ipsa
-          suscipit in ab.
-        </p>
-        <p class="mt-4">
-          <a href="">View experience</a>
-        </p>
-      </div>
-
-      <div class="py-4 flex-1"></div>
+      <main id="main" class="flex-1">
+        <slot />
+      </main>
 
       <footer class="border-t border-neutral-200 py-8">
         <p>Footer</p>
       </footer>
-
-      <!-- <slot /> -->
     </div>
   </body>
 </html>
