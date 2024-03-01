@@ -3,7 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <section class="pb-8 pt-40 border-b border-neutral-200">
+  <section class="pb-8 pt-40">
     <h1 class="font-semibold">Curriculum Vitae</h1>
     <p class="text-neutral-500 mt-4">
       UI engineer who enjoys working at the intersection of design and
@@ -11,7 +11,46 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     </p>
   </section>
 
-  <section class="py-8" id="recommendations">
+  <section class="py-8 border-t border-neutral-200" id="recommendations">
+    <h2 class="font-semibold mb-8">Experience</h2>
+    <ul class="-my-8 divide-y divide-neutral-200 divide-dashed">
+      <li class="py-8 grid grid-cols-3 gap-x-8">
+        <h3 class="col-span-3 font-semibold">Senior UI Engineer at Clerk</h3>
+        <div class="mt-2 col-span-2">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+            blanditiis facilis enim, sed culpa quisquam ad esse, eligendi eos
+            voluptatem cum nisi at vel dolorum et, atque doloribus eum saepe!
+          </p>
+        </div>
+        <ul class="list-disc pl-4">
+          <li>Next.js</li>
+          <li>Tailwind CSS</li>
+          <li>TypeScript</li>
+          <li>Framer Motion</li>
+        </ul>
+      </li>
+
+      <li class="py-8 grid grid-cols-3 gap-x-8">
+        <h3 class="col-span-3 font-semibold">Lead Web Engineer at Watershed</h3>
+        <div class="mt-2 col-span-2">
+          <p>
+            Web Engineer apart of the marketing department, building and
+            maintaining watershed.com. Helping companies cut carbon.
+          </p>
+        </div>
+        <ul class="list-disc pl-4">
+          <li>Next.js</li>
+          <li>Sanity CMS</li>
+          <li>CSS Modules</li>
+          <li>TypeScript</li>
+          <li>Framer Motion</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="py-8 border-t border-neutral-200" id="recommendations">
     <h2 class="font-semibold mb-8">Recommendations</h2>
 
     <ul class="-my-8 divide-y divide-neutral-200 divide-dashed">
