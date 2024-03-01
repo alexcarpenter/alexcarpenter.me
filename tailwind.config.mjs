@@ -9,7 +9,11 @@ export default {
       sans: ["Geist Sans", ...defaultTheme.fontFamily.sans],
       mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
     },
-    extend: {},
+    extend: {
+      listStyleType: {
+        square: "square",
+      },
+    },
   },
   plugins: [],
 };
