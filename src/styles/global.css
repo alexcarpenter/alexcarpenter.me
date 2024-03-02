@@ -58,8 +58,17 @@
     @apply font-semibold;
   }
 
+  .prose * + h2,
+  .prose * + h3 {
+    @apply pt-4;
+  }
+
   .prose a {
     @apply underline decoration-neutral-500 hover:decoration-green-500;
+  }
+
+  .prose ul {
+    @apply pl-4 list-square marker:text-neutral-300;
   }
 
   .prose code,
