@@ -13,10 +13,6 @@ const { Content, headings } = await page.render();
 
   <section class="py-8">
     <div class="relative grid grid-cols-3 items-start gap-x-8">
-      <article class="col-span-2 prose">
-        <Content />
-      </article>
-
       <nav class="sticky top-8">
         <h2 class="sr-only">Table of contents</h2>
         <ul class="max-h-[80dvh] overflow-y-auto space-y-0.5">
@@ -33,6 +29,9 @@ const { Content, headings } = await page.render();
           }
         </ul>
       </nav>
+      <article class="col-span-2 prose">
+        <Content />
+      </article>
     </div>
   </section>
 </BaseLayout>

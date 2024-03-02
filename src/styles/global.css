@@ -40,11 +40,7 @@
 
   dd + dt,
   dd:not(:first-of-type) {
-    @apply border-t border-neutral-200;
-  }
-
-  dd + dd {
-    @apply border-dashed;
+    @apply border-t border-neutral-200 border-dashed;
   }
 }
 
@@ -68,7 +64,7 @@
   }
 
   .prose ul {
-    @apply pl-4 space-y-0.5 list-square marker:text-neutral-300;
+    @apply pl-6 space-y-0.5 list-square marker:text-neutral-300;
   }
 
   .prose ul li ul {
