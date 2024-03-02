@@ -1,12 +1,5 @@
 import { defineCollection, z } from "astro:content";
 
-const notes = defineCollection({
-  type: "content",
-  schema: z.object({
-    published: z.coerce.date(),
-  }),
-});
-
 const experiences = defineCollection({
   type: "content",
   schema: z.object({
@@ -15,6 +8,24 @@ const experiences = defineCollection({
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
     tools: z.array(z.string()),
+  }),
+});
+
+const notes = defineCollection({
+  type: "content",
+  schema: z.object({
+    published: z.coerce.date(),
+  }),
+});
+
+const pages = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    published: z.coerce.date(),
+    updated: z.coerce.date().optional(),
+    draft: z.boolean().optional(),
   }),
 });
 
@@ -27,4 +38,4 @@ const recommendations = defineCollection({
   }),
 });
 
-export const collections = { notes, experiences, recommendations };
+export const collections = { experiences, pages, notes, recommendations };
