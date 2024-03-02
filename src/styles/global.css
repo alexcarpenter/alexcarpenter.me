@@ -55,7 +55,7 @@
 
   .prose h2,
   .prose h3 {
-    @apply font-semibold;
+    @apply font-semibold scroll-mt-4;
   }
 
   .prose * + h2,

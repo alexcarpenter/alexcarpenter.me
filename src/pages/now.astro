@@ -1,5 +1,8 @@
 ---
+import { getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+const page = await getEntry("pages", "now");
+const { Content } = await page.render();
 ---
 
 <BaseLayout>
@@ -9,4 +12,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       This page is my contribution to the /now page movement by Derek Sivers.
     </p>
   </header>
+  <section class="py-8">
+    <div class="prose">
+      <Content />
+    </div>
+  </section>
 </BaseLayout>
