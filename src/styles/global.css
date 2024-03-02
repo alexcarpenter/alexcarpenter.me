@@ -68,11 +68,11 @@
   }
 
   .prose ul {
-    @apply pl-4 space-y-1 list-square marker:text-neutral-300;
+    @apply pl-4 space-y-0.5 list-square marker:text-neutral-300;
   }
 
   .prose ul li ul {
-    @apply mt-1;
+    @apply mt-0.5;
   }
 
   .prose code,

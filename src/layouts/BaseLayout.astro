@@ -84,40 +84,39 @@ const metaDescription = description ? description : "UI Engineer";
         <div class="grid grid-cols-3 gap-x-8">
           <div>
             <h2 class="font-semibold">Sitemap</h2>
-            <ul class="mt-4">
-              <li>
-                <a href="/favorites"
-                  ><span class="text-neutral-300">/</span>favorites</a
-                >
-              </li>
-              <li>
-                <a href="/notes"><span class="text-neutral-300">/</span>notes</a
-                >
-              </li>
-              <li>
-                <a href="/now"><span class="text-neutral-300">/</span>now</a>
-              </li>
-              <li>
-                <a href="/resume"
-                  ><span class="text-neutral-300">/</span>resume</a
-                >
-              </li>
+            <ul class="mt-4 space-y-0.5">
+              {
+                ["favorites", "notes", "now", "resume", "uses"].map((slug) => {
+                  return (
+                    <li>
+                      <a href={`/${slug}`}>
+                        <span class="text-neutral-300" aria-hidden>
+                          /
+                        </span>
+                        {slug}
+                      </a>
+                    </li>
+                  );
+                })
+              }
             </ul>
           </div>
 
           <div>
             <h2 class="font-semibold">Connect</h2>
-            <ul class="mt-4">
+            <ul class="mt-4 space-y-0.5">
               <li>
-                <a href="">Twitter</a>
-                <li>
-                  <a href="">Github</a>
-                </li>
-                <li>
-                  <a href="">LinkedIn</a>
-                  <li><a href="">Email</a></li>
-                </li>
+                <a href="https://twitter.com/hybrid_alex">Twitter</a>
               </li>
+              <li>
+                <a href="https://github.com/alexcarpenter">Github</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/imalexcarpenter/"
+                  >LinkedIn</a
+                >
+              </li>
+              <li><a href="mailto:im.alexcarpenter@gmail.com">Email</a></li>
             </ul>
           </div>
         </div>

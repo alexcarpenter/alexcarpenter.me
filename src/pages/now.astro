@@ -5,7 +5,7 @@ const page = await getEntry("pages", "now");
 const { Content } = await page.render();
 ---
 
-<BaseLayout>
+<BaseLayout title={page.data.title} description={page.data.description}>
   <header class="pb-8 pt-40 border-b border-neutral-200">
     <h1 class="font-semibold">Now</h1>
     <p class="text-neutral-500">
