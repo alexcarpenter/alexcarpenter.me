@@ -28,31 +28,33 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
 <BaseLayout title="Notes" description="Short-form thoughts and updates">
   <header class="pb-8 pt-40 border-b border-neutral-200">
     <h1 class="font-semibold">Notes</h1>
-    <p class="text-neutral-500 mt-4 text-pretty">
-      Short-form thoughts and updates
-    </p>
+    <p class="text-neutral-500 text-pretty">Short-form thoughts and updates</p>
   </header>
-  <dl class="grid grid-cols-[max-content_1fr]">
-    {
-      Object.entries(groupedNotes).map(([date, notes]) => {
-        return (
-          <>
-            <dt id={date} class="pr-8">
-              <FormattedDate
-                date={new Date(date)}
-                class="text-neutral-500 tabular-nums"
-              />
-            </dt>
-            {notes.map((note) =>
-              note.render().then(({ Content }) => (
-                <dd class="col-start-2 space-y-4" id={note.slug}>
-                  <Content />
-                </dd>
-              ))
-            )}
-          </>
-        );
-      })
-    }
-  </dl>
+  <section class="py-8">
+    <dl>
+      {
+        Object.entries(groupedNotes).map(([date, notes]) => {
+          return (
+            <>
+              <dt id={date}>
+                <FormattedDate
+                  date={new Date(date)}
+                  class="text-neutral-500 tabular-nums"
+                />
+              </dt>
+              {notes.map((note) =>
+                note.render().then(({ Content }) => (
+                  <dd id={note.slug}>
+                    <div class="prose">
+                      <Content />
+                    </div>
+                  </dd>
+                ))
+              )}
+            </>
+          );
+        })
+      }
+    </dl>
+  </section>
 </BaseLayout>
