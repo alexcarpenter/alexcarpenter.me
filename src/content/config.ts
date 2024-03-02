@@ -7,16 +7,24 @@ const notes = defineCollection({
   }),
 });
 
-const pages = defineCollection({
+const experiences = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    description: z.string().optional(),
-    published: z.coerce.date(),
-    updated: z.coerce.date().optional(),
-    pinned: z.boolean().optional(),
-    draft: z.boolean().optional(),
+    company: z.string(),
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date().optional(),
+    tools: z.array(z.string()),
   }),
 });
 
-export const collections = { notes, pages };
+const recommendations = defineCollection({
+  type: "content",
+  schema: z.object({
+    name: z.string(),
+    title: z.string(),
+    company: z.string(),
+  }),
+});
+
+export const collections = { notes, experiences, recommendations };

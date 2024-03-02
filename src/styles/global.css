@@ -16,6 +16,9 @@
   font-weight: 400;
 }
 
-html {
-  font-size: 0.875rem;
+@layer base {
+  html {
+    font-size: 0.875rem;
+  }
 }
+

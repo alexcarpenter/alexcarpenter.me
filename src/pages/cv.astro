@@ -1,180 +1,77 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+// Experience
+type ExperienceProps = CollectionEntry<"experiences">;
+const experiences = await getCollection("experiences");
+// Recommendations
+type RecommendationProps = CollectionEntry<"recommendations">;
+const recommendations = await getCollection("recommendations");
 ---
 
-<BaseLayout>
-  <section class="pb-8 pt-40">
+<BaseLayout
+  title="CV"
+  description="UI engineer who enjoys working at the intersection of design and engineering teams."
+>
+  <header class="pb-8 pt-40">
     <h1 class="font-semibold">Curriculum Vitae</h1>
-    <p class="text-neutral-500 mt-4">
+    <p class="text-neutral-500 mt-4 text-pretty">
       UI engineer who enjoys working at the intersection of design and
       engineering teams. Currently apart of the design team at Clerk.
     </p>
-  </section>
+  </header>
 
-  <section class="py-8 border-t border-neutral-200" id="recommendations">
+  <section class="py-8 border-t border-neutral-200" id="experience">
     <h2 class="font-semibold mb-8">Experience</h2>
     <ul class="-my-8 divide-y divide-neutral-200 divide-dashed">
-      <li class="py-8 grid grid-cols-3 gap-x-8 gap-y-4">
-        <h3 class="col-span-3 font-semibold">Senior UI Engineer at Clerk</h3>
-        <div class="col-span-2 space-y-4">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
-            blanditiis facilis enim, sed culpa quisquam ad esse, eligendi eos
-            voluptatem cum nisi at vel dolorum et, atque doloribus eum saepe!
-          </p>
-        </div>
-        <ul class="pl-4 marker:text-gray-300 list-square">
-          <li>Next.js</li>
-          <li>Tailwind CSS</li>
-          <li>TypeScript</li>
-          <li>Framer Motion</li>
-        </ul>
-      </li>
-
-      <li class="py-8 grid grid-cols-3 gap-x-8 gap-y-4">
-        <h3 class="col-span-3 font-semibold">Lead Web Engineer at Watershed</h3>
-        <div class="col-span-2 space-y-4">
-          <p>
-            Web Engineer apart of the marketing department, building and
-            maintaining watershed.com. Helping companies cut carbon.
-          </p>
-          <p>
-            Web Engineer apart of the marketing department, building and
-            maintaining watershed.com. Helping companies cut carbon.
-          </p>
-        </div>
-        <ul class="list-square pl-4 marker:text-gray-300">
-          <li>Next.js</li>
-          <li>Sanity CMS</li>
-          <li>CSS Modules</li>
-          <li>TypeScript</li>
-          <li>Framer Motion</li>
-        </ul>
-      </li>
+      {
+        experiences
+          .sort(
+            (a, b) =>
+              Date.parse(b.data.startDate.toString()) -
+              Date.parse(a.data.startDate.toString())
+          )
+          .map((experience: ExperienceProps) =>
+            experience.render().then(({ Content }) => (
+              <li class="py-8 grid grid-cols-3 gap-x-8 gap-y-4">
+                <h3 class="col-span-3 font-semibold">
+                  {experience.data.title} at {experience.data.company}
+                </h3>
+                <div class="col-span-2 space-y-4">
+                  <Content />
+                </div>
+                <ul class="pl-4 marker:text-gray-300 list-square">
+                  {experience.data.tools.map((tool) => (
+                    <li>{tool}</li>
+                  ))}
+                </ul>
+              </li>
+            ))
+          )
+      }
     </ul>
   </section>
 
   <section class="py-8 border-t border-neutral-200" id="recommendations">
     <h2 class="font-semibold mb-8">Recommendations</h2>
-
     <ul class="-my-8 divide-y divide-neutral-200 divide-dashed">
-      <li class="py-8">
-        <figure>
-          <blockquote>
-            <p>
-              “Alex is an excellent teammate and an exceptionally talented web
-              developer. When he joined the team we gained an incredibly strong
-              collaborator. His thoughtful approach to both producing work and
-              actively reviewing code instantly improved the entire teams
-              workflow. It is clear that Alex is a life long learner and
-              therefore is always sure to bring a new, novel approach to solve a
-              problem.”
-            </p>
-          </blockquote>
-          <figcaption class="text-neutral-500 mt-4 text-right">
-            Jimmy Merritello, Web Engineer, HashiCorp
-          </figcaption>
-        </figure>
-      </li>
-
-      <li class="py-8">
-        <figure>
-          <blockquote>
-            <p>
-              “Alex and I worked together on the design team at NationBuilder.
-              Alex is a natural problem solver, and a talented visual designer.
-              That combination makes him an excellent front-end engineer. We
-              worked together on a new feature with a complex UI and he was able
-              to interpret the designs with a care and detail that is rare,
-              while also making thoughtful UX suggestions. Not to mention Alex
-              is just a great person, easy to talk to and lovely to work with.”
-            </p>
-          </blockquote>
-          <figcaption class="text-neutral-500 mt-4 text-right">
-            Amy Stuart, Senior Designer, NationBuilder
-          </figcaption>
-        </figure>
-      </li>
-
-      <li class="py-8">
-        <figure>
-          <blockquote>
-            <p>
-              “I worked with Alex on a variety of different projects. He is
-              excellent at his craft and a pleasure to collaborate with. His
-              attention to detail always resulted in an extremely polished final
-              product.”
-            </p>
-          </blockquote>
-          <figcaption class="text-neutral-500 mt-4 text-right">
-            Andrew Possehl, Senior Designer, NationBuilder
-          </figcaption>
-        </figure>
-      </li>
-
-      <li class="py-8">
-        <figure>
-          <blockquote>
-            <p>
-              “Alex is incredibly skilled, efficient, and thorough in his work.
-              Perhaps more than any other co-worker I have had, Alex possesses a
-              deep and wide understanding of modern web technologies, while his
-              steady passion for producing best-of-class work inspires his peers
-              to write cleaner, simpler, and more elegant code.”
-            </p>
-          </blockquote>
-          <figcaption class="text-neutral-500 mt-4 text-right">
-            Kyle Luck, Developer, Mighty in the Midwest
-          </figcaption>
-        </figure>
-      </li>
-
-      <li class="py-8">
-        <figure>
-          <blockquote>
-            <p>
-              “I would recommend Alex to any forward-thinking web team. His
-              passion for web standards along with his friendly attitude made
-              him an invaluable part of our development team. I`m always
-              especially impressed with his commitment to continuous learning
-              and I hope to have the chance to work with him again!”
-            </p>
-          </blockquote>
-          <figcaption class="text-neutral-500 mt-4 text-right">
-            Melissa Taylor, Director of Client Services, Mighty in the Midwest
-          </figcaption>
-        </figure>
-      </li>
-
-      <li class="py-8">
-        <figure>
-          <blockquote>
-            <p>
-              “Alex is incredibly thorough and thoughtful with his work and is
-              always seeking out improving in his craft. He’s conscious of
-              meeting deadlines and communicates concerns early so that project
-              teams can be proactive in problem solving.”
-            </p>
-          </blockquote>
-          <figcaption class="text-neutral-500 mt-4 text-right">
-            Danielle Dunn, Project Manager, Mighty in the Midwest
-          </figcaption>
-        </figure>
-      </li>
-
-      <li class="py-8">
-        <figure>
-          <blockquote>
-            <p>
-              “Alex is a true autodidact that is dedicated to keeping up with
-              the latest development tools, methods and trends.”
-            </p>
-          </blockquote>
-          <figcaption class="text-neutral-500 mt-4 text-right">
-            Benjamin Kohl, Back-end Developer, Masuga Design
-          </figcaption>
-        </figure>
-      </li>
+      {
+        recommendations.map((recommendation: RecommendationProps) =>
+          recommendation.render().then(({ Content }) => (
+            <li class="py-8">
+              <figure>
+                <blockquote>
+                  <Content />
+                </blockquote>
+                <figcaption class="text-neutral-500 mt-4 text-right">
+                  {recommendation.data.name}, {recommendation.data.title},{" "}
+                  {recommendation.data.company}
+                </figcaption>
+              </figure>
+            </li>
+          ))
+        )
+      }
     </ul>
   </section>
 </BaseLayout>

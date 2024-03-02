@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 // Remark plugins
 import {
@@ -13,7 +12,7 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: "https://alexcarpenter.me",
-  integrations: [mdx(), sitemap(), tailwind()],
+  integrations: [sitemap(), tailwind()],
   markdown: {
     remarkPlugins: [remarkDefinitionList, remarkAdmonitions],
     remarkRehype: {
@@ -22,10 +21,7 @@ export default defineConfig({
       },
     },
     shikiConfig: {
-      experimentalThemes: {
-        light: "min-light",
-        dark: "min-dark",
-      },
+      theme: "css-variables"
     },
   },
 });

@@ -26,45 +26,33 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
 ---
 
 <BaseLayout title="Notes" description="Short-form thoughts and updates">
-  <header class="relative mb-6 border-b-2 pb-2 pr-12">
-    <h1 class="font-bold">Notes</h1>
-    <p class="text-pretty text-secondary">Short-form thoughts and updates</p>
+  <header class="pb-8 pt-40 border-b border-neutral-200">
+    <h1 class="font-semibold">Notes</h1>
+    <p class="text-neutral-500 mt-4 text-pretty">
+      Short-form thoughts and updates
+    </p>
   </header>
-  <main id="main" class="flex-grow">
-    <div class="prose">
-      <dl>
-        {
-          Object.entries(groupedNotes).map(([date, notes]) => {
-            return (
-              <>
-                <dt id={date}>
-                  <FormattedDate date={new Date(date)} />
-                </dt>
-                {notes.map((note) =>
-                  note.render().then(({ Content }) => (
-                    <dd
-                      class="grid gap-y-2 [&>blockquote]:italic"
-                      id={note.slug}
-                    >
-                      <Content />
-                    </dd>
-                  ))
-                )}
-              </>
-            );
-          })
-        }
-      </dl>
-    </div>
-  </main>
-  <footer class="relative mt-8 border-t-2 pt-3 text-center">
-    <p class="text-sm text-secondary">
-      Published: <FormattedDate
-        date={sortedNotes[sortedNotes.length - 1].data.published}
-      />
-    </p>
-    <p class="text-sm text-secondary">
-      Last updated: <FormattedDate date={sortedNotes[0].data.published} />
-    </p>
-  </footer>
+  <dl class="grid grid-cols-[max-content_1fr]">
+    {
+      Object.entries(groupedNotes).map(([date, notes]) => {
+        return (
+          <>
+            <dt id={date} class="pr-8">
+              <FormattedDate
+                date={new Date(date)}
+                class="text-neutral-500 tabular-nums"
+              />
+            </dt>
+            {notes.map((note) =>
+              note.render().then(({ Content }) => (
+                <dd class="col-start-2 space-y-4" id={note.slug}>
+                  <Content />
+                </dd>
+              ))
+            )}
+          </>
+        );
+      })
+    }
+  </dl>
 </BaseLayout>
