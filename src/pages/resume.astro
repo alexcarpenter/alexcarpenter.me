@@ -1,20 +1,20 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-// Experience
-type ExperienceProps = CollectionEntry<"experiences">;
-const experiences = await getCollection("experiences");
+// Jobs
+type JobProps = CollectionEntry<"jobs">;
+const jobs = await getCollection("jobs");
 // Recommendations
 type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
 ---
 
 <BaseLayout
-  title="CV"
+  title="Resume"
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
   <header class="pb-8 pt-40">
-    <h1 class="font-semibold">Curriculum Vitae</h1>
+    <h1 class="font-semibold">Resume</h1>
     <p class="text-neutral-500 mt-4 text-pretty">
       UI engineer who enjoys working at the intersection of design and
       engineering teams. Currently apart of the design team at Clerk.
@@ -25,23 +25,23 @@ const recommendations = await getCollection("recommendations");
     <h2 class="font-semibold mb-8">Experience</h2>
     <ul class="-my-8 divide-y divide-neutral-200 divide-dashed">
       {
-        experiences
+        jobs
           .sort(
             (a, b) =>
               Date.parse(b.data.startDate.toString()) -
               Date.parse(a.data.startDate.toString())
           )
-          .map((experience: ExperienceProps) =>
-            experience.render().then(({ Content }) => (
+          .map((job: JobProps) =>
+            job.render().then(({ Content }) => (
               <li class="py-8 grid grid-cols-3 gap-x-8 gap-y-4">
                 <h3 class="col-span-3 font-semibold">
-                  {experience.data.title} at {experience.data.company}
+                  {job.data.title} at {job.data.company}
                 </h3>
                 <div class="col-span-2 space-y-4">
                   <Content />
                 </div>
                 <ul class="pl-4 marker:text-gray-300 list-square">
-                  {experience.data.tools.map((tool) => (
+                  {job.data.tools.map((tool) => (
                     <li>{tool}</li>
                   ))}
                 </ul>
