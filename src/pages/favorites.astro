@@ -1,6 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import TableOfContents from "@/components/TableOfContents.astro";
 const page = await getEntry("pages", "favorites");
 const { Content, headings } = await page.render();
 ---
@@ -13,22 +14,7 @@ const { Content, headings } = await page.render();
 
   <section class="py-8">
     <div class="relative grid grid-cols-3 items-start gap-x-8">
-      <nav class="sticky top-8">
-        <h2 class="sr-only">Table of contents</h2>
-        <ul class="max-h-[80dvh] overflow-y-auto space-y-0.5">
-          {
-            headings.map((heading) => {
-              return (
-                <li>
-                  <a href={`#${heading.slug}`} class="text-neutral-500">
-                    {heading.text}
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </nav>
+      <TableOfContents headings={headings} />
       <article class="col-span-2 prose">
         <Content />
       </article>
