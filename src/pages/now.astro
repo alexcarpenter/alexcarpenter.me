@@ -1,7 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-const page = await getEntry("pages", "now");
+const page = await getEntry("documents", "now");
 const { Content } = await page.render();
 ---
 

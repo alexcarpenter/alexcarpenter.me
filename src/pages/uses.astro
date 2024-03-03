@@ -2,7 +2,7 @@
 import { getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
-const page = await getEntry("pages", "uses");
+const page = await getEntry("documents", "uses");
 const { Content, headings } = await page.render();
 ---
 

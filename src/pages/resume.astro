@@ -34,8 +34,13 @@ const recommendations = await getCollection("recommendations");
           .map((job: JobProps) =>
             job.render().then(({ Content }) => (
               <li class="py-8 grid grid-cols-3 gap-x-8 gap-y-4">
-                <h3 class="col-span-3 font-semibold">
+                <h3 class="col-span-3 font-semibold flex items-center gap-x-1">
                   {job.data.title} at {job.data.company}
+                  {!job.data.endDate && (
+                    <span class="text-green-500 text-xs uppercase font-mono px-1 py-px rounded-sm tracking-wider border border-green-500 bg-green-50">
+                      Current
+                    </span>
+                  )}
                 </h3>
                 <div class="col-span-2 space-y-4">
                   <Content />
