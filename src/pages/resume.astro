@@ -37,7 +37,7 @@ const recommendations = await getCollection("recommendations");
                 <h3 class="col-span-3 font-semibold flex items-center gap-x-1">
                   {job.data.title} at {job.data.company}
                   {!job.data.endDate && (
-                    <span class="text-green-500 text-xs uppercase font-mono px-1 py-px rounded-sm tracking-wider border border-green-500 bg-green-50">
+                    <span class="text-green-500 text-xs uppercase font-mono px-1 py-px rounded tracking-wider border border-green-500 bg-green-50">
                       Current
                     </span>
                   )}
