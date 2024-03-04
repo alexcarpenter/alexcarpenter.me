@@ -60,7 +60,7 @@
   }
 
   .prose a {
-    @apply underline decoration-neutral-500 hover:decoration-green-500;
+    @apply underline decoration-neutral-300 hover:decoration-green-500 decoration-[0.09375rem];
   }
 
   .prose ul {
