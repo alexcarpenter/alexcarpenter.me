@@ -1,0 +1,81 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import FormattedDate, {
+  parseDateToString,
+} from "@/components/FormattedDate.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+type BookmarkProps = CollectionEntry<"bookmarks">;
+const bookmarks = await getCollection("bookmarks");
+const sortedBookmarks = bookmarks.sort((a, b) => {
+  const aDate = a.data.published;
+  const bDate = b.data.published;
+  return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+});
+const groupedBookmarks = groupByDay(sortedBookmarks);
+function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
+  const grouped: Record<string, BookmarkProps[]> = {};
+  items.forEach((item) => {
+    const key = parseDateToString(item.data.published.toString());
+    if (!grouped[key]) {
+      grouped[key] = [];
+    }
+    grouped[key].push(item);
+  });
+  return grouped;
+}
+---
+
+<BaseLayout title="Bookmarks" description="Short-form thoughts and updates">
+  <header class="pb-8 pt-40 border-b border-neutral-200">
+    <h1 class="font-semibold">Bookmarks</h1>
+    <!-- <p class="text-neutral-500 text-pretty mt-4">
+      Short-form thoughts and updates.
+    </p> -->
+  </header>
+  <section class="py-8">
+    <dl class="grid grid-cols-[max-content_1fr] -my-8">
+      {
+        Object.entries(groupedBookmarks).map(([date, bookmarks]) => {
+          return (
+            <>
+              <dt
+                id={date}
+                class="pr-8 py-8 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-neutral-200 [&:not(:first-of-type)]:border-dashed"
+              >
+                <FormattedDate
+                  date={new Date(date)}
+                  class="text-neutral-500 tabular-nums"
+                />
+              </dt>
+              {bookmarks.map((bookmark) =>
+                bookmark.render().then(({ Content }) => (
+                  <dd
+                    id={bookmark.slug}
+                    class="py-8 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-neutral-200 [&:not(:first-of-type)]:border-dashed"
+                  >
+                    <h2>
+                      <a
+                        href={bookmark.data.link}
+                        class="underline decoration-neutral-300 hover:decoration-green-500 decoration-[0.09375rem]"
+                      >
+                        {bookmark.data.title}
+                      </a>
+                    </h2>
+                    <p class="text-xs text-neutral-500 font-mono">
+                      {new URL(bookmark.data.link).hostname}
+                    </p>
+                    {bookmark.body && (
+                      <div class="mt-4 prose">
+                        <Content />
+                      </div>
+                    )}
+                  </dd>
+                ))
+              )}
+            </>
+          );
+        })
+      }
+    </dl>
+  </section>
+</BaseLayout>

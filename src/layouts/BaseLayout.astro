@@ -55,7 +55,7 @@ const metaDescription = description ? description : "UI Engineer";
     />
   </head>
 
-  <body class="antialiased text-neutral-700 flex flex-col h-dvh px-2">
+  <body class="antialiased text-neutral-700 flex flex-col h-dvh px-4">
     <div class="max-w-prose w-full mx-auto flex flex-col h-full">
       <div class="flex h-2 bg-neutral-900 flex-none" aria-hidden="true">
         <span class="bg-neutral-900 w-6"></span>
@@ -86,7 +86,14 @@ const metaDescription = description ? description : "UI Engineer";
             <h2 class="font-semibold">Sitemap</h2>
             <ul class="mt-4 space-y-0.5">
               {
-                ["favorites", "notes", "now", "resume", "uses"].map((slug) => {
+                [
+                  "bookmarks",
+                  "favorites",
+                  "notes",
+                  "now",
+                  "resume",
+                  "uses",
+                ].map((slug) => {
                   return (
                     <li>
                       {/* prettier-ignore */}

@@ -21,7 +21,7 @@ export default defineConfig({
       },
     },
     shikiConfig: {
-      theme: "css-variables"
+      theme: "css-variables",
     },
   },
 });
