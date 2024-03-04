@@ -5,3 +5,5 @@ link: https://easings.net/
 tags:
   - animation
 ---
+
+See also Raycast [Easings](https://www.raycast.com/madebyankur/easings/commands) extension.
