@@ -33,12 +33,15 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
     </p>
   </header>
   <section class="py-8">
-    <dl>
+    <dl class="grid grid-cols-[max-content_1fr] -my-8">
       {
         Object.entries(groupedNotes).map(([date, notes]) => {
           return (
             <>
-              <dt id={date}>
+              <dt
+                id={date}
+                class="pr-8 py-8 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-neutral-200 [&:not(:first-of-type)]:border-dashed"
+              >
                 <FormattedDate
                   date={new Date(date)}
                   class="text-neutral-500 tabular-nums"
@@ -46,7 +49,10 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
               </dt>
               {notes.map((note) =>
                 note.render().then(({ Content }) => (
-                  <dd id={note.slug}>
+                  <dd
+                    id={note.slug}
+                    class="py-8 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-neutral-200 [&:not(:first-of-type)]:border-dashed"
+                  >
                     <div class="prose">
                       <Content />
                     </div>

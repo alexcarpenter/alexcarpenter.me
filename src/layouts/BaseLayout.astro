@@ -57,7 +57,7 @@ const metaDescription = description ? description : "UI Engineer";
 
   <body class="antialiased text-neutral-700 flex flex-col h-dvh px-2">
     <div class="max-w-prose w-full mx-auto flex flex-col h-full">
-      <div class="flex h-2 bg-neutral-900 flex-none" aria-hidden>
+      <div class="flex h-2 bg-neutral-900 flex-none" aria-hidden="true">
         <span class="bg-neutral-900 w-6"></span>
         <span class="bg-neutral-800 w-6"></span>
         <span class="bg-neutral-700 w-6"></span>
@@ -90,7 +90,7 @@ const metaDescription = description ? description : "UI Engineer";
                   return (
                     <li>
                       {/* prettier-ignore */}
-                      <a href={`/${slug}`}><span class="text-neutral-300" aria-hidden>/</span>{slug}</a>
+                      <a href={`/${slug}`}><span class="text-neutral-300" aria-hidden="true">/</span>{slug}</a>
                     </li>
                   );
                 })

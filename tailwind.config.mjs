@@ -9,6 +9,10 @@ export default {
       sans: ["Geist Sans", ...defaultTheme.fontFamily.sans],
       mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
     },
+    fontSize: {
+      xs: '0.7142857143rem', // 10px
+      sm: '0.8571428571rem', // 12px
+    },
     extend: {
       listStyleType: {
         square: "square",

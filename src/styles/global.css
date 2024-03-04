@@ -20,28 +20,6 @@
   html {
     font-size: 0.875rem;
   }
-
-  dl {
-    @apply grid grid-cols-[max-content_1fr] -my-8;
-  }
-
-  dt {
-    @apply pr-8;
-  }
-
-  dd {
-    @apply col-start-2;
-  }
-
-  dt,
-  dd {
-    @apply py-8;
-  }
-
-  dd + dt,
-  dd:not(:first-of-type) {
-    @apply border-t border-neutral-200 border-dashed;
-  }
 }
 
 @layer components {
@@ -73,6 +51,6 @@
 
   .prose code,
   .prose kbd {
-    @apply bg-neutral-100 py-px px-0.5 rounded-sm;
+    @apply bg-neutral-100 py-px px-1 rounded;
   }
 }
