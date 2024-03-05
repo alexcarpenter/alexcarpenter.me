@@ -57,4 +57,8 @@
   .prose kbd {
     @apply bg-neutral-100 py-px px-1 rounded;
   }
+
+  .prose pre {
+    @apply !bg-neutral-100 text-sm rounded p-4;
+  }
 }

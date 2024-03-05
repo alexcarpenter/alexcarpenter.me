@@ -33,7 +33,7 @@ function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
     </p> -->
   </header>
   <section class="py-8">
-    <dl class="grid grid-cols-[max-content_1fr] -my-8">
+    <dl class="grid grid-cols-[max-content_minmax(0,1fr)] -my-8">
       {
         Object.entries(groupedBookmarks).map(([date, bookmarks]) => {
           return (
