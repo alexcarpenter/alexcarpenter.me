@@ -14,15 +14,15 @@ const recommendations = await getCollection("recommendations");
 >
   <header class="pb-8 pt-40">
     <h1 class="font-semibold">Resume</h1>
-    <p class="text-neutral-500 mt-4 text-pretty">
+    <p class="text-secondary mt-4 text-pretty">
       UI engineer who enjoys working at the intersection of design and
       engineering teams. Currently apart of the design team at Clerk.
     </p>
   </header>
 
-  <section class="py-8 border-t border-neutral-200" id="experience">
+  <section class="py-8 border-t border-primary" id="experience">
     <h2 class="font-semibold mb-8">Experience</h2>
-    <ul class="-my-8 divide-y divide-neutral-200 divide-dashed">
+    <ul class="-my-8 divide-y divide-primary divide-dashed">
       {
         jobs
           .sort(
@@ -40,7 +40,7 @@ const recommendations = await getCollection("recommendations");
                 <div class="sm:col-span-2 space-y-4">
                   <Content />
                 </div>
-                <ul class="pl-6 sm:pl-4 marker:text-gray-300 list-square">
+                <ul class="pl-6 sm:pl-4 marker:text-subtle list-square">
                   {job.data.tools.map((tool) => (
                     <li>{tool}</li>
                   ))}
@@ -52,9 +52,9 @@ const recommendations = await getCollection("recommendations");
     </ul>
   </section>
 
-  <section class="py-8 border-t border-neutral-200" id="recommendations">
+  <section class="py-8 border-t border-primary" id="recommendations">
     <h2 class="font-semibold mb-8">Recommendations</h2>
-    <ul class="-my-8 divide-y divide-neutral-200 divide-dashed">
+    <ul class="-my-8 divide-y divide-primary divide-dashed">
       {
         recommendations.map((recommendation: RecommendationProps) =>
           recommendation.render().then(({ Content }) => (
@@ -63,7 +63,7 @@ const recommendations = await getCollection("recommendations");
                 <blockquote>
                   <Content />
                 </blockquote>
-                <figcaption class="text-neutral-500 mt-4 text-left">
+                <figcaption class="text-secondary mt-4 text-left">
                   {recommendation.data.name}
                   <br />
                   {recommendation.data.title}, {recommendation.data.company}

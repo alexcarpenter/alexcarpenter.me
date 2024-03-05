@@ -7,9 +7,9 @@ const { Content, headings } = await page.render();
 ---
 
 <BaseLayout title={page.data.title} description={page.data.description}>
-  <header class="pb-8 pt-40 border-b border-neutral-200">
+  <header class="pb-8 pt-40 border-b border-primary">
     <h1 class="font-semibold">{page.data.title}</h1>
-    <p class="text-neutral-500 mt-4">{page.data.description}</p>
+    <p class="text-secondary mt-4">{page.data.description}</p>
   </header>
 
   <section class="py-8 relative grid sm:grid-cols-3 items-start gap-x-8">

@@ -26,9 +26,9 @@ function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
 ---
 
 <BaseLayout title="Bookmarks" description="Short-form thoughts and updates">
-  <header class="pb-8 pt-40 border-b border-neutral-200">
+  <header class="pb-8 pt-40 border-b border-primary">
     <h1 class="font-semibold">Bookmarks</h1>
-    <!-- <p class="text-neutral-500 text-pretty mt-4">
+    <!-- <p class="text-secondary text-pretty mt-4">
       Short-form thoughts and updates.
     </p> -->
   </header>
@@ -40,30 +40,30 @@ function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
             <>
               <dt
                 id={date}
-                class="pr-8 py-8 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-neutral-200 [&:not(:first-of-type)]:border-dashed"
+                class="pr-8 py-8 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed"
               >
                 <FormattedDate
                   date={new Date(date)}
-                  class="text-neutral-500 tabular-nums"
+                  class="text-secondary tabular-nums"
                 />
               </dt>
               {bookmarks.map((bookmark) =>
                 bookmark.render().then(({ Content }) => (
                   <dd
                     id={bookmark.slug}
-                    class="py-8 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-neutral-200 [&:not(:first-of-type)]:border-dashed"
+                    class="py-8 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed"
                   >
                     <h2 class="font-semibold">
                       <a
                         href={bookmark.data.link}
-                        class="underline decoration-neutral-300 hover:decoration-green-500 decoration-[0.09375rem]"
+                        class="underline decoration-subtle hover:decoration-green-500 decoration-[0.09375rem]"
                         target="_blank"
                         rel="noopener"
                       >
                         {bookmark.data.title}
                       </a>
                     </h2>
-                    <p class="text-xs text-neutral-500 font-mono">
+                    <p class="text-xs text-secondary font-mono">
                       {new URL(bookmark.data.link).hostname}
                     </p>
                     {bookmark.body && (

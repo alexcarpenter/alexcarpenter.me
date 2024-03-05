@@ -56,10 +56,13 @@ const metaDescription = description ? description : "UI Engineer";
   </head>
 
   <body
-    class="antialiased text-neutral-700 flex flex-col h-dvh px-4 overflow-x-hidden"
+    class="antialiased text-primary flex flex-col h-dvh px-4 overflow-x-hidden bg-white dark:bg-neutral-900"
   >
     <div class="max-w-prose w-full mx-auto flex flex-col h-full min-w-0">
-      <div class="flex h-2 bg-neutral-900 flex-none" aria-hidden="true">
+      <div
+        class="flex h-2 bg-neutral-900 dark:bg-white flex-none"
+        aria-hidden="true"
+      >
         <span class="bg-neutral-900 w-6"></span>
         <span class="bg-neutral-800 w-6"></span>
         <span class="bg-neutral-700 w-6"></span>
@@ -71,18 +74,18 @@ const metaDescription = description ? description : "UI Engineer";
         <span class="bg-neutral-200 w-6"></span>
         <span class="bg-neutral-100 w-6"></span>
       </div>
-      <header class="relative py-4 border-b border-neutral-200">
+      <header class="relative py-4 border-b border-primary">
         <p>
           <a href="/" class="font-semibold">Alex Carpenter</a>
         </p>
-        <p class="text-neutral-500">UI Engineer at Clerk</p>
+        <p class="text-secondary">UI Engineer at Clerk</p>
       </header>
 
       <main id="main" class="flex-1">
         <slot />
       </main>
 
-      <footer class="border-t border-neutral-200 py-8">
+      <footer class="border-t border-primary py-8">
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-8">
           <div>
             <h2 class="font-semibold">Sitemap</h2>
@@ -99,7 +102,7 @@ const metaDescription = description ? description : "UI Engineer";
                   return (
                     <li>
                       {/* prettier-ignore */}
-                      <a href={`/${slug}`}><span class="text-neutral-300" aria-hidden="true">/</span>{slug}</a>
+                      <a href={`/${slug}`}><span class="text-subtle" aria-hidden="true">/</span>{slug}</a>
                     </li>
                   );
                 })

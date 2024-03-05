@@ -10,10 +10,21 @@ export default {
       mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
-      xs: '0.7142857143rem', // 10px
-      sm: '0.8571428571rem', // 12px
+      xs: "0.7142857143rem", // 10px
+      sm: "0.8571428571rem", // 12px
     },
     extend: {
+      textColor: {
+        primary: "var(--text-color-primary)",
+        secondary: "var(--text-color-secondary)",
+        subtle: "var(--text-color-subtle)",
+      },
+      borderColor: {
+        primary: "var(--border-color-primary)",
+      },
+      textDecorationColor: {
+        subtle: "var(--decoration-color-subtle)",
+      },
       listStyleType: {
         square: "square",
       },

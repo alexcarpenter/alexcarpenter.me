@@ -17,6 +17,24 @@
 }
 
 @layer base {
+  :root {
+    --text-color-primary: theme(colors.neutral.700);
+    --text-color-secondary: theme(colors.neutral.500);
+    --text-color-subtle: theme(colors.neutral.300);
+    --border-color-primary: theme(colors.neutral.200);
+    --decoration-color-subtle: theme(colors.neutral.300);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color-primary: theme(colors.neutral.100);
+      --text-color-secondary: theme(colors.neutral.400);
+      --text-color-subtle: theme(colors.neutral.500);
+      --border-color-primary: theme(colors.neutral.700);
+      --decoration-color-subtle: theme(colors.neutral.500);
+    }
+  }
+
   html {
     font-size: 0.875rem;
   }
@@ -38,7 +56,7 @@
   }
 
   .prose a {
-    @apply underline decoration-neutral-300 hover:decoration-green-500 decoration-[0.09375rem];
+    @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.09375rem];
   }
 
   .prose strong {
@@ -46,7 +64,7 @@
   }
 
   .prose ul {
-    @apply pl-6 space-y-0.5 list-square marker:text-neutral-300;
+    @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
   }
 
   .prose ul li ul {
