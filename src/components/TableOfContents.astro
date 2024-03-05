@@ -15,7 +15,10 @@ const { headings } = Astro.props;
       headings.map((heading) => {
         return (
           <li>
-            <a href={`#${heading.slug}`} class="text-secondary">
+            <a
+              href={`#${heading.slug}`}
+              class="text-secondary hover:text-primary"
+            >
               {heading.text}
             </a>
           </li>
