@@ -63,10 +63,11 @@ const recommendations = await getCollection("recommendations");
                 <blockquote>
                   <Content />
                 </blockquote>
-                <figcaption class="text-secondary mt-4 text-left">
-                  {recommendation.data.name}
-                  <br />
-                  {recommendation.data.title}, {recommendation.data.company}
+                <figcaption class="mt-4">
+                  <p>{recommendation.data.name}</p>
+                  <p class="text-secondary">
+                    {recommendation.data.title}, {recommendation.data.company}
+                  </p>
                 </figcaption>
               </figure>
             </li>
