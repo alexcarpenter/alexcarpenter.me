@@ -1,10 +1,9 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-// Jobs
+import Badge from "@/components/Badge.astro";
 type JobProps = CollectionEntry<"jobs">;
 const jobs = await getCollection("jobs");
-// Recommendations
 type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
 ---
@@ -36,11 +35,7 @@ const recommendations = await getCollection("recommendations");
               <li class="py-8 grid sm:grid-cols-3 gap-x-8 gap-y-4">
                 <h3 class="sm:col-span-3 font-semibold flex items-center gap-x-1">
                   {job.data.title} at {job.data.company}
-                  {!job.data.endDate && (
-                    <span class="text-neutral-500 text-xs uppercase font-mono px-1 py-px rounded tracking-wider bg-neutral-100 border border-transparent">
-                      Current
-                    </span>
-                  )}
+                  {!job.data.endDate && <Badge>Current</Badge>}
                 </h3>
                 <div class="sm:col-span-2 space-y-4">
                   <Content />
