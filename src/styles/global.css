@@ -54,7 +54,7 @@
   }
 
   .prose a {
-    @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.09375rem];
+    @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
   }
 
   .prose strong {
