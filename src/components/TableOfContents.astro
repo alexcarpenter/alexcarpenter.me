@@ -1,0 +1,29 @@
+---
+import { type MarkdownHeading } from "astro";
+interface Props {
+  headings: MarkdownHeading[];
+}
+const { headings } = Astro.props;
+---
+
+<nav class="top-8 hidden sticky sm:block">
+  <h2 class="sr-only">Table of contents</h2>
+  <ul
+    class="max-h-[calc(100dvh_-_theme(spacing.8))] overflow-y-auto space-y-0.5 pb-4"
+  >
+    {
+      headings.map((heading) => {
+        return (
+          <li>
+            <a
+              href={`#${heading.slug}`}
+              class="text-secondary hover:text-primary"
+            >
+              {heading.text}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

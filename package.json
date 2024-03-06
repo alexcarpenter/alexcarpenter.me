@@ -19,6 +19,7 @@
     "class-variance-authority": "^0.7.0",
     "date-fns": "^3.0.6",
     "embla-carousel": "^8.0.0-rc21",
+    "geist": "^1.2.2",
     "markdown-it": "^14.0.0",
     "remark-definition-list": "^2.0.0",
     "remark-gfm": "^4.0.0",

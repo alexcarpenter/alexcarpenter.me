@@ -1,0 +1,79 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Badge from "@/components/Badge.astro";
+type JobProps = CollectionEntry<"jobs">;
+const jobs = await getCollection("jobs");
+type RecommendationProps = CollectionEntry<"recommendations">;
+const recommendations = await getCollection("recommendations");
+---
+
+<BaseLayout
+  title="Resume"
+  description="UI engineer who enjoys working at the intersection of design and engineering teams."
+>
+  <header class="pb-8 pt-40">
+    <h1 class="font-semibold">Resume</h1>
+    <p class="text-secondary mt-1 text-pretty">
+      UI engineer who enjoys working at the intersection of design and
+      engineering teams. Currently apart of the design team at Clerk.
+    </p>
+  </header>
+
+  <section class="py-8 border-t border-primary" id="experience">
+    <h2 class="font-semibold mb-8">Experience</h2>
+    <ul class="-my-8 divide-y divide-primary divide-dashed">
+      {
+        jobs
+          .sort(
+            (a, b) =>
+              Date.parse(b.data.startDate.toString()) -
+              Date.parse(a.data.startDate.toString())
+          )
+          .map((job: JobProps) =>
+            job.render().then(({ Content }) => (
+              <li class="py-8 grid sm:grid-cols-3 gap-x-8 gap-y-4">
+                <h3 class="sm:col-span-3 font-semibold flex items-center gap-x-1">
+                  {job.data.title} at {job.data.company}
+                  {!job.data.endDate && <Badge>Current</Badge>}
+                </h3>
+                <div class="sm:col-span-2 space-y-4 text-secondary">
+                  <Content />
+                </div>
+                <ul class="pl-6 sm:pl-4 marker:text-subtle list-square">
+                  {job.data.tools.map((tool) => (
+                    <li>{tool}</li>
+                  ))}
+                </ul>
+              </li>
+            ))
+          )
+      }
+    </ul>
+  </section>
+
+  <section class="pt-8 pb-16 border-t border-primary" id="recommendations">
+    <h2 class="font-semibold mb-8">Recommendations</h2>
+    <ul class="-my-8 divide-y divide-primary divide-dashed">
+      {
+        recommendations.map((recommendation: RecommendationProps) =>
+          recommendation.render().then(({ Content }) => (
+            <li class="py-8">
+              <figure>
+                <blockquote>
+                  <Content />
+                </blockquote>
+                <figcaption class="mt-4">
+                  <p>{recommendation.data.name}</p>
+                  <p class="text-secondary">
+                    {recommendation.data.title}, {recommendation.data.company}
+                  </p>
+                </figcaption>
+              </figure>
+            </li>
+          ))
+        )
+      }
+    </ul>
+  </section>
+</BaseLayout>

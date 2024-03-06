@@ -4,16 +4,16 @@ import FormattedDate, {
   parseDateToString,
 } from "@/components/FormattedDate.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-type NoteProps = CollectionEntry<"notes">;
-const notes = await getCollection("notes");
-const sortedNotes = notes.sort((a, b) => {
+type BookmarkProps = CollectionEntry<"bookmarks">;
+const bookmarks = await getCollection("bookmarks");
+const sortedBookmarks = bookmarks.sort((a, b) => {
   const aDate = a.data.published;
   const bDate = b.data.published;
   return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
 });
-const groupedNotes = groupByDay(sortedNotes);
-function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
-  const grouped: Record<string, NoteProps[]> = {};
+const groupedBookmarks = groupByDay(sortedBookmarks);
+function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
+  const grouped: Record<string, BookmarkProps[]> = {};
   items.forEach((item) => {
     const key = parseDateToString(item.data.published.toString());
     if (!grouped[key]) {
@@ -25,17 +25,17 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
 }
 ---
 
-<BaseLayout title="Notes" description="Short-form thoughts and updates">
+<BaseLayout title="Bookmarks" description="Short-form thoughts and updates">
   <header class="pb-8 pt-40 border-b border-primary">
-    <h1 class="font-semibold">Notes</h1>
-    <p class="text-secondary text-pretty mt-1">
+    <h1 class="font-semibold">Bookmarks</h1>
+    <!-- <p class="text-secondary text-pretty mt-4">
       Short-form thoughts and updates.
-    </p>
+    </p> -->
   </header>
   <section class="pt-8 pb-16">
     <dl class="grid grid-cols-[max-content_minmax(0,1fr)] -my-8">
       {
-        Object.entries(groupedNotes).map(([date, notes]) => {
+        Object.entries(groupedBookmarks).map(([date, bookmarks]) => {
           return (
             <>
               <dt
@@ -47,15 +47,30 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
                   class="text-secondary tabular-nums"
                 />
               </dt>
-              {notes.map((note) =>
-                note.render().then(({ Content }) => (
+              {bookmarks.map((bookmark) =>
+                bookmark.render().then(({ Content }) => (
                   <dd
-                    id={note.slug}
+                    id={bookmark.slug}
                     class="py-8 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed"
                   >
-                    <div class="prose">
-                      <Content />
-                    </div>
+                    <h2 class="font-semibold">
+                      <a
+                        href={bookmark.data.link}
+                        class="underline decoration-subtle hover:decoration-green-500 decoration-[0.09375rem]"
+                        target="_blank"
+                        rel="noopener"
+                      >
+                        {bookmark.data.title}
+                      </a>
+                    </h2>
+                    <p class="text-sm text-secondary font-mono">
+                      {new URL(bookmark.data.link).hostname}
+                    </p>
+                    {bookmark.body && (
+                      <div class="mt-4 prose">
+                        <Content />
+                      </div>
+                    )}
                   </dd>
                 ))
               )}

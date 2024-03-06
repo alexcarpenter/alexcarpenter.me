@@ -1,34 +1,8 @@
 ---
-import type { HTMLTag, Polymorphic } from "astro/types";
-import { cva, type VariantProps } from "class-variance-authority";
 
-const badgeVariants = cva(
-  "rounded-sm bg-zinc-50 px-1.5 py-0.5 text-sm dark:bg-neutral-800",
-  {
-    variants: {
-      text: {
-        primary: "text-primary",
-        secondary: "text-secondary",
-      },
-      border: {
-        true: "border",
-        false: "",
-      },
-    },
-    defaultVariants: {
-      text: "secondary",
-      border: false,
-    },
-  }
-);
-
-type Props<Tag extends HTMLTag> = Polymorphic<
-  { as: Tag } & VariantProps<typeof badgeVariants>
->;
-
-const { as: Tag = "span", text, border, ...props } = Astro.props;
 ---
 
-<Tag {...props} class={badgeVariants({ text, border })}>
-  <slot />
-</Tag>
+<span
+  class="text-neutral-500 text-xs uppercase font-mono px-1 py-px rounded tracking-wider bg-neutral-100 border border-transparent dark:bg-neutral-800 dark:text-neutral-400"
+  ><slot /></span
+>

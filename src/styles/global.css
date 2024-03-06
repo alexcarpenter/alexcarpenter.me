@@ -3,231 +3,78 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "iA Writer Quattro";
-  src: url("/fonts/iAWriterQuattroS-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Geist Sans";
+  src: url("/fonts/GeistVariableVF.woff2") format("woff2");
   font-display: swap;
+  font-weight: 400 600;
 }
 
 @font-face {
-  font-family: "iA Writer Quattro";
-  src: url("/fonts/iAWriterQuattroS-Italic.woff2") format("woff2");
+  font-family: "Geist Mono";
+  src: url("/fonts/GeistMonoVariableVF.woff2") format("woff2");
+  font-display: swap;
   font-weight: 400;
-  font-style: italic;
-  font-display: swap;
 }
 
-@font-face {
-  font-family: "iA Writer Quattro";
-  src: url("/fonts/iAWriterQuattroS-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-:root {
-  --page: 244 244 245;
-  --foreground-primary: 39 39 42;
-  --foreground-secondary: 82 82 91;
-  --border: 212 212 216;
-  --shadow: 212 212 212;
-  /*
-   * International Orange (Aerospace)
-   * see: https://en.wikipedia.org/wiki/International_orange#Aerospace
-   */
-  --highlight: 240 74 0;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --page: 23 23 23;
-    --foreground-primary: 245 245 245;
-    --foreground-secondary: 163 163 163;
-    --border: 64 64 64;
-    --shadow: 64 64 64;
-    /*
-   * International Orange (Golden Gate Bridge)
-   * see: https://en.wikipedia.org/wiki/International_orange#Golden_Gate_Bridge
-   */
-    --highlight: 255 79 0;
+    --text-color-primary: theme(colors.neutral.700);
+    --text-color-secondary: theme(colors.neutral.500);
+    --text-color-subtle: theme(colors.neutral.300);
+    --border-color-primary: theme(colors.neutral.200);
+    --decoration-color-subtle: theme(colors.neutral.300);
   }
 
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-    font-style: var(--shiki-dark-font-style) !important;
-    font-weight: var(--shiki-dark-font-weight) !important;
-    text-decoration: var(--shiki-dark-text-decoration) !important;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-color-primary: theme(colors.neutral.100);
+      --text-color-secondary: theme(colors.neutral.400);
+      --text-color-subtle: theme(colors.neutral.500);
+      --border-color-primary: theme(colors.neutral.700);
+      --decoration-color-subtle: theme(colors.neutral.500);
+    }
+  }
+
+  html {
+    font-size: 0.875rem;
   }
 }
 
 @layer components {
-  .prose > * + * {
-    @apply mt-3;
+  .prose :where(* + *) {
+    @apply mt-4;
   }
 
-  .prose p {
-    @apply text-pretty;
+  .prose :where(h2, h3) {
+    @apply font-semibold scroll-mt-4;
   }
 
-  .prose h2,
-  .prose h3,
-  .prose h4 {
-    @apply font-bold scroll-mt-6;
+  .prose :where(* + h2, * + h3) {
+    @apply mt-8;
   }
 
   .prose a {
-    @apply underline;
+    @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.09375rem];
+  }
+
+  .prose strong {
+    @apply font-semibold;
   }
 
   .prose ul {
-    @apply list-disc space-y-1 pl-6;
+    @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
   }
 
-  .prose ul ul {
-    @apply mt-1 list-circle;
+  .prose ul li ul {
+    @apply mt-0.5;
   }
 
-  .prose ul ul ul {
-    @apply mt-1 list-square;
-  }
-
-  .prose ol {
-    @apply space-y-1 pl-12;
-    list-style-type: decimal-leading-zero;
-  }
-
-  .prose p:has(img) {
-    @apply relative aspect-3/2 overflow-hidden;
-  }
-
-  .prose p img {
-    @apply absolute inset-0 w-full h-full object-cover object-center;
-  }
-
-  .prose * + p:has(img),
-  .prose p:has(img) + * {
-    @apply mt-6;
-  }
-
-  .prose table {
-    @apply w-full overflow-auto;
-  }
-
-  .prose table th {
-    @apply border-b-2 py-1 pr-4 sm:pr-6 text-left font-bold;
-  }
-
-  .prose table td {
-    @apply border-t border-dashed py-1 pr-4 sm:pr-6 align-top;
-  }
-
-  .prose table time {
-    @apply text-nowrap text-secondary w-max block;
-  }
-
-  .prose dl:not([class]) {
-    @apply grid grid-cols-[max-content_1fr];
-  }
-
-  .prose dt {
-    @apply pr-6 text-secondary;
-  }
-
-  .prose dt:first-of-type,
-  .prose dd:first-of-type {
-    @apply pb-2;
-  }
-
-  .prose > dl:not(:first-child) dt:first-of-type,
-  .prose > dl:not(:first-child) dd:first-of-type {
-    @apply border-t pt-2;
-  }
-
-  .prose dt:not(:first-of-type),
-  .prose dd:not(:first-of-type) {
-    @apply border-t border-dashed py-2;
-  }
-
-  .prose dd {
-    @apply col-start-2;
-  }
-
-  .prose blockquote {
-    @apply space-y-3 pl-4 border-l-2;
-  }
-
-  .prose * + h2,
-  .prose * + h3,
-  .prose *:not(h2):not(h3) + table,
-  .prose *:not(h2):not(h3) + dl {
-    @apply mt-6;
-  }
-
-  .prose hr {
-    @apply my-4 border-dashed;
-  }
-
-  .prose hr:has(+ h2),
-  .prose hr:has(+ h3) {
-    @apply mt-6;
-  }
-
-  .prose .spacer + * {
-    @apply mt-0;
-  }
-
-  .prose h2 + small,
-  .prose h3 + small,
-  .prose h2 + p:has(small),
-  .prose h3 + p:has(small) {
-    @apply mt-0.5 text-secondary text-sm uppercase block *:text-sm;
-  }
-
-  .prose .contains-task-list {
-    @apply list-none pl-1;
-  }
-
-  .prose .task-list-item {
-    @apply relative pl-6;
-  }
-
-  .prose .task-list-item input {
-    @apply absolute left-0 top-1 h-4 w-4 appearance-none;
-    background-color: rgb(var(--foreground-secondary));
-    mask-size: contain;
-    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItY2lyY2xlIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCI+PC9jaXJjbGU+PC9zdmc+");
-  }
-
-  .prose .task-list-item input[checked] {
-    @apply bg-highlight;
-    mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItY2hlY2stY2lyY2xlIj48cGF0aCBkPSJNMjIgMTEuMDhWMTJhMTAgMTAgMCAxIDEtNS45My05LjE0Ij48L3BhdGg+PHBvbHlsaW5lIHBvaW50cz0iMjIgNCAxMiAxNC4wMSA5IDExLjAxIj48L3BvbHlsaW5lPjwvc3ZnPg==");
-  }
-
-  .prose .admonition {
-    @apply border border-dashed p-3 pt-4 relative;
-  }
-
-  .prose .admonition-title {
-    @apply absolute top-0 left-2 -translate-y-1/2 bg-page px-1 text-secondary text-sm uppercase;
-  }
-
-  .prose mark {
-    @apply bg-yellow-800 text-primary;
-  }
-
-  .prose .astro-code {
-    @apply text-sm rounded-sm p-2 border;
-  }
-
-  .prose :not(pre) > code,
+  .prose code,
   .prose kbd {
-    @apply text-sm bg-zinc-50 dark:bg-neutral-800 px-1 py-0.5 rounded-sm text-primary;
+    @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
   }
 
-  /* .prose kbd {
-    @apply rounded-[0.25em] border-b-[0.125em] border-t border-b-black/10 border-t-white bg-gradient-to-b from-black/10 to-black/5 px-[0.3em] text-sm [box-shadow:0_0_0_1px_rgba(0,0,0,0.25)] dark:border-t-0 dark:border-b-black/40 dark:from-white/10 dark:to-white/[15%] dark:[box-shadow:0_0_0_1px_rgba(255,255,255,0.15)];
-  } */
+  .prose pre {
+    @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
+  }
 }

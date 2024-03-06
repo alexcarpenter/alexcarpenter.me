@@ -6,33 +6,27 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      sans: ["iA Writer Quattro", ...defaultTheme.fontFamily.sans],
-      mono: [defaultTheme.fontFamily.mono],
+      sans: ["Geist Sans", ...defaultTheme.fontFamily.sans],
+      mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
+    },
+    fontSize: {
+      xs: "0.7142857143rem", // 10px
+      sm: "0.8571428571rem", // 12px
     },
     extend: {
-      colors: {
-        highlight: "rgb(var(--highlight))",
-      },
-      backgroundColor: {
-        page: "rgb(var(--page))",
-      },
       textColor: {
-        primary: "rgb(var(--foreground-primary))",
-        secondary: "rgb(var(--foreground-secondary))",
+        primary: "var(--text-color-primary)",
+        secondary: "var(--text-color-secondary)",
+        subtle: "var(--text-color-subtle)",
       },
       borderColor: {
-        DEFAULT: "rgb(var(--border))",
+        primary: "var(--border-color-primary)",
+      },
+      textDecorationColor: {
+        subtle: "var(--decoration-color-subtle)",
       },
       listStyleType: {
-        circle: "circle",
         square: "square",
-      },
-      boxShadow: {
-        btn: "2px 2px rgb(var(--shadow))",
-      },
-      aspectRatio: {
-        "4/3": "4 / 3",
-        "3/2": "3 / 2",
       },
     },
   },

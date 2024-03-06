@@ -1,0 +1,20 @@
+---
+import { getEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const page = await getEntry("documents", "now");
+const { Content } = await page.render();
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <header class="pb-8 pt-40 border-b border-primary">
+    <h1 class="font-semibold">Now</h1>
+    <p class="text-secondary mt-1">
+      This page is my contribution to the /now page movement by Derek Sivers.
+    </p>
+  </header>
+  <section class="pb-16 pt-8">
+    <div class="prose">
+      <Content />
+    </div>
+  </section>
+</BaseLayout>
