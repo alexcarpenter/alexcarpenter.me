@@ -41,8 +41,8 @@
 }
 
 @layer components {
-  .prose {
-    @apply space-y-4;
+  .prose :where(* + *) {
+    @apply mt-4;
   }
 
   .prose :where(h2, h3) {
