@@ -63,7 +63,7 @@ function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
                         {bookmark.data.title}
                       </a>
                     </h2>
-                    <p class="text-xs text-secondary font-mono">
+                    <p class="text-sm text-secondary font-mono">
                       {new URL(bookmark.data.link).hostname}
                     </p>
                     {bookmark.body && (
