@@ -37,7 +37,7 @@ const recommendations = await getCollection("recommendations");
                   {job.data.title} at {job.data.company}
                   {!job.data.endDate && <Badge>Current</Badge>}
                 </h3>
-                <div class="sm:col-span-2 space-y-4 text-secondary">
+                <div class="sm:col-span-2 space-y-4">
                   <Content />
                 </div>
                 <ul class="pl-6 sm:pl-4 marker:text-subtle list-square">
