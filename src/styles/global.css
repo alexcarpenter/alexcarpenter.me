@@ -50,7 +50,7 @@
   }
 
   .prose :where(* + h2, * + h3) {
-    @apply pt-4;
+    @apply mt-8;
   }
 
   .prose a {
