@@ -10,4 +10,4 @@ tools:
   - Framer Motion
 ---
 
-Web Engineer apart of the marketing department, building and maintaining watershed.com. Helping companies cut carbon.
+Web Engineer apart of the marketing department, built and maintained everything across watershed.com.

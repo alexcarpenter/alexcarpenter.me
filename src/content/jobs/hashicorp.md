@@ -12,4 +12,4 @@ tools:
   - Framer Motion
 ---
 
-Lead Web Engineer on the core web team, helping build and maintain public-facing HashiCorp websites and web applications with Next.js.
+Lead Web Engineer on the core web team, helped build and maintain public-facing HashiCorp websites and web applications with Next.js.
