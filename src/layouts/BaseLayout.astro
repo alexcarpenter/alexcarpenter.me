@@ -87,7 +87,7 @@ const metaDescription = description ? description : "UI Engineer";
 
       <footer class="border-t border-primary py-8">
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-8">
-          <div>
+          <nav>
             <h2 class="font-semibold">Sitemap</h2>
             <ul class="mt-4 space-y-0.5">
               {
@@ -102,13 +102,13 @@ const metaDescription = description ? description : "UI Engineer";
                   return (
                     <li>
                       {/* prettier-ignore */}
-                      <a href={`/${slug}`}><span class="text-subtle" aria-hidden="true">/</span>{slug}</a>
+                      <a href={`/${slug}`} aria-current={Astro.url.pathname === `/${slug}` ? 'page' : undefined}><span class="text-subtle" aria-hidden="true">/</span>{slug}</a>
                     </li>
                   );
                 })
               }
             </ul>
-          </div>
+          </nav>
 
           <div>
             <h2 class="font-semibold">Connect</h2>
