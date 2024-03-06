@@ -9,4 +9,4 @@ tools:
   - Framer Motion
 ---
 
-TODO
+UI Engineer apart of the design team, currently working on dashboard UI.
