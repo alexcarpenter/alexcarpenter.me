@@ -45,13 +45,11 @@
     @apply space-y-4;
   }
 
-  .prose h2,
-  .prose h3 {
+  .prose :where(h2, h3) {
     @apply font-semibold scroll-mt-4;
   }
 
-  .prose * + h2,
-  .prose * + h3 {
+  .prose :where(* + h2, * + h3) {
     @apply pt-4;
   }
 
