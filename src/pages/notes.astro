@@ -32,7 +32,7 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
       Short-form thoughts and updates.
     </p>
   </header>
-  <section class="py-8">
+  <section class="pt-8 pb-16">
     <dl class="grid grid-cols-[max-content_minmax(0,1fr)] -my-8">
       {
         Object.entries(groupedNotes).map(([date, notes]) => {

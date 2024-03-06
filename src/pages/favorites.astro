@@ -12,7 +12,7 @@ const { Content, headings } = await page.render();
     <p class="text-secondary mt-4">{page.data.description}</p>
   </header>
 
-  <section class="py-8 relative grid sm:grid-cols-3 items-start gap-x-8">
+  <section class="pt-8 pb-16 relative grid sm:grid-cols-3 items-start gap-x-8">
     <TableOfContents headings={headings} />
     <article class="sm:col-span-2 prose">
       <Content />
