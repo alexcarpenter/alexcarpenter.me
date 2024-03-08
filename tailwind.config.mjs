@@ -14,6 +14,9 @@ export default {
       sm: "0.8571428571rem", // 12px
     },
     extend: {
+      backgroundColor: {
+        primary: "var(--page-primary)",
+      },
       textColor: {
         primary: "var(--text-color-primary)",
         secondary: "var(--text-color-secondary)",
