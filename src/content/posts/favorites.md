@@ -3,6 +3,7 @@ title: Favorites
 description: My favorite products, tools and gear.
 published: 2023-07-19
 updated: 2024-01-01
+toc: true
 ---
 
 ## Baby
