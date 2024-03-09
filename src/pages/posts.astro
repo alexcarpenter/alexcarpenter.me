@@ -1,0 +1,43 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import { getCollection } from "astro:content";
+const posts = await getCollection("posts");
+const sortedPosts = posts.sort((a, b) => {
+  const aDate = a.data.updated || a.data.published;
+  const bDate = b.data.updated || b.data.published;
+  return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+});
+---
+
+<BaseLayout title="Posts">
+  <header class="pb-8 pt-40 border-b border-primary">
+    <h1 class="font-semibold">Posts</h1>
+  </header>
+  <section class="pt-8 pb-16">
+    <dl class="grid grid-cols-[max-content_minmax(0,1fr)] -my-8">
+      {
+        sortedPosts.map((post) => {
+          return (
+            <>
+              <dt class="pr-8 py-8 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed">
+                <FormattedDate
+                  date={new Date(post.data.updated || post.data.published)}
+                  class="text-secondary tabular-nums"
+                />
+              </dt>
+              <dd class="py-8 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed">
+                <div class="prose">
+                  <h2>
+                    <a href={`/${post.slug}`}>{post.data.title}</a>
+                  </h2>
+                  <p class="mt-1 text-secondary">{post.data.description}</p>
+                </div>
+              </dd>
+            </>
+          );
+        })
+      }
+    </dl>
+  </section>
+</BaseLayout>

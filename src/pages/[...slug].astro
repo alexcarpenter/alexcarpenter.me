@@ -1,0 +1,38 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TableOfContents from "@/components/TableOfContents.astro";
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"posts">;
+const post = Astro.props;
+const { headings, Content } = await post.render();
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <header class="pb-8 pt-40 border-b border-primary">
+    <h1 class="font-semibold">{post.data.title}</h1>
+    <p class="text-secondary mt-1">{post.data.description}</p>
+  </header>
+  {
+    post.data.toc ? (
+      <section class="pt-8 pb-16 relative grid sm:grid-cols-3 items-start gap-x-8">
+        <TableOfContents headings={headings} />
+        <article class="sm:col-span-2 prose">
+          <Content />
+        </article>
+      </section>
+    ) : (
+      <section class="pt-8 pb-16">
+        <article class="prose">
+          <Content />
+        </article>
+      </section>
+    )
+  }
+</BaseLayout>
