@@ -6,17 +6,10 @@ const { Content } = await homepage.render();
 ---
 
 <BaseLayout>
+  <h1 class="sr-only">Homepage</h1>
   <section class="py-40">
     <div class="prose">
       <Content />
     </div>
-    <!-- <div class="prose sm:text-center">
-      <h1 class="font-semibold">Welcome</h1>
-      <p class="text-pretty">
-        I'm Alex, a Design Engineer with over 11 years of experience working
-        across engineering, design, and marketing teams. Currently, I'm part of
-        the design team at <a href="https://clerk.com">Clerk</a>.
-      </p>
-    </div> -->
   </section>
 </BaseLayout>
