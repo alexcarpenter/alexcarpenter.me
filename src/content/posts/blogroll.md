@@ -1,6 +1,6 @@
 ---
 title: Blogroll
-description: Blogs I enjoy subscribing too.
+description: Blogs I enjoy reading.
 published: 2024-03-10
 ---
 
