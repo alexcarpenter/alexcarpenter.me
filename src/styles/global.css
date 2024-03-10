@@ -79,4 +79,16 @@
   .prose pre {
     @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
   }
+
+  .prose dl {
+    @apply grid grid-cols-[max-content_minmax(0,1fr)] -my-2;
+  }
+
+  .prose dt {
+    @apply m-0 pr-8 py-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed text-secondary;
+  }
+
+  .prose dd {
+    @apply m-0 py-2 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed;
+  }
 }

@@ -10,6 +10,15 @@ const bookmarks = defineCollection({
   }),
 });
 
+const documents = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    published: z.coerce.date(),
+    updated: z.coerce.date().optional(),
+  }),
+});
+
 const jobs = defineCollection({
   type: "content",
   schema: z.object({
@@ -50,6 +59,7 @@ const recommendations = defineCollection({
 
 export const collections = {
   bookmarks,
+  documents,
   jobs,
   notes,
   posts,

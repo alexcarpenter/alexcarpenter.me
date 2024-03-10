@@ -1,16 +1,22 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getEntry } from "astro:content";
+const homepage = await getEntry("documents", "homepage");
+const { Content } = await homepage.render();
 ---
 
 <BaseLayout>
   <section class="py-40">
-    <div class="prose sm:text-center">
+    <div class="prose">
+      <Content />
+    </div>
+    <!-- <div class="prose sm:text-center">
       <h1 class="font-semibold">Welcome</h1>
       <p class="text-pretty">
         I'm Alex, a Design Engineer with over 11 years of experience working
         across engineering, design, and marketing teams. Currently, I'm part of
         the design team at <a href="https://clerk.com">Clerk</a>.
       </p>
-    </div>
+    </div> -->
   </section>
 </BaseLayout>
