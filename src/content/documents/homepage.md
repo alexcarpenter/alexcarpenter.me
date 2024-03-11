@@ -4,13 +4,13 @@ published: 2024-03-10
 ---
 
 Name
-: Alex Carpenter™
+: Alex Carpenter
 
 Location
 : Grand Rapids, MI.
 
-Profession
-: Design Engineer at [Clerk](https://clerk.com)
+Work
+: Design Engineer at [Clerk](https://clerk.com), previously [Watershed](https://watershed.com), [HashiCorp](https://hashicorp.com)
 
 Currently
 : Eagerly awaiting the spring weather and the order of a Ricoh GR IIIx

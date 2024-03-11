@@ -1,15 +1,46 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getEntry } from "astro:content";
-const homepage = await getEntry("documents", "homepage");
-const { Content } = await homepage.render();
+const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
 ---
 
 <BaseLayout>
   <h1 class="sr-only">Homepage</h1>
-  <section class="py-40">
-    <div class="prose">
-      <Content />
-    </div>
+  <section class="prose py-40">
+    <dl>
+      <dt>Name</dt>
+      <dd>Alex Carpenter</dd>
+      <dt>Location</dt>
+      <dd>Grand Rapids, MI.</dd>
+      <dt>Work</dt>
+      <dd>
+        Design Engineer at <a href="https://clerk.com">Clerk</a>, previously <a
+          href="https://watershed.com">Watershed</a
+        >, <a href="https://hashicorp.com">HashiCorp</a>
+      </dd>
+      <dt>Colophon</dt>
+      <dd>Astro, TailwindCSS, Geist Sans/Mono</dd>
+      <dt>Version</dt>
+      <dd>4.0.0-alpha</dd>
+      <dt>View source</dt>
+      <dd>
+        <a href="https://github.com/alexcarpenter/alexcarpenter.me"
+          >alexcarpenter/alexcarpenter.me</a
+        >
+      </dd>
+      {
+        commitSha && (
+          <>
+            <dt>Latest commit</dt>
+            <dd>
+              <a
+                href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${commitSha}`}
+              >
+                <code>fdas9fda</code>
+              </a>
+            </dd>
+          </>
+        )
+      }
+    </dl>
   </section>
 </BaseLayout>
