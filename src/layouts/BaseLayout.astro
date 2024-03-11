@@ -4,6 +4,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
 const metaDescription = description ? description : "UI Engineer";
+const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
 ---
 
 <html lang="en">
@@ -129,7 +130,7 @@ const metaDescription = description ? description : "UI Engineer";
                 class="size-2 rounded-full bg-green-500 flex-none"></span>All
               systems operational
             </p>
-            <p class="mt-4">{import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA}</p>
+            {commitSha && <p class="mt-4">{commitSha.slice(0, 7)}</p>}
           </div>
         </div>
       </footer>
