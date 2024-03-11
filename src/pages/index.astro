@@ -35,7 +35,7 @@ const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
               <a
                 href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${commitSha}`}
               >
-                <code>fdas9fda</code>
+                <code>{commitSha.slice(0, 7)}</code>
               </a>
             </dd>
           </>
