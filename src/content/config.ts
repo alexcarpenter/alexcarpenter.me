@@ -18,6 +18,18 @@ const jobs = defineCollection({
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
     tools: z.array(z.string()),
+    projects: z
+      .array(
+        z.object({
+          title: z.string(),
+          link: z.string(),
+          image: z.object({
+            src: z.string(),
+            alt: z.string(),
+          }),
+        })
+      )
+      .optional(),
   }),
 });
 
