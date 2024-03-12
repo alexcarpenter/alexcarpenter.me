@@ -7,6 +7,12 @@ tools:
   - Tailwind CSS
   - TypeScript
   - Framer Motion
+projects:
+  - title: Hello world
+    link: https://clerk.com
+    image:
+      src: "/img/family.webp"
+      alt: Family
 ---
 
 Design Engineer apart of the design team, currently working on dashboard UI.

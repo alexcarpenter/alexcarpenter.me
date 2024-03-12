@@ -6,6 +6,7 @@ type JobProps = CollectionEntry<"jobs">;
 const jobs = await getCollection("jobs");
 type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
+import ProjectCarousel from "@/components/ProjectCarousel.astro";
 ---
 
 <BaseLayout
@@ -45,6 +46,11 @@ const recommendations = await getCollection("recommendations");
                     <li>{tool}</li>
                   ))}
                 </ul>
+                {job.data.projects && (
+                  <div class="mt-4 col-span-full">
+                    <ProjectCarousel projects={job.data.projects} />
+                  </div>
+                )}
               </li>
             ))
           )
@@ -55,18 +61,29 @@ const recommendations = await getCollection("recommendations");
   <!-- <section class="pt-8 pb-16 border-t border-primary" id="interests">
     <h2 class="font-semibold mb-8">Interests</h2>
     <div class="grid grid-cols-2 gap-8">
-      <div class="dark:bg-neutral-800 bg-neutral-100 px-4 py-8 rounded">
+      <div
+        class="dark:bg-neutral-800 bg-neutral-100 px-4 py-8 rounded border col-span-full"
+      >
         <p class="mb-24 text-secondary">01.</p>
         <h3 class="font-semibold">CSS</h3>
-        <p class="mt-4">
+        <p class="mt-4 text-balance">
           I've spent most of my career obsessing over CSS architecture. These
           days I am all in on Tailwind CSS and can't see myself not using it
           anymore.
         </p>
       </div>
 
-      <div class="dark:bg-neutral-800 bg-neutral-100 px-4 py-8 rounded">
+      <div class="dark:bg-neutral-800 bg-neutral-100 px-4 py-8 rounded border">
         <p class="mb-24 text-secondary">02.</p>
+        <h3 class="font-semibold">Component API design</h3>
+        <p class="mt-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+          molestiae.
+        </p>
+      </div>
+
+      <div class="dark:bg-neutral-800 bg-neutral-100 px-4 py-8 rounded border">
+        <p class="mb-24 text-secondary">03.</p>
         <h3 class="font-semibold">Component API design</h3>
         <p class="mt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,

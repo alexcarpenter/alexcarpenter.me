@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+interface Props {
+  projects: Array<{
+    image: {
+      src: string;
+      alt: string;
+    };
+    title: string;
+    link: string;
+  }>;
+}
+const { projects } = Astro.props;
+---
+
+<div class="embla">
+  <div class="embla__viewport overflow-hidden">
+    <div class="embla__container flex -ml-2">
+      {
+        projects.map(({ image, link, title }) => {
+          return (
+            <a href={link} class="embla__slide min-w-0 flex-[0_0_25%] pl-2">
+              <figure class="relative grid aspect-[3/2] overflow-hidden rounded-md">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width="960"
+                  height="640"
+                  class="absolute w-full h-full object-cover"
+                />
+                <figcaption class="sr-only">{title}</figcaption>
+              </figure>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  import EmblaCarousel, { type EmblaOptionsType } from "embla-carousel";
+  const rootNode = document.querySelector(".embla");
+  const viewportNode = rootNode?.querySelector(".embla__viewport");
+  const options: EmblaOptionsType = { loop: false };
+  const emblaApi = EmblaCarousel(viewportNode as HTMLElement, options);
+</script>
