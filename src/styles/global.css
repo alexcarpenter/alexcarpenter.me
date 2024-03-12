@@ -55,40 +55,44 @@
     @apply mt-8;
   }
 
-  .prose a {
+  .prose :where(a) {
     @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
   }
 
-  .prose strong {
+  .prose :where(strong) {
     @apply font-semibold;
   }
 
-  .prose ul {
+  .prose :where(ul) {
     @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
   }
 
-  .prose ul li ul {
+  .prose :where(ul li ul) {
     @apply mt-0.5;
   }
 
-  .prose code,
-  .prose kbd {
+  .prose :where(code),
+  .prose :where(kbd) {
     @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
   }
 
-  .prose pre {
+  .prose :where(pre) {
     @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
   }
 
-  .prose dl {
+  .prose :where(dl) {
     @apply grid grid-cols-[max-content_minmax(0,1fr)] -my-2;
   }
 
-  .prose dt {
+  .prose :where(dt) {
     @apply m-0 pr-8 py-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed text-secondary;
   }
 
-  .prose dd {
+  .prose :where(dd) {
     @apply m-0 py-2 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed;
+  }
+
+  .prose :where(blockquote) {
+    @apply border-l-2 border-primary pl-4;
   }
 }
