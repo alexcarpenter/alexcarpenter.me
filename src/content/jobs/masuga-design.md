@@ -10,4 +10,4 @@ tools:
   - jQuery
 ---
 
-Senior Developer building and maintaining client websites built with Craft CMS, ExpressionEngine, and Shopify. Lead front-end initiatives to improve CSS and JavaScript architecture and implement an atomic deployment pipeline for our projects.
+Front-end Developer building user interfaces for clients like A&E Networks, Image Comics, and Fox Networks Info with ExpressionEngine.
