@@ -54,7 +54,7 @@ const { projects } = Astro.props;
   import { options, setupProgressBar } from "@/utils/embla";
   import EmblaCarousel from "embla-carousel";
   const rootNodes = document.querySelectorAll(".embla") as HTMLElement;
-  rootNodes.forEach((rootNode) => {
+  rootNodes.forEach((rootNode: HTMLElement) => {
     const viewportNode = rootNode?.querySelector(
       ".embla__viewport"
     ) as HTMLElement;
