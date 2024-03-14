@@ -6,7 +6,7 @@ type JobProps = CollectionEntry<"jobs">;
 const jobs = await getCollection("jobs");
 type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
-// import ProjectCarousel from "@/components/ProjectCarousel.astro";
+import ProjectCarousel from "@/components/ProjectCarousel.astro";
 ---
 
 <BaseLayout
@@ -46,11 +46,11 @@ const recommendations = await getCollection("recommendations");
                     <li>{tool}</li>
                   ))}
                 </ul>
-                <!-- {job.data.projects && (
+                {job.data.projects && (
                   <div class="mt-4 col-span-full">
                     <ProjectCarousel projects={job.data.projects} />
                   </div>
-                )} -->
+                )}
               </li>
             ))
           )

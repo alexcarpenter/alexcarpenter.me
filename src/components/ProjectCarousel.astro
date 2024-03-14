@@ -2,12 +2,12 @@
 import { Image } from "astro:assets";
 interface Props {
   projects: Array<{
-    image: {
+    img: {
       src: string;
       alt: string;
     };
     title: string;
-    link: string;
+    href: string;
   }>;
 }
 const { projects } = Astro.props;
@@ -17,16 +17,16 @@ const { projects } = Astro.props;
   <div class="embla__viewport overflow-hidden">
     <div class="embla__container flex -ml-2">
       {
-        projects.map(({ image, link, title }) => {
+        projects.map(({ img, href, title }) => {
           return (
             <div class="embla__slide min-w-0 flex-[0_0_25%] pl-2">
               <a
-                href={link}
+                href={href}
                 class="relative grid aspect-[3/2] overflow-hidden rounded-md"
               >
                 <Image
-                  src={image.src}
-                  alt={image.alt}
+                  src={img.src}
+                  alt={img.alt}
                   width="960"
                   height="640"
                   class="absolute w-full h-full object-cover"
@@ -53,21 +53,23 @@ const { projects } = Astro.props;
 <script>
   import { options, setupProgressBar } from "@/utils/embla";
   import EmblaCarousel from "embla-carousel";
-  const rootNode = document.querySelector(".embla") as HTMLElement;
-  const viewportNode = rootNode?.querySelector(
-    ".embla__viewport"
-  ) as HTMLElement;
-  const progressNode = rootNode?.querySelector(
-    ".embla__progress__bar"
-  ) as HTMLElement;
-  const emblaApi = EmblaCarousel(viewportNode, options);
-  const { applyProgress, removeProgress } = setupProgressBar(
-    emblaApi,
-    progressNode
-  );
-  emblaApi
-    .on("init", applyProgress)
-    .on("reInit", applyProgress)
-    .on("scroll", applyProgress)
-    .on("destroy", removeProgress);
+  const rootNodes = document.querySelectorAll(".embla") as HTMLElement;
+  rootNodes.forEach((rootNode) => {
+    const viewportNode = rootNode?.querySelector(
+      ".embla__viewport"
+    ) as HTMLElement;
+    const progressNode = rootNode?.querySelector(
+      ".embla__progress__bar"
+    ) as HTMLElement;
+    const emblaApi = EmblaCarousel(viewportNode, options);
+    const { applyProgress, removeProgress } = setupProgressBar(
+      emblaApi,
+      progressNode
+    );
+    emblaApi
+      .on("init", applyProgress)
+      .on("reInit", applyProgress)
+      .on("scroll", applyProgress)
+      .on("destroy", removeProgress);
+  });
 </script>

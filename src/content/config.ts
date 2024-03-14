@@ -22,8 +22,8 @@ const jobs = defineCollection({
       .array(
         z.object({
           title: z.string(),
-          link: z.string(),
-          image: z.object({
+          href: z.string(),
+          img: z.object({
             src: z.string(),
             alt: z.string(),
           }),
