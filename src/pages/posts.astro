@@ -2,7 +2,9 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import { getCollection } from "astro:content";
-const posts = await getCollection("posts");
+const posts = await getCollection("posts", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 const sortedPosts = posts.sort((a, b) => {
   const aDate = a.data.updated || a.data.published;
   const bDate = b.data.updated || b.data.published;
