@@ -8,6 +8,8 @@ draft: true
 
 ## Working hours
 
+I work Monday thru Friday between the hours of 9am to 5pm EST.
+
 ## Work environment
 
 ## Communication

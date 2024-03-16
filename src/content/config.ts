@@ -37,6 +37,7 @@ const notes = defineCollection({
   type: "content",
   schema: z.object({
     published: z.coerce.date(),
+    draft: z.boolean().optional(),
   }),
 });
 

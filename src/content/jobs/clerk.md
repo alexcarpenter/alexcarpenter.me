@@ -1,5 +1,5 @@
 ---
-title: Senior Design Engineer
+title: Senior UI Engineer
 company: Clerk
 startDate: 2023-01-04
 tools:
@@ -9,4 +9,4 @@ tools:
   - Framer Motion
 ---
 
-Design Engineer apart of the design team, currently working on dashboard UI.
+UI Engineer apart of the design team, currently working on dashboard UI.

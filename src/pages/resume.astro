@@ -16,8 +16,8 @@ import ProjectCarousel from "@/components/ProjectCarousel.astro";
   <header class="pb-8 pt-40">
     <h1 class="font-semibold">Resume</h1>
     <p class="text-secondary mt-1 text-pretty">
-      Design engineer who enjoys working at the intersection of design and
-      engineering teams. Currently apart of the design team at Clerk.
+      User Interface Engineer who enjoys working at the intersection of design
+      and engineering teams. Currently apart of the design team at Clerk.
     </p>
   </header>
 
@@ -89,14 +89,16 @@ import ProjectCarousel from "@/components/ProjectCarousel.astro";
         recommendations.map((recommendation: RecommendationProps) =>
           recommendation.render().then(({ Content }) => (
             <li class="py-8">
-              <figure>
-                <blockquote>
+              <figure class="grid sm:grid-cols-3 gap-x-8 gap-y-4">
+                <blockquote class="col-span-2">
                   <Content />
                 </blockquote>
-                <figcaption class="mt-4">
+                <figcaption>
                   <p>{recommendation.data.name}</p>
-                  <p class="text-secondary">
-                    {recommendation.data.title}, {recommendation.data.company}
+                  <p class="text-secondary text-sm">
+                    {recommendation.data.title}
+                    <br class="hidden sm:block" />
+                    {recommendation.data.company}
                   </p>
                 </figcaption>
               </figure>

@@ -5,7 +5,9 @@ import FormattedDate, {
 } from "@/components/FormattedDate.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 type NoteProps = CollectionEntry<"notes">;
-const notes = await getCollection("notes");
+const notes = await getCollection("notes", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 const sortedNotes = notes.sort((a, b) => {
   const aDate = a.data.published;
   const bDate = b.data.published;
