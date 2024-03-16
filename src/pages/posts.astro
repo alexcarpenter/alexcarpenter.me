@@ -33,7 +33,9 @@ const sortedPosts = posts.sort((a, b) => {
                   <h2>
                     <a href={`/${post.slug}`}>{post.data.title}</a>
                   </h2>
-                  <p class="mt-1 text-secondary">{post.data.description}</p>
+                  <p class="mt-1 text-secondary text-pretty">
+                    {post.data.description}
+                  </p>
                 </div>
               </dd>
             </>
