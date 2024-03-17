@@ -90,10 +90,10 @@ import ProjectCarousel from "@/components/ProjectCarousel.astro";
           recommendation.render().then(({ Content }) => (
             <li class="py-8">
               <figure class="grid sm:grid-cols-3 gap-x-8 gap-y-4">
-                <blockquote class="col-span-2">
+                <blockquote class="col-span-2 sm:col-start-2">
                   <Content />
                 </blockquote>
-                <figcaption>
+                <figcaption class="sm:col-start-1 sm:row-start-1">
                   <p>{recommendation.data.name}</p>
                   <p class="text-secondary text-sm">
                     {recommendation.data.title}
