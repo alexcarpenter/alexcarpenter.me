@@ -95,4 +95,28 @@
   .prose :where(blockquote) {
     @apply border-l-2 border-primary pl-4;
   }
+
+  .prose :where(table) {
+    @apply w-full;
+  }
+
+  .prose :where(tr:not(:last-child) > td) {
+    @apply pb-2;
+  }
+
+  .prose :where(th) {
+    @apply pb-2 font-semibold;
+  }
+
+  .prose :where(th:not([align="right"])) {
+    @apply text-left;
+  }
+
+  .prose :where(td) {
+    @apply pt-2 border-t border-dashed border-primary;
+  }
+
+  .prose :where(td[align="right"]) {
+    @apply font-mono text-secondary;
+  }
 }
