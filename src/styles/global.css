@@ -113,10 +113,14 @@
   }
 
   .prose :where(td) {
-    @apply pt-2 border-t border-dashed border-primary;
+    @apply pt-2 border-t border-dashed border-primary align-top;
+  }
+
+  .prose :where(td + td) {
+    @apply pl-2;
   }
 
   .prose :where(td[align="right"]) {
-    @apply font-mono text-secondary;
+    @apply font-mono text-secondary text-nowrap;
   }
 }
