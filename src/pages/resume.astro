@@ -86,25 +86,31 @@ import ProjectCarousel from "@/components/ProjectCarousel.astro";
     <h2 class="font-semibold mb-8">Recommendations</h2>
     <ul class="-my-8 divide-y divide-primary divide-dashed">
       {
-        recommendations.map((recommendation: RecommendationProps) =>
-          recommendation.render().then(({ Content }) => (
-            <li class="py-8">
-              <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-4">
-                <blockquote class="col-span-2 sm:col-start-2">
-                  <Content />
-                </blockquote>
-                <figcaption class="sm:col-start-1 sm:row-start-1">
-                  <p>{recommendation.data.name}</p>
-                  <p class="text-secondary text-sm">
-                    {recommendation.data.title}
-                    <br class="hidden sm:block" />
-                    {recommendation.data.company}
-                  </p>
-                </figcaption>
-              </figure>
-            </li>
-          ))
-        )
+        recommendations
+          .sort(
+            (a, b) =>
+              Date.parse(b.data.published.toString()) -
+              Date.parse(a.data.published.toString())
+          )
+          .map((recommendation: RecommendationProps) =>
+            recommendation.render().then(({ Content }) => (
+              <li class="py-8">
+                <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-4">
+                  <blockquote class="col-span-2 sm:col-start-2">
+                    <Content />
+                  </blockquote>
+                  <figcaption class="sm:col-start-1 sm:row-start-1">
+                    <p>{recommendation.data.name}</p>
+                    <p class="text-secondary sm:text-sm">
+                      {recommendation.data.title}
+                      <br class="hidden sm:block" />
+                      {recommendation.data.company}
+                    </p>
+                  </figcaption>
+                </figure>
+              </li>
+            ))
+          )
       }
     </ul>
   </section>

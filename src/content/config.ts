@@ -59,6 +59,7 @@ const recommendations = defineCollection({
     name: z.string(),
     title: z.string(),
     company: z.string(),
+    published: z.coerce.date(),
   }),
 });
 
