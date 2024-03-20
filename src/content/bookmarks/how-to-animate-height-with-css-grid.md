@@ -7,7 +7,7 @@ tags:
   - animation
 ---
 
-TIL you can animate an elements height with CSS grid.
+#TIL you can animate an element's height with CSS grid.
 
 ```css
 .disclosure {
