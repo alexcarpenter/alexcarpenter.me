@@ -2,7 +2,7 @@
 title: Uses
 description: Things I use and enjoy.
 published: 2024-03-02
-updated: 2024-03-04
+updated: 2024-03-21
 toc: true
 ---
 
@@ -14,6 +14,8 @@ toc: true
 - Karabiner-Elements
 - Raycast
 - Visual Studio Code
+  - One hunter theme
+  - JetBrains Mono
 
 ## Coffee
 
@@ -26,7 +28,7 @@ toc: true
 ## Everyday Carry
 
 - Benchmade Mini Bugout CF-Elite
-- Prometheus Beta QRV2 Titanium
+- Tactile Turn Apollo, Prometheus Beta QRV2 Titanium
 - The James Brand Midland
 - Timex GMT
 - Victorinox Duluxe Tinker
