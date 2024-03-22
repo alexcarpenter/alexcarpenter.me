@@ -2,7 +2,7 @@
 title: Favorites
 description: My favorite products, tools and gear.
 published: 2023-07-19
-updated: 2024-01-01
+updated: 2024-03-22
 toc: true
 ---
 
@@ -16,6 +16,7 @@ toc: true
 ## Bags
 
 - [Evergoods Civic Half Zip 22L](https://evergoods.us/collections/civic-half-zip-series/products/civic-half-zip-22l)
+- [Evergoods CPL 16L](https://evergoods.us/collections/backpacks/products/civic-panel-loader-16l)
 - [Goruck Bullet Ruck Classic](https://www.goruck.com/products/bullet-ruck-15l)
 - [Tom Bihn Synapse 19](https://www.tombihn.com/collections/best-sellers/products/synapse-19)
 - [Tom Bihn Truck](https://www.tombihn.com/collections/tote-bags/products/the-truck)
@@ -40,6 +41,7 @@ toc: true
 
 - [Foursevens Ti Mini Turbo MKIII](https://darksucks.com/products/mini-turbo-mkiii-ti-two-tone)
 - [Prometheus Ti Beta QRV2](https://darksucks.com/products/beta-qrv2-titanium)
+- [Tactile Turn Apollo](https://tactileturn.com/products/apollo)
 - [ZebraLight SC53c N](https://www.zebralight.com/SC53c-N-Neutral-White-High-CRI-AA-Flashlight_p_249.html)
 
 ## Footwear
@@ -48,12 +50,6 @@ toc: true
 - [Crocs](https://amzn.to/4aynLI3)
 - [New Balance 990](https://amzn.to/48yHaXy)
 - [Xtratuf Deck Boots](https://amzn.to/4844WL7)
-
-## Health and wellness
-
-- [AG1 Athletic Greens](https://www.drinkags1.com/)
-- [Armra Colostrum](https://tryarmra.com/)
-- [LMNT Electrolytes](https://drinklmnt.com/)
 
 ## Home automation
 
@@ -86,7 +82,6 @@ toc: true
 
 - [Patagonia Nano Puff Vest](https://amzn.to/3tsK2GF)
 - [Outdoor Research Helium Rain Jacket](https://amzn.to/3RBZ8kT)
-- [REI Goretex Mittens](https://www.rei.com/product/194829/rei-co-op-minimalist-gtx-mittens-20?color=BLACK)
 
 ## Pouches
 
@@ -120,3 +115,4 @@ toc: true
 Items that have fallen off my favorites list for one reason or another.
 
 - ~[Bellroy 3 Card Phone Case](https://bellroy.com/products/phone-case-3-card)~
+- ~[REI Goretex Mittens](https://www.rei.com/product/194829/rei-co-op-minimalist-gtx-mittens-20?color=BLACK)~
