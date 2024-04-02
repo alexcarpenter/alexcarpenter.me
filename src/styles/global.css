@@ -116,7 +116,12 @@
     @apply pt-2 border-t border-dashed border-primary align-top;
   }
 
-  .prose :where(td + td) {
+  .prose :where(tr:first-of-type td) {
+    @apply border-solid;
+  }
+
+  .prose :where(td + td),
+  .prose :where(th + th) {
     @apply pl-2;
   }
 
