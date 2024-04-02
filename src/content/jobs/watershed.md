@@ -1,8 +1,8 @@
 ---
 title: Lead Web Engineer
 company: Watershed
-startDate: 2022-08-01
-endDate: 2023-01-01
+startDate: 2023-08-01
+endDate: 2023-12-01
 tools:
   - Next.js
   - Sanity CMS

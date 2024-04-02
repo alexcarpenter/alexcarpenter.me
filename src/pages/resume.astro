@@ -1,12 +1,17 @@
 ---
+import { format } from "date-fns";
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Badge from "@/components/Badge.astro";
 type JobProps = CollectionEntry<"jobs">;
 const jobs = await getCollection("jobs");
 type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
 import ProjectCarousel from "@/components/ProjectCarousel.astro";
+const parseDateToString = (date: string): string => {
+  const d = new Date(date);
+  const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
+  return format(t, "MMM Y");
+};
 ---
 
 <BaseLayout
@@ -34,10 +39,17 @@ import ProjectCarousel from "@/components/ProjectCarousel.astro";
           .map((job: JobProps) =>
             job.render().then(({ Content }) => (
               <li class="py-8 grid sm:grid-cols-3 gap-x-8 gap-y-4">
-                <h3 class="sm:col-span-3 font-semibold flex items-center gap-x-1">
-                  {job.data.title} at {job.data.company}
-                  {!job.data.endDate && <Badge>Current</Badge>}
-                </h3>
+                <header class="sm:col-span-3">
+                  <h3 class="font-semibold">
+                    {job.data.title} at {job.data.company}
+                  </h3>
+                  <p class="mt-0.5 text-sm text-secondary font-mono">
+                    <!-- prettier-ignore -->
+                    {parseDateToString(job.data.startDate.toString())}&nbsp;&mdash;&nbsp;{job.data.endDate
+                      ? parseDateToString(job.data.endDate.toString())
+                      : "Current"}
+                  </p>
+                </header>
                 <div class="sm:col-span-2 prose">
                   <Content />
                 </div>
@@ -101,7 +113,7 @@ import ProjectCarousel from "@/components/ProjectCarousel.astro";
                   </blockquote>
                   <figcaption class="sm:col-start-1 sm:row-start-1">
                     <p>{recommendation.data.name}</p>
-                    <p class="text-secondary sm:text-sm">
+                    <p class="mt-0.5 text-secondary text-sm font-mono">
                       {recommendation.data.title}
                       <br class="hidden sm:block" />
                       {recommendation.data.company}

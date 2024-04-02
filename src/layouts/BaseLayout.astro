@@ -94,7 +94,7 @@ const metaDescription = description ? description : "UI Engineer";
                 ["bookmarks", "notes", "posts", "resume"].map((slug) => {
                   return (
                     <li>
-                      {/* prettier-ignore */}
+                      <!-- prettier-ignore -->
                       <a href={`/${slug}`} aria-current={Astro.url.pathname === `/${slug}` ? 'page' : undefined}><span class="text-subtle" aria-hidden="true">/</span>{slug}</a>
                     </li>
                   );

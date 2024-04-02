@@ -1,6 +1,6 @@
 ---
 name: Melissa Taylor
-title: Director of Client Services
+title: Director Client Services
 company: Mighty in the Midwest
 published: 2018-01-01
 ---
