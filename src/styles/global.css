@@ -55,6 +55,10 @@
     @apply mt-8;
   }
 
+  .prose :where(p:has(small) ~ h2) {
+    @apply mt-0.5;
+  }
+
   .prose :where(a) {
     @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
   }
