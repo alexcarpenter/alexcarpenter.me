@@ -2,7 +2,7 @@
 title: Uses
 description: Things I use and enjoy.
 published: 2024-03-02
-updated: 2024-03-21
+updated: 2024-04-14
 toc: true
 ---
 
@@ -27,11 +27,20 @@ toc: true
 
 ## Everyday Carry
 
-- Benchmade Mini Bugout CF-Elite
-- Tactile Turn Apollo, Prometheus Beta QRV2 Titanium
-- The James Brand Midland
-- Timex GMT
-- Victorinox Duluxe Tinker
+- Knife
+  - Benchmade Mini Bugout CF-Elite
+  - Urban EDC Baby Barlow
+- Keys
+  - The James Brand Midland
+- Multitool
+  - Leatherman Style PS
+  - Victorinox Duluxe Tinker
+- Flashlight
+  - Tactile Turn Apollo
+  - Prometheus Beta QRV2 Titanium
+- Watch
+  - SEIKO 5 SRPK29
+  - Timex GMT TW2V38000
 
 ## Hardware
 
@@ -53,3 +62,4 @@ toc: true
 ## Photography
 
 - Fujifilm XE-4
+- Ricoh GR IIIX HDF
