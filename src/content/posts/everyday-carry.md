@@ -14,7 +14,7 @@ draft: true
 
 <small>Watch</small>
 
-## Timex GMT
+## SEIKO 5 SRPK29
 
 <small>Keys</small>
 
