@@ -7,14 +7,14 @@ updated: 2024-04-02
 
 ## Currently
 
-- Getting back into photography with my Fujifilm XE-4
+- Getting back into photography with my Fujifilm XE-4 and my new Ricoh GRIIX HDF
 - Working on the [Clerk](https://clerk.com) dashboard and [components](https://clerk.com/docs/components/overview)
-- Eagerly awaiting the spring weather
+- Preping for [Micah's](/micah) first birthday
 
 ## Watching
 
-- American Rust
-- Manhunt season 1
+- ~American Rust season 1 & 2~
+- ~Manhunt season 1~
 
 ## Reading
 
