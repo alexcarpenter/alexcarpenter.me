@@ -39,6 +39,7 @@ toc: true
   - Tactile Turn Apollo
   - Prometheus Beta QRV2 Titanium
 - Watch
+  - Doxa Sub 200T
   - SEIKO 5 SRPK29
   - Timex GMT TW2V38000
 
@@ -61,5 +62,5 @@ toc: true
 
 ## Photography
 
-- Fujifilm XE-4
 - Ricoh GR IIIX HDF
+- Fujifilm XE-4

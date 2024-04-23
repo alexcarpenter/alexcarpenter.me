@@ -14,7 +14,7 @@ draft: true
 
 <small>Watch</small>
 
-## SEIKO 5 SRPK29
+## Doxa Sub 200T
 
 <small>Keys</small>
 

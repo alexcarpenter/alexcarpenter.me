@@ -10,9 +10,11 @@ updated: 2024-04-02
 - Getting back into photography with my Fujifilm XE-4 and my new Ricoh GRIIX HDF
 - Working on the [Clerk](https://clerk.com) dashboard and [components](https://clerk.com/docs/components/overview)
 - Preping for [Micah's](/micah) first birthday
+- Researching dive watch history
 
 ## Watching
 
+- Fallout season 1
 - ~American Rust season 1 & 2~
 - ~Manhunt season 1~
 
