@@ -6,7 +6,7 @@ import {
   defListHastHandlers,
 } from "remark-definition-list";
 import remarkAdmonitions from "remark-github-beta-blockquote-admonitions";
-import { remarkModifiedTime } from "@/utils/remark-modified-time.mjs";
+import { remarkModifiedTime } from "./src/utils/remark-modified-time.mjs";
 
 import tailwind from "@astrojs/tailwind";
 
