@@ -2,7 +2,7 @@
 title: Now
 description: What I am up to now.
 published: 2023-08-01
-updated: 2024-04-02
+updated: 2024-04-26
 ---
 
 ## Currently
@@ -11,6 +11,7 @@ updated: 2024-04-02
 - Working on the [Clerk](https://clerk.com) dashboard and [components](https://clerk.com/docs/components/overview)
 - Preping for [Micah's](/micah) first birthday
 - Researching dive watch history
+- Planning new above ground garden beds with my wife
 
 ## Watching
 
