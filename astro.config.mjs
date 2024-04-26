@@ -6,6 +6,7 @@ import {
   defListHastHandlers,
 } from "remark-definition-list";
 import remarkAdmonitions from "remark-github-beta-blockquote-admonitions";
+import { remarkModifiedTime } from "@/utils/remark-modified-time.mjs";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -14,7 +15,11 @@ export default defineConfig({
   site: "https://alexcarpenter.me",
   integrations: [sitemap(), tailwind()],
   markdown: {
-    remarkPlugins: [remarkDefinitionList, remarkAdmonitions],
+    remarkPlugins: [
+      remarkDefinitionList,
+      remarkAdmonitions,
+      remarkModifiedTime,
+    ],
     remarkRehype: {
       handlers: {
         ...defListHastHandlers,

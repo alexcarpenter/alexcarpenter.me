@@ -18,6 +18,7 @@
     "astro": "^4.2.2",
     "class-variance-authority": "^0.7.0",
     "date-fns": "^3.0.6",
+    "dayjs": "^1.11.10",
     "embla-carousel": "^8.0.0-rc21",
     "geist": "^1.2.2",
     "markdown-it": "^14.0.0",
