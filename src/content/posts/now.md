@@ -2,7 +2,7 @@
 title: Now
 description: What I am up to now.
 published: 2023-08-01T08:00:00-0400
-updated: 2024-04-28T08:53:09-0400
+updated: 2024-04-28T10:01:01-0400
 ---
 
 ## Currently
@@ -12,14 +12,19 @@ updated: 2024-04-28T08:53:09-0400
 - Preping for [Micah's](/micah) first birthday
 - Researching dive watch history
 - Planning new raised garden beds with my wife
+- Taking a social media sabatical
 
 ## Watching
 
+- Mare of Easttown
 - Fallout season 1
-- ~American Rust season 1 & 2~
-- ~Manhunt season 1~
 
 ## Reading
 
 - Slow Productivity by Cal Newport
 - Die With Zero by Bill Perkins
+
+## Archive
+
+- Watched American Rust season 1 & 2
+- Watched Manhunt season 1
