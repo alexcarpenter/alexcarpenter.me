@@ -13,6 +13,9 @@ Variant
 SKU
 : 804.10.101.10
 
+Movement
+: Automatic
+
 Diameter
 : 39mm
 
@@ -30,6 +33,9 @@ Variant
 SKU
 : SRPK29
 
+Movement
+: Automatic
+
 Diameter
 : 38mm
 
@@ -46,6 +52,9 @@ Variant
 
 SKU
 : TW2V38000
+
+Movement
+: Quartz
 
 Diameter
 : 38mm
