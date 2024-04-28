@@ -30,7 +30,8 @@ const lastModified = dayjs(date).utc().format("HH:mm:ss DD MMMM YYYY UTC");
     post.data.toc ? (
       <section class="pt-8 pb-16 relative grid sm:grid-cols-3 items-start gap-x-8 gap-y-8">
         <p class="text-secondary sm:col-span-3">
-          Last modified <time datetime={date}>{lastModified}</time>
+          Last modified{" "}
+          <time datetime={date.toISOString()}>{lastModified}</time>
         </p>
         <TableOfContents headings={headings} />
         <article class="sm:col-span-2 prose">
