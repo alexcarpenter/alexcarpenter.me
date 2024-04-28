@@ -42,7 +42,8 @@ const lastModified = dayjs(date).utc().format("HH:mm:ss DD MMMM YYYY UTC");
       <section class="pt-8 pb-16">
         <article class="prose">
           <p class="text-secondary">
-            Last modified <time datetime={date}>{lastModified}</time>
+            Last modified{" "}
+            <time datetime={date.toISOString()}>{lastModified}</time>
           </p>
           <Content />
         </article>
