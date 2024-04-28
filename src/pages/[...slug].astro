@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
+dayjs.extend(utc);
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 export async function getStaticPaths() {
