@@ -1,5 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 export async function getStaticPaths() {
@@ -13,7 +15,10 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<"posts">;
 const post = Astro.props;
-const { headings, Content } = await post.render();
+const { headings, Content, remarkPluginFrontmatter } = await post.render();
+const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
+  .utc()
+  .format("HH:mm:ss DD MMMM YYYY UTC");
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
@@ -23,7 +28,13 @@ const { headings, Content } = await post.render();
   </header>
   {
     post.data.toc ? (
-      <section class="pt-8 pb-16 relative grid sm:grid-cols-3 items-start gap-x-8">
+      <section class="pt-8 pb-16 relative grid sm:grid-cols-3 items-start gap-x-8 gap-y-8">
+        <p class="text-secondary sm:col-span-3">
+          Last modified{" "}
+          <time datetime={remarkPluginFrontmatter.lastModified}>
+            {lastModified}
+          </time>
+        </p>
         <TableOfContents headings={headings} />
         <article class="sm:col-span-2 prose">
           <Content />
@@ -32,6 +43,12 @@ const { headings, Content } = await post.render();
     ) : (
       <section class="pt-8 pb-16">
         <article class="prose">
+          <p class="text-secondary">
+            Last modified{" "}
+            <time datetime={remarkPluginFrontmatter.lastModified}>
+              {lastModified}
+            </time>
+          </p>
           <Content />
         </article>
       </section>

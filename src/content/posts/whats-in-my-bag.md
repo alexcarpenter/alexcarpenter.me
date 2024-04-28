@@ -7,12 +7,12 @@ draft: true
 
 <small>Bag</small>
 
-## Evergoods CPL 16L
+## Evergoods CIVIC Panel Loader 16L
 
 <small>Tech pouch</small>
 
-## Evergoods CAP 1L
+## Evergoods CIVIC Access Pouch 1L
 
 <small>Camera cube</small>
 
-## Evergoods CAP 2L
+## Evergoods CIVIC Access Pouch 2L

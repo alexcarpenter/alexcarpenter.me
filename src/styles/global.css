@@ -97,7 +97,7 @@
   }
 
   .prose :where(blockquote) {
-    @apply border-l-2 border-primary pl-5;
+    @apply border-l-[0.1875rem] border-[var(--text-color-subtle)] pl-5 ml-3;
   }
 
   .prose :where(table) {
