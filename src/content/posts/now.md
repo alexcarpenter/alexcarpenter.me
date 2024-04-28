@@ -13,16 +13,10 @@ updated: 2024-04-28T10:01:01-0400
 - Researching dive watch history
 - Planning new raised garden beds with my wife
 - Taking a social media sabatical
-
-## Watching
-
-- Mare of Easttown
-- Fallout season 1
-
-## Reading
-
-- Slow Productivity by Cal Newport
-- Die With Zero by Bill Perkins
+- Watching Mare of Easttown
+- Watching Fallout season 1
+- Reading Slow Productivity by Cal Newport
+- Reading Die With Zero by Bill Perkins
 
 ## Archive
 
