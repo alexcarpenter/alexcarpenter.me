@@ -1,8 +1,8 @@
 ---
 title: Blogroll
 description: Blogs I enjoy reading.
-published: 2024-03-10
-updated: 2024-03-22
+published: 2024-03-10T08:00:00-0400
+updated: 2024-03-22T08:00:00-0400
 ---
 
 - [baty.net](https://baty.net)

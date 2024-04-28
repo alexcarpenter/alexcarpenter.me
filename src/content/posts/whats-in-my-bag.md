@@ -1,7 +1,7 @@
 ---
 title: What's in my bag
 description: My everyday carry bag setup.
-published: 2024-04-26
+published: 2024-04-26T08:00:00-0400
 draft: true
 ---
 

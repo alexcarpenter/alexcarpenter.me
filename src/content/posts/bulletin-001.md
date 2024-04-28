@@ -1,6 +1,6 @@
 ---
 title: Bulletin 001
-published: 2024-03-20
+published: 2024-03-20T08:00:00-0400
 draft: true
 ---
 

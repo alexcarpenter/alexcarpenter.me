@@ -1,8 +1,8 @@
 ---
 title: Now
 description: What I am up to now.
-published: 2023-08-01
-updated: 2024-04-26
+published: 2023-08-01T08:00:00-0400
+updated: 2024-04-28T08:53:09-0400
 ---
 
 ## Currently

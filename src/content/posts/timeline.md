@@ -1,7 +1,7 @@
 ---
 title: Timeline
 description: Non-exhaustive list of key life and work events.
-published: 2024-03-17
+published: 2024-03-17T08:00:00-0400
 ---
 
 | Description                                     | Tag      |       Date |

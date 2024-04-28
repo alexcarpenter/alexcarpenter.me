@@ -16,10 +16,9 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<"posts">;
 const post = Astro.props;
-const { headings, Content, remarkPluginFrontmatter } = await post.render();
-const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
-  .utc()
-  .format("HH:mm:ss DD MMMM YYYY UTC");
+const { headings, Content } = await post.render();
+const date = post.data.updated ?? post.data.published;
+const lastModified = dayjs(date).utc().format("HH:mm:ss DD MMMM YYYY UTC");
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
@@ -31,10 +30,7 @@ const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
     post.data.toc ? (
       <section class="pt-8 pb-16 relative grid sm:grid-cols-3 items-start gap-x-8 gap-y-8">
         <p class="text-secondary sm:col-span-3">
-          Last modified{" "}
-          <time datetime={remarkPluginFrontmatter.lastModified}>
-            {lastModified}
-          </time>
+          Last modified <time datetime={date}>{lastModified}</time>
         </p>
         <TableOfContents headings={headings} />
         <article class="sm:col-span-2 prose">
@@ -45,10 +41,7 @@ const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
       <section class="pt-8 pb-16">
         <article class="prose">
           <p class="text-secondary">
-            Last modified{" "}
-            <time datetime={remarkPluginFrontmatter.lastModified}>
-              {lastModified}
-            </time>
+            Last modified <time datetime={date}>{lastModified}</time>
           </p>
           <Content />
         </article>

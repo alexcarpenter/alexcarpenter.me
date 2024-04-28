@@ -1,7 +1,7 @@
 ---
 title: Changelog
 description: All notable changes to this website will be documented in this file.
-published: 2024-04-04
+published: 2024-04-04T08:00:00-0400
 draft: true
 ---
 

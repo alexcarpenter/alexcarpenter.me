@@ -1,8 +1,8 @@
 ---
 title: Favorites
 description: My favorite products, tools and gear.
-published: 2023-07-19
-updated: 2024-03-22
+published: 2023-07-19T08:00:00-0400
+updated: 2024-03-22T08:00:00-0400
 toc: true
 ---
 
