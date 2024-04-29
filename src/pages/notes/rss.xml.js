@@ -10,6 +10,7 @@ export async function GET(context) {
     title: "Notes // Alex Carpenter",
     description: "Short-form thoughts and updates. ",
     site: context.site,
+    trailingSlash: false,
     items: notes.map((note) => ({
       link: `/notes#${note.slug}`,
       pubDate: note.data.published,
