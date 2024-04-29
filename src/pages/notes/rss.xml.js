@@ -8,16 +8,22 @@ export async function GET(context) {
   const notes = await getCollection("notes");
   return rss({
     title: "Notes // Alex Carpenter",
-    description: "Short-form thoughts and updates. ",
+    description: "Short-form thoughts and updates.",
     site: context.site,
     trailingSlash: false,
-    items: notes.map((note) => ({
-      link: `/notes#${note.slug}`,
-      pubDate: note.data.published,
-      title: `Note: ${note.data.published}`,
-      content: sanitizeHtml(parser.render(note.body), {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-      }),
-    })),
+    items: notes
+      .sort((a, b) => {
+        const aDate = a.data.published;
+        const bDate = b.data.published;
+        return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+      })
+      .map((note) => ({
+        link: `/notes#${note.slug}`,
+        pubDate: note.data.published,
+        title: `Note: ${note.data.published}`,
+        content: sanitizeHtml(parser.render(note.body), {
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+        }),
+      })),
   });
 }
