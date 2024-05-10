@@ -9,4 +9,4 @@ tools:
   - Framer Motion
 ---
 
-UI Engineer apart of the design team, currently working on dashboard UI and [Clerk Elements](https://feedback.clerk.com/roadmap?id=b79da4a2-694c-4468-bea2-fb1d3570601a).
+UI Engineer apart of the design team, currently working on dashboard UI and [Clerk Elements](https://clerk.com/docs/elements/overview).
