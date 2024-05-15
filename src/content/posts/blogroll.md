@@ -2,7 +2,7 @@
 title: Blogroll
 description: Blogs I enjoy reading.
 published: 2024-03-10T08:00:00-0400
-updated: 2024-03-22T08:00:00-0400
+updated: 2024-05-15T06:55:12-0400
 ---
 
 - [baty.net](https://baty.net)
@@ -15,3 +15,4 @@ updated: 2024-03-22T08:00:00-0400
 - [rachsmith.com](https://rachsmith.com/)
 - [robinrendle.com](https://robinrendle.com/)
 - [taylor.town](https://taylor.town/)
+- [tonsky.me](https://tonsky.me/)
