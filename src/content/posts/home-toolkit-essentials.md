@@ -8,13 +8,21 @@ draft: true
 
 ## Milwaukee Gen 3 12v Fuel Impact Driver
 
-<small>Screw driver</small>
+<small>Screwdriver</small>
 
 ## Wera 7-1 Bitholding Screwdriver with Removable Bayonet Blade
 
-<small>Wrench</small>
+<small>Ratching Screwdriver</small>
+
+## Klein 11-Piece Ratcheting Screwdriver
+
+<small>Pliers</small>
 
 ## KNIPEX 7 1/4 Pliers Wrench
+
+<small>Sockets</small>
+
+## Klein Pass Through 32-Piece Deep Socket Set
 
 <small>Scissors</small>
 
