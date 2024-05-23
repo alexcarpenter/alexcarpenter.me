@@ -24,7 +24,7 @@
     "remark-definition-list": "^2.0.0",
     "remark-gfm": "^4.0.0",
     "remark-github-beta-blockquote-admonitions": "^3.1.1",
-    "sanitize-html": "^2.13.0",
+    "sanitize-html": "^2.12.1",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   }
