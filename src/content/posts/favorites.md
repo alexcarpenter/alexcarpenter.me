@@ -2,16 +2,18 @@
 title: Favorites
 description: My favorite products, tools and gear.
 published: 2023-07-19T08:00:00-0400
-updated: 2024-03-22T08:00:00-0400
+updated: 2024-05-27T07:51:56-0400
 toc: true
 ---
 
-## Baby
+## Baby/Toddler
 
 - [BabyBjörn Bouncer](https://amzn.to/3RYnoy7)
 - [Baby Jogger city mini GT2 stroller](https://amzn.to/3vmJJgN)
 - [Halo Sleepsack Swaddle](https://amzn.to/3NFTUmY)
 - [OXO Tot Space Saving Drying Rack](https://amzn.to/3tnmOle)
+- [Swurfer Coconut Toddler Swing](https://amzn.to/4bFciXq)
+- [Veer Cruiser Wagon](https://amzn.to/3WTiV3L)
 
 ## Bags
 
@@ -105,10 +107,12 @@ toc: true
 ## Tools
 
 - [Klein Tools 14-1 Precision Screwdriver](https://amzn.to/41ElerP)
+- [KNIPEX Pliers Wrench](https://amzn.to/3VeFLl8)
 - [Milwaukee Gen 3 12v Fuel Impact Driver](https://amzn.to/3viEejp)
   - [Simon Tools Magnetic Bit Holder](https://amzn.to/3vAJnDx)
 - [Pica-Dry Longlife Automatic Pencil](https://amzn.to/48ArSS0)
 - [Wera 7-1 Bitholding Screwdriver with Removable Bayonet Blade](https://amzn.to/3NIdLSH)
+- [Wera Long ARM HEX Key Set](https://amzn.to/3R450Ei)
 
 ## Archive
 
