@@ -2,7 +2,7 @@
 title: Favorites
 description: My favorite products, tools and gear.
 published: 2023-07-19T08:00:00-0400
-updated: 2024-05-27T07:51:56-0400
+updated: 2024-05-30T08:08:06-0400
 toc: true
 ---
 
@@ -103,6 +103,7 @@ toc: true
 - [Apple M2 13in Macbook Air](https://www.apple.com/macbook-air-13-and-15-m2/)
 - [Sonos Beam](https://www.sonos.com/en-us/shop/beam)
 - [Sonos One SL](https://www.sonos.com)
+- [Sony WH-1000XM4 Noise Canceling Headphones](https://amzn.to/3yGrAwk)
 
 ## Tools
 
