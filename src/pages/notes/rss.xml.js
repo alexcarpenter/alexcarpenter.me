@@ -18,7 +18,7 @@ export async function GET(context) {
         return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
       })
       .map((note) => ({
-        link: `/notes#${note.slug}`,
+        link: `/notes/${note.slug}`,
         pubDate: note.data.published,
         title: `Note: ${note.data.published}`,
         content: sanitizeHtml(parser.render(note.body), {

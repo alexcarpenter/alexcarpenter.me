@@ -1,0 +1,34 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+dayjs.extend(utc);
+import BaseLayout from "@/layouts/BaseLayout.astro";
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  return notes.map((note) => ({
+    params: { slug: note.slug },
+    props: note,
+  }));
+}
+type Props = CollectionEntry<"notes">;
+const note = Astro.props;
+const { headings, Content } = await note.render();
+const date = note.data.published;
+const lastModified = dayjs(date).utc().format("HH:mm:ss DD MMMM YYYY UTC");
+const title = headings[0]?.text || `Note: ${note.data.published}`;
+---
+
+<BaseLayout title={title}>
+  <header class="pt-40">
+    <h1 class="text-secondary">
+      Published{" "}
+      <time datetime={date.toISOString()}>{lastModified}</time>
+    </h1>
+  </header>
+  <section class="pt-8 pb-16">
+    <article class="prose">
+      <Content />
+    </article>
+  </section>
+</BaseLayout>

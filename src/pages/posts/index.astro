@@ -31,7 +31,7 @@ const sortedPosts = posts.sort((a, b) => {
               <dd class="py-8 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed">
                 <div class="prose">
                   <h2>
-                    <a href={`/${post.slug}`}>{post.data.title}</a>
+                    <a href={`/posts/${post.slug}`}>{post.data.title}</a>
                   </h2>
                   <p class="mt-1 text-secondary text-pretty">
                     {post.data.description}
