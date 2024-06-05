@@ -19,6 +19,7 @@
 @layer base {
   :root {
     --page-primary: theme(colors.white);
+    --surface: theme(colors.neutral.100);
     --text-color-primary: theme(colors.neutral.700);
     --text-color-secondary: theme(colors.neutral.500);
     --text-color-subtle: theme(colors.neutral.300);
@@ -29,6 +30,7 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --page-primary: theme(colors.neutral.900);
+      --surface: theme(colors.neutral.800);
       --text-color-primary: theme(colors.neutral.100);
       --text-color-secondary: theme(colors.neutral.400);
       --text-color-subtle: theme(colors.neutral.500);

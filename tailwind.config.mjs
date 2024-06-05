@@ -16,6 +16,7 @@ export default {
     extend: {
       backgroundColor: {
         primary: "var(--page-primary)",
+        surface: "var(--surface)",
       },
       textColor: {
         primary: "var(--text-color-primary)",

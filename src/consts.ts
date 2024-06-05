@@ -1,4 +1,19 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
 export const SITE_TITLE = "Alex Carpenter";
+export const SITE_NAV = [
+  {
+    label: "bookmarks",
+    slug: "/bookmarks",
+  },
+  {
+    label: "notes",
+    slug: "/notes",
+  },
+  {
+    label: "posts",
+    slug: "/posts",
+  },
+  {
+    label: "resume",
+    slug: "/resume",
+  },
+];

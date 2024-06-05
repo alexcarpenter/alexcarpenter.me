@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { SITE_NAV } from "@/consts";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
@@ -56,9 +57,14 @@ const metaDescription = description ? description : "UI Engineer";
   </head>
 
   <body
-    class="antialiased text-primary flex flex-col min-h-dvh px-4 overflow-x-hidden bg-primary"
+    class="flex min-h-dvh flex-col overflow-x-hidden bg-primary px-4 text-primary antialiased"
   >
-    <div class="max-w-prose w-full mx-auto flex flex-col flex-1 min-w-0">
+    <a
+      href="#main"
+      class="fixed top-0 left-0 py-1 px-2 [&:not(:focus)]:-translate-x-full [&:not(:focus)]:-translate-y-full"
+      >Skip to content</a
+    >
+    <div class="mx-auto flex w-full min-w-0 max-w-prose flex-1 flex-col">
       <div
         class="flex h-1.5 flex-none dark:flex-row-reverse dark:justify-end gap-[0.5px]"
         aria-hidden="true"
@@ -74,28 +80,67 @@ const metaDescription = description ? description : "UI Engineer";
         <span class="bg-neutral-100 w-6"></span>
         <span class="bg-neutral-50 w-6"></span>
       </div>
-      <header class="relative py-4 border-b border-primary">
+      <header class:list={["relative pt-4", "py-4 border-b border-primary"]}>
         <p>
           <a href="/" class="font-semibold">Alex Carpenter</a>
         </p>
         <p class="text-secondary">User Interface Engineer at Clerk</p>
+        <!-- <nav class="mt-4 border-b border-primary bg-red-fdas">
+          <ul class="-mb-px flex gap-x-1 overflow-x-auto">
+            {
+              [
+                {
+                  label: "index",
+                  slug: "/",
+                },
+                ...SITE_NAV,
+              ].map(({ label, slug }) => {
+                const isCurrent = Astro.url.pathname === slug;
+                return (
+                  <li>
+                    <a
+                      href={slug}
+                      aria-current={isCurrent ? "page" : undefined}
+                      class:list={[
+                        "relative flex rounded-t border border-primary bg-surface px-2 py-0.5 aria-[current]:bg-primary hover:underline",
+                        {
+                          "after:absolute after:h-px after:-bottom-px after:left-0 after:w-full after:bg-primary after:pointer-events-none":
+                            isCurrent,
+                        },
+                      ]}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav> -->
       </header>
 
-      <main id="main" class="flex-1">
+      <main id="main" tabindex="0" class="flex-1 outline-none">
         <slot />
       </main>
 
       <footer class="border-t border-primary py-8">
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
           <nav>
             <h2 class="font-semibold">Sitemap</h2>
             <ul class="mt-4 space-y-0.5">
               {
-                ["bookmarks", "notes", "posts", "resume"].map((slug) => {
+                SITE_NAV.map(({ label, slug }) => {
                   return (
                     <li>
-                      <!-- prettier-ignore -->
-                      <a href={`/${slug}`} aria-current={Astro.url.pathname === `/${slug}` ? 'page' : undefined}><span class="text-subtle" aria-hidden="true">/</span>{slug}</a>
+                      <a
+                        href={slug}
+                        aria-current={
+                          Astro.url.pathname === slug ? "page" : undefined
+                        }
+                      >
+                        <!-- prettier ignore -->
+                        <span class="text-subtle" aria-hidden="true">/</span>{label}
+                      </a>
                     </li>
                   );
                 })
@@ -122,20 +167,14 @@ const metaDescription = description ? description : "UI Engineer";
           </div>
 
           <div>
-            <h2 class="opacity-0 sr-only sm:not-sr-only">Status</h2>
-            <p class="relative flex gap-x-2 items-center sm:mt-4">
+            <h2 class="sr-only opacity-0 sm:not-sr-only">Status</h2>
+            <p class="relative flex items-center gap-x-2 sm:mt-4">
               <span
                 aria-hidden="true"
-                class="size-2 rounded-full bg-green-500 flex-none before:absolute before:size-2 before:bg-green-500 before:rounded-full before:animate-ping"></span>All
-              systems operational
+                class="size-2 flex-none rounded-full bg-green-500 before:absolute before:size-2 before:animate-ping before:rounded-full before:bg-green-500"
+              ></span>All systems operational
             </p>
           </div>
-
-          <!-- <div class="col-span-full">
-            <p class="text-secondary font-mono text-sm">
-              0.03 g of CO2 per visit
-            </p>
-          </div> -->
         </div>
       </footer>
     </div>
