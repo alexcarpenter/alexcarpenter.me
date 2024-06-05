@@ -62,7 +62,8 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
                           href={`/notes/${note.slug}`}
                           class="no-underline hover:underline"
                         >
-                          ∞
+                          <span class="sr-only">View note {note.slug}</span>
+                          <span aria-hidden>∞</span>
                         </a>
                       </p>
                     </div>
