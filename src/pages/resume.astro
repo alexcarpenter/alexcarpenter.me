@@ -10,7 +10,7 @@ import ProjectCarousel from "@/components/ProjectCarousel.astro";
 const parseDateToString = (date: string): string => {
   const d = new Date(date);
   const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
-  return format(t, "MMM Y");
+  return format(t, "MMM y");
 };
 ---
 
