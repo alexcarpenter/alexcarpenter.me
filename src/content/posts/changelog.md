@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Everyday carry page
 - Backpack everyday carry page
 
+## [v4.0.2-alpha] - 2024-06-05
+
+- Added site navigation
+
 ## [v4.0.1-alpha] - 2024-06-04
 
 - Migrated posts slugs to live within `/posts/${slug}`

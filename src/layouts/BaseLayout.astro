@@ -80,43 +80,33 @@ const metaDescription = description ? description : "UI Engineer";
         <span class="bg-neutral-100 w-6"></span>
         <span class="bg-neutral-50 w-6"></span>
       </div>
-      <header class:list={["relative pt-4", "py-4 border-b border-primary"]}>
-        <p>
-          <a href="/" class="font-semibold">Alex Carpenter</a>
-        </p>
-        <p class="text-secondary">User Interface Engineer at Clerk</p>
-        <!-- <nav class="mt-4 border-b border-primary bg-red-fdas">
-          <ul class="-mb-px flex gap-x-1 overflow-x-auto">
+      <header class:list={["relative pt-4", "flex flex-wrap justify-between items-end gap-4", "py-4 border-b border-primary"]}>
+        <div>
+          <p>
+            <a href="/" class="font-semibold">Alex Carpenter</a>
+          </p>
+          <p class="text-secondary">User Interface Engineer at Clerk</p>
+        </div>
+        <nav>
+          <ul class="flex gap-x-2">
             {
-              [
-                {
-                  label: "index",
-                  slug: "/",
-                },
-                ...SITE_NAV,
-              ].map(({ label, slug }) => {
+              SITE_NAV.map(({ label, slug }) => {
                 const isCurrent = Astro.url.pathname === slug;
                 return (
                   <li>
                     <a
                       href={slug}
                       aria-current={isCurrent ? "page" : undefined}
-                      class:list={[
-                        "relative flex rounded-t border border-primary bg-surface px-2 py-0.5 aria-[current]:bg-primary hover:underline",
-                        {
-                          "after:absolute after:h-px after:-bottom-px after:left-0 after:w-full after:bg-primary after:pointer-events-none":
-                            isCurrent,
-                        },
-                      ]}
+                      class:list={["relative text-secondary aria-[current]:text-primary hover:underline"]}
                     >
-                      {label}
+                      <span class="text-secondary" aria-hidden>/</span>{label}
                     </a>
                   </li>
                 );
               })
             }
           </ul>
-        </nav> -->
+        </nav>
       </header>
 
       <main id="main" tabindex="0" class="flex-1 outline-none">
