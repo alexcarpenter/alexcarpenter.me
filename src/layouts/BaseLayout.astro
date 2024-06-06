@@ -91,7 +91,7 @@ const metaDescription = description ? description : "UI Engineer";
           <ul class="flex gap-x-2">
             {
               SITE_NAV.map(({ label, slug }) => {
-                const isCurrent = Astro.url.pathname === `${slug}/`;
+                const isCurrent = Astro.url.pathname === `${slug}/` || Astro.url.pathname === `${slug}`;
                 return (
                   <li>
                     <a
@@ -120,13 +120,12 @@ const metaDescription = description ? description : "UI Engineer";
             <ul class="mt-4 space-y-0.5">
               {
                 SITE_NAV.map(({ label, slug }) => {
+                  const isCurrent = Astro.url.pathname === `${slug}/` || Astro.url.pathname === `${slug}`;
                   return (
                     <li>
                       <a
                         href={slug}
-                        aria-current={
-                          Astro.url.pathname === `${slug}/` ? "page" : undefined
-                        }
+                        aria-current={isCurrent ? 'page' : undefined}
                       >
                         <!-- prettier ignore -->
                         <span class="text-subtle" aria-hidden="true">/</span>{label}
