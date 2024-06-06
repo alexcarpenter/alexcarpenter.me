@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { SITE_NAV } from "@/consts";
+import { SITE_NAV, SITE_TITLE } from "@/consts";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
@@ -83,7 +83,7 @@ const metaDescription = description ? description : "UI Engineer";
       <header class:list={["relative pt-4", "flex flex-wrap justify-between items-end gap-4", "py-4 border-b border-primary"]}>
         <div>
           <p>
-            <a href="/" class="font-semibold">Alex Carpenter</a>
+            <a href="/" class="font-semibold">{SITE_TITLE}</a>
           </p>
           <p class="text-secondary">User Interface Engineer at Clerk</p>
         </div>
@@ -91,7 +91,7 @@ const metaDescription = description ? description : "UI Engineer";
           <ul class="flex gap-x-2">
             {
               SITE_NAV.map(({ label, slug }) => {
-                const isCurrent = Astro.url.pathname === slug;
+                const isCurrent = Astro.url.pathname === `${slug}/`;
                 return (
                   <li>
                     <a
@@ -125,7 +125,7 @@ const metaDescription = description ? description : "UI Engineer";
                       <a
                         href={slug}
                         aria-current={
-                          Astro.url.pathname === slug ? "page" : undefined
+                          Astro.url.pathname === `${slug}/` ? "page" : undefined
                         }
                       >
                         <!-- prettier ignore -->
