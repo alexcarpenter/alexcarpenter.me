@@ -83,7 +83,7 @@ const metaDescription = description ? description : "UI Engineer";
       <header class:list={["relative pt-4", "flex flex-wrap justify-between items-end gap-4", "py-4 border-b border-primary"]}>
         <div>
           <p>
-            <a href="/" class="font-semibold">Alex Carpenter</a>
+            <a href="/" class="font-semibold">{Astro.url.pathname}</a>
           </p>
           <p class="text-secondary">User Interface Engineer at Clerk</p>
         </div>
