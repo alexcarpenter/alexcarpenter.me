@@ -1,8 +1,9 @@
+export const SITE_VERSION = "4.0.2-alpha";
 export const SITE_TITLE = "Alex Carpenter";
 export const SITE_NAV = [
   {
-    label: "bookmarks",
-    slug: "/bookmarks",
+    label: "links",
+    slug: "/links",
   },
   {
     label: "notes",

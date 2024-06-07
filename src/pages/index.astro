@@ -1,4 +1,5 @@
 ---
+import { SITE_VERSION } from "@/consts";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
 ---
@@ -28,7 +29,7 @@ const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
         >
       </dd>
       <dt>Version</dt>
-      <dd><code>4.0.2-alpha</code></dd>
+      <dd><code>{SITE_VERSION}</code></dd>
       <dt>View source</dt>
       <dd>
         <a

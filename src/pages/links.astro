@@ -4,16 +4,16 @@ import FormattedDate, {
   parseDateToString,
 } from "@/components/FormattedDate.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
-type BookmarkProps = CollectionEntry<"bookmarks">;
-const bookmarks = await getCollection("bookmarks");
-const sortedBookmarks = bookmarks.sort((a, b) => {
+type LinkProps = CollectionEntry<"links">;
+const links = await getCollection("links");
+const sortedSinks = links.sort((a, b) => {
   const aDate = a.data.published;
   const bDate = b.data.published;
   return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
 });
-const groupedBookmarks = groupByDay(sortedBookmarks);
-function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
-  const grouped: Record<string, BookmarkProps[]> = {};
+const groupedLinks = groupByDay(sortedSinks);
+function groupByDay(items: LinkProps[]): Record<string, LinkProps[]> {
+  const grouped: Record<string, LinkProps[]> = {};
   items.forEach((item) => {
     const key = parseDateToString(item.data.published.toString());
     if (!grouped[key]) {
@@ -25,9 +25,9 @@ function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
 }
 ---
 
-<BaseLayout title="Bookmarks" description="Archive of interesting links">
+<BaseLayout title="Links" description="Archive of interesting links">
   <header class="pb-8 pt-40 border-b border-primary">
-    <h1 class="font-semibold">Bookmarks&nbsp;&not;</h1>
+    <h1 class="font-semibold">Links&nbsp;&not;</h1>
     <p class="text-secondary text-pretty mt-0.5">
       Archive of interesting links.
     </p>
@@ -35,7 +35,7 @@ function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
   <section class="pt-8 pb-16">
     <dl class="grid grid-cols-[max-content_minmax(0,1fr)] -my-8">
       {
-        Object.entries(groupedBookmarks).map(([date, bookmarks]) => {
+        Object.entries(groupedLinks).map(([date, links]) => {
           return (
             <>
               <dt
@@ -47,26 +47,26 @@ function groupByDay(items: BookmarkProps[]): Record<string, BookmarkProps[]> {
                   class="text-secondary tabular-nums"
                 />
               </dt>
-              {bookmarks.map((bookmark) =>
-                bookmark.render().then(({ Content }) => (
+              {links.map((link) =>
+                link.render().then(({ Content }) => (
                   <dd
-                    id={bookmark.slug}
+                    id={link.slug}
                     class="py-8 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed"
                   >
                     <h2 class="font-semibold">
                       <a
-                        href={bookmark.data.link}
+                        href={link.data.link}
                         class="underline decoration-subtle hover:decoration-green-500 decoration-[0.09375rem]"
                         target="_blank"
                         rel="noopener"
                       >
-                        {bookmark.data.title}
+                        {link.data.title}
                       </a>
                     </h2>
                     <p class="mt-0.5 text-sm text-secondary font-mono">
-                      {new URL(bookmark.data.link).hostname}
+                      {new URL(link.data.link).hostname}
                     </p>
-                    {bookmark.body && (
+                    {link.body && (
                       <div class="mt-4 prose">
                         <Content />
                       </div>

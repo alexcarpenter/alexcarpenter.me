@@ -1,6 +1,6 @@
 import { defineCollection, z } from "astro:content";
 
-const bookmarks = defineCollection({
+const links = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
@@ -73,7 +73,7 @@ const recommendations = defineCollection({
 });
 
 export const collections = {
-  bookmarks,
+  links,
   jobs,
   notes,
   posts,

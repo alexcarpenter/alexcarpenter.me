@@ -1,7 +1,7 @@
 {
   "name": "alexcarpenter-me",
   "type": "module",
-  "version": "4.0.2-alpha",
+  "version": "4.0.3-alpha",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
