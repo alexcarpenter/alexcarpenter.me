@@ -1,5 +1,5 @@
 ---
-title: My home toolkit essentials
+title: Home toolkit
 published: 2024-05-19T09:12:02-0400
 draft: true
 ---
