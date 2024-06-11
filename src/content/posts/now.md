@@ -17,8 +17,14 @@ updated: 2024-06-03T16:59:47-0400
 
 ## Watching
 
-- Trying season 4
+- Trying
 - Your Honor
+
+## Listening
+
+- Charley Crockett
+- Colby Acuff
+- Zach Bryan
 
 <details>
 <summary>Archive</summary>
