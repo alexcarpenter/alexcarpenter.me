@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import FormattedDate, {
   parseDateToString,
 } from "@/components/FormattedDate.astro";
+import FormattedTime from "@/components/FormattedTime.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 type NoteProps = CollectionEntry<"notes">;
 const notes = await getCollection("notes", ({ data }) => {
@@ -62,8 +63,10 @@ function groupByDay(items: NoteProps[]): Record<string, NoteProps[]> {
                           href={`/notes/${note.slug}`}
                           class="no-underline hover:underline"
                         >
-                          <span class="sr-only">View note {note.slug}</span>
-                          <span aria-hidden>∞</span>
+                          <FormattedTime
+                            date={new Date(note.data.published)}
+                            class="text-secondary tabular-nums"
+                          />
                         </a>
                       </p>
                     </div>
