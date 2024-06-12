@@ -1,7 +1,9 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import FormattedDateTime from "@/components/FormattedDateTime.astro";
+import FormattedDate, {
+  parseDateTimeToString,
+} from "@/components/FormattedDate.astro";
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
   return notes.map((note) => ({
@@ -13,13 +15,14 @@ type Props = CollectionEntry<"notes">;
 const note = Astro.props;
 const { headings, Content } = await note.render();
 const date = note.data.published;
-const title = headings[0]?.text || `Note: ${note.data.published}`;
+const title =
+  headings[0]?.text || `Note: ${parseDateTimeToString(note.data.published)}`;
 ---
 
 <BaseLayout title={title}>
   <header class="pt-40">
     <h1 class="text-secondary">
-      <FormattedDateTime date={date} />
+      <FormattedDate date={date} type="datetime" />
     </h1>
   </header>
   <section class="pt-8 pb-16">

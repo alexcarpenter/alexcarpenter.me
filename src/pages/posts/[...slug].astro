@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
-import FormattedDateTime from "@/components/FormattedDateTime.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 export async function getStaticPaths() {
   const posts = await getCollection("posts", ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true;
@@ -27,7 +27,7 @@ const date = post.data.updated ?? post.data.published;
     post.data.toc ? (
       <section class="pt-8 pb-16 relative grid sm:grid-cols-3 items-start gap-x-8 gap-y-8">
         <p class="text-secondary sm:col-span-3">
-          Last modified <FormattedDateTime date={date} />
+          Last modified <FormattedDate date={date} type="datetime" />
         </p>
         <TableOfContents headings={headings} />
         <article class="sm:col-span-2 prose">
@@ -37,7 +37,7 @@ const date = post.data.updated ?? post.data.published;
     ) : (
       <section class="pt-8 pb-16">
         <p class="text-secondary mb-8">
-          Last modified <FormattedDateTime date={date} />
+          Last modified <FormattedDate date={date} type="datetime" />
         </p>
         <article class="prose">
           <Content />
