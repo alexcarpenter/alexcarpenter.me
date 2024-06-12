@@ -1,5 +1,4 @@
 ---
-import { format } from "date-fns";
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 type JobProps = CollectionEntry<"jobs">;
@@ -7,11 +6,7 @@ const jobs = await getCollection("jobs");
 type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
 import ProjectCarousel from "@/components/ProjectCarousel.astro";
-const parseDateToString = (date: string): string => {
-  const d = new Date(date);
-  const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
-  return format(t, "MMM y");
-};
+import { parseYearToString } from "@/components/FormattedDate.astro";
 ---
 
 <BaseLayout
@@ -45,8 +40,8 @@ const parseDateToString = (date: string): string => {
                   </h3>
                   <p class="mt-0.5 text-sm text-secondary font-mono">
                     <!-- prettier-ignore -->
-                    {parseDateToString(job.data.startDate.toString())}&nbsp;&mdash;&nbsp;{job.data.endDate
-                      ? parseDateToString(job.data.endDate.toString())
+                    {parseYearToString(job.data.startDate)}&nbsp;&mdash;&nbsp;{job.data.endDate
+                      ? parseYearToString(job.data.endDate)
                       : "Current"}
                   </p>
                 </header>

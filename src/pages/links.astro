@@ -15,7 +15,7 @@ const groupedLinks = groupByDay(sortedSinks);
 function groupByDay(items: LinkProps[]): Record<string, LinkProps[]> {
   const grouped: Record<string, LinkProps[]> = {};
   items.forEach((item) => {
-    const key = parseDateToString(item.data.published.toString());
+    const key = parseDateToString(item.data.published);
     if (!grouped[key]) {
       grouped[key] = [];
     }
