@@ -3,8 +3,7 @@ import { format } from "date-fns";
 
 export const parseDateToString = (date: string): string => {
   const d = new Date(date);
-  const t = new Date(d.valueOf() + d.getTimezoneOffset() * 60 * 1000);
-  return format(t, "yyyy-MM-dd");
+  return format(d, "yyyy-MM-dd");
 };
 
 interface Props {
