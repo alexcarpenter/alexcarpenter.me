@@ -1,0 +1,5 @@
+TECHNOLOGIES
+
+- Astro: https://astro.build
+- Tailwind CSS: https://tailwindcss.com
+- Geist Font: https://vercel.com/font
