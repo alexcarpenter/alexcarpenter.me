@@ -2,7 +2,7 @@
 title: Now
 description: What I am up to now.
 published: 2023-08-01T08:00:00-0400
-updated: 2024-06-03T16:59:47-0400
+updated: 2024-06-12T07:05:59-0400
 ---
 
 ## Currently
@@ -17,8 +17,8 @@ updated: 2024-06-03T16:59:47-0400
 
 ## Watching
 
+- Presumed Innoncent
 - Trying
-- Your Honor
 
 ## Listening
 
@@ -29,6 +29,7 @@ updated: 2024-06-03T16:59:47-0400
 <details>
 <summary>Archive</summary>
 
+- Watched Your Honor
 - Watched Sugar season 1
 - Watched Fallout season 1
 - Watched Mare of Easttown
