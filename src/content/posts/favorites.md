@@ -2,7 +2,7 @@
 title: Favorites
 description: My favorite products, tools and gear.
 published: 2023-07-19T08:00:00-0400
-updated: 2024-05-30T08:08:06-0400
+updated: 2024-06-15T08:52:35-0400
 toc: true
 ---
 
@@ -35,6 +35,7 @@ toc: true
 
 - [Breville Barista Express Espresso Machine](https://amzn.to/48oXg5Y)
 - [Kalita Wave 185](https://amzn.to/3RVOwyS)
+- [Moccamaster](https://amzn.to/3RpLqCs)
 - [Trade Coffee Subscription](https://www.drinktrade.com/)
 - [snow peak Ti-Double H450 Stacking Mug](https://amzn.to/3RBGSZa)
 - [YETI Rambler 12oz Hotshot Bottle](https://amzn.to/41CDWzS)
