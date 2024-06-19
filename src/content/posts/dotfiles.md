@@ -4,9 +4,9 @@ description: My set of configuration files.
 published: 2024-06-19T07:15:02-0400
 ---
 
-## iTerm 2
+When setting up a new computer, there are really only four apps that are must installs for me. Those include VS Code, iTerm 2, Karabiner Elements, and Raycast. Once downloaded I install my prefered theme and font in both VS Code and iTerm 2. It's essential that they match. Currently I am using Ayu Dark, and Jet Brains Mono.
 
-![Screenshot of iTerm 2 setup](/img/iterm-2.png)
+![Screenshot of VS Code setup](/img/vs-code.png)
 
 <details>
 <summary>.zshrc</summary>
@@ -31,10 +31,6 @@ alias mc="make checkpoint"
 ```
 
 </details>
-
-## VS Code
-
-![Screenshot of VS Code setup](/img/vs-code.png)
 
 <details>
 <summary>settings.json</summary>
@@ -71,8 +67,6 @@ alias mc="make checkpoint"
 ```
 
 </details>
-
-## Karabiner Elements
 
 <details>
 <summary>karabiner.json</summary>

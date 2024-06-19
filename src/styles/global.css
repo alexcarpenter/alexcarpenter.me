@@ -53,7 +53,8 @@
     @apply font-semibold scroll-mt-4;
   }
 
-  .prose :where(* + h2, * + h3, * + details) {
+  .prose :where(* + h2, * + h3, * + details),
+  .prose * + p:has(img) {
     @apply mt-8;
   }
 
