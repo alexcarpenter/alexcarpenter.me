@@ -45,120 +45,123 @@
 }
 
 @layer components {
-  .prose :where(* + *) {
-    @apply mt-4;
-  }
+  .prose {
+    :where(* + *) {
+      @apply mt-4;
+    }
 
-  .prose :where(h2, h3) {
-    @apply font-semibold scroll-mt-4;
-  }
+    :where(h2, h3) {
+      @apply font-semibold scroll-mt-4;
+    }
 
-  .prose :where(* + h2, * + h3, * + details),
-  .prose * + p:has(img) {
-    @apply mt-8;
-  }
+    :where(* + h2, * + h3, * + details),
+    :where(* + p:has(img)),
+    :where(p:has(img) + *) {
+      @apply mt-8;
+    }
 
-  .prose :where(p:has(small) ~ h2) {
-    @apply mt-0.5;
-  }
+    :where(p:has(small) ~ h2) {
+      @apply mt-0.5;
+    }
 
-  .prose :where(a) {
-    @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
-  }
+    :where(a) {
+      @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
+    }
 
-  .prose :where(strong) {
-    @apply font-semibold;
-  }
+    :where(strong) {
+      @apply font-semibold;
+    }
 
-  .prose :where(ul) {
-    @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
-  }
+    :where(ul) {
+      @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
+    }
 
-  .prose :where(ul li ul) {
-    @apply mt-0.5;
-  }
+    :where(ul li ul) {
+      @apply mt-0.5;
+    }
 
-  .prose :where(code),
-  .prose :where(kbd) {
-    @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
-  }
+    :where(code),
+    :where(kbd) {
+      @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
+    }
 
-  .prose :where(pre) {
-    @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
-  }
+    :where(pre) {
+      @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
+    }
 
-  .prose :where(dl) {
-    @apply grid grid-cols-[max-content_minmax(0,1fr)];
-  }
+    :where(dl) {
+      @apply grid grid-cols-[max-content_minmax(0,1fr)];
+    }
 
-  .prose :where(dt) {
-    @apply m-0 pr-8 py-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed text-secondary;
-  }
+    :where(dt) {
+      @apply m-0 pr-8 py-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed text-secondary;
+    }
 
-  .prose :where(dd) {
-    @apply m-0 py-2 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed;
-  }
+    :where(dd) {
+      @apply m-0 py-2 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed;
+    }
 
-  .prose :where(dt:first-of-type),
-  .prose :where(dd:first-of-type) {
-    @apply pt-0;
-  }
+    :where(dt:first-of-type),
+    :where(dd:first-of-type) {
+      @apply pt-0;
+    }
 
-  .prose :where(dt:last-of-type),
-  .prose :where(dd:last-of-type) {
-    @apply pb-0;
-  }
+    :where(dt:last-of-type),
+    :where(dd:last-of-type) {
+      @apply pb-0;
+    }
 
-  .prose :where(blockquote) {
-    @apply border-l-[0.1875rem] border-[var(--text-color-subtle)] pl-5 ml-3;
-  }
+    :where(blockquote) {
+      @apply border-l-[0.1875rem] border-[var(--text-color-subtle)] pl-5 ml-3;
+    }
 
-  .prose :where(table) {
-    @apply w-full;
-  }
+    :where(table) {
+      @apply w-full;
+    }
 
-  .prose :where(tr:not(:last-child) > td) {
-    @apply pb-2;
-  }
+    :where(tr:not(:last-child) > td) {
+      @apply pb-2;
+    }
 
-  .prose :where(th) {
-    @apply pb-2 font-semibold;
-  }
+    :where(th) {
+      @apply pb-2 font-semibold;
+    }
 
-  .prose :where(th:not([align="right"])) {
-    @apply text-left;
-  }
+    :where(th:not([align="right"])) {
+      @apply text-left;
+    }
 
-  .prose :where(td) {
-    @apply pt-2 border-t border-dashed border-primary align-top;
-  }
+    :where(td) {
+      @apply pt-2 border-t border-dashed border-primary align-top;
+    }
 
-  .prose :where(tr:first-of-type td) {
-    @apply border-solid;
-  }
+    :where(tr:first-of-type td) {
+      @apply border-solid;
+    }
 
-  .prose :where(td + td),
-  .prose :where(th + th) {
-    @apply pl-2;
-  }
+    :where(td + td),
+    :where(th + th) {
+      @apply pl-2;
+    }
 
-  .prose :where(td[align="right"]) {
-    @apply font-mono text-secondary text-nowrap;
-  }
+    :where(td[align="right"]) {
+      @apply font-mono text-secondary text-nowrap;
+    }
 
-  .prose :where(small) {
-    @apply text-neutral-500 text-xs uppercase font-mono px-1 py-px rounded tracking-wider bg-neutral-100 border border-transparent dark:bg-neutral-800 dark:text-neutral-400 -translate-y-px;
-  }
+    :where(small) {
+      @apply text-neutral-500 text-xs uppercase font-mono px-1 py-px rounded tracking-wider bg-neutral-100 border border-transparent dark:bg-neutral-800 dark:text-neutral-400 -translate-y-px;
+    }
 
-  .prose :where(hr) {
-    @apply my-8 border-primary border-dashed;
-  }
+    :where(hr) {
+      @apply my-8 border-primary border-dashed;
+    }
 
-  .prose :where(.contains-task-list) {
-    @apply list-none pl-1.5;
-  }
+    :where(.contains-task-list) {
+      @apply list-none pl-1.5;
+    }
 
-  .prose :where(summary) {
-    @apply font-semibold cursor-pointer;
+    :where(summary) {
+      @apply font-semibold cursor-pointer;
+    }
   }
 }

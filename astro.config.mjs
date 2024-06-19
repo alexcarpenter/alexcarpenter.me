@@ -12,7 +12,12 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: "https://alexcarpenter.me",
-  integrations: [sitemap(), tailwind()],
+  integrations: [
+    sitemap(),
+    tailwind({
+      nesting: true,
+    }),
+  ],
   markdown: {
     remarkPlugins: [remarkDefinitionList, remarkAdmonitions],
     remarkRehype: {
