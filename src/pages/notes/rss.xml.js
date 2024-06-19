@@ -22,7 +22,11 @@ export async function GET(context) {
         pubDate: note.data.published,
         title: `Note: ${note.data.published}`,
         content: sanitizeHtml(parser.render(note.body), {
-          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+            "img",
+            "details",
+            "summary",
+          ]),
         }),
       })),
   });
