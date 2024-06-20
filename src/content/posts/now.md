@@ -24,6 +24,7 @@ updated: 2024-06-12T07:05:59-0400
 
 - Charley Crockett
 - Colby Acuff
+- Jake Xerxes Fussell
 - Zach Bryan
 
 <details>
