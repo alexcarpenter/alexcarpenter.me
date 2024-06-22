@@ -62,7 +62,7 @@
     }
 
     :where(p:has(small) ~ h2) {
-      @apply mt-0.5;
+      @apply mt-1;
     }
 
     :where(a) {
