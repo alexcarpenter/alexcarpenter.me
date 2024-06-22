@@ -56,7 +56,8 @@
 
     :where(* + h2, * + h3, * + details),
     :where(* + p:has(img)),
-    :where(p:has(img) + *) {
+    :where(p:has(img) + *),
+    :where(* + p:has(small)) {
       @apply mt-8;
     }
 
