@@ -10,8 +10,8 @@ draft: true
 ## Evergoods CPL 16
 
 - Macbook Pro
-- Sony WH-1000XM4 Noise Canceling Headphones
-- Anker 737 GaNPrime, 120W USB C Charger
+- [Sony WH-1000XM4 Noise Canceling Headphones](https://amzn.to/3VD2FkT)
+- [Anker 737 GaNPrime, 120W USB C Charger](https://amzn.to/4bl9xct)
 
 <small>Sling</small>
 
@@ -19,5 +19,5 @@ draft: true
 
 - iPhone 15 Pro
 - Ricoh GR III x
-- Anker MagGo Power Bank 10K
-- Rolling Square inCharge X Cable
+- [Anker MagGo Power Bank 10K](https://amzn.to/3VUA4sE)
+- [Rolling Square inCharge X Cable](https://amzn.to/3RFokb0)
