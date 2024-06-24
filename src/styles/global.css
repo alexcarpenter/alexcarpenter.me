@@ -20,8 +20,8 @@
   :root {
     --page-primary: theme(colors.white);
     --surface: theme(colors.neutral.100);
-    --text-color-primary: theme(colors.neutral.700);
-    --text-color-secondary: theme(colors.neutral.600);
+    --text-color-primary: theme(colors.neutral.900);
+    --text-color-secondary: theme(colors.neutral.700);
     --text-color-subtle: theme(colors.neutral.300);
     --border-color-primary: theme(colors.neutral.200);
     --decoration-color-subtle: theme(colors.neutral.300);

@@ -65,7 +65,7 @@ const metaDescription = description ? description : "UI Engineer";
       >Skip to content</a
     >
     <div class="mx-auto flex w-full min-w-0 max-w-prose flex-1 flex-col">
-      <div
+      <!-- <div
         class="flex h-1.5 flex-none dark:flex-row-reverse dark:justify-end gap-[0.5px]"
         aria-hidden="true"
       >
@@ -79,11 +79,26 @@ const metaDescription = description ? description : "UI Engineer";
         <span class="bg-neutral-200 w-6"></span>
         <span class="bg-neutral-100 w-6"></span>
         <span class="bg-neutral-50 w-6"></span>
+      </div> -->
+      <div
+        class="flex h-1.5 flex-none gap-[0.5px]"
+        aria-hidden="true"
+      >
+        <span class="w-6 bg-[#15A620]"></span>
+        <span class="w-6 bg-[#FF0]"></span>
+        <span class="w-6 bg-[#ED58DF]"></span>
+        <span class="w-6 bg-[#00F]"></span>
+        <span class="w-6 bg-[#FF6D39]"></span>
+        <span class="bg-neutral-400 w-6"></span>
+        <span class="bg-neutral-300 w-6"></span>
+        <span class="bg-neutral-200 w-6"></span>
+        <span class="bg-neutral-100 w-6"></span>
+        <span class="bg-neutral-50 w-6"></span>
       </div>
       <header class:list={["relative pt-4", "flex flex-wrap justify-between items-end gap-4", "py-4 border-b border-primary"]}>
         <div>
           <p>
-            <a href="/" class="font-semibold">{SITE_TITLE}</a>
+            <a href="/" class="font-semibold">{SITE_TITLE} @ Config</a>
           </p>
           <p class="text-secondary">User Interface Engineer at Clerk</p>
         </div>
