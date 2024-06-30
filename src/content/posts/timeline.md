@@ -6,6 +6,7 @@ published: 2024-03-17T08:00:00-0400
 
 | Description                                     | Tag      |       Date |
 | ----------------------------------------------- | -------- | ---------: |
+| Joined Clerk SDK Infra team                     | Work     | 2024-06-30 |
 | Joined Clerk as a Senior UI Engineer            | Work     | 2024-01-04 |
 | Joined Watershed as a Web Engineer              | Work     | 2023-07-12 |
 | Micah was born in Grand Rapids, MI.             | Personal | 2023-05-09 |
