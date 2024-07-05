@@ -22,11 +22,13 @@ const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
       <dd>Astro, TailwindCSS, Geist Sans/Mono</dd>
       <dt>Carbon footprint</dt>
       <dd>
-        <a
-          href="https://www.websitecarbon.com/website/alexcarpenter-me/"
-          target="_blank"
-          rel="noopener"><code>0.03 g of CO²</code></a
-        >
+        <code>
+          <a
+            href="https://www.websitecarbon.com/website/alexcarpenter-me/"
+            target="_blank"
+            rel="noopener">0.03 g of CO²</a
+          >
+        </code>
       </dd>
       <dt>Version</dt>
       <dd><code>{SITE_VERSION}</code></dd>
@@ -43,13 +45,15 @@ const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
           <>
             <dt>Latest commit</dt>
             <dd>
-              <a
-                href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${commitSha}`}
-                target="_blank"
-                rel="noopener"
-              >
-                <code>{commitSha.slice(0, 7)}</code>
-              </a>
+              <code>
+                <a
+                  href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${commitSha}`}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {commitSha.slice(0, 7)}
+                </a>
+              </code>
             </dd>
           </>
         )
