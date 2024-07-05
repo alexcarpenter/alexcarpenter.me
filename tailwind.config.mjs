@@ -22,12 +22,14 @@ export default {
         primary: "var(--text-color-primary)",
         secondary: "var(--text-color-secondary)",
         subtle: "var(--text-color-subtle)",
+        accent: "var(--accent)",
       },
       borderColor: {
         primary: "var(--border-color-primary)",
       },
       textDecorationColor: {
         subtle: "var(--decoration-color-subtle)",
+        accent: "var(--accent)",
       },
       listStyleType: {
         square: "square",

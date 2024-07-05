@@ -67,7 +67,7 @@
     }
 
     :where(a) {
-      @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-[--accent] decoration-[0.1071428571rem];
+      @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-accent decoration-[0.1071428571rem];
     }
 
     :where(strong) {
