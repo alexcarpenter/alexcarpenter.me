@@ -25,7 +25,7 @@
     --text-color-subtle: theme(colors.neutral.300);
     --border-color-primary: theme(colors.neutral.200);
     --decoration-color-subtle: theme(colors.neutral.300);
-    --accent: #ba160c;
+    --accent: #ff4f00;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -37,7 +37,6 @@
       --text-color-subtle: theme(colors.neutral.500);
       --border-color-primary: theme(colors.neutral.700);
       --decoration-color-subtle: theme(colors.neutral.500);
-      --accent: #ff4f00;
     }
   }
 
