@@ -2,12 +2,11 @@
 title: Now
 description: What I am up to now.
 published: 2023-08-01T08:00:00-0400
-updated: 2024-06-22T08:19:31-0400
+updated: 2024-07-05T08:44:44-0400
 ---
 
 ## Currently
 
-- Attending Figma Config in San Francisco, CA with the Clerk design team
 - Getting back into photography with my Fujifilm XE-4 and my new Ricoh GRIIX HDF
 - Working on [Clerk Elements](https://clerk.com/docs/elements/overview)
 - Learning to type again on my new Corne 42 LP Keyboard
@@ -18,6 +17,7 @@ updated: 2024-06-22T08:19:31-0400
 
 ## Watching
 
+- House of the Dragon
 - Presumed Innoncent
 - Trying
 
