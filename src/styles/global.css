@@ -25,6 +25,7 @@
     --text-color-subtle: theme(colors.neutral.300);
     --border-color-primary: theme(colors.neutral.200);
     --decoration-color-subtle: theme(colors.neutral.300);
+    --accent: #ba160c;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -36,6 +37,7 @@
       --text-color-subtle: theme(colors.neutral.500);
       --border-color-primary: theme(colors.neutral.700);
       --decoration-color-subtle: theme(colors.neutral.500);
+      --accent: #ff4f00;
     }
   }
 
@@ -66,7 +68,7 @@
     }
 
     :where(a) {
-      @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-green-500 decoration-[0.1071428571rem];
+      @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-[--accent] decoration-[0.1071428571rem];
     }
 
     :where(strong) {
