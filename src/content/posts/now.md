@@ -2,7 +2,7 @@
 title: Now
 description: What I am up to now.
 published: 2023-08-01T08:00:00-0400
-updated: 2024-07-05T08:44:44-0400
+updated: 2024-07-07T07:57:35-0400
 ---
 
 ## Currently
@@ -17,7 +17,8 @@ updated: 2024-07-05T08:44:44-0400
 
 ## Watching
 
-- House of the Dragon
+- House of the Dragon S2
+- The Bear S3
 - Presumed Innoncent
 - Trying
 
