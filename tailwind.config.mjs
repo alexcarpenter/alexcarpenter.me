@@ -25,7 +25,9 @@ export default {
         accent: "var(--accent)",
       },
       borderColor: {
+        DEFAULT: "var(--border-color-primary)",
         primary: "var(--border-color-primary)",
+        subtle: "var(--border-color-subtle)",
       },
       textDecorationColor: {
         subtle: "var(--decoration-color-subtle)",

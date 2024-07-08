@@ -13,7 +13,7 @@ export const options: EmblaOptionsType = { loop: false };
 const addTogglePrevNextBtnsActive = (
   emblaApi: EmblaCarouselType,
   prevBtn: HTMLElement,
-  nextBtn: HTMLElement,
+  nextBtn: HTMLElement
 ) => {
   const togglePrevNextBtnsState = () => {
     if (emblaApi.canScrollPrev()) prevBtn.removeAttribute("disabled");
@@ -45,7 +45,7 @@ const addTogglePrevNextBtnsActive = (
 export const addPrevNextBtnsClickHandlers = (
   emblaApi: EmblaCarouselType,
   prevBtn: HTMLElement,
-  nextBtn: HTMLElement,
+  nextBtn: HTMLElement
 ) => {
   const scrollPrev = () => {
     emblaApi.scrollPrev();
@@ -59,7 +59,7 @@ export const addPrevNextBtnsClickHandlers = (
   const removeTogglePrevNextBtnsActive = addTogglePrevNextBtnsActive(
     emblaApi,
     prevBtn,
-    nextBtn,
+    nextBtn
   );
 
   return () => {
@@ -78,7 +78,7 @@ export const addPrevNextBtnsClickHandlers = (
 
 export const setupProgressBar = (
   emblaApi: EmblaCarouselType,
-  progressNode: HTMLElement,
+  progressNode: HTMLElement
 ): {
   applyProgress: () => void;
   removeProgress: () => void;

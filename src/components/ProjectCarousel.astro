@@ -11,27 +11,43 @@ interface Props {
   }>;
 }
 const { projects } = Astro.props;
+const renderCarousel = projects.length > 4;
 ---
 
-<div class="embla">
-  <div class="embla__viewport overflow-hidden">
-    <div class="embla__container flex -ml-2">
+<div
+  class:list={{
+    embla: renderCarousel,
+  }}
+>
+  <div class:list={[{ "overflow-hidden embla__viewport": renderCarousel }]}>
+    <div
+      class:list={[
+        "flex -ml-2",
+        {
+          embla__container: renderCarousel,
+        },
+      ]}
+    >
       {
         projects.map(({ img, href, title }) => {
           return (
-            <div class="embla__slide min-w-0 flex-[0_0_25%] pl-2">
+            <div
+              class:list={[
+                "min-w-0 flex-[0_0_25%] pl-2",
+                { embla__slide: renderCarousel },
+              ]}
+            >
               <a
                 href={href}
-                class="relative grid aspect-[3/2] overflow-hidden rounded-md"
+                class="relative grid aspect-[3/2] overflow-hidden border border-subtle"
               >
+                <span class="sr-only">{title}</span>
                 <Image
-                  src={img.src}
-                  alt={img.alt}
+                  {...img}
                   width="960"
                   height="640"
                   class="absolute w-full h-full object-cover"
                 />
-                <span class="sr-only">{title}</span>
               </a>
             </div>
           );
@@ -39,15 +55,16 @@ const { projects } = Astro.props;
       }
     </div>
   </div>
-  <div
-    class="embla__progress relative mt-2 h-1 overflow-hidden bg-neutral-100 rounded-full dark:bg-neutral-800"
-  >
-    <div
-      class="embla__progress__bar absolute top-0 bottom-0 w-full -left-full bg-neutral-500 dark:bg-neutral-400 rounded-full"
-      style="transform:translate3d(0%,0px,0px)"
-    >
-    </div>
-  </div>
+  {
+    renderCarousel ? (
+      <div class="embla__progress relative mt-2 h-1 overflow-hidden bg-neutral-100  dark:bg-neutral-800">
+        <div
+          class="embla__progress__bar absolute top-0 bottom-0 w-full -left-full bg-neutral-500 dark:bg-neutral-400 "
+          style="transform:translate3d(0%,0px,0px)"
+        />
+      </div>
+    ) : null
+  }
 </div>
 
 <script>

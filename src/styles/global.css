@@ -24,6 +24,7 @@
     --text-color-secondary: theme(colors.neutral.700);
     --text-color-subtle: theme(colors.neutral.300);
     --border-color-primary: theme(colors.neutral.200);
+    --border-color-subtle: theme(colors.neutral.100);
     --decoration-color-subtle: theme(colors.neutral.300);
     --accent: #ff4f00;
   }
@@ -36,6 +37,7 @@
       --text-color-secondary: theme(colors.neutral.300);
       --text-color-subtle: theme(colors.neutral.500);
       --border-color-primary: theme(colors.neutral.700);
+      --border-color-subtle: theme(colors.neutral.800);
       --decoration-color-subtle: theme(colors.neutral.500);
     }
   }
