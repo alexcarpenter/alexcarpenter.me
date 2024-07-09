@@ -32,7 +32,7 @@ updated: 2024-07-07T07:57:35-0400
 <details>
 <summary>Archive</summary>
 
-- Attend Figma Config 2024
+- Attended Figma Config 2024
 - Watched Your Honor
 - Watched Sugar season 1
 - Watched Fallout season 1

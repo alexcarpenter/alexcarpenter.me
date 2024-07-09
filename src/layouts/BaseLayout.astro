@@ -97,9 +97,9 @@ const metaDescription = description ? description : "UI Engineer";
                     <a
                       href={slug}
                       aria-current={isCurrent ? "page" : undefined}
-                      class:list={["relative text-secondary aria-[current]:text-primary"]}
+                      class="relative text-secondary aria-[current]:text-primary"
                     >
-                      <span class="text-subtle" aria-hidden>/</span>{label}
+                      {label}
                     </a>
                   </li>
                 );
@@ -127,8 +127,7 @@ const metaDescription = description ? description : "UI Engineer";
                         href={slug}
                         aria-current={isCurrent ? 'page' : undefined}
                       >
-                        <!-- prettier ignore -->
-                        <span class="text-subtle" aria-hidden="true">/</span>{label}
+                        {label}
                       </a>
                     </li>
                   );
