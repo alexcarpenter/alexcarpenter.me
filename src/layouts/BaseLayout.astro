@@ -80,14 +80,20 @@ const metaDescription = description ? description : "UI Engineer";
         <span class="bg-neutral-100 w-6"></span>
         <span class="bg-neutral-50 w-6"></span>
       </div>
-      <header class:list={["relative pt-4", "flex flex-wrap justify-between items-end gap-4", "py-4 border-b border-primary"]}>
+      <header
+        class:list={[
+          "relative pt-4",
+          "flex flex-wrap justify-between items-end gap-4",
+          "py-4 border-b border-primary",
+        ]}
+      >
         <div>
           <p>
             <a href="/" class="font-semibold">{SITE_TITLE}</a>
           </p>
           <p class="text-secondary">User Interface Engineer at Clerk</p>
         </div>
-        <nav>
+        <!-- <nav>
           <ul class="flex gap-x-2">
             {
               SITE_NAV.map(({ label, slug }) => {
@@ -106,7 +112,7 @@ const metaDescription = description ? description : "UI Engineer";
               })
             }
           </ul>
-        </nav>
+        </nav> -->
       </header>
 
       <main id="main" tabindex="-1" class="flex-1 outline-none">
@@ -120,12 +126,14 @@ const metaDescription = description ? description : "UI Engineer";
             <ul class="mt-4 space-y-0.5">
               {
                 SITE_NAV.map(({ label, slug }) => {
-                  const isCurrent = Astro.url.pathname === `${slug}/` || Astro.url.pathname === `${slug}`;
+                  const isCurrent =
+                    Astro.url.pathname === `${slug}/` ||
+                    Astro.url.pathname === `${slug}`;
                   return (
                     <li>
                       <a
                         href={slug}
-                        aria-current={isCurrent ? 'page' : undefined}
+                        aria-current={isCurrent ? "page" : undefined}
                       >
                         {label}
                       </a>
