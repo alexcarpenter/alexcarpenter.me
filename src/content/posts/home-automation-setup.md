@@ -1,5 +1,5 @@
 ---
-title: Home automation
+title: Home automation setup
 published: 2024-06-10T07:27:13-0400
 draft: true
 ---
