@@ -2,14 +2,13 @@
 title: Now
 description: What I am up to now.
 published: 2023-08-01T08:00:00-0400
-updated: 2024-07-20T08:12:24-0400
+updated: 2024-07-23T07:21:28-0400
 ---
 
 ## Currently
 
 - Getting back into photography with my Fujifilm XE-4 and my new Ricoh GRIIX HDF
 - Working on [Clerk Elements](https://clerk.com/docs/elements/overview)
-- Learning to type again on my new Corne 42 LP Keyboard
 
 ## Reading
 
@@ -18,8 +17,8 @@ updated: 2024-07-20T08:12:24-0400
 ## Watching
 
 - House of the Dragon S2
+- Vikings: Valhalla S3
 - Presumed Innoncent
-- Trying
 
 ## Listening
 
@@ -31,6 +30,7 @@ updated: 2024-07-20T08:12:24-0400
 <details>
 <summary>Archive</summary>
 
+- Learned to type again on my new Corne 42 LP Keyboard
 - Watched The Bear S3
 - Attended Figma Config 2024
 - Watched Your Honor

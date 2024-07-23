@@ -23,3 +23,7 @@ draft: true
 <small>Presence Sensor</small>
 
 ## Aqara FP2 Presence Sensor
+
+<small>Garage door</small>
+
+## myQ wifi garage door opener
