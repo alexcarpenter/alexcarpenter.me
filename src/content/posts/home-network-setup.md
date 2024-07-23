@@ -10,4 +10,16 @@ draft: true
 
 <small>Network Switch</small>
 
-## [TP-Link 8 Port Gigabit Unmanaged Ethernet Network Switch](https://amzn.to/467hu4d)
+## [TP-Link 8 Port Gigabit Unmanaged Ethernet Network Switch](https://amzn.to/3Yxv8fp)
+
+<small>Cables</small>
+
+## [Cable Matters 10Gbps Cat6 Ultra Thin Ethernet Cable](https://amzn.to/3LBN9Bw)
+
+<small>UPS System</small>
+
+## [CyberPower CP900AVR AVR UPS System](https://amzn.to/4bWMViQ)
+
+---
+
+Also connected are a handful of hubs for my [home automation setup](/posts/smart-home-setup).
