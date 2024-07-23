@@ -22,4 +22,4 @@ draft: true
 
 ---
 
-Also connected are a handful of hubs for my [home automation setup](/posts/smart-home-setup).
+Also connected are a handful of hubs for my [smart home setup](/posts/smart-home-setup).
