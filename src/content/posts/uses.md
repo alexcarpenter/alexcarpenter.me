@@ -2,7 +2,7 @@
 title: Uses
 description: Things I use and enjoy.
 published: 2024-03-02T08:00:00-0400
-updated: 2024-04-14T08:00:00-0400
+updated: 2024-07-24T07:04:27-0400
 toc: true
 ---
 
@@ -55,6 +55,7 @@ toc: true
 - Focusrite Scarlett Solo 3rd Gen USB Audio Interface
 - Herman Miller Sayl chair
 - Jarvis Single Monitor Arm
+- NuPhy Air75 V2
 - Rode PodMic
 - Sony WH1000XM4 headphones
 - Synology DS224+
