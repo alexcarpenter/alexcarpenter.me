@@ -11,7 +11,8 @@ interface Props {
   }>;
 }
 const { projects } = Astro.props;
-const renderCarousel = projects.length > 4;
+// const renderCarousel = projects.length > 4;
+const renderCarousel = false;
 ---
 
 <div
@@ -33,7 +34,7 @@ const renderCarousel = projects.length > 4;
           return (
             <div
               class:list={[
-                "min-w-0 flex-[0_0_25%] pl-2",
+                "min-w-0 flex-[0_0_50%] sm:flex-[0_0_25%] pl-2",
                 { embla__slide: renderCarousel },
               ]}
             >
@@ -48,7 +49,7 @@ const renderCarousel = projects.length > 4;
                   height="640"
                   class="absolute w-full h-full object-cover"
                 />
-                <span class="absolute bottom-2 right-2 bg-primary p-1 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity group-focus-visible:opacity-100">
+                <span class="absolute bottom-2 right-2 bg-primary p-1 rounded-sm sm:opacity-0 group-hover:opacity-100 transition-opacity group-focus-visible:opacity-100">
                   <svg
                     viewBox="0 0 12 12"
                     fill="none"
