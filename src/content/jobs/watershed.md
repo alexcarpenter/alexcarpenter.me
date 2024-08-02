@@ -9,11 +9,11 @@ projects:
     img:
       src: /img/watershed-com.webp
       alt: Watershed homepage
-  - title: Watershed events page
-    href: "https://watershed.com/events"
+  - title: Watershed customers page
+    href: "https://watershed.com/customers"
     img:
-      src: /img/watershed-com-events.webp
-      alt: Watershed events landing page
+      src: /img/watershed-com-customers.webp
+      alt: Watershed customers landing page
 tools:
   - Next.js
   - Sanity CMS
