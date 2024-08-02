@@ -14,6 +14,16 @@ projects:
     img:
       src: /img/watershed-com-customers.webp
       alt: Watershed customers landing page
+  - title: Watershed events page
+    href: "https://watershed.com/events"
+    img:
+      src: /img/watershed-com-events.webp
+      alt: Watershed events landing page
+  - title: Watershed change campaign page
+    href: "https://watershed.com/change"
+    img:
+      src: /img/watershed-com-change.webp
+      alt: Watershed change campaign landing page
 tools:
   - Next.js
   - Sanity CMS

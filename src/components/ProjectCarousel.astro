@@ -11,33 +11,15 @@ interface Props {
   }>;
 }
 const { projects } = Astro.props;
-// const renderCarousel = projects.length > 4;
-const renderCarousel = false;
 ---
 
-<div
-  class:list={{
-    embla: renderCarousel,
-  }}
->
-  <div class:list={[{ "overflow-hidden embla__viewport": renderCarousel }]}>
-    <div
-      class:list={[
-        "flex -ml-2",
-        {
-          embla__container: renderCarousel,
-        },
-      ]}
-    >
+<div class="embla">
+  <div class="overflow-hidden embla__viewport">
+    <div class="flex -ml-2 embla__container">
       {
         projects.map(({ img, href, title }) => {
           return (
-            <div
-              class:list={[
-                "min-w-0 flex-[0_0_50%] sm:flex-[0_0_25%] pl-2",
-                { embla__slide: renderCarousel },
-              ]}
-            >
+            <div class="min-w-0 flex-[0_0_50%] sm:flex-[0_0_25%] pl-2 embla__slide">
               <a
                 href={href}
                 class="relative grid aspect-[3/2] overflow-hidden border border-subtle group"
@@ -72,16 +54,15 @@ const renderCarousel = false;
       }
     </div>
   </div>
-  {
-    renderCarousel ? (
-      <div class="embla__progress relative mt-2 h-1 overflow-hidden bg-neutral-100  dark:bg-neutral-800">
-        <div
-          class="embla__progress__bar absolute top-0 bottom-0 w-full -left-full bg-neutral-500 dark:bg-neutral-400 "
-          style="transform:translate3d(0%,0px,0px)"
-        />
-      </div>
-    ) : null
-  }
+  <!-- <div
+    class="embla__progress relative mt-2 h-1 overflow-hidden bg-neutral-100 dark:bg-neutral-800 opacity-0"
+  >
+    <div
+      class="embla__progress__bar absolute top-0 bottom-0 w-full -left-full bg-neutral-500 dark:bg-neutral-400"
+      style="transform:translate3d(0%,0px,0px)"
+    >
+    </div>
+  </div> -->
 </div>
 
 <script>
@@ -92,18 +73,18 @@ const renderCarousel = false;
     const viewportNode = rootNode?.querySelector(
       ".embla__viewport"
     ) as HTMLElement;
-    const progressNode = rootNode?.querySelector(
-      ".embla__progress__bar"
-    ) as HTMLElement;
     const emblaApi = EmblaCarousel(viewportNode, options);
-    const { applyProgress, removeProgress } = setupProgressBar(
-      emblaApi,
-      progressNode
-    );
-    emblaApi
-      .on("init", applyProgress)
-      .on("reInit", applyProgress)
-      .on("scroll", applyProgress)
-      .on("destroy", removeProgress);
+    // const progressBarNode = rootNode?.querySelector(
+    //   ".embla__progress__bar"
+    // ) as HTMLElement;
+    // const { applyProgress, removeProgress } = setupProgressBar(
+    //   emblaApi,
+    //   progressBarNode
+    // );
+    // emblaApi
+    //   .on("init", applyProgress)
+    //   .on("reInit", applyProgress)
+    //   .on("scroll", applyProgress)
+    //   .on("destroy", removeProgress);
   });
 </script>
