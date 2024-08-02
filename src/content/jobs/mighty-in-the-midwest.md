@@ -14,6 +14,11 @@ projects:
     img:
       src: /img/dakecorp-com.webp
       alt: Dake Corp homepage
+  - title: Brunswick Bowling
+    href: "https://brunswickbowling.com"
+    img:
+      src: /img/brunswickbowling-com.webp
+      alt: Brunswick bowling homepage
 tools:
   - Craft CMS
   - Shopify
