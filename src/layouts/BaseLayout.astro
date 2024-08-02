@@ -93,17 +93,19 @@ const metaDescription = description ? description : "UI Engineer";
           </p>
           <p class="text-secondary">User Interface Engineer at Clerk</p>
         </div>
-        <!-- <nav>
+        <nav>
           <ul class="flex gap-x-2">
             {
               SITE_NAV.map(({ label, slug }) => {
-                const isCurrent = Astro.url.pathname === `${slug}/` || Astro.url.pathname === `${slug}`;
+                const isCurrent =
+                  Astro.url.pathname === `${slug}/` ||
+                  Astro.url.pathname === `${slug}`;
                 return (
                   <li>
                     <a
                       href={slug}
                       aria-current={isCurrent ? "page" : undefined}
-                      class="relative text-secondary aria-[current]:text-primary"
+                      class="relative text-secondary hover:text-primary aria-[current]:text-primary"
                     >
                       {label}
                     </a>
@@ -112,7 +114,7 @@ const metaDescription = description ? description : "UI Engineer";
               })
             }
           </ul>
-        </nav> -->
+        </nav>
       </header>
 
       <main id="main" tabindex="-1" class="flex-1 outline-none">
