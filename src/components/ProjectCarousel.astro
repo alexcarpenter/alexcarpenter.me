@@ -14,12 +14,12 @@ const { projects } = Astro.props;
 ---
 
 <div class="embla">
-  <div class="overflow-hidden embla__viewport">
+  <div class="embla__viewport">
     <div class="flex -ml-2 embla__container">
       {
         projects.map(({ img, href, title }) => {
           return (
-            <div class="min-w-0 flex-[0_0_50%] sm:flex-[0_0_25%] pl-2 embla__slide">
+            <div class="min-w-0 flex-[0_0_50%] sm:flex-[0_0_33.33%] pl-2 embla__slide">
               <a
                 href={href}
                 class="relative grid aspect-[3/2] overflow-hidden border border-subtle group"
