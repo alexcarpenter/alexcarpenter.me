@@ -93,6 +93,10 @@
       @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
     }
 
+    :where(pre code span.line:last-of-type:empty) {
+      @apply hidden;
+    }
+
     :where(dl) {
       @apply grid grid-cols-[max-content_minmax(0,1fr)];
     }
