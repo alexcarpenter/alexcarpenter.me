@@ -90,7 +90,11 @@
     }
 
     :where(pre) {
-      @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded p-4;
+      @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded py-4;
+    }
+
+    :where(pre code span.line) {
+      @apply px-4;
     }
 
     :where(pre code span.line:last-of-type:empty) {
