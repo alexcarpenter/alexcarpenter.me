@@ -63,17 +63,51 @@ const { projects } = Astro.props;
         })
       }
     </div>
+    <div class="mt-4 flex gap-3">
+      <button
+        class="embla__prev border size-8 text-primary grid place-content-center opacity-0"
+        ><span class="sr-only">Prev</span><svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 39.24 32.26"
+          class="size-3 fill-current rotate-180"
+        >
+          <path
+            d="M29.1,18.43l-6.19.44H0V13.39H23.91l6.26.44L15.84,0h7.63L39.24,15.84v.58L23.47,32.26H15.84Z"
+          ></path>
+        </svg></button
+      >
+      <button
+        class="embla__next border size-8 text-primary grid place-content-center opacity-0"
+        ><span class="sr-only">Next</span><svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 39.24 32.26"
+          class="size-3 fill-current"
+        >
+          <path
+            d="M29.1,18.43l-6.19.44H0V13.39H23.91l6.26.44L15.84,0h7.63L39.24,15.84v.58L23.47,32.26H15.84Z"
+          ></path>
+        </svg></button
+      >
+    </div>
   </div>
 </div>
 
 <script>
-  import { options } from "@/utils/embla";
+  import { options, addPrevNextBtnsClickHandlers } from "@/utils/embla";
   import EmblaCarousel from "embla-carousel";
   const rootNodes = document.querySelectorAll(".embla");
   rootNodes.forEach((rootNode) => {
     const viewportNode = rootNode?.querySelector(
       ".embla__viewport"
     ) as HTMLElement;
-    EmblaCarousel(viewportNode, options);
+    const prevBtnNode = rootNode.querySelector(".embla__prev") as HTMLElement;
+    const nextBtnNode = rootNode.querySelector(".embla__next") as HTMLElement;
+    const emblaApi = EmblaCarousel(viewportNode, options);
+    const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+      emblaApi,
+      prevBtnNode,
+      nextBtnNode
+    );
+    emblaApi.on("destroy", removePrevNextBtnsClickHandlers);
   });
 </script>

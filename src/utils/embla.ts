@@ -15,6 +15,13 @@ const addTogglePrevNextBtnsActive = (
   prevBtn: HTMLElement,
   nextBtn: HTMLElement
 ) => {
+  const initializePrevNextBtnsState = () => {
+    if (emblaApi.canScrollNext() || emblaApi.canScrollPrev()) {
+      prevBtn.classList.replace("opacity-0", "disabled:opacity-50");
+      nextBtn.classList.replace("opacity-0", "disabled:opacity-50");
+    }
+  };
+
   const togglePrevNextBtnsState = () => {
     if (emblaApi.canScrollPrev()) prevBtn.removeAttribute("disabled");
     else prevBtn.setAttribute("disabled", "disabled");
@@ -24,6 +31,7 @@ const addTogglePrevNextBtnsActive = (
   };
 
   emblaApi
+    .on("init", initializePrevNextBtnsState)
     .on("select", togglePrevNextBtnsState)
     .on("init", togglePrevNextBtnsState)
     .on("reInit", togglePrevNextBtnsState);
