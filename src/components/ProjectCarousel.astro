@@ -13,8 +13,18 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<div class="embla">
-  <div class="embla__viewport">
+<div class="embla relative">
+  <div
+    class="pointer-events-none absolute inset-y-0 w-[20%] bg-gradient-to-l left-full from-neutral-950 to-transparent z-10"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute inset-y-0 w-[20%] bg-gradient-to-r right-full from-neutral-950 to-transparent z-10"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="embla__viewport [clip-path:inset(0%_-20%_0%_-20%)]">
     <div class="flex -ml-2 embla__container">
       {
         projects.map(({ img, href, title }) => {
