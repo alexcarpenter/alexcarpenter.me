@@ -54,37 +54,16 @@ const { projects } = Astro.props;
       }
     </div>
   </div>
-  <!-- <div
-    class="embla__progress relative mt-2 h-1 overflow-hidden bg-neutral-100 dark:bg-neutral-800 opacity-0"
-  >
-    <div
-      class="embla__progress__bar absolute top-0 bottom-0 w-full -left-full bg-neutral-500 dark:bg-neutral-400"
-      style="transform:translate3d(0%,0px,0px)"
-    >
-    </div>
-  </div> -->
 </div>
 
 <script>
-  import { options, setupProgressBar } from "@/utils/embla";
+  import { options } from "@/utils/embla";
   import EmblaCarousel from "embla-carousel";
   const rootNodes = document.querySelectorAll(".embla");
   rootNodes.forEach((rootNode) => {
     const viewportNode = rootNode?.querySelector(
       ".embla__viewport"
     ) as HTMLElement;
-    const emblaApi = EmblaCarousel(viewportNode, options);
-    // const progressBarNode = rootNode?.querySelector(
-    //   ".embla__progress__bar"
-    // ) as HTMLElement;
-    // const { applyProgress, removeProgress } = setupProgressBar(
-    //   emblaApi,
-    //   progressBarNode
-    // );
-    // emblaApi
-    //   .on("init", applyProgress)
-    //   .on("reInit", applyProgress)
-    //   .on("scroll", applyProgress)
-    //   .on("destroy", removeProgress);
+    EmblaCarousel(viewportNode, options);
   });
 </script>
