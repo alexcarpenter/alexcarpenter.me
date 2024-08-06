@@ -38,7 +38,7 @@ import { parseYearToString } from "@/components/FormattedDate.astro";
                   <h3 class="font-semibold">
                     {job.data.title} at {job.data.company}
                   </h3>
-                  <p class="mt-0.5 text-sm text-secondary font-mono">
+                  <p class="mt-0.5 text-sm text-secondary">
                     <!-- prettier-ignore -->
                     {parseYearToString(job.data.startDate)}&nbsp;&mdash;&nbsp;{job.data.endDate
                       ? parseYearToString(job.data.endDate)
@@ -109,7 +109,7 @@ import { parseYearToString } from "@/components/FormattedDate.astro";
                   </blockquote>
                   <figcaption class="sm:col-start-1 sm:row-start-1">
                     <p>{recommendation.data.name}</p>
-                    <p class="mt-0.5 text-secondary text-sm font-mono">
+                    <p class="mt-0.5 text-secondary text-sm">
                       {recommendation.data.title}
                       <br class="hidden sm:block" />
                       {recommendation.data.company}
