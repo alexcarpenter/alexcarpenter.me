@@ -2,7 +2,7 @@
 title: Now
 description: What I am up to now.
 published: 2023-08-01T08:00:00-0400
-updated: 2024-07-23T07:21:28-0400
+updated: 2024-08-06T08:39:39-0400
 ---
 
 ## Currently
@@ -17,19 +17,20 @@ updated: 2024-07-23T07:21:28-0400
 ## Watching
 
 - House of the Dragon S2
-- Vikings: Valhalla S3
-- Presumed Innoncent
 
 ## Listening
 
 - Charley Crockett
 - Colby Acuff
 - Jake Xerxes Fussell
+- The Red Clay Strays
 - Zach Bryan
 
 <details>
 <summary>Archive</summary>
 
+- Watched Vikings: Valhalla S3
+- Watched Presumed Innoncent
 - Learned to type again on my new Corne 42 LP Keyboard
 - Watched The Bear S3
 - Attended Figma Config 2024
