@@ -40,9 +40,9 @@ import { parseYearToString } from "@/components/FormattedDate.astro";
                   </h3>
                   <p class="mt-0.5 text-sm text-secondary">
                     <!-- prettier-ignore -->
-                    {parseYearToString(job.data.startDate)}&nbsp;&mdash;&nbsp;{job.data.endDate
+                    {parseYearToString(job.data.startDate)}–{job.data.endDate
                       ? parseYearToString(job.data.endDate)
-                      : "Current"}
+                      : "Now"}
                   </p>
                 </header>
                 <div class="sm:col-span-2 prose">
