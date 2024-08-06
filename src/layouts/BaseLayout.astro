@@ -84,7 +84,7 @@ const metaDescription = description ? description : "UI Engineer";
         <header
           class:list={[
             "relative pt-4",
-            "flex flex-wrap justify-between items-end gap-4",
+            "flex flex-wrap justify-between items-end gap-x-8 gap-y-2",
             "py-4 border-b border-primary",
           ]}
         >
@@ -95,7 +95,7 @@ const metaDescription = description ? description : "UI Engineer";
             <p class="text-secondary">User Interface Engineer at Clerk</p>
           </div>
           <nav>
-            <ul class="flex gap-x-2">
+            <ul class="flex gap-x-3">
               {
                 SITE_NAV.map(({ label, slug }) => {
                   const isCurrent =
