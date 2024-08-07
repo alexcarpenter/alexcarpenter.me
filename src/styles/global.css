@@ -46,12 +46,8 @@
     font-size: 0.875rem;
   }
 
-  /* mark {
-    @apply -mx-0.5 inline rounded bg-amber-100 px-0.5 text-amber-950 dark:bg-amber-500/20 dark:text-amber-100 [box-decoration-break:clone];
-  } */
-
   mark {
-    @apply bg-transparent text-primary;
+    @apply -mx-0.5 inline rounded bg-amber-100 px-0.5 text-amber-950 dark:bg-amber-500/20 dark:text-amber-100 [box-decoration-break:clone];
   }
 }
 
