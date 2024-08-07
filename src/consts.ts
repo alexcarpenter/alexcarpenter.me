@@ -18,3 +18,11 @@ export const SITE_NAV = [
     slug: "/resume",
   },
 ];
+export const JOBS = [
+  "Clerk",
+  "Watershed",
+  "HashiCorp",
+  "NationBuilder",
+  "Mighty in the Midwest",
+  "Masuga Design",
+] as const;

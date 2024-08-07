@@ -5,8 +5,10 @@ type JobProps = CollectionEntry<"jobs">;
 const jobs = await getCollection("jobs");
 type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
-import ProjectCarousel from "@/components/ProjectCarousel.astro";
+// import ProjectCarousel from "@/components/ProjectCarousel.astro";
 import { parseYearToString } from "@/components/FormattedDate.astro";
+import FacePile from "@/components/FacePile.astro";
+import {slugify} from '@/utils/formatting'
 ---
 
 <BaseLayout
@@ -101,14 +103,20 @@ import { parseYearToString } from "@/components/FormattedDate.astro";
               Date.parse(a.data.published.toString())
           )
           .map((recommendation: RecommendationProps) =>
-            recommendation.render().then(({ Content }) => (
+            recommendation.render().then(({ Content }) => {
+              return (
               <li class="py-8">
                 <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-4">
                   <blockquote class="col-span-2 sm:col-start-2">
                     <Content />
                   </blockquote>
                   <figcaption class="sm:col-start-1 sm:row-start-1">
-                    <p>{recommendation.data.name}</p>
+                    <FacePile items={
+                      [
+                        `/img/${slugify(recommendation.data.company)}.svg`, `/img/${slugify(recommendation.data.name)}.jpeg`
+                      ]
+                    } class="mb-4" />
+                    <p class="font-semibold">{recommendation.data.name}</p>
                     <p class="mt-0.5 text-secondary text-sm">
                       {recommendation.data.title}
                       <br class="hidden sm:block" />
@@ -117,7 +125,7 @@ import { parseYearToString } from "@/components/FormattedDate.astro";
                   </figcaption>
                 </figure>
               </li>
-            ))
+            )})
           )
       }
     </ul>

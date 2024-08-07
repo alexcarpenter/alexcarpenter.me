@@ -1,3 +1,4 @@
+import { JOBS } from "@/consts";
 import { defineCollection, z } from "astro:content";
 
 const links = defineCollection({
@@ -14,7 +15,7 @@ const jobs = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    company: z.string(),
+    company: z.enum(JOBS),
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
     tools: z.array(z.string()),
@@ -67,8 +68,9 @@ const recommendations = defineCollection({
   schema: z.object({
     name: z.string(),
     title: z.string(),
-    company: z.string(),
+    company: z.enum(JOBS),
     published: z.coerce.date(),
+    avatar: z.string().optional(),
   }),
 });
 
