@@ -97,6 +97,10 @@
       @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded py-4;
     }
 
+    :where(pre code) {
+      @apply px-0;
+    }
+
     :where(pre code span.line) {
       @apply px-4;
     }
