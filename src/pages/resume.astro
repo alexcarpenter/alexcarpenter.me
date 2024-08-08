@@ -6,7 +6,7 @@ const jobs = await getCollection("jobs");
 type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
 import { parseYearToString } from "@/components/FormattedDate.astro";
-import {slugify} from '@/utils/formatting'
+import { slugify } from "@/utils/formatting";
 ---
 
 <BaseLayout
@@ -39,17 +39,18 @@ import {slugify} from '@/utils/formatting'
                     {job.data.title} at {job.data.company}
                   </h3>
                   <p class="mt-0.5 text-sm text-secondary">
-                    <!-- prettier-ignore -->
-                    {parseYearToString(job.data.startDate)}–{job.data.endDate
-                      ? parseYearToString(job.data.endDate)
-                      : "Now"}
+                    {`${parseYearToString(job.data.startDate)}–${
+                      job.data.endDate
+                        ? parseYearToString(job.data.endDate)
+                        : "Now"
+                    }`}
                   </p>
                 </header>
                 <div class="sm:col-span-2 prose">
                   <Content />
                 </div>
                 <ul class="pl-6 sm:pl-4 marker:text-subtle list-square">
-                  {job.data.tools.map((tool) => (
+                  {job.data.tools.map((tool: any) => (
                     <li>{tool}</li>
                   ))}
                 </ul>
@@ -59,30 +60,6 @@ import {slugify} from '@/utils/formatting'
       }
     </ul>
   </section>
-
-  <!-- <section class="pt-8 pb-16 border-t border-primary" id="interests">
-    <h2 class="font-semibold mb-8">Interests</h2>
-    <div class="grid grid-cols-2 gap-8">
-      <div class="dark:bg-neutral-800 bg-neutral-100 px-4 py-8 rounded">
-        <p class="mb-24 text-secondary">01.</p>
-        <h3 class="font-semibold">CSS</h3>
-        <p class="mt-4 text-balance">
-          I've spent most of my career obsessing over CSS architecture. These
-          days I am all in on Tailwind CSS and can't see myself not using it
-          anymore.
-        </p>
-      </div>
-
-      <div class="dark:bg-neutral-800 bg-neutral-100 px-4 py-8 rounded">
-        <p class="mb-24 text-secondary">02.</p>
-        <h3 class="font-semibold">Component API design</h3>
-        <p class="mt-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-          molestiae.
-        </p>
-      </div>
-    </div>
-  </section> -->
 
   <section class="pt-8 pb-16 border-t border-primary" id="recommendations">
     <h2 class="font-semibold mb-8">Recommendations</h2>
@@ -97,34 +74,42 @@ import {slugify} from '@/utils/formatting'
           .map((recommendation: RecommendationProps) =>
             recommendation.render().then(({ Content }) => {
               return (
-              <li class="py-8">
-                <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-4">
-                  <blockquote class="col-span-2 sm:col-start-2">
-                    <Content />
-                  </blockquote>
-                  <figcaption class="sm:col-start-1 sm:row-start-1">
-                    <div class="flex mb-4">
-                    {[
-                      `/img/${slugify(recommendation.data.company)}.svg`,
-                      `/img/${slugify(recommendation.data.name)}.jpeg`
-                    ].map((x, i) => {
-                      return <img src={x} alt="" class:list={["size-8 rounded-full ring-2 ring-white dark:ring-neutral-950",
-              {
-                "-ml-1": i > 0,
-              },
-            ]} />
-                    })}
-                    </div>
-                    <p class="font-semibold">{recommendation.data.name}</p>
-                    <p class="mt-0.5 text-secondary text-sm">
-                      {recommendation.data.title}
-                      <br class="hidden sm:block" />
-                      {recommendation.data.company}
-                    </p>
-                  </figcaption>
-                </figure>
-              </li>
-            )})
+                <li class="py-8">
+                  <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-4">
+                    <blockquote class="col-span-2 sm:col-start-2">
+                      <Content />
+                    </blockquote>
+                    <figcaption class="sm:col-start-1 sm:row-start-1">
+                      <div class="flex mb-4">
+                        {[
+                          `/img/${slugify(recommendation.data.company)}.svg`,
+                          `/img/${slugify(recommendation.data.name)}.jpeg`,
+                        ].map((x, i) => {
+                          return (
+                            <img
+                              src={x}
+                              alt=""
+                              class:list={[
+                                "size-8 rounded-full ring-2 ring-white dark:ring-neutral-950",
+                                {
+                                  "-ml-1": i > 0,
+                                },
+                              ]}
+                            />
+                          );
+                        })}
+                      </div>
+                      <p class="font-semibold">{recommendation.data.name}</p>
+                      <p class="mt-0.5 text-secondary text-sm">
+                        {recommendation.data.title}
+                        <br class="hidden sm:block" />
+                        {recommendation.data.company}
+                      </p>
+                    </figcaption>
+                  </figure>
+                </li>
+              );
+            })
           )
       }
     </ul>
