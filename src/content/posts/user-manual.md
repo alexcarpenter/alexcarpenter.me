@@ -8,7 +8,9 @@ draft: true
 
 ## Working hours
 
-- Monday thru Friday between the hours of 9am to 5pm EST
+- I work Monday thru Friday between the hours of 9am to 5pm EST.
+- I am most productive within the morning hours of the work day.
+- I don’t mind being contacted at any time but will likely only respond during working hours.
 
 ## Work environment
 

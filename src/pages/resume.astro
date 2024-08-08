@@ -5,9 +5,7 @@ type JobProps = CollectionEntry<"jobs">;
 const jobs = await getCollection("jobs");
 type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
-// import ProjectCarousel from "@/components/ProjectCarousel.astro";
 import { parseYearToString } from "@/components/FormattedDate.astro";
-import FacePile from "@/components/FacePile.astro";
 import {slugify} from '@/utils/formatting'
 ---
 
@@ -111,11 +109,18 @@ import {slugify} from '@/utils/formatting'
                     <Content />
                   </blockquote>
                   <figcaption class="sm:col-start-1 sm:row-start-1">
-                    <FacePile items={
-                      [
-                        `/img/${slugify(recommendation.data.company)}.svg`, `/img/${slugify(recommendation.data.name)}.jpeg`
-                      ]
-                    } class="mb-4" />
+                    <div class="flex mb-4">
+                    {[
+                      `/img/${slugify(recommendation.data.company)}.svg`,
+                      `/img/${slugify(recommendation.data.name)}.jpeg`
+                    ].map((x, i) => {
+                      return <img src={x} alt="" class:list={["size-8 rounded-full ring-2 ring-white dark:ring-neutral-950",
+              {
+                "-ml-1": i > 0,
+              },
+            ]} />
+                    })}
+                    </div>
                     <p class="font-semibold">{recommendation.data.name}</p>
                     <p class="mt-0.5 text-secondary text-sm">
                       {recommendation.data.title}

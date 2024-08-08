@@ -21,7 +21,7 @@ const date = post.data.updated ?? post.data.published;
 <BaseLayout title={post.data.title} description={post.data.description}>
   <header class="pb-8 pt-40 border-b border-primary">
     <h1 class="font-semibold">{post.data.title}</h1>
-    <p class="mt-0.5 text-secondary">{post.data.description}</p>
+    <p class="mt-0.5 text-secondary text-balance">{post.data.description}</p>
   </header>
   {
     post.data.toc ? (
