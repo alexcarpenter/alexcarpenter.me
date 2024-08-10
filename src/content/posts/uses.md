@@ -2,7 +2,7 @@
 title: Uses
 description: Things I use and enjoy.
 published: 2024-03-02T08:00:00-0400
-updated: 2024-07-24T07:04:27-0400
+updated: 2024-08-09T06:07:07-0400
 toc: true
 ---
 
@@ -19,6 +19,7 @@ toc: true
 
 ## Coffee
 
+- 8 Cup Moccamaster
 - acaia pearl scale
 - Baratza Encore
 - Breville Barista Touch
@@ -40,8 +41,6 @@ toc: true
   - Prometheus Beta QRV2 Titanium
 - Watch
   - Doxa Sub 200T
-  - SEIKO 5 SRPK29
-  - Timex GMT TW2V38000
 
 ## Hardware
 
@@ -55,6 +54,7 @@ toc: true
 - Focusrite Scarlett Solo 3rd Gen USB Audio Interface
 - Herman Miller Sayl chair
 - Jarvis Single Monitor Arm
+- Kinesis Advantage 360
 - NuPhy Air75 V2
 - Rode PodMic
 - Sony WH1000XM4 headphones

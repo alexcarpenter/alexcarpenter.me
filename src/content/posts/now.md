@@ -8,7 +8,7 @@ updated: 2024-08-06T08:39:39-0400
 ## Currently
 
 - Getting back into photography with my Fujifilm XE-4 and my new Ricoh GRIIX HDF
-- Working on [Clerk Elements](https://clerk.com/docs/elements/overview)
+- Working on [Clerk Elements](https://clerk.com/docs/elements/overview) and our [UI components](https://clerk.com/docs/components/overview)
 
 ## Reading
 
