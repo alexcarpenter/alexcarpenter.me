@@ -2,7 +2,7 @@
 title: Now
 description: What I am up to now.
 published: 2023-08-01T08:00:00-0400
-updated: 2024-08-06T08:39:39-0400
+updated: 2024-08-17T06:40:04-0400
 ---
 
 ## Currently
@@ -12,11 +12,10 @@ updated: 2024-08-06T08:39:39-0400
 
 ## Reading
 
-- Project Hail Mary
+- Challenger by Adam Higginbotham
+- Project Hail Mary by Andy Weir
 
-## Watching
-
-- House of the Dragon S2
+<!-- ## Watching -->
 
 ## Listening
 
@@ -29,6 +28,7 @@ updated: 2024-08-06T08:39:39-0400
 <details>
 <summary>Archive</summary>
 
+- Watched House of the Dragon S2
 - Watched Vikings: Valhalla S3
 - Watched Presumed Innoncent
 - Learned to type again on my new Corne 42 LP Keyboard
