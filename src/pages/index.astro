@@ -20,7 +20,7 @@ const codeHTML = highlight(code);
 <BaseLayout>
   <header class="relative text-center py-20 px-8 border-b border-neutral-700">
     <p
-      class="pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full flex items-center [writing-mode:vertical-lr] rotate-180"
+      class="hidden md:flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
     >
       <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
       <span
@@ -44,7 +44,7 @@ const codeHTML = highlight(code);
 
   <section class="relative border-b border-neutral-700">
     <p
-      class="flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
+      class="hidden md:flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
     >
       <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
       <span
@@ -79,7 +79,7 @@ const codeHTML = highlight(code);
     <div
       class="border-y border-neutral-700 border-dashed grid grid-cols-1 sm:grid-cols-2 auto-rows-fr"
     >
-      <div class="border-r border-dashed border-neutral-700">
+      <div class="sm:border-r border-dashed border-neutral-700">
         <pre
           class="py-4 text-sm leading-6 overflow-auto overscroll-x-contain"><code class:list={["isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line]",
               "*:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-neutral-950 *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)]",
@@ -87,12 +87,12 @@ const codeHTML = highlight(code);
             ]}><Fragment set:html={codeHTML} /></code></pre>
       </div>
 
-      <div class="relative px-8 pt-8 flex overflow-hidden">
-        <div
+      <div class="relative px-8 pt-8 flex overflow-hidden bg-neutral-900">
+        <!-- <div
           class="absolute inset-0 bg-stripes bg-stripes-neutral-700 opacity-75"
           aria-hidden="true"
         >
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="py-8 text-center">

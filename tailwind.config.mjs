@@ -36,6 +36,9 @@ export default {
       mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
     },
     extend: {
+      screens: {
+        md: "860px",
+      },
       fontSize: {
         xxs: "0.625rem",
       },
