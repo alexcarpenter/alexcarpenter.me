@@ -1,53 +1,128 @@
 ---
+// import { highlight } from "sugar-high";
+import { highlight } from "sugar-high";
 import { SITE_VERSION } from "@/consts";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
+const code = `import * as SignIn from '@clerk/elements/sign-in'
+
+export default function SignInPage() {
+  return (
+    <SignIn.Root>
+      <SignIn.Step name="start">
+        <h1>Sign in to your account</h1>
+      </SignIn.Step>
+    </SignIn.Root>
+  )
+}`;
+const codeHTML = highlight(code);
 ---
 
 <BaseLayout>
-  <h1 class="sr-only">Homepage</h1>
-  <section class="prose py-40">
-    <dl>
-      <dt>Name</dt>
-      <dd>Alex Carpenter</dd>
-      <dt>Location</dt>
-      <dd>Grand Rapids, MI.</dd>
-      <dt>Work</dt>
-      <dd>
-        UI Engineer at <a href="https://clerk.com">Clerk</a>, previously <a
-          href="https://watershed.com">Watershed</a
-        >, <a href="https://hashicorp.com">HashiCorp</a>
-      </dd>
-      <dt>Colophon</dt>
-      <dd>Astro, TailwindCSS, Geist Sans/Mono</dd>
-      <dt>Version</dt>
-      <dd><code>{SITE_VERSION}</code></dd>
-      <dt>View source</dt>
-      <dd>
-        <a
-          href="https://github.com/alexcarpenter/alexcarpenter.me"
-          target="_blank"
-          rel="noopener">alexcarpenter/alexcarpenter.me</a
+  <div
+    class="max-w-3xl mx-auto border-x border-neutral-700 flex flex-col flex-1"
+  >
+    <nav class="border-b border-neutral-700">
+      <svg
+        width="100%"
+        height="24px"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        class="text-neutral-700"
+        ><defs
+          ><pattern
+            id="pattern-75"
+            patternUnits="userSpaceOnUse"
+            width="4"
+            height="4"
+            ><g clip-path="url(#clip0)"
+              ><path d="M1 -1L5 3" stroke="currentColor" stroke-width="0.5"
+              ></path><path
+                d="M-1 1L3 5"
+                stroke="currentColor"
+                stroke-width="0.5"></path></g
+            ></pattern
+          ><clipPath id="clip0"
+            ><rect width="4" height="4" fill="white"></rect></clipPath
+          ></defs
+        ><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-75)"
+        ></rect></svg
+      >
+      <ul class="flex gap-4 px-8 py-4 justify-center">
+        <li>
+          <a class="text-xs text-neutral-400 font-mono uppercase">Index</a>
+        </li>
+        <li>
+          <a class="text-xs text-neutral-400 font-mono uppercase">Feed</a>
+        </li>
+        <li>
+          <a class="text-xs text-neutral-400 font-mono uppercase">Resume</a>
+        </li>
+      </ul>
+    </nav>
+    <header class="relative text-center py-20 px-8 border-b border-neutral-700">
+      <span
+        class:list={[
+          "absolute inset-y-0 left-0 -translate-x-full flex items-center justify-center pr-4",
+          // "before:flex-1 before:h-px",
+          // "after:flex-1 after:h-px",
+        ]}
+        ><span
+          class="font-mono uppercase [writing-mode:vertical-lr] rotate-180 text-neutral-700 text-xxs leading-none"
+          >Intro</span
+        ></span
+      >
+      <h1 class="sr-only">Alex Carpenter</h1>
+      <p class="font-medium text-2xl text-balance">
+        I am a user interface engineer who enjoys working at the intersection of
+        design and engineering teams.
+      </p>
+    </header>
+
+    <section class="relative grid grid-cols-2 border-b border-neutral-700">
+      <span
+        class="absolute inset-y-0 left-0 -translate-x-full flex items-center pr-4"
+        ><span
+          class="font-mono uppercase [writing-mode:vertical-lr] rotate-180 text-neutral-700 text-xxs leading-none"
+          >Currently</span
+        ></span
+      >
+      <!-- <div class="">
+        <span
+          class:list={[
+            "font-mono uppercase text-neutral-700 text-xxs leading-none",
+            "flex gap-x-4 items-center",
+            "before:w-full before:flex-1 before:h-px before:border-t before:border-neutral-700 before:border-dashed",
+            "after:w-full after:flex-1 after:h-px after:border-t after:border-neutral-700 after:border-dashed",
+          ]}>Currently</span
         >
-      </dd>
-      {
-        commitSha && (
-          <>
-            <dt>Latest commit</dt>
-            <dd>
-              <code>
-                <a
-                  href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${commitSha}`}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  {commitSha.slice(0, 7)}
-                </a>
-              </code>
-            </dd>
-          </>
-        )
-      }
-    </dl>
-  </section>
+      </div> -->
+      <header
+        class="relative overflow-hidden col-span-2 border-b p-8 border-dashed border-neutral-700"
+      >
+        <p class="text-balance font-medium">
+          Currently I am a part of the design team at <a
+            href="https://clerk.com"
+            class="underline decoration-2 decoration-neutral-600">Clerk</a
+          > where I am working on our <a
+            href="https://clerk.com/docs/components/overview"
+            class="underline decoration-2 decoration-neutral-600"
+            >UI components</a
+          > and <a
+            href="https://clerk.com/docs/elements/overview"
+            class="underline decoration-2 decoration-neutral-600">Elements</a
+          >.
+        </p>
+      </header>
+      <div class="border-r border-dashed border-neutral-700">
+        <pre
+          class="py-4 text-sm leading-6 overflow-auto overscroll-x-contain"><code class="isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-neutral-950 *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-600 *:before:content-[counter(line)] *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-gradient-to-l *:after:from-neutral-950 *:after:from-35% *:after:content-['_']"><Fragment set:html={codeHTML} /></code></pre>
+        <div class="border-t border-dashed border-neutral-700 p-4 text-center">
+          <a href="" class="text-xs font-mono uppercase text-neutral-400"
+            >View docs</a
+          >
+        </div>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
