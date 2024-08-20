@@ -50,13 +50,22 @@ const codeHTML = highlight(code);
       >
       <ul class="flex gap-4 px-8 py-4">
         <li>
-          <a class="text-xs text-neutral-400 font-mono uppercase">Index</a>
+          <a
+            class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
+            href="/">Index</a
+          >
         </li>
         <li>
-          <a class="text-xs text-neutral-400 font-mono uppercase">Feed</a>
+          <a
+            class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
+            href="/">Feed</a
+          >
         </li>
         <li>
-          <a class="text-xs text-neutral-400 font-mono uppercase">Resume</a>
+          <a
+            class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
+            href="/">Resume</a
+          >
         </li>
       </ul>
     </nav>
@@ -74,8 +83,8 @@ const codeHTML = highlight(code);
       >
       <h1 class="sr-only">Alex Carpenter</h1>
       <p class="font-medium text-2xl text-balance tracking-tight">
-        I am a User Interface Engineer who enjoys working at the intersection of
-        design and engineering teams.
+        User Interface Engineer who enjoys working at the intersection of design
+        and engineering teams.
       </p>
     </header>
 
@@ -103,26 +112,79 @@ const codeHTML = highlight(code);
         <p class="text-balance font-medium">
           Currently I am a part of the design team at <a
             href="https://clerk.com"
-            class="underline decoration-2 decoration-neutral-600">Clerk</a
+            class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
+            >Clerk</a
           > where I am working on our <a
             href="https://clerk.com/docs/components/overview"
-            class="underline decoration-2 decoration-neutral-600"
+            class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
             >UI Components</a
           > and <a
             href="https://clerk.com/docs/elements/overview"
-            class="underline decoration-2 decoration-neutral-600">Elements</a
+            class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
+            >Elements</a
           >.
         </p>
       </header>
       <div class="border-r border-dashed border-neutral-700">
         <pre
           class="py-4 text-sm leading-6 overflow-auto overscroll-x-contain"><code class="isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-neutral-950 *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-600 *:before:content-[counter(line)] *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-gradient-to-l *:after:from-neutral-950 *:after:from-35% *:after:content-['_']"><Fragment set:html={codeHTML} /></code></pre>
-        <div class="border-t border-dashed border-neutral-700 p-4 text-center">
-          <a href="" class="text-xs font-mono uppercase text-neutral-400"
-            >View docs</a
-          >
-        </div>
       </div>
+      <div class="relative">
+        <svg
+          class="absolute inset-0 text-neutral-700"
+          width="100%"
+          height="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          ><defs
+            ><pattern
+              id="pattern-0"
+              patternUnits="userSpaceOnUse"
+              width="4"
+              height="4"
+              ><g clip-path="url(#clip0)"
+                ><path d="M1 -1L5 3" stroke="currentColor" stroke-width="0.5"
+                ></path><path
+                  d="M-1 1L3 5"
+                  stroke="currentColor"
+                  stroke-width="0.5"></path></g
+              ></pattern
+            ><clipPath id="clip0"
+              ><rect width="4" height="4" fill="white"></rect></clipPath
+            ></defs
+          ><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-0)"
+          ></rect></svg
+        >
+      </div>
+      <!-- <div
+        class="col-span-2 py-8 text-center border-t border-neutral-700 border-dashed"
+      >
+        <p class="text-xs font-mono uppercase text-neutral-400">
+          In collaboration with
+        </p>
+        <div class="flex justify-center mt-4">
+          <img
+            class="size-8 rounded-full grayscale"
+            src="/img/joe-bell.jpeg"
+            alt=""
+          />
+          <img
+            class="size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale"
+            src="/img/bryce-kalow.jpeg"
+            alt=""
+          />
+          <img
+            class="size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale"
+            src="/img/tom-milewski.jpeg"
+            alt=""
+          />
+          <img
+            class="size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale"
+            src="/img/dylan-staley.jpeg"
+            alt=""
+          />
+        </div>
+      </div> -->
     </section>
   </div>
 </BaseLayout>

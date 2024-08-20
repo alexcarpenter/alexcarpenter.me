@@ -18,6 +18,7 @@
 
 @layer base {
   :root {
+    color-scheme: dark;
     --background-primary: theme(colors.neutral.950);
     --foreground-primary: theme(colors.neutral.100);
     --border-primary: theme(colors.neutral.700);
