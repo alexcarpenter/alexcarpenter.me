@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
-import { SITE_NAV, SITE_TITLE } from "@/consts";
+import { SITE_VERSION } from "@/consts";
+// const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
@@ -59,6 +60,50 @@ const metaDescription = description ? description : "UI Engineer";
   <body
     class="flex min-h-dvh flex-col overflow-x-hidden w-full bg-neutral-950 text-neutral-100 antialiased"
   >
-    <slot />
+    <div
+      class="max-w-3xl mx-auto border-x border-neutral-700 flex flex-col flex-1"
+    >
+      <nav class="border-b border-neutral-700">
+        <div
+          class="w-full h-6 bg-stripes bg-stripes-neutral-700 opacity-75"
+          aria-hidden="true"
+        >
+        </div>
+        <div class="flex justify-between items-center px-8 py-4">
+          <ul class="flex gap-4">
+            <li>
+              <a
+                class="text-xs text-neutral-400 hover:text-white aria-[current]:text-white font-mono uppercase"
+                href="/"
+                aria-current="page">~/Index</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
+                href="/">Feed</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
+                href="/">Resume</a
+              >
+            </li>
+          </ul>
+
+          <a
+            class:list={[
+              "text-xxs font-mono border border-green-300 px-2 py-0.5 bg-green-950 text-green-300 rounded-full",
+              "hover:bg-green-900",
+            ]}
+            href="https://github.com/alexcarpenter/alexcarpenter.me"
+          >
+            v{SITE_VERSION}
+          </a>
+        </div>
+      </nav>
+      <slot />
+    </div>
   </body>
 </html>
