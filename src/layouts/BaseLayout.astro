@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
-import { SITE_VERSION } from "@/consts";
-// const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "";
+import { SITE_NAV, SITE_VERSION } from "@/consts";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
@@ -61,7 +60,7 @@ const metaDescription = description ? description : "UI Engineer";
     class="flex min-h-dvh flex-col overflow-x-hidden w-full bg-neutral-950 text-neutral-100 antialiased"
   >
     <div
-      class="max-w-3xl mx-auto border-x border-neutral-700 flex flex-col flex-1"
+      class="w-full max-w-3xl mx-auto border-x border-neutral-700 flex flex-col flex-1"
     >
       <nav class="border-b border-neutral-700">
         <div
@@ -71,25 +70,24 @@ const metaDescription = description ? description : "UI Engineer";
         </div>
         <div class="flex justify-between items-center px-8 py-4">
           <ul class="flex gap-4">
-            <li>
-              <a
-                class="text-xs text-neutral-400 hover:text-white aria-[current]:text-white font-mono uppercase"
-                href="/"
-                aria-current="page">~/Index</a
-              >
-            </li>
-            <li>
-              <a
-                class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
-                href="/">Feed</a
-              >
-            </li>
-            <li>
-              <a
-                class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
-                href="/">Resume</a
-              >
-            </li>
+            {
+              SITE_NAV.map((item) => {
+                const isCurrent =
+                  Astro.url.pathname === `${item.slug}/` ||
+                  Astro.url.pathname === `${item.slug}`;
+                return (
+                  <li>
+                    <a
+                      class="text-xs text-neutral-400 hover:text-white font-mono uppercase aria-[current]:text-white"
+                      href={item.slug}
+                      aria-current={isCurrent ? "page" : undefined}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })
+            }
           </ul>
 
           <a

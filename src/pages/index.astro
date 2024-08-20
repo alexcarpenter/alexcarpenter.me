@@ -2,6 +2,7 @@
 import { highlight } from "sugar-high";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { slugify } from "@/utils/formatting";
+
 const code = `import * as SignIn from '@clerk/elements/sign-in'
 
 export default function SignInPage() {
@@ -109,31 +110,32 @@ const codeHTML = highlight(code);
             {
               name: "Bryce Kalow",
               img: "/img/bryce-kalow.jpeg",
-              linkedin: "https://www.linkedin.com/in/joebell93/",
+              linkedin: "https://www.linkedin.com/in/bryce-kalow-86a57183/",
             },
             {
               name: "Tom Milewski",
               img: "/img/tom-milewski.jpeg",
-              linkedin: "https://www.linkedin.com/in/joebell93/",
+              linkedin: "https://www.linkedin.com/in/tmilewski/",
             },
             {
               name: "Dylan Staley",
               img: "/img/dylan-staley.jpeg",
-              linkedin: "https://www.linkedin.com/in/joebell93/",
+              linkedin: "https://www.linkedin.com/in/dstaley/",
             },
           ].map(({ name, img, linkedin }) => {
-            const id = slugify(name);
+            const id = slugify(`tooltip-${name}`);
             return (
               <Fragment>
                 <a
                   href={linkedin}
                   data-tooltip-trigger={id}
                   class="relative size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale hover:grayscale-0 overflow-hidden"
+                  aria-describedby={id}
                 >
-                  <img src={img} alt="" />
+                  <img src={img} alt={`${name} avatar`} />
                 </a>
                 <div
-                  data-tooltip-content={id}
+                  id={id}
                   role="tooltip"
                   class="bg-neutral-800 px-2 py-1 rounded-md text-xs font-mono w-max absolute top-0 left-0 hidden"
                 >
@@ -156,8 +158,8 @@ const codeHTML = highlight(code);
   ) as NodeListOf<HTMLElement>;
 
   triggers.forEach((trigger) => {
-    const content = document.querySelector(
-      `[data-tooltip-content="${trigger.dataset.tooltipTrigger}"]`
+    const content = document.getElementById(
+      `${trigger.dataset.tooltipTrigger}`
     ) as HTMLElement;
     function update() {
       computePosition(trigger, content, {
@@ -191,6 +193,14 @@ const codeHTML = highlight(code);
       ["mouseleave", hide],
       ["focus", show],
       ["blur", hide],
+      [
+        "keydown",
+        (e: KeyboardEvent) => {
+          if (e.key === "Escape") {
+            hide();
+          }
+        },
+      ],
     ].forEach(([event, listener]) => {
       trigger.addEventListener(
         event as keyof HTMLElementEventMap,
