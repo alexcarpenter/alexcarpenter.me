@@ -1,5 +1,4 @@
 ---
-// import { highlight } from "sugar-high";
 import { highlight } from "sugar-high";
 import { SITE_VERSION } from "@/consts";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -48,39 +47,54 @@ const codeHTML = highlight(code);
         ><rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-75)"
         ></rect></svg
       >
-      <ul class="flex gap-4 px-8 py-4">
-        <li>
-          <a
-            class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
-            href="/">Index</a
-          >
-        </li>
-        <li>
-          <a
-            class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
-            href="/">Feed</a
-          >
-        </li>
-        <li>
-          <a
-            class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
-            href="/">Resume</a
-          >
-        </li>
-      </ul>
+      <div class="flex justify-between items-center px-8 py-4">
+        <ul class="flex gap-4">
+          <li>
+            <a
+              class="text-xs text-neutral-400 hover:text-white aria-[current]:text-white font-mono uppercase"
+              href="/"
+              aria-current="page">~/Index</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
+              href="/">Feed</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-xs text-neutral-400 hover:text-white font-mono uppercase"
+              href="/">Resume</a
+            >
+          </li>
+        </ul>
+
+        <a
+          class="text-xxs font-mono border border-green-300 px-2 py-0.5 bg-green-950 text-green-300 rounded-full"
+          href="https://github.com/alexcarpenter/alexcarpenter.me"
+        >
+          v{SITE_VERSION}
+        </a>
+      </div>
     </nav>
     <header class="relative text-center py-20 px-8 border-b border-neutral-700">
-      <span
-        class:list={[
-          "absolute inset-y-0 left-0 -translate-x-full flex items-center justify-center pr-4",
-          // "before:flex-1 before:h-px",
-          // "after:flex-1 after:h-px",
-        ]}
-        ><span
-          class="font-mono uppercase [writing-mode:vertical-lr] rotate-180 text-neutral-700 text-xxs leading-none"
-          >Intro</span
-        ></span
+      <p
+        class="pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full flex items-center [writing-mode:vertical-lr] rotate-180"
       >
+        <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
+        <span
+          class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
+          aria-hidden="true"></span>
+        <span
+          class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
+          >Intro</span
+        >
+        <span
+          class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
+          aria-hidden="true"></span>
+        <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
+      </p>
       <h1 class="sr-only">Alex Carpenter</h1>
       <p class="font-medium text-2xl text-balance tracking-tight">
         User Interface Engineer who enjoys working at the intersection of design
@@ -89,23 +103,22 @@ const codeHTML = highlight(code);
     </header>
 
     <section class="relative grid grid-cols-2 border-b border-neutral-700">
-      <span
-        class="absolute inset-y-0 left-0 -translate-x-full flex items-center pr-4"
-        ><span
-          class="font-mono uppercase [writing-mode:vertical-lr] rotate-180 text-neutral-700 text-xxs leading-none"
-          >Currently</span
-        ></span
+      <p
+        class="pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full flex items-center [writing-mode:vertical-lr] rotate-180"
       >
-      <!-- <div class="">
+        <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
         <span
-          class:list={[
-            "font-mono uppercase text-neutral-700 text-xxs leading-none",
-            "flex gap-x-4 items-center",
-            "before:w-full before:flex-1 before:h-px before:border-t before:border-neutral-700 before:border-dashed",
-            "after:w-full after:flex-1 after:h-px after:border-t after:border-neutral-700 after:border-dashed",
-          ]}>Currently</span
+          class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
+          aria-hidden="true"></span>
+        <span
+          class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
+          >Currently</span
         >
-      </div> -->
+        <span
+          class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
+          aria-hidden="true"></span>
+        <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
+      </p>
       <header
         class="relative overflow-hidden col-span-2 border-b p-8 border-dashed border-neutral-700"
       >
@@ -114,7 +127,7 @@ const codeHTML = highlight(code);
             href="https://clerk.com"
             class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
             >Clerk</a
-          > where I am working on our <a
+          > where I am working on rebuilding our <a
             href="https://clerk.com/docs/components/overview"
             class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
             >UI Components</a
@@ -156,7 +169,7 @@ const codeHTML = highlight(code);
           ></rect></svg
         >
       </div>
-      <!-- <div
+      <div
         class="col-span-2 py-8 text-center border-t border-neutral-700 border-dashed"
       >
         <p class="text-xs font-mono uppercase text-neutral-400">
@@ -164,27 +177,27 @@ const codeHTML = highlight(code);
         </p>
         <div class="flex justify-center mt-4">
           <img
-            class="size-8 rounded-full grayscale"
+            class="size-8 rounded-full grayscale hover:grayscale-0"
             src="/img/joe-bell.jpeg"
             alt=""
           />
           <img
-            class="size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale"
+            class="size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale hover:grayscale-0"
             src="/img/bryce-kalow.jpeg"
             alt=""
           />
           <img
-            class="size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale"
+            class="size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale hover:grayscale-0"
             src="/img/tom-milewski.jpeg"
             alt=""
           />
           <img
-            class="size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale"
+            class="size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale hover:grayscale-0"
             src="/img/dylan-staley.jpeg"
             alt=""
           />
         </div>
-      </div> -->
+      </div>
     </section>
   </div>
 </BaseLayout>

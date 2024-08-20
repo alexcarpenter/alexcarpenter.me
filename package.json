@@ -15,6 +15,7 @@
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "3.1.6",
     "@astrojs/tailwind": "^5.1.0",
+    "@floating-ui/dom": "^1.6.10",
     "@sindresorhus/slugify": "^2.2.1",
     "astro": "4.13.0",
     "embla-carousel": "^8.1.3",
