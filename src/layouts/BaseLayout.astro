@@ -82,7 +82,13 @@ const metaDescription = description ? description : "UI Engineer";
                       href={item.slug}
                       aria-current={isCurrent ? "page" : undefined}
                     >
-                      {item.label}
+                      {item.slug === "/" ? (
+                        <Fragment>
+                          <span aria-hidden="true">~/</span>&#8288;{item.label}
+                        </Fragment>
+                      ) : (
+                        item.label
+                      )}
                     </a>
                   </li>
                 );

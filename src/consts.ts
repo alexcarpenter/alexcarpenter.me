@@ -2,7 +2,7 @@ export const SITE_VERSION = "5.0.0-alpha";
 export const SITE_TITLE = "Alex Carpenter";
 export const SITE_NAV = [
   {
-    label: "~/Index",
+    label: "Index",
     slug: "/",
   },
   {
