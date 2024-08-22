@@ -92,9 +92,12 @@ export default function SignInPage() {
       <div class="sm:border-r border-dashed border-neutral-700 overflow-hidden">
         <figure class="relative">
           <figcaption class="sr-only">TODO: Add description of code</figcaption>
-          <Code code={signInCode} lang="tsx" theme="css-variables" />
+          <div inert="">
+            <Code code={signInCode} lang="tsx" theme="css-variables" />
+          </div>
         </figure>
       </div>
+
       <div class="max-sm:border-t border-dashed border-neutral-700">
         <div
           class:list={[
