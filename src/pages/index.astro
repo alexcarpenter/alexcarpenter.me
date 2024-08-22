@@ -1,20 +1,8 @@
 ---
-import { highlight } from "sugar-high";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { slugify } from "@/utils/formatting";
-
-const code = `import * as SignIn from '@clerk/elements/sign-in'
-import * as Common from '@clerk/elements/common'
-
-export default function SignInPage() {
-  return (
-    <SignIn.Root>
-      <SignIn.Step name="start">
-        <h1>Sign in to your account</h1>
-        <p>Welcome back! Please sign in to continue</p>
-        <Common.Connection name="google">Google</Common.Connection>
-        <Common.Connection name="github">GitHub</Common.Connection>`;
-const codeHTML = highlight(code);
+import Code from "@/components/index/code.astro";
+import Card from "@/components/index/card.astro";
+import Collaboration from "@/components/index/collaboration.astro";
 ---
 
 <BaseLayout>
@@ -79,214 +67,17 @@ const codeHTML = highlight(code);
       </p>
     </header>
     <div
-      class="border-y border-neutral-700 border-dashed grid grid-cols-1 sm:grid-cols-2"
+      class="border-y border-neutral-700 border-dashed grid grid-cols-1 sm:grid-cols-2 auto-rows-[20rem]"
     >
-      <div class="sm:border-r border-dashed border-neutral-700">
-        <pre
-          class="py-4 text-sm leading-6 overflow-hidden overscroll-x-contain"><code class:list={["isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line]",
-              "*:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-neutral-950 *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)]",
-              "*:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-gradient-to-l *:after:from-neutral-950 *:after:from-35% *:after:content-['_']"
-            ]}><Fragment set:html={codeHTML} /></code></pre>
+      <div class="sm:border-r border-dashed border-neutral-700 overflow-hidden">
+        <Code />
       </div>
-
-      <div
-        class="relative flex overflow-hidden pt-8 px-8 sm:p-0 bg-neutral-900"
-      >
-        <div
-          class="relative sm:absolute mx-auto max-w-96 sm:translate-x-10 sm:translate-y-10"
-        >
-          <div
-            class:list={[
-              "absolute h-px border-t border-dashed border-neutral-700 -top-0.5",
-              "w-screen left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]",
-            ]}
-            aria-hidden="true"
-          >
-          </div>
-          <div
-            class="absolute h-full w-px -top-10 -left-0.5 bottom-0 border-l border-dashed border-neutral-700"
-            aria-hidden="true"
-          >
-          </div>
-          <div
-            class="absolute h-full w-px -top-10 -right-0.5 bottom-0 border-r border-dashed border-neutral-700"
-            aria-hidden="true"
-          >
-          </div>
-          <div
-            class="bg-white rounded-t-3xl w-full ring-1 p-8 shadow-xl"
-            inert=""
-          >
-            <div class="flex flex-col justify-center items-center text-center">
-              <div
-                class="bg-neutral-700 size-8 rounded-md grid place-content-center"
-              >
-                <div class="size-4 bg-white rounded-full"></div>
-              </div>
-              <p class="mt-6 font-semibold text-neutral-800">
-                Sign in to Acme Co
-              </p>
-              <p class="mt-1 text-neutral-500 text-xs">
-                Welcome back! Please sign in to continue
-              </p>
-            </div>
-
-            <div class="grid grid-cols-2 gap-x-4 mt-6">
-              <button
-                class="p-1 ring-neutral-200 text-neutral-800 text-sm font-medium rounded-md ring-1 shadow flex items-center justify-center gap-2"
-                ><svg viewBox="0 0 20 20" class="size-4"
-                  ><path
-                    d="M13.6589 5.87932C12.7223 4.98599 11.4723 4.49932 10.1789 4.51932C7.81227 4.51932 5.80227 6.11599 5.0856 8.26599C4.70581 9.39246 4.70582 10.6122 5.08572 11.7386H5.08893C5.80893 13.8853 7.8156 15.4819 10.1823 15.4819C11.404 15.4819 12.4528 15.1694 13.2657 14.6175V14.6149C14.2224 13.9816 14.8757 12.9849 15.079 11.8582H10.179V8.36491H18.7357C18.8424 8.97157 18.8924 9.59157 18.8924 10.2082C18.8924 12.9676 17.9062 15.3004 16.1903 16.8804L16.1923 16.8819C14.6889 18.2686 12.6256 19.0719 10.1789 19.0719C6.74893 19.0719 3.61227 17.1386 2.07227 14.0753C0.785755 11.512 0.785807 8.49194 2.07242 5.92871C3.61253 2.8624 6.74916 0.929322 10.1789 0.929322C12.4323 0.902656 14.6089 1.74932 16.2489 3.28932L13.6589 5.87932Z"
-                    fill="currentColor"></path></svg
-                >Google</button
-              >
-              <button
-                class="p-1 ring-neutral-200 text-neutral-800 text-sm font-medium rounded-md ring-1 shadow flex items-center justify-center gap-2"
-                ><svg viewBox="0 0 20 20" class="size-4"
-                  ><path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M10 0.24707C4.475 0.24707 0 4.72207 0 10.2471C0 14.6721 2.8625 18.4096 6.8375 19.7346C7.3375 19.8221 7.525 19.5221 7.525 19.2596C7.525 19.0221 7.5125 18.2346 7.5125 17.3971C5 17.8596 4.35 16.7846 4.15 16.2221C4.0375 15.9346 3.55 15.0471 3.125 14.8096C2.775 14.6221 2.275 14.1596 3.1125 14.1471C3.9 14.1346 4.4625 14.8721 4.65 15.1721C5.55 16.6846 6.9875 16.2596 7.5625 15.9971C7.65 15.3471 7.9125 14.9096 8.2 14.6596C5.975 14.4096 3.65 13.5471 3.65 9.72207C3.65 8.63457 4.0375 7.73457 4.675 7.03457C4.575 6.78457 4.225 5.75957 4.775 4.38457C4.775 4.38457 5.6125 4.12207 7.525 5.40957C8.325 5.18457 9.175 5.07207 10.025 5.07207C10.875 5.07207 11.725 5.18457 12.525 5.40957C14.4375 4.10957 15.275 4.38457 15.275 4.38457C15.825 5.75957 15.475 6.78457 15.375 7.03457C16.0125 7.73457 16.4 8.62207 16.4 9.72207C16.4 13.5596 14.0625 14.4096 11.8375 14.6596C12.2 14.9721 12.5125 15.5721 12.5125 16.5096C12.5125 17.8471 12.5 18.9221 12.5 19.2596C12.5 19.5221 12.6875 19.8346 13.1875 19.7346C17.1375 18.4096 20 14.6596 20 10.2471C20 4.72207 15.525 0.24707 10 0.24707Z"
-                    fill="currentColor"></path></svg
-                >Github</button
-              >
-            </div>
-
-            <p
-              class="my-6 before:bg-neutral-100 after:bg-neutral-100 text-neutral-500 text-sm flex items-center gap-x-4 before:h-px before:flex-1 after:h-px after:flex-1"
-            >
-              or
-            </p>
-
-            <div class="mt-6">
-              <label class="text-sm font-medium text-neutral-800"
-                >Email address</label
-              >
-              <input
-                type="text"
-                class="mt-1 w-full py-1 px-2 ring-neutral-200 text-neutral-800 text-sm rounded-md ring-1 shadow bg-white"
-                placeholder="example@email.com"
-              />
-            </div>
-          </div>
-        </div>
+      <div class="max-sm:border-t border-dashed border-neutral-700">
+        <Card />
       </div>
     </div>
     <div class="p-4 sm:p-8 text-center">
-      <p class="text-xs font-mono uppercase text-neutral-400">
-        In collaboration with
-      </p>
-      <div class="flex justify-center mt-4">
-        {
-          [
-            {
-              name: "Joe Bell",
-              img: "/img/joe-bell.jpeg",
-              linkedin: "https://www.linkedin.com/in/joebell93/",
-            },
-            {
-              name: "Bryce Kalow",
-              img: "/img/bryce-kalow.jpeg",
-              linkedin: "https://www.linkedin.com/in/bryce-kalow-86a57183/",
-            },
-            {
-              name: "Tom Milewski",
-              img: "/img/tom-milewski.jpeg",
-              linkedin: "https://www.linkedin.com/in/tmilewski/",
-            },
-            {
-              name: "Dylan Staley",
-              img: "/img/dylan-staley.jpeg",
-              linkedin: "https://www.linkedin.com/in/dstaley/",
-            },
-          ].map(({ name, img, linkedin }) => {
-            const id = slugify(`tooltip-${name}`);
-            return (
-              <Fragment>
-                <a
-                  href={linkedin}
-                  data-tooltip-trigger={id}
-                  class="relative size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale hover:grayscale-0 overflow-hidden"
-                  aria-describedby={id}
-                >
-                  <img
-                    src={img}
-                    alt={`${name} avatar`}
-                    class="w-full h-full absolute object-cover"
-                  />
-                </a>
-                <div
-                  id={id}
-                  role="tooltip"
-                  class="bg-neutral-800 px-2 py-1 rounded-md text-xs font-mono w-max absolute top-0 left-0 hidden"
-                >
-                  {name}
-                </div>
-              </Fragment>
-            );
-          })
-        }
-      </div>
+      <Collaboration />
     </div>
   </section>
 </BaseLayout>
-
-<script>
-  import { computePosition, flip, shift, offset } from "@floating-ui/dom";
-
-  const triggers = document.querySelectorAll(
-    "[data-tooltip-trigger]"
-  ) as NodeListOf<HTMLElement>;
-
-  triggers.forEach((trigger) => {
-    const content = document.getElementById(
-      `${trigger.dataset.tooltipTrigger}`
-    ) as HTMLElement;
-    function update() {
-      computePosition(trigger, content, {
-        placement: "top",
-        middleware: [
-          offset(8),
-          flip(),
-          shift({
-            padding: 16,
-          }),
-        ],
-      }).then(({ x, y }) => {
-        Object.assign(content.style, {
-          left: `${x}px`,
-          top: `${y}px`,
-        });
-      });
-    }
-
-    function show() {
-      content.style.display = "block";
-      update();
-    }
-
-    function hide() {
-      content.style.display = "";
-    }
-
-    [
-      ["mouseenter", show],
-      ["mouseleave", hide],
-      ["focus", show],
-      ["blur", hide],
-      [
-        "keydown",
-        (e: KeyboardEvent) => {
-          if (e.key === "Escape") {
-            hide();
-          }
-        },
-      ],
-    ].forEach(([event, listener]) => {
-      trigger.addEventListener(
-        event as keyof HTMLElementEventMap,
-        listener as EventListenerOrEventListenerObject
-      );
-    });
-  });
-</script>

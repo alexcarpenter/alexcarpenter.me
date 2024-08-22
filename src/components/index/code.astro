@@ -1,0 +1,58 @@
+---
+import { highlight } from "sugar-high";
+
+const code = `import * as SignIn from '@clerk/elements/sign-in'
+import * as Common from '@clerk/elements/common'
+
+export default function SignInPage() {
+  return (
+    <SignIn.Root>
+      <SignIn.Step name="start">
+        <h1>Sign in to your account</h1>
+        <p>Welcome back! Please sign in to continue</p>
+        <Common.Connection name="google">Google</Common.Connection>
+        <Common.Connection name="github">GitHub</Common.Connection>
+        <p>or</p>
+        <Common.Field>
+          <Common.Label>Email address</Common.Label>
+          <Common.Input />
+        </Common.Field>
+      </SignIn.Step>
+    </SignIn.Root>
+  )
+}`;
+const codeHTML = highlight(code);
+---
+
+<figure class="relative">
+  <figcaption class="sr-only">TODO: Add description of code</figcaption>
+  <pre
+    class="py-4 text-sm leading-6"><code class:list={["isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line]",
+        "*:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-neutral-950 *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)]",
+        "*:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-gradient-to-l *:after:from-neutral-950 *:after:from-35% *:after:content-['_']"
+      ]}><Fragment set:html={codeHTML} /></code></pre>
+</figure>
+
+<script>
+  const container = document.querySelector(
+    "[data-code-container]"
+  ) as HTMLElement;
+  const content = document.querySelector("[data-code-content]") as HTMLElement;
+
+  if (container && content) {
+    const calculateOffset = () => {
+      const containerHeight = container.clientHeight;
+      const contentHeight = content.clientHeight;
+      const offset = contentHeight - containerHeight;
+      return Math.max(0, offset);
+    };
+
+    const setScrollDistance = () => {
+      const offset = calculateOffset();
+      container.style.setProperty("--data-offset", `${offset}px`);
+    };
+
+    setScrollDistance();
+    window.addEventListener("resize", setScrollDistance);
+  }
+</script>
