@@ -6,6 +6,10 @@ import {
   defListHastHandlers,
 } from "remark-definition-list";
 import remarkAdmonitions from "remark-github-beta-blockquote-admonitions";
+import {
+  transformerMetaHighlight,
+  transformerMetaWordHighlight,
+} from "@shikijs/transformers";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -27,6 +31,10 @@ export default defineConfig({
     },
     shikiConfig: {
       theme: "css-variables",
+      transformers: [
+        transformerMetaHighlight(),
+        transformerMetaWordHighlight(),
+      ],
     },
   },
 });
