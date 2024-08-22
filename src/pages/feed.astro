@@ -13,7 +13,9 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
 ---
 
 <BaseLayout>
-  <header class="relative text-center py-20 px-8 border-b border-neutral-700">
+  <header
+    class="relative text-center py-10 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
+  >
     <p
       class="hidden pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full md:flex items-center [writing-mode:vertical-lr] rotate-180"
     >
@@ -30,7 +32,12 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
         aria-hidden="true"></span>
       <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
     </p>
-    <h1 class="font-medium text-2xl text-balance tracking-tight">Feed</h1>
+    <!-- <h1 class="font-medium text-2xl text-balance tracking-tight">Feed</h1> -->
+    <h1 class="text-sm text-neutral-400 font-mono">Feed</h1>
+    <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis,
+      magnam!
+    </p>
   </header>
   <section class="relative">
     <p
@@ -54,7 +61,7 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
         allFeed.map((item) => {
           if (item.collection === "links") {
             return item.render().then(({ Content }) => (
-              <li class="p-8">
+              <li class="relative p-8">
                 <h2 class="font-semibold">
                   <a
                     href={item.data.link}
