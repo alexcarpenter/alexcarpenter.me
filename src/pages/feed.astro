@@ -61,7 +61,7 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
         allFeed.map((item) => {
           if (item.collection === "links") {
             return item.render().then(({ Content }) => (
-              <li class="relative p-8">
+              <li class="p-8">
                 <h2 class="font-semibold">
                   <a
                     href={item.data.link}
