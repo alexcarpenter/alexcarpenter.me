@@ -19,17 +19,24 @@
 @layer base {
   :root {
     color-scheme: dark;
-    --background-primary: theme(colors.neutral.950);
-    --foreground-primary: theme(colors.neutral.100);
-    --border-primary: theme(colors.neutral.700);
-    --sh-class: theme(colors.white);
-    --sh-identifier: theme(colors.white);
-    --sh-sign: theme(colors.white);
-    --sh-property: theme(colors.purple.300);
-    --sh-entity: theme(colors.green.300);
-    --sh-jsxliterals: theme(colors.white);
-    --sh-string: theme(colors.sky.300);
-    --sh-keyword: theme(colors.purple.300);
-    --sh-comment: theme(colors.neutral.400);
+    --astro-code-color-background: theme(colors.transparent);
+    --astro-code-color-text: theme(colors.white);
+    --astro-code-token-function: theme(colors.purple.300);
+    --astro-code-token-keyword: theme(colors.purple.300);
+    --astro-code-token-string: theme(colors.sky.300);
+    --astro-code-token-string-expression: theme(colors.sky.300);
+    --astro-code-token-constant: theme(colors.green.300);
+    --astro-code-token-parameter: theme(colors.green.300);
+    --astro-code-token-link: theme(colors.green.300);
+    --astro-code-token-comment: #9394a1;
+    --astro-code-token-punctuation: #b7b8c2;
+  }
+
+  pre {
+    @apply py-4 text-sm leading-6;
+  }
+
+  code {
+    @apply isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-neutral-950 *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)] *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-gradient-to-l *:after:from-neutral-950 *:after:from-35% *:after:content-['_'];
   }
 }
