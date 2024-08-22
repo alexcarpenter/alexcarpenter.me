@@ -10,7 +10,7 @@ export default function SignInPage() {
   return (
     <SignIn.Root>
       <SignIn.Step name="start">
-        <h1>Sign in to your account</h1>
+        <h1>Sign in to Acme Co</h1>
         <p>Welcome back! Please sign in to continue</p>
         <Common.Connection name="google">Google</Common.Connection>
         <Common.Connection name="github">GitHub</Common.Connection>
@@ -27,7 +27,7 @@ export default function SignInPage() {
 
 <BaseLayout>
   <header
-    class="relative text-center py-10 sm:py-20 px-4 sm:px-8 border-b border-neutral-700"
+    class="relative text-center py-10 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
   >
     <p
       class="hidden md:flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
@@ -45,8 +45,10 @@ export default function SignInPage() {
         aria-hidden="true"></span>
       <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
     </p>
-    <h1 class="sr-only">Alex Carpenter</h1>
-    <p class="font-medium text-xl sm:text-2xl text-balance tracking-tight">
+    <h1 class="font-medium text-sm text-neutral-400 font-mono">
+      Alex Carpenter
+    </h1>
+    <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
       User Interface Engineer who enjoys working at the intersection of design
       and engineering teams.
     </p>
@@ -75,14 +77,14 @@ export default function SignInPage() {
           href="https://clerk.com"
           class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
           >Clerk</a
-        > where I am working on rebuilding our <a
-          href="https://clerk.com/docs/components/overview"
-          class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
-          >UI Components</a
-        > and <a
+        > where I am working on <a
           href="https://clerk.com/docs/elements/overview"
           class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
           >Elements</a
+        > and rebuilding our <a
+          href="https://clerk.com/docs/components/overview"
+          class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
+          >UI Components</a
         >.
       </p>
     </header>
