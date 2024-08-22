@@ -1,5 +1,14 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+const allLinks = await getCollection("links");
+const allNotes = await getCollection("notes");
+
+const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
+  const aDate = a.data.published;
+  const bDate = b.data.published;
+  return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+});
 ---
 
 <BaseLayout>
@@ -22,4 +31,59 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     </p>
     <h1 class="font-medium text-2xl text-balance tracking-tight">Feed</h1>
   </header>
+  <section class="relative">
+    <p
+      class="hidden pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full md:flex items-center [writing-mode:vertical-lr] rotate-180"
+    >
+      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
+      <span
+        class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
+        aria-hidden="true"></span>
+      <span
+        class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
+        >Timeline</span
+      >
+      <span
+        class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
+        aria-hidden="true"></span>
+      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
+    </p>
+    <ul class="divide-y divide-dashed divide-neutral-700">
+      {
+        allFeed.map((item) => {
+          if (item.collection === "links") {
+            return item.render().then(({ Content }) => (
+              <li class="p-8">
+                <h2 class="font-semibold">
+                  <a
+                    href={item.data.link}
+                    class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
+                  >
+                    {item.data.title}
+                  </a>
+                </h2>
+                <p class="text-sm font-mono text-neutral-400">
+                  {new URL(item.data.link).hostname}
+                </p>
+                {item.body && (
+                  <div class="mt-4 prose">
+                    <Content />
+                  </div>
+                )}
+              </li>
+            ));
+          }
+          return item.render().then(({ Content }) => (
+            <li class="p-8">
+              {item.body && (
+                <div class="prose">
+                  <Content />
+                </div>
+              )}
+            </li>
+          ));
+        })
+      }
+    </ul>
+  </section>
 </BaseLayout>
