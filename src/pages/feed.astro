@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 const allLinks = await getCollection("links");
-const allNotes = await getCollection("notes");
-
+const allNotes = await getCollection("notes", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
   const aDate = a.data.published;
   const bDate = b.data.published;
@@ -57,9 +58,26 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
                 <h2 class="font-semibold">
                   <a
                     href={item.data.link}
-                    class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
+                    class="group underline decoration-2 decoration-neutral-600 hover:decoration-white"
                   >
                     {item.data.title}
+                    <span class="bg-neutral-800 rounded-sm absolute shrink-0 p-0.5 ml-1 text-neutral-400 mt-px group-hover:text-current">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-2.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <>
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </>
+                      </svg>
+                    </span>
                   </a>
                 </h2>
                 <p class="text-sm font-mono text-neutral-400">

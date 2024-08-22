@@ -65,7 +65,12 @@
       @apply border border-neutral-700 rounded-md;
     }
 
-    :not(pre) > code {
+    pre code span.line:last-of-type:empty {
+      @apply hidden;
+    }
+
+    :not(pre) > code,
+    kbd {
       @apply -mx-0.5 inline rounded px-0.5 bg-neutral-800 [box-decoration-break:clone] text-[0.9375rem];
     }
   }
