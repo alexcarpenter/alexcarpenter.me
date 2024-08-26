@@ -22,6 +22,60 @@ import { slugify } from "@/utils/formatting";
       magnam!
     </p>
   </header>
+  <section id="recommendations">
+    <h2 class="sr-only">Recommendations</h2>
+    <ul class="divide-y divide-neutral-700 divide-dashed">
+      {
+        recommendations
+          .sort(
+            (a, b) =>
+              Date.parse(b.data.published.toString()) -
+              Date.parse(a.data.published.toString())
+          )
+          .map((recommendation: RecommendationProps) =>
+            recommendation.render().then(({ Content }) => {
+              const { name, title, company } = recommendation.data;
+              return (
+                <li class="py-8 px-4 sm:px-8">
+                  <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-16 gap-y-4">
+                    <blockquote class="col-span-2 sm:col-start-2">
+                      <Content />
+                    </blockquote>
+                    <figcaption class="sm:col-start-1 sm:row-start-1">
+                      <div class="flex mb-4">
+                        {[
+                          `/img/${slugify(company)}.svg`,
+                          `/img/${slugify(name)}.jpeg`,
+                        ].map((x, i) => {
+                          return (
+                            <img
+                              src={x}
+                              alt=""
+                              class:list={[
+                                "size-8 rounded-full ring-2 ring-neutral-950",
+                                {
+                                  "-ml-1": i > 0,
+                                },
+                              ]}
+                            />
+                          );
+                        })}
+                      </div>
+                      <p class="font-semibold">{name}</p>
+                      <p class="mt-0.5 text-neutral-400 text-xs font-mono">
+                        {title}
+                        <br class="hidden sm:block" />
+                        {company}
+                      </p>
+                    </figcaption>
+                  </figure>
+                </li>
+              );
+            })
+          )
+      }
+    </ul>
+  </section>
   <!-- <header class="pb-8 pt-40">
     <h1 class="font-semibold">Resume&nbsp;&not;</h1>
     <p class="mt-0.5 text-secondary text-balance">
