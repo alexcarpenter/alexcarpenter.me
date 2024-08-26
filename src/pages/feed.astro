@@ -16,23 +16,6 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
   <header
     class="relative text-center py-10 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
   >
-    <p
-      class="hidden pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full md:flex items-center [writing-mode:vertical-lr] rotate-180"
-    >
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-      <span
-        class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span
-        class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
-        >Intro</span
-      >
-      <span
-        class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-    </p>
-    <!-- <h1 class="font-medium text-2xl text-balance tracking-tight">Feed</h1> -->
     <h1 class="text-sm text-neutral-400 font-mono">Feed</h1>
     <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis,
@@ -40,22 +23,6 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
     </p>
   </header>
   <section class="relative">
-    <p
-      class="hidden pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full md:flex items-center [writing-mode:vertical-lr] rotate-180"
-    >
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-      <span
-        class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span
-        class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
-        >Timeline</span
-      >
-      <span
-        class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-    </p>
     <ul class="divide-y divide-dashed divide-neutral-700">
       {
         allFeed.map((item) => {
