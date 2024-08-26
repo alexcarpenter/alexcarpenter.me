@@ -108,8 +108,10 @@ import { Icon } from "astro-icon/components";
           </a>
         </div>
       </nav>
-      <slot />
-      <footer>
+      <main class="flex-1">
+        <slot />
+      </main>
+      <footer class="border-t border-neutral-700">
         <ul class="space-y-2 p-4 sm:px-8 py-8">
           <li>
             <a
