@@ -5,6 +5,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
 const metaDescription = description ? description : "UI Engineer";
+import { Icon } from "astro-icon/components";
 ---
 
 <html lang="en">
@@ -108,6 +109,47 @@ const metaDescription = description ? description : "UI Engineer";
         </div>
       </nav>
       <slot />
+      <footer>
+        <ul class="space-y-2 p-4 sm:px-8 py-8">
+          <li>
+            <a
+              class="text-sm text-neutral-400 flex w-max items-center gap-2 hover:text-white"
+              href="https://github.com/alexcarpenter"
+            >
+              <Icon name="github" class="text-white" aria-hidden="true" />
+              <span>GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-sm text-neutral-400 flex w-max items-center gap-2 hover:text-white"
+              href="https://www.linkedin.com/in/imalexcarpenter/"
+            >
+              <Icon name="linkedin" class="text-white" aria-hidden="true" />
+              <span>LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="text-sm text-neutral-400 flex w-max items-center gap-2 hover:text-white"
+              href="https://x.com/hybrid_alex"
+            >
+              <Icon name="twitter" class="text-white" aria-hidden="true" />
+              <span>Twitter</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- <p
+          class="border-t border-neutral-700 border-dashed p-4 justify-center mt-4 text-xs font-mono uppercase text-neutral-400 flex items-center gap-2"
+        >
+          <span
+            aria-hidden="true"
+            class="size-2 flex-none rounded-full bg-green-500 before:absolute before:size-2 before:animate-ping before:rounded-full before:bg-green-300"
+          ></span>
+          All systems operational
+        </p> -->
+      </footer>
     </div>
   </body>
 </html>

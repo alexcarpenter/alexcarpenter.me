@@ -59,6 +59,11 @@
 
     blockquote {
       @apply border-l-4 border-neutral-700 pl-4 ml-2 space-y-4;
+
+      &:has(a[href*="https://x.com/hybrid_alex"])
+      {
+        @apply border-sky-300;
+      }
     }
 
     pre {
