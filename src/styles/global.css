@@ -67,8 +67,7 @@
     }
 
     pre {
-      --astro-code-color-background: theme(colors.neutral.900);
-      @apply border border-neutral-700 rounded-md bg-neutral-900 overflow-hidden;
+      @apply border border-neutral-800 rounded-md overflow-hidden;
     }
 
     pre code span.line:last-of-type:empty {
