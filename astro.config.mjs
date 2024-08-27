@@ -32,6 +32,7 @@ export default defineConfig({
     },
     shikiConfig: {
       theme: "github-dark-default",
+      defaultColor: false,
       transformers: [
         transformerMetaHighlight(),
         transformerMetaWordHighlight(),

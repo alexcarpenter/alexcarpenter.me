@@ -31,6 +31,7 @@ export default function SignInPage() {
   >
     <p
       class="hidden md:flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
+      aria-hidden="true"
     >
       <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
       <span
@@ -52,9 +53,9 @@ export default function SignInPage() {
     </p>
   </header>
 
-  <section class="relative">
-    <p
-      class="hidden md:flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
+  <section class="relative" id="currently">
+    <h2
+      class="max-md:sr-only flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
     >
       <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
       <span
@@ -68,7 +69,7 @@ export default function SignInPage() {
         class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
         aria-hidden="true"></span>
       <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-    </p>
+    </h2>
     <header class="relative p-4 sm:p-8">
       <p class="text-balance font-medium">
         Currently I am a part of the design team at <a
@@ -340,24 +341,6 @@ box-shadow: 0px -1px 0px 0px #FFF, 0px 1px 1px 0px rgba(0, 0, 0, 0.16), 0px 0px 
       </div>
     </div>
   </section>
-  <!-- <div
-    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
-    aria-hidden="true"
-  >
-  </div> -->
-  <!-- <section class="border-t border-neutral-700">
-    <div class="p-8">
-      <p class="max-w-prose">
-        Alex is an excellent teammate and an exceptionally talented web
-        developer. When he joined the team we gained an <mark
-          >incredibly strong collaborator</mark
-        >. His thoughtful approach to both producing work and <mark
-          >actively reviewing code instantly improved the entire teams workflow</mark
-        >. It is clear that Alex is a life long learner and therefore is always
-        sure to bring a new, novel approach to solve a problem.
-      </p>
-    </div>
-  </section> -->
 </BaseLayout>
 
 <script>
