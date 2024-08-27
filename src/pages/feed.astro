@@ -1,4 +1,5 @@
 ---
+import FormattedDate from "@/components/FormattedDate.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 const allLinks = await getCollection("links");
@@ -70,6 +71,12 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
           }
           return item.render().then(({ Content }) => (
             <li class="p-8">
+              <dl class="flex gap-4 mb-4 items-center">
+                <dt class="sr-only">Published</dt>
+                <dd class="text-neutral-400 text-xs font-mono">
+                  <FormattedDate date={item.data.published} type="datetime" />
+                </dd>
+              </dl>
               {item.body && (
                 <div class="prose">
                   <Content />
