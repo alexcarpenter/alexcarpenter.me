@@ -71,6 +71,7 @@ const recommendations = defineCollection({
     company: z.enum(JOBS),
     published: z.coerce.date(),
     avatar: z.string().optional(),
+    draft: z.boolean().optional(),
   }),
 });
 

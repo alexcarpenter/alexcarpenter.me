@@ -32,16 +32,19 @@ import { slugify } from "@/utils/formatting";
               Date.parse(b.data.published.toString()) -
               Date.parse(a.data.published.toString())
           )
+          .filter(
+            (recommendation: RecommendationProps) => !recommendation.data.draft
+          )
           .map((recommendation: RecommendationProps) =>
             recommendation.render().then(({ Content }) => {
               const { name, title, company } = recommendation.data;
               return (
-                <li class="py-8 px-4 sm:px-8">
-                  <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-16 gap-y-4">
-                    <blockquote class="col-span-2 sm:col-start-2">
+                <li class="max-sm:py-8 max-sm:px-4">
+                  <figure class="grid grid-cols-1 sm:grid-cols-3 gap-y-4">
+                    <blockquote class="col-span-2 sm:col-start-2 sm:p-8 sm:border-l sm:border-neutral-800 sm:border-dashed">
                       <Content />
                     </blockquote>
-                    <figcaption class="sm:col-start-1 sm:row-start-1">
+                    <figcaption class="sm:col-span-1 sm:col-start-1 sm:row-start-1 sm:p-8">
                       <div class="flex mb-4">
                         {[
                           `/img/${slugify(company)}.svg`,
@@ -62,7 +65,7 @@ import { slugify } from "@/utils/formatting";
                         })}
                       </div>
                       <p class="font-semibold">{name}</p>
-                      <p class="mt-0.5 text-neutral-400 text-xs font-mono">
+                      <p class="mt-0.5 text-neutral-400 text-sm font-mono">
                         {title}
                         <br class="hidden sm:block" />
                         {company}
@@ -76,15 +79,8 @@ import { slugify } from "@/utils/formatting";
       }
     </ul>
   </section>
-  <!-- <header class="pb-8 pt-40">
-    <h1 class="font-semibold">Resume&nbsp;&not;</h1>
-    <p class="mt-0.5 text-secondary text-balance">
-      User Interface Engineer who enjoys working at the intersection of design
-      and engineering teams. Currently apart of the design team at Clerk.
-    </p>
-  </header>
 
-  <section class="py-8 border-t border-primary" id="experience">
+  <!-- <section class="py-8 border-t border-primary" id="experience">
     <h2 class="font-semibold mb-8">Experience</h2>
     <ul class="-my-8 divide-y divide-primary divide-dashed">
       {
@@ -119,60 +115,6 @@ import { slugify } from "@/utils/formatting";
                 </ul>
               </li>
             ))
-          )
-      }
-    </ul>
-  </section>
-
-  <section class="pt-8 pb-16 border-t border-primary" id="recommendations">
-    <h2 class="font-semibold mb-8">Recommendations</h2>
-    <ul class="-my-8 divide-y divide-primary divide-dashed">
-      {
-        recommendations
-          .sort(
-            (a, b) =>
-              Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString())
-          )
-          .map((recommendation: RecommendationProps) =>
-            recommendation.render().then(({ Content }) => {
-              return (
-                <li class="py-8">
-                  <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-4">
-                    <blockquote class="col-span-2 sm:col-start-2">
-                      <Content />
-                    </blockquote>
-                    <figcaption class="sm:col-start-1 sm:row-start-1">
-                      <div class="flex mb-4">
-                        {[
-                          `/img/${slugify(recommendation.data.company)}.svg`,
-                          `/img/${slugify(recommendation.data.name)}.jpeg`,
-                        ].map((x, i) => {
-                          return (
-                            <img
-                              src={x}
-                              alt=""
-                              class:list={[
-                                "size-8 rounded-full ring-2 ring-white dark:ring-neutral-950",
-                                {
-                                  "-ml-1": i > 0,
-                                },
-                              ]}
-                            />
-                          );
-                        })}
-                      </div>
-                      <p class="font-semibold">{recommendation.data.name}</p>
-                      <p class="mt-0.5 text-secondary text-sm">
-                        {recommendation.data.title}
-                        <br class="hidden sm:block" />
-                        {recommendation.data.company}
-                      </p>
-                    </figcaption>
-                  </figure>
-                </li>
-              );
-            })
           )
       }
     </ul>
