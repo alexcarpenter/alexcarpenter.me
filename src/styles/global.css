@@ -19,25 +19,14 @@
 @layer base {
   :root {
     color-scheme: dark;
-    --astro-code-color-background: theme(colors.neutral.950);
-    --astro-code-color-text: theme(colors.white);
-    --astro-code-token-function: theme(colors.purple.300);
-    --astro-code-token-keyword: theme(colors.purple.300);
-    --astro-code-token-string: theme(colors.sky.300);
-    --astro-code-token-string-expression: theme(colors.sky.300);
-    --astro-code-token-constant: theme(colors.green.300);
-    --astro-code-token-parameter: theme(colors.green.300);
-    --astro-code-token-link: theme(colors.green.300);
-    --astro-code-token-comment: #9394a1;
-    --astro-code-token-punctuation: #b7b8c2;
   }
 
   pre {
-    @apply py-4 text-sm leading-6;
+    @apply py-4 text-sm leading-6 !bg-neutral-950;
   }
 
   code {
-    @apply isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-[--astro-code-color-background] *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)] *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-gradient-to-l *:after:from-[--astro-code-color-background] *:after:from-35% *:after:content-['_'];
+    @apply isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-neutral-950 *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)] *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-gradient-to-l *:after:from-neutral-950 *:after:from-35% *:after:content-['_'];
   }
 
   mark {
