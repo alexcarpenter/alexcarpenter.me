@@ -38,39 +38,22 @@ import SectionLabel from "@/components/SectionLabel.astro";
           .map((job: JobProps) =>
             job.render().then(({ Content }) => (
               <li class="py-8 px-4 sm:px-8">
-                <header class="grid sm:grid-cols-[2rem,minmax(0,1fr)] gap-4">
-                  <img
-                    src={`/logos/${slugify(job.data.company)}.svg`}
-                    alt=""
-                    class="relative size-8"
-                  />
-                  <div>
-                    <h3 class="sm:mt-1 font-medium">
-                      {job.data.title} at {job.data.company}
-                    </h3>
-                    <p class="mt-0.5 text-sm text-neutral-400 font-mono">
-                      {`${parseYearToString(job.data.startDate)}–${
-                        job.data.endDate
-                          ? parseYearToString(job.data.endDate)
-                          : "Now"
-                      }`}
-                    </p>
-                  </div>
-                </header>
-                <div class="mt-4 grid sm:grid-cols-3 gap-x-16 gap-y-4">
-                  <div class="prose sm:col-span-2 sm:pl-[calc(theme(spacing.8)+theme(spacing.4))]">
-                    <Content />
-                  </div>
-                  <div class="sm:col-span-1 sm:pl-[calc(theme(spacing.8)+theme(spacing.4))]">
-                    <ul class="list-square ml-3">
-                      {job.data.tools.map((tool) => (
-                        <li class="sm:text-sm marker:text-neutral-700">
-                          {tool}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                <img
+                  src={`/logos/${slugify(job.data.company)}.svg`}
+                  alt=""
+                  class="relative size-8 rounded-full"
+                />
+                <h3 class="sm:mt-1 font-medium">
+                  {job.data.title} at {job.data.company}
+                </h3>
+                <p class="mt-0.5 text-sm text-neutral-400 font-mono">
+                  {`${parseYearToString(job.data.startDate)}–${
+                    job.data.endDate
+                      ? parseYearToString(job.data.endDate)
+                      : "Now"
+                  }`}
+                </p>
+                <Content />
               </li>
             ))
           )
@@ -102,25 +85,17 @@ import SectionLabel from "@/components/SectionLabel.astro";
             recommendation.render().then(({ Content }) => {
               const { name, title, company } = recommendation.data;
               return (
-                <li class="max-sm:py-8 max-sm:px-4">
-                  <figure class="grid grid-cols-1 sm:grid-cols-3 gap-y-4">
-                    <blockquote class="col-span-2 sm:col-start-2 sm:p-8 sm:border-l sm:border-neutral-800 sm:border-dashed">
-                      <Content />
-                    </blockquote>
-                    <figcaption class="sm:col-span-1 sm:col-start-1 sm:row-start-1 sm:p-8">
-                      <img
-                        src={`/img/${slugify(name)}.jpeg`}
-                        alt=""
-                        class:list={["size-8 rounded-full mb-4"]}
-                      />
-                      <p class="font-medium">{name}</p>
-                      <p class="mt-0.5 text-neutral-400 text-sm font-mono">
-                        {title}
-                        <br class="hidden sm:block" />
-                        {company}
-                      </p>
-                    </figcaption>
-                  </figure>
+                <li class="py-8 px-4 sm:px-8">
+                  <img
+                    src={`/img/${slugify(name)}.jpeg`}
+                    alt=""
+                    class="relative size-8 rounded-full"
+                  />
+                  <h3 class="sm:mt-1 font-medium">{name}</h3>
+                  <p class="mt-0.5 text-sm text-neutral-400 font-mono">
+                    {title} at {company}
+                  </p>
+                  <Content />
                 </li>
               );
             })
