@@ -75,10 +75,10 @@ import { slugify } from "@/utils/formatting";
                     class="relative size-8"
                   />
                   <div>
-                    <h3 class="font-medium">
+                    <h3 class="mt-1 font-medium">
                       {job.data.title} at {job.data.company}
                     </h3>
-                    <p class="mt-0.5 text-sm text-neutral-400">
+                    <p class="mt-0.5 text-sm text-neutral-400 font-mono">
                       {`${parseYearToString(job.data.startDate)}–${
                         job.data.endDate
                           ? parseYearToString(job.data.endDate)
@@ -171,7 +171,7 @@ import { slugify } from "@/utils/formatting";
                         })}
                       </div>
                       <p class="font-medium">{name}</p>
-                      <p class="mt-0.5 text-neutral-400 text-sm">
+                      <p class="mt-0.5 text-neutral-400 text-sm font-mono">
                         {title}
                         <br class="hidden sm:block" />
                         {company}
@@ -185,44 +185,4 @@ import { slugify } from "@/utils/formatting";
       }
     </ul>
   </section>
-
-  <!-- <section class="py-8 border-t border-primary" id="experience">
-    <h2 class="font-semibold mb-8">Experience</h2>
-    <ul class="-my-8 divide-y divide-primary divide-dashed">
-      {
-        jobs
-          .sort(
-            (a, b) =>
-              Date.parse(b.data.startDate.toString()) -
-              Date.parse(a.data.startDate.toString())
-          )
-          .map((job: JobProps) =>
-            job.render().then(({ Content }) => (
-              <li class="py-8 grid sm:grid-cols-3 gap-x-8 gap-y-4">
-                <header class="sm:col-span-3">
-                  <h3 class="font-semibold">
-                    {job.data.title} at {job.data.company}
-                  </h3>
-                  <p class="mt-0.5 text-sm text-secondary">
-                    {`${parseYearToString(job.data.startDate)}–${
-                      job.data.endDate
-                        ? parseYearToString(job.data.endDate)
-                        : "Now"
-                    }`}
-                  </p>
-                </header>
-                <div class="sm:col-span-2 prose">
-                  <Content />
-                </div>
-                <ul class="pl-6 sm:pl-4 marker:text-subtle list-square">
-                  {job.data.tools.map((tool: any) => (
-                    <li>{tool}</li>
-                  ))}
-                </ul>
-              </li>
-            ))
-          )
-      }
-    </ul>
-  </section> -->
 </BaseLayout>
