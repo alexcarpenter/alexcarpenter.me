@@ -108,25 +108,11 @@ import SectionLabel from "@/components/SectionLabel.astro";
                       <Content />
                     </blockquote>
                     <figcaption class="sm:col-span-1 sm:col-start-1 sm:row-start-1 sm:p-8">
-                      <div class="flex mb-4">
-                        {[
-                          `/img/${slugify(company)}.svg`,
-                          `/img/${slugify(name)}.jpeg`,
-                        ].map((x, i) => {
-                          return (
-                            <img
-                              src={x}
-                              alt=""
-                              class:list={[
-                                "size-8 rounded-full ring-2 ring-neutral-950",
-                                {
-                                  "-ml-1": i > 0,
-                                },
-                              ]}
-                            />
-                          );
-                        })}
-                      </div>
+                      <img
+                        src={`/img/${slugify(name)}.jpeg`}
+                        alt=""
+                        class:list={["size-8 rounded-full mb-4"]}
+                      />
                       <p class="font-medium">{name}</p>
                       <p class="mt-0.5 text-neutral-400 text-sm font-mono">
                         {title}
