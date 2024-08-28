@@ -68,22 +68,31 @@ import { slugify } from "@/utils/formatting";
           .map((job: JobProps) =>
             job.render().then(({ Content }) => (
               <li class="py-8 px-4 sm:px-8">
-                <h3 class="font-medium">
-                  {job.data.title} at {job.data.company}
-                </h3>
-                <p class="mt-0.5 mb-2 text-sm text-neutral-400">
-                  {`${parseYearToString(job.data.startDate)}–${
-                    job.data.endDate
-                      ? parseYearToString(job.data.endDate)
-                      : "Now"
-                  }`}
-                </p>
-                <div class="grid sm:grid-cols-3 gap-x-16 gap-y-4">
-                  <div class="prose sm:col-span-2">
+                <header class="grid grid-cols-[2rem,minmax(0,1fr)] gap-x-4">
+                  <img
+                    src={`/logos/${slugify(job.data.company)}.svg`}
+                    alt=""
+                    class="relative size-8"
+                  />
+                  <div>
+                    <h3 class="font-medium">
+                      {job.data.title} at {job.data.company}
+                    </h3>
+                    <p class="mt-0.5 text-sm text-neutral-400">
+                      {`${parseYearToString(job.data.startDate)}–${
+                        job.data.endDate
+                          ? parseYearToString(job.data.endDate)
+                          : "Now"
+                      }`}
+                    </p>
+                  </div>
+                </header>
+                <div class="mt-2 grid sm:grid-cols-3 gap-x-16 gap-y-2">
+                  <div class="prose sm:col-span-2 pl-[calc(theme(spacing.8)+theme(spacing.4))]">
                     <Content />
                   </div>
-                  <div class="sm:col-span-1">
-                    <ul class="list-square ml-2 pl-4">
+                  <div class="sm:col-span-1 max-sm:pl-[calc(theme(spacing.8)+theme(spacing.4))]">
+                    <ul class="list-square ml-3">
                       {job.data.tools.map((tool) => (
                         <li class="text-sm marker:text-neutral-700">{tool}</li>
                       ))}
