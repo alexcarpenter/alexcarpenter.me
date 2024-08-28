@@ -7,6 +7,7 @@ type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
 import { parseYearToString } from "@/components/FormattedDate.astro";
 import { slugify } from "@/utils/formatting";
+import SectionLabel from "@/components/SectionLabel.astro";
 ---
 
 <BaseLayout
@@ -16,23 +17,7 @@ import { slugify } from "@/utils/formatting";
   <header
     class="relative text-center py-10 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
   >
-    <p
-      class="hidden md:flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
-      aria-hidden="true"
-    >
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-      <span
-        class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span
-        class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
-        >Intro</span
-      >
-      <span
-        class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-    </p>
+    <SectionLabel as="p">Intro</SectionLabel>
     <h1 class="text-sm text-neutral-400 font-mono">Resume</h1>
     <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis,
@@ -41,22 +26,7 @@ import { slugify } from "@/utils/formatting";
   </header>
 
   <section id="experience" class="relative">
-    <h2
-      class="max-md:sr-only flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
-    >
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-      <span
-        class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span
-        class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
-        >Experience</span
-      >
-      <span
-        class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-    </h2>
+    <SectionLabel>Experience</SectionLabel>
     <ul class="divide-y divide-neutral-700 divide-dashed">
       {
         jobs
@@ -113,22 +83,7 @@ import { slugify } from "@/utils/formatting";
   </div>
 
   <section id="recommendations" class="relative">
-    <h2
-      class="max-md:sr-only flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
-    >
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-      <span
-        class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span
-        class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
-        >Recommendations</span
-      >
-      <span
-        class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-    </h2>
+    <SectionLabel>Recommendations</SectionLabel>
     <ul class="divide-y divide-neutral-700 divide-dashed">
       {
         recommendations

@@ -1,5 +1,6 @@
 ---
 import { Code } from "astro:components";
+import SectionLabel from "@/components/SectionLabel.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { slugify } from "@/utils/formatting";
 
@@ -29,23 +30,7 @@ export default function SignInPage() {
   <header
     class="relative text-center py-10 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
   >
-    <p
-      class="hidden md:flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
-      aria-hidden="true"
-    >
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-      <span
-        class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span
-        class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
-        >Intro</span
-      >
-      <span
-        class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-    </p>
+    <SectionLabel as="p">Intro</SectionLabel>
     <h1 class="text-sm text-neutral-400 font-mono">Alex Carpenter</h1>
     <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
       User Interface Engineer who enjoys working at the intersection of design
@@ -54,22 +39,7 @@ export default function SignInPage() {
   </header>
 
   <section class="relative" id="currently">
-    <h2
-      class="max-md:sr-only flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
-    >
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-      <span
-        class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span
-        class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
-        >Currently</span
-      >
-      <span
-        class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
-        aria-hidden="true"></span>
-      <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
-    </h2>
+    <SectionLabel>Currently</SectionLabel>
     <header class="relative p-4 sm:p-8">
       <p class="text-balance font-medium">
         Currently I am a part of the design team at <a
