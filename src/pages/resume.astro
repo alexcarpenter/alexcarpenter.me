@@ -48,7 +48,7 @@ import SectionLabel from "@/components/SectionLabel.astro";
                   class="relative size-8"
                 />
                 <div>
-                  <h3 class="sm:mt-1 font-medium">
+                  <h3 class="sm:mt-1.5 font-medium">
                     {job.data.title} at {job.data.company}
                   </h3>
                   <p class="mt-0.5 mb-4 text-sm text-neutral-400 font-mono">
@@ -58,7 +58,20 @@ import SectionLabel from "@/components/SectionLabel.astro";
                         : "Now"
                     }`}
                   </p>
-                  <Content />
+                  <div class="grid sm:grid-cols-[minmax(0,2fr),1px,minmax(0,1fr)] gap-y-4 gap-x-8">
+                    <div class="prose">
+                      <Content />
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="hidden sm:block h-full w-px border-r border-neutral-700 border-dashed [mask-image:linear-gradient(to_bottom,theme(colors.white)_calc(100%_-_2rem),transparent)]"
+                    />
+                    <ul>
+                      {job.data.tools.map((t) => {
+                        return <li class="tag">{t}</li>;
+                      })}
+                    </ul>
+                  </div>
                 </div>
               </li>
             ))

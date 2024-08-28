@@ -155,39 +155,52 @@ import SignInCard from "@/components/SignInCard.astro";
   >
   </div>
 
-  <section class="relative" id="currently">
-    <SectionLabel>Interests</SectionLabel>
-    <div class="max-sm:py-8 max-sm:px-4">
-      <figure class="grid grid-cols-1 sm:grid-cols-2 gap-y-4">
-        <div
-          class="col-span-1 sm:p-8 sm:border-r sm:border-neutral-800 sm:border-dashed"
-        >
-          <div class="prose">
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel,
-              commodi vero! In blanditiis aut totam earum consectetur, libero
-              architecto porro quod dolorem molestiae debitis voluptatibus nulla
-              similique dicta, a officia.
+  <div class="flex-1 relative">
+    <div
+      class="hidden sm:block absolute inset-y-0 left-1/2 border-r border-neutral-700 border-dashed"
+      aria-hidden="true"
+    >
+    </div>
+    <section class="relative px-4 py-8 sm:px-8" id="currently">
+      <SectionLabel>Interests</SectionLabel>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-16">
+        <div class="prose">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel,
+            commodi vero! In blanditiis aut totam earum consectetur.
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel,
+            commodi vero! In blanditiis aut totam earum consectetur, libero
+            architecto porro quod dolorem.
+          </p>
+        </div>
+        <div class="flex items-center">
+          <div>
+            <p class="mb-4 text-xs font-mono uppercase text-neutral-400">
+              Skills and interests
             </p>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel,
-              commodi vero! In blanditiis aut totam earum consectetur, libero
-              architecto porro quod dolorem molestiae debitis voluptatibus nulla
-              similique dicta, a officia.
-            </p>
+            <ul>
+              {
+                [
+                  "Next.js",
+                  "Tailwind CSS",
+                  "Framer Motion",
+                  "Astro",
+                  "Accessibility",
+                  "Mentorship",
+                  "CSS Architecture",
+                  "Component API Design",
+                ].map((i) => {
+                  return <li class="tag leading-relaxed">{i}</li>;
+                })
+              }
+            </ul>
           </div>
         </div>
-        <div class="sm:col-span-1 sm:p-8">
-          <ul>
-            <li>Next.js</li>
-            <li>Tailwind CSS</li>
-            <li>Framer Motion</li>
-            <li>Astro</li>
-          </ul>
-        </div>
-      </figure>
-    </div>
-  </section>
+      </div>
+    </section>
+  </div>
 </BaseLayout>
 
 <script>

@@ -74,4 +74,19 @@
       @apply -mx-0.5 inline rounded px-0.5 bg-neutral-800 [box-decoration-break:clone] text-[0.9375rem];
     }
   }
+
+  .tag {
+    @apply inline;
+
+    &::after {
+      content: " ";
+      word-spacing: 1em;
+      background-image: linear-gradient(
+        -0.2turn,
+        transparent 0 calc(50% - 0.03em),
+        theme(colors.neutral.700) 0 calc(50% + 0.03em),
+        transparent 0
+      );
+    }
+  }
 }
