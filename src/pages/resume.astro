@@ -15,7 +15,7 @@ import SectionLabel from "@/components/SectionLabel.astro";
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
   <header
-    class="relative text-center py-10 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
+    class="relative text-center py-12 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
   >
     <SectionLabel as="p">Intro</SectionLabel>
     <h1 class="text-sm text-neutral-400 font-mono">Resume</h1>
@@ -38,7 +38,7 @@ import SectionLabel from "@/components/SectionLabel.astro";
           .map((job: JobProps) =>
             job.render().then(({ Content }) => (
               <li class="py-8 px-4 sm:px-8">
-                <header class="grid grid-cols-[2rem,minmax(0,1fr)] gap-x-4">
+                <header class="grid sm:grid-cols-[2rem,minmax(0,1fr)] gap-4">
                   <img
                     src={`/logos/${slugify(job.data.company)}.svg`}
                     alt=""
@@ -57,14 +57,16 @@ import SectionLabel from "@/components/SectionLabel.astro";
                     </p>
                   </div>
                 </header>
-                <div class="mt-2 grid sm:grid-cols-3 gap-x-16 gap-y-2">
-                  <div class="prose sm:col-span-2 pl-[calc(theme(spacing.8)+theme(spacing.4))]">
+                <div class="mt-4 grid sm:grid-cols-3 gap-x-16 gap-y-4">
+                  <div class="prose sm:col-span-2 sm:pl-[calc(theme(spacing.8)+theme(spacing.4))]">
                     <Content />
                   </div>
-                  <div class="sm:col-span-1 max-sm:pl-[calc(theme(spacing.8)+theme(spacing.4))]">
+                  <div class="sm:col-span-1 sm:pl-[calc(theme(spacing.8)+theme(spacing.4))]">
                     <ul class="list-square ml-3">
                       {job.data.tools.map((tool) => (
-                        <li class="text-sm marker:text-neutral-700">{tool}</li>
+                        <li class="sm:text-sm marker:text-neutral-700">
+                          {tool}
+                        </li>
                       ))}
                     </ul>
                   </div>

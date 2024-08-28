@@ -18,7 +18,7 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
   <header
-    class="relative text-center py-10 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
+    class="relative text-center py-12 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
   >
     <h1 class="text-sm text-neutral-400 font-mono">Feed</h1>
     <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
@@ -32,7 +32,7 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
         allFeed.map((item) => {
           if (item.collection === "links") {
             return item.render().then(({ Content }) => (
-              <li class="p-8">
+              <li class="px-4 py-8 sm:px-8">
                 <h2 class="font-semibold">
                   <a
                     href={item.data.link}
@@ -70,7 +70,7 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
             ));
           }
           return item.render().then(({ Content }) => (
-            <li class="p-8">
+            <li class="px-4 py-8 sm:px-8">
               <dl class="flex gap-4 mb-4 items-center">
                 <dt class="sr-only">Published</dt>
                 <dd class="text-neutral-400 text-sm font-mono">

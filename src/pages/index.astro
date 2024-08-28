@@ -8,7 +8,7 @@ import SignInCard from "@/components/SignInCard.astro";
 
 <BaseLayout>
   <header
-    class="relative text-center py-10 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
+    class="relative text-center py-12 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
   >
     <SectionLabel as="p">Intro</SectionLabel>
     <h1 class="text-sm text-neutral-400 font-mono">Alex Carpenter</h1>
@@ -20,7 +20,7 @@ import SignInCard from "@/components/SignInCard.astro";
 
   <section class="relative" id="currently">
     <SectionLabel>Currently</SectionLabel>
-    <header class="relative p-4 sm:p-8">
+    <header class="px-4 py-8 sm:px-8">
       <p class="text-balance font-medium">
         Currently I am a part of the design team at <a
           href="https://clerk.com"
@@ -50,14 +50,14 @@ import SignInCard from "@/components/SignInCard.astro";
             <SignInCodeBlock />
           </div>
         </figure>
+        <span
+          class="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-neutral-950 to-transparent"
+          aria-hidden="true"></span>
       </div>
 
       <div class="max-sm:border-t border-dashed border-neutral-700">
         <div
-          class:list={[
-            "h-full relative overflow-hidden pt-8 px-4 sm:p-0 bg-neutral-900 [--clip-offset:0%]",
-            // "sm:hover:[--clip-offset:100%]",
-          ]}
+          class="h-full relative overflow-hidden pt-8 px-4 sm:p-0 bg-neutral-900"
         >
           <div
             class="relative sm:absolute mx-auto max-w-96 sm:min-w-full sm:translate-x-10 sm:translate-y-10"
@@ -86,7 +86,8 @@ import SignInCard from "@/components/SignInCard.astro";
         </div>
       </div>
     </div>
-    <div class="p-4 sm:p-8 text-center">
+
+    <div class="px-4 py-8 sm:px-8 text-center">
       <p class="text-xs font-mono uppercase text-neutral-400">
         In collaboration with
       </p>
