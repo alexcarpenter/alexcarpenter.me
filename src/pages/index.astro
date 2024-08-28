@@ -7,9 +7,7 @@ import SignInCard from "@/components/SignInCard.astro";
 ---
 
 <BaseLayout>
-  <header
-    class="relative text-center py-12 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
-  >
+  <header class="relative text-center py-12 sm:py-16 px-4 sm:px-8">
     <SectionLabel as="p">Intro</SectionLabel>
     <h1 class="text-sm text-neutral-400 font-mono">Alex Carpenter</h1>
     <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
@@ -17,6 +15,12 @@ import SignInCard from "@/components/SignInCard.astro";
       and engineering teams.
     </p>
   </header>
+
+  <div
+    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] border-y border-neutral-700"
+    aria-hidden="true"
+  >
+  </div>
 
   <section class="relative" id="currently">
     <SectionLabel>Currently</SectionLabel>

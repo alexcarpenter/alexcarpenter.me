@@ -7,12 +7,12 @@ export const NAVIGATION = [
     slug: "/",
   },
   {
-    label: "Feed",
-    slug: "/feed",
-  },
-  {
     label: "Resume",
     slug: "/resume",
+  },
+  {
+    label: "Feed",
+    slug: "/feed",
   },
 ];
 
