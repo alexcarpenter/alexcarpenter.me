@@ -1,0 +1,23 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
+
+const { as: Tag = "h2" } = Astro.props;
+---
+
+<Tag
+  class="max-md:sr-only flex pl-4 absolute left-0 justify-center inset-y-8 -translate-x-full items-center [writing-mode:vertical-lr] rotate-180"
+>
+  <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
+  <span
+    class="relative w-px h-full flex-1 border-l border-neutral-800 border-dashed"
+    aria-hidden="true"></span>
+  <span class="py-4 font-mono uppercase text-neutral-700 text-xxs leading-none"
+    ><slot /></span
+  >
+  <span
+    class="w-px h-full flex-1 border-l border-neutral-800 border-dashed"
+    aria-hidden="true"></span>
+  <span class="w-2 h-px bg-neutral-800" aria-hidden="true"></span>
+</Tag>

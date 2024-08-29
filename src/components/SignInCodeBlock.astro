@@ -1,0 +1,25 @@
+---
+import { Code } from "astro:components";
+const signInCode = `import * as SignIn from '@clerk/elements/sign-in'
+import * as Common from '@clerk/elements/common'
+
+export default function SignInPage() {
+  return (
+    <SignIn.Root>
+      <SignIn.Step name="start">
+        <h1>Sign in to Acme Co</h1>
+        <p>Welcome back! Please sign in to continue</p>
+        <Common.Connection name="google">Google</Common.Connection>
+        <Common.Connection name="github">GitHub</Common.Connection>
+        <p>or</p>
+        <Common.Field>
+          <Common.Label>Email address</Common.Label>
+          <Common.Input />
+        </Common.Field>
+      </SignIn.Step>
+    </SignIn.Root>
+  )
+}`;
+---
+
+<Code code={signInCode} lang="tsx" theme="github-dark-default" />

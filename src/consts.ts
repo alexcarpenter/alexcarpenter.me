@@ -1,23 +1,39 @@
-export const SITE_VERSION = "4.0.2-alpha";
+export const SITE_VERSION = "5.0.0-alpha";
 export const SITE_TITLE = "Alex Carpenter";
-export const SITE_NAV = [
+
+export const NAVIGATION = [
   {
-    label: "Links",
-    slug: "/links",
-  },
-  {
-    label: "Notes",
-    slug: "/notes",
-  },
-  {
-    label: "Posts",
-    slug: "/posts",
+    label: "Index",
+    slug: "/",
   },
   {
     label: "Resume",
     slug: "/resume",
   },
+  {
+    label: "Feed",
+    slug: "/feed",
+  },
 ];
+
+export const SOCIALS = [
+  {
+    icon: "github",
+    label: "GitHub",
+    url: "https://github.com/alexcarpenter",
+  },
+  {
+    icon: "linkedin",
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/imalexcarpenter/",
+  },
+  {
+    icon: "twitter",
+    label: "Twitter",
+    url: "https://x.com/hybrid_alex",
+  },
+] as const;
+
 export const JOBS = [
   "Clerk",
   "Watershed",

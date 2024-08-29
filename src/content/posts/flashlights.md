@@ -20,3 +20,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. A magnam dolores sit, v
 ## ZebraLight SC53cN
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. A magnam dolores sit, voluptas consequuntur tempore error quae beatae consequatur, voluptate incidunt ducimus est eligendi, veniam ipsam qui fugit consectetur alias.
+
+## Reylight Pineapple mini-Ti
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. A magnam dolores sit, voluptas consequuntur tempore error quae beatae consequatur, voluptate incidunt ducimus est eligendi, veniam ipsam qui fugit consectetur alias.

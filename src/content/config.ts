@@ -54,15 +54,6 @@ const posts = defineCollection({
   }),
 });
 
-const photos = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string().optional(),
-    published: z.coerce.date(),
-  }),
-});
-
 const recommendations = defineCollection({
   type: "content",
   schema: z.object({
@@ -71,6 +62,7 @@ const recommendations = defineCollection({
     company: z.enum(JOBS),
     published: z.coerce.date(),
     avatar: z.string().optional(),
+    visible: z.boolean().optional(),
   }),
 });
 
@@ -79,6 +71,5 @@ export const collections = {
   jobs,
   notes,
   posts,
-  photos,
   recommendations,
 };

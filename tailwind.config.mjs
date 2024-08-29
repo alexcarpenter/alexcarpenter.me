@@ -9,29 +9,12 @@ export default {
       sans: ["Geist Sans", ...defaultTheme.fontFamily.sans],
       mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
     },
-    fontSize: {
-      xs: "0.7142857143rem", // 10px
-      sm: "0.8571428571rem", // 12px
-    },
     extend: {
-      backgroundColor: {
-        primary: "var(--page-primary)",
-        surface: "var(--surface)",
+      screens: {
+        md: "860px",
       },
-      textColor: {
-        primary: "var(--text-color-primary)",
-        secondary: "var(--text-color-secondary)",
-        subtle: "var(--text-color-subtle)",
-        accent: "var(--accent)",
-      },
-      borderColor: {
-        DEFAULT: "var(--border-color-primary)",
-        primary: "var(--border-color-primary)",
-        subtle: "var(--border-color-subtle)",
-      },
-      textDecorationColor: {
-        subtle: "var(--decoration-color-subtle)",
-        accent: "var(--accent)",
+      fontSize: {
+        xxs: "0.625rem",
       },
       listStyleType: {
         square: "square",

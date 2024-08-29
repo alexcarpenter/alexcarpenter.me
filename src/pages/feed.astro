@@ -1,0 +1,91 @@
+---
+import FormattedDate from "@/components/FormattedDate.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+const allLinks = await getCollection("links");
+const allNotes = await getCollection("notes", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
+  const aDate = a.data.published;
+  const bDate = b.data.published;
+  return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+});
+---
+
+<BaseLayout
+  title="Feed"
+  description="UI engineer who enjoys working at the intersection of design and engineering teams."
+>
+  <header
+    class="relative text-center py-12 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
+  >
+    <h1 class="text-sm text-neutral-400 font-mono">Feed</h1>
+    <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
+      A collection of short notes, interesting links, and the occasional long
+      form post.
+    </p>
+  </header>
+  <section class="relative">
+    <ul class="divide-y divide-dashed divide-neutral-700">
+      {
+        allFeed.map((item) => {
+          if (item.collection === "links") {
+            return item.render().then(({ Content }) => (
+              <li class="px-4 py-8 sm:px-8">
+                <h2 class="font-semibold">
+                  <a
+                    href={item.data.link}
+                    class="group underline decoration-2 decoration-neutral-600 hover:decoration-white"
+                  >
+                    {item.data.title}
+                    <span class="bg-neutral-800 rounded-sm absolute shrink-0 p-0.5 ml-1 text-neutral-400 mt-px group-hover:text-current">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-2.5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <>
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </>
+                      </svg>
+                    </span>
+                  </a>
+                </h2>
+                <p class="text-sm font-mono text-neutral-400">
+                  {new URL(item.data.link).hostname}
+                </p>
+                {item.body && (
+                  <div class="mt-4 prose">
+                    <Content />
+                  </div>
+                )}
+              </li>
+            ));
+          }
+          return item.render().then(({ Content }) => (
+            <li class="px-4 py-8 sm:px-8">
+              <dl class="flex gap-4 mb-4 items-center">
+                <dt class="sr-only">Published</dt>
+                <dd class="text-neutral-400 text-sm font-mono">
+                  <FormattedDate date={item.data.published} type="datetime" />
+                </dd>
+              </dl>
+              {item.body && (
+                <div class="prose">
+                  <Content />
+                </div>
+              )}
+            </li>
+          ));
+        })
+      }
+    </ul>
+  </section>
+</BaseLayout>

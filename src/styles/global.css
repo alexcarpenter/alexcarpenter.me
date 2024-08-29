@@ -18,170 +18,76 @@
 
 @layer base {
   :root {
-    --page-primary: theme(colors.white);
-    --surface: theme(colors.neutral.100);
-    --text-color-primary: theme(colors.neutral.900);
-    --text-color-secondary: theme(colors.neutral.700);
-    --text-color-subtle: theme(colors.neutral.300);
-    --border-color-primary: theme(colors.neutral.200);
-    --border-color-subtle: theme(colors.neutral.100);
-    --decoration-color-subtle: theme(colors.neutral.300);
-    --accent: #ff4f00;
+    color-scheme: dark;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --page-primary: theme(colors.neutral.950);
-      --surface: theme(colors.neutral.800);
-      --text-color-primary: theme(colors.neutral.100);
-      --text-color-secondary: theme(colors.neutral.300);
-      --text-color-subtle: theme(colors.neutral.500);
-      --border-color-primary: theme(colors.neutral.700);
-      --border-color-subtle: theme(colors.neutral.800);
-      --decoration-color-subtle: theme(colors.neutral.500);
-    }
+  pre {
+    --pre-bg: theme(colors.neutral.950);
+    @apply py-4 text-sm leading-6 !bg-[--pre-bg];
   }
 
-  html {
-    font-size: 0.875rem;
+  code {
+    @apply isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-[--pre-bg] *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)] *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-gradient-to-l *:after:from-[--pre-bg] *:after:from-35% *:after:content-['_'];
   }
 
   mark {
-    @apply -mx-0.5 inline rounded bg-amber-100 px-0.5 text-amber-950 dark:bg-amber-500/20 dark:text-amber-100 [box-decoration-break:clone];
+    @apply -mx-0.5 inline rounded px-0.5 bg-amber-500/20 text-amber-100 [box-decoration-break:clone];
   }
 }
 
 @layer components {
   .prose {
-    :where(* + *) {
-      @apply mt-4;
+    @apply space-y-4;
+
+    a {
+      @apply underline decoration-2 decoration-neutral-600 hover:decoration-white;
     }
 
-    :where(h2, h3) {
-      @apply font-semibold scroll-mt-4;
+    ul {
+      @apply list-square pl-4 marker:text-neutral-700 ml-2;
     }
 
-    :where(* + h2, * + h3, * + details),
-    :where(* + p:has(img)),
-    :where(p:has(img) + *),
-    :where(* + p:has(small)) {
-      @apply mt-8;
+    blockquote {
+      @apply border-l-4 border-neutral-700 pl-4 ml-2 space-y-4;
+
+      &:has(a[href*="https://x.com/hybrid_alex"])
+      {
+        @apply border-sky-300;
+      }
     }
 
-    :where(p:has(small) ~ h2) {
-      @apply mt-1;
+    pre {
+      @apply border border-neutral-800 rounded-md overflow-hidden;
     }
 
-    :where(a) {
-      @apply underline decoration-[var(--decoration-color-subtle)] hover:decoration-accent decoration-[0.1071428571rem];
-    }
-
-    :where(strong) {
-      @apply font-semibold;
-    }
-
-    :where(ul) {
-      @apply pl-6 space-y-0.5 list-square marker:text-[var(--text-color-subtle)];
-    }
-
-    :where(ul li ul) {
-      @apply mt-0.5;
-    }
-
-    :where(code),
-    :where(kbd) {
-      @apply bg-neutral-100 dark:bg-neutral-800 py-px px-1 rounded;
-    }
-
-    :where(pre) {
-      @apply !bg-neutral-100 dark:!bg-neutral-800 text-sm rounded py-4;
-    }
-
-    :where(pre code) {
-      @apply px-0;
-    }
-
-    :where(pre code span.line) {
-      @apply px-4;
-    }
-
-    :where(pre code span.line:last-of-type:empty) {
+    pre code span.line:last-of-type:empty {
       @apply hidden;
     }
 
-    :where(dl) {
-      @apply grid grid-cols-[max-content_minmax(0,1fr)];
+    pre code .highlighted {
+      --pre-bg: theme(colors.neutral.900);
+      @apply bg-[--pre-bg];
     }
 
-    :where(dt) {
-      @apply m-0 pr-8 py-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed text-secondary;
+    :not(pre) > code,
+    kbd {
+      @apply -mx-0.5 inline rounded px-0.5 bg-neutral-800 [box-decoration-break:clone] text-[0.9375rem];
     }
+  }
 
-    :where(dd) {
-      @apply m-0 py-2 col-start-2 [&:not(:first-of-type)]:border-t [&:not(:first-of-type)]:border-primary [&:not(:first-of-type)]:border-dashed;
-    }
+  /* Magic: https://x.com/myfonj/status/1828436893756698830 */
+  .tag {
+    @apply inline;
 
-    :where(dt:first-of-type),
-    :where(dd:first-of-type) {
-      @apply pt-0;
-    }
-
-    :where(dt:last-of-type),
-    :where(dd:last-of-type) {
-      @apply pb-0;
-    }
-
-    :where(blockquote) {
-      @apply border-l-[0.1875rem] border-[var(--text-color-subtle)] pl-5 ml-3;
-    }
-
-    :where(table) {
-      @apply w-full;
-    }
-
-    :where(tr:not(:last-child) > td) {
-      @apply pb-2;
-    }
-
-    :where(th) {
-      @apply pb-2 font-semibold;
-    }
-
-    :where(th:not([align="right"])) {
-      @apply text-left;
-    }
-
-    :where(td) {
-      @apply pt-2 border-t border-dashed border-primary align-top;
-    }
-
-    :where(tr:first-of-type td) {
-      @apply border-solid;
-    }
-
-    :where(td + td),
-    :where(th + th) {
-      @apply pl-2;
-    }
-
-    :where(td[align="right"]) {
-      @apply font-mono text-secondary text-nowrap;
-    }
-
-    :where(small) {
-      @apply text-neutral-500 text-xs uppercase font-mono px-1 py-px rounded tracking-wider bg-neutral-100 border border-transparent dark:bg-neutral-800 dark:text-neutral-400 -translate-y-px;
-    }
-
-    :where(hr) {
-      @apply my-8 border-primary border-dashed;
-    }
-
-    :where(.contains-task-list) {
-      @apply list-none pl-1.5;
-    }
-
-    :where(summary) {
-      @apply font-semibold cursor-pointer;
+    &::after {
+      content: " ";
+      word-spacing: 1em;
+      background-image: linear-gradient(
+        -0.2turn,
+        transparent 0 calc(50% - 0.03em),
+        theme(colors.neutral.700) 0 calc(50% + 0.03em),
+        transparent 0
+      );
     }
   }
 }

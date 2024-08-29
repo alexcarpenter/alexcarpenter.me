@@ -7,23 +7,39 @@ type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
 import { parseYearToString } from "@/components/FormattedDate.astro";
 import { slugify } from "@/utils/formatting";
+import SectionLabel from "@/components/SectionLabel.astro";
 ---
 
 <BaseLayout
   title="Resume"
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
-  <header class="pb-8 pt-40">
-    <h1 class="font-semibold">Resume&nbsp;&not;</h1>
-    <p class="mt-0.5 text-secondary text-balance">
+  <header class="relative text-center py-12 sm:py-16 px-4 sm:px-8">
+    <SectionLabel as="p">Intro</SectionLabel>
+    <h1 class="text-sm text-neutral-400 font-mono">Resume</h1>
+    <p
+      class="mt-2 mb-6 font-medium text-xl sm:text-2xl text-balance tracking-tight"
+    >
       User Interface Engineer who enjoys working at the intersection of design
-      and engineering teams. Currently apart of the design team at Clerk.
+      and engineering teams.
     </p>
+    <!-- <a
+      href=""
+      class:list={[
+        "group relative isolate inline-flex items-center justify-center overflow-hidden text-sm font-medium transition duration-300 ease-[cubic-bezier(0.4,0.36,0,1)] before:duration-300 before:ease-[cubic-bezier(0.4,0.36,0,1)] before:transtion-opacity rounded-md px-3 py-[0.1875rem] shadow-[0_1px_theme(colors.white/0.07)_inset,0_1px_3px_theme(colors.gray.900/0.2)] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-b before:from-white/20 before:opacity-50 hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:rounded-md after:bg-gradient-to-b after:from-white/10 after:from-[46%] after:to-[54%] after:mix-blend-overlay ring-1 bg-blue-600 text-white ring-blue-600",
+      ]}>Download Resume</a
+    > -->
   </header>
 
-  <section class="py-8 border-t border-primary" id="experience">
-    <h2 class="font-semibold mb-8">Experience</h2>
-    <ul class="-my-8 divide-y divide-primary divide-dashed">
+  <div
+    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] border-y border-neutral-700"
+    aria-hidden="true"
+  >
+  </div>
+
+  <section id="experience" class="relative">
+    <SectionLabel>Experience</SectionLabel>
+    <ul class="divide-y divide-neutral-700 divide-dashed">
       {
         jobs
           .sort(
@@ -33,27 +49,38 @@ import { slugify } from "@/utils/formatting";
           )
           .map((job: JobProps) =>
             job.render().then(({ Content }) => (
-              <li class="py-8 grid sm:grid-cols-3 gap-x-8 gap-y-4">
-                <header class="sm:col-span-3">
-                  <h3 class="font-semibold">
+              <li class="py-8 px-4 sm:px-8 grid sm:grid-cols-[2rem,minmax(0,1fr)] gap-4">
+                <img
+                  src={`/logos/${slugify(job.data.company)}.svg`}
+                  alt=""
+                  class="relative size-8"
+                />
+                <div>
+                  <h3 class="sm:mt-1.5 font-medium">
                     {job.data.title} at {job.data.company}
                   </h3>
-                  <p class="mt-0.5 text-sm text-secondary">
+                  <p class="mt-0.5 mb-4 text-sm text-neutral-400 font-mono">
                     {`${parseYearToString(job.data.startDate)}–${
                       job.data.endDate
                         ? parseYearToString(job.data.endDate)
                         : "Now"
                     }`}
                   </p>
-                </header>
-                <div class="sm:col-span-2 prose">
-                  <Content />
+                  <div class="grid sm:grid-cols-[minmax(0,2fr),1px,minmax(0,1fr)] gap-y-4 gap-x-8">
+                    <div class="prose">
+                      <Content />
+                    </div>
+                    <div
+                      aria-hidden="true"
+                      class="hidden sm:block h-full w-px border-r border-neutral-700 border-dashed [mask-image:linear-gradient(to_bottom,theme(colors.white)_calc(100%_-_2rem),transparent)]"
+                    />
+                    <ul>
+                      {job.data.tools.map((t) => {
+                        return <li class="tag">{t}</li>;
+                      })}
+                    </ul>
+                  </div>
                 </div>
-                <ul class="pl-6 sm:pl-4 marker:text-subtle list-square">
-                  {job.data.tools.map((tool: any) => (
-                    <li>{tool}</li>
-                  ))}
-                </ul>
               </li>
             ))
           )
@@ -61,9 +88,15 @@ import { slugify } from "@/utils/formatting";
     </ul>
   </section>
 
-  <section class="pt-8 pb-16 border-t border-primary" id="recommendations">
-    <h2 class="font-semibold mb-8">Recommendations</h2>
-    <ul class="-my-8 divide-y divide-primary divide-dashed">
+  <div
+    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] border-y border-neutral-700"
+    aria-hidden="true"
+  >
+  </div>
+
+  <section id="recommendations" class="relative">
+    <SectionLabel>Recommendations</SectionLabel>
+    <ul class="divide-y divide-neutral-700 divide-dashed">
       {
         recommendations
           .sort(
@@ -71,42 +104,27 @@ import { slugify } from "@/utils/formatting";
               Date.parse(b.data.published.toString()) -
               Date.parse(a.data.published.toString())
           )
+          .filter(
+            (recommendation: RecommendationProps) =>
+              recommendation.data.visible !== false
+          )
           .map((recommendation: RecommendationProps) =>
             recommendation.render().then(({ Content }) => {
+              const { name, title, company } = recommendation.data;
               return (
-                <li class="py-8">
-                  <figure class="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-4">
-                    <blockquote class="col-span-2 sm:col-start-2">
-                      <Content />
-                    </blockquote>
-                    <figcaption class="sm:col-start-1 sm:row-start-1">
-                      <div class="flex mb-4">
-                        {[
-                          `/img/${slugify(recommendation.data.company)}.svg`,
-                          `/img/${slugify(recommendation.data.name)}.jpeg`,
-                        ].map((x, i) => {
-                          return (
-                            <img
-                              src={x}
-                              alt=""
-                              class:list={[
-                                "size-8 rounded-full ring-2 ring-white dark:ring-neutral-950",
-                                {
-                                  "-ml-1": i > 0,
-                                },
-                              ]}
-                            />
-                          );
-                        })}
-                      </div>
-                      <p class="font-semibold">{recommendation.data.name}</p>
-                      <p class="mt-0.5 text-secondary text-sm">
-                        {recommendation.data.title}
-                        <br class="hidden sm:block" />
-                        {recommendation.data.company}
-                      </p>
-                    </figcaption>
-                  </figure>
+                <li class="py-8 px-4 sm:px-8 grid sm:grid-cols-[2rem,minmax(0,1fr)] gap-4">
+                  <img
+                    src={`/img/${slugify(name)}.jpeg`}
+                    alt=""
+                    class="relative size-8 rounded-full"
+                  />
+                  <div>
+                    <h3 class="sm:mt-1 font-medium">{name}</h3>
+                    <p class="mt-0.5 mb-4 text-sm text-neutral-400 font-mono">
+                      {title} at {company}
+                    </p>
+                    <Content />
+                  </div>
                 </li>
               );
             })

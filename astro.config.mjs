@@ -6,8 +6,12 @@ import {
   defListHastHandlers,
 } from "remark-definition-list";
 import remarkAdmonitions from "remark-github-beta-blockquote-admonitions";
-
+import {
+  transformerMetaHighlight,
+  transformerMetaWordHighlight,
+} from "@shikijs/transformers";
 import tailwind from "@astrojs/tailwind";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +21,7 @@ export default defineConfig({
     tailwind({
       nesting: true,
     }),
+    icon(),
   ],
   markdown: {
     remarkPlugins: [remarkDefinitionList, remarkAdmonitions],
@@ -26,7 +31,12 @@ export default defineConfig({
       },
     },
     shikiConfig: {
-      theme: "css-variables",
+      theme: "github-dark-default",
+      defaultColor: false,
+      transformers: [
+        transformerMetaHighlight(),
+        transformerMetaWordHighlight(),
+      ],
     },
   },
 });

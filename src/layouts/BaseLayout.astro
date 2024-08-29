@@ -1,10 +1,15 @@
 ---
 import "../styles/global.css";
-import { SITE_NAV, SITE_TITLE } from "@/consts";
+import { NAVIGATION, SITE_VERSION, SOCIALS } from "@/consts";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
 const metaDescription = description ? description : "UI Engineer";
+import { Icon } from "astro-icon/components";
+const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "dfa9be2";
+const commitMsg =
+  import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_MESSAGE ||
+  "checkpoint at 2024-08-26T12:16:53-0400";
 ---
 
 <html lang="en">
@@ -57,137 +62,85 @@ const metaDescription = description ? description : "UI Engineer";
   </head>
 
   <body
-    class="flex min-h-dvh flex-col overflow-x-hidden w-full bg-primary px-4 text-primary antialiased"
+    class="flex min-h-dvh flex-col overflow-x-hidden w-full px-4 bg-neutral-950 text-neutral-100 antialiased"
   >
-    <a
-      href="#main"
-      class="fixed top-0 left-0 py-1 px-2 [&:not(:focus)]:-translate-x-full [&:not(:focus)]:-translate-y-full"
-      >Skip to content</a
+    <div
+      class="w-full max-w-3xl mx-auto border-x border-neutral-700 flex flex-col flex-1"
     >
-    <div class="mx-auto flex w-full min-w-0 max-w-prose flex-1 flex-col">
-      <div
-        class="flex h-1.5 flex-none dark:flex-row-reverse dark:justify-end gap-[0.5px]"
-        aria-hidden="true"
-      >
-        <span class="bg-neutral-900 w-6"></span>
-        <span class="bg-neutral-800 w-6"></span>
-        <span class="bg-neutral-700 w-6"></span>
-        <span class="bg-neutral-600 w-6"></span>
-        <span class="bg-neutral-500 w-6"></span>
-        <span class="bg-neutral-400 w-6"></span>
-        <span class="bg-neutral-300 w-6"></span>
-        <span class="bg-neutral-200 w-6"></span>
-        <span class="bg-neutral-100 w-6"></span>
-        <span class="bg-neutral-50 w-6"></span>
-      </div>
-      <header
-        class:list={[
-          "relative pt-4",
-          "flex flex-wrap justify-between items-end gap-x-8 gap-y-2",
-          "py-4 border-b border-primary",
-        ]}
-      >
-        <div>
-          <p>
-            <a href="/" class="font-semibold">{SITE_TITLE}</a>
-          </p>
-          <p class="text-secondary">User Interface Engineer at Clerk</p>
+      <nav class="border-b border-neutral-700">
+        <div
+          class="border-b border-neutral-700 w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
+          aria-hidden="true"
+        >
         </div>
-        <nav>
-          <ul class="flex gap-x-3">
+        <div class="flex justify-between items-center p-4 sm:px-8">
+          <ul class="flex gap-4">
             {
-              SITE_NAV.map(({ label, slug }) => {
+              NAVIGATION.map(({ slug, label }) => {
                 const isCurrent =
                   Astro.url.pathname === `${slug}/` ||
                   Astro.url.pathname === `${slug}`;
                 return (
                   <li>
                     <a
+                      class="text-xs text-neutral-400 hover:text-white font-mono uppercase aria-[current]:text-white"
                       href={slug}
                       aria-current={isCurrent ? "page" : undefined}
-                      class="relative text-secondary hover:text-primary aria-[current]:text-primary"
                     >
-                      {label}
+                      {slug === "/" ? (
+                        <Fragment>
+                          <span aria-hidden="true">~/</span>&#8288;{label}
+                        </Fragment>
+                      ) : (
+                        label
+                      )}
                     </a>
                   </li>
                 );
               })
             }
           </ul>
-        </nav>
-      </header>
 
-      <main id="main" tabindex="-1" class="flex-1 outline-none">
+          <a
+            class:list={[
+              "text-xxs font-mono border border-green-300 px-2 py-0.5 bg-green-950 text-green-300 rounded-full",
+              "hover:bg-green-900",
+            ]}
+            href="https://github.com/alexcarpenter/alexcarpenter.me"
+          >
+            v{SITE_VERSION}
+          </a>
+        </div>
+      </nav>
+      <main class="flex flex-col flex-1">
         <slot />
       </main>
-
-      <footer class="border-t border-primary py-8">
-        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
-          <nav>
-            <h2 class="font-semibold">Sitemap</h2>
-            <ul class="mt-4 space-y-0.5">
-              {
-                SITE_NAV.map(({ label, slug }) => {
-                  const isCurrent =
-                    Astro.url.pathname === `${slug}/` ||
-                    Astro.url.pathname === `${slug}`;
-                  return (
-                    <li>
-                      <a
-                        href={slug}
-                        aria-current={isCurrent ? "page" : undefined}
-                      >
-                        {label}
-                      </a>
-                    </li>
-                  );
-                })
-              }
-            </ul>
-          </nav>
-
-          <div>
-            <h2 class="font-semibold">Connect</h2>
-            <ul class="mt-4 space-y-0.5">
-              <li>
-                <a href="https://twitter.com/hybrid_alex">Twitter</a>
-              </li>
-              <li>
-                <a href="https://github.com/alexcarpenter">Github</a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/imalexcarpenter/"
-                  >LinkedIn</a
-                >
-              </li>
-              <li><a href="mailto:im.alexcarpenter@gmail.com">Email</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 class="sr-only opacity-0 sm:not-sr-only">Status</h2>
-            <p class="relative flex items-center gap-x-2 sm:mt-4">
-              <span
-                aria-hidden="true"
-                class="size-2 flex-none rounded-full bg-green-500 before:absolute before:size-2 before:animate-ping before:rounded-full before:bg-green-500"
-              ></span>All systems operational
-            </p>
-          </div>
-
-          <!-- <div>
-            <svg
-              class="size-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><circle cx="12" cy="12" r="10"></circle><path
-                d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path
-                d="M2 12h20"></path></svg
-            >
-          </div> -->
+      <footer class="border-t border-neutral-700 bg-neutral-900">
+        <div class="p-4 sm:px-8 py-8">
+          <ul class="flex justify-center gap-8">
+            {
+              SOCIALS.map(({ url, icon, label }) => (
+                <li>
+                  <a
+                    class="text-neutral-400 flex w-max items-center gap-2 hover:text-white"
+                    href={url}
+                  >
+                    <Icon name={icon} class="text-white" aria-hidden="true" />
+                    <span class="text-xs uppercase font-mono">{label}</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <p
+            class="justify-center mt-8 text-xs font-mono uppercase text-neutral-400 flex items-center gap-2"
+          >
+            <span
+              aria-hidden="true"
+              class="size-2 flex-none rounded-full bg-green-500 before:absolute before:size-2 before:animate-ping before:rounded-full before:bg-green-300"
+            ></span>
+            All systems operational
+          </p>
         </div>
       </footer>
     </div>
