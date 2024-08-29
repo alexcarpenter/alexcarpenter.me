@@ -195,7 +195,11 @@ import SignInCard from "@/components/SignInCard.astro";
                   "CSS Architecture",
                   "Component API Design",
                 ].map((i) => {
-                  return <li class="tag leading-relaxed">{i}</li>;
+                  return (
+                    <li class="inline">
+                      <span class="tag leading-relaxed">{i}</span>
+                    </li>
+                  );
                 })
               }
             </ul>

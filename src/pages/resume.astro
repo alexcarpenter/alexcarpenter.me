@@ -76,7 +76,11 @@ import SectionLabel from "@/components/SectionLabel.astro";
                     />
                     <ul>
                       {job.data.tools.map((t) => {
-                        return <li class="tag">{t}</li>;
+                        return (
+                          <li class="inline">
+                            <span class="tag">{t}</span>
+                          </li>
+                        );
                       })}
                     </ul>
                   </div>
