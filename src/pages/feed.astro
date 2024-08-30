@@ -32,7 +32,7 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
         allFeed.map((item) => {
           if (item.collection === "links") {
             return item.render().then(({ Content }) => (
-              <li class="px-4 py-8 sm:px-8">
+              <li class="px-4 py-8 sm:px-8" id={`link-${item.slug}`}>
                 <h2 class="font-semibold">
                   <a
                     href={item.data.link}
@@ -70,7 +70,7 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
             ));
           }
           return item.render().then(({ Content }) => (
-            <li class="px-4 py-8 sm:px-8">
+            <li class="px-4 py-8 sm:px-8" id={`note-${item.slug}`}>
               <dl class="flex gap-4 mb-4 items-center">
                 <dt class="sr-only">Published</dt>
                 <dd class="text-neutral-400 text-sm font-mono">

@@ -1,0 +1,113 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionLabel from "@/components/SectionLabel.astro";
+
+const listening = [
+  {
+    artist: "Tycho",
+  },
+  {
+    artist: "Ben Howard",
+  },
+  {
+    artist: "Sturgill Simpson",
+  },
+];
+
+const reading = [
+  {
+    title: "Challenger",
+    subtitle: "A True Story of Heroism and Disaster on the Edge of Space",
+    author: "Adam Higginbotham",
+    cover: "/img/book-challenger.jpg",
+  },
+  {
+    title: "Project Hail Mary",
+    author: "Andy Weir",
+    cover: "/img/book-project-hail-mary.jpg",
+  },
+];
+---
+
+<BaseLayout
+  title="Resume"
+  description="UI engineer who enjoys working at the intersection of design and engineering teams."
+>
+  <header class="relative text-center py-12 sm:py-16 px-4 sm:px-8">
+    <SectionLabel as="p">Intro</SectionLabel>
+    <h1 class="text-sm text-neutral-400 font-mono">Now</h1>
+    <p
+      class="mt-2 mb-6 font-medium text-xl sm:text-2xl text-balance tracking-tight"
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis
+      aliquam architecto eaque.
+    </p>
+  </header>
+
+  <div
+    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] border-y border-neutral-700"
+    aria-hidden="true"
+  >
+  </div>
+
+  <section class="relative">
+    <SectionLabel>Latest</SectionLabel>
+    <div class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed">
+      <h2 class="text-lg font-medium">Watching&nbsp;&not;</h2>
+    </div>
+    <div class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed">
+      <h2 class="text-lg font-medium">Listening&nbsp;&not;</h2>
+      <ul class="mt-4 space-y-4">
+        {
+          listening.map((l, i) => {
+            return (
+              <li class="flex gap-4">
+                <div class="size-8 bg-neutral-800 rounded-full" />
+                <div
+                  class:list={[
+                    "flex-1 mt-1",
+                    i !== listening.length - 1 &&
+                      "border-b border-neutral-800 pb-4 border-dashed",
+                  ]}
+                >
+                  <h3 class="font-medium">{l.artist}</h3>
+                </div>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+    <div class="px-4 py-8 sm:px-8">
+      <h2 class="text-lg font-medium">Reading&nbsp;&not;</h2>
+      <ul class="mt-4 grid sm:grid-cols-3 gap-y-8 gap-x-4">
+        {
+          reading.map((b) => {
+            return (
+              <li>
+                <article class="grid grid-cols-[theme(space.20)_1fr] sm:grid-cols-1 gap-4">
+                  <div class="relative sm:size-40 sm:flex sm:items-end">
+                    <img
+                      src={b.cover}
+                      alt={`${b.title} book cover`}
+                      class="max-w-full max-h-full border border-neutral-800"
+                    />
+                  </div>
+                  <div>
+                    <h3 class="font-medium">{b.title}</h3>
+                    {b.subtitle && (
+                      <p class="mt-0.5 text-sm text-neutral-400">
+                        {b.subtitle}
+                      </p>
+                    )}
+                    <p class="mt-2 text-sm text-neutral-400">by {b.author}</p>
+                  </div>
+                </article>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

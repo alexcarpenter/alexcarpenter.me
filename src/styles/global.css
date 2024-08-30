@@ -39,6 +39,10 @@
   .prose {
     @apply space-y-4;
 
+    & * + h2 {
+      @apply text-lg pt-4 font-medium;
+    }
+
     a {
       @apply underline decoration-2 decoration-neutral-600 hover:decoration-white;
     }
