@@ -58,52 +58,58 @@ const reading = [
 
   <section class="relative">
     <SectionLabel>Latest</SectionLabel>
-    <div class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed">
-      <h2 class="text-lg font-medium">Watching&nbsp;&not;</h2>
-      <ul class="mt-4 space-y-4">
-        {
-          watching.map((w, i) => {
-            return (
-              <li class="flex gap-4">
-                <div class="size-8 bg-neutral-800 rounded-full" />
-                <div
-                  class:list={[
-                    "flex-1 mt-1",
-                    i !== watching.length - 1 &&
-                      "border-b border-neutral-800 pb-4 border-dashed",
-                  ]}
-                >
-                  <h3 class="font-medium">{w.title}</h3>
-                </div>
-              </li>
-            );
-          })
-        }
-      </ul>
+
+    <div class="grid sm:grid-cols-2">
+      <div
+        class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed border-r"
+      >
+        <h2 class="text-lg font-medium">Watching&nbsp;&not;</h2>
+        <ul class="mt-4 space-y-4">
+          {
+            watching.map((w, i) => {
+              return (
+                <li class="flex gap-4">
+                  <div class="size-8 bg-neutral-800 rounded-full" />
+                  <div
+                    class:list={[
+                      "flex-1 mt-1",
+                      i !== watching.length - 1 &&
+                        "border-b border-neutral-800 pb-4 border-dashed",
+                    ]}
+                  >
+                    <h3 class="font-medium">{w.title}</h3>
+                  </div>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+      <div class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed">
+        <h2 class="text-lg font-medium">Listening&nbsp;&not;</h2>
+        <ul class="mt-4 space-y-4">
+          {
+            listening.map((l, i) => {
+              return (
+                <li class="flex gap-4">
+                  <div class="size-8 bg-neutral-800 rounded-full" />
+                  <div
+                    class:list={[
+                      "flex-1 mt-1",
+                      i !== listening.length - 1 &&
+                        "border-b border-neutral-800 pb-4 border-dashed",
+                    ]}
+                  >
+                    <h3 class="font-medium">{l.artist}</h3>
+                  </div>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
     </div>
-    <div class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed">
-      <h2 class="text-lg font-medium">Listening&nbsp;&not;</h2>
-      <ul class="mt-4 space-y-4">
-        {
-          listening.map((l, i) => {
-            return (
-              <li class="flex gap-4">
-                <div class="size-8 bg-neutral-800 rounded-full" />
-                <div
-                  class:list={[
-                    "flex-1 mt-1",
-                    i !== listening.length - 1 &&
-                      "border-b border-neutral-800 pb-4 border-dashed",
-                  ]}
-                >
-                  <h3 class="font-medium">{l.artist}</h3>
-                </div>
-              </li>
-            );
-          })
-        }
-      </ul>
-    </div>
+
     <div class="px-4 py-8 sm:px-8">
       <h2 class="text-lg font-medium">Reading&nbsp;&not;</h2>
       <ul class="mt-4 grid sm:grid-cols-3 gap-y-8 gap-x-4">
