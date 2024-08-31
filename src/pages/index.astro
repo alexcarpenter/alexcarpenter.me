@@ -1,9 +1,15 @@
 ---
+import { Image } from "astro:assets";
 import SectionLabel from "@/components/SectionLabel.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { slugify } from "@/utils/formatting";
 import SignInCodeBlock from "@/components/SignInCodeBlock.astro";
 import SignInCard from "@/components/SignInCard.astro";
+
+import joeBellAvatar from "@/images/joe-bell.jpeg";
+import bryceKalowAvatar from "@/images/bryce-kalow.jpeg";
+import tomMilewskiAvatar from "@/images/tom-milewski.jpeg";
+import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
 ---
 
 <BaseLayout>
@@ -105,22 +111,22 @@ import SignInCard from "@/components/SignInCard.astro";
           [
             {
               name: "Joe Bell",
-              img: "/img/joe-bell.jpeg",
+              img: joeBellAvatar,
               linkedin: "https://www.linkedin.com/in/joebell93/",
             },
             {
               name: "Bryce Kalow",
-              img: "/img/bryce-kalow.jpeg",
+              img: bryceKalowAvatar,
               linkedin: "https://www.linkedin.com/in/bryce-kalow-86a57183/",
             },
             {
               name: "Tom Milewski",
-              img: "/img/tom-milewski.jpeg",
+              img: tomMilewskiAvatar,
               linkedin: "https://www.linkedin.com/in/tmilewski/",
             },
             {
               name: "Dylan Staley",
-              img: "/img/dylan-staley.jpeg",
+              img: dylanStaleyAvatar,
               linkedin: "https://www.linkedin.com/in/dstaley/",
             },
           ].map(({ name, img, linkedin }) => {
@@ -133,9 +139,11 @@ import SignInCard from "@/components/SignInCard.astro";
                   class="relative size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale hover:grayscale-0 overflow-hidden"
                   aria-describedby={id}
                 >
-                  <img
+                  <Image
                     src={img}
                     alt={`${name} avatar`}
+                    width={128}
+                    height={128}
                     class="w-full h-full absolute object-cover"
                   />
                 </a>
