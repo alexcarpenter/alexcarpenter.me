@@ -37,14 +37,28 @@
 
 @layer components {
   .prose {
-    @apply space-y-4;
+    & > :where(* + *) {
+      @apply mt-4;
+    }
 
-    & * + h2 {
-      @apply text-lg pt-4 font-medium;
+    :where(* + h2) {
+      @apply mt-8;
+    }
+
+    :where(small + *) {
+      @apply mt-0.5;
+    }
+
+    h2 {
+      @apply text-lg font-medium;
     }
 
     a {
       @apply underline decoration-2 decoration-neutral-600 hover:decoration-white;
+    }
+
+    small {
+      @apply block font-mono uppercase text-xs text-neutral-400;
     }
 
     ul {

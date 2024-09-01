@@ -36,11 +36,11 @@ const reading = [
 ---
 
 <BaseLayout
-  title="Resume"
+  title="Now"
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
   <header class="relative text-center py-12 sm:py-16 px-4 sm:px-8">
-    <SectionLabel as="p">Intro</SectionLabel>
+    <!-- <SectionLabel as="p">Intro</SectionLabel> -->
     <h1 class="text-sm text-neutral-400 font-mono">Now</h1>
     <p
       class="mt-2 mb-6 font-medium text-xl sm:text-2xl text-balance tracking-tight"
@@ -57,11 +57,11 @@ const reading = [
   </div>
 
   <section class="relative">
-    <SectionLabel>Latest</SectionLabel>
+    <!-- <SectionLabel>Latest</SectionLabel> -->
 
     <div class="grid sm:grid-cols-2">
-      <div
-        class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed border-r"
+      <article
+        class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed sm:border-r"
       >
         <h2 class="text-lg font-medium">Watching&nbsp;&not;</h2>
         <ul class="mt-4 space-y-4">
@@ -84,8 +84,10 @@ const reading = [
             })
           }
         </ul>
-      </div>
-      <div class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed">
+      </article>
+      <article
+        class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed"
+      >
         <h2 class="text-lg font-medium">Listening&nbsp;&not;</h2>
         <ul class="mt-4 space-y-4">
           {
@@ -107,10 +109,10 @@ const reading = [
             })
           }
         </ul>
-      </div>
+      </article>
     </div>
 
-    <div class="px-4 py-8 sm:px-8">
+    <article class="px-4 py-8 sm:px-8">
       <h2 class="text-lg font-medium">Reading&nbsp;&not;</h2>
       <ul class="mt-4 grid sm:grid-cols-3 gap-y-8 gap-x-4">
         {
@@ -140,6 +142,6 @@ const reading = [
           })
         }
       </ul>
-    </div>
+    </article>
   </section>
 </BaseLayout>

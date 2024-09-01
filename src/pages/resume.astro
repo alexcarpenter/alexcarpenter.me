@@ -1,7 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
-import * as changeCase from "change-case";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 type JobProps = CollectionEntry<"jobs">;
 const jobs = await getCollection("jobs");
@@ -11,21 +10,14 @@ import { parseYearToString } from "@/components/FormattedDate.astro";
 import { slugify } from "@/utils/formatting";
 import SectionLabel from "@/components/SectionLabel.astro";
 
-import jimmyMerritelloAvatar from "@/images/jimmy-merritello.jpeg";
-import amyStuartAvatar from "@/images/amy-stuart.jpeg";
-import andrewPossehlAvatar from "@/images/andrew-possehl.jpeg";
-import danielleDunnAvatar from "@/images/danielle-dunn.jpeg";
-import melissaTaylorAvatar from "@/images/melissa-taylor.jpeg";
-import kyleLuckAvatar from "@/images/kyle-luck.jpeg";
-import benjaminKohlAvatar from "@/images/benjamin-kohl.jpeg";
 const avatarMap = {
-  "jimmy-merritello": jimmyMerritelloAvatar,
-  "amy-stuart": amyStuartAvatar,
-  "andrew-possehl": andrewPossehlAvatar,
-  "danielle-dunn": danielleDunnAvatar,
-  "melissa-taylor": melissaTaylorAvatar,
-  "kyle-luck": kyleLuckAvatar,
-  "benjamin-kohl": benjaminKohlAvatar,
+  "jimmy-merritello": import("@/images/jimmy-merritello.jpeg"),
+  "amy-stuart": import("@/images/amy-stuart.jpeg"),
+  "andrew-possehl": import("@/images/andrew-possehl.jpeg"),
+  "danielle-dunn": import("@/images/danielle-dunn.jpeg"),
+  "melissa-taylor": import("@/images/melissa-taylor.jpeg"),
+  "kyle-luck": import("@/images/kyle-luck.jpeg"),
+  "benjamin-kohl": import("@/images/benjamin-kohl.jpeg"),
 };
 ---
 
@@ -146,7 +138,7 @@ const avatarMap = {
                   <div>
                     <h3 class="sm:mt-1 font-medium">{name}</h3>
                     <p class="mt-0.5 mb-4 text-sm text-neutral-400 font-mono">
-                      {title} at {company} {changeCase.camelCase(name)}
+                      {title} at {company}
                     </p>
                     <Content />
                   </div>

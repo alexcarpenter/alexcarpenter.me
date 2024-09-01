@@ -6,15 +6,45 @@ import { slugify } from "@/utils/formatting";
 import SignInCodeBlock from "@/components/SignInCodeBlock.astro";
 import SignInCard from "@/components/SignInCard.astro";
 
+import avatar from "@/images/me.jpg";
 import joeBellAvatar from "@/images/joe-bell.jpeg";
 import bryceKalowAvatar from "@/images/bryce-kalow.jpeg";
 import tomMilewskiAvatar from "@/images/tom-milewski.jpeg";
 import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
+import FormattedDate from "@/components/FormattedDate.astro";
 ---
 
 <BaseLayout>
   <header class="relative text-center py-12 sm:py-16 px-4 sm:px-8">
     <SectionLabel as="p">Intro</SectionLabel>
+    <!-- <div class="mb-2 relative mx-auto size-8">
+      <div
+        class="absolute size-1.5 bg-green-500 top-0 right-0 ring-2 ring-neutral-950 z-10 rounded-full"
+      >
+      </div>
+      <Image
+        src={avatar}
+        alt="Alex Carpenter"
+        width={128}
+        height={128}
+        class="rounded-full size-8"
+        data-tooltip-trigger="status"
+      />
+      <div
+        id="status"
+        role="tooltip"
+        class="bg-neutral-800 px-2 py-1 rounded-md w-max max-w-80 text-left absolute top-0 left-0 hidden"
+      >
+        <p class="text-xs">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim, qui!
+        </p>
+        <FormattedDate
+          class="block mt-0.5 text-xxs text-neutral-400"
+          date={new Date()}
+          type="datetime"
+        />
+      </div>
+    </div> -->
     <h1 class="text-sm text-neutral-400 font-mono">Alex Carpenter</h1>
     <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
       User Interface Engineer who enjoys working at the intersection of design
