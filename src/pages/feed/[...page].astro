@@ -2,15 +2,21 @@
 import FormattedDate from "@/components/FormattedDate.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-const allLinks = await getCollection("links");
-const allNotes = await getCollection("notes", ({ data }) => {
-  return import.meta.env.PROD ? data.draft !== true : true;
-});
-const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
-  const aDate = a.data.published;
-  const bDate = b.data.published;
-  return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
-});
+
+export async function getStaticPaths({ paginate }) {
+  const allLinks = await getCollection("links");
+  const allNotes = await getCollection("notes", ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+  const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
+    const aDate = a.data.published;
+    const bDate = b.data.published;
+    return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+  });
+  return paginate(allFeed, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
 ---
 
 <BaseLayout
@@ -29,7 +35,7 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
   <section class="relative">
     <ul class="divide-y divide-dashed divide-neutral-700">
       {
-        allFeed.map((item) => {
+        page.data.map((item) => {
           if (item.collection === "links") {
             return item.render().then(({ Content }) => (
               <li class="px-4 py-8 sm:px-8" id={`link-${item.slug}`}>
@@ -87,5 +93,17 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
         })
       }
     </ul>
+    <nav class="pagination">
+      {
+        page.currentPage > 1 && (
+          <a href={`/feed/${page.currentPage - 1}`}>&laquo; Previous</a>
+        )
+      }
+      {
+        page.currentPage < page.lastPage && (
+          <a href={`/feed/${page.currentPage + 1}`}>Next &raquo;</a>
+        )
+      }
+    </nav>
   </section>
 </BaseLayout>
