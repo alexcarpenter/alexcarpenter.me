@@ -1,9 +1,14 @@
 ---
 import FormattedDate from "@/components/FormattedDate.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { PaginateFunction } from "astro";
 import { getCollection } from "astro:content";
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction;
+}) {
   const allLinks = await getCollection("links");
   const allNotes = await getCollection("notes", ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true;
