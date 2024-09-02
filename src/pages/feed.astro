@@ -6,7 +6,10 @@ const allLinks = await getCollection("links");
 const allNotes = await getCollection("notes", ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
 });
-const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
+const allPosts = await getCollection("posts", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+const allFeed = [...allLinks, ...allNotes, ...allPosts].sort((a, b) => {
   const aDate = a.data.published;
   const bDate = b.data.published;
   return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
@@ -68,22 +71,43 @@ const allFeed = [...allLinks, ...allNotes].sort((a, b) => {
                 )}
               </li>
             ));
+          } else if (item.collection === "posts") {
+            return (
+              <li class="px-4 py-8 sm:px-8" id={`post-${item.slug}`}>
+                <dl class="mb-2 flex gap-4 items-center">
+                  <dt class="sr-only">Published</dt>
+                  <dd class="text-neutral-400 text-sm font-mono">
+                    <FormattedDate date={item.data.published} />
+                  </dd>
+                </dl>
+                <h2 class="font-semibold">
+                  <a
+                    href={`/posts/${item.slug}`}
+                    class="group underline decoration-2 decoration-neutral-600 hover:decoration-white"
+                  >
+                    {item.data.title}
+                  </a>
+                </h2>
+                <p class="mt-2">{item.data.description}</p>
+              </li>
+            );
+          } else {
+            return item.render().then(({ Content }) => (
+              <li class="px-4 py-8 sm:px-8" id={`note-${item.slug}`}>
+                <dl class="flex gap-4 mb-4 items-center">
+                  <dt class="sr-only">Published</dt>
+                  <dd class="text-neutral-400 text-sm font-mono">
+                    <FormattedDate date={item.data.published} type="datetime" />
+                  </dd>
+                </dl>
+                {item.body && (
+                  <div class="prose">
+                    <Content />
+                  </div>
+                )}
+              </li>
+            ));
           }
-          return item.render().then(({ Content }) => (
-            <li class="px-4 py-8 sm:px-8" id={`note-${item.slug}`}>
-              <dl class="flex gap-4 mb-4 items-center">
-                <dt class="sr-only">Published</dt>
-                <dd class="text-neutral-400 text-sm font-mono">
-                  <FormattedDate date={item.data.published} type="datetime" />
-                </dd>
-              </dl>
-              {item.body && (
-                <div class="prose">
-                  <Content />
-                </div>
-              )}
-            </li>
-          ));
         })
       }
     </ul>

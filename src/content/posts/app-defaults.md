@@ -2,6 +2,7 @@
 title: App defaults
 description: Collection of my default apps used
 published: 2024-06-05T07:26:49-0400
+draft: true
 ---
 
 | Type                           | App                   |

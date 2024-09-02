@@ -45,7 +45,7 @@
       @apply mt-8;
     }
 
-    :where(small + *) {
+    :where(p:has(small) + *) {
       @apply mt-0.5;
     }
 
@@ -90,6 +90,22 @@
     :not(pre) > code,
     kbd {
       @apply -mx-0.5 inline rounded px-0.5 bg-neutral-800 [box-decoration-break:clone] text-[0.9375rem];
+    }
+
+    table {
+      @apply w-full text-sm border border-neutral-700;
+    }
+
+    th {
+      @apply text-left py-2 px-4 bg-neutral-900;
+    }
+
+    td {
+      @apply border-t border-neutral-700 border-dashed py-2 px-4;
+    }
+
+    hr {
+      @apply border-t border-neutral-700 border-dashed -mx-4 sm:-mx-8 my-8;
     }
   }
 
