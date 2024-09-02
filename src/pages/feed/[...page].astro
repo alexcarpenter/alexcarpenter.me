@@ -18,10 +18,11 @@ export async function getStaticPaths({
     const bDate = b.data.published;
     return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
   });
-  return paginate(allFeed, { pageSize: 10 });
+  return paginate(allFeed, { pageSize: 20 });
 }
 
 const { page } = Astro.props;
+console.log(page);
 ---
 
 <BaseLayout
