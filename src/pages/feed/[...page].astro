@@ -1,23 +1,30 @@
 ---
-import FormattedDate from "@/components/FormattedDate.astro";
+import type { GetStaticPaths } from "astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-const allLinks = await getCollection("links");
-const allNotes = await getCollection("notes", ({ data }) => {
-  return import.meta.env.PROD ? data.draft !== true : true;
-});
-const allPosts = await getCollection("posts", ({ data }) => {
-  return import.meta.env.PROD ? data.draft !== true : true;
-});
-const allFeed = [...allLinks, ...allNotes, ...allPosts].sort((a, b) => {
-  const aDate = a.data.published;
-  const bDate = b.data.published;
-  return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
-});
+import FormattedDate from "@/components/FormattedDate.astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allLinks = await getCollection("links");
+  const allNotes = await getCollection("notes", ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+  const allPosts = await getCollection("posts", ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+  const allFeed = [...allLinks, ...allNotes, ...allPosts].sort((a, b) => {
+    const aDate = a.data.published;
+    const bDate = b.data.published;
+    return Date.parse(bDate.toString()) - Date.parse(aDate.toString());
+  });
+  return paginate(allFeed, { pageSize: 30 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
 ---
 
 <BaseLayout
-  title="Feed"
+  title={page.currentPage > 1 ? `Feed - Page ${page.currentPage}` : "Feed"}
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
   <header
@@ -32,7 +39,7 @@ const allFeed = [...allLinks, ...allNotes, ...allPosts].sort((a, b) => {
   <section class="relative">
     <ul class="divide-y divide-dashed divide-neutral-700">
       {
-        allFeed.map((item) => {
+        page.data.map((item) => {
           if (item.collection === "links") {
             return item.render().then(({ Content }) => (
               <li class="px-4 py-8 sm:px-8" id={`link-${item.slug}`}>
@@ -111,5 +118,30 @@ const allFeed = [...allLinks, ...allNotes, ...allPosts].sort((a, b) => {
         })
       }
     </ul>
+    <nav class="border-t border-neutral-700 px-4 py-8 sm:px-8">
+      <ul class="grid grid-cols-3 text-sm text-neutral-400 font-medium">
+        <li class="text-left">
+          {
+            page.currentPage > 1 ? (
+              <a href={page.url.prev}>Previous page</a>
+            ) : (
+              <span class="text-neutral-600">Previous page</span>
+            )
+          }
+        </li>
+        <li class="text-center">
+          <span>Page {page.currentPage} of {page.lastPage}</span>
+        </li>
+        <li class="text-right">
+          {
+            page.currentPage < page.lastPage ? (
+              <a href={page.url.next}>Next page</a>
+            ) : (
+              <span class="text-neutral-600">Next page</span>
+            )
+          }
+        </li>
+      </ul>
+    </nav>
   </section>
 </BaseLayout>
