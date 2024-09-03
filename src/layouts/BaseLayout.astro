@@ -6,10 +6,10 @@ const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
 const metaDescription = description ? description : "UI Engineer";
 import { Icon } from "astro-icon/components";
-const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "dfa9be2";
-const commitMsg =
-  import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_MESSAGE ||
-  "checkpoint at 2024-08-26T12:16:53-0400";
+// const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "dfa9be2";
+// const commitMsg =
+//   import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_MESSAGE ||
+//   "checkpoint at 2024-08-26T12:16:53-0400";
 ---
 
 <html lang="en">
