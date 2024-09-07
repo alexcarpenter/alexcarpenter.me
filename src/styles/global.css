@@ -23,7 +23,7 @@
 
   pre {
     --pre-bg: theme(colors.neutral.950);
-    @apply py-4 text-sm leading-6 !bg-[--pre-bg];
+    @apply !bg-[--pre-bg] py-4 text-sm leading-6;
   }
 
   code {
@@ -31,7 +31,7 @@
   }
 
   mark {
-    @apply -mx-0.5 inline rounded px-0.5 bg-amber-500/20 text-amber-100 [box-decoration-break:clone];
+    @apply -mx-0.5 inline rounded bg-amber-500/20 px-0.5 text-amber-100 [box-decoration-break:clone];
   }
 }
 
@@ -54,19 +54,19 @@
     }
 
     a {
-      @apply underline decoration-2 decoration-neutral-600 hover:decoration-white;
+      @apply underline decoration-neutral-600 decoration-2 hover:decoration-white;
     }
 
     small {
-      @apply block font-mono uppercase text-xs text-neutral-400;
+      @apply block font-mono text-xs uppercase text-neutral-400;
     }
 
     ul {
-      @apply list-square pl-4 marker:text-neutral-700 ml-2;
+      @apply ml-2 list-square pl-4 marker:text-neutral-700;
     }
 
     blockquote {
-      @apply border-l-4 border-neutral-700 pl-4 ml-2 space-y-4;
+      @apply ml-2 space-y-4 border-l-4 border-neutral-700 pl-4;
 
       &:has(a[href*="https://x.com/hybrid_alex"])
       {
@@ -75,7 +75,7 @@
     }
 
     pre {
-      @apply border border-neutral-800 rounded-md overflow-hidden;
+      @apply overflow-hidden rounded-md border border-neutral-800;
     }
 
     pre code span.line:last-of-type:empty {
@@ -89,23 +89,23 @@
 
     :not(pre) > code,
     kbd {
-      @apply -mx-0.5 inline rounded px-0.5 bg-neutral-800 [box-decoration-break:clone] text-[0.9375rem];
+      @apply -mx-0.5 inline rounded bg-neutral-800 px-0.5 text-[0.9375rem] [box-decoration-break:clone];
     }
 
     table {
-      @apply w-full text-sm border border-neutral-700;
+      @apply w-full border border-neutral-700 text-sm;
     }
 
     th {
-      @apply text-left py-2 px-4 bg-neutral-900;
+      @apply bg-neutral-900 px-4 py-2 text-left;
     }
 
     td {
-      @apply border-t border-neutral-700 border-dashed py-2 px-4;
+      @apply border-t border-dashed border-neutral-700 px-4 py-2;
     }
 
     hr {
-      @apply border-t border-neutral-700 border-dashed -mx-4 sm:-mx-8 my-8;
+      @apply -mx-4 my-8 border-t border-dashed border-neutral-700 sm:-mx-8;
     }
   }
 

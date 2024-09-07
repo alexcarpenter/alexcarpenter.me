@@ -62,18 +62,18 @@ import { Icon } from "astro-icon/components";
   </head>
 
   <body
-    class="flex min-h-dvh flex-col overflow-x-hidden w-full px-4 bg-neutral-950 text-neutral-100 antialiased"
+    class="flex min-h-dvh w-full flex-col overflow-x-hidden bg-neutral-950 px-4 text-neutral-100 antialiased"
   >
     <div
-      class="w-full max-w-3xl mx-auto border-x border-neutral-700 flex flex-col flex-1"
+      class="mx-auto flex w-full max-w-3xl flex-1 flex-col border-x border-neutral-700"
     >
       <nav class="border-b border-neutral-700">
         <div
-          class="border-b border-neutral-700 w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
+          class="h-6 w-full border-b border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
           aria-hidden="true"
         >
         </div>
-        <div class="flex justify-between items-center p-4 sm:px-8">
+        <div class="flex items-center justify-between p-4 sm:px-8">
           <ul class="flex gap-4">
             {
               NAVIGATION.map(({ slug, label }) => {
@@ -83,7 +83,7 @@ import { Icon } from "astro-icon/components";
                 return (
                   <li>
                     <a
-                      class="text-xs text-neutral-400 hover:text-white font-mono uppercase aria-[current]:text-white"
+                      class="font-mono text-xs uppercase text-neutral-400 hover:text-white aria-[current]:text-white"
                       href={slug}
                       aria-current={isCurrent ? "page" : undefined}
                     >
@@ -103,7 +103,7 @@ import { Icon } from "astro-icon/components";
 
           <a
             class:list={[
-              "text-xxs font-mono border border-green-300 px-2 py-0.5 bg-green-950 text-green-300 rounded-full",
+              "rounded-full border border-green-300 bg-green-950 px-2 py-0.5 font-mono text-xxs text-green-300",
               "hover:bg-green-900",
             ]}
             href="https://github.com/alexcarpenter/alexcarpenter.me"
@@ -112,28 +112,28 @@ import { Icon } from "astro-icon/components";
           </a>
         </div>
       </nav>
-      <main class="flex flex-col flex-1">
+      <main class="flex flex-1 flex-col">
         <slot />
       </main>
       <footer class="border-t border-neutral-700 bg-neutral-900">
-        <div class="p-4 sm:px-8 py-8">
+        <div class="p-4 py-8 sm:px-8">
           <ul class="flex justify-center gap-8">
             {
               SOCIALS.map(({ url, icon, label }) => (
                 <li>
                   <a
-                    class="text-neutral-400 flex w-max items-center gap-2 hover:text-white"
+                    class="flex w-max items-center gap-2 text-neutral-400 hover:text-white"
                     href={url}
                   >
                     <Icon name={icon} class="text-white" aria-hidden="true" />
-                    <span class="text-xs uppercase font-mono">{label}</span>
+                    <span class="font-mono text-xs uppercase">{label}</span>
                   </a>
                 </li>
               ))
             }
           </ul>
           <p
-            class="justify-center mt-8 text-xs font-mono uppercase text-neutral-400 flex items-center gap-2"
+            class="mt-8 flex items-center justify-center gap-2 font-mono text-xs uppercase text-neutral-400"
           >
             <span
               aria-hidden="true"

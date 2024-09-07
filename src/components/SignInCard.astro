@@ -3,24 +3,24 @@
 ---
 
 <div
-  class="bg-white rounded-2xl overflow-hidden w-full px-4 py-8 sm:px-8 shadow-xl duration-300 transition-all ease-in-out [clip-path:inset(0_0_0_var(--clip-offset))]"
+  class="w-full overflow-hidden rounded-2xl bg-white px-4 py-8 shadow-xl transition-all duration-300 ease-in-out [clip-path:inset(0_0_0_var(--clip-offset))] sm:px-8"
   inert=""
 >
-  <header class="flex flex-col justify-center items-center text-center">
-    <div class="bg-neutral-700 size-8 rounded-md grid place-content-center">
-      <div class="size-4 bg-white rounded-full"></div>
+  <header class="flex flex-col items-center justify-center text-center">
+    <div class="grid size-8 place-content-center rounded-md bg-neutral-700">
+      <div class="size-4 rounded-full bg-white"></div>
     </div>
     <p class="mt-6 font-semibold text-[#131316]">Sign in to Acme Co</p>
-    <p class="mt-1 text-[#747686] text-xs">
+    <p class="mt-1 text-xs text-[#747686]">
       Welcome back! Please sign in to continue
     </p>
   </header>
 
-  <div class="space-y-6 mt-6">
+  <div class="mt-6 space-y-6">
     <div class="grid grid-cols-2 gap-x-4">
       <button
         style="box-shadow: 0px 0px 0px 1px rgba(25, 28, 33, 0.08), 0px 1px 0px 0px rgba(25, 28, 33, 0.02), 0px 2px 3px -1px rgba(0, 0, 0, 0.08);"
-        class="h-[1.875rem] px-2 text-[#42434D] text-sm font-medium rounded-md flex items-center justify-center gap-2"
+        class="flex h-[1.875rem] items-center justify-center gap-2 rounded-md px-2 text-sm font-medium text-[#42434D]"
         ><svg viewBox="0 0 20 20" class="size-4"
           ><path
             d="M13.6589 5.87932C12.7223 4.98599 11.4723 4.49932 10.1789 4.51932C7.81227 4.51932 5.80227 6.11599 5.0856 8.26599C4.70581 9.39246 4.70582 10.6122 5.08572 11.7386H5.08893C5.80893 13.8853 7.8156 15.4819 10.1823 15.4819C11.404 15.4819 12.4528 15.1694 13.2657 14.6175V14.6149C14.2224 13.9816 14.8757 12.9849 15.079 11.8582H10.179V8.36491H18.7357C18.8424 8.97157 18.8924 9.59157 18.8924 10.2082C18.8924 12.9676 17.9062 15.3004 16.1903 16.8804L16.1923 16.8819C14.6889 18.2686 12.6256 19.0719 10.1789 19.0719C6.74893 19.0719 3.61227 17.1386 2.07227 14.0753C0.785755 11.512 0.785807 8.49194 2.07242 5.92871C3.61253 2.8624 6.74916 0.929322 10.1789 0.929322C12.4323 0.902656 14.6089 1.74932 16.2489 3.28932L13.6589 5.87932Z"
@@ -29,7 +29,7 @@
       >
       <button
         style="box-shadow: 0px 0px 0px 1px rgba(25, 28, 33, 0.08), 0px 1px 0px 0px rgba(25, 28, 33, 0.02), 0px 2px 3px -1px rgba(0, 0, 0, 0.08);"
-        class="h-[1.875rem] px-2 text-[#42434D] text-sm font-medium rounded-md flex items-center justify-center gap-2"
+        class="flex h-[1.875rem] items-center justify-center gap-2 rounded-md px-2 text-sm font-medium text-[#42434D]"
         ><svg viewBox="0 0 20 20" class="size-4"
           ><path
             fill-rule="evenodd"
@@ -41,7 +41,7 @@
     </div>
 
     <p
-      class="before:bg-black/10 after:bg-black/10 text-[#5E5F6E] text-sm flex items-center gap-x-4 before:h-px before:flex-1 after:h-px after:flex-1"
+      class="flex items-center gap-x-4 text-sm text-[#5E5F6E] before:h-px before:flex-1 before:bg-black/10 after:h-px after:flex-1 after:bg-black/10"
     >
       or
     </p>
@@ -50,14 +50,14 @@
       <label class="text-sm font-medium text-[#42434D]">Email address</label>
       <input
         type="text"
-        class="mt-2 w-full h-[1.875rem] px-2 text-[#42434D] text-sm rounded-md bg-white"
+        class="mt-2 h-[1.875rem] w-full rounded-md bg-white px-2 text-sm text-[#42434D]"
         placeholder="example@email.com"
         style="box-shadow: 0px 0px 0px 1px rgba(25, 28, 33, 0.10), 0px 1px 1px 0px rgba(25, 28, 33, 0.06);"
       />
     </div>
 
     <button
-      class:list={["w-full text-sm font-medium rounded-md px-2 h-[1.875rem]"]}
+      class:list={["h-[1.875rem] w-full rounded-md px-2 text-sm font-medium"]}
       style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.00) 100%), var(--Primary, #2F3037);
 box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.24), 0px 2px 3px 0px rgba(34, 42, 53, 0.20), 0px 1px 1px 0px rgba(255, 255, 255, 0.07), 0px 0px 0px 1px #2F3037;"
       >Continue</button

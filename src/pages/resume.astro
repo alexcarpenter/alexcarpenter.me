@@ -25,10 +25,10 @@ const avatarMap = {
   title="Resume"
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
-  <header class="relative text-center py-12 sm:py-16 px-4 sm:px-8">
+  <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
-    <h1 class="text-sm text-neutral-400 font-mono">Resume</h1>
-    <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
+    <h1 class="font-mono text-sm text-neutral-400">Resume</h1>
+    <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design
       and engineering teams.
     </p>
@@ -41,14 +41,14 @@ const avatarMap = {
   </header>
 
   <div
-    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] border-y border-neutral-700"
+    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
     aria-hidden="true"
   >
   </div>
 
   <section id="experience" class="relative">
     <SectionLabel>Experience</SectionLabel>
-    <ul class="divide-y divide-neutral-700 divide-dashed">
+    <ul class="divide-y divide-dashed divide-neutral-700">
       {
         jobs
           .sort(
@@ -58,30 +58,30 @@ const avatarMap = {
           )
           .map((job: JobProps) =>
             job.render().then(({ Content }) => (
-              <li class="py-8 px-4 sm:px-8 grid sm:grid-cols-[2rem,minmax(0,1fr)] gap-4">
+              <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem,minmax(0,1fr)] sm:px-8">
                 <img
                   src={`/logos/${slugify(job.data.company)}.svg`}
                   alt=""
                   class="relative size-8"
                 />
                 <div>
-                  <h3 class="sm:mt-1.5 font-medium">
+                  <h3 class="font-medium sm:mt-1.5">
                     {job.data.title} at {job.data.company}
                   </h3>
-                  <p class="mt-0.5 mb-4 text-sm text-neutral-400 font-mono">
+                  <p class="mb-4 mt-0.5 font-mono text-sm text-neutral-400">
                     {`${parseYearToString(job.data.startDate)}–${
                       job.data.endDate
                         ? parseYearToString(job.data.endDate)
                         : "Now"
                     }`}
                   </p>
-                  <div class="grid sm:grid-cols-[minmax(0,2fr),1px,minmax(0,1fr)] gap-y-4 gap-x-8">
+                  <div class="grid gap-x-8 gap-y-4 sm:grid-cols-[minmax(0,2fr),1px,minmax(0,1fr)]">
                     <div class="prose">
                       <Content />
                     </div>
                     <div
                       aria-hidden="true"
-                      class="hidden sm:block h-full w-px border-r border-neutral-700 border-dashed [mask-image:linear-gradient(to_bottom,theme(colors.white)_calc(100%_-_2rem),transparent)]"
+                      class="hidden h-full w-px border-r border-dashed border-neutral-700 [mask-image:linear-gradient(to_bottom,theme(colors.white)_calc(100%_-_2rem),transparent)] sm:block"
                     />
                     <ul>
                       {job.data.tools.map((t) => {
@@ -102,14 +102,14 @@ const avatarMap = {
   </section>
 
   <div
-    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] border-y border-neutral-700"
+    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
     aria-hidden="true"
   >
   </div>
 
   <section id="recommendations" class="relative">
     <SectionLabel>Recommendations</SectionLabel>
-    <ul class="divide-y divide-neutral-700 divide-dashed">
+    <ul class="divide-y divide-dashed divide-neutral-700">
       {
         recommendations
           .sort(
@@ -125,7 +125,7 @@ const avatarMap = {
             recommendation.render().then(({ Content }) => {
               const { name, title, company } = recommendation.data;
               return (
-                <li class="py-8 px-4 sm:px-8 grid sm:grid-cols-[2rem,minmax(0,1fr)] gap-4">
+                <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem,minmax(0,1fr)] sm:px-8">
                   <Image
                     src={avatarMap[recommendation.slug]}
                     alt="Jimmy Merrittello avatar"
@@ -134,8 +134,8 @@ const avatarMap = {
                     height={128}
                   />
                   <div>
-                    <h3 class="sm:mt-1 font-medium">{name}</h3>
-                    <p class="mt-0.5 mb-4 text-sm text-neutral-400 font-mono">
+                    <h3 class="font-medium sm:mt-1">{name}</h3>
+                    <p class="mb-4 mt-0.5 font-mono text-sm text-neutral-400">
                       {title} at {company}
                     </p>
                     <Content />

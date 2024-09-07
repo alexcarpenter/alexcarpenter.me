@@ -38,17 +38,17 @@ const reading = [
   title="Now"
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
-  <header class="relative text-center py-12 sm:py-16 px-4 sm:px-8">
+  <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <!-- <SectionLabel as="p">Intro</SectionLabel> -->
-    <h1 class="text-sm text-neutral-400 font-mono">Now</h1>
-    <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
+    <h1 class="font-mono text-sm text-neutral-400">Now</h1>
+    <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis
       aliquam architecto eaque.
     </p>
   </header>
 
   <div
-    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] border-y border-neutral-700"
+    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
     aria-hidden="true"
   >
   </div>
@@ -58,7 +58,7 @@ const reading = [
 
     <div class="grid sm:grid-cols-2">
       <article
-        class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed sm:border-r"
+        class="border-b border-dashed border-neutral-700 px-4 py-8 sm:border-r sm:px-8"
       >
         <h2 class="text-lg font-medium">Watching&nbsp;&not;</h2>
         <ul class="mt-4 space-y-4">
@@ -66,12 +66,12 @@ const reading = [
             watching.map((w, i) => {
               return (
                 <li class="flex gap-4">
-                  <div class="size-8 bg-neutral-800 rounded-full" />
+                  <div class="size-8 rounded-full bg-neutral-800" />
                   <div
                     class:list={[
-                      "flex-1 mt-1",
+                      "mt-1 flex-1",
                       i !== watching.length - 1 &&
-                        "border-b border-neutral-800 pb-4 border-dashed",
+                        "border-b border-dashed border-neutral-800 pb-4",
                     ]}
                   >
                     <h3 class="font-medium">{w.title}</h3>
@@ -83,7 +83,7 @@ const reading = [
         </ul>
       </article>
       <article
-        class="px-4 py-8 sm:px-8 border-b border-neutral-700 border-dashed"
+        class="border-b border-dashed border-neutral-700 px-4 py-8 sm:px-8"
       >
         <h2 class="text-lg font-medium">Listening&nbsp;&not;</h2>
         <ul class="mt-4 space-y-4">
@@ -91,12 +91,12 @@ const reading = [
             listening.map((l, i) => {
               return (
                 <li class="flex gap-4">
-                  <div class="size-8 bg-neutral-800 rounded-full" />
+                  <div class="size-8 rounded-full bg-neutral-800" />
                   <div
                     class:list={[
-                      "flex-1 mt-1",
+                      "mt-1 flex-1",
                       i !== listening.length - 1 &&
-                        "border-b border-neutral-800 pb-4 border-dashed",
+                        "border-b border-dashed border-neutral-800 pb-4",
                     ]}
                   >
                     <h3 class="font-medium">{l.artist}</h3>
@@ -111,17 +111,17 @@ const reading = [
 
     <article class="px-4 py-8 sm:px-8">
       <h2 class="text-lg font-medium">Reading&nbsp;&not;</h2>
-      <ul class="mt-4 grid sm:grid-cols-3 gap-y-8 gap-x-4">
+      <ul class="mt-4 grid gap-x-4 gap-y-8 sm:grid-cols-3">
         {
           reading.map((b) => {
             return (
               <li>
-                <article class="grid grid-cols-[theme(space.20)_1fr] sm:grid-cols-1 gap-4">
-                  <div class="relative sm:size-40 sm:flex sm:items-end">
+                <article class="grid grid-cols-[theme(space.20)_1fr] gap-4 sm:grid-cols-1">
+                  <div class="relative sm:flex sm:size-40 sm:items-end">
                     <img
                       src={b.cover}
                       alt={`${b.title} book cover`}
-                      class="max-w-full max-h-full border border-neutral-800"
+                      class="max-h-full max-w-full border border-neutral-800"
                     />
                   </div>
                   <div>

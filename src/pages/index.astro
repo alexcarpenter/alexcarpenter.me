@@ -14,7 +14,7 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
 ---
 
 <BaseLayout>
-  <header class="relative text-center py-12 sm:py-16 px-4 sm:px-8">
+  <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
     <!-- <div class="mb-2 relative mx-auto size-8">
       <div
@@ -44,15 +44,15 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
         />
       </div>
     </div> -->
-    <h1 class="text-sm text-neutral-400 font-mono">Alex Carpenter</h1>
-    <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
+    <h1 class="font-mono text-sm text-neutral-400">Alex Carpenter</h1>
+    <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design
       and engineering teams.
     </p>
   </header>
 
   <div
-    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] border-y border-neutral-700"
+    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
     aria-hidden="true"
   >
   </div>
@@ -63,25 +63,25 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
       <p class="text-balance font-medium">
         Currently I am a part of the design team at <a
           href="https://clerk.com"
-          class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
+          class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
           >Clerk</a
         > where I am working on <a
           href="https://clerk.com/docs/elements/overview"
-          class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
+          class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
           >Elements</a
         > and rebuilding our <a
           href="https://clerk.com/docs/components/overview"
-          class="underline decoration-2 decoration-neutral-600 hover:decoration-white"
+          class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
           >UI Components</a
         >.
       </p>
     </header>
 
     <div
-      class="border-y border-neutral-700 border-dashed grid grid-cols-1 sm:grid-cols-2 auto-rows-[20rem]"
+      class="grid auto-rows-[20rem] grid-cols-1 border-y border-dashed border-neutral-700 sm:grid-cols-2"
     >
       <div
-        class="relative sm:border-r border-dashed border-neutral-700 overflow-hidden"
+        class="relative overflow-hidden border-dashed border-neutral-700 sm:border-r"
       >
         <figure class="relative">
           <figcaption class="sr-only">
@@ -92,32 +92,32 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
           </div>
         </figure>
         <span
-          class="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-neutral-950 to-transparent"
+          class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-neutral-950 to-transparent"
           aria-hidden="true"></span>
       </div>
 
-      <div class="max-sm:border-t border-dashed border-neutral-700">
+      <div class="border-dashed border-neutral-700 max-sm:border-t">
         <div
-          class="h-full relative overflow-hidden pt-8 px-4 sm:p-0 bg-neutral-900"
+          class="relative h-full overflow-hidden bg-neutral-900 px-4 pt-8 sm:p-0"
         >
           <div
-            class="relative sm:absolute mx-auto max-w-96 sm:min-w-full sm:translate-x-10 sm:translate-y-10"
+            class="relative mx-auto max-w-96 sm:absolute sm:min-w-full sm:translate-x-10 sm:translate-y-10"
           >
             <div
               class:list={[
-                "absolute h-px border-t border-dashed border-neutral-700 -top-0.5",
-                "w-screen left-1/2 right-1/2 ml-[-50vw] mr-[-50vw]",
+                "absolute -top-0.5 h-px border-t border-dashed border-neutral-700",
+                "left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] w-screen",
               ]}
               aria-hidden="true"
             >
             </div>
             <div
-              class="absolute h-full w-px -top-10 -left-0.5 bottom-0 border-l border-dashed border-neutral-700 cursor-ew-resize"
+              class="absolute -left-0.5 -top-10 bottom-0 h-full w-px cursor-ew-resize border-l border-dashed border-neutral-700"
               aria-hidden="true"
             >
             </div>
             <div
-              class="absolute h-full w-px -top-10 -right-0.5 bottom-0 border-r border-dashed border-neutral-700"
+              class="absolute -right-0.5 -top-10 bottom-0 h-full w-px border-r border-dashed border-neutral-700"
               aria-hidden="true"
             >
             </div>
@@ -131,11 +131,11 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
       </div>
     </div>
 
-    <div class="px-4 py-8 sm:px-8 text-center">
-      <p class="text-xs font-mono uppercase text-neutral-400">
+    <div class="px-4 py-8 text-center sm:px-8">
+      <p class="font-mono text-xs uppercase text-neutral-400">
         In collaboration with
       </p>
-      <div class="flex justify-center mt-4">
+      <div class="mt-4 flex justify-center">
         {
           [
             {
@@ -165,7 +165,7 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
                 <a
                   href={linkedin}
                   data-tooltip-trigger={id}
-                  class="relative size-8 rounded-full -ml-0.5 ring-4 ring-neutral-950 grayscale hover:grayscale-0 overflow-hidden"
+                  class="relative -ml-0.5 size-8 overflow-hidden rounded-full ring-4 ring-neutral-950 grayscale hover:grayscale-0"
                   aria-describedby={id}
                 >
                   <Image
@@ -173,13 +173,13 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
                     alt={`${name} avatar`}
                     width={128}
                     height={128}
-                    class="w-full h-full absolute object-cover"
+                    class="absolute h-full w-full object-cover"
                   />
                 </a>
                 <div
                   id={id}
                   role="tooltip"
-                  class="bg-neutral-800 px-2 py-1 rounded-md text-xs font-mono w-max absolute top-0 left-0 hidden"
+                  class="absolute left-0 top-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs"
                 >
                   {name}
                 </div>
@@ -192,20 +192,20 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
   </section>
 
   <div
-    class="w-full h-6 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] border-y border-neutral-700"
+    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
     aria-hidden="true"
   >
   </div>
 
-  <div class="flex-1 relative">
+  <div class="relative flex-1">
     <div
-      class="hidden sm:block absolute inset-y-0 left-1/2 border-r border-neutral-700 border-dashed"
+      class="absolute inset-y-0 left-1/2 hidden border-r border-dashed border-neutral-700 sm:block"
       aria-hidden="true"
     >
     </div>
     <section class="relative px-4 py-8 sm:px-8" id="currently">
       <SectionLabel>Interests</SectionLabel>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-16">
+      <div class="grid grid-cols-1 gap-x-16 gap-y-8 sm:grid-cols-2">
         <div class="prose">
           <p>
             With over a decade of experience as a UI engineer, I've had the
@@ -217,7 +217,7 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
         </div>
         <div class="flex items-center">
           <div>
-            <p class="mb-4 text-xs font-mono uppercase text-neutral-400">
+            <p class="mb-4 font-mono text-xs uppercase text-neutral-400">
               Skills and interests
             </p>
             <ul>

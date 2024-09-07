@@ -28,10 +28,10 @@ const { page } = Astro.props;
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
   <header
-    class="relative text-center py-12 sm:py-16 px-4 sm:px-8 border-b border-neutral-700"
+    class="relative border-b border-neutral-700 px-4 py-12 text-center sm:px-8 sm:py-16"
   >
-    <h1 class="text-sm text-neutral-400 font-mono">Feed</h1>
-    <p class="mt-2 font-medium text-xl sm:text-2xl text-balance tracking-tight">
+    <h1 class="font-mono text-sm text-neutral-400">Feed</h1>
+    <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       A collection of short notes, interesting links, and the occasional long
       form post.
     </p>
@@ -46,10 +46,10 @@ const { page } = Astro.props;
                 <h2 class="font-semibold">
                   <a
                     href={item.data.link}
-                    class="group underline decoration-2 decoration-neutral-600 hover:decoration-white"
+                    class="group underline decoration-neutral-600 decoration-2 hover:decoration-white"
                   >
                     {item.data.title}
-                    <span class="bg-neutral-800 rounded-sm absolute shrink-0 p-0.5 ml-1 text-neutral-400 mt-px group-hover:text-current">
+                    <span class="absolute ml-1 mt-px shrink-0 rounded-sm bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="size-2.5"
@@ -68,11 +68,11 @@ const { page } = Astro.props;
                     </span>
                   </a>
                 </h2>
-                <p class="text-sm font-mono text-neutral-400">
+                <p class="font-mono text-sm text-neutral-400">
                   {new URL(item.data.link).hostname}
                 </p>
                 {item.body && (
-                  <div class="mt-4 prose">
+                  <div class="prose mt-4">
                     <Content />
                   </div>
                 )}
@@ -81,16 +81,16 @@ const { page } = Astro.props;
           } else if (item.collection === "posts") {
             return (
               <li class="px-4 py-8 sm:px-8" id={`post-${item.slug}`}>
-                <dl class="mb-2 flex gap-4 items-center">
+                <dl class="mb-2 flex items-center gap-4">
                   <dt class="sr-only">Published</dt>
-                  <dd class="text-neutral-400 text-sm font-mono">
+                  <dd class="font-mono text-sm text-neutral-400">
                     <FormattedDate date={item.data.published} />
                   </dd>
                 </dl>
-                <h2 class="font-semibold text-xl tracking-tight">
+                <h2 class="text-xl font-semibold tracking-tight">
                   <a
                     href={`/posts/${item.slug}`}
-                    class="group underline decoration-2 decoration-neutral-600 hover:decoration-white"
+                    class="group underline decoration-neutral-600 decoration-2 hover:decoration-white"
                   >
                     {item.data.title}
                   </a>
@@ -101,9 +101,9 @@ const { page } = Astro.props;
           } else {
             return item.render().then(({ Content }) => (
               <li class="px-4 py-8 sm:px-8" id={`note-${item.slug}`}>
-                <dl class="flex gap-4 mb-4 items-center">
+                <dl class="mb-4 flex items-center gap-4">
                   <dt class="sr-only">Published</dt>
-                  <dd class="text-neutral-400 text-sm font-mono">
+                  <dd class="font-mono text-sm text-neutral-400">
                     <FormattedDate date={item.data.published} type="datetime" />
                   </dd>
                 </dl>
@@ -119,7 +119,7 @@ const { page } = Astro.props;
       }
     </ul>
     <nav class="border-t border-neutral-700 px-4 py-8 sm:px-8">
-      <ul class="grid grid-cols-3 text-sm text-neutral-400 font-medium">
+      <ul class="grid grid-cols-3 text-sm font-medium text-neutral-400">
         <li class="text-left">
           {
             page.currentPage > 1 ? (
