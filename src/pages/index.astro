@@ -21,33 +21,13 @@ const pullRequests = import.meta.env.PROD
       repoName: "javascript",
       username: "alexcarpenter",
     })
-  : [
-      {
+  : Array.from({ length: 5 }, (_, i) => {
+      return {
         message: "Hello world",
         date: new Date(),
-        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
-      },
-      {
-        message: "Hello world",
-        date: new Date(),
-        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
-      },
-      {
-        message: "Hello world",
-        date: new Date(),
-        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
-      },
-      {
-        message: "Hello world",
-        date: new Date(),
-        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
-      },
-      {
-        message: "Hello world",
-        date: new Date(),
-        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
-      },
-    ];
+        url: "/",
+      };
+    });
 ---
 
 <BaseLayout>
