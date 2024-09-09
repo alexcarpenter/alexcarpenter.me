@@ -1,24 +1,33 @@
 ---
 import { Image } from "astro:assets";
+import FormattedDate from "@/components/FormattedDate.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { slugify } from "@/utils/formatting";
 import SignInCodeBlock from "@/components/SignInCodeBlock.astro";
 import SignInCard from "@/components/SignInCard.astro";
 
+import { fetchLatestPullRequests } from "@/utils/fetch-latest-pull-reqests.ts";
+
 // import avatar from "@/images/me.jpg";
 import joeBellAvatar from "@/images/joe-bell.jpeg";
 import bryceKalowAvatar from "@/images/bryce-kalow.jpeg";
 import tomMilewskiAvatar from "@/images/tom-milewski.jpeg";
 import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
+
+const pullRequests = await fetchLatestPullRequests({
+  repoOwner: "clerk",
+  repoName: "javascript",
+  username: "alexcarpenter",
+});
 ---
 
 <BaseLayout>
   <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
-    <!-- <div class="mb-2 relative mx-auto size-8">
+    <!-- <div class="relative mx-auto mb-2 size-8">
       <div
-        class="absolute size-1.5 bg-green-500 top-0 right-0 ring-2 ring-neutral-950 z-10 rounded-full"
+        class="absolute right-0 top-0 z-10 size-1.5 rounded-full bg-green-500 ring-2 ring-neutral-950"
       >
       </div>
       <Image
@@ -26,19 +35,19 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
         alt="Alex Carpenter"
         width={128}
         height={128}
-        class="rounded-full size-8"
+        class="size-8 rounded-full"
         data-tooltip-trigger="status"
       />
       <div
         id="status"
         role="tooltip"
-        class="bg-neutral-800 px-2 py-1 rounded-md w-max max-w-80 text-left absolute top-0 left-0 hidden"
+        class="absolute left-0 top-0 hidden w-max max-w-80 rounded-md bg-neutral-800 px-2 py-1 text-left"
       >
         <p class="text-xs">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim, qui!
         </p>
         <FormattedDate
-          class="block mt-0.5 text-xxs text-neutral-400"
+          class="mt-0.5 block text-xxs text-neutral-400"
           date={new Date()}
           type="datetime"
         />
@@ -49,6 +58,7 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
       User Interface Engineer who enjoys working at the intersection of design
       and engineering teams.
     </p>
+    <!-- <Button href="/resume" as="a">View resume</Button> -->
   </header>
 
   <div
@@ -131,62 +141,120 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
       </div>
     </div>
 
-    <div class="px-4 py-8 text-center sm:px-8">
-      <p class="font-mono text-xs uppercase text-neutral-400">
-        In collaboration with
-      </p>
-      <div class="mt-4 flex justify-center">
-        {
-          [
-            {
-              name: "Joe Bell",
-              img: joeBellAvatar,
-              linkedin: "https://www.linkedin.com/in/joebell93/",
-            },
-            {
-              name: "Bryce Kalow",
-              img: bryceKalowAvatar,
-              linkedin: "https://www.linkedin.com/in/bryce-kalow-86a57183/",
-            },
-            {
-              name: "Tom Milewski",
-              img: tomMilewskiAvatar,
-              linkedin: "https://www.linkedin.com/in/tmilewski/",
-            },
-            {
-              name: "Dylan Staley",
-              img: dylanStaleyAvatar,
-              linkedin: "https://www.linkedin.com/in/dstaley/",
-            },
-          ].map(({ name, img, linkedin }) => {
-            const id = slugify(`tooltip-${name}`);
-            return (
-              <Fragment>
-                <a
-                  href={linkedin}
-                  data-tooltip-trigger={id}
-                  class="relative -ml-0.5 size-8 overflow-hidden rounded-full ring-4 ring-neutral-950 grayscale hover:grayscale-0"
-                  aria-describedby={id}
-                >
-                  <Image
-                    src={img}
-                    alt={`${name} avatar`}
-                    width={128}
-                    height={128}
-                    class="absolute h-full w-full object-cover"
+    <div class="px-4 py-8 sm:px-8">
+      <div class="relative">
+        <ul
+          class="mx-auto max-w-lg divide-y divide-dashed divide-neutral-600 text-left [mask-image:linear-gradient(to_bottom,theme(colors.white),transparent)]"
+        >
+          {
+            pullRequests.map((pr) => {
+              return (
+                <li class="grid grid-cols-[theme(spacing.4)_1fr_max-content] gap-2 py-2">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="mt-0.5 size-4 text-neutral-600"
+                    aria-hidden="true"
+                  >
+                    <>
+                      <circle cx="5" cy="6" r="3" />
+                      <path d="M5 9v12" />
+                      <circle cx="19" cy="18" r="3" />
+                      <path d="m15 9-3-3 3-3" />
+                      <path d="M12 6h5a2 2 0 0 1 2 2v7" />
+                    </>
+                  </svg>
+                  <p class="text-sm text-neutral-300">{pr.message}</p>
+                  <FormattedDate
+                    date={new Date(pr.date)}
+                    class="ml-auto mt-0.5 block text-nowrap text-right font-mono text-xs uppercase text-neutral-600"
                   />
-                </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+        <div
+          class="z-1 pointer-events-none absolute bottom-0 left-1/2 isolate h-56 w-4/5 -translate-x-1/2 translate-y-24"
+          aria-hidden="true"
+        >
+          {
+            Array.from({ length: 5 }, (_, i) => {
+              const blur = `blur(${Math.pow(2, i - 1)}px)`;
+              return (
                 <div
-                  id={id}
-                  role="tooltip"
-                  class="absolute left-0 top-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs"
-                >
-                  {name}
-                </div>
-              </Fragment>
-            );
-          })
-        }
+                  style={{
+                    WebkitBackdropFilter: blur,
+                    backdropFilter: blur,
+                  }}
+                  class="absolute inset-0 rotate-180 [mask-image:radial-gradient(closest-side,black,transparent)] [mask-position:bottom,center] [mask-repeat:no-repeat]"
+                />
+              );
+            })
+          }
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 text-center">
+          <p class="font-mono text-xs uppercase text-white">
+            In collaboration with
+          </p>
+          <div class="mt-4 flex justify-center">
+            {
+              [
+                {
+                  name: "Joe Bell",
+                  img: joeBellAvatar,
+                  linkedin: "https://www.linkedin.com/in/joebell93/",
+                },
+                {
+                  name: "Bryce Kalow",
+                  img: bryceKalowAvatar,
+                  linkedin: "https://www.linkedin.com/in/bryce-kalow-86a57183/",
+                },
+                {
+                  name: "Tom Milewski",
+                  img: tomMilewskiAvatar,
+                  linkedin: "https://www.linkedin.com/in/tmilewski/",
+                },
+                {
+                  name: "Dylan Staley",
+                  img: dylanStaleyAvatar,
+                  linkedin: "https://www.linkedin.com/in/dstaley/",
+                },
+              ].map(({ name, img, linkedin }) => {
+                const id = slugify(`tooltip-${name}`);
+                return (
+                  <Fragment>
+                    <a
+                      href={linkedin}
+                      data-tooltip-trigger={id}
+                      class="relative -ml-0.5 size-8 overflow-hidden rounded-full bg-neutral-800 ring-4 ring-neutral-950 grayscale hover:grayscale-0"
+                      aria-describedby={id}
+                    >
+                      <Image
+                        src={img}
+                        alt={`${name} avatar`}
+                        width={128}
+                        height={128}
+                        class="absolute h-full w-full object-cover"
+                      />
+                    </a>
+                    <div
+                      id={id}
+                      role="tooltip"
+                      class="absolute left-0 top-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs"
+                    >
+                      {name}
+                    </div>
+                  </Fragment>
+                );
+              })
+            }
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -245,6 +313,14 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
       </div>
     </section>
   </div>
+
+  <svg width="0" height="0">
+    <defs>
+      <clipPath id="myClip">
+        <circle cx="100" cy="100" r="40"></circle>
+      </clipPath>
+    </defs>
+  </svg>
 </BaseLayout>
 
 <script>
