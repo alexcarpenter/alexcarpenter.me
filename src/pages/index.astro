@@ -15,11 +15,39 @@ import bryceKalowAvatar from "@/images/bryce-kalow.jpeg";
 import tomMilewskiAvatar from "@/images/tom-milewski.jpeg";
 import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
 
-const pullRequests = await fetchLatestPullRequests({
-  repoOwner: "clerk",
-  repoName: "javascript",
-  username: "alexcarpenter",
-});
+const pullRequests = import.meta.env.PROD
+  ? await fetchLatestPullRequests({
+      repoOwner: "clerk",
+      repoName: "javascript",
+      username: "alexcarpenter",
+    })
+  : [
+      {
+        message: "Hello world",
+        date: new Date(),
+        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
+      },
+      {
+        message: "Hello world",
+        date: new Date(),
+        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
+      },
+      {
+        message: "Hello world",
+        date: new Date(),
+        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
+      },
+      {
+        message: "Hello world",
+        date: new Date(),
+        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
+      },
+      {
+        message: "Hello world",
+        date: new Date(),
+        url: "https://github.com/alexcarpenter/alexcarpenter/pull/1",
+      },
+    ];
 ---
 
 <BaseLayout>
@@ -313,14 +341,6 @@ const pullRequests = await fetchLatestPullRequests({
       </div>
     </section>
   </div>
-
-  <svg width="0" height="0">
-    <defs>
-      <clipPath id="myClip">
-        <circle cx="100" cy="100" r="40"></circle>
-      </clipPath>
-    </defs>
-  </svg>
 </BaseLayout>
 
 <script>
