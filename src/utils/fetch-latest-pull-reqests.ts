@@ -1,3 +1,8 @@
+const getPullRequestIdFromMessage = (message: string) => {
+  const match = message.match(/\(#(\d+)\)/);
+  return match ? match[1] : null;
+};
+
 export async function fetchLatestPullRequests({
   username,
   repoOwner,
@@ -21,10 +26,11 @@ export async function fetchLatestPullRequests({
     }
     const commits = await response.json();
     return commits.slice(0, 5).map((commit: any) => {
+      const id = getPullRequestIdFromMessage(commit.commit.message);
       return {
         message: commit.commit.message,
         date: commit.commit.author.date,
-        url: commit.html_url,
+        url: `https://github.com/${repoOwner}/${repoName}/pull/${id}`,
       };
     });
   } catch (error) {

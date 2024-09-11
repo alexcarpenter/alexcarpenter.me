@@ -15,6 +15,7 @@ import bryceKalowAvatar from "@/images/bryce-kalow.jpeg";
 import tomMilewskiAvatar from "@/images/tom-milewski.jpeg";
 import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
 import { Icon } from "astro-icon/components";
+// import Button from "@/components/Button.astro";
 
 const pullRequests = import.meta.env.PROD
   ? await fetchLatestPullRequests({
@@ -92,7 +93,30 @@ const pullRequests = import.meta.env.PROD
           href="https://clerk.com/docs/components/overview"
           class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
           >UI Components</a
-        >.
+        >. View my latest <a
+          href={pullRequests[0].url}
+          class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
+          >pull request <span
+            class="absolute ml-1 mt-px shrink-0 rounded-sm bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current"
+            aria-hidden="true"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-2.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <>
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </>
+            </svg>
+          </span></a
+        >
       </p>
     </header>
 

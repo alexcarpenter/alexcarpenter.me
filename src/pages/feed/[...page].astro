@@ -49,7 +49,10 @@ const { page } = Astro.props;
                     class="group underline decoration-neutral-600 decoration-2 hover:decoration-white"
                   >
                     {item.data.title}
-                    <span class="absolute ml-1 mt-px shrink-0 rounded-sm bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current">
+                    <span
+                      class="absolute ml-1 mt-px shrink-0 rounded-sm bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current"
+                      aria-hidden="true"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="size-2.5"
