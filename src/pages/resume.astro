@@ -9,6 +9,7 @@ const recommendations = await getCollection("recommendations");
 import { parseYearToString } from "@/components/FormattedDate.astro";
 import { slugify } from "@/utils/formatting";
 import SectionLabel from "@/components/SectionLabel.astro";
+import Button from "@/components/Button.astro";
 
 const avatarMap = {
   "jimmy-merritello": import("@/images/jimmy-merritello.jpeg"),
@@ -32,12 +33,9 @@ const avatarMap = {
       User Interface Engineer who enjoys working at the intersection of design
       and engineering teams.
     </p>
-    <!-- <a
-      href=""
-      class:list={[
-        "group relative isolate inline-flex items-center justify-center overflow-hidden text-sm font-medium transition duration-300 ease-[cubic-bezier(0.4,0.36,0,1)] before:duration-300 before:ease-[cubic-bezier(0.4,0.36,0,1)] before:transtion-opacity rounded-md px-3 py-[0.1875rem] shadow-[0_1px_theme(colors.white/0.07)_inset,0_1px_3px_theme(colors.gray.900/0.2)] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-b before:from-white/20 before:opacity-50 hover:before:opacity-100 after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:rounded-md after:bg-gradient-to-b after:from-white/10 after:from-[46%] after:to-[54%] after:mix-blend-overlay ring-1 bg-blue-600 text-white ring-blue-600",
-      ]}>Download Resume</a
-    > -->
+    <Button as="a" href="https://www.linkedin.com/in/imalexcarpenter/"
+      >View on LinkedIn</Button
+    >
   </header>
 
   <div
