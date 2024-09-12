@@ -17,7 +17,7 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
 import { Icon } from "astro-icon/components";
 // import Button from "@/components/Button.astro";
 
-const pullRequests = import.meta.env.DEV
+const pullRequests = import.meta.env.PROD
   ? await fetchLatestPullRequests({
       repoOwner: "clerk",
       repoName: "javascript",
@@ -25,8 +25,9 @@ const pullRequests = import.meta.env.DEV
     })
   : Array.from({ length: 5 }, (_, i) => {
       return {
-        message: "Hello world",
-        date: new Date(),
+        message:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, natus.",
+        date: "2024-09-12T06:29:39-0400",
         url: "/",
       };
     });
