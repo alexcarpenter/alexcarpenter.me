@@ -17,7 +17,7 @@ import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
 import { Icon } from "astro-icon/components";
 // import Button from "@/components/Button.astro";
 
-const pullRequests = import.meta.env.PROD
+const pullRequests = import.meta.env.DEV
   ? await fetchLatestPullRequests({
       repoOwner: "clerk",
       repoName: "javascript",
@@ -176,52 +176,60 @@ const pullRequests = import.meta.env.PROD
 
     <div class="px-4 py-8 sm:px-8">
       <div class="relative">
-        <ul
-          class="divide-y divide-dashed divide-neutral-600 text-left [mask-image:linear-gradient(to_bottom,theme(colors.white),transparent)]"
-        >
-          {
-            pullRequests.map((pr) => {
-              return (
-                <li class="flex gap-2 py-2">
-                  <Icon
-                    name="pull-request"
-                    class="mt-0.5 size-4 flex-none text-neutral-600"
-                    aria-hidden="true"
+        <figure>
+          <figcaption class="sr-only">
+            Latest 5 pull requests within the @clerk/javascript repo
+          </figcaption>
+          <ul
+            class="divide-y divide-dashed divide-neutral-600 text-left [mask-image:linear-gradient(to_bottom,theme(colors.white),transparent)]"
+            inert=""
+          >
+            {
+              pullRequests.map((pr) => {
+                return (
+                  <li class="flex items-center gap-2 py-2">
+                    <Icon
+                      name="pull-request"
+                      class="size-4 flex-none text-neutral-600"
+                      aria-hidden="true"
+                    />
+                    <p class="flex-1 overflow-hidden text-ellipsis text-nowrap pr-4 text-sm text-neutral-400 sm:pr-8">
+                      {pr.message}
+                    </p>
+                    <FormattedDate
+                      date={new Date(pr.date)}
+                      class="block text-nowrap text-right font-mono text-xs uppercase text-neutral-400"
+                    />
+                    <Icon
+                      name="checkmark"
+                      class="size-4 flex-none text-neutral-600"
+                      aria-hidden="true"
+                    />
+                  </li>
+                );
+              })
+            }
+          </ul>
+          <div
+            class="z-1 pointer-events-none absolute bottom-0 left-1/2 isolate h-56 w-4/5 -translate-x-1/2 translate-y-24"
+            aria-hidden="true"
+          >
+            {
+              Array.from({ length: 5 }, (_, i) => {
+                const blur = `blur(${Math.pow(2, i - 1)}px)`;
+                return (
+                  <div
+                    style={{
+                      WebkitBackdropFilter: blur,
+                      backdropFilter: blur,
+                    }}
+                    class="absolute inset-0 rotate-180 [mask-image:radial-gradient(closest-side,black,transparent)] [mask-position:bottom,center] [mask-repeat:no-repeat]"
                   />
-                  <p class="text-sm text-neutral-400">{pr.message}</p>
-                  <FormattedDate
-                    date={new Date(pr.date)}
-                    class="ml-auto mt-0.5 block text-nowrap text-right font-mono text-xs uppercase text-neutral-400"
-                  />
-                  <Icon
-                    name="checkmark"
-                    class="mt-0.5 size-4 flex-none text-neutral-600"
-                    aria-hidden="true"
-                  />
-                </li>
-              );
-            })
-          }
-        </ul>
-        <div
-          class="z-1 pointer-events-none absolute bottom-0 left-1/2 isolate h-56 w-4/5 -translate-x-1/2 translate-y-24"
-          aria-hidden="true"
-        >
-          {
-            Array.from({ length: 5 }, (_, i) => {
-              const blur = `blur(${Math.pow(2, i - 1)}px)`;
-              return (
-                <div
-                  style={{
-                    WebkitBackdropFilter: blur,
-                    backdropFilter: blur,
-                  }}
-                  class="absolute inset-0 rotate-180 [mask-image:radial-gradient(closest-side,black,transparent)] [mask-position:bottom,center] [mask-repeat:no-repeat]"
-                />
-              );
-            })
-          }
-        </div>
+                );
+              })
+            }
+          </div>
+        </figure>
         <div class="absolute bottom-0 left-0 right-0 text-center">
           <p class="font-mono text-xs uppercase text-white">
             In collaboration with
