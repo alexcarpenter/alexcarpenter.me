@@ -64,6 +64,11 @@ import { Icon } from "astro-icon/components";
   <body
     class="flex min-h-dvh w-full flex-col overflow-x-hidden bg-neutral-950 px-4 text-neutral-100 antialiased"
   >
+    <a
+      href="#main"
+      class="fixed left-0 top-0 -translate-y-full border-b border-r border-dashed border-neutral-800 p-2 text-sm font-medium focus:translate-y-0"
+      >Skip to content</a
+    >
     <div
       class="mx-auto flex w-full max-w-3xl flex-1 flex-col border-x border-neutral-700"
     >
@@ -112,7 +117,7 @@ import { Icon } from "astro-icon/components";
           </a>
         </div>
       </nav>
-      <main class="flex flex-1 flex-col">
+      <main class="flex flex-1 flex-col" id="main">
         <slot />
       </main>
       <footer class="border-t border-neutral-700 bg-neutral-900">
