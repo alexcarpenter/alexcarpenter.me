@@ -10,6 +10,7 @@ import { parseYearToString } from "@/components/FormattedDate.astro";
 import { slugify } from "@/utils/formatting";
 import SectionLabel from "@/components/SectionLabel.astro";
 import Button from "@/components/Button.astro";
+import { Icon } from "astro-icon/components";
 
 const avatarMap = {
   "jimmy-merritello": import("@/images/jimmy-merritello.jpeg"),
@@ -147,14 +148,14 @@ const avatarMap = {
       }
     </ul>
   </section>
-  <!-- <section class="relative border-t border-neutral-600 px-4 py-8 sm:px-8">
+  <!-- <section class="relative border-t border-neutral-600 p-4 sm:p-6">
     <SectionLabel>Callout</SectionLabel>
     <div
       class="absolute inset-0 h-full w-full opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
       aria-hidden="true"
     >
     </div>
-    <div class="relative bg-neutral-950 p-4">
+    <div class="relative bg-neutral-950 p-6 text-center">
       <div class="pointer-events-none absolute inset-0" aria-hidden="true">
         <div class="absolute -left-1 -top-1 size-2">
           <div
@@ -197,12 +198,32 @@ const avatarMap = {
           </div>
         </div>
       </div>
+      <p
+        class="mx-auto mb-4 flex w-fit items-center gap-2 font-mono text-xxs uppercase tracking-widest text-orange-300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-4 fill-orange-950 stroke-orange-300"
+          aria-hidden="true"
+          ><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"
+          ></path><path d="M12 8h.01"></path></svg
+        >Notice
+      </p>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta eum,
         aliquam ratione iusto perferendis labore laboriosam natus praesentium
         minima, sit unde sed incidunt eveniet tenetur laborum blanditiis
         perspiciatis doloribus nostrum!
       </p>
+      <Button variant="neutral" class="mt-6">View openings</Button>
     </div>
   </section> -->
 </BaseLayout>

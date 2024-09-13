@@ -1,7 +1,7 @@
 ---
 import type { HTMLTag, Polymorphic } from "astro/types";
 
-type Variant = "blue" | "neutral";
+type Variant = "blue" | "orange" | "neutral";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
   as: Tag;
@@ -12,6 +12,7 @@ const { as: Tag = "button", variant = "blue", ...props } = Astro.props;
 
 const variantClasses: Record<Variant, string> = {
   blue: "bg-blue-600 ring-blue-600",
+  orange: "bg-orange-600 ring-orange-600",
   neutral: "bg-neutral-800 ring-neutral-800",
 };
 ---
