@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import FormattedDate from "@/components/FormattedDate.astro";
+// import FormattedDate from "@/components/FormattedDate.astro";
 export async function getStaticPaths() {
   const posts = await getCollection("posts", ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true;
@@ -21,13 +21,15 @@ const date = post.data.updated ?? post.data.published;
   <header
     class="relative border-b border-neutral-700 px-4 py-12 text-center sm:px-8 sm:py-16"
   >
-    <h1 class="font-mono text-sm text-neutral-400">{post.data.title}</h1>
-    <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
+    <h1 class="text-xl font-medium tracking-tight sm:text-2xl">
+      {post.data.title}
+    </h1>
+    <p class="mt-2 text-balance text-neutral-400">
       {post.data.description}
     </p>
-    <p class="mt-2 font-mono text-sm text-neutral-400">
+    <!-- <p class="mt-6 font-mono text-sm text-neutral-400">
       Last modified <FormattedDate date={date} />
-    </p>
+    </p> -->
   </header>
   <div class="prose px-4 py-8 sm:px-8">
     <Content />

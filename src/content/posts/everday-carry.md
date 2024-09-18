@@ -7,7 +7,7 @@ draft: true
 
 <small>Knife</small>
 
-## Benchmade Mini Bugout
+## Tactile Turn Rockwall Thumbstud
 
 ---
 
