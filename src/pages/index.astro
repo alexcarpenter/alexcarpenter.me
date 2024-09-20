@@ -6,16 +6,15 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { slugify } from "@/utils/formatting";
 import SignInCodeBlock from "@/components/SignInCodeBlock.astro";
 import SignInCard from "@/components/SignInCard.astro";
+// import Stories from "@/components/Stories.astro";
 
 import { fetchLatestPullRequests } from "@/utils/fetch-latest-pull-reqests.ts";
 
-// import avatar from "@/images/me.jpg";
 import joeBellAvatar from "@/images/joe-bell.jpeg";
 import bryceKalowAvatar from "@/images/bryce-kalow.jpeg";
 import tomMilewskiAvatar from "@/images/tom-milewski.jpeg";
 import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
 import { Icon } from "astro-icon/components";
-// import Button from "@/components/Button.astro";
 
 const pullRequests = import.meta.env.PROD
   ? await fetchLatestPullRequests({
@@ -36,34 +35,7 @@ const pullRequests = import.meta.env.PROD
 <BaseLayout>
   <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
-    <!-- <div class="relative mx-auto mb-2 size-8">
-      <div
-        class="absolute right-0 top-0 z-10 size-1.5 rounded-full bg-green-500 ring-2 ring-neutral-950"
-      >
-      </div>
-      <Image
-        src={avatar}
-        alt="Alex Carpenter"
-        width={128}
-        height={128}
-        class="size-8 rounded-full"
-        data-tooltip-trigger="status"
-      />
-      <div
-        id="status"
-        role="tooltip"
-        class="absolute left-0 top-0 hidden w-max max-w-80 rounded-md bg-neutral-800 px-2 py-1 text-left"
-      >
-        <p class="text-xs">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim, qui!
-        </p>
-        <FormattedDate
-          class="mt-0.5 block text-xxs text-neutral-400"
-          date={new Date()}
-          type="datetime"
-        />
-      </div>
-    </div> -->
+    <!-- <Stories /> -->
     <h1 class="font-mono text-sm text-neutral-400">Alex Carpenter</h1>
     <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design
