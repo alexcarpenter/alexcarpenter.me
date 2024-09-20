@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
+// import Button from "@/components/Button.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allLinks = await getCollection("links");
@@ -35,6 +36,7 @@ const { page } = Astro.props;
       A collection of short notes, interesting links, and the occasional long
       form post.
     </p>
+    <!-- <Button as="a" href="/feed/rss.xml" class="mt-6">Subscribe via RSS</Button> -->
   </header>
   <section class="relative">
     <ul class="divide-y divide-dashed divide-neutral-700">
