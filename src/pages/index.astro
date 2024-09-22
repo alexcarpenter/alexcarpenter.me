@@ -15,6 +15,7 @@ import bryceKalowAvatar from "@/images/bryce-kalow.jpeg";
 import tomMilewskiAvatar from "@/images/tom-milewski.jpeg";
 import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
 import { Icon } from "astro-icon/components";
+import Tooltip from "@/components/Tooltip.astro";
 
 const pullRequests = import.meta.env.PROD
   ? await fetchLatestPullRequests({
@@ -40,13 +41,7 @@ const pullRequests = import.meta.env.PROD
       data-tooltip-trigger="stories"
       aria-describedby="stories"
     />
-    <div
-      id="stories"
-      role="tooltip"
-      class="absolute left-0 top-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs"
-    >
-      View stories
-    </div>
+    <Tooltip id="stories"> View stories </Tooltip>
     <h1 class="font-mono text-sm text-neutral-400">Alex Carpenter</h1>
     <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design
@@ -259,13 +254,7 @@ const pullRequests = import.meta.env.PROD
                         class="absolute h-full w-full object-cover"
                       />
                     </a>
-                    <div
-                      id={id}
-                      role="tooltip"
-                      class="absolute left-0 top-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs"
-                    >
-                      {name}
-                    </div>
+                    <Tooltip id={id}>{name}</Tooltip>
                   </Fragment>
                 );
               })

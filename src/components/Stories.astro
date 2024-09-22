@@ -11,13 +11,39 @@ const { class: className, ...props } = Astro.props;
 ---
 
 <button
+  {...props}
   class:list={[
-    "mx-auto flex size-9 items-center justify-center rounded-full bg-green-950 ring-2 ring-green-500",
+    "relative mx-auto flex size-10 items-center justify-center rounded-full",
     className,
   ]}
   data-stories-trigger
-  {...props}
 >
+  <svg
+    viewBox="0 0 40 40"
+    fill="none"
+    class="absolute inset-0"
+    aria-hidden="true"
+  >
+    <circle
+      cx="50%"
+      cy="50%"
+      r="calc(50% - 1px)"
+      stroke-width={2}
+      class="stroke-neutral-700"></circle>
+    <circle
+      cx="50%"
+      cy="50%"
+      r="calc(50% - 1px)"
+      stroke-width={2}
+      pathLength={100}
+      stroke-dasharray="100 200"
+      stroke-linecap="round"
+      stroke-dashoffset="100"
+      transform="rotate(-90)"
+      transform-origin="center"
+      class="animate-[stories-loader_1s_cubic-bezier(.25,.1,.25,1)_.25s_forwards] stroke-green-500"
+    ></circle>
+  </svg>
   <Image
     src={avatar}
     width="48"

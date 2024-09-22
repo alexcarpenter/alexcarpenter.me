@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"div">;
+
+const { class: className, id, ...props } = Astro.props;
+---
+
+<div
+  {...props}
+  id={id}
+  role="tooltip"
+  class:list={[
+    "absolute left-0 top-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs",
+    className,
+  ]}
+>
+  <slot />
+</div>
