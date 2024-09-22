@@ -35,7 +35,18 @@ const pullRequests = import.meta.env.PROD
 <BaseLayout>
   <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
-    <Stories />
+    <Stories
+      class="mb-4"
+      data-tooltip-trigger="stories"
+      aria-describedby="stories"
+    />
+    <div
+      id="stories"
+      role="tooltip"
+      class="absolute left-0 top-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs"
+    >
+      View stories
+    </div>
     <h1 class="font-mono text-sm text-neutral-400">Alex Carpenter</h1>
     <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design

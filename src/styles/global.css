@@ -39,7 +39,7 @@
   }
 
   dialog::backdrop {
-    @apply bg-black/75 backdrop-blur-sm;
+    @apply bg-black/75 backdrop-blur-md;
   }
 }
 

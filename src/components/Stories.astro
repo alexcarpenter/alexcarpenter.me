@@ -1,12 +1,22 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"button">;
+
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import avatar from "@/images/me.jpg";
+
+const { class: className, ...props } = Astro.props;
 ---
 
 <button
-  class="mx-auto flex size-9 items-center justify-center rounded-full bg-green-950 ring-2 ring-green-500"
+  class:list={[
+    "mx-auto flex size-9 items-center justify-center rounded-full bg-green-950 ring-2 ring-green-500",
+    className,
+  ]}
   data-stories-trigger
+  {...props}
 >
   <Image
     src={avatar}
@@ -19,7 +29,7 @@ import avatar from "@/images/me.jpg";
 
 <dialog
   data-stories-dialog
-  class="inset-0 m-auto aspect-[3/4] h-[min(calc(100vh-theme(spacing.8)),calc(100vw-theme(spacing.8))*4/3)] max-h-[calc(100vh-theme(spacing.8))] max-w-[calc(100vh-theme(spacing.8))] overflow-visible border-0 p-0"
+  class="inset-0 m-auto aspect-[3/4] h-[min(calc(100vh-theme(spacing.8)),calc(100vw-theme(spacing.8))*4/3)] max-h-[calc(100vh-theme(spacing.8))] max-w-[calc(100vw-theme(spacing.8))] overflow-visible border-0 p-0"
 >
   <div data-embla class="absolute inset-0 flex overflow-hidden">
     <div data-embla-viewport class="flex w-full">
