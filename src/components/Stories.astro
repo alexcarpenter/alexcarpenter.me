@@ -13,7 +13,7 @@ const { class: className, ...props } = Astro.props;
 <button
   {...props}
   class:list={[
-    "relative mx-auto flex size-10 items-center justify-center rounded-full",
+    "group relative mx-auto flex size-10 items-center justify-center rounded-full",
     className,
   ]}
   data-stories-trigger
@@ -41,7 +41,7 @@ const { class: className, ...props } = Astro.props;
       stroke-dashoffset="100"
       transform="rotate(-90)"
       transform-origin="center"
-      class="animate-[stories-loader_1s_cubic-bezier(.25,.1,.25,1)_.25s_forwards] stroke-green-500"
+      class="stroke-green-500 group-hover:animate-[stories-loader_1s_cubic-bezier(.25,.1,.25,1)_forwards]"
     ></circle>
   </svg>
   <Image
