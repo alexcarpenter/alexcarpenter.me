@@ -77,9 +77,7 @@ export const addDotBtnsAndClickHandlers = (
     const previous = emblaApi.previousScrollSnap();
     const selected = emblaApi.selectedScrollSnap();
     dotNodes[previous].dataset.active = "false";
-    dotNodes[selected].classList.remove("active");
     dotNodes[selected].dataset.active = "true";
-    dotNodes[selected].classList.add("active");
   };
 
   emblaApi

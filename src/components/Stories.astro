@@ -5,7 +5,7 @@ import avatar from "@/images/me.jpg";
 ---
 
 <button
-  class="mx-auto flex size-9 items-center justify-center rounded-full ring-2 ring-green-500"
+  class="mx-auto flex size-9 items-center justify-center rounded-full bg-green-950 ring-2 ring-green-500"
   data-stories-trigger
 >
   <Image
@@ -53,15 +53,24 @@ import avatar from "@/images/me.jpg";
         </figure>
       </div>
     </div>
-    <div
-      data-embla-dots
-      class:list={[
-        "absolute left-4 right-4 top-4 flex gap-x-2",
-        "*:h-1 *:min-w-0 *:flex-1 *:rounded-md *:bg-white/50",
-        "[&_[data-active='true']]:bg-white/90",
-        "[&_:has(~[data-active='true'])]:bg-white/90",
-      ]}
-    >
+    <div class="absolute left-4 right-0 top-0 flex items-center gap-x-4">
+      <div
+        data-embla-dots
+        class:list={[
+          "flex flex-1 gap-x-2",
+          "*:h-1 *:min-w-0 *:flex-1 *:rounded-md *:bg-white/50",
+          "[&_[data-active='true']]:bg-white/90",
+          "[&_:has(~[data-active='true'])]:bg-white/90",
+        ]}
+      >
+      </div>
+      <button
+        data-stories-close
+        class="flex size-12 items-center justify-center"
+      >
+        <span class="sr-only">Close</span>
+        <Icon name="close" />
+      </button>
     </div>
     <button
       data-embla-prev
@@ -106,6 +115,9 @@ import avatar from "@/images/me.jpg";
   const storiesTrigger = document.querySelector(
     "[data-stories-trigger]"
   ) as HTMLElement;
+  const storiesClose = document.querySelector(
+    "[data-stories-close]"
+  ) as HTMLElement;
   const storiesDialog = document.querySelector(
     "[data-stories-dialog]"
   ) as HTMLDialogElement;
@@ -129,5 +141,9 @@ import avatar from "@/images/me.jpg";
 
   storiesTrigger?.addEventListener("click", () => {
     storiesDialog.showModal();
+  });
+
+  storiesClose?.addEventListener("click", () => {
+    storiesDialog.close();
   });
 </script>
