@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import avatar from "@/images/me.jpg";
 ---
 
@@ -18,12 +19,12 @@ import avatar from "@/images/me.jpg";
 
 <dialog
   data-stories-dialog
-  class="inset-0 m-auto aspect-[3/4] h-[min(50rem,calc(100vw-theme(spacing.8))*4/3)] max-h-[50rem] max-w-[calc(100vh-theme(spacing.8))] overflow-visible border-0 p-0"
+  class="inset-0 m-auto aspect-[3/4] h-[min(calc(100vh-theme(spacing.8)),calc(100vw-theme(spacing.8))*4/3)] max-h-[calc(100vh-theme(spacing.8))] max-w-[calc(100vh-theme(spacing.8))] overflow-visible border-0 p-0"
 >
   <div data-embla class="absolute inset-0 flex overflow-hidden">
     <div data-embla-viewport class="flex w-full">
       <div data-embla-container class="flex w-full">
-        <div class="h-full min-w-0 flex-[0_0_100%]">
+        <figure class="h-full min-w-0 flex-[0_0_100%]">
           <Image
             src={avatar}
             width="600"
@@ -31,9 +32,8 @@ import avatar from "@/images/me.jpg";
             alt=""
             class="absolute h-full w-full object-cover"
           />
-        </div>
-
-        <div class="h-full min-w-0 flex-[0_0_100%]">
+        </figure>
+        <figure class="h-full min-w-0 flex-[0_0_100%]">
           <Image
             src={avatar}
             width="600"
@@ -41,31 +41,67 @@ import avatar from "@/images/me.jpg";
             alt=""
             class="absolute h-full w-full object-cover"
           />
-        </div>
+        </figure>
+        <figure class="h-full min-w-0 flex-[0_0_100%]">
+          <Image
+            src={avatar}
+            width="600"
+            height="800"
+            alt=""
+            class="absolute h-full w-full object-cover"
+          />
+        </figure>
       </div>
     </div>
-    <button data-embla-prev class="absolute left-0 top-1/2 -translate-y-1/2"
-      >Prev</button
+    <div
+      data-embla-dots
+      class:list={[
+        "absolute left-4 right-4 top-4 flex gap-x-2",
+        "*:h-1 *:min-w-0 *:flex-1 *:rounded-md *:bg-white/50",
+        "[&_[data-active='true']]:bg-white/90",
+        "[&_:has(~[data-active='true'])]:bg-white/90",
+      ]}
     >
-    <button data-embla-next class="absolute right-0 top-1/2 -translate-y-1/2"
-      >Next</button
+    </div>
+    <button
+      data-embla-prev
+      class="group absolute left-0 top-1/2 size-12 -translate-y-1/2"
     >
+      <span class="sr-only">Previous</span>
+      <span
+        class="m-auto flex size-6 items-center justify-center rounded-full bg-white/90 text-neutral-950 group-disabled:opacity-0"
+      >
+        <Icon name="left-chevron" class="-translate-x-px" />
+      </span>
+    </button>
+    <button
+      data-embla-next
+      class="group absolute right-0 top-1/2 size-12 -translate-y-1/2"
+    >
+      <span class="sr-only">Next</span>
+      <span
+        class="m-auto flex size-6 items-center justify-center rounded-full bg-white/90 text-neutral-950 group-disabled:opacity-0"
+      >
+        <Icon name="right-chevron" class="translate-x-px" />
+      </span>
+    </button>
   </div>
 </dialog>
 
 <script>
-  import { addPrevNextBtnsClickHandlers } from "@/utils/embla";
+  import {
+    addDotBtnsAndClickHandlers,
+    addPrevNextBtnsClickHandlers,
+  } from "@/utils/embla";
   import EmblaCarousel from "embla-carousel";
 
-  const emblaViewport = document.querySelector(
+  const embla = document.querySelector("[data-embla]") as HTMLElement;
+  const emblaViewport = embla.querySelector(
     "[data-embla-viewport]"
   ) as HTMLElement;
-  const emblaPrevBtn = document.querySelector(
-    "[data-embla-prev]"
-  ) as HTMLElement;
-  const emblaNextBtn = document.querySelector(
-    "[data-embla-next]"
-  ) as HTMLElement;
+  const emblaDots = embla.querySelector("[data-embla-dots]") as HTMLElement;
+  const emblaPrevBtn = embla.querySelector("[data-embla-prev]") as HTMLElement;
+  const emblaNextBtn = embla.querySelector("[data-embla-next]") as HTMLElement;
 
   const storiesTrigger = document.querySelector(
     "[data-stories-trigger]"
@@ -83,7 +119,13 @@ import avatar from "@/images/me.jpg";
     emblaNextBtn
   );
 
+  const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(
+    emblaApi,
+    emblaDots
+  );
+
   emblaApi.on("destroy", removePrevNextBtnsClickHandlers);
+  emblaApi.on("destroy", removeDotBtnsAndClickHandlers);
 
   storiesTrigger?.addEventListener("click", () => {
     storiesDialog.showModal();
