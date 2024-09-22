@@ -16,15 +16,74 @@ import avatar from "@/images/me.jpg";
   />
 </button>
 
-<dialog data-stories-dialog class="m-auto border-0 p-0">Hello world</dialog>
+<dialog
+  data-stories-dialog
+  class="inset-0 m-auto aspect-[3/4] h-[min(50rem,calc(100vw-theme(spacing.8))*4/3)] max-h-[50rem] max-w-[calc(100vh-theme(spacing.8))] overflow-visible border-0 p-0"
+>
+  <div data-embla class="absolute inset-0 flex overflow-hidden">
+    <div data-embla-viewport class="flex w-full">
+      <div data-embla-container class="flex w-full">
+        <div class="h-full min-w-0 flex-[0_0_100%]">
+          <Image
+            src={avatar}
+            width="600"
+            height="800"
+            alt=""
+            class="absolute h-full w-full object-cover"
+          />
+        </div>
+
+        <div class="h-full min-w-0 flex-[0_0_100%]">
+          <Image
+            src={avatar}
+            width="600"
+            height="800"
+            alt=""
+            class="absolute h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+    <button data-embla-prev class="absolute left-0 top-1/2 -translate-y-1/2"
+      >Prev</button
+    >
+    <button data-embla-next class="absolute right-0 top-1/2 -translate-y-1/2"
+      >Next</button
+    >
+  </div>
+</dialog>
 
 <script>
+  import { addPrevNextBtnsClickHandlers } from "@/utils/embla";
+  import EmblaCarousel from "embla-carousel";
+
+  const emblaViewport = document.querySelector(
+    "[data-embla-viewport]"
+  ) as HTMLElement;
+  const emblaPrevBtn = document.querySelector(
+    "[data-embla-prev]"
+  ) as HTMLElement;
+  const emblaNextBtn = document.querySelector(
+    "[data-embla-next]"
+  ) as HTMLElement;
+
   const storiesTrigger = document.querySelector(
     "[data-stories-trigger]"
   ) as HTMLElement;
   const storiesDialog = document.querySelector(
     "[data-stories-dialog]"
   ) as HTMLDialogElement;
+
+  const options = { loop: false };
+  const emblaApi = EmblaCarousel(emblaViewport, options);
+
+  const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+    emblaApi,
+    emblaPrevBtn,
+    emblaNextBtn
+  );
+
+  emblaApi.on("destroy", removePrevNextBtnsClickHandlers);
 
   storiesTrigger?.addEventListener("click", () => {
     storiesDialog.showModal();
