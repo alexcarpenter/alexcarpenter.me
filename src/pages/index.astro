@@ -94,12 +94,12 @@ const pullRequests = import.meta.env.PROD
     </header>
 
     <div
-      class="grid auto-rows-[20rem] grid-cols-1 border-y border-dashed border-neutral-700 sm:grid-cols-2"
+      class="grid auto-rows-[20rem] grid-cols-1 overflow-hidden border-y border-dashed border-neutral-700 sm:grid-cols-2"
     >
       <div
-        class="relative overflow-hidden border-dashed border-neutral-700 sm:border-r"
+        class="relative max-sm:overflow-hidden sm:col-span-2 sm:col-start-1 sm:row-start-1"
       >
-        <figure class="relative">
+        <figure>
           <figcaption class="sr-only">
             Codeblock showing Clerk Elements sign in code example
           </figcaption>
@@ -107,43 +107,35 @@ const pullRequests = import.meta.env.PROD
             <SignInCodeBlock />
           </div>
         </figure>
-        <span
-          class="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-neutral-950 to-transparent"
-          aria-hidden="true"></span>
       </div>
 
-      <div class="border-dashed border-neutral-700 max-sm:border-t">
-        <div
-          class="relative h-full overflow-hidden bg-neutral-900 px-4 pt-8 sm:p-0"
+      <div
+        class="elative overflow-hidden border-dashed border-neutral-700 bg-neutral-950/50 px-4 pt-8 backdrop-blur-sm max-sm:border-t sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:border-l sm:p-0"
+      >
+        <figure
+          class="relative mx-auto max-w-96 sm:absolute sm:min-w-full sm:translate-x-10 sm:translate-y-10"
         >
           <div
-            class="relative mx-auto max-w-96 sm:absolute sm:min-w-full sm:translate-x-10 sm:translate-y-10"
+            class:list={[
+              "absolute -top-0.5 h-px border-t border-dashed border-neutral-700",
+              "left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] w-screen",
+            ]}
+            aria-hidden="true"
           >
-            <div
-              class:list={[
-                "absolute -top-0.5 h-px border-t border-dashed border-neutral-700",
-                "left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] w-screen",
-              ]}
-              aria-hidden="true"
-            >
-            </div>
-            <div
-              class="absolute -left-0.5 -top-10 bottom-0 h-full w-px cursor-ew-resize border-l border-dashed border-neutral-700"
-              aria-hidden="true"
-            >
-            </div>
-            <div
-              class="absolute -right-0.5 -top-10 bottom-0 h-full w-px border-r border-dashed border-neutral-700"
-              aria-hidden="true"
-            >
-            </div>
-
-            <figure>
-              <figcaption class="sr-only">Clerk sign in component</figcaption>
-              <SignInCard />
-            </figure>
           </div>
-        </div>
+          <div
+            class="absolute -left-0.5 -top-10 bottom-0 h-full w-px cursor-ew-resize border-l border-dashed border-neutral-700"
+            aria-hidden="true"
+          >
+          </div>
+          <div
+            class="absolute -right-0.5 -top-10 bottom-0 h-full w-px border-r border-dashed border-neutral-700"
+            aria-hidden="true"
+          >
+          </div>
+          <figcaption class="sr-only">Clerk sign in component</figcaption>
+          <SignInCard />
+        </figure>
       </div>
     </div>
 
