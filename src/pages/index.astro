@@ -6,7 +6,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { slugify } from "@/utils/formatting";
 import SignInCodeBlock from "@/components/SignInCodeBlock.astro";
 import SignInCard from "@/components/SignInCard.astro";
-// import Stories from "@/components/Stories.astro";
 
 import { fetchLatestPullRequests } from "@/utils/fetch-latest-pull-reqests.ts";
 
@@ -35,7 +34,6 @@ const pullRequests = import.meta.env.PROD
 <BaseLayout>
   <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
-    <!-- <Stories /> -->
     <h1 class="font-mono text-sm text-neutral-400">Alex Carpenter</h1>
     <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design
@@ -97,7 +95,7 @@ const pullRequests = import.meta.env.PROD
       class="grid auto-rows-[20rem] grid-cols-1 overflow-hidden border-y border-dashed border-neutral-700 sm:grid-cols-2"
     >
       <div
-        class="relative max-sm:overflow-hidden sm:col-span-2 sm:col-start-1 sm:row-start-1"
+        class="relative [mask-image:linear-gradient(to_bottom,theme(colors.white)_calc(100%_-_theme(spacing.10)),transparent)] max-sm:overflow-hidden sm:col-span-2 sm:col-start-1 sm:row-start-1"
       >
         <figure>
           <figcaption class="sr-only">
