@@ -76,7 +76,7 @@ export const addDotBtnsAndClickHandlers = (
   const toggleDotBtnsActive = (): void => {
     const previous = emblaApi.previousScrollSnap();
     const selected = emblaApi.selectedScrollSnap();
-    dotNodes[previous].dataset.active = "false";
+    dotNodes[previous].removeAttribute("data-active");
     dotNodes[selected].dataset.active = "true";
   };
 
