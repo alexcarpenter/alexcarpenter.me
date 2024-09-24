@@ -1,0 +1,185 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"button">;
+
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import avatar from "@/images/me.jpg";
+
+const { class: className, ...props } = Astro.props;
+---
+
+<button
+  {...props}
+  class:list={[
+    "group relative mx-auto flex size-10 items-center justify-center rounded-full",
+    className,
+  ]}
+  data-stories-trigger
+>
+  <svg
+    viewBox="0 0 40 40"
+    fill="none"
+    class="absolute inset-0"
+    aria-hidden="true"
+  >
+    <circle
+      cx="50%"
+      cy="50%"
+      r="calc(50% - 1px)"
+      stroke-width={2}
+      class="stroke-neutral-700"></circle>
+    <circle
+      cx="50%"
+      cy="50%"
+      r="calc(50% - 1px)"
+      stroke-width={2}
+      pathLength={100}
+      stroke-dasharray="100 200"
+      stroke-linecap="round"
+      stroke-dashoffset="100"
+      transform="rotate(-90)"
+      transform-origin="center"
+      class="stroke-green-500 group-hover:animate-[stories-loader_1s_cubic-bezier(.25,.1,.25,1)_forwards]"
+    ></circle>
+  </svg>
+  <Image
+    src={avatar}
+    width="48"
+    height="48"
+    alt=""
+    class="size-8 rounded-full"
+  />
+</button>
+
+<dialog
+  data-stories-dialog
+  class="inset-0 m-auto aspect-[3/4] h-[min(calc(100vh-theme(spacing.8)),calc(100vw-theme(spacing.8))*4/3)] max-h-[calc(100vh-theme(spacing.8))] max-w-[calc(100vw-theme(spacing.8))] overflow-visible border-0 p-0"
+>
+  <div data-embla class="absolute inset-0 flex overflow-hidden">
+    <div data-embla-viewport class="flex w-full">
+      <div data-embla-container class="flex w-full">
+        <figure class="h-full min-w-0 flex-[0_0_100%]">
+          <Image
+            src={avatar}
+            width="600"
+            height="800"
+            alt=""
+            class="absolute h-full w-full object-cover"
+          />
+        </figure>
+        <figure class="h-full min-w-0 flex-[0_0_100%]">
+          <Image
+            src={avatar}
+            width="600"
+            height="800"
+            alt=""
+            class="absolute h-full w-full object-cover"
+          />
+        </figure>
+        <figure class="h-full min-w-0 flex-[0_0_100%]">
+          <Image
+            src={avatar}
+            width="600"
+            height="800"
+            alt=""
+            class="absolute h-full w-full object-cover"
+          />
+        </figure>
+      </div>
+    </div>
+    <div class="absolute left-4 right-0 top-0 flex items-center gap-x-4">
+      <div
+        data-embla-dots
+        class:list={[
+          "flex flex-1 gap-x-2",
+          "*:h-1 *:min-w-0 *:flex-1 *:rounded-md *:bg-white/50",
+          "[&_[data-active='true']]:bg-white/90",
+          "[&_:has(~[data-active='true'])]:bg-white/90",
+        ]}
+      >
+      </div>
+      <button
+        data-stories-close
+        class="flex size-12 items-center justify-center"
+      >
+        <span class="sr-only">Close</span>
+        <Icon name="close" />
+      </button>
+    </div>
+    <button
+      data-embla-prev
+      class="group absolute left-0 top-1/2 size-12 -translate-y-1/2"
+    >
+      <span class="sr-only">Previous</span>
+      <span
+        class="m-auto flex size-6 items-center justify-center rounded-full bg-white/90 text-neutral-950 group-disabled:opacity-0"
+      >
+        <Icon name="left-chevron" class="-translate-x-px" />
+      </span>
+    </button>
+    <button
+      data-embla-next
+      class="group absolute right-0 top-1/2 size-12 -translate-y-1/2"
+    >
+      <span class="sr-only">Next</span>
+      <span
+        class="m-auto flex size-6 items-center justify-center rounded-full bg-white/90 text-neutral-950 group-disabled:opacity-0"
+      >
+        <Icon name="right-chevron" class="translate-x-px" />
+      </span>
+    </button>
+  </div>
+</dialog>
+
+<script>
+  import {
+    addDotBtnsAndClickHandlers,
+    addPrevNextBtnsClickHandlers,
+  } from "@/utils/embla";
+  import EmblaCarousel from "embla-carousel";
+
+  const embla = document.querySelector("[data-embla]") as HTMLElement;
+  const emblaViewport = embla.querySelector(
+    "[data-embla-viewport]"
+  ) as HTMLElement;
+  const emblaDots = embla.querySelector("[data-embla-dots]") as HTMLElement;
+  const emblaPrevBtn = embla.querySelector("[data-embla-prev]") as HTMLElement;
+  const emblaNextBtn = embla.querySelector("[data-embla-next]") as HTMLElement;
+
+  const storiesTrigger = document.querySelector(
+    "[data-stories-trigger]"
+  ) as HTMLElement;
+  const storiesClose = document.querySelector(
+    "[data-stories-close]"
+  ) as HTMLElement;
+  const storiesDialog = document.querySelector(
+    "[data-stories-dialog]"
+  ) as HTMLDialogElement;
+
+  const options = { loop: false };
+  const emblaApi = EmblaCarousel(emblaViewport, options);
+
+  const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
+    emblaApi,
+    emblaPrevBtn,
+    emblaNextBtn
+  );
+
+  const removeDotBtnsAndClickHandlers = addDotBtnsAndClickHandlers(
+    emblaApi,
+    emblaDots
+  );
+
+  emblaApi.on("destroy", removePrevNextBtnsClickHandlers);
+  emblaApi.on("destroy", removeDotBtnsAndClickHandlers);
+
+  storiesTrigger?.addEventListener("click", () => {
+    storiesDialog.showModal();
+  });
+
+  storiesClose?.addEventListener("click", () => {
+    storiesDialog.close();
+  });
+</script>
