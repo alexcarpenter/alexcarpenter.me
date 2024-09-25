@@ -1,7 +1,7 @@
 ---
 import type { HTMLTag, Polymorphic } from "astro/types";
 
-type Variant = "blue" | "orange" | "neutral";
+type Variant = "blue";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
   as: Tag;
@@ -11,15 +11,13 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 const { as: Tag = "button", variant = "blue", ...props } = Astro.props;
 
 const variantClasses: Record<Variant, string> = {
-  blue: "bg-blue-600 ring-blue-600",
-  orange: "bg-orange-600 ring-orange-600",
-  neutral: "bg-neutral-800 ring-neutral-800",
+  blue: "bg-blue-600 ring-blue-600 active:bg-blue-700 active:ring-blue-700",
 };
 ---
 
 <Tag
   class:list={[
-    "before:transtion-opacity group relative isolate inline-flex items-center justify-center overflow-hidden rounded-md px-3 py-[0.1875rem] text-sm font-medium tracking-tight text-white shadow-[0_1px_theme(colors.white/0.07)_inset,0_1px_3px_theme(colors.gray.900/0.2)] ring-1 transition duration-300 ease-[cubic-bezier(0.4,0.36,0,1)] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-b before:from-white/20 before:opacity-50 before:duration-300 before:ease-[cubic-bezier(0.4,0.36,0,1)] after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:rounded-md after:bg-gradient-to-b after:from-white/10 after:from-[46%] after:to-[54%] after:mix-blend-overlay hover:before:opacity-100",
+    "before:transtion-opacity group relative isolate inline-flex items-center justify-center gap-x-1.5 overflow-hidden rounded-md px-3 py-[0.1875rem] text-sm font-medium tracking-tight text-white shadow-[0_1px_theme(colors.white/0.07)_inset,0_1px_3px_theme(colors.gray.900/0.2)] ring-1 transition duration-300 ease-[cubic-bezier(0.4,0.36,0,1)] before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-gradient-to-b before:from-white/20 before:opacity-50 before:duration-300 before:ease-[cubic-bezier(0.4,0.36,0,1)] after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:rounded-md after:bg-gradient-to-b after:from-white/10 after:from-[46%] after:to-[54%] after:mix-blend-overlay hover:before:opacity-100",
     variantClasses[variant as Variant],
   ]}
   {...props}
