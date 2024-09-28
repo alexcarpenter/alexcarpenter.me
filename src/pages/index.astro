@@ -37,11 +37,11 @@ const pullRequests = import.meta.env.PROD
   <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
     <div
-      class="relative isolate -z-10 mx-auto mb-6 flex size-8 items-center justify-center"
+      class="relative isolate mx-auto mb-6 flex size-8 items-center justify-center"
     >
       <div
         class:list={[
-          "absolute -inset-y-8 -left-0.5 border-l border-dashed border-neutral-800",
+          "pointer-events-none absolute -inset-y-8 -left-0.5 border-l border-dashed border-neutral-800",
           "[mask-image:linear-gradient(to_bottom,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
         ]}
         aria-hidden="true"
@@ -49,7 +49,7 @@ const pullRequests = import.meta.env.PROD
       </div>
       <div
         class:list={[
-          "absolute -inset-y-8 -right-0.5 border-r border-dashed border-neutral-800",
+          "pointer-events-none absolute -inset-y-8 -right-0.5 border-r border-dashed border-neutral-800",
           "[mask-image:linear-gradient(to_bottom,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
         ]}
         aria-hidden="true"
@@ -57,7 +57,7 @@ const pullRequests = import.meta.env.PROD
       </div>
       <div
         class:list={[
-          "absolute -inset-x-8 -top-0.5 border-t border-dashed border-neutral-800",
+          "pointer-events-none absolute -inset-x-8 -top-0.5 border-t border-dashed border-neutral-800",
           "[mask-image:linear-gradient(to_right,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
         ]}
         aria-hidden="true"
@@ -65,7 +65,7 @@ const pullRequests = import.meta.env.PROD
       </div>
       <div
         class:list={[
-          "absolute -inset-x-8 -bottom-0.5 border-b border-dashed border-neutral-800",
+          "pointer-events-none absolute -inset-x-8 -bottom-0.5 border-b border-dashed border-neutral-800",
           "[mask-image:linear-gradient(to_right,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
         ]}
         aria-hidden="true"
