@@ -9,11 +9,13 @@ import SignInCard from "@/components/SignInCard.astro";
 
 import { fetchLatestPullRequests } from "@/utils/fetch-latest-pull-reqests.ts";
 
+import avatar from "@/images/me.jpg";
 import joeBellAvatar from "@/images/joe-bell.jpeg";
 import bryceKalowAvatar from "@/images/bryce-kalow.jpeg";
 import tomMilewskiAvatar from "@/images/tom-milewski.jpeg";
 import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
 import { Icon } from "astro-icon/components";
+import Button from "@/components/Button.astro";
 
 const pullRequests = import.meta.env.PROD
   ? await fetchLatestPullRequests({
@@ -34,12 +36,71 @@ const pullRequests = import.meta.env.PROD
 <BaseLayout>
   <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
+    <div
+      class="relative isolate -z-10 mx-auto mb-6 flex size-8 items-center justify-center"
+    >
+      <div
+        class:list={[
+          "absolute -inset-y-8 -left-0.5 border-l border-dashed border-neutral-800",
+          "[mask-image:linear-gradient(to_bottom,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
+        ]}
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class:list={[
+          "absolute -inset-y-8 -right-0.5 border-r border-dashed border-neutral-800",
+          "[mask-image:linear-gradient(to_bottom,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
+        ]}
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class:list={[
+          "absolute -inset-x-8 -top-0.5 border-t border-dashed border-neutral-800",
+          "[mask-image:linear-gradient(to_right,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
+        ]}
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class:list={[
+          "absolute -inset-x-8 -bottom-0.5 border-b border-dashed border-neutral-800",
+          "[mask-image:linear-gradient(to_right,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
+        ]}
+        aria-hidden="true"
+      >
+      </div>
+      <Image
+        src={avatar}
+        alt="Alex Carpenter avatar"
+        width={128}
+        height={128}
+        class="w-8 rounded-full"
+      />
+    </div>
     <h1 class="font-mono text-sm text-neutral-400">Alex Carpenter</h1>
     <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design
       and engineering teams.
     </p>
-    <!-- <Button href="/resume" as="a">View resume</Button> -->
+    <Button href="/resume" as="a" class="group/btn mt-6"
+      >View resume <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-4 transition-transform group-hover/btn:translate-x-0.5"
+        ><path d="m6 17 5-5-5-5"></path><path
+          class="opacity-50 transition-opacity group-hover/btn:opacity-100"
+          d="m13 17 5-5-5-5"></path></svg
+      ></Button
+    >
   </header>
 
   <div
