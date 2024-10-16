@@ -2,9 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-type JobProps = CollectionEntry<"jobs">;
 const jobs = await getCollection("jobs");
-type RecommendationProps = CollectionEntry<"recommendations">;
 const recommendations = await getCollection("recommendations");
 import { parseYearToString } from "@/components/FormattedDate.astro";
 import { slugify } from "@/utils/formatting";
@@ -58,7 +56,7 @@ const avatarMap = {
               Date.parse(b.data.startDate.toString()) -
               Date.parse(a.data.startDate.toString())
           )
-          .map((job: JobProps) =>
+          .map((job) =>
             job.render().then(({ Content }) => (
               <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem,minmax(0,1fr)] sm:px-8">
                 <img
@@ -119,11 +117,8 @@ const avatarMap = {
               Date.parse(b.data.published.toString()) -
               Date.parse(a.data.published.toString())
           )
-          .filter(
-            (recommendation: RecommendationProps) =>
-              recommendation.data.status === "visible"
-          )
-          .map((recommendation: RecommendationProps) =>
+          .filter((recommendation) => recommendation.data.status === "visible")
+          .map((recommendation) =>
             recommendation.render().then(({ Content }) => {
               const { name, title, company } = recommendation.data;
               return (

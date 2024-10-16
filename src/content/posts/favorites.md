@@ -11,6 +11,12 @@ draft: true
 
 ---
 
+<small>Coffee maker</small>
+
+## Moccamaster
+
+---
+
 <small>Coffee mug</small>
 
 ## Snow Peak Ti-Double H450 Stacking Mug

@@ -10,6 +10,7 @@ draft: true
 - **Computer** - Apple M2 13in Macbook Air
 - **Phone** - Apple iPhone 15 Pro
 - **Tablet** - Apple iPad Mini
+- **Keyboard** - Kinesis Advantage360
 
 ---
 
