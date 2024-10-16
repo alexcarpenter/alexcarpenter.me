@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import FormattedDate from "@/components/FormattedDate.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -10,11 +11,6 @@ import SignInCard from "@/components/SignInCard.astro";
 import { fetchLatestPullRequests } from "@/utils/fetch-latest-pull-reqests.ts";
 
 import avatar from "@/images/me.jpg";
-import joeBellAvatar from "@/images/joe-bell.jpeg";
-import bryceKalowAvatar from "@/images/bryce-kalow.jpeg";
-import tomMilewskiAvatar from "@/images/tom-milewski.jpeg";
-import dylanStaleyAvatar from "@/images/dylan-staley.jpeg";
-import { Icon } from "astro-icon/components";
 import Button from "@/components/Button.astro";
 
 const pullRequests = import.meta.env.PROD
@@ -31,6 +27,28 @@ const pullRequests = import.meta.env.PROD
         url: "/",
       };
     });
+const collaborators = [
+  {
+    name: "Bryce Kalow",
+    img: import("@/images/bryce-kalow.jpeg"),
+    linkedin: "https://www.linkedin.com/in/bryce-kalow-86a57183/",
+  },
+  {
+    name: "Tom Milewski",
+    img: import("@/images/tom-milewski.jpeg"),
+    linkedin: "https://www.linkedin.com/in/tmilewski/",
+  },
+  {
+    name: "Dylan Staley",
+    img: import("@/images/dylan-staley.jpeg"),
+    linkedin: "https://www.linkedin.com/in/dstaley/",
+  },
+  {
+    name: "Pantelis Eleftheriadis",
+    img: import("@/images/pantelis-eleftheriadis.jpg"),
+    linkedin: "https://www.linkedin.com/in/pantelis-elef/",
+  },
+];
 ---
 
 <BaseLayout>
@@ -260,28 +278,7 @@ const pullRequests = import.meta.env.PROD
           </p>
           <div class="mt-4 flex justify-center">
             {
-              [
-                {
-                  name: "Joe Bell",
-                  img: joeBellAvatar,
-                  linkedin: "https://www.linkedin.com/in/joebell93/",
-                },
-                {
-                  name: "Bryce Kalow",
-                  img: bryceKalowAvatar,
-                  linkedin: "https://www.linkedin.com/in/bryce-kalow-86a57183/",
-                },
-                {
-                  name: "Tom Milewski",
-                  img: tomMilewskiAvatar,
-                  linkedin: "https://www.linkedin.com/in/tmilewski/",
-                },
-                {
-                  name: "Dylan Staley",
-                  img: dylanStaleyAvatar,
-                  linkedin: "https://www.linkedin.com/in/dstaley/",
-                },
-              ].map(({ name, img, linkedin }) => {
+              collaborators.map(({ name, img, linkedin }) => {
                 const id = slugify(`tooltip-${name}`);
                 return (
                   <Fragment>
