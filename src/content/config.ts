@@ -28,7 +28,7 @@ const jobs = defineCollection({
             src: z.string(),
             alt: z.string(),
           }),
-        })
+        }),
       )
       .optional(),
   }),
@@ -62,7 +62,7 @@ const recommendations = defineCollection({
     company: z.enum(JOBS),
     published: z.coerce.date(),
     avatar: z.string().optional(),
-    visible: z.boolean().optional(),
+    status: z.enum(["visible", "hidden"]).default("visible"),
   }),
 });
 

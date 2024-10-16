@@ -13,6 +13,7 @@ import Button from "@/components/Button.astro";
 import { Icon } from "astro-icon/components";
 
 const avatarMap = {
+  "david-mosher": import("@/images/david-mosher.jpg"),
   "jimmy-merritello": import("@/images/jimmy-merritello.jpeg"),
   "amy-stuart": import("@/images/amy-stuart.jpeg"),
   "andrew-possehl": import("@/images/andrew-possehl.jpeg"),
@@ -120,7 +121,7 @@ const avatarMap = {
           )
           .filter(
             (recommendation: RecommendationProps) =>
-              recommendation.data.visible !== false
+              recommendation.data.status === "visible"
           )
           .map((recommendation: RecommendationProps) =>
             recommendation.render().then(({ Content }) => {
@@ -129,7 +130,7 @@ const avatarMap = {
                 <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem,minmax(0,1fr)] sm:px-8">
                   <Image
                     src={avatarMap[recommendation.slug]}
-                    alt="Jimmy Merrittello avatar"
+                    alt={`${name} avatar`}
                     class="relative size-8 rounded-full"
                     width={128}
                     height={128}
