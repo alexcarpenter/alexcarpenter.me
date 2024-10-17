@@ -20,7 +20,6 @@
     "@sindresorhus/slugify": "^2.2.1",
     "astro": "4.13.0",
     "astro-icon": "^1.1.1",
-    "change-case": "^5.4.4",
     "markdown-it": "^14.1.0",
     "remark-definition-list": "^2.0.0",
     "remark-gfm": "^4.0.0",
