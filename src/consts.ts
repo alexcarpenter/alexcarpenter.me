@@ -32,6 +32,11 @@ export const SOCIALS = [
     label: "Twitter",
     url: "https://x.com/hybrid_alex",
   },
+  {
+    icon: "bluesky",
+    label: "Bluesky",
+    url: "https://bsky.app/profile/alexcarpenter.me",
+  },
 ] as const;
 
 export const JOBS = [
