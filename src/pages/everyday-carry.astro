@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 
-const gear: CollectionEntry<"gear">["slug"][] = [
+const edcSlugs: CollectionEntry<"gear">["slug"][] = [
   "apple-iphone-15-pro",
   "apple-watch-ultra-2",
   "tactile-knife-co-rockwall",
@@ -12,13 +12,13 @@ const gear: CollectionEntry<"gear">["slug"][] = [
 ];
 
 const items = await getCollection("gear", (item) => {
-  return gear.includes(item.slug);
+  return edcSlugs.includes(item.slug);
 });
 ---
 
 <BaseLayout
   title="Everyday Carry"
-  description="UI engineer who enjoys working at the intersection of design and engineering teams."
+  description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis aliquam architecto eaque."
 >
   <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
@@ -41,11 +41,20 @@ const items = await getCollection("gear", (item) => {
     <span class="absolute inset-y-0 left-1/2 w-px border-l border-neutral-700"
     ></span>
 
-    <div class="grid sm:grid-cols-2">
+    <div class="grid grid-cols-2">
       {
         items.map((item) => {
           return (
-            <article class="group/item relative border-neutral-700 p-8 [&:nth-child(-n+2)]:border-b">
+            <article
+              class:list={[
+                "group/item relative p-4 sm:p-8",
+                "border-b border-neutral-700",
+                // Select the first item in the last row
+                "[&:nth-child(2n_+_1):nth-last-child(-n_+_2)]:border-transparent",
+                // Select the items following the first item in the last row
+                "[&:nth-child(2n_+_1):nth-last-child(-n_+_2)_~_*]:border-transparent",
+              ]}
+            >
               <p class="mb-1 font-mono text-xs uppercase text-orange-300">
                 {item.data.category}
               </p>
@@ -53,9 +62,11 @@ const items = await getCollection("gear", (item) => {
               <p class="mt-4 text-neutral-400">{item.data.description}</p>
               <span
                 class:list={[
-                  "absolute -bottom-2 -right-2 z-10 size-4 group-even/item:hidden",
-                  "before:absolute before:left-1/2 before:h-full before:w-px before:bg-white",
-                  "after:absolute after:top-1/2 after:h-px after:w-full after:bg-white",
+                  "absolute -right-2 -top-2 z-10 size-4",
+                  "before:absolute before:left-1/2 before:h-full before:w-px before:bg-neutral-50",
+                  "after:absolute after:bottom-1/2 after:h-px after:w-full after:bg-neutral-50",
+                  "group-even/item:hidden",
+                  "group-[&:first-of-type]/item:hidden",
                 ]}
               />
             </article>
