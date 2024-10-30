@@ -11,6 +11,16 @@ const links = defineCollection({
   }),
 });
 
+const gear = defineCollection({
+  type: "content",
+  schema: z.object({
+    category: z.enum(["knife", "flashlight", "phone", "watch", "coffee"]),
+    title: z.string(),
+    description: z.string(),
+    link: z.string(),
+  }),
+});
+
 const jobs = defineCollection({
   type: "content",
   schema: z.object({
@@ -68,6 +78,7 @@ const recommendations = defineCollection({
 
 export const collections = {
   links,
+  gear,
   jobs,
   notes,
   posts,
