@@ -41,10 +41,11 @@ const items = await getCollection("gear", (item) => {
   <section class="relative flex-1">
     <SectionLabel>Items</SectionLabel>
 
-    <span class="absolute inset-y-0 left-1/2 w-px border-l border-neutral-700"
+    <span
+      class="absolute inset-y-0 left-1/2 w-px border-l border-neutral-700 max-sm:hidden"
     ></span>
 
-    <div class="grid grid-cols-2">
+    <div class="grid sm:grid-cols-2">
       {
         items.map((item) => {
           return (
@@ -70,6 +71,7 @@ const items = await getCollection("gear", (item) => {
                   "after:absolute after:bottom-1/2 after:h-px after:w-full after:bg-neutral-50",
                   "group-even/item:hidden",
                   "group-[&:first-of-type]/item:hidden",
+                  "max-sm:hidden",
                 ]}
               />
             </article>
