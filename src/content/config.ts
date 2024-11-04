@@ -22,6 +22,7 @@ const gear = defineCollection({
       "coffee",
       "keys",
       "wallet",
+      "first-aid",
     ]),
     title: z.string(),
     description: z.string(),
