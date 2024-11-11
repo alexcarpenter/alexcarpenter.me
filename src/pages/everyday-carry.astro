@@ -11,7 +11,8 @@ const edcSlugs: CollectionEntry<"gear">["slug"][] = [
   "apple-iphone-15-pro",
   "apple-watch-ultra-2",
   "tactile-knife-co-rockwall",
-  "tactile-turn-apollo-flashlight",
+  // "tactile-turn-apollo-flashlight",
+  "cwf-micro-click-flashlight",
   "the-james-brand-midland",
   "bellroy-mod-phone-case-wallet",
   "first-aid-pouch",
@@ -19,6 +20,10 @@ const edcSlugs: CollectionEntry<"gear">["slug"][] = [
 
 const items = await getCollection("gear", (item) => {
   return edcSlugs.includes(item.slug);
+}).then((filteredItems) => {
+  return filteredItems.sort((a, b) => {
+    return edcSlugs.indexOf(a.slug) - edcSlugs.indexOf(b.slug);
+  });
 });
 ---
 
@@ -50,16 +55,6 @@ const items = await getCollection("gear", (item) => {
               </p>
               <h3 class="font-semibold tracking-tight">{item.data.title}</h3>
               {/* <p class="mt-4 text-neutral-400">{item.data.description}</p> */}
-              <span
-                class:list={[
-                  "absolute -right-2 -top-2 z-10 size-4",
-                  "before:absolute before:left-1/2 before:h-full before:w-px before:bg-neutral-50",
-                  "after:absolute after:bottom-1/2 after:h-px after:w-full after:bg-neutral-50",
-                  "group-even/item:hidden",
-                  "group-[&:first-of-type]/item:hidden",
-                  "max-sm:hidden",
-                ]}
-              />
             </CollectionItem>
           );
         })
