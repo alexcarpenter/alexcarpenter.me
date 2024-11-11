@@ -12,6 +12,7 @@ const smartHomeSlugs: CollectionEntry<"gear">["slug"][] = [
   "aqara-u100-smart-lock",
   "aqara-fp2-presence-sensor",
   "aqara-wireless-mini-switch",
+  "aqara-water-leak-sensor",
   "philips-hue-smart-plug",
   "lutron-aurora-smart-bulb-dimmer-switch",
 ];
@@ -51,7 +52,34 @@ const items = await getCollection("gear", (item) => {
               <p class="mb-1 font-mono text-xs uppercase text-orange-300">
                 {item.data.eyebrow}
               </p>
-              <h3 class="font-semibold tracking-tight">{item.data.title}</h3>
+              <h3 class="font-semibold tracking-tight">
+                <a
+                  href={item.data.link}
+                  class="group underline decoration-neutral-600 decoration-2 hover:decoration-white"
+                >
+                  {item.data.title}
+                  <span
+                    class="absolute ml-1 mt-px shrink-0 rounded-sm bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="size-2.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <>
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
+                      </>
+                    </svg>
+                  </span>
+                </a>
+              </h3>
               {/* <p class="mt-4 text-neutral-400">{item.data.description}</p> */}
             </CollectionItem>
           );
