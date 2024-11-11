@@ -9,6 +9,7 @@ import { slugify } from "@/utils/formatting";
 import SectionLabel from "@/components/SectionLabel.astro";
 import Button from "@/components/Button.astro";
 import { Icon } from "astro-icon/components";
+import SectionBreak from "@/components/SectionBreak.astro";
 
 const avatarMap = {
   "david-mosher": import("@/images/david-mosher.jpg"),
@@ -40,11 +41,7 @@ const avatarMap = {
     >
   </header>
 
-  <div
-    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
-    aria-hidden="true"
-  >
-  </div>
+  <SectionBreak />
 
   <section id="experience" class="relative">
     <SectionLabel>Experience</SectionLabel>
@@ -101,11 +98,7 @@ const avatarMap = {
     </ul>
   </section>
 
-  <div
-    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
-    aria-hidden="true"
-  >
-  </div>
+  <SectionBreak />
 
   <section id="recommendations" class="relative">
     <SectionLabel>Recommendations</SectionLabel>

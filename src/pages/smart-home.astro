@@ -2,11 +2,19 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
 
-const edcSlugs: CollectionEntry<"gear">["slug"][] = ["aqara-u100-smart-lock"];
+const edcSlugs: CollectionEntry<"gear">["slug"][] = [
+  "apple-home-pod-mini",
+  "aqara-u100-smart-lock",
+  "aqara-fp2-presence-sensor",
+  "aqara-wireless-mini-switch",
+  "philips-hue-smart-plug",
+  "lutron-aurora-smart-bulb-dimmer-switch",
+];
 
 const items = await getCollection("gear", (item) => {
   return edcSlugs.includes(item.slug);
@@ -26,11 +34,7 @@ const items = await getCollection("gear", (item) => {
     </p>
   </header>
 
-  <div
-    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
-    aria-hidden="true"
-  >
-  </div>
+  <SectionBreak />
 
   <section class="relative flex flex-1 flex-col">
     <SectionLabel>Items</SectionLabel>

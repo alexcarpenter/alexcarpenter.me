@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import FormattedDate from "@/components/FormattedDate.astro";
+import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { slugify } from "@/utils/formatting";
@@ -126,11 +127,7 @@ const collaborators = [
     >
   </header>
 
-  <div
-    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
-    aria-hidden="true"
-  >
-  </div>
+  <SectionBreak />
 
   <section class="relative" id="currently">
     <SectionLabel>Currently</SectionLabel>
@@ -318,11 +315,7 @@ const collaborators = [
     </div>
   </section>
 
-  <div
-    class="h-6 w-full border-y border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
-    aria-hidden="true"
-  >
-  </div>
+  <SectionBreak />
 
   <div class="relative flex-1">
     <div
