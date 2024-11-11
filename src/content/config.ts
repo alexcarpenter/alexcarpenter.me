@@ -14,16 +14,7 @@ const links = defineCollection({
 const gear = defineCollection({
   type: "content",
   schema: z.object({
-    category: z.enum([
-      "knife",
-      "flashlight",
-      "phone",
-      "watch",
-      "coffee",
-      "keys",
-      "wallet",
-      "first-aid",
-    ]),
+    eyebrow: z.string(),
     title: z.string(),
     description: z.string(),
     link: z.string(),

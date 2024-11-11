@@ -2,19 +2,11 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionLabel from "@/components/SectionLabel.astro";
 import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
-import SectionLabel from "@/components/SectionLabel.astro";
 
-const edcSlugs: CollectionEntry<"gear">["slug"][] = [
-  "apple-iphone-15-pro",
-  "apple-watch-ultra-2",
-  "tactile-knife-co-rockwall",
-  "tactile-turn-apollo-flashlight",
-  "the-james-brand-midland",
-  "bellroy-mod-phone-case-wallet",
-  "first-aid-pouch",
-];
+const edcSlugs: CollectionEntry<"gear">["slug"][] = ["aqara-u100-smart-lock"];
 
 const items = await getCollection("gear", (item) => {
   return edcSlugs.includes(item.slug);
@@ -22,12 +14,12 @@ const items = await getCollection("gear", (item) => {
 ---
 
 <BaseLayout
-  title="Everyday Carry"
+  title="Smart Home"
   description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis aliquam architecto eaque."
 >
   <header class="relative px-4 py-12 text-center sm:px-8 sm:py-16">
     <SectionLabel as="p">Intro</SectionLabel>
-    <h1 class="font-mono text-sm text-neutral-400">Everyday Carry</h1>
+    <h1 class="font-mono text-sm text-neutral-400">Smart Home</h1>
     <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis
       aliquam architecto eaque.
@@ -40,7 +32,7 @@ const items = await getCollection("gear", (item) => {
   >
   </div>
 
-  <section class="relative flex-1">
+  <section class="relative flex flex-1 flex-col">
     <SectionLabel>Items</SectionLabel>
 
     <CollectionRoot>

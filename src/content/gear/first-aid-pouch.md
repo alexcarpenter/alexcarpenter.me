@@ -1,5 +1,5 @@
 ---
-category: first-aid
+eyebrow: first-aid
 title: First Aid Pouch
 description: Lorem
 link: https://alexcarpenter.me
