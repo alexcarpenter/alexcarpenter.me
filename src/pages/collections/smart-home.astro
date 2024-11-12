@@ -43,7 +43,7 @@ const items = await getCollection("gear", (item) => {
 
   <SectionBreak />
 
-  <section class="relative flex flex-1 flex-col">
+  <section class="relative flex-1">
     <SectionLabel>Items</SectionLabel>
 
     <CollectionRoot>
@@ -74,10 +74,8 @@ const items = await getCollection("gear", (item) => {
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     >
-                      <>
-                        <line x1="7" y1="17" x2="17" y2="7" />
-                        <polyline points="7 7 17 7 17 17" />
-                      </>
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
                     </svg>
                   </span>
                 </a>
