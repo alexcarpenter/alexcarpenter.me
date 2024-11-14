@@ -20,4 +20,4 @@ tools:
   - Framer Motion
 ---
 
-UI Engineer apart of the design and SDK infra teams, currently working [Clerk Elements](https://clerk.com/docs/elements/overview) and our [UI components](https://clerk.com/docs/components/overview).
+UI Engineer apart of the SDK Infra team, currently working [Clerk Elements](https://clerk.com/docs/elements/overview) and our [UI components](https://clerk.com/docs/components/overview).
