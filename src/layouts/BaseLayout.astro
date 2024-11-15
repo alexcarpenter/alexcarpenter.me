@@ -57,7 +57,14 @@ import { Icon } from "astro-icon/components";
     <link
       rel="alternate"
       type="application/rss+xml"
-      href={new URL("/rss.xml", Astro.site)}
+      title="Posts // Alex Carpenter"
+      href={new URL("/posts/rss.xml", Astro.site)}
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Notes // Alex Carpenter"
+      href={new URL("/notes/rss.xml", Astro.site)}
     />
   </head>
 
@@ -100,10 +107,10 @@ import { Icon } from "astro-icon/components";
                       ) : (
                         label
                       )}
+                      <kbd class="font-mono text-xs uppercase text-neutral-400 max-sm:hidden">
+                        [{hotkey}]
+                      </kbd>
                     </a>
-                    <span class="font-mono text-xs uppercase text-neutral-400 max-sm:hidden">
-                      [{hotkey}]
-                    </span>
                   </li>
                 );
               })
@@ -158,6 +165,5 @@ import { Icon } from "astro-icon/components";
 
 <script>
   import { hotkeyKeyUX, startKeyUX } from "keyux";
-
   startKeyUX(window, [hotkeyKeyUX()]);
 </script>

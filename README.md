@@ -9,6 +9,6 @@
 ```bash
 git clone https://github.com/alexcarpenter/alexcarpenter.me.git
 cd alexcarpenter.me
-bun install
-bun dev
+pnpm install
+pnpm dev
 ```

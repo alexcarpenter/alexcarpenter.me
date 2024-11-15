@@ -69,10 +69,8 @@ const { page } = Astro.props;
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       >
-                        <>
-                          <line x1="7" y1="17" x2="17" y2="7" />
-                          <polyline points="7 7 17 7 17 17" />
-                        </>
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
                       </svg>
                     </span>
                   </a>
@@ -128,7 +126,9 @@ const { page } = Astro.props;
       }
     </ul>
     <nav class="border-t border-neutral-700 px-4 py-8 sm:px-8">
-      <ul class="grid grid-cols-3 text-sm font-medium text-neutral-400">
+      <ul
+        class="grid grid-cols-3 font-mono text-xs font-medium uppercase text-neutral-400"
+      >
         <li class="text-left">
           {
             page.currentPage > 1 ? (
