@@ -6,8 +6,9 @@ import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
+// import FormattedDate from "@/components/FormattedDate.astro";
 
-const edcSlugs: CollectionEntry<"gear">["slug"][] = [
+const slugs: CollectionEntry<"gear">["slug"][] = [
   "apple-iphone-15-pro",
   "apple-watch-ultra-2",
   "tactile-knife-co-rockwall",
@@ -19,12 +20,27 @@ const edcSlugs: CollectionEntry<"gear">["slug"][] = [
 ];
 
 const items = await getCollection("gear", (item) => {
-  return edcSlugs.includes(item.slug);
+  return slugs.includes(item.slug);
 }).then((filteredItems) => {
   return filteredItems.sort((a, b) => {
-    return edcSlugs.indexOf(a.slug) - edcSlugs.indexOf(b.slug);
+    return slugs.indexOf(a.slug) - slugs.indexOf(b.slug);
   });
 });
+
+// const changelog: {
+//   date: string;
+//   description: string;
+// }[] = [
+//   {
+//     date: "2024-11-15",
+//     description:
+//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, harum!",
+//   },
+//   {
+//     date: "2024-11-15",
+//     description: "Lorem ipsum dolor sit amet consectetur",
+//   },
+// ];
 ---
 
 <BaseLayout
@@ -63,4 +79,30 @@ const items = await getCollection("gear", (item) => {
       }
     </CollectionRoot>
   </section>
+
+  <!-- <SectionBreak />
+
+  <section class="relative flex-1">
+    <SectionLabel>Changelog</SectionLabel>
+
+    <div class="px-4 py-8 sm:px-8">
+      <ul
+        class="ml-2 list-square space-y-2 pl-4 text-neutral-400 marker:text-orange-300"
+      >
+        {
+          changelog.map((item) => {
+            return (
+              <li>
+                <FormattedDate
+                  date={new Date(item.date)}
+                  class="font-semibold text-white"
+                />
+                - {item.description}
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </section> -->
 </BaseLayout>

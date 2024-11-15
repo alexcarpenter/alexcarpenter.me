@@ -20,6 +20,7 @@
     "@sindresorhus/slugify": "^2.2.1",
     "astro": "4.16.5",
     "astro-icon": "^1.1.1",
+    "keyux": "^0.10.0",
     "markdown-it": "^14.1.0",
     "remark-definition-list": "^2.0.0",
     "remark-gfm": "^4.0.0",

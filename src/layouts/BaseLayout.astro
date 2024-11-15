@@ -81,7 +81,7 @@ import { Icon } from "astro-icon/components";
         <div class="flex items-center justify-between p-4 sm:px-8">
           <ul class="flex gap-4">
             {
-              NAVIGATION.map(({ slug, label }) => {
+              NAVIGATION.map(({ slug, label, hotkey }) => {
                 const isCurrent =
                   Astro.url.pathname === `${slug}/` ||
                   Astro.url.pathname === `${slug}`;
@@ -91,6 +91,7 @@ import { Icon } from "astro-icon/components";
                       class="font-mono text-xs uppercase text-neutral-400 hover:text-white aria-[current]:text-white"
                       href={slug}
                       aria-current={isCurrent ? "page" : undefined}
+                      aria-keyshortcuts={hotkey}
                     >
                       {slug === "/" ? (
                         <Fragment>
@@ -100,6 +101,9 @@ import { Icon } from "astro-icon/components";
                         label
                       )}
                     </a>
+                    <span class="font-mono text-xs uppercase text-neutral-400 max-sm:hidden">
+                      [{hotkey}]
+                    </span>
                   </li>
                 );
               })
@@ -151,3 +155,9 @@ import { Icon } from "astro-icon/components";
     </div>
   </body>
 </html>
+
+<script>
+  import { hotkeyKeyUX, startKeyUX } from "keyux";
+
+  startKeyUX(window, [hotkeyKeyUX()]);
+</script>

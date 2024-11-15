@@ -5,14 +5,17 @@ export const NAVIGATION = [
   {
     label: "Index",
     slug: "/",
+    hotkey: "i",
   },
   {
     label: "Resume",
     slug: "/resume",
+    hotkey: "r",
   },
   {
     label: "Feed",
     slug: "/feed",
+    hotkey: "f",
   },
 ];
 
