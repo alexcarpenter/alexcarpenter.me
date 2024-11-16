@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 // import Button from "@/components/Button.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
+import Header from "@/components/Header.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allLinks = await getCollection("links");
@@ -29,16 +30,14 @@ const { page } = Astro.props;
   title={page.currentPage > 1 ? `Feed - Page ${page.currentPage}` : "Feed"}
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
-  <header
-    class="relative bg-[image:radial-gradient(at_top_left,theme(colors.blue.500/30%),transparent_60%)] px-4 py-12 text-center sm:px-8 sm:py-16"
-  >
+  <Header>
     <h1 class="font-mono text-sm text-neutral-400">Feed</h1>
     <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
       A collection of short notes, interesting links, and the occasional long
       form post.
     </p>
     <!-- <Button as="a" href="/feed/rss.xml" class="mt-6">Subscribe via RSS</Button> -->
-  </header>
+  </Header>
 
   <SectionBreak />
 

@@ -13,6 +13,7 @@ import { fetchLatestPullRequests } from "@/utils/fetch-latest-pull-reqests.ts";
 
 import avatar from "@/images/me.jpg";
 import Button from "@/components/Button.astro";
+import Header from "@/components/Header.astro";
 
 const pullRequests = import.meta.env.PROD
   ? await fetchLatestPullRequests({
@@ -58,11 +59,7 @@ const collaborators = [
 ---
 
 <BaseLayout>
-  <header
-    class:list={[
-      "relative bg-[image:radial-gradient(at_top_left,theme(colors.blue.500/30%),transparent_60%)] px-4 py-12 text-center sm:px-8 sm:py-16",
-    ]}
-  >
+  <Header>
     <SectionLabel as="p">Intro</SectionLabel>
     <div
       class="relative isolate mx-auto mb-6 flex size-8 items-center justify-center"
@@ -130,7 +127,7 @@ const collaborators = [
           d="m13 17 5-5-5-5"></path></svg
       ></Button
     >
-  </header>
+  </Header>
 
   <SectionBreak />
 

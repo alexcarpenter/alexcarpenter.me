@@ -10,6 +10,7 @@ import SectionLabel from "@/components/SectionLabel.astro";
 import Button from "@/components/Button.astro";
 import { Icon } from "astro-icon/components";
 import SectionBreak from "@/components/SectionBreak.astro";
+import Header from "@/components/Header.astro";
 
 const avatarMap = {
   "david-mosher": import("@/images/david-mosher.jpg"),
@@ -27,9 +28,7 @@ const avatarMap = {
   title="Resume"
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
-  <header
-    class="relative bg-[image:radial-gradient(at_top_left,theme(colors.blue.500/30%),transparent_60%)] px-4 py-12 text-center sm:px-8 sm:py-16"
-  >
+  <Header>
     <SectionLabel as="p">Intro</SectionLabel>
     <h1 class="font-mono text-sm text-neutral-400">Resume</h1>
     <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
@@ -41,7 +40,7 @@ const avatarMap = {
       href="https://www.linkedin.com/in/imalexcarpenter/"
       class="mt-6">Connect on LinkedIn <Icon name="linkedin" /></Button
     >
-  </header>
+  </Header>
 
   <SectionBreak />
 

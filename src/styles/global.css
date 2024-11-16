@@ -41,7 +41,8 @@
       @apply mt-4;
     }
 
-    :where(* + h2) {
+    :where(* + h2),
+    :where(* + h3) {
       @apply mt-8;
     }
 
@@ -49,7 +50,8 @@
       @apply mt-0.5;
     }
 
-    h2 {
+    h2,
+    h3 {
       @apply text-lg font-medium;
     }
 
