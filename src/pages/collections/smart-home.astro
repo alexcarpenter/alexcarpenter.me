@@ -8,7 +8,7 @@ import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
 import Header from "@/components/Header.astro";
 
-const smartHomeSlugs: CollectionEntry<"gear">["slug"][] = [
+const slugs: CollectionEntry<"gear">["slug"][] = [
   "apple-home-pod-mini",
   "aqara-u100-smart-lock",
   "aqara-fp2-presence-sensor",
@@ -16,13 +16,14 @@ const smartHomeSlugs: CollectionEntry<"gear">["slug"][] = [
   "aqara-water-leak-sensor",
   "philips-hue-smart-plug",
   "lutron-aurora-smart-bulb-dimmer-switch",
+  "synology-ds224-nas",
 ];
 
 const items = await getCollection("gear", (item) => {
-  return smartHomeSlugs.includes(item.slug);
+  return slugs.includes(item.slug);
 }).then((filteredItems) => {
   return filteredItems.sort((a, b) => {
-    return smartHomeSlugs.indexOf(a.slug) - smartHomeSlugs.indexOf(b.slug);
+    return slugs.indexOf(a.slug) - slugs.indexOf(b.slug);
   });
 });
 ---
