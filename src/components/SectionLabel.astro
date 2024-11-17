@@ -3,12 +3,15 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>;
 
-const { as: Tag, ...props } = Astro.props;
+const { as: Tag, class: className, ...props } = Astro.props;
 ---
 
 <Tag
   {...props}
-  class="absolute inset-y-8 left-0 flex -translate-x-full rotate-180 items-center justify-center pl-4 [writing-mode:vertical-lr] max-md:sr-only"
+  class:list={[
+    "absolute inset-y-8 left-0 flex -translate-x-full rotate-180 items-center justify-center pl-4 [writing-mode:vertical-lr] max-md:sr-only",
+    className,
+  ]}
 >
   <span class="h-px w-2 bg-neutral-700" aria-hidden="true"></span>
   <span
