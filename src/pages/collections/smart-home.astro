@@ -104,10 +104,14 @@ const changelog: {
     </CollectionRoot>
   </section>
 
-  <!-- <SectionBreak />
+  <SectionBreak />
 
-  <section class="group/changelog relative">
-    <SectionLabel as="h2" class="opacity-0">Changelog</SectionLabel>
+  <section class="group/changelog relative has-[details[open]]:min-h-60">
+    <SectionLabel
+      as="h2"
+      class="group-has-[details:not([open])]/changelog:opacity-0"
+      >Changelog</SectionLabel
+    >
 
     <details>
       <summary class="p-4 text-center">View changelog</summary>
@@ -130,5 +134,5 @@ const changelog: {
         </ul>
       </div>
     </details>
-  </section> -->
+  </section>
 </BaseLayout>
