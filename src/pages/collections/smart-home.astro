@@ -59,7 +59,7 @@ const changelog: {
 
   <SectionBreak />
 
-  <section class="relative flex-1">
+  <section class="relative">
     <SectionLabel as="h2">Items</SectionLabel>
 
     <CollectionRoot>
@@ -106,7 +106,9 @@ const changelog: {
 
   <SectionBreak />
 
-  <section class="group/changelog relative has-[details[open]]:min-h-60">
+  <section
+    class="group/changelog relative has-[details[open]]:min-h-60 has-[details[open]]:flex-1"
+  >
     <SectionLabel
       as="h2"
       class="group-has-[details:not([open])]/changelog:opacity-0"
