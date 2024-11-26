@@ -9,20 +9,15 @@ const { as: Tag, class: className, ...props } = Astro.props;
 <Tag
   {...props}
   class:list={[
-    "absolute inset-y-8 left-0 flex -translate-x-full flex-col items-center justify-center pr-4 max-md:sr-only",
+    "absolute inset-y-8 left-0 flex w-2 -translate-x-[calc(var(--spacing)_*_6)] flex-col items-center justify-center max-md:sr-only",
+    "border-y border-neutral-700",
+    "before:w-px before:flex-1 before:border-r before:border-dashed before:border-neutral-700",
+    "after:w-px after:flex-1 after:border-r after:border-dashed after:border-neutral-700",
     className,
   ]}
 >
-  <span class="h-px w-2 bg-neutral-700" aria-hidden="true"></span>
-  <span
-    class="w-px flex-1 border-r border-dashed border-neutral-700"
-    aria-hidden="true"></span>
   <span
     class="text-xxs rotate-180 px-4 font-mono leading-none tracking-widest text-neutral-700 uppercase [writing-mode:vertical-lr]"
     ><slot /></span
   >
-  <span
-    class="w-px flex-1 border-r border-dashed border-neutral-700"
-    aria-hidden="true"></span>
-  <span class="h-px w-2 bg-neutral-700" aria-hidden="true"></span>
 </Tag>
