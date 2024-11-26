@@ -31,7 +31,7 @@ const avatarMap = {
   <Header>
     <SectionLabel as="p">Intro</SectionLabel>
     <h1 class="font-mono text-sm text-neutral-400">Resume</h1>
-    <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
+    <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design
       and engineering teams.
     </p>
@@ -66,7 +66,7 @@ const avatarMap = {
                   <h3 class="font-medium sm:mt-1.5">
                     {job.data.title} at {job.data.company}
                   </h3>
-                  <p class="mb-4 mt-0.5 font-mono text-sm text-neutral-400">
+                  <p class="mt-0.5 mb-4 font-mono text-sm text-neutral-400">
                     {`${parseYearToString(job.data.startDate)}–${
                       job.data.endDate
                         ? parseYearToString(job.data.endDate)
@@ -126,7 +126,7 @@ const avatarMap = {
                   />
                   <div>
                     <h3 class="font-medium sm:mt-1">{name}</h3>
-                    <p class="mb-4 mt-0.5 font-mono text-sm text-neutral-400">
+                    <p class="mt-0.5 mb-4 font-mono text-sm text-neutral-400">
                       {title} at {company}
                     </p>
                     <Content />
