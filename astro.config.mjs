@@ -10,17 +10,17 @@ import {
   transformerMetaHighlight,
   transformerMetaWordHighlight,
 } from "@shikijs/transformers";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from '@tailwindcss/vite';
 import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://alexcarpenter.me",
+  vite: {
+    plugins: [tailwindcss()]
+  },
   integrations: [
     sitemap(),
-    tailwind({
-      nesting: true,
-    }),
     icon(),
   ],
   markdown: {

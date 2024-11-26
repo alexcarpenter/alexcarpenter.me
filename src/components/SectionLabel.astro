@@ -7,22 +7,22 @@ const { as: Tag, class: className, ...props } = Astro.props;
 ---
 
 <Tag
-  {...props}
-  class:list={[
-    "absolute inset-y-8 left-0 flex -translate-x-full rotate-180 items-center justify-center pl-4 [writing-mode:vertical-lr] max-md:sr-only",
-    className,
-  ]}
+    {...props}
+    class:list={[
+        "absolute inset-y-8 left-0 flex -translate-x-full flex-col items-center justify-center pr-4 max-md:sr-only",
+        className,
+    ]}
 >
-  <span class="h-px w-2 bg-neutral-700" aria-hidden="true"></span>
-  <span
-    class="relative h-full w-px flex-1 border-l border-dashed border-neutral-700"
-    aria-hidden="true"></span>
-  <span
-    class="py-4 font-mono text-xxs uppercase leading-none tracking-widest text-neutral-700"
-    ><slot /></span
-  >
-  <span
-    class="h-full w-px flex-1 border-l border-dashed border-neutral-700"
-    aria-hidden="true"></span>
-  <span class="h-px w-2 bg-neutral-700" aria-hidden="true"></span>
+    <span class="h-px w-2 bg-neutral-700" aria-hidden="true"></span>
+    <span
+        class="w-px flex-1 border-r border-dashed border-neutral-700"
+        aria-hidden="true"></span>
+    <span
+        class="text-xxs rotate-180 px-4 font-mono leading-none tracking-widest text-neutral-700 uppercase [writing-mode:vertical-lr]"
+        ><slot /></span
+    >
+    <span
+        class="w-px flex-1 border-r border-dashed border-neutral-700"
+        aria-hidden="true"></span>
+    <span class="h-px w-2 bg-neutral-700" aria-hidden="true"></span>
 </Tag>
