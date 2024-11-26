@@ -106,7 +106,7 @@ const collaborators = [
       />
     </div>
     <h1 class="font-mono text-sm text-neutral-400">Alex Carpenter</h1>
-    <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
+    <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design
       and engineering teams.
     </p>
@@ -134,7 +134,7 @@ const collaborators = [
   <section class="relative" id="currently">
     <SectionLabel as="h2">Currently</SectionLabel>
     <header class="px-4 py-8 sm:px-8">
-      <p class="text-balance font-medium">
+      <p class="font-medium text-balance">
         Currently I am a part of the SDK Infra team at <a
           href="https://clerk.com"
           class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
@@ -151,7 +151,7 @@ const collaborators = [
           href={pullRequests[0].url}
           class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
           >pull request <span
-            class="absolute ml-1 mt-px shrink-0 rounded-sm bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current"
+            class="absolute mt-px ml-1 shrink-0 rounded-xs bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current"
             aria-hidden="true"
           >
             <svg
@@ -178,7 +178,7 @@ const collaborators = [
       class="grid auto-rows-[20rem] grid-cols-1 overflow-hidden border-y border-dashed border-neutral-700 sm:grid-cols-2"
     >
       <div
-        class="relative [mask-image:linear-gradient(to_bottom,theme(colors.white)_calc(100%_-_theme(spacing.10)),transparent)] max-sm:overflow-hidden sm:col-span-2 sm:col-start-1 sm:row-start-1"
+        class="relative [mask-image:linear-gradient(to_bottom,var(--color-white)_calc(100%-calc(var(--spacing)*10)),transparent)] max-sm:overflow-hidden sm:col-span-2 sm:col-start-1 sm:row-start-1"
       >
         <figure>
           <figcaption class="sr-only">
@@ -191,7 +191,7 @@ const collaborators = [
       </div>
 
       <div
-        class="elative overflow-hidden border-dashed border-neutral-700 bg-neutral-950/50 px-4 pt-8 backdrop-blur-sm max-sm:border-t sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:border-l sm:p-0"
+        class="elative overflow-hidden border-dashed border-neutral-700 bg-black/20 px-4 pt-8 backdrop-blur-sm max-sm:border-t sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:border-l sm:p-0"
       >
         <figure
           class="relative mx-auto max-w-96 sm:absolute sm:min-w-full sm:translate-x-10 sm:translate-y-10"
@@ -199,18 +199,18 @@ const collaborators = [
           <div
             class:list={[
               "absolute -top-0.5 h-px border-t border-dashed border-neutral-700",
-              "left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] w-screen",
+              "right-1/2 left-1/2 mr-[-50vw] ml-[-50vw] w-screen",
             ]}
             aria-hidden="true"
           >
           </div>
           <div
-            class="absolute -left-0.5 -top-10 bottom-0 h-full w-px cursor-ew-resize border-l border-dashed border-neutral-700"
+            class="absolute -top-10 bottom-0 -left-0.5 h-full w-px cursor-ew-resize border-l border-dashed border-neutral-700"
             aria-hidden="true"
           >
           </div>
           <div
-            class="absolute -right-0.5 -top-10 bottom-0 h-full w-px border-r border-dashed border-neutral-700"
+            class="absolute -top-10 -right-0.5 bottom-0 h-full w-px border-r border-dashed border-neutral-700"
             aria-hidden="true"
           >
           </div>
@@ -227,7 +227,7 @@ const collaborators = [
             Latest 5 pull requests within the @clerk/javascript repo
           </figcaption>
           <ul
-            class="divide-y divide-dashed divide-neutral-600 text-left [mask-image:linear-gradient(to_bottom,theme(colors.white),transparent)]"
+            class="divide-y divide-dashed divide-neutral-600 text-left [mask-image:linear-gradient(to_bottom,var(--color-white),transparent)]"
             inert=""
           >
             {
@@ -239,12 +239,12 @@ const collaborators = [
                       class="size-4 flex-none text-neutral-600"
                       aria-hidden="true"
                     />
-                    <p class="flex-1 overflow-hidden text-ellipsis text-nowrap pr-4 text-sm text-neutral-400 sm:pr-8">
+                    <p class="flex-1 overflow-hidden pr-4 text-sm text-nowrap text-ellipsis text-neutral-400 sm:pr-8">
                       {pr.message}
                     </p>
                     <FormattedDate
                       date={new Date(pr.date)}
-                      class="block text-nowrap text-right font-mono text-xs uppercase text-neutral-400"
+                      class="block text-right font-mono text-xs text-nowrap text-neutral-400 uppercase"
                     />
                     <Icon
                       name="checkmark"
@@ -257,12 +257,12 @@ const collaborators = [
             }
           </ul>
           <div
-            class="z-1 pointer-events-none absolute bottom-0 left-1/2 isolate h-56 w-4/5 -translate-x-1/2 translate-y-24"
+            class="pointer-events-none absolute bottom-0 left-1/2 isolate z-1 h-56 w-4/5 -translate-x-1/2 translate-y-24"
             aria-hidden="true"
           >
             {
               Array.from({ length: 5 }, (_, i) => {
-                const blur = `blur(${Math.pow(2, i - 1)}px)`;
+                const blur = `blur-sm(${Math.pow(2, i - 1)}px)`;
                 return (
                   <div
                     style={{
@@ -276,8 +276,8 @@ const collaborators = [
             }
           </div>
         </figure>
-        <div class="absolute bottom-0 left-0 right-0 text-center">
-          <p class="font-mono text-xs uppercase text-white">
+        <div class="absolute right-0 bottom-0 left-0 text-center">
+          <p class="font-mono text-xs text-white uppercase">
             In collaboration with
           </p>
           <div class="mt-4 flex justify-center">
@@ -303,7 +303,7 @@ const collaborators = [
                     <div
                       id={id}
                       role="tooltip"
-                      class="absolute left-0 top-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs"
+                      class="absolute top-0 left-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs"
                     >
                       {name}
                     </div>
@@ -325,7 +325,7 @@ const collaborators = [
       aria-hidden="true"
     >
     </div>
-    <section class="relative px-4 py-8 sm:px-8" id="currently">
+    <section class="relative px-4 py-8 sm:px-8" id="interests">
       <SectionLabel as="h2">Interests</SectionLabel>
       <div class="grid grid-cols-1 gap-x-16 gap-y-8 sm:grid-cols-2">
         <div class="prose">
@@ -339,7 +339,7 @@ const collaborators = [
         </div>
         <div class="flex items-center">
           <div>
-            <p class="mb-4 font-mono text-xs uppercase text-neutral-400">
+            <p class="mb-4 font-mono text-xs text-neutral-400 uppercase">
               Skills and interests
             </p>
             <ul>
@@ -411,7 +411,7 @@ const collaborators = [
       ["mouseenter", show],
       ["mouseleave", hide],
       ["focus", show],
-      ["blur", hide],
+      ["blur-sm", hide],
       [
         "keydown",
         (e: KeyboardEvent) => {

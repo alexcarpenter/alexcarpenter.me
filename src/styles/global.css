@@ -1,19 +1,144 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-@font-face {
-  font-family: "Geist Sans";
-  src: url("/fonts/GeistVariableVF.woff2") format("woff2");
-  font-display: swap;
-  font-weight: 400 600;
+@variant dark (@media (prefers-color-scheme: dark));
+
+@theme {
+  --font-*: initial;
+  --font-sans: Geist Sans, ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+
+  --breakpoint-md: 860px;
+
+  --text-xxs: 0.625rem;
+
+  --list-style-type-square: square;
 }
 
-@font-face {
-  font-family: "Geist Mono";
-  src: url("/fonts/GeistMonoVariableVF.woff2") format("woff2");
-  font-display: swap;
-  font-weight: 400;
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility prose {
+  & > :where(* + *) {
+    @apply mt-4;
+  }
+
+  :where(* + h2),
+  :where(* + h3) {
+    @apply mt-8;
+  }
+
+  :where(p:has(small) + *) {
+    @apply mt-0.5;
+  }
+
+  h2,
+  h3 {
+    @apply text-lg font-medium;
+  }
+
+  a {
+    @apply underline decoration-neutral-600 decoration-2 hover:decoration-white;
+  }
+
+  small {
+    @apply block font-mono text-xs uppercase text-neutral-400;
+  }
+
+  ul {
+    @apply ml-2 list-square pl-4 marker:text-neutral-700;
+  }
+
+  blockquote {
+    @apply ml-2 space-y-4 border-l-4 border-neutral-700 pl-4;
+
+    &:has(a[href*="https://x.com/hybrid_alex"])
+    {
+      @apply border-sky-300;
+    }
+  }
+
+  pre {
+    @apply overflow-hidden rounded-md border border-neutral-800;
+  }
+
+  pre code span.line:last-of-type:empty {
+    @apply hidden;
+  }
+
+  pre code .highlighted {
+    --pre-bg: var(--color-neutral-900);
+    @apply bg-(--pre-bg);
+  }
+
+  :not(pre) > code,
+  kbd {
+    @apply -mx-0.5 inline rounded-sm bg-neutral-800 px-0.5 text-[0.9375rem] [box-decoration-break:clone];
+  }
+
+  table {
+    @apply w-full border border-neutral-700 text-sm;
+  }
+
+  th {
+    @apply bg-neutral-900 px-4 py-2 text-left;
+  }
+
+  td {
+    @apply border-t border-dashed border-neutral-700 px-4 py-2;
+  }
+
+  hr {
+    @apply -mx-4 my-8 border-t border-dashed border-neutral-700 sm:-mx-8;
+  }
+}
+
+@utility tag {
+  /* Magic: https://x.com/myfonj/status/1828436893756698830 */
+  @apply inline whitespace-nowrap;
+
+  &::after {
+    content: ' ';
+    word-spacing: 1em;
+    background-image: linear-gradient(
+      -0.2turn,
+      transparent 0 calc(50% - 0.03em),
+      var(--color-neutral-700) 0 calc(50% + 0.03em),
+      transparent 0
+    );
+  }
+}
+
+@layer utilities {
+  @font-face {
+    font-family: 'Geist Sans';
+    src: url('/fonts/GeistVariableVF.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 400 600;
+  }
+
+  @font-face {
+    font-family: 'Geist Mono';
+    src: url('/fonts/GeistMonoVariableVF.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 400;
+  }
 }
 
 @layer base {
@@ -22,108 +147,15 @@
   }
 
   pre {
-    --pre-bg: theme(colors.neutral.950);
-    @apply !bg-[--pre-bg] py-4 text-sm leading-6;
+    --pre-bg: var(--color-neutral-950);
+    @apply bg-(--pre-bg)! py-4 text-sm leading-6;
   }
 
   code {
-    @apply isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-gradient-to-r *:before:from-[--pre-bg] *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)] *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-gradient-to-l *:after:from-[--pre-bg] *:after:from-35% *:after:content-['_'];
+    @apply isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-linear-to-r *:before:from-(--pre-bg) *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)] *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-linear-to-l *:after:from-(--pre-bg) *:after:from-35% *:after:content-['_'];
   }
 
   mark {
-    @apply -mx-0.5 inline rounded bg-amber-500/20 px-0.5 text-amber-100 [box-decoration-break:clone];
-  }
-}
-
-@layer components {
-  .prose {
-    & > :where(* + *) {
-      @apply mt-4;
-    }
-
-    :where(* + h2),
-    :where(* + h3) {
-      @apply mt-8;
-    }
-
-    :where(p:has(small) + *) {
-      @apply mt-0.5;
-    }
-
-    h2,
-    h3 {
-      @apply text-lg font-medium;
-    }
-
-    a {
-      @apply underline decoration-neutral-600 decoration-2 hover:decoration-white;
-    }
-
-    small {
-      @apply block font-mono text-xs uppercase text-neutral-400;
-    }
-
-    ul {
-      @apply ml-2 list-square pl-4 marker:text-neutral-700;
-    }
-
-    blockquote {
-      @apply ml-2 space-y-4 border-l-4 border-neutral-700 pl-4;
-
-      &:has(a[href*="https://x.com/hybrid_alex"])
-      {
-        @apply border-sky-300;
-      }
-    }
-
-    pre {
-      @apply overflow-hidden rounded-md border border-neutral-800;
-    }
-
-    pre code span.line:last-of-type:empty {
-      @apply hidden;
-    }
-
-    pre code .highlighted {
-      --pre-bg: theme(colors.neutral.900);
-      @apply bg-[--pre-bg];
-    }
-
-    :not(pre) > code,
-    kbd {
-      @apply -mx-0.5 inline rounded bg-neutral-800 px-0.5 text-[0.9375rem] [box-decoration-break:clone];
-    }
-
-    table {
-      @apply w-full border border-neutral-700 text-sm;
-    }
-
-    th {
-      @apply bg-neutral-900 px-4 py-2 text-left;
-    }
-
-    td {
-      @apply border-t border-dashed border-neutral-700 px-4 py-2;
-    }
-
-    hr {
-      @apply -mx-4 my-8 border-t border-dashed border-neutral-700 sm:-mx-8;
-    }
-  }
-
-  /* Magic: https://x.com/myfonj/status/1828436893756698830 */
-  .tag {
-    @apply inline whitespace-nowrap;
-
-    &::after {
-      content: " ";
-      word-spacing: 1em;
-      background-image: linear-gradient(
-        -0.2turn,
-        transparent 0 calc(50% - 0.03em),
-        theme(colors.neutral.700) 0 calc(50% + 0.03em),
-        transparent 0
-      );
-    }
+    @apply -mx-0.5 inline rounded-sm bg-amber-500/20 px-0.5 text-amber-100 [box-decoration-break:clone];
   }
 }

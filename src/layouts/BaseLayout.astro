@@ -73,7 +73,7 @@ import { Icon } from "astro-icon/components";
   >
     <a
       href="#main"
-      class="fixed left-0 top-0 -translate-y-full border-b border-r border-dashed border-neutral-800 p-2 text-sm font-medium focus:translate-y-0"
+      class="fixed top-0 left-0 -translate-y-full border-r border-b border-dashed border-neutral-800 p-2 text-sm font-medium focus:translate-y-0"
       >Skip to content</a
     >
     <div
@@ -81,7 +81,7 @@ import { Icon } from "astro-icon/components";
     >
       <nav class="border-b border-neutral-700">
         <div
-          class="h-6 w-full border-b border-neutral-700 opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
+          class="h-6 w-full border-b border-neutral-700 [background-image:linear-gradient(45deg,var(--color-neutral-700)_12.50%,transparent_12.50%,transparent_50%,var(--color-neutral-700)_50%,var(--color-neutral-700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] opacity-75"
           aria-hidden="true"
         >
         </div>
@@ -95,7 +95,7 @@ import { Icon } from "astro-icon/components";
                 return (
                   <li>
                     <a
-                      class="font-mono text-xs uppercase text-neutral-400 hover:text-white aria-[current]:text-white"
+                      class="font-mono text-xs text-neutral-400 uppercase hover:text-white aria-[current]:text-white"
                       href={slug}
                       aria-current={isCurrent ? "page" : undefined}
                       aria-keyshortcuts={hotkey}
@@ -107,7 +107,7 @@ import { Icon } from "astro-icon/components";
                       ) : (
                         label
                       )}
-                      <kbd class="font-mono text-xs uppercase text-neutral-400 max-sm:hidden">
+                      <kbd class="font-mono text-xs text-neutral-400 uppercase max-sm:hidden">
                         [{hotkey}]
                       </kbd>
                     </a>
@@ -119,7 +119,7 @@ import { Icon } from "astro-icon/components";
 
           <a
             class:list={[
-              "rounded-full border border-green-300 bg-green-950 px-2 py-0.5 font-mono text-xxs text-green-300",
+              "text-xxs rounded-full border border-green-300 bg-green-950 px-2 py-0.5 font-mono text-green-300",
               "hover:bg-green-900",
             ]}
             href="https://github.com/alexcarpenter/alexcarpenter.me"
@@ -149,7 +149,7 @@ import { Icon } from "astro-icon/components";
             }
           </ul>
           <p
-            class="mt-8 flex items-center justify-center gap-2 font-mono text-xs uppercase text-neutral-400"
+            class="mt-8 flex items-center justify-center gap-2 font-mono text-xs text-neutral-400 uppercase"
           >
             <span
               aria-hidden="true"

@@ -31,7 +31,7 @@ const avatarMap = {
   <Header>
     <SectionLabel as="p">Intro</SectionLabel>
     <h1 class="font-mono text-sm text-neutral-400">Resume</h1>
-    <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
+    <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
       User Interface Engineer who enjoys working at the intersection of design
       and engineering teams.
     </p>
@@ -56,7 +56,7 @@ const avatarMap = {
           )
           .map((job) =>
             job.render().then(({ Content }) => (
-              <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem,minmax(0,1fr)] sm:px-8">
+              <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem_minmax(0,1fr)] sm:px-8">
                 <img
                   src={`/logos/${slugify(job.data.company)}.svg`}
                   alt=""
@@ -66,20 +66,20 @@ const avatarMap = {
                   <h3 class="font-medium sm:mt-1.5">
                     {job.data.title} at {job.data.company}
                   </h3>
-                  <p class="mb-4 mt-0.5 font-mono text-sm text-neutral-400">
+                  <p class="mt-0.5 mb-4 font-mono text-sm text-neutral-400">
                     {`${parseYearToString(job.data.startDate)}–${
                       job.data.endDate
                         ? parseYearToString(job.data.endDate)
                         : "Now"
                     }`}
                   </p>
-                  <div class="grid gap-x-8 gap-y-4 sm:grid-cols-[minmax(0,2fr),1px,minmax(0,1fr)]">
+                  <div class="grid gap-x-8 gap-y-4 sm:grid-cols-[minmax(0,2fr)_1px_minmax(0,1fr)]">
                     <div class="prose">
                       <Content />
                     </div>
                     <div
                       aria-hidden="true"
-                      class="hidden h-full w-px border-r border-dashed border-neutral-700 [mask-image:linear-gradient(to_bottom,theme(colors.white)_calc(100%_-_2rem),transparent)] sm:block"
+                      class="hidden h-full w-px border-r border-dashed border-neutral-700 [mask-image:linear-gradient(to_bottom,var(--color-white)_calc(100%-2rem),transparent)] sm:block"
                     />
                     <ul>
                       {job.data.tools.map((t) => {
@@ -116,7 +116,7 @@ const avatarMap = {
             recommendation.render().then(({ Content }) => {
               const { name, title, company } = recommendation.data;
               return (
-                <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem,minmax(0,1fr)] sm:px-8">
+                <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem_minmax(0,1fr)] sm:px-8">
                   <Image
                     src={avatarMap[recommendation.slug]}
                     alt={`${name} avatar`}
@@ -126,7 +126,7 @@ const avatarMap = {
                   />
                   <div>
                     <h3 class="font-medium sm:mt-1">{name}</h3>
-                    <p class="mb-4 mt-0.5 font-mono text-sm text-neutral-400">
+                    <p class="mt-0.5 mb-4 font-mono text-sm text-neutral-400">
                       {title} at {company}
                     </p>
                     <Content />
@@ -141,7 +141,7 @@ const avatarMap = {
   <!-- <section class="relative border-t border-neutral-600 p-4 sm:p-6">
     <SectionLabel as="h2">Callout</SectionLabel>
     <div
-      class="absolute inset-0 h-full w-full opacity-75 [background-image:linear-gradient(45deg,theme(colors.neutral.700)_12.50%,transparent_12.50%,transparent_50%,theme(colors.neutral.700)_50%,theme(colors.neutral.700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
+      class="absolute inset-0 h-full w-full opacity-75 [background-image:linear-gradient(45deg,var(--color-neutral-700)_12.50%,transparent_12.50%,transparent_50%,var(--color-neutral-700)_50%,var(--color-neutral-700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px]"
       aria-hidden="true"
     >
     </div>
