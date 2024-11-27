@@ -10,7 +10,7 @@ dependencies:
     version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.3.3)(typescript@5.6.3)
   '@astrojs/mdx':
     specifier: 3.1.9
-    version: 3.1.9(astro@4.16.13)
+    version: 3.1.9(astro@4.16.15)
   '@astrojs/rss':
     specifier: 4.0.9
     version: 4.0.9
@@ -19,7 +19,7 @@ dependencies:
     version: 3.2.1
   '@astrojs/tailwind':
     specifier: 5.1.2
-    version: 5.1.2(astro@4.16.13)(tailwindcss@4.0.0-beta.2)
+    version: 5.1.2(astro@4.16.15)(tailwindcss@4.0.0-beta.2)
   '@floating-ui/dom':
     specifier: ^1.6.10
     version: 1.6.12
@@ -30,8 +30,8 @@ dependencies:
     specifier: ^2.2.1
     version: 2.2.1
   astro:
-    specifier: 4.16.13
-    version: 4.16.13(typescript@5.6.3)
+    specifier: 4.16.15
+    version: 4.16.15(typescript@5.6.3)
   astro-icon:
     specifier: ^1.1.1
     version: 1.1.2
@@ -181,7 +181,7 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/mdx@3.1.9(astro@4.16.13):
+  /@astrojs/mdx@3.1.9(astro@4.16.15):
     resolution: {integrity: sha512-3jPD4Bff6lIA20RQoonnZkRtZ9T3i0HFm6fcDF7BMsKIZ+xBP2KXzQWiuGu62lrVCmU612N+SQVGl5e0fI+zWg==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
@@ -190,7 +190,7 @@ packages:
       '@astrojs/markdown-remark': 5.3.0
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       acorn: 8.14.0
-      astro: 4.16.13(typescript@5.6.3)
+      astro: 4.16.15(typescript@5.6.3)
       es-module-lexer: 1.5.4
       estree-util-visit: 2.0.0
       gray-matter: 4.0.3
@@ -228,13 +228,13 @@ packages:
       zod: 3.23.8
     dev: false
 
-  /@astrojs/tailwind@5.1.2(astro@4.16.13)(tailwindcss@4.0.0-beta.2):
+  /@astrojs/tailwind@5.1.2(astro@4.16.15)(tailwindcss@4.0.0-beta.2):
     resolution: {integrity: sha512-IvOF0W/dtHElcXvhrPR35nHmhyV3cfz1EzPitMGtU7sYy9Hci3BNK1To6FWmVuuNKPxza1IgCGetSynJZL7fOg==}
     peerDependencies:
       astro: ^3.0.0 || ^4.0.0 || ^5.0.0-beta.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.16.13(typescript@5.6.3)
+      astro: 4.16.15(typescript@5.6.3)
       autoprefixer: 10.4.20(postcss@8.4.49)
       postcss: 8.4.49
       postcss-load-config: 4.0.2(postcss@8.4.49)
@@ -1627,8 +1627,8 @@ packages:
       - supports-color
     dev: false
 
-  /astro@4.16.13(typescript@5.6.3):
-    resolution: {integrity: sha512-Mtd76+BC0zLWqoXpf9xc731AhdH4MNh5JFHYdLRvSH0Nqn48hA64dPGh/cWsJvh/DZFmC0NTZusM1Qq2gyNaVg==}
+  /astro@4.16.15(typescript@5.6.3):
+    resolution: {integrity: sha512-usybZ7nEUiwYKT7r47l4VbkqjKfaE+BgWV/ed4PT3mE3vFRTBWFsXLnkzrN7awfN6+/ekZTAcE+MAkdA551Umw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
     dependencies:

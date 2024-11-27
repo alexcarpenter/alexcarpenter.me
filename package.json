@@ -18,7 +18,7 @@
     "@floating-ui/dom": "^1.6.10",
     "@shikijs/transformers": "^1.14.1",
     "@sindresorhus/slugify": "^2.2.1",
-    "astro": "4.16.13",
+    "astro": "4.16.15",
     "astro-icon": "^1.1.1",
     "keyux": "^0.10.0",
     "markdown-it": "^14.1.0",
