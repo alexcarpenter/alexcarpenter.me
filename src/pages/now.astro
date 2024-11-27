@@ -1,8 +1,10 @@
 ---
+import FormattedDate from "@/components/FormattedDate.astro";
 import Header from "@/components/Header.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+const UPDATED = "2024-11-27";
 ---
 
 <BaseLayout
@@ -16,15 +18,53 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis
       aliquam architecto eaque.
     </p>
+    <p class="mt-6 font-mono text-sm text-neutral-400">
+      Last updated <FormattedDate date={new Date(UPDATED)} />
+    </p>
   </Header>
 
   <SectionBreak />
 
-  <section class="relative">
-    <SectionLabel as="h2">Latest</SectionLabel>
+  <section class="relative flex-1">
+    <SectionLabel as="h2">Currently</SectionLabel>
 
     <div class="px-4 py-8 sm:px-8">
-      <div class="prose">...</div>
+      <div class="prose">
+        <h2>Watching</h2>
+        <ul>
+          <li>Silo season 2</li>
+          <li>Shrinking season 2</li>
+          <li>Yellowstone season 5</li>
+        </ul>
+        <h2>Listening</h2>
+        <ul>
+          <li>The Red Clay Strays</li>
+          <li>Raffi, lots of Bananaphone...</li>
+        </ul>
+      </div>
     </div>
   </section>
+
+  <!-- <SectionBreak />
+
+  <section
+    class="group/archive relative has-[details[open]]:min-h-60 has-[details[open]]:flex-1"
+  >
+    <SectionLabel
+      as="h2"
+      class="group-has-[details:not([open])]/archive:opacity-0"
+      >Archive</SectionLabel
+    >
+
+    <details>
+      <summary class="p-4 text-center">View archive</summary>
+      <div class="px-4 py-8 pt-0 sm:px-8">
+        <ul class="list-square space-y-1 pl-3.5">
+          <li class="font-mono text-sm text-neutral-400 marker:text-orange-300">
+            Watched Yellowstone Season 5
+          </li>
+        </ul>
+      </div>
+    </details>
+  </section> -->
 </BaseLayout>

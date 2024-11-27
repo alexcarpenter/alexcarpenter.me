@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 // import Button from "@/components/Button.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
+import SectionLabel from "@/components/SectionLabel.astro";
 import Header from "@/components/Header.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -31,17 +32,19 @@ const { page } = Astro.props;
   description="UI engineer who enjoys working at the intersection of design and engineering teams."
 >
   <Header>
+    <SectionLabel as="p">Intro</SectionLabel>
     <h1 class="font-mono text-sm text-neutral-400">Feed</h1>
-    <p class="mt-2 text-balance text-xl font-medium tracking-tight sm:text-2xl">
+    <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
       A collection of short notes, interesting links, and the occasional long
       form post.
     </p>
-    <!-- <Button as="a" href="/feed/rss.xml" class="mt-6">Subscribe via RSS</Button> -->
+    <!-- <Button as="a" href="/notes/rss.xml" class="mt-6">Subscribe via RSS</Button> -->
   </Header>
 
   <SectionBreak />
 
   <section class="relative">
+    <SectionLabel as="h2">Items</SectionLabel>
     <ul class="divide-y divide-dashed divide-neutral-700">
       {
         page.data.map((item) => {
@@ -55,7 +58,7 @@ const { page } = Astro.props;
                   >
                     {item.data.title}
                     <span
-                      class="absolute ml-1 mt-px shrink-0 rounded-xs bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current"
+                      class="absolute mt-px ml-1 shrink-0 rounded-xs bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current"
                       aria-hidden="true"
                     >
                       <svg
@@ -126,7 +129,7 @@ const { page } = Astro.props;
     </ul>
     <nav class="border-t border-neutral-700 px-4 py-8 sm:px-8">
       <ul
-        class="grid grid-cols-3 font-mono text-xs font-medium uppercase text-neutral-400"
+        class="grid grid-cols-3 font-mono text-xs font-medium text-neutral-400 uppercase"
       >
         <li class="text-left">
           {
