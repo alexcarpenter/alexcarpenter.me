@@ -8,17 +8,18 @@ import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
 import Header from "@/components/Header.astro";
 
-const smartHomeSlugs: CollectionEntry<"gear">["slug"][] = [
+const slugs: CollectionEntry<"gear">["slug"][] = [
   "bellroy-mod-phone-case-wallet",
   "new-balance-990-shoes",
   "technivorm-moccamaster-coffee-maker",
+  "tom-bihn-truck",
 ];
 
 const items = await getCollection("gear", (item) => {
-  return smartHomeSlugs.includes(item.slug);
+  return slugs.includes(item.slug);
 }).then((filteredItems) => {
   return filteredItems.sort((a, b) => {
-    return smartHomeSlugs.indexOf(a.slug) - smartHomeSlugs.indexOf(b.slug);
+    return slugs.indexOf(a.slug) - slugs.indexOf(b.slug);
   });
 });
 ---
