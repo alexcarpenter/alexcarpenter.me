@@ -218,7 +218,7 @@ const collaborators = [
       </div>
     </div>
 
-    <div class="px-4 py-8 sm:px-8">
+    <div class="overflow-hidden px-4 py-8 sm:px-8">
       <div class="relative">
         <figure>
           <figcaption class="sr-only">
@@ -254,26 +254,26 @@ const collaborators = [
               })
             }
           </ul>
-          <div
-            class="pointer-events-none absolute bottom-0 left-1/2 isolate z-1 h-56 w-4/5 -translate-x-1/2 translate-y-24"
-            aria-hidden="true"
-          >
-            {
-              Array.from({ length: 5 }, (_, i) => {
-                const blur = `blur-sm(${Math.pow(2, i - 1)}px)`;
-                return (
-                  <div
-                    style={{
-                      WebkitBackdropFilter: blur,
-                      backdropFilter: blur,
-                    }}
-                    class="absolute inset-0 rotate-180 [mask-image:radial-gradient(closest-side,black,transparent)] [mask-position:bottom,center] [mask-repeat:no-repeat]"
-                  />
-                );
-              })
-            }
-          </div>
         </figure>
+        <div
+          class="pointer-events-none absolute bottom-0 left-1/2 isolate h-56 w-4/5 -translate-x-1/2 translate-y-24"
+          aria-hidden="true"
+        >
+          {
+            Array.from({ length: 5 }, (_, i) => {
+              const blur = `blur(${Math.pow(2, i - 1)}px)`;
+              return (
+                <div
+                  style={{
+                    WebkitBackdropFilter: blur,
+                    backdropFilter: blur,
+                  }}
+                  class="absolute inset-0 rotate-180 [mask-image:radial-gradient(closest-side,black,transparent)] [mask-position:bottom,center] [mask-repeat:no-repeat]"
+                />
+              );
+            })
+          }
+        </div>
         <div class="absolute right-0 bottom-0 left-0 text-center">
           <p class="font-mono text-xs text-white uppercase">
             In collaboration with
