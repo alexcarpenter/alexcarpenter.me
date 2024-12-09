@@ -49,7 +49,7 @@ const { page } = Astro.props;
       {
         page.data.map((item) => {
           if (item.collection === "links") {
-            return item.render().then(({ Content }) => (
+            return render(item).then(({ Content }) => (
               <li class="px-4 py-8 sm:px-8" id={`link-${item.id}`}>
                 <h2 class="font-semibold">
                   <a
