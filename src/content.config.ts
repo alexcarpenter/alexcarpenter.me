@@ -1,8 +1,9 @@
 import { JOBS } from "@/consts";
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const links = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/links" }),
   schema: z.object({
     title: z.string(),
     published: z.coerce.date(),
@@ -12,7 +13,7 @@ const links = defineCollection({
 });
 
 const gear = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/gear" }),
   schema: z.object({
     eyebrow: z.string(),
     title: z.string(),
@@ -22,7 +23,7 @@ const gear = defineCollection({
 });
 
 const jobs = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
   schema: z.object({
     title: z.string(),
     company: z.enum(JOBS),
@@ -45,7 +46,7 @@ const jobs = defineCollection({
 });
 
 const notes = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
   schema: z.object({
     published: z.coerce.date(),
     draft: z.boolean().optional(),
@@ -53,7 +54,7 @@ const notes = defineCollection({
 });
 
 const posts = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
@@ -65,7 +66,7 @@ const posts = defineCollection({
 });
 
 const recommendations = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.md", base: "./src/content/recommendations" }),
   schema: z.object({
     name: z.string(),
     title: z.string(),

@@ -21,10 +21,10 @@ const slugs: CollectionEntry<"gear">["slug"][] = [
 ];
 
 const items = await getCollection("gear", (item) => {
-  return slugs.includes(item.slug);
+  return slugs.includes(item.id);
 }).then((filteredItems) => {
   return filteredItems.sort((a, b) => {
-    return slugs.indexOf(a.slug) - slugs.indexOf(b.slug);
+    return slugs.indexOf(a.id) - slugs.indexOf(b.id);
   });
 });
 
