@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 // import Button from "@/components/Button.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
@@ -49,8 +49,8 @@ const { page } = Astro.props;
       {
         page.data.map((item) => {
           if (item.collection === "links") {
-            return item.render().then(({ Content }) => (
-              <li class="px-4 py-8 sm:px-8" id={`link-${item.slug}`}>
+            return render(item).then(({ Content }) => (
+              <li class="px-4 py-8 sm:px-8" id={`link-${item.id}`}>
                 <h2 class="font-semibold">
                   <a
                     href={item.data.link}
@@ -89,7 +89,7 @@ const { page } = Astro.props;
             ));
           } else if (item.collection === "posts") {
             return (
-              <li class="px-4 py-8 sm:px-8" id={`post-${item.slug}`}>
+              <li class="px-4 py-8 sm:px-8" id={`post-${item.id}`}>
                 <dl class="mb-2 flex items-center gap-4">
                   <dt class="sr-only">Published</dt>
                   <dd class="font-mono text-sm text-neutral-400">
@@ -98,7 +98,7 @@ const { page } = Astro.props;
                 </dl>
                 <h2 class="text-xl font-semibold tracking-tight">
                   <a
-                    href={`/posts/${item.slug}`}
+                    href={`/posts/${item.id}`}
                     class="group underline decoration-neutral-600 decoration-2 hover:decoration-white"
                   >
                     {item.data.title}
@@ -108,8 +108,8 @@ const { page } = Astro.props;
               </li>
             );
           } else {
-            return item.render().then(({ Content }) => (
-              <li class="px-4 py-8 sm:px-8" id={`note-${item.slug}`}>
+            return render(item).then(({ Content }) => (
+              <li class="px-4 py-8 sm:px-8" id={`note-${item.id}`}>
                 <dl class="mb-4 flex items-center gap-4">
                   <dt class="sr-only">Published</dt>
                   <dd class="font-mono text-sm text-neutral-400">

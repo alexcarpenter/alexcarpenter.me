@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 const jobs = await getCollection("jobs");
@@ -12,7 +12,7 @@ import { Icon } from "astro-icon/components";
 import SectionBreak from "@/components/SectionBreak.astro";
 import Header from "@/components/Header.astro";
 
-const avatarMap = {
+const avatarMap: Record<string, any> = {
   "david-mosher": import("@/images/david-mosher.jpg"),
   "jimmy-merritello": import("@/images/jimmy-merritello.jpeg"),
   "amy-stuart": import("@/images/amy-stuart.jpeg"),
@@ -55,7 +55,7 @@ const avatarMap = {
               Date.parse(a.data.startDate.toString())
           )
           .map((job) =>
-            job.render().then(({ Content }) => (
+            render(job).then(({ Content }) => (
               <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem_minmax(0,1fr)] sm:px-8">
                 <img
                   src={`/logos/${slugify(job.data.company)}.svg`}
@@ -113,12 +113,12 @@ const avatarMap = {
           )
           .filter((recommendation) => recommendation.data.status === "visible")
           .map((recommendation) =>
-            recommendation.render().then(({ Content }) => {
+            render(recommendation).then(({ Content }) => {
               const { name, title, company } = recommendation.data;
               return (
                 <li class="grid gap-4 px-4 py-8 sm:grid-cols-[2rem_minmax(0,1fr)] sm:px-8">
                   <Image
-                    src={avatarMap[recommendation.slug]}
+                    src={avatarMap[recommendation.id]}
                     alt={`${name} avatar`}
                     class="relative size-8 rounded-full"
                     width={128}

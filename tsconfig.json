@@ -1,16 +1,7 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "strictNullChecks": true,
     "baseUrl": "./src",
-    "verbatimModuleSyntax": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowJs": true,
-    "target": "es2018",
-    "module": "esnext",
-    "strict": true,
-    "noEmit": true,
     "paths": {
       "@/*": ["*"]
     }

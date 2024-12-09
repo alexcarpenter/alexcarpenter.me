@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 // import FormattedDate from "@/components/FormattedDate.astro";
 export async function getStaticPaths() {
@@ -7,13 +7,13 @@ export async function getStaticPaths() {
     return import.meta.env.PROD ? data.draft !== true : true;
   });
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { id: post.id },
     props: post,
   }));
 }
 type Props = CollectionEntry<"posts">;
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 // const date = post.data.updated ?? post.data.published;
 ---
 

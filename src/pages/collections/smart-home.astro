@@ -9,7 +9,7 @@ import CollectionItem from "@/components/Collection/Item.astro";
 import Header from "@/components/Header.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 
-const slugs: CollectionEntry<"gear">["slug"][] = [
+const slugs: CollectionEntry<"gear">["id"][] = [
   "apple-home-pod-mini",
   "aqara-u100-smart-lock",
   "aqara-fp2-presence-sensor",
@@ -24,10 +24,10 @@ const slugs: CollectionEntry<"gear">["slug"][] = [
 ];
 
 const items = await getCollection("gear", (item) => {
-  return slugs.includes(item.slug);
+  return slugs.includes(item.id);
 }).then((filteredItems) => {
   return filteredItems.sort((a, b) => {
-    return slugs.indexOf(a.slug) - slugs.indexOf(b.slug);
+    return slugs.indexOf(a.id) - slugs.indexOf(b.id);
   });
 });
 

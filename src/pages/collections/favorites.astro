@@ -8,7 +8,7 @@ import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
 import Header from "@/components/Header.astro";
 
-const slugs: CollectionEntry<"gear">["slug"][] = [
+const slugs: CollectionEntry<"gear">["id"][] = [
   "bellroy-mod-phone-case-wallet",
   "new-balance-990-shoes",
   "technivorm-moccamaster-coffee-maker",
@@ -18,10 +18,10 @@ const slugs: CollectionEntry<"gear">["slug"][] = [
 ];
 
 const items = await getCollection("gear", (item) => {
-  return slugs.includes(item.slug);
+  return slugs.includes(item.id);
 }).then((filteredItems) => {
   return filteredItems.sort((a, b) => {
-    return slugs.indexOf(a.slug) - slugs.indexOf(b.slug);
+    return slugs.indexOf(a.id) - slugs.indexOf(b.id);
   });
 });
 ---
