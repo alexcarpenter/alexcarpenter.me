@@ -50,3 +50,22 @@ export const JOBS = [
   "Mighty in the Midwest",
   "Masuga Design",
 ] as const;
+
+export const COLLECTIONS = [
+  {
+    label: "Everyday Carry",
+    slug: "/collections/everyday-carry",
+  },
+  {
+    label: "Favorites",
+    slug: "/collections/favorites",
+  },
+  {
+    label: "Smart Home",
+    slug: "/collections/smart-home",
+  },
+  // {
+  //   label: "Uses",
+  //   slug: "/collections/uses",
+  // },
+] as const;

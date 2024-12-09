@@ -9,7 +9,7 @@ import SectionLabel from "@/components/SectionLabel.astro";
 import Header from "@/components/Header.astro";
 // import FormattedDate from "@/components/FormattedDate.astro";
 
-const slugs: CollectionEntry<"gear">["id"][] = [
+const slugs: CollectionEntry<"items">["id"][] = [
   "apple-iphone-15-pro",
   "apple-watch-ultra-2",
   "tactile-knife-co-rockwall",
@@ -20,7 +20,7 @@ const slugs: CollectionEntry<"gear">["id"][] = [
   "first-aid-pouch",
 ];
 
-const items = await getCollection("gear", (item) => {
+const items = await getCollection("items", (item) => {
   return slugs.includes(item.id);
 }).then((filteredItems) => {
   return filteredItems.sort((a, b) => {

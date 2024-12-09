@@ -5,21 +5,7 @@ import CollectionItem from "@/components/Collection/Item.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 import Header from "@/components/Header.astro";
-
-const COLLECTIONS = [
-  {
-    label: "Everyday Carry",
-    slug: "/collections/everyday-carry",
-  },
-  {
-    label: "Favorites",
-    slug: "/collections/favorites",
-  },
-  {
-    label: "Smart Home",
-    slug: "/collections/smart-home",
-  },
-];
+import { COLLECTIONS } from "@/consts";
 ---
 
 <BaseLayout
