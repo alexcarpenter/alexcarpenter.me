@@ -64,8 +64,8 @@ export const COLLECTIONS = [
     label: "Smart Home",
     slug: "/collections/smart-home",
   },
-  // {
-  //   label: "Uses",
-  //   slug: "/collections/uses",
-  // },
+  {
+    label: "Uses",
+    slug: "/collections/uses",
+  },
 ] as const;
