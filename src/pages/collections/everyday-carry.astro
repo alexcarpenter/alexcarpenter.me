@@ -1,59 +1,24 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
+import { getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import CollectionRoot from "@/components/Collection/Root.astro";
-import CollectionItem from "@/components/Collection/Item.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
+import CollectionRoot from "@/components/Collection/Root.astro";
+import CollectionItem from "@/components/Collection/Item.astro";
 import Header from "@/components/Header.astro";
-// import FormattedDate from "@/components/FormattedDate.astro";
 
-const slugs: CollectionEntry<"items">["id"][] = [
-  "apple-iphone-15-pro",
-  "apple-watch-ultra-2",
-  "tactile-knife-co-rockwall",
-  // "tactile-turn-apollo-flashlight",
-  "cwf-micro-click-flashlight",
-  "the-james-brand-midland",
-  "bellroy-mod-phone-case-wallet",
-  "first-aid-pouch",
-];
-
-const items = await getCollection("items", (item) => {
-  return slugs.includes(item.id);
-}).then((filteredItems) => {
-  return filteredItems.sort((a, b) => {
-    return slugs.indexOf(a.id) - slugs.indexOf(b.id);
-  });
-});
-
-// const changelog: {
-//   date: string;
-//   description: string;
-// }[] = [
-//   {
-//     date: "2024-11-15",
-//     description:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, harum!",
-//   },
-//   {
-//     date: "2024-11-15",
-//     description: "Lorem ipsum dolor sit amet consectetur",
-//   },
-// ];
+const collection = await getEntry("collections", "everyday-carry");
 ---
 
 <BaseLayout
-  title="Everyday Carry"
-  description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis aliquam architecto eaque."
+  title={collection.data.title}
+  description={collection.data.description}
 >
   <Header>
     <SectionLabel as="p">Intro</SectionLabel>
-    <h1 class="font-mono text-sm text-neutral-400">Everyday Carry</h1>
+    <h1 class="font-mono text-sm text-neutral-400">{collection.data.title}</h1>
     <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis
-      aliquam architecto eaque.
+      {collection.data.description}
     </p>
   </Header>
 
@@ -64,13 +29,42 @@ const items = await getCollection("items", (item) => {
 
     <CollectionRoot>
       {
-        items.map((item) => {
+        collection.data.items.map(async ({ id }) => {
+          const item = await getEntry("items", id);
           return (
             <CollectionItem>
               <p class="mb-1 font-mono text-xs text-orange-300 uppercase">
                 {item.data.eyebrow}
               </p>
-              <h3 class="font-semibold tracking-tight">{item.data.title}</h3>
+              <h3 class="font-semibold tracking-tight">
+                <a
+                  href={item.data.link}
+                  class:list={[
+                    "group underline decoration-neutral-600 decoration-2 hover:decoration-white",
+                    "before:absolute before:inset-0",
+                  ]}
+                >
+                  {item.data.title}
+                  <span
+                    class="absolute mt-px ml-1 shrink-0 rounded-xs bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="size-2.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </span>
+                </a>
+              </h3>
               {/* <p class="mt-4 text-neutral-400">{item.data.description}</p> */}
             </CollectionItem>
           );
@@ -78,30 +72,4 @@ const items = await getCollection("items", (item) => {
       }
     </CollectionRoot>
   </section>
-
-  <!-- <SectionBreak />
-
-  <section class="relative flex-1">
-    <SectionLabel as="h2">Changelog</SectionLabel>
-
-    <div class="px-4 py-8 sm:px-8">
-      <ul
-        class="ml-2 list-square space-y-2 pl-4 text-neutral-400 marker:text-orange-300"
-      >
-        {
-          changelog.map((item) => {
-            return (
-              <li>
-                <FormattedDate
-                  date={new Date(item.date)}
-                  class="font-semibold text-white"
-                />
-                - {item.description}
-              </li>
-            );
-          })
-        }
-      </ul>
-    </div>
-  </section> -->
 </BaseLayout>

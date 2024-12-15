@@ -1,61 +1,24 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
+import { getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
 import Header from "@/components/Header.astro";
-import FormattedDate from "@/components/FormattedDate.astro";
 
-const slugs: CollectionEntry<"items">["id"][] = [
-  "apple-home-pod-mini",
-  "aqara-u100-smart-lock",
-  "aqara-fp2-presence-sensor",
-  "aqara-wireless-mini-switch",
-  "aqara-water-leak-sensor",
-  "kasa-smart-dimmer-switch",
-  "philips-hue-smart-plug",
-  "lutron-aurora-smart-bulb-dimmer-switch",
-  "synology-ds224-nas",
-  "eufy-s380-home-base-3",
-  "eufy-video-doorbell-c31",
-];
-
-const items = await getCollection("items", (item) => {
-  return slugs.includes(item.id);
-}).then((filteredItems) => {
-  return filteredItems.sort((a, b) => {
-    return slugs.indexOf(a.id) - slugs.indexOf(b.id);
-  });
-});
-
-const changelog: {
-  date: string;
-  description: string;
-}[] = [
-  {
-    date: "2024-11-17",
-    description: "Added Kasa Smart Dimmer Switch to bathroom",
-  },
-  {
-    date: "2024-11-17",
-    description: "Added Kasa Outdoor Smart Plug for holiday lights",
-  },
-];
+const collection = await getEntry("collections", "smart-home");
 ---
 
 <BaseLayout
-  title="Smart Home"
-  description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis aliquam architecto eaque."
+  title={collection.data.title}
+  description={collection.data.description}
 >
   <Header>
     <SectionLabel as="p">Intro</SectionLabel>
-    <h1 class="font-mono text-sm text-neutral-400">Smart Home</h1>
+    <h1 class="font-mono text-sm text-neutral-400">{collection.data.title}</h1>
     <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis
-      aliquam architecto eaque.
+      {collection.data.description}
     </p>
   </Header>
 
@@ -66,7 +29,8 @@ const changelog: {
 
     <CollectionRoot>
       {
-        items.map((item) => {
+        collection.data.items.map(async ({ id }) => {
+          const item = await getEntry("items", id);
           return (
             <CollectionItem>
               <p class="mb-1 font-mono text-xs text-orange-300 uppercase">
@@ -101,44 +65,11 @@ const changelog: {
                   </span>
                 </a>
               </h3>
+              {/* <p class="mt-4 text-neutral-400">{item.data.description}</p> */}
             </CollectionItem>
           );
         })
       }
     </CollectionRoot>
   </section>
-
-  <!-- <SectionBreak />
-
-  <section
-    class="group/changelog relative has-[details[open]]:min-h-60 has-[details[open]]:flex-1"
-  >
-    <SectionLabel
-      as="h2"
-      class="group-has-[details:not([open])]/changelog:opacity-0"
-      >Changelog</SectionLabel
-    >
-
-    <details>
-      <summary class="p-4 text-center">View changelog</summary>
-      <div class="px-4 py-8 pt-0 sm:px-8">
-        <ul class="list-square space-y-1 pl-3.5">
-          {
-            changelog.map((item) => {
-              return (
-                <li class="font-mono text-sm text-neutral-400 marker:text-orange-300">
-                  <FormattedDate
-                    date={new Date(item.date)}
-                    class="text-white"
-                  />{" "}
-                  &mdash;
-                  {item.description}
-                </li>
-              );
-            })
-          }
-        </ul>
-      </div>
-    </details>
-  </section> -->
 </BaseLayout>

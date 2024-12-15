@@ -1,6 +1,16 @@
 import { JOBS } from "@/consts";
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 import { glob } from "astro/loaders";
+
+const _collections = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/collections" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    published: z.coerce.date(),
+    items: z.array(reference("items")),
+  }),
+});
 
 const links = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/links" }),
@@ -78,6 +88,7 @@ const recommendations = defineCollection({
 });
 
 export const collections = {
+  collections: _collections,
   links,
   items,
   jobs,

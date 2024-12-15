@@ -1,6 +1,5 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
+import { getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
@@ -8,36 +7,18 @@ import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
 import Header from "@/components/Header.astro";
 
-const slugs: CollectionEntry<"items">["id"][] = [
-  "visual-studio-code",
-  "iterm-2",
-  "raycast",
-  "ente-auth",
-  "bitwarden",
-  "kinesis-advantage360-keyboard",
-  "caldigit-ts4-dock",
-  "rode-podmic",
-];
-
-const items = await getCollection("items", (item) => {
-  return slugs.includes(item.id);
-}).then((filteredItems) => {
-  return filteredItems.sort((a, b) => {
-    return slugs.indexOf(a.id) - slugs.indexOf(b.id);
-  });
-});
+const collection = await getEntry("collections", "uses");
 ---
 
 <BaseLayout
-  title="Uses"
-  description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis aliquam architecto eaque."
+  title={collection.data.title}
+  description={collection.data.description}
 >
   <Header>
     <SectionLabel as="p">Intro</SectionLabel>
-    <h1 class="font-mono text-sm text-neutral-400">Uses</h1>
+    <h1 class="font-mono text-sm text-neutral-400">{collection.data.title}</h1>
     <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis
-      aliquam architecto eaque.
+      {collection.data.description}
     </p>
   </Header>
 
@@ -48,7 +29,8 @@ const items = await getCollection("items", (item) => {
 
     <CollectionRoot>
       {
-        items.map((item) => {
+        collection.data.items.map(async ({ id }) => {
+          const item = await getEntry("items", id);
           return (
             <CollectionItem>
               <p class="mb-1 font-mono text-xs text-orange-300 uppercase">
