@@ -1,5 +1,5 @@
 ---
-import { getEntry } from "astro:content";
+import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
@@ -7,7 +7,16 @@ import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
 import Header from "@/components/Header.astro";
 
-const collection = await getEntry("collections", "everyday-carry");
+export async function getStaticPaths() {
+  const collections = await getCollection("collections");
+  return collections.map((collection) => ({
+    params: { slug: collection.id },
+    props: collection,
+  }));
+}
+
+type Props = CollectionEntry<"collections">;
+const collection = Astro.props;
 ---
 
 <BaseLayout
