@@ -11,6 +11,8 @@ draft: true
 
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus reprehenderit.
 
+**Honorable mention: Cloud Defensive MCH-HC Micro**
+
 ---
 
 <small>Backpack</small>
@@ -19,10 +21,20 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus re
 
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus reprehenderit.
 
+**Honorable mention: Tom Bihn Synik 22**
+
 ---
 
 <small>Coffee Maker</small>
 
 ## Technivorm Moccamaster Coffee Maker
+
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus reprehenderit.
+
+---
+
+<small>Smart lock</small>
+
+## Aqara Smart Lock U100
 
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus reprehenderit.

@@ -1,13 +1,13 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @variant dark (@media (prefers-color-scheme: dark));
 
 @theme {
   --font-*: initial;
   --font-sans: Geist Sans, ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono: Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+    "Liberation Mono", "Courier New", monospace;
 
   --breakpoint-md: 860px;
 
@@ -57,12 +57,16 @@
     @apply underline decoration-neutral-600 decoration-2 hover:decoration-white;
   }
 
+  strong {
+    @apply font-medium;
+  }
+
   small {
-    @apply block font-mono text-xs uppercase text-neutral-400;
+    @apply block font-mono text-xs text-neutral-400 uppercase;
   }
 
   ul {
-    @apply ml-2 list-square pl-4 marker:text-neutral-700;
+    @apply list-square ml-2 pl-4 marker:text-neutral-700;
   }
 
   blockquote {
@@ -89,7 +93,7 @@
 
   :not(pre) > code,
   kbd {
-    @apply -mx-0.5 inline rounded-sm bg-neutral-800 px-0.5 text-[0.9375rem] [box-decoration-break:clone];
+    @apply -mx-0.5 inline rounded-sm bg-neutral-800 [box-decoration-break:clone] px-0.5 text-[0.9375rem];
   }
 
   table {
@@ -114,7 +118,7 @@
   @apply inline whitespace-nowrap;
 
   &::after {
-    content: ' ';
+    content: " ";
     word-spacing: 1em;
     background-image: linear-gradient(
       -0.2turn,
@@ -127,15 +131,15 @@
 
 @layer utilities {
   @font-face {
-    font-family: 'Geist Sans';
-    src: url('/fonts/GeistVariableVF.woff2') format('woff2');
+    font-family: "Geist Sans";
+    src: url("/fonts/GeistVariableVF.woff2") format("woff2");
     font-display: swap;
     font-weight: 400 600;
   }
 
   @font-face {
-    font-family: 'Geist Mono';
-    src: url('/fonts/GeistMonoVariableVF.woff2') format('woff2');
+    font-family: "Geist Mono";
+    src: url("/fonts/GeistMonoVariableVF.woff2") format("woff2");
     font-display: swap;
     font-weight: 400;
   }
@@ -152,10 +156,10 @@
   }
 
   code {
-    @apply isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:select-none *:before:bg-linear-to-r *:before:from-(--pre-bg) *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)] *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:select-none *:after:bg-linear-to-l *:after:from-(--pre-bg) *:after:from-35% *:after:content-['_'];
+    @apply isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:bg-linear-to-r *:before:from-(--pre-bg) *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)] *:before:select-none *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:bg-linear-to-l *:after:from-(--pre-bg) *:after:from-35% *:after:content-['_'] *:after:select-none;
   }
 
   mark {
-    @apply -mx-0.5 inline rounded-sm bg-amber-500/20 px-0.5 text-amber-100 [box-decoration-break:clone];
+    @apply -mx-0.5 inline rounded-sm bg-amber-500/20 [box-decoration-break:clone] px-0.5 text-amber-100;
   }
 }
