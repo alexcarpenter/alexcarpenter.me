@@ -9,6 +9,14 @@ const _collections = defineCollection({
     description: z.string(),
     published: z.coerce.date(),
     items: z.array(reference("items")),
+    changelog: z
+      .array(
+        z.object({
+          label: z.enum(["added", "removed", "fixed", "replaced"]),
+          description: z.string(),
+        }),
+      )
+      .optional(),
   }),
 });
 

@@ -81,4 +81,32 @@ const collection = Astro.props;
       }
     </CollectionRoot>
   </section>
+
+  {collection.data.changelog ? (
+    <SectionBreak />
+
+    <section
+      class="relative [--section-label-opacity:0] has-[details[open]]:[--section-label-opacity:1]"
+    >
+      <SectionLabel as="h2" class="opacity-[var(--section-label-opacity)]"
+        >Changelog</SectionLabel
+      >
+      <details class="px-4 py-8 sm:px-8">
+        <summary class="text-center">View changelog</summary>
+        <div class="prose mt-4">
+          <ul>
+            {
+              collection.data.changelog.map((item) => {
+                return (
+                  <li>
+                    <strong class:list={['capitalize']}>{item.label}</strong> - {item.description}
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      </details>
+    </section>
+  ) : null}
 </BaseLayout>

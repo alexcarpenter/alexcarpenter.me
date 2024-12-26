@@ -9,7 +9,9 @@ draft: true
 
 ## CWF Micro Click Flashlight
 
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus reprehenderit.
+The CWF Micro Click has become my favorite everyday carry flashlight from the year and could be found in my pocket most if not all days. The micro click size is the ideal size for everyday carry for my needs, and has a perfect moonlight mode.
+
+CWF lights are some of my favorite designs, clean, simple and most importantly functional.
 
 **Honorable mention: Cloud Defensive MCH-HC Micro**
 
