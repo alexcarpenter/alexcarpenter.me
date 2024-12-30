@@ -7,19 +7,20 @@ import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 import Header from "@/components/Header.astro";
 
+const meta = {
+  title: "Collections",
+  description:
+    "My favorite coffee gear, everyday carry tools, and smart home tech.",
+};
 const collections = await getCollection("collections");
 ---
 
-<BaseLayout
-  title="Collections"
-  description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis aliquam architecto eaque."
->
+<BaseLayout {...meta}>
   <Header>
     <SectionLabel as="p">Intro</SectionLabel>
-    <h1 class="font-mono text-sm text-neutral-400">Collections</h1>
+    <h1 class="font-mono text-sm text-neutral-400">{meta.title}</h1>
     <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum officiis
-      aliquam architecto eaque.
+      {meta.description}
     </p>
   </Header>
 
@@ -40,7 +41,7 @@ const collections = await getCollection("collections");
                   {collection.data.title}
                 </a>
               </h3>
-              <p class="font-semibold tracking-tight">
+              <p class="font-semibold tracking-tight text-balance">
                 {collection.data.description}
               </p>
             </CollectionItem>
