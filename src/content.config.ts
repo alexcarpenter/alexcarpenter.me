@@ -36,7 +36,7 @@ const items = defineCollection({
     eyebrow: z.string(),
     title: z.string(),
     description: z.string(),
-    link: z.string(),
+    link: z.string().optional(),
   }),
 });
 

@@ -371,12 +371,12 @@ const collaborators = [
   import { computePosition, flip, shift, offset } from "@floating-ui/dom";
 
   const triggers = document.querySelectorAll(
-    "[data-tooltip-trigger]"
+    "[data-tooltip-trigger]",
   ) as NodeListOf<HTMLElement>;
 
   triggers.forEach((trigger) => {
     const content = document.getElementById(
-      `${trigger.dataset.tooltipTrigger}`
+      `${trigger.dataset.tooltipTrigger}`,
     ) as HTMLElement;
     function update() {
       computePosition(trigger, content, {
@@ -421,7 +421,7 @@ const collaborators = [
     ].forEach(([event, listener]) => {
       trigger.addEventListener(
         event as keyof HTMLElementEventMap,
-        listener as EventListenerOrEventListenerObject
+        listener as EventListenerOrEventListenerObject,
       );
     });
   });

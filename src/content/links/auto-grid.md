@@ -8,16 +8,15 @@ tags:
 
 ```css
 .auto-grid {
-  --max-column-width: 100% / var(--auto-grid-max-columns, infinity) - var(--auto-grid-gap);
+  --max-column-width: 100% / var(--auto-grid-max-columns, infinity) -
+    var(--auto-grid-gap);
   --column-width: max(
     var(--max-column-width),
     min(var(--auto-grid-min-size, 10rem), 100%)
   );
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--column-width), 1fr));
-  gap: var(--auto-grid-gap-vertical, var(--auto-grid-gap, 1rem)) var(
-      --auto-grid-gap,
-      1rem
-    );
+  gap: var(--auto-grid-gap-vertical, var(--auto-grid-gap, 1rem))
+    var(--auto-grid-gap, 1rem);
 }
 ```
