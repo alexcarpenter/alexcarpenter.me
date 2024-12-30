@@ -7,21 +7,17 @@ draft: true
 
 <small>Flashlight</small>
 
-## CWF Micro Click Flashlight
+## HDS Systems EDC Tactical
 
-The CWF Micro Click has become my favorite everyday carry flashlight from the year and could be found in my pocket most if not all days. The micro click size is the ideal size for everyday carry for my needs, and has a perfect moonlight mode.
+I've only had this flashlight for the last few days of 2024, but it is easily my favorite flashlight the I own. I've wanted an HDS light for many years now, and finally pulled the trigger on one for my upcoming birthday. The rotary UI is by far the thing that sets this light apart and why I love it so much. Excited for the new year with this light in the pocket.
 
-CWF lights are some of my favorite designs, clean, simple and most importantly functional.
-
-**Honorable mention: Cloud Defensive MCH-HC Micro**
+**Honorable mention: CWF Micro Click Flashlight**
 
 ---
 
 <small>Backpack</small>
 
 ## Evergoods CPL 16L
-
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus reprehenderit.
 
 **Honorable mention: Tom Bihn Synik 22**
 
@@ -31,12 +27,8 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus re
 
 ## Technivorm Moccamaster Coffee Maker
 
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus reprehenderit.
-
 ---
 
 <small>Smart lock</small>
 
 ## Aqara Smart Lock U100
-
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo ipsum accusamus reprehenderit.

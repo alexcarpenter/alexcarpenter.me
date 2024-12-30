@@ -62,7 +62,7 @@
   }
 
   small {
-    @apply block font-mono text-xs text-neutral-400 uppercase;
+    @apply block font-mono text-xs text-orange-300 uppercase;
   }
 
   ul {
