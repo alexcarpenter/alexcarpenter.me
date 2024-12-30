@@ -6,4 +6,5 @@ items:
   - breville-barista-touch-espresso-machine
   - technivorm-moccamaster-coffee-maker
   - kalita-stainless-steel-pour-dripper
+  - baratza-encore-coffee-grinder
 ---
