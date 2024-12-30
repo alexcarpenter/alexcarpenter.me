@@ -15,21 +15,21 @@
     "@astrojs/rss": "4.0.10",
     "@astrojs/sitemap": "3.2.1",
     "@astrojs/tailwind": "5.1.4",
-    "@floating-ui/dom": "^1.6.10",
-    "@shikijs/transformers": "^1.14.1",
+    "@floating-ui/dom": "^1.6.12",
+    "@shikijs/transformers": "^1.24.4",
     "@sindresorhus/slugify": "^2.2.1",
     "astro": "5.1.1",
-    "astro-icon": "^1.1.1",
+    "astro-icon": "^1.1.5",
     "keyux": "^0.10.0",
     "markdown-it": "^14.1.0",
     "remark-gfm": "^4.0.0",
-    "sanitize-html": "^2.13.0",
+    "sanitize-html": "^2.14.0",
     "sharp": "^0.33.5",
-    "typescript": "^5.5.4"
+    "typescript": "^5.7.2"
   },
   "devDependencies": {
     "@tailwindcss/vite": "4.0.0-beta.2",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "tailwindcss": "4.0.0-beta.2"
