@@ -11,6 +11,6 @@ items:
   - bellroy-mod-phone-case-wallet
   - first-aid-pouch
 changelog:
-  - description: Replaced CWF Micro Click with HDS Systems EDC Tactical flashlight
-    published: 2024-12-31T09:50:47-0500
+  - published: 2024-12-31T09:50:47-0500
+    description: Swapped CWF Micro Click for HDS Systems EDC Tactical flashlight
 ---
