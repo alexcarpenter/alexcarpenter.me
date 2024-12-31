@@ -6,6 +6,7 @@ import SectionLabel from "@/components/SectionLabel.astro";
 import CollectionRoot from "@/components/Collection/Root.astro";
 import CollectionItem from "@/components/Collection/Item.astro";
 import Header from "@/components/Header.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 
 export async function getStaticPaths() {
   const collections = await getCollection("collections");
@@ -90,19 +91,19 @@ const collection = Astro.props;
       <>
         <SectionBreak />
 
-        <section class="relative [--section-label-opacity:0] has-[details[open]]:[--section-label-opacity:1]">
+        <section class="relative [--section-label-opacity:0] has-[details[open]]:[--section-label-opacity:1] has-[details[open]]:min-h-[12rem]">
           <SectionLabel as="h2" class="opacity-[var(--section-label-opacity)]">
             Changelog
           </SectionLabel>
-          <details class="px-4 py-8 sm:px-8">
+          <details class="px-4 py-4 sm:px-8">
             <summary class="text-center">View changelog</summary>
             <div class="prose mt-4">
               <ul>
                 {collection.data.changelog.map((item) => {
                   return (
                     <li>
-                      <strong class:list={["capitalize"]}>{item.label}</strong>{" "}
-                      - {item.description}
+                      <FormattedDate date={item.published} /> -{" "}
+                      {item.description}
                     </li>
                   );
                 })}

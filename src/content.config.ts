@@ -12,8 +12,8 @@ const _collections = defineCollection({
     changelog: z
       .array(
         z.object({
-          label: z.enum(["added", "removed", "fixed", "replaced"]),
           description: z.string(),
+          published: z.coerce.date(),
         }),
       )
       .optional(),
