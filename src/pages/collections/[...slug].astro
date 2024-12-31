@@ -30,6 +30,14 @@ const collection = Astro.props;
     <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
       {collection.data.description}
     </p>
+    {
+      collection.data.changelog ? (
+        <p class="font-mono text-sm text-neutral-400 mt-2">
+          Last updated{" "}
+          <FormattedDate date={collection.data.changelog.at(0).published} />
+        </p>
+      ) : null
+    }
   </Header>
 
   <SectionBreak />
@@ -96,7 +104,7 @@ const collection = Astro.props;
             Changelog
           </SectionLabel>
           <details class="px-4 py-4 sm:px-8">
-            <summary class="text-center">View changelog</summary>
+            <summary class="text-center cursor-default">View changelog</summary>
             <div class="prose mt-4">
               <ul>
                 {collection.data.changelog.map((item) => {
