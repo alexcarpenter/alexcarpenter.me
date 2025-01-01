@@ -7,6 +7,7 @@ import FormattedDate from "@/components/FormattedDate.astro";
 import SectionBreak from "@/components/SectionBreak.astro";
 import SectionLabel from "@/components/SectionLabel.astro";
 import Header from "@/components/Header.astro";
+import { RSS_FEEDS } from "@/consts";
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allLinks = await getCollection("links");
@@ -38,6 +39,22 @@ const { page } = Astro.props;
       A collection of short notes, interesting links, and the occasional long
       form post.
     </p>
+    <div
+      class="mt-4 flex justify-center gap-x-2 text-neutral-400 font-mono text-xs uppercase"
+    >
+      <p>RSS feeds:</p>
+      <ul class="flex gap-x-[inherit]">
+        {
+          RSS_FEEDS.map(({ url, label }) => (
+            <li>
+              <a class="hover:text-white underline" href={url}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
     <!-- <Button as="a" href="/notes/rss.xml" class="mt-6">Subscribe via RSS</Button> -->
   </Header>
 

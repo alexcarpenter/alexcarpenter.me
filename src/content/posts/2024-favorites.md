@@ -5,30 +5,23 @@ published: 2024-12-15T09:25:00-0500
 draft: true
 ---
 
-<small>Flashlight</small>
+## Gear/tools
 
-## HDS Systems EDC Tactical
+- **Flashlight:**
+  - HDS Systems EDC Tactical
+  - CWF Micro Click Flashlight
+- **Backpack:**
+  - Evergoods CIVIC Panel Loader 16L
+  - Tom Bihn Synik 22
+- **Coffee Maker:** Technivorm Moccamaster Coffee Maker
+- **Smart Lock:** Aqara Smart Lock U100
 
-I've only had this flashlight for the last few days of 2024, but it is easily my favorite flashlight the I own. I've wanted an HDS light for many years now, and finally pulled the trigger on one for my upcoming birthday. The rotary UI is by far the thing that sets this light apart and why I love it so much. Excited for the new year with this light in the pocket.
+## Media
 
-**Honorable mention: CWF Micro Click Flashlight**
-
----
-
-<small>Backpack</small>
-
-## Evergoods CPL 16L
-
-**Honorable mention: Tom Bihn Synik 22**
-
----
-
-<small>Coffee Maker</small>
-
-## Technivorm Moccamaster Coffee Maker
-
----
-
-<small>Smart lock</small>
-
-## Aqara Smart Lock U100
+- **Television:**
+  - Shrinking Season 2
+  - Lioness Season 1 & 2
+- **Music:**
+  - Bon Iver S P E Y S I D E
+  - Red Clay Strays Made by These Moments
+  - Raffi Bananaphone

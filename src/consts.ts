@@ -50,3 +50,18 @@ export const JOBS = [
   "Mighty in the Midwest",
   "Masuga Design",
 ] as const;
+
+export const RSS_FEEDS = [
+  {
+    label: "Notes",
+    url: "/notes/rss.xml",
+  },
+  {
+    label: "Links",
+    url: "/links/rss.xml",
+  },
+  {
+    label: "Posts",
+    url: "/posts/rss.xml",
+  },
+] as const;
