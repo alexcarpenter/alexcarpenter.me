@@ -10,7 +10,10 @@ items:
   - tom-bihn-truck
   - knipex-cobra-pliers
   - wera-7-in-1-screwdriver
+  - work-sharp-guided-field-sharpener
 changelog:
+  - published: 2025-01-03T12:43:46-0500
+    description: Added Work Sharp Guided Field Sharpener
   - published: 2024-12-31T16:00:03-0500
     description: Added Evergoods CIVIC Panel Loader 16L
 ---
