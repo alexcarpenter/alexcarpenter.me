@@ -17,6 +17,11 @@ export const NAVIGATION = [
     slug: "/feed",
     hotkey: "f",
   },
+  {
+    label: "Collections",
+    slug: "/collections",
+    hotkey: "c",
+  },
 ];
 
 export const SOCIALS = [

@@ -1,6 +1,6 @@
 ---
 title: Everyday Carry
-description: My current tools and gear I carry with me daily.
+description: Tools and gear I carry with me daily.
 published: 2024-12-15T08:55:17-0500
 items:
   - apple-iphone-15-pro

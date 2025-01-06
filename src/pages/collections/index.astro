@@ -12,7 +12,9 @@ const meta = {
   description:
     "My favorite coffee gear, everyday carry tools, and smart home tech.",
 };
-const collections = await getCollection("collections");
+const collections = await getCollection("collections", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 ---
 
 <BaseLayout {...meta}>

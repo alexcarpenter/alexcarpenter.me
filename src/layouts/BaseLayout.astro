@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { NAVIGATION, RSS_FEEDS, SITE_VERSION, SOCIALS } from "@/consts";
+import { NAVIGATION, SITE_VERSION, SOCIALS } from "@/consts";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
@@ -126,7 +126,7 @@ import { Icon } from "astro-icon/components";
 
           <a
             class:list={[
-              "text-xxs rounded-full border border-green-300 bg-green-950 px-2 py-0.5 font-mono text-green-300",
+              "max-sm:hidden text-xxs rounded-full border border-green-300 bg-green-950 px-2 py-0.5 font-mono text-green-300",
               "hover:bg-green-900",
             ]}
             href="https://github.com/alexcarpenter/alexcarpenter.me"

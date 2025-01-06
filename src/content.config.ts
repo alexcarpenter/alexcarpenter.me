@@ -17,6 +17,7 @@ const _collections = defineCollection({
         }),
       )
       .optional(),
+    draft: z.boolean().optional(),
   }),
 });
 
