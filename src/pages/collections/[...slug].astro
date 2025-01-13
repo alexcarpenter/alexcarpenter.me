@@ -103,8 +103,16 @@ const collection = Astro.props;
           <SectionLabel as="h2" class="opacity-[var(--section-label-opacity)]">
             Changelog
           </SectionLabel>
-          <details class="px-4 py-4 sm:px-8">
-            <summary class="text-center cursor-default">View changelog</summary>
+          <details class="px-4 py-4 sm:px-8 group/details">
+            <summary
+              class:list={[
+                "text-center cursor-default list-none",
+                "before:content-['[+]'] before:font-mono",
+                "group-open/details:before:content-['[-]']",
+              ]}
+            >
+              View changelog
+            </summary>
             <div class="prose mt-4">
               <ul>
                 {collection.data.changelog.map((item) => {
