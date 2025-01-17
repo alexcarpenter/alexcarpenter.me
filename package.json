@@ -21,7 +21,6 @@
     "astro-icon": "^1.1.5",
     "keyux": "^0.10.0",
     "markdown-it": "^14.1.0",
-    "remark-gfm": "^4.0.0",
     "sanitize-html": "^2.14.0",
     "sharp": "^0.33.5",
     "typescript": "^5.7.2"
