@@ -3,6 +3,8 @@ title: Senior UI Engineer
 company: Clerk
 startDate: 2024-01-04
 projects:
+  - title: Combined sign-in-or-up
+    href: https://clerk.com/changelog/2025-01-16-sign-in-or-up
   - title: Clerk Elements
     href: "https://clerk.com/changelog/2024-05-02-elements-beta"
     img:
