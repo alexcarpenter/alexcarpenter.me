@@ -54,10 +54,12 @@ const jobs = defineCollection({
         z.object({
           title: z.string(),
           href: z.string(),
-          img: z.object({
-            src: z.string(),
-            alt: z.string(),
-          }),
+          img: z
+            .object({
+              src: z.string(),
+              alt: z.string(),
+            })
+            .optional(),
         }),
       )
       .optional(),
