@@ -162,4 +162,8 @@
   mark {
     @apply -mx-0.5 inline rounded-sm bg-amber-500/20 [box-decoration-break:clone] px-0.5 text-amber-100;
   }
+
+  ::-webkit-details-marker {
+    display: none;
+  }
 }
