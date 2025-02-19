@@ -91,6 +91,10 @@
     @apply bg-(--pre-bg);
   }
 
+  pre code .highlighted-word {
+    @apply rounded-sm border border-neutral-700 [box-decoration-break:clone] px-0.5 py-0.25;
+  }
+
   :not(pre) > code,
   kbd {
     @apply -mx-0.5 inline rounded-sm bg-neutral-800 [box-decoration-break:clone] px-0.5 text-[0.9375rem];
