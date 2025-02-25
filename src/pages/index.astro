@@ -298,7 +298,7 @@ const collaborators = [
                         alt={`${name} avatar`}
                         width={128}
                         height={128}
-                        class="absolute h-full w-full object-cover"
+                        class:list={["absolute h-full w-full object-cover"]}
                       />
                     </a>
                     <div
@@ -374,12 +374,12 @@ const collaborators = [
   import { computePosition, flip, shift, offset } from "@floating-ui/dom";
 
   const triggers = document.querySelectorAll(
-    "[data-tooltip-trigger]",
+    "[data-tooltip-trigger]"
   ) as NodeListOf<HTMLElement>;
 
   triggers.forEach((trigger) => {
     const content = document.getElementById(
-      `${trigger.dataset.tooltipTrigger}`,
+      `${trigger.dataset.tooltipTrigger}`
     ) as HTMLElement;
     function update() {
       computePosition(trigger, content, {
@@ -412,7 +412,7 @@ const collaborators = [
       ["mouseenter", show],
       ["mouseleave", hide],
       ["focus", show],
-      ["blur-sm", hide],
+      ["blur", hide],
       [
         "keydown",
         (e: KeyboardEvent) => {
@@ -424,7 +424,7 @@ const collaborators = [
     ].forEach(([event, listener]) => {
       trigger.addEventListener(
         event as keyof HTMLElementEventMap,
-        listener as EventListenerOrEventListenerObject,
+        listener as EventListenerOrEventListenerObject
       );
     });
   });
