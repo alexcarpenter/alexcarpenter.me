@@ -9,4 +9,6 @@ items:
   - smiley-halfwave-2-meter
   - baofeng-uv-5g-plus
   - radioddity-gm-30-plus
+  - muzi-works-r1
+  - vgc-vr-n76
 ---

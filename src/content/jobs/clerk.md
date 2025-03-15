@@ -20,6 +20,7 @@ tools:
   - Tailwind CSS
   - TypeScript
   - Framer Motion
+  - Floating UI
 ---
 
-UI Engineer apart of the SDK Infra team, currently working [Clerk Elements](https://clerk.com/docs/elements/overview) and our [UI components](https://clerk.com/docs/components/overview).
+UI Engineer apart of the SDK Infra team, currently working our new [commerce components](https://x.com/ClerkDev/status/1899231055481385083).

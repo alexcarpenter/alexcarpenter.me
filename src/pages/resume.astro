@@ -52,7 +52,7 @@ const avatarMap: Record<string, any> = {
           .sort(
             (a, b) =>
               Date.parse(b.data.startDate.toString()) -
-              Date.parse(a.data.startDate.toString()),
+              Date.parse(a.data.startDate.toString())
           )
           .map((job) =>
             render(job).then(({ Content }) => (
@@ -74,7 +74,7 @@ const avatarMap: Record<string, any> = {
                     }`}
                   </p>
                   <div class="grid gap-x-8 gap-y-4 sm:grid-cols-[minmax(0,2fr)_1px_minmax(0,1fr)]">
-                    <div class="prose">
+                    <div class="prose text-pretty">
                       <Content />
                     </div>
                     <div
@@ -93,7 +93,7 @@ const avatarMap: Record<string, any> = {
                   </div>
                 </div>
               </li>
-            )),
+            ))
           )
       }
     </ul>
@@ -109,7 +109,7 @@ const avatarMap: Record<string, any> = {
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString()),
+              Date.parse(a.data.published.toString())
           )
           .filter((recommendation) => recommendation.data.status === "visible")
           .map((recommendation) =>
@@ -133,7 +133,7 @@ const avatarMap: Record<string, any> = {
                   </div>
                 </li>
               );
-            }),
+            })
           )
       }
     </ul>
