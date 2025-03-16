@@ -36,7 +36,7 @@ const items = defineCollection({
   schema: z.object({
     eyebrow: z.string(),
     title: z.string(),
-    description: z.string(),
+    description: z.string().optional(),
     link: z.string().optional(),
   }),
 });

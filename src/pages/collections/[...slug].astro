@@ -87,6 +87,9 @@ const collection = Astro.props;
                   item.data.title
                 )}
               </h3>
+              {item.data.description ? (
+                <p class="mt-1 text-neutral-400">{item.data.description}</p>
+              ) : null}
             </CollectionItem>
           );
         })
