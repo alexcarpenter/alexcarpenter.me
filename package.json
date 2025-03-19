@@ -13,10 +13,10 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "3.2.1",
-    "@floating-ui/dom": "^1.6.12",
-    "@shikijs/transformers": "^1.24.4",
+    "@floating-ui/dom": "^1.6.13",
+    "@shikijs/transformers": "^1.29.2",
     "@sindresorhus/slugify": "^2.2.1",
-    "@tailwindcss/vite": "^4.0.4",
+    "@tailwindcss/vite": "^4.0.14",
     "astro": "5.5.2",
     "astro-icon": "^1.1.5",
     "keyux": "^0.10.0",
@@ -24,11 +24,11 @@
     "sanitize-html": "^2.14.0",
     "sharp": "^0.33.5",
     "tailwindcss": "4.0.4",
-    "typescript": "^5.7.2"
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.9"
+    "prettier-plugin-tailwindcss": "^0.6.11"
   }
 }
