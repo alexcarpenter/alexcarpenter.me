@@ -11,4 +11,5 @@ items:
   - radioddity-gm-30-plus
   - muzi-works-r1
   - vgc-vr-n76
+  - twayrdio-rh-660s
 ---
