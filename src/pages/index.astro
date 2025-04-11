@@ -10,9 +10,9 @@ const recommendations = await getCollection("recommendations");
 <BaseLayout>
   <h1 class="sr-only">Index</h1>
 
-  <section class="mt-2 container">
+  <section class="mt-4 container">
     <p class="text-2xl font-medium tracking-tight max-w-[40ch] leading-tight">
-      A user interface engineer <span class="text-foreground-muted">
+      User interface engineer <span class="text-foreground-muted">
         who enjoys working at the intersection of <Icon
           name="figma"
           class="inline h-[1.15em] align-text-bottom"
@@ -42,7 +42,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.startDate.toString()) -
-              Date.parse(a.data.startDate.toString()),
+              Date.parse(a.data.startDate.toString())
           )
           .map((j) =>
             render(j).then(({ Content }) => {
@@ -61,7 +61,7 @@ const recommendations = await getCollection("recommendations");
                             {
                               year: "numeric",
                               month: "short",
-                            },
+                            }
                           )}
                         </time>{" "}
                         -
@@ -72,7 +72,7 @@ const recommendations = await getCollection("recommendations");
                               {
                                 year: "numeric",
                                 month: "short",
-                              },
+                              }
                             )}
                           </time>
                         ) : (
@@ -94,7 +94,7 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            }),
+            })
           )
       }
     </ul>
@@ -153,7 +153,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString()),
+              Date.parse(a.data.published.toString())
           )
           .filter((recommendation) => recommendation.data.status === "visible")
           .map((recommendation) =>
@@ -171,7 +171,7 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            }),
+            })
           )
       }
     </ul>
