@@ -1,427 +1,179 @@
 ---
-import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
-import FormattedDate from "@/components/FormattedDate.astro";
-import SectionBreak from "@/components/SectionBreak.astro";
-import SectionLabel from "@/components/SectionLabel.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { slugify } from "@/utils/formatting";
-import SignInCodeBlock from "@/components/SignInCodeBlock.astro";
-import SignInCard from "@/components/SignInCard.astro";
 
-import { fetchLatestPullRequests } from "@/utils/fetch-latest-pull-reqests.ts";
-
-import avatar from "@/images/me.jpg";
-import Button from "@/components/Button.astro";
-import Header from "@/components/Header.astro";
-
-const pullRequests = import.meta.env.PROD
-  ? await fetchLatestPullRequests({
-      repoOwner: "clerk",
-      repoName: "javascript",
-      username: "alexcarpenter",
-    })
-  : Array.from({ length: 5 }, (_) => {
-      return {
-        message:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, natus.",
-        date: "2024-09-12T06:29:39-0400",
-        url: "/",
-      };
-    });
-const collaborators = [
-  {
-    name: "Bryce Kalow",
-    img: import("@/images/bryce-kalow.jpeg"),
-    linkedin: "https://www.linkedin.com/in/bryce-kalow-86a57183/",
-  },
-  {
-    name: "Dylan Staley",
-    img: import("@/images/dylan-staley.jpeg"),
-    linkedin: "https://www.linkedin.com/in/dstaley/",
-  },
-  {
-    name: "Pantelis Eleftheriadis",
-    img: import("@/images/pantelis-eleftheriadis.jpg"),
-    linkedin: "https://www.linkedin.com/in/pantelis-elef/",
-  },
-  {
-    name: "Jacek Radko",
-    img: import("@/images/jacek-radko.jpeg"),
-    linkedin: "https://www.linkedin.com/in/jacek-radko/",
-  },
-  {
-    name: "Nikos Douvlis",
-    img: import("@/images/nikos-douvlis.jpeg"),
-    linkedin: "https://www.linkedin.com/in/nikosdouvlis/",
-  },
-];
+const jobs = await getCollection("jobs");
+const recommendations = await getCollection("recommendations");
 ---
 
 <BaseLayout>
-  <Header>
-    <SectionLabel as="p">Intro</SectionLabel>
-    <div
-      class="relative isolate mx-auto mb-6 flex size-8 items-center justify-center"
-    >
-      <div
-        class:list={[
-          "pointer-events-none absolute -inset-y-8 -left-0.5 border-l border-dashed border-neutral-700",
-          "[mask-image:linear-gradient(to_bottom,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
-        ]}
-        aria-hidden="true"
-      >
-      </div>
-      <div
-        class:list={[
-          "pointer-events-none absolute -inset-y-8 -right-0.5 border-r border-dashed border-neutral-700",
-          "[mask-image:linear-gradient(to_bottom,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
-        ]}
-        aria-hidden="true"
-      >
-      </div>
-      <div
-        class:list={[
-          "pointer-events-none absolute -inset-x-8 -top-0.5 border-t border-dashed border-neutral-700",
-          "[mask-image:linear-gradient(to_right,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
-        ]}
-        aria-hidden="true"
-      >
-      </div>
-      <div
-        class:list={[
-          "pointer-events-none absolute -inset-x-8 -bottom-0.5 border-b border-dashed border-neutral-700",
-          "[mask-image:linear-gradient(to_right,transparent,white_2rem,white_calc(100%_-_2rem),transparent)]",
-        ]}
-        aria-hidden="true"
-      >
-      </div>
-      <Image
-        src={avatar}
-        alt="Alex Carpenter avatar"
-        width={128}
-        height={128}
-        loading="eager"
-        class="w-8 rounded-full"
-      />
-    </div>
-    <h1 class="font-mono text-sm text-neutral-400">Alex Carpenter</h1>
-    <p class="mt-2 text-xl font-medium tracking-tight text-balance sm:text-2xl">
-      User Interface Engineer who enjoys working at the intersection of design
-      and engineering teams.
-    </p>
-    <Button href="/resume" as="a" class="group/btn mt-6"
-      >View resume <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="size-4 transition-transform group-hover/btn:translate-x-0.5"
-        ><path d="m6 17 5-5-5-5"></path><path
-          class="opacity-50 transition-opacity group-hover/btn:opacity-100"
-          d="m13 17 5-5-5-5"></path></svg
-      ></Button
-    >
-  </Header>
+  <h1 class="sr-only">Index</h1>
 
-  <SectionBreak />
-
-  <section class="relative" id="currently">
-    <SectionLabel as="h2">Currently</SectionLabel>
-    <header class="px-4 py-8 sm:px-8">
-      <p class="font-medium text-balance">
-        Currently I am a part of the SDK Infra team at <a
-          href="https://clerk.com"
-          class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
-          >Clerk</a
-        > where I am working on our <a
-          href="https://clerk.com/docs/components/overview"
-          class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
-          >UI Components</a
-        >. View my latest <a
-          href={pullRequests[0].url}
-          class="underline decoration-neutral-600 decoration-2 hover:decoration-white"
-          >pull request <span
-            class="absolute mt-px ml-1 shrink-0 rounded-xs bg-neutral-800 p-0.5 text-neutral-400 group-hover:text-current"
-            aria-hidden="true"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-2.5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </span></a
-        >
-      </p>
-    </header>
-
-    <div
-      class="grid auto-rows-[20rem] grid-cols-1 overflow-hidden border-y border-dashed border-neutral-700 sm:grid-cols-2"
-    >
-      <div
-        class="relative [mask-image:linear-gradient(to_bottom,var(--color-white)_calc(100%-calc(var(--spacing)*10)),transparent)] max-sm:overflow-hidden sm:col-span-2 sm:col-start-1 sm:row-start-1"
-      >
-        <figure>
-          <figcaption class="sr-only">
-            Codeblock showing Clerk Elements sign in code example
-          </figcaption>
-          <div inert="">
-            <SignInCodeBlock />
-          </div>
-        </figure>
-      </div>
-
-      <div
-        class="elative overflow-hidden border-dashed border-neutral-700 bg-black/20 px-4 pt-8 backdrop-blur-sm max-sm:border-t sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:border-l sm:p-0"
-      >
-        <figure
-          class="relative mx-auto max-w-96 sm:absolute sm:min-w-full sm:translate-x-10 sm:translate-y-10"
-        >
-          <div
-            class:list={[
-              "absolute -top-0.5 h-px border-t border-dashed border-neutral-700",
-              "right-1/2 left-1/2 mr-[-50vw] ml-[-50vw] w-screen",
-            ]}
-            aria-hidden="true"
-          >
-          </div>
-          <div
-            class="absolute -top-10 bottom-0 -left-0.5 h-full w-px cursor-ew-resize border-l border-dashed border-neutral-700"
-            aria-hidden="true"
-          >
-          </div>
-          <div
-            class="absolute -top-10 -right-0.5 bottom-0 h-full w-px border-r border-dashed border-neutral-700"
-            aria-hidden="true"
-          >
-          </div>
-          <figcaption class="sr-only">Clerk sign in component</figcaption>
-          <SignInCard />
-        </figure>
-      </div>
-    </div>
-
-    <div class="overflow-hidden px-4 py-8 sm:px-8">
-      <div class="relative">
-        <figure>
-          <figcaption class="sr-only">
-            Latest 5 pull requests within the @clerk/javascript repo
-          </figcaption>
-          <ul
-            class="divide-y divide-dashed divide-neutral-600 text-left [mask-image:linear-gradient(to_bottom,var(--color-white),transparent)]"
-            inert=""
-          >
-            {
-              pullRequests.map((pr) => {
-                return (
-                  <li class="flex items-center gap-2 py-2">
-                    <Icon
-                      name="pull-request"
-                      class="size-4 flex-none text-neutral-600"
-                      aria-hidden="true"
-                    />
-                    <p class="flex-1 overflow-hidden pr-4 text-sm text-nowrap text-ellipsis text-neutral-400 sm:pr-8">
-                      {pr.message}
-                    </p>
-                    <FormattedDate
-                      date={new Date(pr.date)}
-                      class="block text-right font-mono text-xs text-nowrap text-neutral-400 uppercase"
-                    />
-                    <Icon
-                      name="checkmark"
-                      class="size-4 flex-none text-neutral-600"
-                      aria-hidden="true"
-                    />
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </figure>
-        <div
-          class="pointer-events-none absolute bottom-0 left-1/2 isolate h-56 w-4/5 -translate-x-1/2 translate-y-24"
+  <section class="mt-2 container">
+    <p class="text-2xl font-medium tracking-tight max-w-[40ch] leading-tight">
+      A user interface engineer <span class="text-foreground-muted">
+        who enjoys working at the intersection of <Icon
+          name="figma"
+          class="inline h-[1.15em] align-text-bottom"
           aria-hidden="true"
-        >
-          {
-            Array.from({ length: 5 }, (_, i) => {
-              const blur = `blur(${Math.pow(2, i - 1)}px)`;
-              return (
-                <div
-                  style={{
-                    WebkitBackdropFilter: blur,
-                    backdropFilter: blur,
-                  }}
-                  class="absolute inset-0 rotate-180 [mask-image:radial-gradient(closest-side,black,transparent)] [mask-position:bottom,center] [mask-repeat:no-repeat]"
-                />
-              );
-            })
-          }
-        </div>
-        <div class="absolute right-0 bottom-0 left-0 text-center">
-          <p class="font-mono text-xs text-white uppercase">
-            In collaboration with
-          </p>
-          <div class="mt-4 flex justify-center">
-            {
-              collaborators.map(({ name, img, linkedin }) => {
-                const id = slugify(`tooltip-${name}`);
-                return (
-                  <Fragment>
-                    <a
-                      href={linkedin}
-                      data-tooltip-trigger={id}
-                      class:list={[
-                        "relative -ml-0.5 size-8 overflow-hidden rounded-full bg-neutral-800 grayscale hover:grayscale-0 focus-visible:grayscale-0 outline-0",
-                        `not-first:[mask-image:radial-gradient(circle_1rem_at_-.7rem_50%,_transparent_99%,_white_100%)]`,
-                      ]}
-                      aria-describedby={id}
-                    >
-                      <Image
-                        src={img}
-                        alt={`${name} avatar`}
-                        width={128}
-                        height={128}
-                        class:list={["absolute h-full w-full object-cover"]}
-                      />
-                    </a>
-                    <div
-                      id={id}
-                      role="tooltip"
-                      class="absolute top-0 left-0 hidden w-max rounded-md bg-neutral-800 px-2 py-1 font-mono text-xs"
-                    >
-                      {name}
-                    </div>
-                  </Fragment>
-                );
-              })
-            }
-          </div>
-        </div>
-      </div>
-    </div>
+        /> design and
+        <Icon
+          name="github"
+          class="inline h-[1.15em] align-text-bottom text-foreground"
+          aria-hidden="true"
+        /> engineering teams.
+      </span>
+    </p>
+    <p class="mt-4 text-foreground-muted font-medium max-w-[55ch] text-pretty">
+      Currently I am a part of the SDK Infra team at Clerk where I am working on
+      our UI Components and Dashboard UI.
+    </p>
   </section>
 
-  <SectionBreak />
+  <section class="mt-16 container">
+    <h2 class="text-purple-600 dark:text-purple-400 font-medium tracking-tight">
+      Experience
+    </h2>
 
-  <div class="relative flex-1">
-    <div
-      class="absolute inset-y-0 left-1/2 hidden border-r border-dashed border-neutral-700 sm:block"
-      aria-hidden="true"
-    >
-    </div>
-    <section class="relative px-4 py-8 sm:px-8" id="interests">
-      <SectionLabel as="h2">Interests</SectionLabel>
-      <div class="grid grid-cols-1 gap-x-16 gap-y-8 sm:grid-cols-2">
-        <div class="prose">
-          <p>
-            With over a decade of experience as a UI engineer, I've had the
-            privilege of collaborating across engineering, design, and marketing
-            teams. My passion lies in working with product and marketing teams,
-            where I can leverage my technical expertise to create impactful user
-            experiences and drive business goals.
-          </p>
-        </div>
-        <div class="flex items-center">
-          <div>
-            <p class="mb-4 font-mono text-xs text-neutral-400 uppercase">
-              Skills and interests
-            </p>
-            <ul>
-              {
-                [
-                  "Next.js",
-                  "Tailwind CSS",
-                  "Framer Motion",
-                  "Astro",
-                  "Accessibility",
-                  "Mentorship",
-                  "CSS Architecture",
-                  "Component API Design",
-                ].map((i) => {
-                  return (
-                    <li class="inline">
-                      <span class="tag leading-relaxed">{i}</span>
-                    </li>
-                  );
-                })
-              }
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+    <ul>
+      {
+        jobs
+          .sort(
+            (a, b) =>
+              Date.parse(b.data.startDate.toString()) -
+              Date.parse(a.data.startDate.toString()),
+          )
+          .map((j) =>
+            render(j).then(({ Content }) => {
+              return (
+                <li class="border-t border-seperator pt-8 mt-8 rounded-sm">
+                  <article>
+                    <h2 class="font-medium">{j.data.company}</h2>
+                    <div class="flex flex-wrap gap-x-4 justify-between">
+                      <p class="text-foreground-muted font-medium">
+                        {j.data.title}
+                      </p>
+                      <p class="text-foreground-muted font-medium">
+                        <time datetime={j.data.startDate.toISOString()}>
+                          {new Date(j.data.startDate).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "short",
+                            },
+                          )}
+                        </time>{" "}
+                        -
+                        {j.data.endDate ? (
+                          <time datetime={j.data.endDate.toISOString()}>
+                            {new Date(j.data.endDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                              },
+                            )}
+                          </time>
+                        ) : (
+                          <time datetime={new Date().toISOString()}>
+                            Present
+                          </time>
+                        )}
+                      </p>
+                    </div>
+                    <div class="mt-4 text-pretty prose">
+                      <Content />
+                    </div>
+                    <p class="mt-4 text-foreground-muted">
+                      {new Intl.ListFormat("en-US", {
+                        style: "long",
+                        type: "conjunction",
+                      }).format(j.data.tools)}
+                    </p>
+                  </article>
+                </li>
+              );
+            }),
+          )
+      }
+    </ul>
+  </section>
+
+  <!-- <section class="mt-16 container">
+    <h2 class="text-red-600 dark:text-red-400 font-medium tracking-tight">
+      Interests
+    </h2>
+    <ul class="grid grid-cols-2 gap-x-8">
+      {
+        [
+          {
+            heading: "CSS Architecture",
+            description:
+              "I am interested in the intersection of design and engineering. I enjoy working on design systems, component libraries, and developer experience.",
+          },
+          {
+            heading: "Design Systems",
+            description:
+              "I am interested in the intersection of design and engineering. I enjoy working on design systems, component libraries, and developer experience.",
+          },
+          {
+            heading: "Component Libraries",
+            description:
+              "I am interested in the intersection of design and engineering. I enjoy working on design systems, component libraries, and developer experience.",
+          },
+          {
+            heading: "Developer Experience",
+            description:
+              "I am interested in the intersection of design and engineering. I enjoy working on design systems, component libraries, and developer experience.",
+          },
+        ].map((i) => {
+          return (
+            <li class="border-t border-seperator pt-8 mt-8">
+              <h3 class="font-medium tracking-tight">{i.heading}</h3>
+              <p class="text-foreground-muted mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Reprehenderit, illum.
+              </p>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section> -->
+
+  <section class="mt-16 container">
+    <h2 class="text-green-600 dark:text-green-400 font-medium tracking-tight">
+      Recommendations
+    </h2>
+
+    <ul>
+      {
+        recommendations
+          .sort(
+            (a, b) =>
+              Date.parse(b.data.published.toString()) -
+              Date.parse(a.data.published.toString()),
+          )
+          .filter((recommendation) => recommendation.data.status === "visible")
+          .map((recommendation) =>
+            render(recommendation).then(({ Content }) => {
+              return (
+                <li class="border-t border-seperator pt-8 mt-8 rounded-sm">
+                  <article>
+                    <div class="text-pretty prose">
+                      <Content />
+                    </div>
+                    <p class="mt-4 font-medium">{recommendation.data.name}</p>
+                    <p class="font-medium text-foreground-muted">
+                      {recommendation.data.title}, {recommendation.data.company}
+                    </p>
+                  </article>
+                </li>
+              );
+            }),
+          )
+      }
+    </ul>
+  </section>
 </BaseLayout>
-
-<script>
-  import { computePosition, flip, shift, offset } from "@floating-ui/dom";
-
-  const triggers = document.querySelectorAll(
-    "[data-tooltip-trigger]"
-  ) as NodeListOf<HTMLElement>;
-
-  triggers.forEach((trigger) => {
-    const content = document.getElementById(
-      `${trigger.dataset.tooltipTrigger}`
-    ) as HTMLElement;
-    function update() {
-      computePosition(trigger, content, {
-        placement: "top",
-        middleware: [
-          offset(8),
-          flip(),
-          shift({
-            padding: 16,
-          }),
-        ],
-      }).then(({ x, y }) => {
-        Object.assign(content.style, {
-          left: `${x}px`,
-          top: `${y}px`,
-        });
-      });
-    }
-
-    function show() {
-      content.style.display = "block";
-      update();
-    }
-
-    function hide() {
-      content.style.display = "";
-    }
-
-    [
-      ["mouseenter", show],
-      ["mouseleave", hide],
-      ["focus", show],
-      ["blur", hide],
-      [
-        "keydown",
-        (e: KeyboardEvent) => {
-          if (e.key === "Escape") {
-            hide();
-          }
-        },
-      ],
-    ].forEach(([event, listener]) => {
-      trigger.addEventListener(
-        event as keyof HTMLElementEventMap,
-        listener as EventListenerOrEventListenerObject
-      );
-    });
-  });
-</script>

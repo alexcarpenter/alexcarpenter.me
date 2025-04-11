@@ -4,170 +4,151 @@
 
 @theme {
   --font-*: initial;
-  --font-sans: Geist Sans, ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans:
+    Geist Sans, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono:
+    Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
-  --breakpoint-md: 860px;
-
-  --text-xxs: 0.625rem;
-
-  --list-style-type-square: square;
+  --color-background: var(--color-neutral-50);
+  --color-foreground: var(--color-neutral-950);
+  --color-foreground-muted: var(--color-neutral-500);
+  --color-seperator: var(--color-neutral-200);
+  --color-underline: var(--color-neutral-300);
+  --color-highlight: var(--color-amber-200);
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-background: var(--color-neutral-950);
+    --color-foreground: var(--color-neutral-50);
+    --color-foreground-muted: var(--color-neutral-400);
+    --color-seperator: var(--color-neutral-800);
+    --color-underline: var(--color-neutral-600);
+    --color-highlight: var(--color-amber-900);
+  }
+}
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-}
-
-@utility prose {
-  & > :where(* + *) {
-    @apply mt-4;
+  html {
+    height: 100%;
   }
 
-  :where(* + h2),
-  :where(* + h3) {
-    @apply mt-8;
-  }
-
-  :where(p:has(small) + *) {
-    @apply mt-0.5;
-  }
-
-  h2,
-  h3 {
-    @apply text-lg font-medium;
-  }
-
-  a {
-    @apply underline decoration-neutral-600 decoration-2 hover:decoration-white;
-  }
-
-  strong {
-    @apply font-medium;
-  }
-
-  small {
-    @apply block font-mono text-xs text-orange-300 uppercase;
-  }
-
-  ul {
-    @apply list-square ml-2 pl-4 marker:text-neutral-700;
-  }
-
-  blockquote {
-    @apply ml-2 space-y-4 border-l-4 border-neutral-700 pl-4;
-
-    &:has(a[href*="https://x.com/hybrid_alex"])
-    {
-      @apply border-sky-300;
-    }
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding-bottom: calc(var(--spacing) * 32);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
   }
 
   pre {
-    @apply overflow-hidden rounded-md border border-neutral-800;
+    --background-color: var(--color-white);
+    padding-block: calc(var(--spacing) * 4);
+    font-size: var(--text-sm);
+    line-height: 1;
+    background-color: var(--background-color);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-seperator);
   }
 
-  pre code span.line:last-of-type:empty {
-    @apply hidden;
-  }
+  code {
+    isolation: isolate;
+    display: block;
+    width: fit-content;
+    min-width: 100%;
+    counter-reset: line;
 
-  pre code .highlighted {
-    --pre-bg: var(--color-neutral-900);
-    @apply bg-(--pre-bg);
-  }
+    & > * {
+      display: inline-block;
+      width: 100%;
+      counter-increment: line;
+    }
 
-  pre code .highlighted-word {
-    @apply rounded-sm border border-neutral-700 [box-decoration-break:clone] px-0.5 py-0.25;
-  }
+    & > *::before {
+      pointer-events: none;
+      position: sticky;
+      left: 0;
+      z-index: 20;
+      display: inline-block;
+      width: 2.75rem;
+      background: linear-gradient(
+        to right,
+        var(--background-color) 80%,
+        transparent
+      );
+      padding-right: 1rem;
+      text-align: right;
+      color: var(--color-foreground-muted);
+      content: counter(line);
+      user-select: none;
+    }
 
-  :not(pre) > code,
-  kbd {
-    @apply -mx-0.5 inline rounded-sm bg-neutral-800 [box-decoration-break:clone] px-0.5 text-[0.9375rem];
-  }
-
-  table {
-    @apply w-full border border-neutral-700 text-sm;
-  }
-
-  th {
-    @apply bg-neutral-900 px-4 py-2 text-left;
-  }
-
-  td {
-    @apply border-t border-dashed border-neutral-700 px-4 py-2;
-  }
-
-  hr {
-    @apply -mx-4 my-8 border-t border-dashed border-neutral-700 sm:-mx-8;
+    & > *::after {
+      pointer-events: none;
+      position: sticky;
+      right: 0;
+      z-index: 10;
+      display: inline-block;
+      width: 1.5rem;
+      background: linear-gradient(
+        to left,
+        var(--background-color) 35%,
+        transparent
+      );
+      content: " ";
+      user-select: none;
+    }
   }
 }
 
-@utility tag {
-  /* Magic: https://x.com/myfonj/status/1828436893756698830 */
-  @apply inline whitespace-nowrap;
+@layer components {
+  .prose {
+    & :where(* + *) {
+      margin-top: calc(var(--spacing) * 4);
+    }
 
-  &::after {
-    content: " ";
-    word-spacing: 1em;
-    background-image: linear-gradient(
-      -0.2turn,
-      transparent 0 calc(50% - 0.03em),
-      var(--color-neutral-700) 0 calc(50% + 0.03em),
-      transparent 0
-    );
+    & :where(a) {
+      text-decoration: underline;
+      text-decoration-color: var(--color-underline);
+    }
+
+    & :where(mark) {
+      color: var(--color-foreground);
+      background-color: var(--color-highlight);
+      margin-inline: calc(var(--spacing) * -0.5);
+      padding-inline: calc(var(--spacing) * 1);
+      box-decoration-break: clone;
+      border-radius: var(--radius-sm);
+      font-weight: var(--font-weight-medium);
+    }
   }
 }
 
 @layer utilities {
-  @font-face {
-    font-family: "Geist Sans";
-    src: url("/fonts/GeistVariableVF.woff2") format("woff2");
-    font-display: swap;
-    font-weight: 400 600;
+  .container {
+    width: 100%;
+    margin-inline: auto;
+    max-width: var(--container-2xl);
+    padding-inline: calc(var(--spacing) * 4);
   }
 
-  @font-face {
-    font-family: "Geist Mono";
-    src: url("/fonts/GeistMonoVariableVF.woff2") format("woff2");
-    font-display: swap;
-    font-weight: 400;
-  }
-}
-
-@layer base {
-  :root {
-    color-scheme: dark;
-  }
-
-  pre {
-    --pre-bg: var(--color-neutral-950);
-    @apply bg-(--pre-bg)! py-4 text-sm leading-6;
-  }
-
-  code {
-    @apply isolate block w-fit min-w-full [counter-reset:line] *:inline-block *:w-full *:[counter-increment:line] *:before:pointer-events-none *:before:sticky *:before:left-0 *:before:z-20 *:before:inline-block *:before:w-11 *:before:bg-linear-to-r *:before:from-(--pre-bg) *:before:from-80% *:before:pr-4 *:before:text-right *:before:text-neutral-400 *:before:content-[counter(line)] *:before:select-none *:after:pointer-events-none *:after:sticky *:after:right-0 *:after:z-10 *:after:inline-block *:after:w-6 *:after:bg-linear-to-l *:after:from-(--pre-bg) *:after:from-35% *:after:content-['_'] *:after:select-none;
-  }
-
-  mark {
-    @apply -mx-0.5 inline rounded-sm bg-amber-500/20 [box-decoration-break:clone] px-0.5 text-amber-100;
-  }
-
-  ::-webkit-details-marker {
-    display: none;
+  .angled-lines {
+    background-image: linear-gradient(
+      45deg,
+      var(--color-seperator) 12.5%,
+      transparent 12.5%,
+      transparent 50%,
+      var(--color-seperator) 50%,
+      var(--color-seperator) 62.5%,
+      transparent 62.5%,
+      transparent 100%
+    );
+    background-size: 0.25rem 0.25rem;
   }
 }

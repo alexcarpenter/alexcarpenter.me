@@ -1,12 +1,10 @@
 ---
 import "../styles/global.css";
-import { NAVIGATION, SITE_VERSION, SOCIALS } from "@/consts";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
 const metaDescription = description ? description : "UI Engineer";
-import { Icon } from "astro-icon/components";
-// const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "dfa9be2";
+const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "dfa9be2";
 // const commitMsg =
 //   import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_MESSAGE ||
 //   "checkpoint at 2024-08-26T12:16:53-0400";
@@ -42,135 +40,83 @@ import { Icon } from "astro-icon/components";
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={metaDescription} />
-    <!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={metaTitle} />
     <meta property="twitter:description" content={metaDescription} />
-    <!-- <meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
 
     <!-- Sitemap -->
     <link rel="sitemap" href={new URL("/sitemap-index.xml", Astro.site)} />
-
-    <!-- RSS -->
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Posts // Alex Carpenter"
-      href={new URL("/posts/rss.xml", Astro.site)}
-    />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Notes // Alex Carpenter"
-      href={new URL("/notes/rss.xml", Astro.site)}
-    />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="Links // Alex Carpenter"
-      href={new URL("/links/rss.xml", Astro.site)}
-    />
   </head>
 
-  <body
-    class="flex min-h-dvh w-full flex-col overflow-x-hidden bg-neutral-950 px-4 text-neutral-100 antialiased"
-  >
-    <a
-      href="#main"
-      class="fixed top-0 left-0 -translate-y-full border-r border-b border-dashed border-neutral-800 p-2 text-sm font-medium focus:translate-y-0"
-      >Skip to content</a
-    >
-    <div
-      class="mx-auto flex w-full max-w-3xl flex-1 flex-col border-x border-neutral-700"
-    >
-      <nav class="border-b border-neutral-700">
-        <div
-          class="h-6 w-full border-b border-neutral-700 [background-image:linear-gradient(45deg,var(--color-neutral-700)_12.50%,transparent_12.50%,transparent_50%,var(--color-neutral-700)_50%,var(--color-neutral-700)_62.50%,transparent_62.50%,transparent_100%)] [background-size:4px_4px] opacity-75"
-          aria-hidden="true"
-        >
-        </div>
-        <div class="flex items-center justify-between p-4 sm:px-8">
-          <ul class="flex gap-4">
-            {
-              NAVIGATION.map(({ slug, label, hotkey }) => {
-                const isCurrent =
-                  Astro.url.pathname === `${slug}/` ||
-                  Astro.url.pathname === `${slug}`;
-                return (
-                  <li>
-                    <a
-                      class="font-mono text-xs text-neutral-400 uppercase hover:text-white aria-[current]:text-white"
-                      href={slug}
-                      aria-current={isCurrent ? "page" : undefined}
-                      aria-keyshortcuts={hotkey}
-                    >
-                      {slug === "/" ? (
-                        <Fragment>
-                          <span aria-hidden="true">~/</span>&#8288;{label}
-                        </Fragment>
-                      ) : (
-                        label
-                      )}
-                      <kbd class="font-mono text-xs text-neutral-400 uppercase max-sm:hidden">
-                        [{hotkey}]
-                      </kbd>
-                    </a>
-                  </li>
-                );
-              })
-            }
-          </ul>
+  <body>
+    <div class="mb-32 h-4 w-full angled-lines" aria-hidden="true"></div>
 
-          <a
-            class:list={[
-              "max-sm:hidden text-xxs rounded-full border border-green-300 bg-green-950 px-2 py-0.5 font-mono text-green-300",
-              "hover:bg-green-900",
-            ]}
-            href="https://github.com/alexcarpenter/alexcarpenter.me"
-          >
-            v{SITE_VERSION}
-          </a>
-        </div>
-      </nav>
-      <main class="flex flex-1 flex-col" id="main">
-        <slot />
-      </main>
-      <footer class="border-t border-neutral-700 bg-neutral-900">
-        <div class="p-4 py-8 sm:px-8">
-          <ul class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+    <nav class="container flex gap-x-2">
+      <p
+        class="text-orange-600 dark:text-orange-400 font-medium tracking-tight"
+      >
+        <a href="/">Alex Carpenter</a>
+      </p>
+      <!-- <ul class="flex gap-x-2">
+        <li>
+          <a href="/" class="text-foreground-muted font-medium">Index</a>
+        </li>
+        <li>
+          <a href="/" class="text-foreground-muted font-medium">Notes</a>
+        </li>
+        <li>
+          <a href="/" class="text-foreground-muted font-medium">Links</a>
+        </li>
+      </ul> -->
+    </nav>
+    <main class="flex-1">
+      <slot />
+    </main>
+    <footer class="mt-16 container">
+      <h2 class="text-blue-600 dark:text-blue-400 font-medium tracking-tight">
+        Connect
+      </h2>
+
+      <dl class="mt-8 grid grid-cols-[25%_1fr] gap-y-4 gap-x-8">
+        {
+          [
             {
-              SOCIALS.map(({ url, icon, label }) => (
-                <li>
-                  <a
-                    class="flex w-max items-center gap-2 text-neutral-400 hover:text-white"
-                    href={url}
-                  >
-                    <Icon name={icon} class="text-white" aria-hidden="true" />
-                    <span class="font-mono text-xs uppercase">{label}</span>
+              title: "GitHub",
+              username: "@alexcarpenter",
+              href: "https://github.com/alexcarpenter",
+            },
+            {
+              title: "Twitter",
+              username: "@hybrid_alex",
+              href: "https://twitter.com/hybrid_alex",
+            },
+            {
+              title: "Bluesky",
+              username: "@alexcarpenter.me",
+              href: "https://bsky.app/profile/alexcarpenter.me",
+            },
+            {
+              title: "LinkedIn",
+              username: "@alexcarpenter",
+              href: "https://www.linkedin.com/in/imalexcarpenter/",
+            },
+          ].map((s) => {
+            return (
+              <Fragment>
+                <dt class="text-foreground-muted">{s.title}</dt>
+                <dd>
+                  <a href={s.href} target="_blank" rel="noopener noreferrer">
+                    {s.username}
                   </a>
-                </li>
-              ))
-            }
-          </ul>
-          <p
-            class="mt-8 flex items-center justify-center gap-2 font-mono text-xs text-neutral-400 uppercase"
-          >
-            <span
-              aria-hidden="true"
-              class="size-2 flex-none rounded-full bg-green-500 before:absolute before:size-2 before:animate-ping before:rounded-full before:bg-green-300"
-            ></span>
-            All systems operational
-          </p>
-        </div>
-      </footer>
-    </div>
+                </dd>
+              </Fragment>
+            );
+          })
+        }
+      </dl>
+    </footer>
   </body>
 </html>
-
-<script>
-  import { hotkeyKeyUX, startKeyUX } from "keyux";
-  startKeyUX(window, [hotkeyKeyUX()]);
-</script>
