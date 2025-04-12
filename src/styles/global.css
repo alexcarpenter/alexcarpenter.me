@@ -34,6 +34,7 @@
 @layer base {
   html {
     height: 100%;
+    background-color: var(--color-background);
   }
 
   body {
