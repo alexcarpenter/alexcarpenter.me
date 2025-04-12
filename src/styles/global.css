@@ -27,7 +27,7 @@
     --color-foreground-muted: var(--color-neutral-400);
     --color-seperator: var(--color-neutral-800);
     --color-underline: var(--color-neutral-600);
-    --color-highlight: var(--color-amber-900);
+    --color-highlight: var(--color-neutral-700);
   }
 }
 

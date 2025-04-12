@@ -164,10 +164,13 @@ const recommendations = await getCollection("recommendations");
                     <div class="text-pretty prose">
                       <Content />
                     </div>
-                    <p class="mt-4 font-medium">{recommendation.data.name}</p>
-                    <p class="font-medium text-foreground-muted">
-                      {recommendation.data.title}, {recommendation.data.company}
-                    </p>
+                    <div class="mt-4">
+                      <p class="font-medium">{recommendation.data.name}</p>
+                      <p class="font-medium text-foreground-muted">
+                        {recommendation.data.title},{" "}
+                        {recommendation.data.company}
+                      </p>
+                    </div>
                   </article>
                 </li>
               );
@@ -177,3 +180,4 @@ const recommendations = await getCollection("recommendations");
     </ul>
   </section>
 </BaseLayout>
+{}
