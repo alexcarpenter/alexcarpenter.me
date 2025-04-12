@@ -93,14 +93,9 @@ const recommendations = await getCollection("recommendations");
                                 href={p.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="relative pr-4 group/link"
+                                class="relative"
                               >
                                 {p.title}
-                                <Icon
-                                  name="square-right-arrow-up"
-                                  aria-hidden="true"
-                                  class="absolute size-4 top-0.5 right-0 text-underline group-hover/link:text-yellow-400"
-                                />
                               </a>
                             </li>
                           );
