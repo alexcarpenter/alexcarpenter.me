@@ -6,10 +6,15 @@ const notes = await getCollection("notes");
 ---
 
 <BaseLayout title="Notes">
-  <header class="mt-2 container">
-    <h1 class="text-2xl font-medium tracking-tight max-w-[40ch] leading-tight">
-      Notes
-    </h1>
+  <header class="mt-16 container">
+    <span
+      class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
+      ><h1 class="inline">Notes</h1>
+      <span class="text-foreground-muted"
+        >on engineering, developer experience, design systems, and
+        accessibility.</span
+      ></span
+    >
   </header>
 
   <section class="mt-16 container">
@@ -19,31 +24,36 @@ const notes = await getCollection("notes");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString()),
+              Date.parse(a.data.published.toString())
           )
           .map((n) =>
             render(n).then(({ Content }) => {
               return (
                 <li class="border-t border-seperator pt-8 not-first:mt-8 rounded-sm">
                   <article>
-                    <div class="text-pretty prose">
+                    <a
+                      href={`/notes/${n.id}`}
+                      class="text-foreground-muted inline-block font-medium"
+                    >
+                      <time datetime={n.data.published.toISOString()}>
+                        {new Date(n.data.published).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "short",
+                            day: "2-digit",
+                            weekday: "short",
+                          }
+                        )}
+                      </time>
+                    </a>
+                    <div class="mt-4 text-pretty prose">
                       <Content />
                     </div>
-                    <time
-                      class="block mt-4 text-foreground-muted"
-                      datetime={n.data.published.toISOString()}
-                    >
-                      {new Date(n.data.published).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                        day: "2-digit",
-                        weekday: "short",
-                      })}
-                    </time>
                   </article>
                 </li>
               );
-            }),
+            })
           )
       }
     </ul>

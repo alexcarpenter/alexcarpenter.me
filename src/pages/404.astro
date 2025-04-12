@@ -3,14 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="404" description="Page not found">
-  <header class="container">
-    <h1 class="text-orange-600 dark:text-orange-400 font-medium tracking-tight">
-      404
-    </h1>
-    <p
-      class="mt-2 text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
+  <header class="mt-16 container">
+    <span
+      class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
     >
-      Page not found
-    </p>
+      <h1 class="inline">404</h1>
+      <span class="text-foreground-muted"> page not found. </span>
+    </span>
   </header>
 </BaseLayout>

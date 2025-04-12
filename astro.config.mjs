@@ -15,7 +15,7 @@ export default defineConfig({
   integrations: [sitemap(), icon()],
   markdown: {
     shikiConfig: {
-      theme: "github-light-default",
+      theme: "github-dark-default",
       defaultColor: false,
       transformers: [
         transformerMetaHighlight(),

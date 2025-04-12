@@ -8,11 +8,12 @@ const recommendations = await getCollection("recommendations");
 ---
 
 <BaseLayout>
-  <h1 class="sr-only">Index</h1>
-
-  <section class="mt-4 container">
-    <p class="text-2xl font-medium tracking-tight max-w-[40ch] leading-tight">
-      User interface engineer <span class="text-foreground-muted">
+  <header class="mt-4 container">
+    <span
+      class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
+    >
+      <h1 class="inline">User interface engineer</h1>
+      <span class="text-foreground-muted">
         who enjoys working at the intersection of <Icon
           name="figma"
           class="inline h-[1.15em] align-text-bottom"
@@ -24,12 +25,12 @@ const recommendations = await getCollection("recommendations");
           aria-hidden="true"
         /> engineering teams.
       </span>
-    </p>
+    </span>
     <p class="mt-4 text-foreground-muted font-medium max-w-[55ch] text-pretty">
       Currently I am a part of the SDK Infra team at Clerk where I am working on
       our UI Components and Dashboard UI.
     </p>
-  </section>
+  </header>
 
   <section class="mt-16 container">
     <h2 class="text-purple-600 dark:text-purple-400 font-medium tracking-tight">
@@ -156,7 +157,7 @@ const recommendations = await getCollection("recommendations");
               Date.parse(a.data.published.toString())
           )
           .filter((recommendation) => recommendation.data.status === "visible")
-          .map((recommendation) =>
+          .map((recommendation, index) =>
             render(recommendation).then(({ Content }) => {
               return (
                 <li class="border-t border-seperator pt-8 mt-8 rounded-sm">
@@ -165,7 +166,15 @@ const recommendations = await getCollection("recommendations");
                       <Content />
                     </div>
                     <div class="mt-4">
-                      <p class="font-medium">{recommendation.data.name}</p>
+                      <div class="flex gap-x-1">
+                        {Array.from({ length: 5 }, () => (
+                          <Icon
+                            name="star"
+                            class="text-amber-500 dark:text-amber-400"
+                          />
+                        ))}
+                      </div>
+                      <p class="mt-2 font-medium">{recommendation.data.name}</p>
                       <p class="font-medium text-foreground-muted">
                         {recommendation.data.title},{" "}
                         {recommendation.data.company}

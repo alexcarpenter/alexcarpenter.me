@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  return notes.map((n) => ({
+    params: { slug: n.id },
+    props: n,
+  }));
+}
+
+const note = Astro.props;
+const { Content } = await render(note);
+---
+
+<BaseLayout>
+  <article class="mt-16 container">
+    <time
+      class="inline-block text-foreground-muted font-medium"
+      datetime={note.data.published.toISOString()}
+    >
+      {
+        new Date(note.data.published).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          weekday: "short",
+        })
+      }
+    </time>
+    <div class="mt-4 prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
