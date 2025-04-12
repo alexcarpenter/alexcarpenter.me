@@ -14,7 +14,7 @@
   --color-background: var(--color-neutral-50);
   --color-foreground: var(--color-neutral-950);
   --color-foreground-muted: var(--color-neutral-500);
-  --color-seperator: var(--color-neutral-200);
+  --color-separator: var(--color-neutral-200);
   --color-underline: var(--color-neutral-300);
   --color-highlight: var(--color-amber-200);
 }
@@ -25,7 +25,7 @@
     --color-background: var(--color-neutral-950);
     --color-foreground: var(--color-neutral-50);
     --color-foreground-muted: var(--color-neutral-400);
-    --color-seperator: var(--color-neutral-800);
+    --color-separator: var(--color-neutral-800);
     --color-underline: var(--color-neutral-600);
     --color-highlight: var(--color-neutral-700);
   }
@@ -55,7 +55,7 @@
     line-height: 1;
     background-color: var(--background-color) !important;
     border-radius: var(--radius-md);
-    border: 1px solid var(--color-seperator);
+    border: 1px solid var(--color-separator);
   }
 
   code {
@@ -110,13 +110,23 @@
 
 @layer components {
   .prose {
-    & :where(* + *) {
+    & > :where(* + *) {
       margin-top: calc(var(--spacing) * 4);
+    }
+
+    & :where(ul) {
+      list-style-type: disc;
+      padding-inline-start: calc(var(--spacing) * 6);
+    }
+
+    & :where(ul > li + li) {
+      margin-top: var(--spacing);
     }
 
     & :where(a) {
       text-decoration: underline;
       text-decoration-color: var(--color-underline);
+      text-decoration-thickness: 0.09375rem;
     }
 
     & :where(mark) {
@@ -127,6 +137,10 @@
       box-decoration-break: clone;
       border-radius: var(--radius-sm);
       font-weight: var(--font-weight-medium);
+    }
+
+    & *::marker {
+      color: var(--color-foreground-muted);
     }
   }
 }
@@ -142,11 +156,11 @@
   .angled-lines {
     background-image: linear-gradient(
       45deg,
-      var(--color-seperator) 12.5%,
+      var(--color-separator) 12.5%,
       transparent 12.5%,
       transparent 50%,
-      var(--color-seperator) 50%,
-      var(--color-seperator) 62.5%,
+      var(--color-separator) 50%,
+      var(--color-separator) 62.5%,
       transparent 62.5%,
       transparent 100%
     );

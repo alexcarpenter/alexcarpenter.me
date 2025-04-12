@@ -48,7 +48,7 @@ const recommendations = await getCollection("recommendations");
           .map((j) =>
             render(j).then(({ Content }) => {
               return (
-                <li class="border-t border-seperator pt-8 mt-8 rounded-sm">
+                <li class="border-t border-separator pt-8 mt-8 rounded-sm">
                   <article>
                     <h2 class="font-medium">{j.data.company}</h2>
                     <div class="flex flex-wrap gap-x-4 justify-between">
@@ -85,6 +85,27 @@ const recommendations = await getCollection("recommendations");
                     </div>
                     <div class="mt-4 text-pretty prose">
                       <Content />
+                      <ul>
+                        {j.data.projects?.map((p) => {
+                          return (
+                            <li>
+                              <a
+                                href={p.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="relative pr-4 group/link"
+                              >
+                                {p.title}
+                                <Icon
+                                  name="square-right-arrow-up"
+                                  aria-hidden="true"
+                                  class="absolute size-4 top-0.5 right-0 text-underline group-hover/link:text-yellow-400"
+                                />
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
                     </div>
                     <p class="mt-4 text-foreground-muted">
                       {new Intl.ListFormat("en-US", {
@@ -130,7 +151,7 @@ const recommendations = await getCollection("recommendations");
           },
         ].map((i) => {
           return (
-            <li class="border-t border-seperator pt-8 mt-8">
+            <li class="border-t border-separator pt-8 mt-8">
               <h3 class="font-medium tracking-tight">{i.heading}</h3>
               <p class="text-foreground-muted mt-4">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -157,10 +178,10 @@ const recommendations = await getCollection("recommendations");
               Date.parse(a.data.published.toString())
           )
           .filter((recommendation) => recommendation.data.status === "visible")
-          .map((recommendation, index) =>
+          .map((recommendation) =>
             render(recommendation).then(({ Content }) => {
               return (
-                <li class="border-t border-seperator pt-8 mt-8 rounded-sm">
+                <li class="border-t border-separator pt-8 mt-8 rounded-sm">
                   <article>
                     <div class="text-pretty prose">
                       <Content />
@@ -170,7 +191,7 @@ const recommendations = await getCollection("recommendations");
                         {Array.from({ length: 5 }, () => (
                           <Icon
                             name="star"
-                            class="text-amber-500 dark:text-amber-400"
+                            class="text-amber-500 dark:text-amber-400 size-4"
                           />
                         ))}
                       </div>
