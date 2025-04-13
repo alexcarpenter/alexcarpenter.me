@@ -31,7 +31,7 @@ const notes = await getCollection("notes");
           .map((n) =>
             render(n).then(({ Content }) => {
               return (
-                <li class="border-t border-separator pt-16 not-first:mt-16 rounded-sm">
+                <li class="border-t border-separator pt-8 not-first:mt-8 rounded-sm">
                   <article>
                     <a
                       href={`/notes/${n.id}`}
