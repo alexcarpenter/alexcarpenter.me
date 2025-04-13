@@ -129,6 +129,15 @@
       text-decoration-thickness: 0.09375rem;
     }
 
+    & :where(blockquote) {
+      --border-color: var(--color-green-600);
+      padding-left: calc(var(--spacing) * 4);
+      border-left: 4px solid var(--border-color);
+      @media (prefers-color-scheme: dark) {
+        --border-color: var(--color-green-400);
+      }
+    }
+
     & :where(mark) {
       color: var(--color-foreground);
       background-color: var(--color-highlight);

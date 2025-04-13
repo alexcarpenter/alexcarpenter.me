@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { undefined } from "astro:schema";
+import { Icon } from "astro-icon/components";
 
 const notes = await getCollection("notes");
 ---
@@ -29,7 +31,7 @@ const notes = await getCollection("notes");
           .map((n) =>
             render(n).then(({ Content }) => {
               return (
-                <li class="border-t border-separator pt-8 not-first:mt-8 rounded-sm">
+                <li class="border-t border-separator pt-16 not-first:mt-16 rounded-sm">
                   <article>
                     <a
                       href={`/notes/${n.id}`}
@@ -47,9 +49,33 @@ const notes = await getCollection("notes");
                         )}
                       </time>
                     </a>
-                    <div class="mt-4 text-pretty prose">
-                      <Content />
-                    </div>
+                    {n.data.link ? (
+                      <header class="mt-4">
+                        <h2 class="font-medium">
+                          <a
+                            href={n.data.link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="relative pr-5"
+                          >
+                            {n.data.link.title}
+                            <Icon
+                              name="square-arrow-out-up-right"
+                              class="absolute right-0 text-foreground-muted top-0.5"
+                              aria-hidden="true"
+                            />
+                          </a>
+                        </h2>
+                        <p class="text-foreground-muted">
+                          {new URL(n.data.link.url).hostname}
+                        </p>
+                      </header>
+                    ) : null}
+                    {n.body ? (
+                      <div class="mt-4 text-pretty prose">
+                        <Content />
+                      </div>
+                    ) : null}
                   </article>
                 </li>
               );

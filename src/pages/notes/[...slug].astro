@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
@@ -29,8 +30,42 @@ const { Content } = await render(note);
         })
       }
     </time>
-    <div class="mt-4 prose">
-      <Content />
-    </div>
+    {
+      note.data.link ? (
+        <header class="mt-4">
+          <h2 class="font-medium">
+            <a
+              href={note.data.link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative pr-4.5"
+            >
+              {note.data.link.title}
+              <Icon
+                name="square-arrow-out-up-right"
+                class="absolute right-0 text-foreground-muted top-0.5"
+                aria-hidden="true"
+              />
+            </a>
+          </h2>
+          <p class="text-foreground-muted">
+            {new URL(note.data.link.url).hostname}
+          </p>
+        </header>
+      ) : null
+    }
+    {
+      note.body ? (
+        <div class="mt-4 prose">
+          <Content />
+        </div>
+      ) : null
+    }
   </article>
+
+  <footer class="container mt-16">
+    <a href="/notes" class="text-foreground-muted flex gap-x-1 items-center">
+      <Icon name="arrow-left" aria-hidden="true" />Back to all notes</a
+    >
+  </footer>
 </BaseLayout>
