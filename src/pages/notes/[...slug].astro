@@ -38,12 +38,12 @@ const { Content } = await render(note);
               href={note.data.link.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="relative pr-4.5"
+              class="relative inline pr-4 underline decoration-[0.09375rem] decoration-underline"
             >
               {note.data.link.title}
               <Icon
-                name="square-arrow-out-up-right"
-                class="absolute right-0 text-foreground-muted top-0.5"
+                name="arrow-up-right"
+                class="absolute inline-block size-4 mt-0.25 ml-0.5 text-foreground-muted"
                 aria-hidden="true"
               />
             </a>
