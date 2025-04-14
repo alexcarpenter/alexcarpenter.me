@@ -4,10 +4,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
 const metaDescription = description ? description : "UI Engineer";
-const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "dfa9be2";
-// const commitMsg =
-//   import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_MESSAGE ||
-//   "checkpoint at 2024-08-26T12:16:53-0400";
 ---
 
 <html lang="en">
@@ -53,24 +49,12 @@ const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "dfa9be2";
 
   <body>
     <div class="mb-32 h-4 w-full angled-lines" aria-hidden="true"></div>
-
     <nav class="container flex gap-x-2">
       <p
         class="text-orange-600 dark:text-orange-400 font-medium tracking-tight"
       >
         <a href="/">Alex Carpenter</a>
       </p>
-      <!-- <ul class="flex gap-x-2">
-        <li>
-          <a href="/" class="text-foreground-muted font-medium">Index</a>
-        </li>
-        <li>
-          <a href="/" class="text-foreground-muted font-medium">Notes</a>
-        </li>
-        <li>
-          <a href="/" class="text-foreground-muted font-medium">Links</a>
-        </li>
-      </ul> -->
     </nav>
     <main class="flex-1">
       <slot />
@@ -79,7 +63,6 @@ const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA || "dfa9be2";
       <h2 class="text-blue-600 dark:text-blue-400 font-medium tracking-tight">
         Connect
       </h2>
-
       <dl class="mt-8 grid grid-cols-[25%_1fr] gap-y-4 gap-x-8">
         {
           [
