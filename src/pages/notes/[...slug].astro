@@ -52,9 +52,11 @@ const { Content } = await render(note);
               note.data.title
             )}
           </h2>
-          <p class="text-foreground-muted">
-            {new URL(note.data.link).hostname}
-          </p>
+          {note.data.link ? (
+            <p class="text-foreground-muted">
+              {new URL(note.data.link).hostname}
+            </p>
+          ) : null}
         </header>
       ) : null
     }

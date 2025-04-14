@@ -30,6 +30,14 @@ const recommendations = await getCollection("recommendations");
       Currently I am a part of the SDK Infra team at Clerk where I am working on
       our UI Components and Dashboard UI.
     </p>
+    <a
+      href="/notes"
+      class="bg-white dark:bg-neutral-900 border border-separator py-1 pl-3 pr-2 rounded-md mt-6 inline-flex text-sm font-medium items-center gap-x-1"
+      >View notes <Icon
+        name="chevron-right"
+        class="text-foreground-muted size-4"
+      /></a
+    >
   </header>
 
   <section class="mt-16 container">
@@ -43,7 +51,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.startDate.toString()) -
-              Date.parse(a.data.startDate.toString())
+              Date.parse(a.data.startDate.toString()),
           )
           .map((j) =>
             render(j).then(({ Content }) => {
@@ -62,7 +70,7 @@ const recommendations = await getCollection("recommendations");
                             {
                               year: "numeric",
                               month: "short",
-                            }
+                            },
                           )}
                         </time>{" "}
                         -
@@ -73,7 +81,7 @@ const recommendations = await getCollection("recommendations");
                               {
                                 year: "numeric",
                                 month: "short",
-                              }
+                              },
                             )}
                           </time>
                         ) : (
@@ -111,7 +119,7 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            })
+            }),
           )
       }
     </ul>
@@ -170,7 +178,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString())
+              Date.parse(a.data.published.toString()),
           )
           .filter((recommendation) => recommendation.data.status === "visible")
           .map((recommendation) =>
@@ -199,7 +207,7 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            })
+            }),
           )
       }
     </ul>

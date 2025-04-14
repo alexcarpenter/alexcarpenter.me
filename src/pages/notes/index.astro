@@ -69,9 +69,11 @@ const notes = await getCollection("notes");
                             n.data.title
                           )}
                         </h2>
-                        <p class="text-foreground-muted">
-                          {new URL(n.data.link).hostname}
-                        </p>
+                        {n.data.link ? (
+                          <p class="text-foreground-muted">
+                            {new URL(n.data.link).hostname}
+                          </p>
+                        ) : null}
                       </header>
                     ) : null}
                     {n.body ? (
