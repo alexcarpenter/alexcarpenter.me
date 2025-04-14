@@ -25,7 +25,7 @@ const notes = await getCollection("notes");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString())
+              Date.parse(a.data.published.toString()),
           )
           .map((n) =>
             render(n).then(({ Content }) => {
@@ -44,29 +44,33 @@ const notes = await getCollection("notes");
                             month: "short",
                             day: "2-digit",
                             weekday: "short",
-                          }
+                          },
                         )}
                       </time>
                     </a>
-                    {n.data.link ? (
+                    {n.data.title ? (
                       <header class="mt-4">
                         <h2 class="font-medium">
-                          <a
-                            href={n.data.link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="relative inline pr-4 underline decoration-[0.09375rem] decoration-underline"
-                          >
-                            {n.data.link.title}
-                            <Icon
-                              name="arrow-up-right"
-                              class="absolute inline-block size-4 mt-0.25 ml-0.5 text-foreground-muted"
-                              aria-hidden="true"
-                            />
-                          </a>
+                          {n.data.link ? (
+                            <a
+                              href={n.data.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="relative inline pr-4 underline decoration-[0.09375rem] decoration-underline"
+                            >
+                              {n.data.title}
+                              <Icon
+                                name="arrow-up-right"
+                                class="absolute inline-block size-4 mt-0.5 ml-0.5 text-foreground-muted"
+                                aria-hidden="true"
+                              />
+                            </a>
+                          ) : (
+                            n.data.title
+                          )}
                         </h2>
                         <p class="text-foreground-muted">
-                          {new URL(n.data.link.url).hostname}
+                          {new URL(n.data.link).hostname}
                         </p>
                       </header>
                     ) : null}
@@ -78,7 +82,7 @@ const notes = await getCollection("notes");
                   </article>
                 </li>
               );
-            })
+            }),
           )
       }
     </ul>

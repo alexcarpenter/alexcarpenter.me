@@ -31,25 +31,29 @@ const { Content } = await render(note);
       }
     </time>
     {
-      note.data.link ? (
+      note.data.title ? (
         <header class="mt-4">
           <h2 class="font-medium">
-            <a
-              href={note.data.link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="relative inline pr-4 underline decoration-[0.09375rem] decoration-underline"
-            >
-              {note.data.link.title}
-              <Icon
-                name="arrow-up-right"
-                class="absolute inline-block size-4 mt-0.25 ml-0.5 text-foreground-muted"
-                aria-hidden="true"
-              />
-            </a>
+            {note.data.link ? (
+              <a
+                href={note.data.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="relative inline pr-4 underline decoration-[0.09375rem] decoration-underline"
+              >
+                {note.data.title}
+                <Icon
+                  name="arrow-up-right"
+                  class="absolute inline-block size-4 mt-0.5 ml-0.5 text-foreground-muted"
+                  aria-hidden="true"
+                />
+              </a>
+            ) : (
+              note.data.title
+            )}
           </h2>
           <p class="text-foreground-muted">
-            {new URL(note.data.link.url).hostname}
+            {new URL(note.data.link).hostname}
           </p>
         </header>
       ) : null
