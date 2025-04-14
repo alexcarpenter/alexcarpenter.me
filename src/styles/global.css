@@ -71,6 +71,11 @@
       counter-increment: line;
     }
 
+    & .highlighted {
+      --background-color: var(--color-neutral-800);
+      background-color: var(--background-color);
+    }
+
     & > *::before {
       pointer-events: none;
       position: sticky;
