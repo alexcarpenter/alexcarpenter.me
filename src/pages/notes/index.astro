@@ -25,7 +25,7 @@ const notes = await getCollection("notes");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString()),
+              Date.parse(a.data.published.toString())
           )
           .map((n) =>
             render(n).then(({ Content }) => {
@@ -44,13 +44,13 @@ const notes = await getCollection("notes");
                             month: "short",
                             day: "2-digit",
                             weekday: "short",
-                          },
+                          }
                         )}
                       </time>
                     </a>
                     {n.data.title ? (
                       <header class="mt-4">
-                        <h2 class="font-medium">
+                        <h1 class="font-medium">
                           {n.data.link ? (
                             <a
                               href={n.data.link}
@@ -68,7 +68,7 @@ const notes = await getCollection("notes");
                           ) : (
                             n.data.title
                           )}
-                        </h2>
+                        </h1>
                         {n.data.link ? (
                           <p class="text-foreground-muted">
                             {new URL(n.data.link).hostname}
@@ -84,7 +84,7 @@ const notes = await getCollection("notes");
                   </article>
                 </li>
               );
-            }),
+            })
           )
       }
     </ul>
