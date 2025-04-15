@@ -58,7 +58,7 @@
     border: 1px solid var(--color-separator);
   }
 
-  code {
+  pre code {
     isolation: isolate;
     display: block;
     width: fit-content;
@@ -110,6 +110,10 @@
       content: " ";
       user-select: none;
     }
+  }
+
+  code {
+    font-size: var(--text-sm);
   }
 }
 
