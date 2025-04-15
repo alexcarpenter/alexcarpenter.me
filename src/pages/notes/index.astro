@@ -25,12 +25,12 @@ const notes = await getCollection("notes");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString())
+              Date.parse(a.data.published.toString()),
           )
           .map((n) =>
             render(n).then(({ Content }) => {
               return (
-                <li class="border-t border-separator pt-8 not-first:mt-8 rounded-sm">
+                <li class="border-t border-separator pt-16 not-first:mt-16 rounded-sm">
                   <article>
                     <a
                       href={`/notes/${n.id}`}
@@ -44,7 +44,7 @@ const notes = await getCollection("notes");
                             month: "short",
                             day: "2-digit",
                             weekday: "short",
-                          }
+                          },
                         )}
                       </time>
                     </a>
@@ -84,7 +84,7 @@ const notes = await getCollection("notes");
                   </article>
                 </li>
               );
-            })
+            }),
           )
       }
     </ul>
