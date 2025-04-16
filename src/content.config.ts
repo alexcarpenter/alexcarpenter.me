@@ -12,18 +12,20 @@ const notes = defineCollection({
   }),
 });
 
+const COMPANIES = [
+  "Clerk",
+  "Watershed",
+  "HashiCorp",
+  "NationBuilder",
+  "Mighty in the Midwest",
+  "Masuga Design",
+] as const;
+
 const jobs = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
   schema: z.object({
     title: z.string(),
-    company: z.enum([
-      "Clerk",
-      "Watershed",
-      "HashiCorp",
-      "NationBuilder",
-      "Mighty in the Midwest",
-      "Masuga Design",
-    ]),
+    company: z.enum(COMPANIES),
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
     tools: z.array(z.string()),
@@ -49,7 +51,7 @@ const recommendations = defineCollection({
   schema: z.object({
     name: z.string(),
     title: z.string(),
-    company: z.enum(JOBS),
+    company: z.enum(COMPANIES),
     published: z.coerce.date(),
     avatar: z.string().optional(),
     status: z.enum(["visible", "hidden"]).default("visible"),
