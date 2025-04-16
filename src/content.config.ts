@@ -1,4 +1,3 @@
-import { JOBS } from "@/consts";
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
@@ -17,7 +16,14 @@ const jobs = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
   schema: z.object({
     title: z.string(),
-    company: z.enum(JOBS),
+    company: z.enum([
+      "Clerk",
+      "Watershed",
+      "HashiCorp",
+      "NationBuilder",
+      "Mighty in the Midwest",
+      "Masuga Design",
+    ]),
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
     tools: z.array(z.string()),
