@@ -17,6 +17,7 @@
   --color-separator: var(--color-neutral-200);
   --color-underline: var(--color-neutral-300);
   --color-highlight: var(--color-amber-200);
+  --color-pre-background: var(--color-neutral-100);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +29,12 @@
     --color-separator: var(--color-neutral-800);
     --color-underline: var(--color-neutral-600);
     --color-highlight: var(--color-neutral-700);
+    --color-pre-background: var(--color-neutral-900);
+  }
+
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
   }
 }
 
@@ -49,10 +56,10 @@
   }
 
   pre {
-    --pre-background-color: var(--color-neutral-900);
+    --pre-background-color: var(--color-pre-background);
     padding-block: calc(var(--spacing) * 4);
     font-size: var(--text-sm);
-    line-height: 1.6;
+    line-height: 1.8;
     background-color: var(--pre-background-color) !important;
     border-radius: var(--radius-md);
     border: 1px solid var(--color-separator);
@@ -110,18 +117,52 @@
       }
 
       &.highlighted {
-        --line-background-color: var(--color-neutral-800);
         --line-border-color: var(--color-blue-600);
+        --line-background-color: color-mix(
+          in oklab,
+          var(--line-border-color),
+          var(--pre-background-color) 90%
+        );
+
+        @media (prefers-color-scheme: dark) {
+          --line-border-color: var(--color-blue-400);
+        }
       }
 
       &.remove {
-        --line-background-color: var(--color-red-950);
         --line-border-color: var(--color-red-600);
+        --line-background-color: color-mix(
+          in oklab,
+          var(--line-border-color),
+          var(--pre-background-color) 90%
+        );
+
+        @media (prefers-color-scheme: dark) {
+          --line-border-color: var(--color-red-400);
+        }
+
+        &::before {
+          content: "-";
+          color: var(--line-border-color);
+        }
       }
 
       &.add {
-        --line-background-color: var(--color-green-950);
         --line-border-color: var(--color-green-600);
+        --line-background-color: color-mix(
+          in oklab,
+          var(--line-border-color),
+          var(--pre-background-color) 90%
+        );
+
+        @media (prefers-color-scheme: dark) {
+          --line-border-color: var(--color-green-400);
+        }
+
+        &::before {
+          content: "+";
+          color: var(--line-border-color);
+        }
       }
     }
   }
