@@ -18,14 +18,14 @@ const notes = await getCollection("notes");
     >
   </header>
 
-  <section class="mt-16 container">
+  <section class="my-16 container">
     <ul>
       {
         notes
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString()),
+              Date.parse(a.data.published.toString())
           )
           .map((n) =>
             render(n).then(({ Content }) => {
@@ -44,7 +44,7 @@ const notes = await getCollection("notes");
                             month: "short",
                             day: "2-digit",
                             weekday: "short",
-                          },
+                          }
                         )}
                       </time>
                     </a>
@@ -84,7 +84,7 @@ const notes = await getCollection("notes");
                   </article>
                 </li>
               );
-            }),
+            })
           )
       }
     </ul>
