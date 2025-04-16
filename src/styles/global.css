@@ -49,11 +49,11 @@
   }
 
   pre {
-    --background-color: var(--color-neutral-900);
+    --pre-background-color: var(--color-neutral-900);
     padding-block: calc(var(--spacing) * 4);
     font-size: var(--text-sm);
     line-height: 1.6;
-    background-color: var(--background-color) !important;
+    background-color: var(--pre-background-color) !important;
     border-radius: var(--radius-md);
     border: 1px solid var(--color-separator);
   }
@@ -65,50 +65,64 @@
     min-width: 100%;
     counter-reset: line;
 
-    & > * {
+    & .line {
+      --line-background-color: var(--pre-background-color);
+      --line-border-color: var(--line-background-color);
       display: inline-block;
       width: 100%;
       counter-increment: line;
-    }
+      background-color: var(--line-background-color);
 
-    & .highlighted {
-      --background-color: var(--color-neutral-800);
-      background-color: var(--background-color);
-    }
+      &::before {
+        pointer-events: none;
+        position: sticky;
+        left: 0;
+        z-index: 20;
+        display: inline-block;
+        width: 2.75rem;
+        background: linear-gradient(
+          to right,
+          var(--line-background-color) 80%,
+          transparent
+        );
+        padding-right: 1rem;
+        text-align: right;
+        color: var(--color-foreground-muted);
+        content: counter(line);
+        user-select: none;
+        border-left: 2px solid var(--line-border-color);
+      }
 
-    & > *::before {
-      pointer-events: none;
-      position: sticky;
-      left: 0;
-      z-index: 20;
-      display: inline-block;
-      width: 2.75rem;
-      background: linear-gradient(
-        to right,
-        var(--background-color) 80%,
-        transparent
-      );
-      padding-right: 1rem;
-      text-align: right;
-      color: var(--color-foreground-muted);
-      content: counter(line);
-      user-select: none;
-    }
+      &::after {
+        pointer-events: none;
+        position: sticky;
+        right: 0;
+        z-index: 10;
+        display: inline-block;
+        width: 1.5rem;
+        background: linear-gradient(
+          to left,
+          var(--line-background-color) 35%,
+          transparent
+        );
+        content: " ";
+        user-select: none;
+      }
 
-    & > *::after {
-      pointer-events: none;
-      position: sticky;
-      right: 0;
-      z-index: 10;
-      display: inline-block;
-      width: 1.5rem;
-      background: linear-gradient(
-        to left,
-        var(--background-color) 35%,
-        transparent
-      );
-      content: " ";
-      user-select: none;
+      &.highlighted {
+        --line-background-color: var(--color-neutral-800);
+        --line-border-color: var(--color-blue-600);
+      }
+
+      &.remove {
+        --line-background-color: var(--color-red-950);
+        --line-border-color: var(--color-red-600);
+      }
+
+      &.add {
+        --line-background-color: var(--color-green-950);
+        --line-border-color: var(--color-green-600);
+      }
     }
   }
 

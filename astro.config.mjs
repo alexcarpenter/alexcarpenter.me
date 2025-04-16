@@ -2,6 +2,7 @@ import sitemap from "@astrojs/sitemap";
 import {
   transformerMetaHighlight,
   transformerMetaWordHighlight,
+  transformerNotationDiff,
 } from "@shikijs/transformers";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
@@ -18,6 +19,7 @@ export default defineConfig({
       theme: "github-dark-default",
       defaultColor: false,
       transformers: [
+        transformerNotationDiff(),
         transformerMetaHighlight(),
         transformerMetaWordHighlight(),
       ],
