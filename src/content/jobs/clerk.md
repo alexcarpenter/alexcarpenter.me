@@ -18,8 +18,9 @@ projects:
 tools:
   - Next.js
   - Tailwind CSS
+  - React Aria Components
   - TypeScript
-  - Framer Motion
+  - Motion
   - Floating UI
 ---
 
