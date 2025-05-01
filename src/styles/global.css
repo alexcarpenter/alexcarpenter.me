@@ -127,6 +127,10 @@
         @media (prefers-color-scheme: dark) {
           --line-border-color: var(--color-blue-400);
         }
+
+        &::before {
+          color: var(--line-border-color);
+        }
       }
 
       &.remove {

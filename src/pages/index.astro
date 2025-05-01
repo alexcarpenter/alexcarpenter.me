@@ -2,42 +2,6 @@
 import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-// import { fetchLatestGithubPrs } from "@/utils/fetchLatestGithubPrs";
-
-// const prs = await fetchLatestGithubPrs();
-// const prs = [
-//   {
-//     number: 5655,
-//     title: "refactor(clerk-js): Invoice page title",
-//     url: "https://github.com/clerk/javascript/pull/5655",
-//     merge_commit_sha: "45486acebf4d133efb09a3622a738cdbf4e51d66",
-//   },
-//   {
-//     number: 5653,
-//     title: "fix(clerk-js): Reset definition list components margins",
-//     url: "https://github.com/clerk/javascript/pull/5653",
-//     merge_commit_sha: "d8eda0bf0d7bbe8e31c65c348955a220a6d9de52",
-//   },
-//   {
-//     number: 5627,
-//     title: "feat(clerk-js,types): Implement billing invoices",
-//     url: "https://github.com/clerk/javascript/pull/5627",
-//     merge_commit_sha: "27ca2ece648b346d044f9a65890e34303cee9042",
-//   },
-//   {
-//     number: 5616,
-//     title: "fix(clerk-js): Reduce line truncation maxLength",
-//     url: "https://github.com/clerk/javascript/pull/5616",
-//     merge_commit_sha: "b1b85412e5e906c7e92cf1524350c469678a284e",
-//   },
-//   {
-//     number: 5560,
-//     title:
-//       "chore(clerk-js): Add truncation option to line items description text",
-//     url: "https://github.com/clerk/javascript/pull/5560",
-//     merge_commit_sha: "203391964857b98dae11944799d1e6328439e838",
-//   },
-// ];
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
 ---
@@ -160,29 +124,6 @@ const recommendations = await getCollection("recommendations");
       }
     </ul>
   </section>
-
-  <!-- <section class="mt-16 container">
-    <h2 class="text-red-600 dark:text-red-400 font-medium tracking-tight">
-      Recent Work
-    </h2>
-    <ul class="mt-8">
-      {
-        prs.map((pr) => {
-          return (
-            <li class="border-t border-separator pt-2 not-first:mt-2 flex justify-between gap-x-8">
-              {/* prettier-ignore */}
-              <p class="truncate">
-                (<a href={pr.url} target="_blank" rel="noopener noreferrer" class="underline decoration-[0.09375rem] decoration-underline">#{pr.number}</a>) {pr.title}
-              </p>
-              <p class="text-foreground-muted">
-                {pr.merge_commit_sha.slice(0, 8)}
-              </p>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </section> -->
 
   <!-- <section class="mt-16 container">
     <h2 class="text-red-600 dark:text-red-400 font-medium tracking-tight">
