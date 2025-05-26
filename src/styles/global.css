@@ -208,7 +208,7 @@
     & :where(blockquote) {
       --border-color: var(--color-green-600);
       padding-left: calc(var(--spacing) * 4);
-      border-left: 4px solid var(--border-color);
+      border-left: 2px solid var(--border-color);
       @media (prefers-color-scheme: dark) {
         --border-color: var(--color-green-400);
       }
