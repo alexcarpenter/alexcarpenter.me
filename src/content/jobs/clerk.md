@@ -26,4 +26,4 @@ tools:
   - Floating UI
 ---
 
-UI Engineer apart of the SDK Infra team, currently working our new [Billing components](https://x.com/ClerkDev/status/1899231055481385083).
+UI Engineer apart of the SDK Infra team, currently working on our UI Components and Dashboard UI.
