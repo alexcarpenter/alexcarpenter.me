@@ -182,6 +182,11 @@
       margin-top: calc(var(--spacing) * 4);
     }
 
+    & > :where(* + pre),
+    & > :where(pre + *) {
+      margin-top: calc(var(--spacing) * 6);
+    }
+
     /* & > * + :where(h2, h3) {
       margin-top: calc(var(--spacing) * 8);
     } */

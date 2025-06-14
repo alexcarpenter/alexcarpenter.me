@@ -13,9 +13,9 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "3.4.0",
-    "@shikijs/transformers": "^3.4.2",
+    "@shikijs/transformers": "^3.6.0",
     "@sindresorhus/slugify": "^2.2.1",
-    "@tailwindcss/vite": "^4.1.7",
+    "@tailwindcss/vite": "^4.1.10",
     "astro": "5.8.0",
     "astro-icon": "^1.1.5",
     "markdown-it": "^14.1.0",
@@ -27,6 +27,6 @@
   "devDependencies": {
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.11"
+    "prettier-plugin-tailwindcss": "^0.6.12"
   }
 }
