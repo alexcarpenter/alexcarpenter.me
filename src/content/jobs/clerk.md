@@ -26,4 +26,4 @@ tools:
   - Floating UI
 ---
 
-UI Engineer apart of the SDK Infra team, currently working on our UI Components and Dashboard UI.
+UI Engineer apart of the SDK team, currently working on our UI Components and Dashboard UI.
