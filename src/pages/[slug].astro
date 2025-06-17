@@ -1,0 +1,71 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((p) => ({
+    params: { slug: p.id },
+    props: p,
+  }));
+}
+
+const page = Astro.props;
+const { Content } = await render(page);
+const date = page.data.updated ? page.data.updated : page.data.published;
+---
+
+<BaseLayout title={page.data.title} description={page.data.description}>
+  <article class="mt-16 container">
+    <dl>
+      <dt class="sr-only">
+        {page.data.updated ? "Last updated" : "Published"}
+      </dt>
+      <dd>
+        <time
+          class="inline-block text-foreground-muted font-medium"
+          datetime={date.toISOString()}
+        >
+          {
+            new Date(date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "2-digit",
+              weekday: "short",
+            })
+          }
+        </time>
+      </dd>
+    </dl>
+    <header class="mt-4">
+      <h2
+        class="text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
+      >
+        {page.data.title}
+      </h2>
+      {
+        page.data.description ? (
+          <p class="mt-4 text-foreground-muted font-medium max-w-[55ch] text-pretty">
+            {page.data.description}
+          </p>
+        ) : null
+      }
+    </header>
+    {
+      page.body ? (
+        <div class="mt-4 prose">
+          <Content />
+        </div>
+      ) : null
+    }
+  </article>
+
+  <!-- <footer class="container mt-16">
+    <a
+      href="/notes"
+      class="text-foreground-muted inline-flex gap-x-1 items-center"
+    >
+      <Icon name="arrow-left" aria-hidden="true" />Back to all notes</a
+    >
+  </footer> -->
+</BaseLayout>
