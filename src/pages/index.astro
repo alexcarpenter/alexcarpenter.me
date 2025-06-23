@@ -2,7 +2,6 @@
 import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
 ---
@@ -42,7 +41,10 @@ const recommendations = await getCollection("recommendations");
   </header>
 
   <section class="mt-16 container">
-    <h2 class="text-purple-600 dark:text-purple-400 font-medium tracking-tight">
+    <h2
+      class="text-purple-600 dark:text-purple-400 font-medium tracking-tight"
+      id="experience"
+    >
       Experience
     </h2>
 
@@ -126,8 +128,11 @@ const recommendations = await getCollection("recommendations");
     </ul>
   </section>
 
-  <!-- <section class="mt-16 container">
-    <h2 class="text-red-600 dark:text-red-400 font-medium tracking-tight">
+  <section class="mt-16 container">
+    <h2
+      class="text-red-600 dark:text-red-400 font-medium tracking-tight"
+      id="interests-and-skills"
+    >
       Interests &amp; Skills
     </h2>
     <ul class="grid grid-cols-2 gap-x-8">
@@ -164,19 +169,19 @@ const recommendations = await getCollection("recommendations");
                 <Icon name={i.iconName} class="size-4" />
                 <h3 class="font-medium tracking-tight">{i.heading}</h3>
               </header>
-              <p class="text-foreground-muted mt-4">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Reprehenderit, illum.
-              </p>
+              {/* <p class="text-foreground-muted mt-4">{i.description}</p> */}
             </li>
           );
         })
       }
     </ul>
-  </section> -->
+  </section>
 
   <section class="mt-16 container">
-    <h2 class="text-green-600 dark:text-green-400 font-medium tracking-tight">
+    <h2
+      class="text-green-600 dark:text-green-400 font-medium tracking-tight"
+      id="recommendations"
+    >
       Recommendations
     </h2>
 
