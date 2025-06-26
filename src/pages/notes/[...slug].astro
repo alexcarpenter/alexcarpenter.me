@@ -2,7 +2,6 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
-import slugify from "@sindresorhus/slugify";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");

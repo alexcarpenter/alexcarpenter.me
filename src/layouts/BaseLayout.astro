@@ -45,6 +45,14 @@ const metaDescription = description ? description : "UI Engineer";
 
     <!-- Sitemap -->
     <link rel="sitemap" href={new URL("/sitemap-index.xml", Astro.site)} />
+
+    <!-- RSS Feed -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Notes - Alex Carpenter"
+      href={new URL("/notes/rss.xml", Astro.site)}
+    />
   </head>
 
   <body>
