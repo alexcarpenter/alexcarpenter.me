@@ -15,7 +15,7 @@
     "@astrojs/sitemap": "3.4.1",
     "@shikijs/transformers": "^3.6.0",
     "@tailwindcss/vite": "^4.1.10",
-    "astro": "5.9.4",
+    "astro": "5.10.1",
     "astro-icon": "^1.1.5",
     "markdown-it": "^14.1.0",
     "sanitize-html": "^2.17.0",
