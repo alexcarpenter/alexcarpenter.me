@@ -232,6 +232,11 @@
     & *::marker {
       color: var(--color-foreground-muted);
     }
+
+    & :where(hr) {
+      margin-block: calc(var(--spacing) * 8);
+      border-color: var(--color-separator);
+    }
   }
 }
 
