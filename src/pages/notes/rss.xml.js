@@ -11,16 +11,18 @@ export async function GET(context) {
     description:
       "Notes on engineering, developer experience, design systems, and accessibility.",
     site: context.site,
-    items: notes.map((post) => ({
-      title: post.data.title,
-      description: post.data.description,
-      pubDate: post.data.published,
-      link: `/notes/${post.id}/`,
-      content:
-        post.body &&
-        sanitizeHtml(parser.render(post.body), {
-          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-        }),
-    })),
+    items: notes
+      .sort((a, b) => b.data.published - a.data.published)
+      .map((post) => ({
+        title: post.data.title,
+        description: post.data.description,
+        pubDate: post.data.published,
+        link: `/notes/${post.id}/`,
+        content:
+          post.body &&
+          sanitizeHtml(parser.render(post.body), {
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+          }),
+      })),
   });
 }
