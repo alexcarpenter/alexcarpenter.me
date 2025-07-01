@@ -5,20 +5,11 @@ startDate: 2015-08-01
 endDate: 2018-11-01
 projects:
   - title: Consrevation Legacy
-    href: "https://conservationlegacy.org"
-    img:
-      src: /img/conservationlegacy-org.webp
-      alt: Conservation Legacy homepage
+    link: "https://conservationlegacy.org"
   - title: Dake Corp
-    href: "https://dakecorp.com"
-    img:
-      src: /img/dakecorp-com.webp
-      alt: Dake Corp homepage
+    link: "https://dakecorp.com"
   - title: Brunswick Bowling
-    href: "https://brunswickbowling.com"
-    img:
-      src: /img/brunswickbowling-com.webp
-      alt: Brunswick bowling homepage
+    link: "https://brunswickbowling.com"
 tools:
   - Craft CMS
   - Shopify

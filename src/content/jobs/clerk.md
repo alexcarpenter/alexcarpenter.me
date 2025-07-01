@@ -4,21 +4,15 @@ company: Clerk
 startDate: 2024-01-04
 projects:
   - title: CSS Layer Namer support
-    href: https://clerk.com/changelog/2025-06-17-css-layer-name
+    link: https://clerk.com/changelog/2025-06-17-css-layer-name
   - title: Clerk Billing components
-    href: https://clerk.com/docs/components/pricing-table
+    link: https://clerk.com/docs/components/pricing-table
   - title: Combined sign-in-or-up
-    href: https://clerk.com/changelog/2025-01-16-sign-in-or-up
+    link: https://clerk.com/changelog/2025-01-16-sign-in-or-up
   - title: Clerk Elements
-    href: "https://clerk.com/changelog/2024-05-02-elements-beta"
-    img:
-      src: /img/clerk-elements.webp
-      alt: Clerk elements sign-in/up component examples
+    link: "https://clerk.com/changelog/2024-05-02-elements-beta"
   - title: Clerk.com user auth page
-    href: "https://clerk.com/user-authentication"
-    img:
-      src: /img/clerk-user-auth.webp
-      alt: Clerk elements sign-in/up component examples
+    link: "https://clerk.com/user-authentication"
 tools:
   - Next.js
   - Tailwind CSS

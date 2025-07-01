@@ -56,19 +56,19 @@ const recommendations = await getCollection("recommendations");
               Date.parse(b.data.startDate.toString()) -
               Date.parse(a.data.startDate.toString())
           )
-          .map((j) =>
-            render(j).then(({ Content }) => {
+          .map((job) =>
+            render(job).then(({ Content }) => {
               return (
                 <li class="border-t border-separator pt-8 mt-8 rounded-sm">
                   <article>
-                    <h2 class="font-medium">{j.data.company}</h2>
+                    <h2 class="font-medium">{job.data.company}</h2>
                     <div class="flex flex-wrap gap-x-4 justify-between">
                       <p class="text-foreground-muted font-medium">
-                        {j.data.title}
+                        {job.data.title}
                       </p>
                       <p class="text-foreground-muted font-medium">
-                        <time datetime={j.data.startDate.toISOString()}>
-                          {new Date(j.data.startDate).toLocaleDateString(
+                        <time datetime={job.data.startDate.toISOString()}>
+                          {new Date(job.data.startDate).toLocaleDateString(
                             "en-US",
                             {
                               year: "numeric",
@@ -77,9 +77,9 @@ const recommendations = await getCollection("recommendations");
                           )}
                         </time>{" "}
                         -
-                        {j.data.endDate ? (
-                          <time datetime={j.data.endDate.toISOString()}>
-                            {new Date(j.data.endDate).toLocaleDateString(
+                        {job.data.endDate ? (
+                          <time datetime={job.data.endDate.toISOString()}>
+                            {new Date(job.data.endDate).toLocaleDateString(
                               "en-US",
                               {
                                 year: "numeric",
@@ -97,16 +97,16 @@ const recommendations = await getCollection("recommendations");
                     <div class="mt-4 text-pretty prose">
                       <Content />
                       <ul>
-                        {j.data.projects?.map((p) => {
+                        {job.data.projects?.map((project) => {
                           return (
                             <li>
                               <a
-                                href={p.href}
+                                href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="relative"
                               >
-                                {p.title}
+                                {project.title}
                               </a>
                             </li>
                           );
@@ -117,7 +117,7 @@ const recommendations = await getCollection("recommendations");
                       {new Intl.ListFormat("en-US", {
                         style: "long",
                         type: "conjunction",
-                      }).format(j.data.tools)}
+                      }).format(job.data.tools)}
                     </p>
                   </article>
                 </li>
@@ -140,36 +140,36 @@ const recommendations = await getCollection("recommendations");
         [
           {
             iconName: "tailwind-css",
-            heading: "CSS Architecture",
+            title: "CSS Architecture",
             description:
               "I enjoy creating scalable and maintainable CSS architectures that improve performance and readability of web applications.",
           },
           {
             iconName: "figma",
-            heading: "Design Systems",
+            title: "Design Systems",
             description:
               "I love building cohesive design systems that ensure consistency and efficiency between design and development.",
           },
           {
             iconName: "components",
-            heading: "Component Libraries",
+            title: "Component Libraries",
             description:
               "I take pride in crafting reusable and accessible component libraries to streamline development and enhance user experience.",
           },
           {
             iconName: "github",
-            heading: "Developer Experience",
+            title: "Developer Experience",
             description:
               "I focus on optimizing developer workflows and tools to boost productivity and collaboration within engineering teams.",
           },
-        ].map((i) => {
+        ].map((item) => {
           return (
             <li class="border-t border-separator pt-8 mt-8">
               <header class="flex gap-2 items-center">
-                <Icon name={i.iconName} class="size-4" />
-                <h3 class="font-medium tracking-tight">{i.heading}</h3>
+                <Icon name={item.iconName} class="size-4" />
+                <h3 class="font-medium tracking-tight">{item.title}</h3>
               </header>
-              <p class="text-foreground-muted mt-4">{i.description}</p>
+              <p class="text-foreground-muted mt-4">{item.description}</p>
             </li>
           );
         })

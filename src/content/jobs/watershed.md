@@ -5,25 +5,13 @@ startDate: 2023-08-01
 endDate: 2023-12-01
 projects:
   - title: Watershed homepage
-    href: "https://watershed.com"
-    img:
-      src: /img/watershed-com.webp
-      alt: Watershed homepage
+    link: "https://watershed.com"
   - title: Watershed customers page
-    href: "https://watershed.com/customers"
-    img:
-      src: /img/watershed-com-customers.webp
-      alt: Watershed customers landing page
+    link: "https://watershed.com/customers"
   - title: Watershed events page
-    href: "https://watershed.com/events"
-    img:
-      src: /img/watershed-com-events.webp
-      alt: Watershed events landing page
+    link: "https://watershed.com/events"
   - title: Watershed change campaign page
-    href: "https://watershed.com/change"
-    img:
-      src: /img/watershed-com-change.webp
-      alt: Watershed change campaign landing page
+    link: "https://watershed.com/change"
 tools:
   - Next.js
   - Sanity CMS

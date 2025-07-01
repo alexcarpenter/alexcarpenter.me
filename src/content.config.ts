@@ -43,13 +43,8 @@ const jobs = defineCollection({
       .array(
         z.object({
           title: z.string(),
-          href: z.string(),
-          img: z
-            .object({
-              src: z.string(),
-              alt: z.string(),
-            })
-            .optional(),
+          description: z.string().optional(),
+          link: z.string(),
         }),
       )
       .optional(),
