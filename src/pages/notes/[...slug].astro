@@ -65,6 +65,10 @@ const { Content } = await render(note);
         <div class="mt-4 prose">
           <Content />
         </div>
+      ) : note.data.description ? (
+        <div class="mt-4 prose">
+          <blockquote>{note.data.description}</blockquote>
+        </div>
       ) : null
     }
   </article>

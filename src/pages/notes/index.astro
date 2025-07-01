@@ -80,6 +80,10 @@ const notes = await getCollection("notes");
                       <div class="mt-4 text-pretty prose">
                         <Content />
                       </div>
+                    ) : n.data.description ? (
+                      <div class="mt-4 text-pretty prose">
+                        <blockquote>{n.data.description}</blockquote>
+                      </div>
                     ) : null}
                   </article>
                 </li>
