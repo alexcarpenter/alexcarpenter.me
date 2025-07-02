@@ -200,7 +200,7 @@
       padding-inline-start: calc(var(--spacing) * 6);
     }
 
-    & > :where(ul > li + li) {
+    & > :where(ul) > li + li {
       margin-top: var(--spacing);
     }
 
