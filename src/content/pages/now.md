@@ -6,4 +6,4 @@ updated: 2025-07-04T08:20:12-0400
 ---
 
 - Exploring [HAM radio](https://en.wikipedia.org/wiki/Amateur_radio), working on getting my Technician license
-- Curating [ibrewmyown.coffee](https://ibrewmyown.coffee), reach out if you want to share your setup
+- Designing, building, and curating [ibrewmyown.coffee](https://ibrewmyown.coffee), reach out if you want to share your coffee brewing setup
