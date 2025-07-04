@@ -234,12 +234,6 @@
       border-color: var(--color-separator);
     }
   }
-
-  .prose-expanded {
-    & > :where(h2, h3) {
-      margin-top: calc(var(--spacing) * 8);
-    }
-  }
 }
 
 @layer utilities {
