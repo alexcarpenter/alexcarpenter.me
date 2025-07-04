@@ -187,10 +187,6 @@
       margin-top: calc(var(--spacing) * 6);
     }
 
-    /* & > * + :where(h2, h3) {
-      margin-top: calc(var(--spacing) * 8);
-    } */
-
     & :where(h1, h2, h3) {
       font-weight: var(--font-weight-medium);
     }
@@ -236,6 +232,12 @@
     & :where(hr) {
       margin-block: calc(var(--spacing) * 8);
       border-color: var(--color-separator);
+    }
+  }
+
+  .prose-expanded {
+    & > :where(h2, h3) {
+      margin-top: calc(var(--spacing) * 8);
     }
   }
 }
