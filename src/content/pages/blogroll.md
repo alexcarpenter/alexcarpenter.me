@@ -6,6 +6,7 @@ updated: 2025-07-04T07:36:37-0400
 
 - [chsmc.org](https://chsmc.org/)
 - [everydaycommentary.com](https://www.everydaycommentary.com/)
+- [fromjason.xyz](https://www.fromjason.xyz/)
 - [macwright.com](https://macwright.com/)
 - [nicksimson.com](https://www.nicksimson.com/)
 - [stephango.com](https://stephango.com/)
