@@ -11,4 +11,4 @@ updated: 2025-07-06T14:34:20-0400
 
 ## 2025-06-27
 
-- **Feat:** Added notes RSS feed
+- **Feat:** Added notes [RSS feed](/notes/rss.xml)
