@@ -1,0 +1,113 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  const tagSet = new Set<string>();
+  notes.forEach((note) => {
+    (note.data.tags || []).forEach((tag) => tagSet.add(tag));
+  });
+  return Array.from(tagSet).map((tag) => {
+    const filteredNotes = notes.filter((note) => note.data.tags?.includes(tag));
+    return {
+      params: { tag },
+      props: { notes: filteredNotes, tag },
+    };
+  });
+}
+
+const params = Astro.params;
+const { tag, notes } = Astro.props;
+---
+
+<BaseLayout title={`Tagged: ${params.tag}`}>
+  <header class="mt-4 container">
+    <h1 class="text-2xl font-medium tracking-tight max-w-[40ch] leading-tight">
+      Tagged: "{tag}"
+    </h1>
+    <a
+      href="/tags"
+      class="mt-4 text-foreground-muted inline-flex gap-x-1 items-center"
+    >
+      <Icon name="arrow-left" aria-hidden="true" />Back to all tags</a
+    >
+  </header>
+
+  <section class="mt-16 container">
+    <ul>
+      {
+        notes
+          .sort(
+            (a, b) =>
+              Date.parse(b.data.published.toString()) -
+              Date.parse(a.data.published.toString())
+          )
+          .map((note) =>
+            render(note).then(({ Content }) => {
+              return (
+                <li class="border-t border-separator pt-16 not-first:mt-16 rounded-sm">
+                  <article>
+                    <a
+                      href={`/notes/${note.id}`}
+                      class="text-foreground-muted inline-block font-medium"
+                    >
+                      <time datetime={note.data.published.toISOString()}>
+                        {new Date(note.data.published).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "short",
+                            day: "2-digit",
+                            weekday: "short",
+                          }
+                        )}
+                      </time>
+                    </a>
+                    {note.data.title ? (
+                      <header class="mt-4">
+                        <h1 class="font-medium">
+                          {note.data.link ? (
+                            <a
+                              href={note.data.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="relative inline pr-4 underline decoration-[0.09375rem] decoration-underline"
+                            >
+                              {note.data.title}
+                              <Icon
+                                name="arrow-up-right"
+                                class="absolute inline-block h-[1lh] ml-0.5 text-foreground-muted"
+                                aria-hidden="true"
+                              />
+                            </a>
+                          ) : (
+                            note.data.title
+                          )}
+                        </h1>
+                        {note.data.link ? (
+                          <p class="text-foreground-muted">
+                            {new URL(note.data.link).hostname}
+                          </p>
+                        ) : null}
+                      </header>
+                    ) : null}
+                    {note.body ? (
+                      <div class="mt-4 text-pretty prose">
+                        <Content />
+                      </div>
+                    ) : note.data.description ? (
+                      <div class="mt-4 text-pretty prose">
+                        <blockquote>{note.data.description}</blockquote>
+                      </div>
+                    ) : null}
+                  </article>
+                </li>
+              );
+            })
+          )
+      }
+    </ul>
+  </section>
+</BaseLayout>

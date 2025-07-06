@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const notes = await getCollection("notes");
+
+const tags = notes
+  .flatMap((note) => note.data.tags || [])
+  .reduce((acc, tag) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+    return acc;
+  }, {});
+---
+
+<BaseLayout title="Tags">
+  <header class="mt-4 container">
+    <h1 class="text-2xl font-medium tracking-tight max-w-[40ch] leading-tight">
+      Tags
+    </h1>
+  </header>
+
+  <section class="mt-16 container">
+    <ul class="flex flex-wrap gap-2">
+      {
+        Object.keys(tags).map((tag) => (
+          <li>
+            <a
+              href={`/tags/${tag}`}
+              class="bg-white dark:bg-neutral-900 border border-separator py-1.5 px-3 rounded-md inline-flex text-sm font-medium items-center gap-x-1"
+            >
+              {tag} <span class="text-foreground-muted">({tags[tag]})</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
