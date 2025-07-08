@@ -54,7 +54,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.startDate.toString()) -
-              Date.parse(a.data.startDate.toString())
+              Date.parse(a.data.startDate.toString()),
           )
           .map((job) =>
             render(job).then(({ Content }) => {
@@ -73,7 +73,7 @@ const recommendations = await getCollection("recommendations");
                             {
                               year: "numeric",
                               month: "short",
-                            }
+                            },
                           )}
                         </time>{" "}
                         -
@@ -84,7 +84,7 @@ const recommendations = await getCollection("recommendations");
                               {
                                 year: "numeric",
                                 month: "short",
-                              }
+                              },
                             )}
                           </time>
                         ) : (
@@ -104,7 +104,6 @@ const recommendations = await getCollection("recommendations");
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="relative"
                               >
                                 {project.title}
                               </a>
@@ -122,7 +121,7 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            })
+            }),
           )
       }
     </ul>
@@ -191,7 +190,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString())
+              Date.parse(a.data.published.toString()),
           )
           .filter((recommendation) => recommendation.data.status === "visible")
           .map((recommendation) =>
@@ -220,7 +219,7 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            })
+            }),
           )
       }
     </ul>

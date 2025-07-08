@@ -3,7 +3,9 @@ title: Senior UI Engineer
 company: Clerk
 startDate: 2024-01-04
 projects:
-  - title: CSS Layer Namer support
+  - title: CSS variables support
+    link: https://clerk.com/changelog/2025-07-08-css-variables-support
+  - title: CSS layer name support
     link: https://clerk.com/changelog/2025-06-17-css-layer-name
   - title: Clerk Billing components
     link: https://clerk.com/docs/components/pricing-table

@@ -225,6 +225,10 @@
       font-weight: var(--font-weight-medium);
     }
 
+    & :where(strong) {
+      font-weight: var(--font-weight-medium);
+    }
+
     & *::marker {
       color: var(--color-foreground-muted);
     }
