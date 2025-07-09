@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ExternalLink from "@/components/ExternalLink.astro";
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
 ---
@@ -100,13 +101,10 @@ const recommendations = await getCollection("recommendations");
                         {job.data.projects?.map((project) => {
                           return (
                             <li>
-                              <a
+                              <ExternalLink
                                 href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {project.title}
-                              </a>
+                                text={project.title}
+                              />
                             </li>
                           );
                         })}

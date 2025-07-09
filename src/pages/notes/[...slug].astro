@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
+import ExternalLink from "@/components/ExternalLink.astro";
 
 export async function getStaticPaths() {
   const notes = await getCollection("notes");
@@ -35,19 +36,7 @@ const { Content } = await render(note);
         <header class="mt-4">
           <h2 class="font-medium">
             {note.data.link ? (
-              <a
-                href={note.data.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="relative inline pr-4 underline decoration-[0.09375rem] decoration-underline"
-              >
-                {note.data.title}
-                <Icon
-                  name="arrow-up-right"
-                  class="absolute inline-block size-4 mt-0.5 ml-0.5 text-foreground-muted"
-                  aria-hidden="true"
-                />
-              </a>
+              <ExternalLink href={note.data.link} text={note.data.title} />
             ) : (
               note.data.title
             )}

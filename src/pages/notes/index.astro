@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
+import ExternalLink from "@/components/ExternalLink.astro";
 
 const notes = await getCollection("notes");
 ---
@@ -25,7 +26,7 @@ const notes = await getCollection("notes");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString())
+              Date.parse(a.data.published.toString()),
           )
           .map((note) =>
             render(note).then(({ Content }) => {
@@ -44,7 +45,7 @@ const notes = await getCollection("notes");
                             month: "short",
                             day: "2-digit",
                             weekday: "short",
-                          }
+                          },
                         )}
                       </time>
                     </a>
@@ -52,19 +53,10 @@ const notes = await getCollection("notes");
                       <header class="mt-4">
                         <h1 class="font-medium">
                           {note.data.link ? (
-                            <a
+                            <ExternalLink
                               href={note.data.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              class="relative inline pr-4 underline decoration-[0.09375rem] decoration-underline"
-                            >
-                              {note.data.title}
-                              <Icon
-                                name="arrow-up-right"
-                                class="absolute inline-block h-[1lh] ml-0.5 text-foreground-muted"
-                                aria-hidden="true"
-                              />
-                            </a>
+                              text={note.data.title}
+                            />
                           ) : (
                             note.data.title
                           )}
@@ -88,7 +80,7 @@ const notes = await getCollection("notes");
                   </article>
                 </li>
               );
-            })
+            }),
           )
       }
     </ul>
