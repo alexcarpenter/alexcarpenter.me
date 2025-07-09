@@ -248,6 +248,15 @@
         object-fit: cover;
       }
     }
+
+    & :where(dt) {
+      font-weight: var(--font-weight-medium);
+    }
+
+    & :where(dd) {
+      margin-top: var(--spacing);
+      padding-inline-start: calc(var(--spacing) * 6);
+    }
   }
 }
 
