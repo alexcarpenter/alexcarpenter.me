@@ -34,7 +34,7 @@ const metaDescription = description ? description : "UI Engineer";
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={metaDescription} />
 
     <!-- Twitter -->
@@ -82,30 +82,34 @@ const metaDescription = description ? description : "UI Engineer";
             {
               title: "GitHub",
               username: "@alexcarpenter",
-              href: "https://github.com/alexcarpenter",
+              link: "https://github.com/alexcarpenter",
             },
             {
               title: "Twitter",
               username: "@hybrid_alex",
-              href: "https://twitter.com/hybrid_alex",
+              link: "https://twitter.com/hybrid_alex",
             },
             {
               title: "Bluesky",
               username: "@alexcarpenter.me",
-              href: "https://bsky.app/profile/alexcarpenter.me",
+              link: "https://bsky.app/profile/alexcarpenter.me",
             },
             {
               title: "LinkedIn",
               username: "@alexcarpenter",
-              href: "https://www.linkedin.com/in/imalexcarpenter/",
+              link: "https://www.linkedin.com/in/imalexcarpenter/",
             },
-          ].map((s) => {
+          ].map((social) => {
             return (
               <Fragment>
-                <dt class="text-foreground-muted">{s.title}</dt>
+                <dt class="text-foreground-muted">{social.title}</dt>
                 <dd>
-                  <a href={s.href} target="_blank" rel="noopener noreferrer">
-                    {s.username}
+                  <a
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {social.username}
                   </a>
                 </dd>
               </Fragment>
