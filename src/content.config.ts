@@ -8,6 +8,14 @@ const pages = defineCollection({
     description: z.string().optional(),
     published: z.coerce.date(),
     updated: z.coerce.date().optional(),
+    changelog: z
+      .array(
+        z.object({
+          date: z.coerce.date(),
+          description: z.string(),
+        }),
+      )
+      .optional(),
   }),
 });
 

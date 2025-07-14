@@ -60,6 +60,37 @@ const date = page.data.updated ?? page.data.published;
     }
   </article>
 
+  {
+    page.data.changelog ? (
+      <section class="mt-16 container">
+        <details>
+          <summary class="font-medium marker:text-foreground-muted">
+            Changelog
+          </summary>
+          {page.data.changelog && (
+            <ul class="pt-4 space-y-4">
+              {page.data.changelog.map((entry) => (
+                <li class="grid grid-cols-[25%_1fr] gap-y-4 gap-x-8">
+                  <time
+                    class="text-foreground-muted"
+                    datetime={entry.date.toISOString()}
+                  >
+                    {new Date(entry.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                    })}
+                  </time>
+                  <div>{entry.description}</div>
+                </li>
+              ))}
+            </ul>
+          )}
+        </details>
+      </section>
+    ) : null
+  }
+
   <!-- <footer class="container mt-16">
     <a
       href="/notes"
