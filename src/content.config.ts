@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 
 const pages = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/pages" }),
@@ -72,8 +72,8 @@ const recommendations = defineCollection({
 });
 
 export const collections = {
-  pages,
-  notes,
   jobs,
+  notes,
+  pages,
   recommendations,
 };

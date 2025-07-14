@@ -1,0 +1,38 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import sanitizeHtml from "sanitize-html";
+import MarkdownIt from "markdown-it";
+const parser = new MarkdownIt();
+
+interface Props {}
+
+interface Props extends HTMLAttributes<"div"> {
+  items: Array<{
+    date?: Date;
+    description?: string;
+  }>;
+}
+
+const { items, ...attrs } = Astro.props;
+const { class: className, ...restAttrs } = attrs;
+---
+
+<ul {...restAttrs} class:list={["space-y-4", className]}>
+  {
+    items.map((entry) => (
+      <li class="grid grid-cols-[25%_1fr] gap-y-4 gap-x-8">
+        <time class="text-foreground-muted" datetime={entry.date.toISOString()}>
+          {new Date(entry.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+          })}
+        </time>
+        <div
+          class="prose"
+          set:html={sanitizeHtml(parser.render(entry.description))}
+        />
+      </li>
+    ))
+  }
+</ul>

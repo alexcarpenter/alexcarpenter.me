@@ -1,19 +1,9 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getEntry, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Changelog from "@/components/Changelog.astro";
 
-export async function getStaticPaths() {
-  const pages = (await getCollection("pages")).filter(
-    (p) => p.id !== "changelog",
-  );
-  return pages.map((p) => ({
-    params: { slug: p.id },
-    props: p,
-  }));
-}
-
-const page = Astro.props;
+const page = await getEntry("pages", "changelog");
 const { Content } = await render(page);
 const date = page.data.updated ?? page.data.published;
 ---
@@ -61,20 +51,10 @@ const date = page.data.updated ?? page.data.published;
         </div>
       ) : null
     }
+    {
+      page.id === "changelog" ? (
+        <Changelog items={page.data.changelog} class="mt-8" />
+      ) : null
+    }
   </article>
-
-  {
-    page.data.changelog ? (
-      <section class="mt-16 container">
-        <details>
-          <summary class="font-medium marker:text-foreground-muted">
-            Changelog
-          </summary>
-          {page.data.changelog && (
-            <Changelog items={page.data.changelog} class="mt-4" />
-          )}
-        </details>
-      </section>
-    ) : null
-  }
 </BaseLayout>
