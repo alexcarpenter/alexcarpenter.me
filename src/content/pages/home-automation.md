@@ -42,4 +42,6 @@ changelog:
 - [TP-Link 16 Port Gigabit Ethernet Network Switch](https://amzn.to/4ePdzxj)
 - [TP-Link 6E Mesh System](https://amzn.to/4eQdCc1)
 
+## Misc.
+
 - [Zigbee 3.0 USB Adapter](https://amzn.to/4kKDpE1)
