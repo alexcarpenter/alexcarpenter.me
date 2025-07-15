@@ -1,5 +1,6 @@
 ---
 title: Home Automation
+description: A list of gear and software I use for home automation powered by Home Assistant.
 published: 2025-07-08T08:44:24-0400
 updated: 2025-07-15T07:45:22-0400
 changelog:
@@ -8,6 +9,10 @@ changelog:
   - date: 2025-05-18
     description: Migrated from Apple Home to [Home Assistant](https://www.home-assistant.io/)
 ---
+
+## Apple
+
+- [Apple HomePod mini](https://amzn.to/4kIhjSy)
 
 ## Aqara
 
