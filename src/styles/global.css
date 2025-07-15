@@ -194,6 +194,14 @@
     & > :where(ul) {
       list-style-type: disc;
       padding-inline-start: calc(var(--spacing) * 6);
+
+      & :where(li:has(a + br)) {
+        color: var(--color-foreground-muted);
+
+        a {
+          color: var(--color-foreground);
+        }
+      }
     }
 
     & > :where(ul) > li + li {
@@ -256,14 +264,6 @@
     & :where(dd) {
       margin-top: var(--spacing);
       padding-inline-start: calc(var(--spacing) * 6);
-    }
-
-    & :where(li:has(a + br)) {
-      color: var(--color-foreground-muted);
-
-      a {
-        color: var(--color-foreground);
-      }
     }
   }
 
