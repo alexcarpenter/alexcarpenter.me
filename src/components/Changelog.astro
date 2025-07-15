@@ -20,7 +20,7 @@ const { class: className, ...restAttrs } = attrs;
 <ul {...restAttrs} class:list={["space-y-4", className]}>
   {
     items.map((entry) => (
-      <li class="grid grid-cols-[25%_1fr] gap-y-4 gap-x-8">
+      <li class="grid grid-cols-1 sm:grid-cols-[25%_1fr] gap-x-8">
         <time class="text-foreground-muted" datetime={entry.date.toISOString()}>
           {new Date(entry.date).toLocaleDateString("en-US", {
             year: "numeric",
