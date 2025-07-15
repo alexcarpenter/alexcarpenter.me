@@ -51,7 +51,7 @@ const { Content } = await render(note);
     }
     {
       note.body ? (
-        <div class="mt-4 prose">
+        <div class="mt-4 prose prose-expanded">
           <Content />
         </div>
       ) : note.data.description ? (

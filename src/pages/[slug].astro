@@ -5,7 +5,7 @@ import Changelog from "@/components/Changelog.astro";
 
 export async function getStaticPaths() {
   const pages = (await getCollection("pages")).filter(
-    (p) => p.id !== "changelog",
+    (p) => p.id !== "changelog"
   );
   return pages.map((p) => ({
     params: { slug: p.id },
@@ -56,7 +56,7 @@ const date = page.data.updated ?? page.data.published;
     </header>
     {
       page.body ? (
-        <div class="mt-8 prose">
+        <div class="mt-8 prose prose-expanded">
           <Content />
         </div>
       ) : null
