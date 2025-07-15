@@ -257,6 +257,14 @@
       margin-top: var(--spacing);
       padding-inline-start: calc(var(--spacing) * 6);
     }
+
+    & :where(li:has(a + br)) {
+      color: var(--color-foreground-muted);
+
+      a {
+        color: var(--color-foreground);
+      }
+    }
   }
 
   .prose-expanded {
