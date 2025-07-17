@@ -26,7 +26,7 @@ const notes = await getCollection("notes");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString()),
+              Date.parse(a.data.published.toString())
           )
           .map((note) =>
             render(note).then(({ Content }) => {
@@ -45,7 +45,7 @@ const notes = await getCollection("notes");
                             month: "short",
                             day: "2-digit",
                             weekday: "short",
-                          },
+                          }
                         )}
                       </time>
                     </a>
@@ -80,7 +80,7 @@ const notes = await getCollection("notes");
                   </article>
                 </li>
               );
-            }),
+            })
           )
       }
     </ul>
