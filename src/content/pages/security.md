@@ -9,9 +9,10 @@ changelog:
     description: Added Synology for photo and file backups
 ---
 
-## 2FA authenticator
+## 2FA authentication
 
 - [Ente Auth](https://ente.io/auth/)
+- [YubiKey 5C](https://amzn.to/4mjmKZB) (2x)
 
 ## Browsers
 
@@ -21,10 +22,7 @@ changelog:
 ## Email
 
 - [Proton mail](https://mail.proton.me)
-
-## Email aliasing
-
-- [DuckDuckGo](https://duckduckgo.com/email)
+- [DuckDuckGo email](https://duckduckgo.com/email)
 - [SimpleLogin](https://simplelogin.io/)
 
 ## Password manager
@@ -34,10 +32,6 @@ changelog:
 ## Photo and file backups
 
 - [Synology DS224+](https://amzn.to/3TFYlB7)
-
-## Security keys
-
-- [YubiKey 5C](https://amzn.to/4mjmKZB) (2x)
 
 ## VPN
 
