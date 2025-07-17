@@ -1,5 +1,6 @@
 ---
 title: Security
+description: The tools and and approach I use for handling my family and I's online security.
 published: 2025-07-16T20:57:31-0400
 changelog:
   - date: 2025-07-16
