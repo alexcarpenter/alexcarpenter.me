@@ -198,7 +198,7 @@
       & :where(li:has(a + br)) {
         color: var(--color-foreground-muted);
 
-        a {
+        &::first-line {
           color: var(--color-foreground);
         }
       }

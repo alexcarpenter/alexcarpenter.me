@@ -22,16 +22,18 @@ const tags = notes
   <section class="mt-16 container">
     <ul class="flex flex-wrap gap-2">
       {
-        Object.keys(tags).map((tag) => (
-          <li>
-            <a
-              href={`/tags/${tag}`}
-              class="bg-white dark:bg-neutral-900 border border-separator py-1.5 px-3 rounded-md inline-flex text-sm font-medium items-center gap-x-1"
-            >
-              {tag} <span class="text-foreground-muted">({tags[tag]})</span>
-            </a>
-          </li>
-        ))
+        Object.keys(tags)
+          .sort()
+          .map((tag) => (
+            <li>
+              <a
+                href={`/tags/${tag}`}
+                class="bg-white dark:bg-neutral-900 border border-separator py-1.5 px-3 rounded-md inline-flex text-sm font-medium items-center gap-x-1"
+              >
+                {tag} <span class="text-foreground-muted">({tags[tag]})</span>
+              </a>
+            </li>
+          ))
       }
     </ul>
   </section>
