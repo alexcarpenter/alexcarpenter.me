@@ -195,7 +195,7 @@
       list-style-type: disc;
       padding-inline-start: calc(var(--spacing) * 6);
 
-      & :where(li:has(a + br)) {
+      & :where(li:has(br)) {
         color: var(--color-foreground-muted);
 
         &::first-line {
@@ -257,13 +257,16 @@
       }
     }
 
-    & :where(dt) {
-      font-weight: var(--font-weight-medium);
+    & :where(dl) {
+      display: grid;
+      grid-template-columns: 25% 1fr;
+      column-gap: calc(var(--spacing) * 8);
+      row-gap: calc(var(--spacing) * 4);
     }
 
-    & :where(dd) {
-      margin-top: var(--spacing);
-      padding-inline-start: calc(var(--spacing) * 6);
+    & :where(dt) {
+      color: var(--color-foreground-muted);
+      font-weight: var(--font-weight-medium);
     }
   }
 

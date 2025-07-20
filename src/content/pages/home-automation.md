@@ -4,6 +4,8 @@ description: A list of gear and software I use for home automation powered by Ho
 published: 2025-07-08T08:44:24-0400
 updated: 2025-07-15T07:45:22-0400
 changelog:
+  - date: 2025-07-19
+    description: Upgraded to POE switch
   - date: 2025-07-15
     description: Added eufy Robot Lawn Mower E15
   - date: 2025-05-18
@@ -44,7 +46,7 @@ changelog:
 
 ## TP-Link
 
-- [TP-Link 16 Port Gigabit Ethernet Network Switch](https://amzn.to/4ePdzxj)
+- [TP-Link 16 Port Gigabit PoE Switch](https://amzn.to/44E00gN)
 - [TP-Link 6E Mesh System](https://amzn.to/4eQdCc1)
 
 ## Misc.
