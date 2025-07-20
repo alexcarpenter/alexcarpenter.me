@@ -285,17 +285,29 @@
     padding-inline: calc(var(--spacing) * 4);
   }
 
-  .angled-lines {
+  .background-angled-lines {
     background-image: linear-gradient(
       45deg,
-      var(--color-separator) 12.5%,
+      var(--color-foreground-muted) 12.5%,
       transparent 12.5%,
       transparent 50%,
-      var(--color-separator) 50%,
-      var(--color-separator) 62.5%,
+      var(--color-foreground-muted) 50%,
+      var(--color-foreground-muted) 62.5%,
       transparent 62.5%,
       transparent 100%
     );
     background-size: 0.25rem 0.25rem;
+  }
+
+  .background-grid {
+    background: conic-gradient(
+      from 90deg at 50% 50%,
+      transparent 0deg 90deg,
+      var(--color-separator) 90deg 180deg,
+      transparent 180deg 270deg,
+      var(--color-separator) 270deg 360deg
+    );
+    background-size: 8px 8px;
+    background-position: bottom;
   }
 }
