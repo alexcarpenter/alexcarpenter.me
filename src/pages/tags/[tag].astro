@@ -47,7 +47,7 @@ const { tag, notes } = Astro.props;
           .map((note) =>
             render(note).then(({ Content }) => {
               return (
-                <li class="border-t border-separator pt-16 not-first:mt-16 rounded-sm">
+                <li class="not-first:border-t not-first:border-separator not-first:pt-16 not-first:mt-16">
                   <article>
                     <a
                       href={`/notes/${note.id}`}
