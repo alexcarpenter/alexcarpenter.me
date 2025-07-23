@@ -3,6 +3,9 @@ title: Senior UI Engineer
 company: Clerk
 startDate: 2024-01-04
 projects:
+  - title: shadcn/ui theme compatibility
+    description: Introducing a new Clerk theme based on shadcn/ui that styles Clerk's components according to your shadcn/ui theme.
+    link: https://clerk.com/changelog/2025-07-23-shadcn-theme
   - title: Clerk CSS variables support
     description: Clerk now supports theming via Clerk CSS variables.
     link: https://clerk.com/changelog/2025-07-15-clerk-css-variables-support
