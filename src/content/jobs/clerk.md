@@ -3,6 +3,9 @@ title: Senior UI Engineer
 company: Clerk
 startDate: 2024-01-04
 projects:
+  - title: New simple theme for easier customization
+    description: A minimal theme with stripped-down styling that provides a clean foundation for custom designs.
+    link: https://clerk.com/changelog/2025-07-29-theme-simple
   - title: shadcn/ui theme compatibility
     description: Introducing a new Clerk theme based on shadcn/ui that styles Clerk's components according to your shadcn/ui theme.
     link: https://clerk.com/changelog/2025-07-23-shadcn-theme
