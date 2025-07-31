@@ -1,10 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import sanitizeHtml from "sanitize-html";
-import MarkdownIt from "markdown-it";
-const parser = new MarkdownIt();
-
-interface Props {}
+import Markdown from "@/components/Markdown.astro";
 
 interface Props extends HTMLAttributes<"div"> {
   items: Array<{
@@ -28,10 +24,7 @@ const { class: className, ...restAttrs } = attrs;
             day: "2-digit",
           })}
         </time>
-        <div
-          class="prose"
-          set:html={sanitizeHtml(parser.render(entry.description))}
-        />
+        <Markdown content={entry.description} />
       </li>
     ))
   }

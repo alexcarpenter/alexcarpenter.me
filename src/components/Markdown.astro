@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import sanitizeHtml from "sanitize-html";
+import MarkdownIt from "markdown-it";
+const parser = new MarkdownIt();
+
+interface Props extends HTMLAttributes<"div"> {
+  content: string;
+}
+
+const { class: className, content, ...restAttrs } = Astro.props;
+---
+
+<div
+  {...restAttrs}
+  class:list={["prose", className]}
+  set:html={sanitizeHtml(parser.render(content))}
+/>
