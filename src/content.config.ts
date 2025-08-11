@@ -71,8 +71,19 @@ const recommendations = defineCollection({
   }),
 });
 
+const gear = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/gear" }),
+  schema: z.object({
+    eyebrow: z.string().optional(),
+    name: z.string(),
+    link: z.string().optional(),
+    category: z.enum(["coffee", "edc", "home", "travel"]),
+  }),
+});
+
 export const collections = {
   jobs,
+  gear,
   notes,
   pages,
   recommendations,

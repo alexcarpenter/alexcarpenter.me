@@ -1,0 +1,66 @@
+---
+import ExternalLink from "@/components/ExternalLink.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const gear = await getCollection("gear");
+
+const categories = Array.from(
+  new Set(gear.map((item) => item.data.category))
+).sort();
+
+type GearCategory = CollectionEntry<"gear">["data"]["category"];
+const CATEGORY_MAP: Record<GearCategory, string> = {
+  edc: "Everyday Carry",
+  coffee: "Coffee",
+  home: "Home",
+  travel: "Travel",
+};
+---
+
+<BaseLayout
+  title="Gear"
+  description="Gear I use for computing, travel, and more."
+>
+  <header class="mt-16 container">
+    <span
+      class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
+    >
+      <h1 class="inline">Gear</h1>
+      <span class="text-foreground-muted"
+        >I use for computing, travel, and more.</span
+      >
+    </span>
+  </header>
+  {
+    Object.keys(CATEGORY_MAP).map((category) => {
+      const items = gear.filter((item) => item.data.category === category);
+      return items.length > 0 ? (
+        <section class="mt-16 container" id={category}>
+          <h2
+            class="text-foreground-muted font-medium tracking-tight border-b border-separator pb-8 mb-8"
+            id={category}
+          >
+            {CATEGORY_MAP[category]}
+          </h2>
+
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {items.map((item) => {
+              return (
+                <li>
+                  <article>
+                    <p class="mb-1 font-mono text-xs tracking-widest uppercase text-foreground-muted">
+                      {item.data.eyebrow}
+                    </p>
+                    <h3 class="font-medium tracking-tight">{item.data.name}</h3>
+                  </article>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ) : null;
+    })
+  }
+</BaseLayout>
