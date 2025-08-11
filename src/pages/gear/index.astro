@@ -5,14 +5,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
 const gear = await getCollection("gear");
-
-type GearCategory = CollectionEntry<"gear">["data"]["category"];
-const CATEGORY_MAP: Record<GearCategory, string> = {
-  edc: "Everyday Carry",
-  coffee: "Coffee",
-  home: "Home",
-  travel: "Travel",
-};
+import { GEAR_CATEGORY_MAP } from "@/consts.ts";
 ---
 
 <BaseLayout
@@ -30,13 +23,20 @@ const CATEGORY_MAP: Record<GearCategory, string> = {
     </span>
   </header>
   {
-    Object.keys(CATEGORY_MAP).map((category) => {
+    Object.keys(GEAR_CATEGORY_MAP).map((category) => {
       const items = gear.filter((item) => item.data.category === category);
       return items.length > 0 ? (
         <section class="mt-16 container scroll-mt-16" id={category}>
-          <h2 class="font-medium tracking-tight border-b border-separator pb-8 mb-8">
-            {CATEGORY_MAP[category]}
-          </h2>
+          <header class="border-b border-separator pb-8 mb-8">
+            <h2 class="font-medium tracking-tight">
+              <a href={`/gear/${category}`}>
+                {GEAR_CATEGORY_MAP[category].title}
+              </a>
+            </h2>
+            <p class="text-foreground-muted">
+              {GEAR_CATEGORY_MAP[category].description}
+            </p>
+          </header>
 
           <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {items.map((item) => {

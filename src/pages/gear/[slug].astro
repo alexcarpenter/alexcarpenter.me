@@ -1,0 +1,78 @@
+---
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ExternalLink from "@/components/ExternalLink.astro";
+import { Icon } from "astro-icon/components";
+import { GEAR_CATEGORY_MAP } from "@/consts.ts";
+
+export async function getStaticPaths() {
+  const gear = await getCollection("gear");
+  return Object.keys(GEAR_CATEGORY_MAP).map((c) => ({
+    params: { slug: c },
+    props: {
+      category: c,
+      title: GEAR_CATEGORY_MAP[c].title,
+      description: GEAR_CATEGORY_MAP[c].description,
+      items: gear.filter((item) => item.data.category === c),
+    },
+  }));
+}
+
+const page = Astro.props;
+const { title, description, category, items } = page;
+---
+
+<BaseLayout title={title}>
+  <article class="mt-4 container">
+    <header class="mt-4">
+      <h1
+        class="text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
+      >
+        {title}
+      </h1>
+      <p class="text-foreground-muted mt-4">{description}</p>
+      <a
+        href="/gear"
+        class="mt-4 text-foreground-muted inline-flex gap-x-1 items-center"
+      >
+        <Icon name="arrow-left" aria-hidden="true" />Back to all gear</a
+      >
+    </header>
+  </article>
+  {
+    items.length > 0 ? (
+      <section class="mt-16 container scroll-mt-16" id={category}>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {items.map((item) => {
+            return (
+              <li>
+                <article>
+                  <p class="mb-1 font-mono text-xs tracking-widest uppercase text-foreground-muted">
+                    {item.data.eyebrow}
+                  </p>
+                  <h3 class="font-medium tracking-tight">
+                    {item.data.link ? (
+                      <ExternalLink
+                        href={item.data.link}
+                        class="text-foreground-muted hover:text-foreground transition"
+                        text={item.data.name}
+                      />
+                    ) : (
+                      item.data.name
+                    )}
+                  </h3>
+                  {item.data.link ? (
+                    <p class="text-foreground-muted">
+                      {new URL(item.data.link).hostname}
+                    </p>
+                  ) : null}
+                </article>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ) : null
+  }
+</BaseLayout>
