@@ -19,7 +19,7 @@ const CATEGORY_MAP: Record<GearCategory, string> = {
   title="Gear"
   description="Gear I use for computing, travel, and more."
 >
-  <header class="mt-16 container">
+  <header class="mt-4 container">
     <span
       class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
     >
@@ -34,7 +34,7 @@ const CATEGORY_MAP: Record<GearCategory, string> = {
       const items = gear.filter((item) => item.data.category === category);
       return items.length > 0 ? (
         <section class="mt-16 container scroll-mt-16" id={category}>
-          <h2 class="text-foreground-muted font-medium tracking-tight border-b border-separator pb-8 mb-8">
+          <h2 class="font-medium tracking-tight border-b border-separator pb-8 mb-8">
             {CATEGORY_MAP[category]}
           </h2>
 
