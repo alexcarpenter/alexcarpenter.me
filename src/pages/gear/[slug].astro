@@ -1,6 +1,5 @@
 ---
 import { getCollection, render } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
 import { Icon } from "astro-icon/components";
@@ -31,13 +30,13 @@ const { title, description, category, items } = page;
       >
         {title}
       </h1>
-      <p class="text-foreground-muted mt-4">{description}</p>
-      <a
+      <p class="text-foreground-muted mt-4 font-medium">{description}</p>
+      <!-- <a
         href="/gear"
         class="mt-4 text-foreground-muted inline-flex gap-x-1 items-center"
       >
         <Icon name="arrow-left" aria-hidden="true" />Back to all gear</a
-      >
+      > -->
     </header>
   </article>
   {
@@ -75,4 +74,13 @@ const { title, description, category, items } = page;
       </section>
     ) : null
   }
+
+  <footer class="container mt-16">
+    <a
+      href="/gear"
+      class="text-foreground-muted inline-flex gap-x-1 items-center"
+    >
+      <Icon name="arrow-left" aria-hidden="true" />Back to all gear</a
+    >
+  </footer>
 </BaseLayout>
