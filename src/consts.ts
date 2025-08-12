@@ -7,13 +7,17 @@ export const GEAR_CATEGORY_MAP: Record<
     description: string;
   }
 > = {
-  edc: {
-    title: "Everyday Carry",
-    description: "Tools I carry daily that fit into my pockets.",
+  bags: {
+    title: "Bags",
+    description: "My current rotation of bags.",
   },
   coffee: {
     title: "Coffee",
     description: "My favorite coffee gear and accessories.",
+  },
+  edc: {
+    title: "Everyday Carry",
+    description: "Tools I carry daily that fit into my pockets.",
   },
   home: {
     title: "Home",

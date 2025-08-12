@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { file, glob } from "astro/loaders";
+import { glob } from "astro/loaders";
 
 const pages = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/pages" }),
@@ -77,7 +77,7 @@ const gear = defineCollection({
     eyebrow: z.string().optional(),
     name: z.string(),
     link: z.string().optional(),
-    category: z.enum(["coffee", "edc", "home", "travel"]),
+    category: z.enum(["bags", "coffee", "edc", "home", "travel"]),
   }),
 });
 
