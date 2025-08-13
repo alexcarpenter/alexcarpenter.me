@@ -3,6 +3,9 @@ title: Senior UI Engineer
 company: Clerk
 startDate: 2024-01-04
 projects:
+  - title: shadcn/ui registry
+    description: Get started with Clerk authentication in Next.js apps using the shadcn/ui CLI
+    link: https://clerk.com/changelog/2025-08-13-shadcn-registry
   - title: New simple theme for easier customization
     description: A minimal theme with stripped-down styling that provides a clean foundation for custom designs.
     link: https://clerk.com/changelog/2025-07-29-theme-simple
