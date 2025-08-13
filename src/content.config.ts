@@ -27,6 +27,7 @@ const notes = defineCollection({
     description: z.string().optional(),
     link: z.string().optional(),
     tags: z.array(z.string()).optional(),
+    demo: z.string().optional(),
   }),
 });
 
