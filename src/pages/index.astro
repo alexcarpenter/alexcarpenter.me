@@ -162,8 +162,10 @@ const recommendations = await getCollection("recommendations");
         ].map((item) => {
           return (
             <li class="border-t border-separator pt-8 mt-8">
-              <header class="flex gap-2 items-center">
-                <Icon name={item.iconName} class="size-4" />
+              <header class="flex gap-2">
+                <span class="h-[1lh] flex items-center">
+                  <Icon name={item.iconName} class="size-[1em] flex-none" />
+                </span>
                 <h3 class="font-medium tracking-tight">{item.title}</h3>
               </header>
               <p class="text-foreground-muted mt-4">{item.description}</p>
