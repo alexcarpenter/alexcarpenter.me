@@ -2,7 +2,7 @@
 import ExternalLink from "@/components/ExternalLink.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
 
 const gear = await getCollection("gear");
 import { GEAR_CATEGORY_MAP } from "@/consts.ts";
@@ -43,7 +43,16 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
               return (
                 <li>
                   <article>
-                    <p class="mb-1 font-mono text-xs tracking-widest uppercase text-foreground-muted">
+                    <p class="mb-1 font-mono text-xs tracking-widest uppercase text-foreground-muted flex gap-x-2">
+                      {item.data.favorite ? (
+                        <span class="flex items-center h-[1lh]">
+                          <Icon
+                            name="star"
+                            class="text-amber-500 dark:text-amber-400 size-[1em]"
+                            title="Favorite"
+                          />
+                        </span>
+                      ) : null}
                       {item.data.eyebrow}
                     </p>
                     <h3 class="font-medium tracking-tight">

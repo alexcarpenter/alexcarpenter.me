@@ -79,6 +79,7 @@ const gear = defineCollection({
     name: z.string(),
     link: z.string().optional(),
     category: z.enum(["bags", "coffee", "edc", "home", "travel"]),
+    favorite: z.boolean().default(false),
   }),
 });
 
