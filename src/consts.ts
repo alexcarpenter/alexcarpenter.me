@@ -7,7 +7,7 @@ export const GEAR_CATEGORY_MAP: Record<
     description: string;
   }
 > = {
-  bags: {
+  bag: {
     title: "Bags",
     description: "My current rotation of bags.",
   },
@@ -19,9 +19,18 @@ export const GEAR_CATEGORY_MAP: Record<
     title: "Everyday Carry",
     description: "Tools I carry daily that fit into my pockets.",
   },
+
   home: {
     title: "Home",
     description: "My home automation setup.",
+  },
+  knife: {
+    title: "Knives",
+    description: "Pocket knives and multi-tools.",
+  },
+  flashlight: {
+    title: "Flashlights",
+    description: "My favorite flashlights and lighting gear.",
   },
   travel: {
     title: "Travel",

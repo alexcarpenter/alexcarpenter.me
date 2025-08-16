@@ -78,7 +78,15 @@ const gear = defineCollection({
     eyebrow: z.string().optional(),
     name: z.string(),
     link: z.string().optional(),
-    category: z.enum(["bags", "coffee", "edc", "home", "travel"]),
+    category: z.enum([
+      "bag",
+      "coffee",
+      "edc",
+      "home",
+      "knife",
+      "flashlight",
+      "travel",
+    ]),
     favorite: z.boolean().default(false),
   }),
 });

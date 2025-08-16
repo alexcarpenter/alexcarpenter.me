@@ -47,7 +47,16 @@ const { title, description, category, items } = page;
             return (
               <li>
                 <article>
-                  <p class="mb-1 font-mono text-xs tracking-widest uppercase text-foreground-muted">
+                  <p class="mb-1 font-mono text-xs tracking-widest uppercase text-foreground-muted flex gap-x-1.5">
+                    {item.data.favorite ? (
+                      <span class="flex items-center h-[1lh]">
+                        <Icon
+                          name="star"
+                          class="text-amber-500 dark:text-amber-400 size-[1em]"
+                          title="Favorite"
+                        />
+                      </span>
+                    ) : null}
                     {item.data.eyebrow}
                   </p>
                   <h3 class="font-medium tracking-tight">
