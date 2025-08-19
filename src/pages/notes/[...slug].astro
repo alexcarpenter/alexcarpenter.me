@@ -51,13 +51,15 @@ const { Content } = await render(note);
     }
     {
       note.data.demo ? (
-        <div class="mt-4">
-          <iframe
-            src={note.data.demo}
-            class="w-full aspect-video border border-separator rounded-md"
-            title={note.data.title || "Demo"}
-            loading="lazy"
-          />
+        <div class="mt-4 border border-separator rounded-md background-grid overflow-hidden">
+          <div class="overflow-x-auto resize-x max-w-full min-w-80">
+            <iframe
+              src={note.data.demo}
+              class="w-full aspect-video"
+              title={note.data.title || "Demo"}
+              loading="lazy"
+            />
+          </div>
         </div>
       ) : null
     }
