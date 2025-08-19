@@ -77,16 +77,18 @@ const notes = await getCollection("notes");
                         ) : null}
                       </header>
                     ) : null}
+                    {note.data.demo ? (
+                      <div class="mt-4">
+                        <iframe
+                          src={note.data.demo}
+                          class="w-full aspect-video border border-separator rounded-md"
+                          title={note.data.title || "Demo"}
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : null}
                     {note.body ? (
-                      <div class="mt-4 prose">
-                        {note.data.demo ? (
-                          <iframe
-                            src={note.data.demo}
-                            class="w-full aspect-video border border-separator rounded-md"
-                            title={note.data.title || "Demo"}
-                            loading="lazy"
-                          />
-                        ) : null}
+                      <div class="mt-4 text-pretty prose">
                         <Content />
                       </div>
                     ) : note.data.description ? (
