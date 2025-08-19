@@ -182,10 +182,12 @@
       margin-top: calc(var(--spacing) * 4);
     }
 
-    /* & > :where(* + pre),
-    & > :where(pre + *) {
+    & > :where(* + pre),
+    & > :where(pre + *),
+    & > :where(* + iframe),
+    & > :where(iframe + *) {
       margin-top: calc(var(--spacing) * 6);
-    } */
+    }
 
     & :where(h1, h2, h3) {
       font-weight: var(--font-weight-medium);
