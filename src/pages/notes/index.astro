@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
 import ExternalLink from "@/components/ExternalLink.astro";
+import Preview from "@/components/Preview.astro";
 
 const notes = await getCollection("notes");
 ---
@@ -78,16 +79,11 @@ const notes = await getCollection("notes");
                       </header>
                     ) : null}
                     {note.data.demo ? (
-                      <div class="mt-4 border border-separator rounded-md background-grid overflow-hidden">
-                        <div class="overflow-x-auto resize-x max-w-full min-w-80">
-                          <iframe
-                            src={note.data.demo}
-                            class="w-full aspect-video"
-                            title={note.data.title || "Demo"}
-                            loading="lazy"
-                          />
-                        </div>
-                      </div>
+                      <Preview
+                        class="mt-4"
+                        src={note.data.demo}
+                        title={note.data.title}
+                      />
                     ) : null}
                     {note.body ? (
                       <div class="mt-4 text-pretty prose">

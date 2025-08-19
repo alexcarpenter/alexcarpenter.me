@@ -1,0 +1,24 @@
+---
+type Props = {
+  src: string;
+  title?: string;
+  class?: string;
+};
+
+const { src, title, class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "border border-separator rounded-md background-grid overflow-hidden aspect-video",
+    className,
+  ]}
+>
+  <div class="overflow-x-auto resize-x max-w-full min-w-80 h-full">
+    <iframe
+      src={src}
+      class="w-full h-full"
+      title={title || "Demo"}
+      loading="lazy"></iframe>
+  </div>
+</div>
