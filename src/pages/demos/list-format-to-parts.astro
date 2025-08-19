@@ -4,16 +4,15 @@ const tags = ["HTML", "CSS", "JavaScript"];
 ---
 
 <DemoLayout>
-  <p class="max-w-xl mx-auto">
+  <p class="max-w-xl m-auto">
     {
       new Intl.ListFormat("en-US")
         .formatToParts(tags)
         .map(({ type, value }) => {
           if (type === "element") {
             return (
-              <a href="" class="underline">
-                {value}
-              </a>
+              // prettier-ignore
+              <a href="" class="underline">{value}</a>
             );
           }
           return value;
