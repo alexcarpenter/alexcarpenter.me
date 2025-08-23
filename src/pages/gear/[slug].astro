@@ -68,7 +68,7 @@ const { title, description, category, items } = page;
                   </h3>
                   {item.data.link ? (
                     <p class="text-foreground-muted">
-                      {new URL(item.data.link).hostname}
+                      {new URL(item.data.link).hostname.replace("www.", "")}
                     </p>
                   ) : null}
                 </article>

@@ -67,7 +67,7 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
                     </h3>
                     {item.data.link ? (
                       <p class="text-foreground-muted">
-                        {new URL(item.data.link).hostname}
+                        {new URL(item.data.link).hostname.replace("www.", "")}
                       </p>
                     ) : null}
                   </article>
