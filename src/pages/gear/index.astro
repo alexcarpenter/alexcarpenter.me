@@ -24,18 +24,17 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
   </header>
   {
     Object.keys(GEAR_CATEGORY_MAP).map((category) => {
+      const title: string = GEAR_CATEGORY_MAP[category].title;
+      const description: string = GEAR_CATEGORY_MAP[category].description;
+      const slug: string = GEAR_CATEGORY_MAP[category].slug;
       const items = gear.filter((item) => item.data.category === category);
       return items.length > 0 ? (
         <section class="mt-16 container scroll-mt-16" id={category}>
           <header class="border-b border-separator pb-8 mb-8">
             <h2 class="text-green-600 dark:text-green-400 font-medium tracking-tight">
-              <a href={`/gear/${category}`}>
-                {GEAR_CATEGORY_MAP[category].title}
-              </a>
+              <a href={`/gear/${slug}`}>{title}</a>
             </h2>
-            <p class="text-foreground-muted">
-              {GEAR_CATEGORY_MAP[category].description}
-            </p>
+            <p class="text-foreground-muted">{description}</p>
           </header>
 
           <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -76,6 +75,15 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
               );
             })}
           </ul>
+          {/* <footer class="mt-8">
+            <a
+              href={`/gear/${slug}`}
+              class="text-foreground-muted inline-flex gap-x-1 items-center"
+            >
+              View all {title.toLowerCase()}
+              <Icon name="arrow-right" aria-hidden="true" />
+            </a>
+          </footer> */}
         </section>
       ) : null;
     })

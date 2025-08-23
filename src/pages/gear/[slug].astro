@@ -7,15 +7,17 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
 
 export async function getStaticPaths() {
   const gear = await getCollection("gear");
-  return Object.keys(GEAR_CATEGORY_MAP).map((c) => ({
-    params: { slug: c },
-    props: {
-      category: c,
-      title: GEAR_CATEGORY_MAP[c].title,
-      description: GEAR_CATEGORY_MAP[c].description,
-      items: gear.filter((item) => item.data.category === c),
-    },
-  }));
+  return Object.entries(GEAR_CATEGORY_MAP).map(
+    ([category, { title, description, slug }]) => ({
+      params: { slug },
+      props: {
+        category,
+        title,
+        description,
+        items: gear.filter((item) => item.data.category === category),
+      },
+    })
+  );
 }
 
 const page = Astro.props;
@@ -31,12 +33,6 @@ const { title, description, category, items } = page;
         {title}
       </h1>
       <p class="text-foreground-muted mt-4 font-medium">{description}</p>
-      <!-- <a
-        href="/gear"
-        class="mt-4 text-foreground-muted inline-flex gap-x-1 items-center"
-      >
-        <Icon name="arrow-left" aria-hidden="true" />Back to all gear</a
-      > -->
     </header>
   </article>
   {
