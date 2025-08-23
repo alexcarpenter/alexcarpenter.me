@@ -27,7 +27,11 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
       const title: string = GEAR_CATEGORY_MAP[category].title;
       const description: string = GEAR_CATEGORY_MAP[category].description;
       const slug: string = GEAR_CATEGORY_MAP[category].slug;
-      const items = gear.filter((item) => item.data.category === category);
+      const items = gear
+        .filter((item) => item.data.category === category)
+        .sort((a, b) => {
+          return a.data.name.localeCompare(b.data.name);
+        });
       return items.length > 0 ? (
         <section class="mt-16 container scroll-mt-16" id={category}>
           <header class="border-b border-separator pb-8 mb-8">

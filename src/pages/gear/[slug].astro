@@ -14,7 +14,11 @@ export async function getStaticPaths() {
         category,
         title,
         description,
-        items: gear.filter((item) => item.data.category === category),
+        items: gear
+          .filter((item) => item.data.category === category)
+          .sort((a, b) => {
+            return a.data.name.localeCompare(b.data.name);
+          }),
       },
     })
   );
