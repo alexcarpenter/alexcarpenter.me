@@ -1,26 +1,41 @@
 ---
-import { getEntry, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Changelog from "@/components/Changelog.astro";
 
-const page = await getEntry("pages", "changelog");
-const { Content } = await render(page);
-const date = page.data.updated ?? page.data.published;
+const meta = {
+  title: "Changelog",
+  description:
+    "All notable changes to this project will be documented in this file.",
+  lastUpdated: "2025-08-23",
+};
+
+const items = [
+  {
+    date: "2025-08-23",
+    description: "Added [gear page](/gear)",
+  },
+  {
+    date: "2025-07-06",
+    description: "Added tags [index page](/tags)",
+  },
+  {
+    date: "2025-06-27",
+    description: "Added notes [RSS feed](/notes/rss.xml)",
+  },
+];
 ---
 
-<BaseLayout title={page.data.title} description={page.data.description}>
+<BaseLayout title={meta.title} description={meta.description}>
   <article class="mt-16 container">
     <dl>
-      <dt class="sr-only">
-        {page.data.updated ? "Last updated" : "Published"}
-      </dt>
+      <dt class="sr-only">Last updated</dt>
       <dd>
         <time
           class="inline-block text-foreground-muted font-medium"
-          datetime={date.toISOString()}
+          datetime={new Date(meta.lastUpdated).toISOString()}
         >
           {
-            new Date(date).toLocaleDateString("en-US", {
+            new Date(meta.lastUpdated).toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
               day: "2-digit",
@@ -31,30 +46,20 @@ const date = page.data.updated ?? page.data.published;
       </dd>
     </dl>
     <header class="mt-4">
-      <h2
+      <h1
         class="text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
       >
-        {page.data.title}
-      </h2>
-      {
-        page.data.description ? (
-          <p class="mt-4 text-foreground-muted font-medium max-w-[55ch] text-pretty">
-            {page.data.description}
-          </p>
-        ) : null
-      }
+        {meta.title}
+      </h1>
+      <p
+        class="mt-4 text-foreground-muted font-medium max-w-[55ch] text-pretty"
+      >
+        {meta.description}
+      </p>
     </header>
-    {
-      page.body ? (
-        <div class="mt-8 prose">
-          <Content />
-        </div>
-      ) : null
-    }
-    {
-      page.id === "changelog" ? (
-        <Changelog items={page.data.changelog} class="mt-8" />
-      ) : null
-    }
+    <Changelog
+      items={items.map((item) => ({ ...item, date: new Date(item.date) }))}
+      class="mt-8"
+    />
   </article>
 </BaseLayout>
