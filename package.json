@@ -12,10 +12,10 @@
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/rss": "4.0.12",
-    "@astrojs/sitemap": "3.4.2",
+    "@astrojs/sitemap": "3.5.1",
     "@shikijs/transformers": "^3.7.0",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "5.12.7",
+    "astro": "5.13.3",
     "astro-icon": "^1.1.5",
     "markdown-it": "^14.1.0",
     "remark-definition-list": "^2.0.0",

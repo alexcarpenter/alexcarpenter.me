@@ -12,8 +12,8 @@ dependencies:
     specifier: 4.0.12
     version: 4.0.12
   '@astrojs/sitemap':
-    specifier: 3.4.2
-    version: 3.4.2
+    specifier: 3.5.1
+    version: 3.5.1
   '@shikijs/transformers':
     specifier: ^3.7.0
     version: 3.7.0
@@ -21,8 +21,8 @@ dependencies:
     specifier: ^4.1.11
     version: 4.1.11(vite@7.0.0)
   astro:
-    specifier: 5.12.7
-    version: 5.12.7(typescript@5.8.3)
+    specifier: 5.13.3
+    version: 5.13.3(typescript@5.8.3)
   astro-icon:
     specifier: ^1.1.5
     version: 1.1.5
@@ -96,8 +96,8 @@ packages:
   /@astrojs/compiler@2.12.2:
     resolution: {integrity: sha512-w2zfvhjNCkNMmMMOn5b0J8+OmUaBL1o40ipMvqcG6NRpdC+lKxmTi48DT8Xw0SzJ3AfmeFLB45zXZXtmbsjcgw==}
 
-  /@astrojs/internal-helpers@0.7.0:
-    resolution: {integrity: sha512-+yrFHlYnknIFxi3QfbVgyHQigkfgsU9SKMjYqijq1Q6xzPco+SmaYXgcw0W7+KnWCifni4o61cgwzMkld7jkXg==}
+  /@astrojs/internal-helpers@0.7.2:
+    resolution: {integrity: sha512-KCkCqR3Goym79soqEtbtLzJfqhTWMyVaizUi35FLzgGSzBotSw8DB1qwsu7U96ihOJgYhDk2nVPz+3LnXPeX6g==}
     dev: false
 
   /@astrojs/language-server@2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.8.3):
@@ -136,10 +136,10 @@ packages:
       - typescript
     dev: false
 
-  /@astrojs/markdown-remark@6.3.4:
-    resolution: {integrity: sha512-ARu+6J3006U3NylQk2OmV0tVsXGbkz+ofgxE3S0/KuCxyk3HvZ5FQ5jQDTYCDOAdFY1376tRn0S/sUjT3KZxfw==}
+  /@astrojs/markdown-remark@6.3.6:
+    resolution: {integrity: sha512-bwylYktCTsLMVoCOEHbn2GSUA3c5KT/qilekBKA3CBng0bo1TYjNZPr761vxumRk9kJGqTOtU+fgCAp5Vwokug==}
     dependencies:
-      '@astrojs/internal-helpers': 0.7.0
+      '@astrojs/internal-helpers': 0.7.2
       '@astrojs/prism': 3.3.0
       github-slugger: 2.0.0
       hast-util-from-html: 2.0.3
@@ -178,8 +178,8 @@ packages:
       kleur: 4.1.5
     dev: false
 
-  /@astrojs/sitemap@3.4.2:
-    resolution: {integrity: sha512-wfN2dZzdkto6yaMtOFa/J9gc60YE3wl3rgSBoNJ+MU3lJVUMsDY9xf9uAVi8Mp/zEQKFDSJlQzBvqQUpw0Hf6g==}
+  /@astrojs/sitemap@3.5.1:
+    resolution: {integrity: sha512-uX5z52GLtQTgOe8r3jeGmFRYrFe52mdpLYJzqjvL1cdy5Kg3MLOZEvaZ/OCH0fSq0t7e50uJQ6oBMZG0ffszBg==}
     dependencies:
       sitemap: 8.0.0
       stream-replace-string: 2.0.0
@@ -1612,14 +1612,14 @@ packages:
       - supports-color
     dev: false
 
-  /astro@5.12.7(typescript@5.8.3):
-    resolution: {integrity: sha512-PGXbxql0SekhP46Ci4P3OFRdBp0+5HRKj6bcjZ/Upq5gyF0T2KzCJgj5JRxot+8qpSu8Jz9wksWzQnV2cfvi3A==}
+  /astro@5.13.3(typescript@5.8.3):
+    resolution: {integrity: sha512-V0mUOUK70UZ7xqXp5Noqse/SREU0P756KgFufBEluq5LkmBejzC2GENMUA2Na+PFwUjemElJtRlpKyrnKpFhSQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
     dependencies:
       '@astrojs/compiler': 2.12.2
-      '@astrojs/internal-helpers': 0.7.0
-      '@astrojs/markdown-remark': 6.3.4
+      '@astrojs/internal-helpers': 0.7.2
+      '@astrojs/markdown-remark': 6.3.6
       '@astrojs/telemetry': 3.3.0
       '@capsizecss/unpack': 2.4.0
       '@oslojs/encoding': 1.1.0
