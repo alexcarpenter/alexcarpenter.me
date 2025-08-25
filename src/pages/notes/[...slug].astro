@@ -20,7 +20,7 @@ const { Content } = await render(note);
 <BaseLayout>
   <article class="mt-16 container">
     <time
-      class="inline-block text-foreground-muted font-medium"
+      class="inline-block text-muted-foreground font-medium"
       datetime={note.data.published.toISOString()}
     >
       {
@@ -43,7 +43,7 @@ const { Content } = await render(note);
             )}
           </h2>
           {note.data.link ? (
-            <p class="text-foreground-muted">
+            <p class="text-muted-foreground">
               {new URL(note.data.link).hostname}
             </p>
           ) : null}
@@ -71,7 +71,7 @@ const { Content } = await render(note);
   <footer class="container mt-16">
     <a
       href="/notes"
-      class="text-foreground-muted inline-flex gap-x-1 items-center"
+      class="text-muted-foreground inline-flex gap-x-1 items-center"
     >
       <Icon name="arrow-left" aria-hidden="true" />Back to all notes</a
     >

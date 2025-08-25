@@ -36,7 +36,7 @@ const { title, description, category, items } = page;
       >
         {title}
       </h1>
-      <p class="text-foreground-muted mt-4 font-medium">{description}</p>
+      <p class="text-muted-foreground mt-4 font-medium">{description}</p>
     </header>
   </article>
   {
@@ -47,7 +47,7 @@ const { title, description, category, items } = page;
             return (
               <li>
                 <article>
-                  <p class="mb-1 font-mono text-xs tracking-widest uppercase text-foreground-muted flex gap-x-1.5">
+                  <p class="mb-1 font-mono text-xs tracking-widest uppercase text-muted-foreground flex gap-x-1.5">
                     {item.data.favorite ? (
                       <span class="flex items-center h-[1lh]">
                         <Icon
@@ -63,7 +63,7 @@ const { title, description, category, items } = page;
                     {item.data.link ? (
                       <ExternalLink
                         href={item.data.link}
-                        class="text-foreground-muted hover:text-foreground transition"
+                        class="text-muted-foreground hover:text-foreground transition"
                         text={item.data.name}
                       />
                     ) : (
@@ -71,7 +71,7 @@ const { title, description, category, items } = page;
                     )}
                   </h3>
                   {item.data.link ? (
-                    <p class="text-foreground-muted">
+                    <p class="text-muted-foreground">
                       {new URL(item.data.link).hostname.replace("www.", "")}
                     </p>
                   ) : null}
@@ -87,7 +87,7 @@ const { title, description, category, items } = page;
   <footer class="container mt-16">
     <a
       href="/gear"
-      class="text-foreground-muted inline-flex gap-x-1 items-center"
+      class="text-muted-foreground inline-flex gap-x-1 items-center"
     >
       <Icon name="arrow-left" aria-hidden="true" />Back to all gear</a
     >

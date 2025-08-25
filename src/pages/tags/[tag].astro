@@ -45,7 +45,7 @@ const { tag, notes } = Astro.props;
                   <article>
                     <a
                       href={`/notes/${note.id}`}
-                      class="text-foreground-muted inline-block font-medium"
+                      class="text-muted-foreground inline-block font-medium"
                     >
                       <time datetime={note.data.published.toISOString()}>
                         {new Date(note.data.published).toLocaleDateString(
@@ -72,7 +72,7 @@ const { tag, notes } = Astro.props;
                               {note.data.title}
                               <Icon
                                 name="arrow-up-right"
-                                class="absolute inline-block h-[1lh] ml-0.5 text-foreground-muted"
+                                class="absolute inline-block h-[1lh] ml-0.5 text-muted-foreground"
                                 aria-hidden="true"
                               />
                             </a>
@@ -81,7 +81,7 @@ const { tag, notes } = Astro.props;
                           )}
                         </h1>
                         {note.data.link ? (
-                          <p class="text-foreground-muted">
+                          <p class="text-muted-foreground">
                             {new URL(note.data.link).hostname}
                           </p>
                         ) : null}
@@ -118,7 +118,7 @@ const { tag, notes } = Astro.props;
   <footer class="container mt-16">
     <a
       href="/tags"
-      class="text-foreground-muted inline-flex gap-x-1 items-center"
+      class="text-muted-foreground inline-flex gap-x-1 items-center"
     >
       <Icon name="arrow-left" aria-hidden="true" />Back to all tags</a
     >

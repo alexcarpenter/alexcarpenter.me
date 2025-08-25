@@ -13,7 +13,7 @@ const recommendations = await getCollection("recommendations");
       class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
     >
       <h1 class="inline">User interface engineer</h1>
-      <span class="text-foreground-muted">
+      <span class="text-muted-foreground">
         who enjoys working at the intersection of <Icon
           name="figma-full-color"
           class="inline h-[1.15em] align-text-bottom"
@@ -26,7 +26,7 @@ const recommendations = await getCollection("recommendations");
         /> engineering teams.
       </span>
     </span>
-    <p class="mt-4 text-foreground-muted font-medium max-w-[55ch] text-pretty">
+    <p class="mt-4 text-muted-foreground font-medium max-w-[55ch] text-pretty">
       Currently I am a part of the SDK team at Clerk where I am working on our
       UI Components and dashboard UI.
     </p>
@@ -35,7 +35,7 @@ const recommendations = await getCollection("recommendations");
       class="bg-white dark:bg-neutral-900 border border-separator py-1.5 pl-3 pr-2 rounded-md mt-8 inline-flex text-sm font-medium items-center gap-x-1"
       >View notes <Icon
         name="chevron-right"
-        class="text-foreground-muted size-4 translate-y-px"
+        class="text-muted-foreground size-4 translate-y-px"
         aria-hidden="true"
       /></a
     >
@@ -64,10 +64,10 @@ const recommendations = await getCollection("recommendations");
                   <article>
                     <h2 class="font-medium">{job.data.company}</h2>
                     <div class="flex flex-wrap gap-x-4 justify-between">
-                      <p class="text-foreground-muted font-medium">
+                      <p class="text-muted-foreground font-medium">
                         {job.data.title}
                       </p>
-                      <p class="text-foreground-muted font-medium">
+                      <p class="text-muted-foreground font-medium">
                         <time datetime={job.data.startDate.toISOString()}>
                           {new Date(job.data.startDate).toLocaleDateString(
                             "en-US",
@@ -110,7 +110,7 @@ const recommendations = await getCollection("recommendations");
                         })}
                       </ul>
                     </div>
-                    <p class="mt-4 text-foreground-muted">
+                    <p class="mt-4 text-muted-foreground">
                       {new Intl.ListFormat("en-US", {
                         style: "long",
                         type: "conjunction",
@@ -168,7 +168,7 @@ const recommendations = await getCollection("recommendations");
                 </span>
                 <h3 class="font-medium tracking-tight">{item.title}</h3>
               </header>
-              <p class="text-foreground-muted mt-4">{item.description}</p>
+              <p class="text-muted-foreground mt-4">{item.description}</p>
             </li>
           );
         })
@@ -211,7 +211,7 @@ const recommendations = await getCollection("recommendations");
                         ))}
                       </div>
                       <p class="mt-2 font-medium">{recommendation.data.name}</p>
-                      <p class="font-medium text-foreground-muted">
+                      <p class="font-medium text-muted-foreground">
                         {recommendation.data.title},{" "}
                         {recommendation.data.company}
                       </p>

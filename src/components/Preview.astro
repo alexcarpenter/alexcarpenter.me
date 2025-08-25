@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 type Props = {
   src: string;
   title?: string;
@@ -11,13 +13,24 @@ const { src, title, class: className, aspectRatio = "16:9" } = Astro.props;
 
 <div
   class:list={[
-    "border border-separator rounded-md background-grid overflow-hidden",
+    "relative border border-separator rounded-md background-grid overflow-hidden group/preview",
     aspectRatio === "16:9" && "aspect-video",
     aspectRatio === "4:3" && "aspect-[4/3]",
     aspectRatio === "1:1" && "aspect-square",
     className,
   ]}
 >
+  <a
+    href={src}
+    target="_blank"
+    class:list={[
+      "size-8 text-muted-foreground absolute top-0 right-0 grid place-content-center",
+      "opacity-0 group-hover/preview:opacity-100 transition-[opacity,color] focus:opacity-100 hover:text-foreground",
+    ]}
+  >
+    <span class="sr-only">Open demo in a new tab</span>
+    <Icon name="expand" class="size-3" aria-hidden="true" />
+  </a>
   <div class="overflow-x-auto resize-x max-w-full min-w-80 h-full">
     <iframe
       src={src}

@@ -13,7 +13,7 @@
 
   --color-background: var(--color-neutral-50);
   --color-foreground: var(--color-neutral-950);
-  --color-foreground-muted: var(--color-neutral-500);
+  --color-muted-foreground: var(--color-neutral-500);
   --color-separator: var(--color-neutral-200);
   --color-underline: var(--color-neutral-300);
   --color-highlight: var(--color-amber-200);
@@ -25,7 +25,7 @@
     color-scheme: dark;
     --color-background: var(--color-neutral-950);
     --color-foreground: var(--color-neutral-50);
-    --color-foreground-muted: var(--color-neutral-400);
+    --color-muted-foreground: var(--color-neutral-400);
     --color-separator: var(--color-neutral-800);
     --color-underline: var(--color-neutral-600);
     --color-highlight: var(--color-neutral-700);
@@ -94,7 +94,7 @@
         );
         padding-right: 1rem;
         text-align: right;
-        color: var(--color-foreground-muted);
+        color: var(--color-muted-foreground);
         content: counter(line);
         user-select: none;
         border-left: 2px solid var(--line-border-color);
@@ -198,7 +198,7 @@
       padding-inline-start: calc(var(--spacing) * 6);
 
       & :where(li:has(br)) {
-        color: var(--color-foreground-muted);
+        color: var(--color-muted-foreground);
 
         &::first-line {
           color: var(--color-foreground);
@@ -240,7 +240,7 @@
     }
 
     & *::marker {
-      color: var(--color-foreground-muted);
+      color: var(--color-muted-foreground);
     }
 
     & :where(hr) {
@@ -267,7 +267,7 @@
     }
 
     & :where(dt) {
-      color: var(--color-foreground-muted);
+      color: var(--color-muted-foreground);
       font-weight: var(--font-weight-medium);
     }
   }
@@ -290,11 +290,11 @@
   .background-angled-lines {
     background-image: linear-gradient(
       45deg,
-      var(--color-foreground-muted) 12.5%,
+      var(--color-muted-foreground) 12.5%,
       transparent 12.5%,
       transparent 50%,
-      var(--color-foreground-muted) 50%,
-      var(--color-foreground-muted) 62.5%,
+      var(--color-muted-foreground) 50%,
+      var(--color-muted-foreground) 62.5%,
       transparent 62.5%,
       transparent 100%
     );

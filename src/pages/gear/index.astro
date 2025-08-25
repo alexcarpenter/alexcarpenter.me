@@ -17,7 +17,7 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
       class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
     >
       <h1 class="inline">Gear</h1>
-      <span class="text-foreground-muted"
+      <span class="text-muted-foreground"
         >I use for computing, travel, and more.</span
       >
     </span>
@@ -38,7 +38,7 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
             <h2 class="text-green-600 dark:text-green-400 font-medium tracking-tight">
               <a href={`/gear/${slug}`}>{title}</a>
             </h2>
-            <p class="text-foreground-muted">{description}</p>
+            <p class="text-muted-foreground">{description}</p>
           </header>
 
           <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -46,7 +46,7 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
               return (
                 <li>
                   <article>
-                    <p class="mb-1 font-mono text-xs tracking-widest uppercase text-foreground-muted flex gap-x-[1ch]">
+                    <p class="mb-1 font-mono text-xs tracking-widest uppercase text-muted-foreground flex gap-x-[1ch]">
                       {item.data.favorite ? (
                         <span class="flex items-center h-[1lh]">
                           <Icon
@@ -62,7 +62,7 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
                       {item.data.link ? (
                         <ExternalLink
                           href={item.data.link}
-                          class="text-foreground-muted hover:text-foreground transition"
+                          class="text-muted-foreground hover:text-foreground transition"
                           text={item.data.name}
                         />
                       ) : (
@@ -70,7 +70,7 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
                       )}
                     </h3>
                     {item.data.link ? (
-                      <p class="text-foreground-muted">
+                      <p class="text-muted-foreground">
                         {new URL(item.data.link).hostname.replace("www.", "")}
                       </p>
                     ) : null}
@@ -82,7 +82,7 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
           {/* <footer class="mt-8">
             <a
               href={`/gear/${slug}`}
-              class="text-foreground-muted inline-flex gap-x-1 items-center"
+              class="text-muted-foreground inline-flex gap-x-1 items-center"
             >
               View all {title.toLowerCase()}
               <Icon name="arrow-right" aria-hidden="true" />

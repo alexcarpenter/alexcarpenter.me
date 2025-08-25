@@ -13,7 +13,7 @@ const notes = await getCollection("notes");
     <span
       class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
       ><h1 class="inline">Notes</h1>
-      <span class="text-foreground-muted"
+      <span class="text-muted-foreground"
         >on engineering, developer experience, design systems, and
         accessibility.</span
       ></span
@@ -23,7 +23,7 @@ const notes = await getCollection("notes");
       class="bg-white dark:bg-neutral-900 border border-separator py-1.5 pl-3 pr-2 rounded-md mt-8 inline-flex text-sm font-medium items-center gap-x-1"
       >View tags <Icon
         name="chevron-right"
-        class="text-foreground-muted size-4 translate-y-px"
+        class="text-muted-foreground size-4 translate-y-px"
         aria-hidden="true"
       /></a
     >
@@ -45,7 +45,7 @@ const notes = await getCollection("notes");
                   <article>
                     <a
                       href={`/notes/${note.id}`}
-                      class="text-foreground-muted inline-block font-medium"
+                      class="text-muted-foreground inline-block font-medium"
                     >
                       <time datetime={note.data.published.toISOString()}>
                         {new Date(note.data.published).toLocaleDateString(
@@ -72,7 +72,7 @@ const notes = await getCollection("notes");
                           )}
                         </h1>
                         {note.data.link ? (
-                          <p class="text-foreground-muted">
+                          <p class="text-muted-foreground">
                             {new URL(note.data.link).hostname}
                           </p>
                         ) : null}
