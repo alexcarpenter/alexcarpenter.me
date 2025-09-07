@@ -44,4 +44,9 @@ export const GEAR_CATEGORY_MAP: Record<
     description: "Gear I use while traveling and out and about.",
     slug: "travel",
   },
+  workspace: {
+    title: "Workspace",
+    description: "The tools I use for work.",
+    slug: "workspace",
+  },
 };

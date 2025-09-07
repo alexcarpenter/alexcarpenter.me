@@ -68,6 +68,7 @@ const gear = defineCollection({
       "knife",
       "flashlight",
       "travel",
+      "workspace",
     ]),
     favorite: z.boolean().default(false),
   }),
