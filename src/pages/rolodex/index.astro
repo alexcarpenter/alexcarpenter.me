@@ -12,18 +12,6 @@ const rolodex = await getCollection("rolodex");
       class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
     >
       <h1 class="inline">Rolodex</h1>
-      <!-- <span class="text-muted-foreground">
-        who enjoys working at the intersection of <Icon
-          name="figma-full-color"
-          class="inline h-[1.15em] align-text-bottom"
-          aria-hidden="true"
-        /> design and
-        <Icon
-          name="github"
-          class="inline h-[1.15em] align-text-bottom text-foreground"
-          aria-hidden="true"
-        /> engineering teams.
-      </span> -->
     </span>
     <p class="mt-4 text-muted-foreground font-medium max-w-[55ch] text-pretty">
       I've been fortunate to work with some amazing people over the years.
@@ -34,70 +22,72 @@ const rolodex = await getCollection("rolodex");
   <section class="mt-16 container">
     <ul>
       {
-        rolodex.map((item) =>
-          render(item).then(({ Content }) => {
-            return (
-              <li class="border-t border-separator pt-8 mt-8 rounded-sm">
-                <article>
-                  <header class="flex items-center justify-between gap-4">
-                    <div>
-                      <h2 class="font-medium">{item.data.name}</h2>
-                      <p class="text-muted-foreground font-medium">
-                        {item.data.title}
-                      </p>
+        rolodex
+          .sort((a, b) => a.data.name.localeCompare(b.data.name))
+          .map((item) =>
+            render(item).then(({ Content }) => {
+              return (
+                <li class="border-t border-separator pt-8 mt-8 rounded-sm">
+                  <article>
+                    <header class="flex items-center justify-between gap-4">
+                      <div>
+                        <h2 class="font-medium">{item.data.name}</h2>
+                        <p class="text-muted-foreground font-medium">
+                          {item.data.title}
+                        </p>
+                      </div>
+                      <div>
+                        <img
+                          src={item.data.avatar}
+                          alt={`Avatar for ${item.data.name}`}
+                          class="size-12 rounded-md object-cover"
+                        />
+                      </div>
+                    </header>
+                    <div class="mt-4 text-pretty prose">
+                      <Content />
                     </div>
-                    <div>
-                      <img
-                        src={item.data.avatar}
-                        alt={`Avatar for ${item.data.name}`}
-                        class="size-12 rounded-md object-cover"
-                      />
-                    </div>
-                  </header>
-                  <div class="mt-4 text-pretty prose">
-                    <Content />
-                  </div>
-                  {item.data.links && (
-                    <ul class="mt-4 flex flex-wrap gap-4">
-                      {item.data.links?.twitter && (
-                        <li>
-                          <ExternalLink
-                            href={item.data.links?.twitter}
-                            text="Twitter"
-                          />
-                        </li>
-                      )}
-                      {item.data.links?.github && (
-                        <li>
-                          <ExternalLink
-                            href={item.data.links?.github}
-                            text="GitHub"
-                          />
-                        </li>
-                      )}
-                      {item.data.links?.linkedin && (
-                        <li>
-                          <ExternalLink
-                            href={item.data.links?.linkedin}
-                            text="LinkedIn"
-                          />
-                        </li>
-                      )}
-                      {item.data.links?.website && (
-                        <li>
-                          <ExternalLink
-                            href={item.data.links?.website}
-                            text="Website"
-                          />
-                        </li>
-                      )}
-                    </ul>
-                  )}
-                </article>
-              </li>
-            );
-          }),
-        )
+                    {item.data.links && (
+                      <ul class="mt-4 flex flex-wrap gap-4">
+                        {item.data.links?.twitter && (
+                          <li>
+                            <ExternalLink
+                              href={item.data.links?.twitter}
+                              text="Twitter"
+                            />
+                          </li>
+                        )}
+                        {item.data.links?.github && (
+                          <li>
+                            <ExternalLink
+                              href={item.data.links?.github}
+                              text="GitHub"
+                            />
+                          </li>
+                        )}
+                        {item.data.links?.linkedin && (
+                          <li>
+                            <ExternalLink
+                              href={item.data.links?.linkedin}
+                              text="LinkedIn"
+                            />
+                          </li>
+                        )}
+                        {item.data.links?.website && (
+                          <li>
+                            <ExternalLink
+                              href={item.data.links?.website}
+                              text="Website"
+                            />
+                          </li>
+                        )}
+                      </ul>
+                    )}
+                  </article>
+                </li>
+              );
+            })
+          )
       }
     </ul>
   </section>
