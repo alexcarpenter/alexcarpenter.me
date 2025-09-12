@@ -55,7 +55,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.startDate.toString()) -
-              Date.parse(a.data.startDate.toString())
+              Date.parse(a.data.startDate.toString()),
           )
           .map((job) =>
             render(job).then(({ Content }) => {
@@ -74,7 +74,7 @@ const recommendations = await getCollection("recommendations");
                             {
                               year: "numeric",
                               month: "short",
-                            }
+                            },
                           )}
                         </time>{" "}
                         -
@@ -85,7 +85,7 @@ const recommendations = await getCollection("recommendations");
                               {
                                 year: "numeric",
                                 month: "short",
-                              }
+                              },
                             )}
                           </time>
                         ) : (
@@ -119,7 +119,7 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            })
+            }),
           )
       }
     </ul>
@@ -190,7 +190,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString())
+              Date.parse(a.data.published.toString()),
           )
           .filter((recommendation) => recommendation.data.status === "visible")
           .map((recommendation) =>
@@ -219,19 +219,9 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            })
+            }),
           )
       }
     </ul>
-
-    <a
-      href="/rolodex"
-      class="bg-white dark:bg-neutral-900 border border-separator py-1.5 pl-3 pr-2 rounded-md mt-8 inline-flex text-sm font-medium items-center gap-x-1"
-      >View rolodex <Icon
-        name="chevron-right"
-        class="text-muted-foreground size-4 translate-y-px"
-        aria-hidden="true"
-      /></a
-    >
   </section>
 </BaseLayout>
