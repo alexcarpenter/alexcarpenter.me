@@ -74,9 +74,29 @@ const gear = defineCollection({
   }),
 });
 
+const rolodex = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/rolodex" }),
+  schema: z.object({
+    name: z.string(),
+    title: z.string().optional(),
+    description: z.string().optional(),
+    avatar: z.string().optional(),
+    links: z
+      .object({
+        website: z.string().optional(),
+        twitter: z.string().optional(),
+        github: z.string().optional(),
+        linkedin: z.string().optional(),
+        email: z.string().optional(),
+      })
+      .optional(),
+  }),
+});
+
 export const collections = {
   jobs,
   gear,
   notes,
   recommendations,
+  rolodex,
 };
