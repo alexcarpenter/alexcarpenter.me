@@ -1,12 +1,14 @@
 ---
 import { getCollection, render } from "astro:content";
-import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
 const rolodex = await getCollection("rolodex");
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Rolodex"
+  description="A list of people I recommend connecting with."
+>
   <header class="mt-4 container">
     <span
       class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
