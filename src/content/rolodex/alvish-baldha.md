@@ -5,7 +5,9 @@ avatar: /images/alvish-baldha.jpg
 jobs:
   - Hypermode
   - Clerk
+  - Copperx
 links:
+  linkedin: https://www.linkedin.com/in/alvishbaldha/
   website: https://bento.me/alvish
   twitter: https://x.com/alvishbaldha
 ---
