@@ -48,6 +48,15 @@ const rolodex = await getCollection("rolodex");
                     </header>
                     <div class="mt-4 text-pretty prose">
                       <Content />
+                      {item.data.jobs ? (
+                        <p class="text-muted-foreground">
+                          As known from{" "}
+                          {new Intl.ListFormat("en", {
+                            style: "long",
+                            type: "conjunction",
+                          }).format(item.data.jobs) + "."}
+                        </p>
+                      ) : null}
                     </div>
                     {item.data.links && (
                       <ul class="mt-4 flex flex-wrap gap-4">

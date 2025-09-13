@@ -81,6 +81,7 @@ const rolodex = defineCollection({
     title: z.string().optional(),
     description: z.string().optional(),
     avatar: z.string().optional(),
+    jobs: z.array(z.string()).optional(),
     links: z
       .object({
         website: z.string().optional(),

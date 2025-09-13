@@ -2,6 +2,9 @@
 name: Alvish Baldha
 title: Designer
 avatar: /images/alvish-baldha.jpg
+jobs:
+  - Hypermode
+  - Clerk
 links:
   website: https://bento.me/alvish
   twitter: https://x.com/alvishbaldha
