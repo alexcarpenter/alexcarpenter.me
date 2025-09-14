@@ -6,10 +6,13 @@ const meta = {
   title: "Changelog",
   description:
     "All notable changes to this project will be documented in this file.",
-  lastUpdated: "2025-08-23",
 };
 
 const items = [
+  {
+    date: "2025-09-14",
+    description: "Added [rolodex page](/rolodex)",
+  },
   {
     date: "2025-08-23",
     description: "Added [gear page](/gear)",
@@ -32,10 +35,10 @@ const items = [
       <dd>
         <time
           class="inline-block text-muted-foreground font-medium"
-          datetime={new Date(meta.lastUpdated).toISOString()}
+          datetime={new Date(items.at(0).date).toISOString()}
         >
           {
-            new Date(meta.lastUpdated).toLocaleDateString("en-US", {
+            new Date(items.at(0).date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
               day: "2-digit",
