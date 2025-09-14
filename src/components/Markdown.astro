@@ -1,14 +1,14 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import sanitizeHtml from "sanitize-html";
-import MarkdownIt from "markdown-it";
-const parser = new MarkdownIt();
+import { getMarkdownParser } from "@/lib/markdown.js";
 
 interface Props extends HTMLAttributes<"div"> {
   content: string;
 }
 
 const { class: className, content, ...restAttrs } = Astro.props;
+const parser = getMarkdownParser();
 ---
 
 <div

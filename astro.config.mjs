@@ -7,10 +7,6 @@ import {
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
-import {
-  remarkDefinitionList,
-  defListHastHandlers,
-} from "remark-definition-list";
 
 export default defineConfig({
   site: "https://alexcarpenter.me",
@@ -19,8 +15,6 @@ export default defineConfig({
   },
   integrations: [sitemap(), icon()],
   markdown: {
-    remarkPlugins: [remarkDefinitionList],
-    remarkRehype: { handlers: defListHastHandlers },
     shikiConfig: {
       themes: {
         light: "github-light-default",
@@ -31,6 +25,7 @@ export default defineConfig({
         transformerMetaHighlight(),
         transformerMetaWordHighlight(),
       ],
+      cache: true,
     },
   },
 });

@@ -3,8 +3,22 @@ import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
+
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
+
+const renderedJobs = await Promise.all(
+  jobs.map(async (job) => {
+    const { Content } = await render(job);
+    return { job, Content };
+  })
+);
+const renderedRecommendations = await Promise.all(
+  recommendations.map(async (recommendation) => {
+    const { Content } = await render(recommendation);
+    return { recommendation, Content };
+  })
+);
 ---
 
 <BaseLayout>
@@ -64,76 +78,70 @@ const recommendations = await getCollection("recommendations");
 
     <ul>
       {
-        jobs
+        renderedJobs
           .sort(
             (a, b) =>
-              Date.parse(b.data.startDate.toString()) -
-              Date.parse(a.data.startDate.toString())
+              Date.parse(b.job.data.startDate.toString()) -
+              Date.parse(a.job.data.startDate.toString())
           )
-          .map((job) =>
-            render(job).then(({ Content }) => {
-              return (
-                <li class="border-t border-separator pt-8 mt-8 rounded-sm">
-                  <article>
-                    <h2 class="font-medium">{job.data.company}</h2>
-                    <div class="flex flex-wrap gap-x-4 justify-between">
-                      <p class="text-muted-foreground font-medium">
-                        {job.data.title}
-                      </p>
-                      <p class="text-muted-foreground font-medium">
-                        <time datetime={job.data.startDate.toISOString()}>
-                          {new Date(job.data.startDate).toLocaleDateString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "short",
-                            }
-                          )}
-                        </time>{" "}
-                        -
-                        {job.data.endDate ? (
-                          <time datetime={job.data.endDate.toISOString()}>
-                            {new Date(job.data.endDate).toLocaleDateString(
-                              "en-US",
-                              {
-                                year: "numeric",
-                                month: "short",
-                              }
-                            )}
-                          </time>
-                        ) : (
-                          <time datetime={new Date().toISOString()}>
-                            Present
-                          </time>
+          .map(({ job, Content }) => (
+            <li class="border-t border-separator pt-8 mt-8 rounded-sm">
+              <article>
+                <h2 class="font-medium">{job.data.company}</h2>
+                <div class="flex flex-wrap gap-x-4 justify-between">
+                  <p class="text-muted-foreground font-medium">
+                    {job.data.title}
+                  </p>
+                  <p class="text-muted-foreground font-medium">
+                    <time datetime={job.data.startDate.toISOString()}>
+                      {new Date(job.data.startDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "short",
+                        }
+                      )}
+                    </time>{" "}
+                    -
+                    {job.data.endDate ? (
+                      <time datetime={job.data.endDate.toISOString()}>
+                        {new Date(job.data.endDate).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "short",
+                          }
                         )}
-                      </p>
-                    </div>
-                    <div class="mt-4 text-pretty prose">
-                      <Content />
-                      <ul>
-                        {job.data.projects?.map((project) => {
-                          return (
-                            <li>
-                              <ExternalLink
-                                href={project.link}
-                                text={project.title}
-                              />
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
-                    <p class="mt-4 text-muted-foreground">
-                      {new Intl.ListFormat("en-US", {
-                        style: "long",
-                        type: "conjunction",
-                      }).format(job.data.tools)}
-                    </p>
-                  </article>
-                </li>
-              );
-            })
-          )
+                      </time>
+                    ) : (
+                      <time datetime={new Date().toISOString()}>Present</time>
+                    )}
+                  </p>
+                </div>
+                <div class="mt-4 text-pretty prose">
+                  <Content />
+                  <ul>
+                    {job.data.projects?.map((project) => {
+                      return (
+                        <li>
+                          <ExternalLink
+                            href={project.link}
+                            text={project.title}
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <p class="mt-4 text-muted-foreground">
+                  {new Intl.ListFormat("en-US", {
+                    style: "long",
+                    type: "conjunction",
+                  }).format(job.data.tools)}
+                </p>
+              </article>
+            </li>
+          ))
       }
     </ul>
   </section>
@@ -199,41 +207,38 @@ const recommendations = await getCollection("recommendations");
 
     <ul>
       {
-        recommendations
+        renderedRecommendations
           .sort(
             (a, b) =>
-              Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString())
+              Date.parse(b.recommendation.data.published.toString()) -
+              Date.parse(a.recommendation.data.published.toString())
           )
-          .filter((recommendation) => recommendation.data.status === "visible")
-          .map((recommendation) =>
-            render(recommendation).then(({ Content }) => {
-              return (
-                <li class="border-t border-separator pt-8 mt-8 rounded-sm">
-                  <article>
-                    <div class="text-pretty prose">
-                      <Content />
-                    </div>
-                    <div class="mt-4">
-                      <div class="flex gap-x-1">
-                        {Array.from({ length: 5 }, () => (
-                          <Icon
-                            name="star"
-                            class="text-amber-500 dark:text-amber-400 size-4"
-                          />
-                        ))}
-                      </div>
-                      <p class="mt-2 font-medium">{recommendation.data.name}</p>
-                      <p class="font-medium text-muted-foreground">
-                        {recommendation.data.title},{" "}
-                        {recommendation.data.company}
-                      </p>
-                    </div>
-                  </article>
-                </li>
-              );
-            })
+          .filter(
+            ({ recommendation }) => recommendation.data.status === "visible"
           )
+          .map(({ recommendation, Content }) => (
+            <li class="border-t border-separator pt-8 mt-8 rounded-sm">
+              <article>
+                <div class="text-pretty prose">
+                  <Content />
+                </div>
+                <div class="mt-4">
+                  <div class="flex gap-x-1">
+                    {Array.from({ length: 5 }, () => (
+                      <Icon
+                        name="star"
+                        class="text-amber-500 dark:text-amber-400 size-4"
+                      />
+                    ))}
+                  </div>
+                  <p class="mt-2 font-medium">{recommendation.data.name}</p>
+                  <p class="font-medium text-muted-foreground">
+                    {recommendation.data.title}, {recommendation.data.company}
+                  </p>
+                </div>
+              </article>
+            </li>
+          ))
       }
     </ul>
   </section>

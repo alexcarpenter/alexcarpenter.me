@@ -2,7 +2,14 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
+
 const rolodex = await getCollection("rolodex");
+const renderedRolodex = await Promise.all(
+  rolodex.map(async (item) => {
+    const { Content } = await render(item);
+    return { item, Content };
+  })
+);
 ---
 
 <BaseLayout
@@ -24,81 +31,77 @@ const rolodex = await getCollection("rolodex");
   <section class="mt-16 container">
     <ul>
       {
-        rolodex
-          .sort((a, b) => a.data.name.localeCompare(b.data.name))
-          .map((item) =>
-            render(item).then(({ Content }) => {
-              return (
-                <li class="border-t border-separator pt-8 mt-8 rounded-sm">
-                  <article>
-                    <header class="flex items-center justify-between gap-4">
-                      <div>
-                        <h2 class="font-medium">{item.data.name}</h2>
-                        <p class="text-muted-foreground font-medium">
-                          {item.data.title}
-                        </p>
-                      </div>
-                      <div>
-                        <img
-                          src={item.data.avatar}
-                          alt={`Avatar for ${item.data.name}`}
-                          class="size-12 rounded-md object-cover"
+        renderedRolodex
+          .sort((a, b) => a.item.data.name.localeCompare(b.item.data.name))
+          .map(({ item, Content }) => (
+            <li class="border-t border-separator pt-8 mt-8 rounded-sm">
+              <article>
+                <header class="flex items-center justify-between gap-4">
+                  <div>
+                    <h2 class="font-medium">{item.data.name}</h2>
+                    <p class="text-muted-foreground font-medium">
+                      {item.data.title}
+                    </p>
+                  </div>
+                  <div>
+                    <img
+                      src={item.data.avatar}
+                      alt={`Avatar for ${item.data.name}`}
+                      class="size-12 rounded-md object-cover"
+                    />
+                  </div>
+                </header>
+                <div class="mt-4 text-pretty prose">
+                  <Content />
+                  {item.data.jobs ? (
+                    <p class="text-muted-foreground">
+                      As known from{" "}
+                      {new Intl.ListFormat("en", {
+                        style: "long",
+                        type: "conjunction",
+                      }).format(item.data.jobs) + "."}
+                    </p>
+                  ) : null}
+                </div>
+                {item.data.links && (
+                  <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+                    {item.data.links?.twitter && (
+                      <li>
+                        <ExternalLink
+                          href={item.data.links?.twitter}
+                          text="Twitter"
                         />
-                      </div>
-                    </header>
-                    <div class="mt-4 text-pretty prose">
-                      <Content />
-                      {item.data.jobs ? (
-                        <p class="text-muted-foreground">
-                          As known from{" "}
-                          {new Intl.ListFormat("en", {
-                            style: "long",
-                            type: "conjunction",
-                          }).format(item.data.jobs) + "."}
-                        </p>
-                      ) : null}
-                    </div>
-                    {item.data.links && (
-                      <ul class="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                        {item.data.links?.twitter && (
-                          <li>
-                            <ExternalLink
-                              href={item.data.links?.twitter}
-                              text="Twitter"
-                            />
-                          </li>
-                        )}
-                        {item.data.links?.github && (
-                          <li>
-                            <ExternalLink
-                              href={item.data.links?.github}
-                              text="GitHub"
-                            />
-                          </li>
-                        )}
-                        {item.data.links?.linkedin && (
-                          <li>
-                            <ExternalLink
-                              href={item.data.links?.linkedin}
-                              text="LinkedIn"
-                            />
-                          </li>
-                        )}
-                        {item.data.links?.website && (
-                          <li>
-                            <ExternalLink
-                              href={item.data.links?.website}
-                              text="Website"
-                            />
-                          </li>
-                        )}
-                      </ul>
+                      </li>
                     )}
-                  </article>
-                </li>
-              );
-            })
-          )
+                    {item.data.links?.github && (
+                      <li>
+                        <ExternalLink
+                          href={item.data.links?.github}
+                          text="GitHub"
+                        />
+                      </li>
+                    )}
+                    {item.data.links?.linkedin && (
+                      <li>
+                        <ExternalLink
+                          href={item.data.links?.linkedin}
+                          text="LinkedIn"
+                        />
+                      </li>
+                    )}
+                    {item.data.links?.website && (
+                      <li>
+                        <ExternalLink
+                          href={item.data.links?.website}
+                          text="Website"
+                        />
+                      </li>
+                    )}
+                  </ul>
+                )}
+              </article>
+            </li>
+          ))
       }
     </ul>
   </section>
