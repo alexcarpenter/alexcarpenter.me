@@ -30,6 +30,19 @@ const recommendations = await getCollection("recommendations");
       Currently I am a part of the SDK team at Clerk where I am working on our
       UI Components and dashboard UI.
     </p>
+    <p class="mt-4 text-muted-foreground font-medium max-w-[55ch] text-pretty">
+      In my free time, I am working on a resource around building <a
+        href="https://www.resilient-ui.com"
+        class="underline decoration-[0.09375rem] decoration-underline"
+        target="_blank"
+        rel="noopener">resilient UI's</a
+      > and curating a collection of <a
+        href="https://ibrewmyown.coffee/"
+        class="underline decoration-[0.09375rem] decoration-underline"
+        target="_blank"
+        rel="noopener">home coffee setups</a
+      >.
+    </p>
     <a
       href="/notes"
       class="bg-white dark:bg-neutral-900 border border-separator py-1.5 pl-3 pr-2 rounded-md mt-8 inline-flex text-sm font-medium items-center gap-x-1"
@@ -55,7 +68,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.startDate.toString()) -
-              Date.parse(a.data.startDate.toString()),
+              Date.parse(a.data.startDate.toString())
           )
           .map((job) =>
             render(job).then(({ Content }) => {
@@ -74,7 +87,7 @@ const recommendations = await getCollection("recommendations");
                             {
                               year: "numeric",
                               month: "short",
-                            },
+                            }
                           )}
                         </time>{" "}
                         -
@@ -85,7 +98,7 @@ const recommendations = await getCollection("recommendations");
                               {
                                 year: "numeric",
                                 month: "short",
-                              },
+                              }
                             )}
                           </time>
                         ) : (
@@ -119,7 +132,7 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            }),
+            })
           )
       }
     </ul>
@@ -190,7 +203,7 @@ const recommendations = await getCollection("recommendations");
           .sort(
             (a, b) =>
               Date.parse(b.data.published.toString()) -
-              Date.parse(a.data.published.toString()),
+              Date.parse(a.data.published.toString())
           )
           .filter((recommendation) => recommendation.data.status === "visible")
           .map((recommendation) =>
@@ -219,7 +232,7 @@ const recommendations = await getCollection("recommendations");
                   </article>
                 </li>
               );
-            }),
+            })
           )
       }
     </ul>
