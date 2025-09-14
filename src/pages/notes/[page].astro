@@ -111,46 +111,44 @@ const renderedNotes = await Promise.all(
       class="mt-16 flex items-center justify-between"
       aria-label="Pagination"
     >
-      <div class="flex items-center gap-x-2">
-        {
-          page.url.prev ? (
-            <Button as="a" href={page.url.prev}>
-              <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
-              Previous
-            </Button>
-          ) : (
-            <Button as="span" class="opacity-50 cursor-not-allowed">
-              <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
-              Previous
-            </Button>
-          )
-        }
-      </div>
+      {
+        page.url.prev ? (
+          <Button as="a" href={page.url.prev}>
+            <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
+            Previous
+          </Button>
+        ) : (
+          <Button as="span" class="opacity-50 cursor-not-allowed">
+            <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
+            Previous
+          </Button>
+        )
+      }
 
-      <div class="flex items-center gap-x-2">
-        <span class="text-sm text-muted-foreground">
+      <div
+        class="flex items-center justify-center gap-x-2 text-sm text-muted-foreground"
+      >
+        <span>
           Page {page.currentPage} of {page.lastPage}
         </span>
-        <span class="text-sm text-muted-foreground">
+        <span class="max-sm:hidden">
           ({page.start + 1}-{page.end + 1} of {page.total} notes)
         </span>
       </div>
 
-      <div class="flex items-center gap-x-2">
-        {
-          page.url.next ? (
-            <Button as="a" href={page.url.next}>
-              Next
-              <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
-            </Button>
-          ) : (
-            <Button as="span" class="opacity-50 cursor-not-allowed">
-              Next
-              <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
-            </Button>
-          )
-        }
-      </div>
+      {
+        page.url.next ? (
+          <Button as="a" href={page.url.next}>
+            Next
+            <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
+          </Button>
+        ) : (
+          <Button as="span" class="opacity-50 cursor-not-allowed">
+            Next
+            <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
+          </Button>
+        )
+      }
     </nav>
   </section>
 </BaseLayout>
