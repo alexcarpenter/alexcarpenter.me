@@ -6,22 +6,19 @@ import ExternalLink from "@/components/ExternalLink.astro";
 import Preview from "@/components/Preview.astro";
 import Button from "@/components/Button.astro";
 
-export async function getStaticPaths({ paginate }) {
-  const notes = await getCollection("notes");
+const notes = await getCollection("notes");
+const sortedNotes = notes.sort(
+  (a, b) =>
+    Date.parse(b.data.published.toString()) -
+    Date.parse(a.data.published.toString())
+);
 
-  const sortedNotes = notes.sort(
-    (a, b) =>
-      Date.parse(b.data.published.toString()) -
-      Date.parse(a.data.published.toString())
-  );
-
-  return paginate(sortedNotes, { pageSize: 20 });
-}
-
-const { page } = Astro.props as { page: any };
+const pageSize = 20;
+const firstPageNotes = sortedNotes.slice(0, pageSize);
+const totalPages = Math.ceil(sortedNotes.length / pageSize);
 
 const renderedNotes = await Promise.all(
-  page.data.map(async (note) => {
+  firstPageNotes.map(async (note) => {
     const { Content } = await render(note);
     return { note, Content };
   })
@@ -104,44 +101,26 @@ const renderedNotes = await Promise.all(
       class="mt-16 flex items-center justify-between"
       aria-label="Pagination"
     >
-      {
-        page.url.prev ? (
-          <Button as="a" href={page.url.prev}>
-            <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
-            Previous
-          </Button>
-        ) : (
-          <Button as="span" class="opacity-50 cursor-not-allowed">
-            <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
-            Previous
-          </Button>
-        )
-      }
+      <Button as="span" class="opacity-50 cursor-not-allowed">
+        <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
+        Previous
+      </Button>
 
       <div
         class="flex items-center justify-center gap-x-2 text-sm text-muted-foreground"
       >
         <span>
-          Page {page.currentPage} of {page.lastPage}
+          Page 1 of {totalPages}
         </span>
         <span class="max-sm:hidden">
-          ({page.start + 1}-{page.end + 1} of {page.total} notes)
+          (1-{Math.min(pageSize, sortedNotes.length)} of {sortedNotes.length} notes)
         </span>
       </div>
 
-      {
-        page.url.next ? (
-          <Button as="a" href={page.url.next}>
-            Next
-            <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
-          </Button>
-        ) : (
-          <Button as="span" class="opacity-50 cursor-not-allowed">
-            Next
-            <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
-          </Button>
-        )
-      }
+      <Button as="a" href="/notes/2">
+        Next
+        <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
+      </Button>
     </nav>
   </section>
 </BaseLayout>

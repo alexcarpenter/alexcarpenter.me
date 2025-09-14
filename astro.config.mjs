@@ -10,9 +10,6 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://alexcarpenter.me",
-  redirects: {
-    "/notes": "/notes/1",
-  },
   vite: {
     plugins: [tailwindcss()],
   },
