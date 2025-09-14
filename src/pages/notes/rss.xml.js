@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import sanitizeHtml from "sanitize-html";
-import { getMarkdownParser } from "../lib/markdown.js";
+import { getMarkdownParser } from "@/lib/markdown.js";
 const parser = getMarkdownParser();
 
 export async function GET(context) {

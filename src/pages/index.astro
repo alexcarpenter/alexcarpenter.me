@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
+import Button from "@/components/Button.astro";
 
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
@@ -57,15 +58,10 @@ const renderedRecommendations = await Promise.all(
         rel="noopener">home coffee setups</a
       >.
     </p>
-    <a
-      href="/notes"
-      class="bg-white dark:bg-neutral-900 border border-separator py-1.5 pl-3 pr-2 rounded-md mt-8 inline-flex text-sm font-medium items-center gap-x-1"
-      >View notes <Icon
-        name="chevron-right"
-        class="text-muted-foreground size-4 translate-y-px"
-        aria-hidden="true"
-      /></a
-    >
+    <Button as="a" href="/notes" class="mt-8"
+      >View notes
+      <Icon name="chevron-right" aria-hidden="true" data-slot="end" />
+    </Button>
   </header>
 
   <section class="mt-16 container">

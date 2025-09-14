@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import Button from "@/components/Button.astro";
 
 const notes = await getCollection("notes");
 
@@ -26,15 +27,15 @@ const tags = notes
           .sort()
           .map((tag) => (
             <li>
-              <a
-                href={`/tags/${tag}`}
-                class="bg-white dark:bg-neutral-900 border border-separator py-1.5 px-3 rounded-md inline-flex text-sm font-medium items-center gap-x-1"
-              >
+              <Button as="a" href={`/tags/${tag}`}>
                 {tag} <span class="text-muted-foreground">({tags[tag]})</span>
-              </a>
+              </Button>
             </li>
           ))
       }
     </ul>
   </section>
 </BaseLayout>
+
+)) }
+
