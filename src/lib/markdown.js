@@ -1,6 +1,5 @@
 import MarkdownIt from "markdown-it";
 
-// Create a singleton MarkdownIt instance to avoid multiple parser instances
 let markdownParser = null;
 
 export function getMarkdownParser() {
