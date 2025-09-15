@@ -7,10 +7,11 @@ import { cn } from "@/lib/utils";
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"nav"> & {
-  page: Page<CollectionEntry<"notes">>;
+  collection: string;
+  page: Page<CollectionEntry<any>>;
 };
 
-const { page, class: className, ...props } = Astro.props;
+const { page, class: className, collection, ...props } = Astro.props;
 ---
 
 <nav
@@ -47,7 +48,8 @@ const { page, class: className, ...props } = Astro.props;
       Page {page.currentPage} of {page.lastPage}
     </span>
     <span class="max-sm:hidden">
-      ({page.start + 1}-{page.end + 1} of {page.total} notes)
+      ({page.start + 1}-{page.end + 1} of {page.total}
+      {collection})
     </span>
   </div>
 
