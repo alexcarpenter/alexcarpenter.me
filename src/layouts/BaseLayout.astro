@@ -58,13 +58,13 @@ const metaDescription = description ? description : "UI Engineer";
   <body>
     <a
       href="#main"
-      class="fixed top-0 left-0 py-1.5 px-3 bg-blue-600 dark:bg-blue-500 text-white -translate-y-full focus-visible:translate-y-0"
+      class="fixed top-0 left-0 -translate-y-full bg-blue-600 px-3 py-1.5 text-white focus-visible:translate-y-0 dark:bg-blue-500"
       >Skip to content</a
     >
-    <div class="w-full h-3 mb-32 background-grid" aria-hidden="true"></div>
+    <div class="background-grid mb-32 h-3 w-full" aria-hidden="true"></div>
     <nav class="container">
       <p
-        class="text-orange-600 dark:text-orange-400 font-medium tracking-tight"
+        class="font-medium tracking-tight text-orange-600 dark:text-orange-400"
       >
         <a href="/">Alex Carpenter</a>
       </p>
@@ -72,11 +72,11 @@ const metaDescription = description ? description : "UI Engineer";
     <main class="flex-1" id="main">
       <slot />
     </main>
-    <footer class="mt-16 container">
-      <h2 class="text-blue-600 dark:text-blue-400 font-medium tracking-tight">
+    <footer class="container mt-16">
+      <h2 class="font-medium tracking-tight text-blue-600 dark:text-blue-400">
         Connect
       </h2>
-      <dl class="mt-8 grid grid-cols-[25%_1fr] gap-y-4 gap-x-8">
+      <dl class="mt-8 grid grid-cols-[25%_1fr] gap-x-8 gap-y-4">
         {
           [
             {

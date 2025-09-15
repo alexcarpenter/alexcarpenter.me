@@ -26,9 +26,9 @@ const renderedNotes = await Promise.all(
 ---
 
 <BaseLayout title="Notes">
-  <header class="mt-4 container">
+  <header class="container mt-4">
     <span
-      class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
+      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
       ><h1 class="inline">Notes</h1>
       <span class="text-muted-foreground"
         >on engineering, developer experience, design systems, and
@@ -37,11 +37,11 @@ const renderedNotes = await Promise.all(
     >
   </header>
 
-  <section class="mt-16 container">
+  <section class="container mt-16">
     <ul>
       {
         renderedNotes.map(({ note, Content }) => (
-          <li class="not-first:border-t not-first:border-separator not-first:pt-16 not-first:mt-16">
+          <li class="not-first:border-separator not-first:mt-16 not-first:border-t not-first:pt-16">
             <article>
               <a
                 href={`/notes/${note.id}`}
@@ -83,11 +83,11 @@ const renderedNotes = await Promise.all(
                 />
               ) : null}
               {note.body ? (
-                <div class="mt-4 text-pretty prose">
+                <div class="prose mt-4 text-pretty">
                   <Content />
                 </div>
               ) : note.data.description ? (
-                <div class="mt-4 text-pretty prose">
+                <div class="prose mt-4 text-pretty">
                   <blockquote>{note.data.description}</blockquote>
                 </div>
               ) : null}
@@ -104,14 +104,14 @@ const renderedNotes = await Promise.all(
       <Button
         as="span"
         size="icon"
-        class="opacity-50 cursor-not-allowed"
+        class="cursor-not-allowed opacity-50"
         aria-hidden="true"
       >
         <Icon name="arrow-left" aria-hidden="true" />
       </Button>
 
       <div
-        class="flex items-center justify-center gap-x-2 text-sm text-muted-foreground"
+        class="text-muted-foreground flex items-center justify-center gap-x-2 text-sm"
       >
         <span>
           Page 1 of {totalPages}

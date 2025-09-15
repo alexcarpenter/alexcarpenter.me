@@ -23,9 +23,9 @@ const renderedRecommendations = await Promise.all(
 ---
 
 <BaseLayout>
-  <header class="mt-4 container">
+  <header class="container mt-4">
     <span
-      class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
+      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
     >
       <h1 class="inline">User interface engineer</h1>
       <span class="text-muted-foreground">
@@ -36,24 +36,24 @@ const renderedRecommendations = await Promise.all(
         /> design and
         <Icon
           name="github"
-          class="inline h-[1.15em] align-text-bottom text-foreground"
+          class="text-foreground inline h-[1.15em] align-text-bottom"
           aria-hidden="true"
         /> engineering teams.
       </span>
     </span>
-    <p class="mt-4 text-muted-foreground font-medium max-w-[55ch] text-pretty">
+    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty">
       Currently I am a part of the SDK team at Clerk where I am working on our
       UI Components and dashboard UI.
     </p>
-    <p class="mt-4 text-muted-foreground font-medium max-w-[55ch] text-pretty">
+    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty">
       In my free time, I am working on a resource around building <a
         href="https://www.resilient-ui.com"
-        class="underline decoration-[0.09375rem] decoration-underline"
+        class="decoration-underline underline decoration-[0.09375rem]"
         target="_blank"
         rel="noopener">resilient UI's</a
       > and curating a collection of <a
         href="https://ibrewmyown.coffee/"
-        class="underline decoration-[0.09375rem] decoration-underline"
+        class="decoration-underline underline decoration-[0.09375rem]"
         target="_blank"
         rel="noopener">home coffee setups</a
       >.
@@ -64,9 +64,9 @@ const renderedRecommendations = await Promise.all(
     </Button>
   </header>
 
-  <section class="mt-16 container">
+  <section class="container mt-16">
     <h2
-      class="text-purple-600 dark:text-purple-400 font-medium tracking-tight"
+      class="font-medium tracking-tight text-purple-600 dark:text-purple-400"
       id="experience"
     >
       Experience
@@ -81,10 +81,10 @@ const renderedRecommendations = await Promise.all(
               Date.parse(a.job.data.startDate.toString()),
           )
           .map(({ job, Content }) => (
-            <li class="border-t border-separator pt-8 mt-8 rounded-sm">
+            <li class="border-separator mt-8 rounded-sm border-t pt-8">
               <article>
                 <h2 class="font-medium">{job.data.company}</h2>
-                <div class="flex flex-wrap gap-x-4 justify-between">
+                <div class="flex flex-wrap justify-between gap-x-4">
                   <p class="text-muted-foreground font-medium">
                     {job.data.title}
                   </p>
@@ -114,7 +114,7 @@ const renderedRecommendations = await Promise.all(
                     )}
                   </p>
                 </div>
-                <div class="mt-4 text-pretty prose">
+                <div class="prose mt-4 text-pretty">
                   <Content />
                   <ul>
                     {job.data.projects?.map((project) => {
@@ -129,7 +129,7 @@ const renderedRecommendations = await Promise.all(
                     })}
                   </ul>
                 </div>
-                <p class="mt-4 text-muted-foreground">
+                <p class="text-muted-foreground mt-4">
                   {new Intl.ListFormat("en-US", {
                     style: "long",
                     type: "conjunction",
@@ -142,14 +142,14 @@ const renderedRecommendations = await Promise.all(
     </ul>
   </section>
 
-  <section class="mt-16 container">
+  <section class="container mt-16">
     <h2
-      class="text-red-600 dark:text-red-400 font-medium tracking-tight"
+      class="font-medium tracking-tight text-red-600 dark:text-red-400"
       id="interests-and-skills"
     >
       Interests &amp; Skills
     </h2>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+    <ul class="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
       {
         [
           {
@@ -178,9 +178,9 @@ const renderedRecommendations = await Promise.all(
           },
         ].map((item) => {
           return (
-            <li class="border-t border-separator pt-8 mt-8">
+            <li class="border-separator mt-8 border-t pt-8">
               <header class="flex gap-2">
-                <span class="h-[1lh] flex items-center">
+                <span class="flex h-[1lh] items-center">
                   <Icon name={item.iconName} class="size-[1em] flex-none" />
                 </span>
                 <h3 class="font-medium tracking-tight">{item.title}</h3>
@@ -193,9 +193,9 @@ const renderedRecommendations = await Promise.all(
     </ul>
   </section>
 
-  <section class="mt-16 container">
+  <section class="container mt-16">
     <h2
-      class="text-green-600 dark:text-green-400 font-medium tracking-tight"
+      class="font-medium tracking-tight text-green-600 dark:text-green-400"
       id="recommendations"
     >
       Recommendations
@@ -213,9 +213,9 @@ const renderedRecommendations = await Promise.all(
             ({ recommendation }) => recommendation.data.status === "visible",
           )
           .map(({ recommendation, Content }) => (
-            <li class="border-t border-separator pt-8 mt-8 rounded-sm">
+            <li class="border-separator mt-8 rounded-sm border-t pt-8">
               <article>
-                <div class="text-pretty prose">
+                <div class="prose text-pretty">
                   <Content />
                 </div>
                 <div class="mt-4">
@@ -223,12 +223,12 @@ const renderedRecommendations = await Promise.all(
                     {Array.from({ length: 5 }, () => (
                       <Icon
                         name="star"
-                        class="text-amber-500 dark:text-amber-400 size-4"
+                        class="size-4 text-amber-500 dark:text-amber-400"
                       />
                     ))}
                   </div>
                   <p class="mt-2 font-medium">{recommendation.data.name}</p>
-                  <p class="font-medium text-muted-foreground">
+                  <p class="text-muted-foreground font-medium">
                     {recommendation.data.title}, {recommendation.data.company}
                   </p>
                 </div>

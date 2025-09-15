@@ -13,7 +13,7 @@ const { src, title, class: className, aspectRatio = "16:9" } = Astro.props;
 
 <div
   class:list={[
-    "relative border border-separator rounded-md background-grid overflow-hidden group/preview",
+    "border-separator background-grid group/preview relative overflow-hidden rounded-md border",
     aspectRatio === "16:9" && "aspect-video",
     aspectRatio === "4:3" && "aspect-[4/3]",
     aspectRatio === "1:1" && "aspect-square",
@@ -24,17 +24,17 @@ const { src, title, class: className, aspectRatio = "16:9" } = Astro.props;
     href={src}
     target="_blank"
     class:list={[
-      "size-8 text-muted-foreground absolute top-0 right-0 grid place-content-center",
-      "opacity-0 group-hover/preview:opacity-100 transition-[opacity,color] focus:opacity-100 hover:text-foreground",
+      "text-muted-foreground absolute top-0 right-0 grid size-8 place-content-center",
+      "hover:text-foreground opacity-0 transition-[opacity,color] group-hover/preview:opacity-100 focus:opacity-100",
     ]}
   >
     <span class="sr-only">Open demo in a new tab</span>
     <Icon name="expand" class="size-3" aria-hidden="true" />
   </a>
-  <div class="overflow-x-auto resize-x max-w-full min-w-80 h-full">
+  <div class="h-full max-w-full min-w-80 resize-x overflow-x-auto">
     <iframe
       src={src}
-      class="w-full h-full"
+      class="h-full w-full"
       title={title || "Demo"}
       loading="lazy"></iframe>
   </div>

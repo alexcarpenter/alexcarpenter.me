@@ -16,25 +16,25 @@ const renderedRolodex = await Promise.all(
   title="Rolodex"
   description="A list of people I recommend connecting with."
 >
-  <header class="mt-4 container">
+  <header class="container mt-4">
     <span
-      class="block text-2xl font-medium tracking-tight max-w-[40ch] leading-tight"
+      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
     >
       <h1 class="inline">Rolodex</h1>
     </span>
-    <p class="mt-4 text-muted-foreground font-medium max-w-[55ch] text-pretty">
+    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty">
       I've been fortunate to work with some amazing people over the years.
       Here's a list of folks I recommend connecting with.
     </p>
   </header>
 
-  <section class="mt-16 container">
+  <section class="container mt-16">
     <ul>
       {
         renderedRolodex
           .sort((a, b) => a.item.data.name.localeCompare(b.item.data.name))
           .map(({ item, Content }) => (
-            <li class="border-t border-separator pt-8 mt-8 rounded-sm">
+            <li class="border-separator mt-8 rounded-sm border-t pt-8">
               <article>
                 <header class="flex items-center justify-between gap-4">
                   <div>
@@ -51,7 +51,7 @@ const renderedRolodex = await Promise.all(
                     />
                   </div>
                 </header>
-                <div class="mt-4 text-pretty prose">
+                <div class="prose mt-4 text-pretty">
                   <Content />
                   {item.data.jobs ? (
                     <p class="text-muted-foreground">
