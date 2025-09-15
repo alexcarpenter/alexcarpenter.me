@@ -11,7 +11,7 @@ const notes = await getCollection("notes");
 const sortedNotes = notes.sort(
   (a, b) =>
     Date.parse(b.data.published.toString()) -
-    Date.parse(a.data.published.toString())
+    Date.parse(a.data.published.toString()),
 );
 
 const pageSize = 20;
@@ -39,7 +39,7 @@ const renderedNotes = await Promise.all(
   firstPageNotes.map(async (note) => {
     const { Content } = await render(note);
     return { note, Content };
-  })
+  }),
 );
 ---
 
