@@ -17,6 +17,7 @@
     "@tailwindcss/vite": "^4.1.11",
     "astro": "5.13.3",
     "astro-icon": "^1.1.5",
+    "class-variance-authority": "^0.7.1",
     "markdown-it": "^14.1.0",
     "sanitize-html": "^2.17.0",
     "sharp": "^0.34.2",

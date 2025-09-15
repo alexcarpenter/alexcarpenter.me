@@ -106,14 +106,22 @@ const renderedNotes = await Promise.all(
     >
       {
         page.url.prev ? (
-          <Button as="a" href={page.url.prev}>
-            <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
-            Previous
+          <Button
+            as="a"
+            href={page.url.prev}
+            size="icon"
+            aria-label="Previous page"
+          >
+            <Icon name="arrow-left" aria-hidden="true" />
           </Button>
         ) : (
-          <Button as="span" class="opacity-50 cursor-not-allowed">
-            <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
-            Previous
+          <Button
+            as="span"
+            size="icon"
+            class="opacity-50 cursor-not-allowed"
+            aria-hidden="true"
+          >
+            <Icon name="arrow-left" aria-hidden="true" />
           </Button>
         )
       }
@@ -131,14 +139,22 @@ const renderedNotes = await Promise.all(
 
       {
         page.url.next ? (
-          <Button as="a" href={page.url.next}>
-            Next
-            <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
+          <Button
+            as="a"
+            size="icon"
+            href={page.url.next}
+            aria-label="Next page"
+          >
+            <Icon name="arrow-right" aria-hidden="true" />
           </Button>
         ) : (
-          <Button as="span" class="opacity-50 cursor-not-allowed">
-            Next
-            <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
+          <Button
+            as="span"
+            size="icon"
+            class="opacity-50 cursor-not-allowed"
+            aria-hidden="true"
+          >
+            <Icon name="arrow-right" aria-hidden="true" />
           </Button>
         )
       }

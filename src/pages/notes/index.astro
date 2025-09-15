@@ -101,9 +101,13 @@ const renderedNotes = await Promise.all(
       class="mt-16 flex items-center justify-between"
       aria-label="Pagination"
     >
-      <Button as="span" class="opacity-50 cursor-not-allowed">
-        <Icon name="arrow-left" aria-hidden="true" data-slot="start" />
-        Previous
+      <Button
+        as="span"
+        size="icon"
+        class="opacity-50 cursor-not-allowed"
+        aria-hidden="true"
+      >
+        <Icon name="arrow-left" aria-hidden="true" />
       </Button>
 
       <div
@@ -117,9 +121,8 @@ const renderedNotes = await Promise.all(
         </span>
       </div>
 
-      <Button as="a" href="/notes/2">
-        Next
-        <Icon name="arrow-right" aria-hidden="true" data-slot="end" />
+      <Button as="a" href="/notes/2" size="icon" aria-label="Next page">
+        <Icon name="arrow-right" aria-hidden="true" />
       </Button>
     </nav>
   </section>
