@@ -1,0 +1,70 @@
+---
+import Button from "@/components/Button.astro";
+import { Icon } from "astro-icon/components";
+import type { Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { cn } from "@/lib/utils";
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"nav"> & {
+  page: Page<CollectionEntry<"notes">>;
+};
+
+const { page, class: className, ...props } = Astro.props;
+---
+
+<nav
+  class={cn("flex items-center justify-between", className)}
+  aria-label="Pagination"
+  {...props}
+>
+  {
+    page.url.prev ? (
+      <Button
+        as="a"
+        href={page.url.prev}
+        size="icon"
+        aria-label="Previous page"
+      >
+        <Icon name="arrow-left" aria-hidden="true" />
+      </Button>
+    ) : (
+      <Button
+        as="span"
+        size="icon"
+        class="cursor-not-allowed opacity-50"
+        aria-hidden="true"
+      >
+        <Icon name="arrow-left" aria-hidden="true" />
+      </Button>
+    )
+  }
+
+  <div
+    class="text-muted-foreground flex items-center justify-center gap-x-2 text-sm"
+  >
+    <span>
+      Page {page.currentPage} of {page.lastPage}
+    </span>
+    <span class="max-sm:hidden">
+      ({page.start + 1}-{page.end + 1} of {page.total} notes)
+    </span>
+  </div>
+
+  {
+    page.url.next ? (
+      <Button as="a" size="icon" href={page.url.next} aria-label="Next page">
+        <Icon name="arrow-right" aria-hidden="true" />
+      </Button>
+    ) : (
+      <Button
+        as="span"
+        size="icon"
+        class="cursor-not-allowed opacity-50"
+        aria-hidden="true"
+      >
+        <Icon name="arrow-right" aria-hidden="true" />
+      </Button>
+    )
+  }
+</nav>
