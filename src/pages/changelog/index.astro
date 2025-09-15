@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Changelog from "@/components/Changelog.astro";
+import Markdown from "@/components/Markdown.astro";
 
 const meta = {
   title: "Changelog",
@@ -60,9 +61,24 @@ const items = [
         {meta.description}
       </p>
     </header>
-    <Changelog
-      items={items.map((item) => ({ ...item, date: new Date(item.date) }))}
-      class="mt-8"
-    />
+    <ul class="mt-8 space-y-4">
+      {
+        items.map((entry) => {
+          const date = new Date(entry.date);
+          return (
+            <li class="grid grid-cols-1 sm:grid-cols-[25%_1fr] gap-x-8">
+              <time class="text-muted-foreground" datetime={date.toISOString()}>
+                {new Date(date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })}
+              </time>
+              <Markdown content={entry.description} />
+            </li>
+          );
+        })
+      }
+    </ul>
   </article>
 </BaseLayout>
