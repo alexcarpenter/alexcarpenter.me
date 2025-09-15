@@ -12,13 +12,13 @@ const renderedJobs = await Promise.all(
   jobs.map(async (job) => {
     const { Content } = await render(job);
     return { job, Content };
-  })
+  }),
 );
 const renderedRecommendations = await Promise.all(
   recommendations.map(async (recommendation) => {
     const { Content } = await render(recommendation);
     return { recommendation, Content };
-  })
+  }),
 );
 ---
 
@@ -78,7 +78,7 @@ const renderedRecommendations = await Promise.all(
           .sort(
             (a, b) =>
               Date.parse(b.job.data.startDate.toString()) -
-              Date.parse(a.job.data.startDate.toString())
+              Date.parse(a.job.data.startDate.toString()),
           )
           .map(({ job, Content }) => (
             <li class="border-t border-separator pt-8 mt-8 rounded-sm">
@@ -95,7 +95,7 @@ const renderedRecommendations = await Promise.all(
                         {
                           year: "numeric",
                           month: "short",
-                        }
+                        },
                       )}
                     </time>{" "}
                     -
@@ -106,7 +106,7 @@ const renderedRecommendations = await Promise.all(
                           {
                             year: "numeric",
                             month: "short",
-                          }
+                          },
                         )}
                       </time>
                     ) : (
@@ -207,10 +207,10 @@ const renderedRecommendations = await Promise.all(
           .sort(
             (a, b) =>
               Date.parse(b.recommendation.data.published.toString()) -
-              Date.parse(a.recommendation.data.published.toString())
+              Date.parse(a.recommendation.data.published.toString()),
           )
           .filter(
-            ({ recommendation }) => recommendation.data.status === "visible"
+            ({ recommendation }) => recommendation.data.status === "visible",
           )
           .map(({ recommendation, Content }) => (
             <li class="border-t border-separator pt-8 mt-8 rounded-sm">

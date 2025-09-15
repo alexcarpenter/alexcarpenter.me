@@ -8,7 +8,7 @@ const renderedRolodex = await Promise.all(
   rolodex.map(async (item) => {
     const { Content } = await render(item);
     return { item, Content };
-  })
+  }),
 );
 ---
 
