@@ -1,10 +1,10 @@
 ---
 import { getCollection, render } from "astro:content";
+import type { Page } from "astro";
+import type { CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Icon } from "astro-icon/components";
 import ExternalLink from "@/components/ExternalLink.astro";
 import Preview from "@/components/Preview.astro";
-import Button from "@/components/Button.astro";
 import Pagination from "@/components/Pagination.astro";
 
 export async function getStaticPaths({ paginate }) {
@@ -19,7 +19,9 @@ export async function getStaticPaths({ paginate }) {
   return paginate(sortedNotes, { pageSize: 20 });
 }
 
-const { page } = Astro.props as { page: any };
+type Props = { page: Page<CollectionEntry<"notes">> };
+
+const { page } = Astro.props;
 
 const renderedNotes = await Promise.all(
   page.data.map(async (note) => {
