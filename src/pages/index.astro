@@ -60,16 +60,21 @@ const renderedRecommendations = await Promise.all(
     </p>
     <Button as="a" href="/notes" class="mt-8"
       >View notes
-      <Icon name="chevron-right" aria-hidden="true" data-slot="end" />
+      <Icon name="chevron-right" aria-hidden="true" />
     </Button>
   </header>
 
   <section class="container mt-16">
     <h2
-      class="font-medium tracking-tight text-purple-600 dark:text-purple-400"
+      class="scroll-mt-16 font-medium tracking-tight text-purple-600 dark:text-purple-400"
       id="experience"
     >
-      Experience
+      <a href="#experience" class="group relative inline-block"
+        ><span
+          class="absolute right-full flex h-[1lh] -translate-x-2 items-center opacity-0 transition-opacity group-hover:opacity-100"
+          ><Icon name="hash" class="size-4" /></span
+        >Experience</a
+      >
     </h2>
 
     <ul>
@@ -144,10 +149,15 @@ const renderedRecommendations = await Promise.all(
 
   <section class="container mt-16">
     <h2
-      class="font-medium tracking-tight text-red-600 dark:text-red-400"
+      class="scroll-mt-16 font-medium tracking-tight text-red-600 dark:text-red-400"
       id="interests-and-skills"
     >
-      Interests &amp; Skills
+      <a href="#interests-and-skills" class="group relative inline-block"
+        ><span
+          class="absolute right-full flex h-[1lh] -translate-x-2 items-center opacity-0 transition-opacity group-hover:opacity-100"
+          ><Icon name="hash" class="size-4" /></span
+        >Interests &amp; Skills</a
+      >
     </h2>
     <ul class="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
       {
@@ -195,10 +205,15 @@ const renderedRecommendations = await Promise.all(
 
   <section class="container mt-16">
     <h2
-      class="font-medium tracking-tight text-green-600 dark:text-green-400"
+      class="scroll-mt-16 font-medium tracking-tight text-green-600 dark:text-green-400"
       id="recommendations"
     >
-      Recommendations
+      <a href="#recommendations" class="group relative inline-block"
+        ><span
+          class="absolute right-full flex h-[1lh] -translate-x-2 items-center opacity-0 transition-opacity group-hover:opacity-100"
+          ><Icon name="hash" class="size-4" /></span
+        >Recommendations</a
+      >
     </h2>
 
     <ul>
