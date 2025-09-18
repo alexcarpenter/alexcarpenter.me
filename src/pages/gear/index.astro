@@ -24,9 +24,7 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
   </header>
   {
     Object.keys(GEAR_CATEGORY_MAP).map((category) => {
-      const title: string = GEAR_CATEGORY_MAP[category].title;
-      const description: string = GEAR_CATEGORY_MAP[category].description;
-      const slug: string = GEAR_CATEGORY_MAP[category].slug;
+      const { title, description, slug } = GEAR_CATEGORY_MAP[category];
       const items = gear
         .filter((item) => item.data.category === category)
         .sort((a, b) => {
