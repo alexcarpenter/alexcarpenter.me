@@ -80,17 +80,23 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
               );
             })}
           </ul>
-          {/* <footer class="mt-8">
-            <a
-              href={`/gear/${slug}`}
-              class="text-muted-foreground inline-flex gap-x-1 items-center"
-            >
-              View all {title.toLowerCase()}
-              <Icon name="arrow-right" aria-hidden="true" />
-            </a>
-          </footer> */}
         </section>
       ) : null;
     })
   }
+
+  <section class="container mt-16">
+    <div
+      class="text-muted-foreground rounded-md bg-white p-4 text-sm dark:bg-neutral-900"
+    >
+      <p>
+        Note this page makes use of affiliate links. If you choose to purchase
+        something through one of these links, I may receive a small commission
+        at no extra cost to you. Affiliate links are clearly marked with <mark
+          class="text-foreground bg-transparent">amzn.to</mark
+        >
+        under the product name.
+      </p>
+    </div>
+  </section>
 </BaseLayout>
