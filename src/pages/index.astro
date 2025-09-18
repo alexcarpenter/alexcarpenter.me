@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
 import Button from "@/components/Button.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
 
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
@@ -65,18 +66,7 @@ const renderedRecommendations = await Promise.all(
   </header>
 
   <section class="container mt-16">
-    <h2
-      class="scroll-mt-16 font-medium tracking-tight text-purple-600 dark:text-purple-400"
-      id="experience"
-    >
-      <a href="#experience" class="group relative inline-block"
-        ><span
-          class="absolute right-full flex h-[1lh] items-center px-2 opacity-0 transition-opacity group-hover:opacity-100"
-          ><Icon name="hash" class="size-4" /></span
-        >Experience</a
-      >
-    </h2>
-
+    <SectionHeading color="purple" id="experience">Experience</SectionHeading>
     <ul>
       {
         renderedJobs
@@ -148,17 +138,9 @@ const renderedRecommendations = await Promise.all(
   </section>
 
   <section class="container mt-16">
-    <h2
-      class="scroll-mt-16 font-medium tracking-tight text-red-600 dark:text-red-400"
-      id="interests-and-skills"
-    >
-      <a href="#interests-and-skills" class="group relative inline-block"
-        ><span
-          class="absolute right-full flex h-[1lh] items-center px-2 opacity-0 transition-opacity group-hover:opacity-100"
-          ><Icon name="hash" class="size-4" /></span
-        >Interests &amp; Skills</a
-      >
-    </h2>
+    <SectionHeading color="red" id="interests-and-skills">
+      Interests &amp; Skills
+    </SectionHeading>
     <ul class="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
       {
         [
@@ -204,18 +186,9 @@ const renderedRecommendations = await Promise.all(
   </section>
 
   <section class="container mt-16">
-    <h2
-      class="scroll-mt-16 font-medium tracking-tight text-green-600 dark:text-green-400"
-      id="recommendations"
-    >
-      <a href="#recommendations" class="group relative inline-block"
-        ><span
-          class="absolute right-full flex h-[1lh] items-center px-2 opacity-0 transition-opacity group-hover:opacity-100"
-          ><Icon name="hash" class="size-4" /></span
-        >Recommendations</a
-      >
-    </h2>
-
+    <SectionHeading color="green" id="recommendations">
+      Recommendations
+    </SectionHeading>
     <ul>
       {
         renderedRecommendations

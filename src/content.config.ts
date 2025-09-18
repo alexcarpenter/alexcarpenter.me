@@ -65,6 +65,7 @@ const gear = defineCollection({
       "coffee",
       "edc",
       "home",
+      "kitchen",
       "knife",
       "flashlight",
       "travel",

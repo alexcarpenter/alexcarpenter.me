@@ -29,6 +29,11 @@ export const GEAR_CATEGORY_MAP: Record<
     description: "My home automation setup.",
     slug: "home",
   },
+  kitchen: {
+    title: "Kitchen",
+    description: "My favorite kitchen gadgets and tools.",
+    slug: "kitchen",
+  },
   knife: {
     title: "Knives",
     description: "Pocket knives and multi-tools.",
