@@ -15,10 +15,10 @@ dependencies:
     specifier: 3.6.0
     version: 3.6.0
   '@shikijs/transformers':
-    specifier: ^3.7.0
+    specifier: ^3.13.0
     version: 3.13.0
   '@tailwindcss/vite':
-    specifier: ^4.1.11
+    specifier: ^4.1.13
     version: 4.1.13(vite@7.1.6)
   astro:
     specifier: 5.13.9
@@ -36,7 +36,7 @@ dependencies:
     specifier: ^2.17.0
     version: 2.17.0
   sharp:
-    specifier: ^0.34.2
+    specifier: ^0.34.4
     version: 0.34.4
   tailwind-merge:
     specifier: 3.3.1
@@ -45,7 +45,7 @@ dependencies:
     specifier: 4.1.7
     version: 4.1.7
   typescript:
-    specifier: ^5.8.3
+    specifier: ^5.9.2
     version: 5.9.2
 
 devDependencies:
@@ -62,7 +62,7 @@ devDependencies:
     specifier: ^0.14.1
     version: 0.14.1
   prettier-plugin-tailwindcss:
-    specifier: ^0.6.13
+    specifier: ^0.6.14
     version: 0.6.14(prettier-plugin-astro@0.14.1)(prettier@3.6.2)
 
 packages:
@@ -1322,7 +1322,7 @@ packages:
   /@types/sax@1.2.7:
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
     dependencies:
-      '@types/node': 24.5.2
+      '@types/node': 17.0.45
     dev: false
 
   /@types/tar@6.1.13:

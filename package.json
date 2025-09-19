@@ -15,24 +15,24 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/rss": "4.0.12",
     "@astrojs/sitemap": "3.6.0",
-    "@shikijs/transformers": "^3.7.0",
-    "@tailwindcss/vite": "^4.1.11",
+    "@shikijs/transformers": "^3.13.0",
+    "@tailwindcss/vite": "^4.1.13",
     "astro": "5.13.9",
     "astro-icon": "^1.1.5",
     "class-variance-authority": "^0.7.1",
     "markdown-it": "^14.1.0",
     "sanitize-html": "^2.17.0",
-    "sharp": "^0.34.2",
+    "sharp": "^0.34.4",
     "tailwind-merge": "3.3.1",
     "tailwindcss": "4.1.7",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
     "@types/sanitize-html": "^2.16.0",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.13"
+    "prettier-plugin-tailwindcss": "^0.6.14"
   },
   "packageManager": "pnpm@10.17.0+sha512.fce8a3dd29a4ed2ec566fb53efbb04d8c44a0f05bc6f24a73046910fb9c3ce7afa35a0980500668fa3573345bd644644fa98338fa168235c80f4aa17aa17fbef"
 }
