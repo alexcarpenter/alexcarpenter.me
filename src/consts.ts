@@ -1,7 +1,29 @@
-import type { CollectionEntry } from "astro:content";
+export const COMPANIES = [
+  "Clerk",
+  "Watershed",
+  "HashiCorp",
+  "NationBuilder",
+  "Mighty in the Midwest",
+  "Masuga Design",
+] as const;
+
+export const GEAR_CATEGORIES = [
+  "bag",
+  "coffee",
+  "edc",
+  "home",
+  "kitchen",
+  "knife",
+  "flashlight",
+  "misc",
+  "travel",
+  "workspace",
+] as const;
+
+type GearCategory = (typeof GEAR_CATEGORIES)[number];
 
 export const GEAR_CATEGORY_MAP: Record<
-  CollectionEntry<"gear">["data"]["category"],
+  GearCategory,
   {
     title: string;
     description: string;
@@ -23,7 +45,11 @@ export const GEAR_CATEGORY_MAP: Record<
     description: "Tools I carry daily that fit into my pockets.",
     slug: "everyday-carry",
   },
-
+  flashlight: {
+    title: "Flashlights",
+    description: "My favorite flashlights and lighting gear.",
+    slug: "flashlights",
+  },
   home: {
     title: "Home",
     description: "My home automation setup.",
@@ -39,11 +65,6 @@ export const GEAR_CATEGORY_MAP: Record<
     description: "Pocket knives and multi-tools.",
     slug: "knives",
   },
-  flashlight: {
-    title: "Flashlights",
-    description: "My favorite flashlights and lighting gear.",
-    slug: "flashlights",
-  },
   travel: {
     title: "Travel",
     description: "Gear I use while traveling and out and about.",
@@ -53,5 +74,10 @@ export const GEAR_CATEGORY_MAP: Record<
     title: "Workspace",
     description: "The tools I use for work.",
     slug: "workspace",
+  },
+  misc: {
+    title: "Miscellaneous",
+    description: "Other gear that doesn't fit into a specific category.",
+    slug: "miscellaneous",
   },
 };

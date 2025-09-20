@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import { GEAR_CATEGORIES, COMPANIES } from "./consts";
 
 const notes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
@@ -12,15 +13,6 @@ const notes = defineCollection({
     demo: z.string().optional(),
   }),
 });
-
-const COMPANIES = [
-  "Clerk",
-  "Watershed",
-  "HashiCorp",
-  "NationBuilder",
-  "Mighty in the Midwest",
-  "Masuga Design",
-] as const;
 
 const jobs = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
@@ -60,17 +52,7 @@ const gear = defineCollection({
     eyebrow: z.string().optional(),
     name: z.string(),
     link: z.string().optional(),
-    category: z.enum([
-      "bag",
-      "coffee",
-      "edc",
-      "home",
-      "kitchen",
-      "knife",
-      "flashlight",
-      "travel",
-      "workspace",
-    ]),
+    category: z.enum(GEAR_CATEGORIES),
     favorite: z.boolean().default(false),
   }),
 });
