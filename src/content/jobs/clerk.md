@@ -3,6 +3,8 @@ title: Senior UI Engineer
 company: Clerk
 startDate: 2024-01-04
 projects:
+  - title: Interactive docs inline theme editing
+    link: https://x.com/hybrid_alex/status/1970189970414399723
   - title: shadcn/ui registry
     description: Get started with Clerk authentication in Next.js apps using the shadcn/ui CLI
     link: https://clerk.com/changelog/2025-08-13-shadcn-registry
