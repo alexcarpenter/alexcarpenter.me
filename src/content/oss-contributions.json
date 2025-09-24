@@ -16,5 +16,11 @@
     "link": "https://github.com/dodopayments/billingsdk/pull/144",
     "description": "Fix icon alignment within pricing-table-one",
     "status": "merged"
+  },
+  {
+    "date": "2025-07-04",
+    "link": "https://github.com/shadcn-ui/ui/pull/7944",
+    "description": "Add support for css imports",
+    "status": "closed"
   }
 ]
