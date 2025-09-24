@@ -311,4 +311,8 @@
     );
     background-size: 8px 8px;
   }
+
+  .list-square {
+    list-style-type: square;
+  }
 }

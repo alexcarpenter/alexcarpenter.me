@@ -1,0 +1,44 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const meta = [
+  { title: "Current title", description: "Senior UI Engineer" },
+  { title: "Location", description: "Grand Rapids, MI" },
+  { title: "Working hours", description: "9am-5pm EST." },
+];
+const items = [
+  "I enjoy working on small collaborative teams that value communication and feedback.",
+];
+---
+
+<BaseLayout title="README">
+  <header class="container mt-4">
+    <h1
+      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
+    >
+      README.md
+    </h1>
+    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty">
+      This is my user manual, a quick way to know a little about me and how I
+      like to work.
+    </p>
+  </header>
+
+  <section class="container mt-8">
+    <dl class="grid grid-cols-[25%_1fr] gap-x-8 gap-y-4">
+      {
+        meta.map((item) => (
+          <Fragment>
+            <dt class="text-muted-foreground">{item.title}</dt>
+            <dd>{item.description}</dd>
+          </Fragment>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section class="container mt-8">
+    <ul class="marker:text-muted-foreground flex list-decimal flex-col gap-y-2">
+      {items.map((item) => <li>{item}</li>)}
+    </ul>
+  </section>
+</BaseLayout>
