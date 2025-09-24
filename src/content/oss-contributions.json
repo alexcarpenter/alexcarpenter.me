@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2025-09-24",
+    "link": "https://github.com/fuma-nama/fumadocs/pull/2399",
+    "description": "Updates copy button to preserve the active state while in checked state.",
+    "status": "merged"
+  },
+  {
+    "date": "2025-09-06",
+    "link": "https://github.com/midday-ai/midday/pull/606",
+    "description": "Ensure icons are aligned on the first line vs being vertically centered within the whole item.",
+    "status": "merged"
+  },
+  {
+    "date": "2025-09-06",
+    "link": "https://github.com/dodopayments/billingsdk/pull/144",
+    "description": "Fix icon alignment within pricing-table-one",
+    "status": "merged"
+  }
+]

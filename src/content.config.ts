@@ -1,6 +1,7 @@
 import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 import { GEAR_CATEGORIES, COMPANIES } from "./consts";
+import { date } from "astro:schema";
 
 const notes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
@@ -77,10 +78,29 @@ const rolodex = defineCollection({
   }),
 });
 
+const ossContributions = defineCollection({
+  loader: file("src/content/oss-contributions.json", {
+    parser: (fileContent) => {
+      const data = JSON.parse(fileContent);
+      return data.map((item, index) => ({
+        id: `contribution-${index + 1}`,
+        ...item,
+      }));
+    },
+  }),
+  schema: z.object({
+    link: z.string().url(),
+    date: z.coerce.date(),
+    description: z.string(),
+    status: z.enum(["open", "merged", "closed"]).default("open"),
+  }),
+});
+
 export const collections = {
   jobs,
   gear,
   notes,
   recommendations,
   rolodex,
+  ossContributions,
 };
