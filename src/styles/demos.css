@@ -28,8 +28,8 @@
 }
 
 @layer utilities {
-  .background-grid {
-    background-image: conic-gradient(
+  .bg-grid {
+    background: conic-gradient(
       from 90deg at 50% 50%,
       transparent 0deg 90deg,
       var(--color-muted) 90deg 180deg,

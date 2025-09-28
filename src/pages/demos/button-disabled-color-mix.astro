@@ -4,9 +4,9 @@ import DemoLayout from "@/layouts/DemoLayout.astro";
 
 <DemoLayout>
   <div
-    class="absolute inset-0 [background-size:8px_8px] p-2 has-[input:checked]:[background-image:conic-gradient(from_90deg_at_50%_50%,transparent_0deg_90deg,var(--color-muted)_90deg_180deg,transparent_180deg_270deg,var(--color-muted)_270deg_360deg)]"
+    class="bg-grid absolute inset-0 p-2 [&:not(:has(input:checked))]:[background:transparent]"
   >
-    <label class="flex items-center gap-x-2 font-mono text-xs">
+    <label class="flex items-center gap-x-2 font-mono text-xs select-none">
       <input type="checkbox" checked />
       Toggle background
     </label>
