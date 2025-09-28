@@ -5,6 +5,7 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: --alpha(var(--color-foreground) / 20%);
   --color-muted-foreground: --alpha(var(--color-foreground) / 65%);
   --color-accent: var(--accent);
 }
@@ -21,5 +22,18 @@
     --background: var(--color-black);
     --foreground: var(--color-white);
     --accent: var(--color-blue-400);
+  }
+}
+
+@layer utilities {
+  .background-grid {
+    background: conic-gradient(
+      from 90deg at 50% 50%,
+      transparent 0deg 90deg,
+      var(--color-muted) 90deg 180deg,
+      transparent 180deg 270deg,
+      var(--color-muted) 270deg 360deg
+    );
+    background-size: 8px 8px;
   }
 }
