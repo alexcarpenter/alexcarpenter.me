@@ -5,7 +5,7 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-muted: --alpha(var(--color-foreground) / 20%);
+  --color-muted: var(--muted);
   --color-muted-foreground: --alpha(var(--color-foreground) / 65%);
   --color-accent: var(--accent);
 }
@@ -13,6 +13,7 @@
 :root {
   --background: var(--color-white);
   --foreground: var(--color-black);
+  --muted: var(--color-neutral-200);
   --accent: var(--color-blue-600);
 }
 
@@ -21,6 +22,7 @@
     color-scheme: dark;
     --background: var(--color-black);
     --foreground: var(--color-white);
+    --muted: var(--color-neutral-800);
     --accent: var(--color-blue-400);
   }
 }
