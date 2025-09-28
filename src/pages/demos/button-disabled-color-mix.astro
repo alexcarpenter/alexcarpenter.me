@@ -3,7 +3,14 @@ import DemoLayout from "@/layouts/DemoLayout.astro";
 ---
 
 <DemoLayout>
-  <div class="background-grid absolute inset-0"></div>
+  <div
+    class="absolute inset-0 [background-size:8px_8px] p-2 has-[input:checked]:[background-image:conic-gradient(from_90deg_at_50%_50%,transparent_0deg_90deg,var(--color-muted)_90deg_180deg,transparent_180deg_270deg,var(--color-muted)_270deg_360deg)]"
+  >
+    <label class="flex items-center gap-x-2 font-mono text-xs">
+      <input type="checkbox" checked />
+      Toggle background
+    </label>
+  </div>
   <div
     class:list={[
       "relative m-auto w-full max-w-lg p-8",
