@@ -1,5 +1,11 @@
 [
   {
+    "date": "2025-09-29",
+    "link": "https://github.com/haydenbleasel/kibo/pull/266",
+    "description": "Fixes icon shrinking and alignment within pricing block when the feature text wraps to two lines.",
+    "status": "open"
+  },
+  {
     "date": "2025-09-24",
     "link": "https://github.com/fuma-nama/fumadocs/pull/2399",
     "description": "Updates copy button to preserve the active state while in checked state.",
