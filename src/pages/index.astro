@@ -112,18 +112,20 @@ const renderedRecommendations = await Promise.all(
                 </div>
                 <div class="prose mt-4 text-pretty">
                   <Content />
-                  <ul>
-                    {job.data.projects?.map((project) => {
-                      return (
-                        <li>
-                          <ExternalLink
-                            href={project.link}
-                            text={project.title}
-                          />
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  {job.data.projects ? (
+                    <ul>
+                      {job.data.projects?.map((project) => {
+                        return (
+                          <li>
+                            <ExternalLink
+                              href={project.link}
+                              text={project.title}
+                            />
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  ) : null}
                 </div>
                 <p class="text-muted-foreground mt-4">
                   {new Intl.ListFormat("en-US", {

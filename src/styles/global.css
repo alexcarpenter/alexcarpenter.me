@@ -11,25 +11,38 @@
     Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 
-  --color-background: var(--color-neutral-50);
-  --color-foreground: var(--color-neutral-950);
-  --color-muted-foreground: var(--color-neutral-500);
-  --color-separator: var(--color-neutral-200);
-  --color-underline: var(--color-neutral-300);
-  --color-highlight: var(--color-amber-200);
-  --color-pre-background: var(--color-neutral-100);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-separator: var(--separator);
+  --color-underline: var(--underline);
+  --color-highlight: var(--highlight);
+  --color-pre-background: var(--pre-background);
+}
+
+:root {
+  --background: var(--color-neutral-50);
+  --foreground: var(--color-neutral-950);
+  --muted: var(--color-neutral-200);
+  --muted-foreground: var(--color-neutral-500);
+  --separator: var(--color-neutral-200);
+  --underline: var(--color-neutral-300);
+  --highlight: var(--color-amber-200);
+  --pre-background: var(--color-neutral-100);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --color-background: var(--color-neutral-950);
-    --color-foreground: var(--color-neutral-50);
-    --color-muted-foreground: var(--color-neutral-400);
-    --color-separator: var(--color-neutral-800);
-    --color-underline: var(--color-neutral-600);
-    --color-highlight: var(--color-neutral-700);
-    --color-pre-background: var(--color-neutral-900);
+    --background: var(--color-neutral-950);
+    --foreground: var(--color-neutral-50);
+    --muted: var(--color-neutral-800);
+    --muted-foreground: var(--color-neutral-400);
+    --separator: var(--color-neutral-800);
+    --underline: var(--color-neutral-600);
+    --highlight: var(--color-neutral-700);
+    --pre-background: var(--color-neutral-900);
   }
 
   .astro-code,
