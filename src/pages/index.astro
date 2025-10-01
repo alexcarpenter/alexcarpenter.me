@@ -249,9 +249,9 @@ const renderedRecommendations = await Promise.all(
                   class:list={[
                     "flex h-[1lh] items-center",
                     {
-                      "text-muted-foreground":
-                        contribution.data.status === "open",
                       "text-green-600 dark:text-green-400":
+                        contribution.data.status === "open",
+                      "text-purple-600 dark:text-purple-400":
                         contribution.data.status === "merged",
                       "text-red-600 dark:text-red-400":
                         contribution.data.status === "closed",
@@ -259,7 +259,19 @@ const renderedRecommendations = await Promise.all(
                   ]}
                 >
                   <Icon
-                    name="pull-request"
+                    name={(() => {
+                      switch (contribution.data.status) {
+                        case "open":
+                          return "git-pull-request-arrow";
+                        case "merged":
+                          return "git-merge";
+                        case "closed":
+                          return "git-pull-request-closed";
+                        default:
+                          const _exhaustive: never = contribution.data.status;
+                          return _exhaustive;
+                      }
+                    })()}
                     class="size-[1em] flex-none"
                     aria-label={`PR is ${contribution.data.status}`}
                   />
