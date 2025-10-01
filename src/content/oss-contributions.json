@@ -3,7 +3,7 @@
     "date": "2025-09-30",
     "link": "https://github.com/fuma-nama/fumadocs/pull/2416",
     "description": "Add missing ring classes for buttonVariants to ensure focus states are visible for buttons.",
-    "status": "open"
+    "status": "merged"
   },
   {
     "date": "2025-09-29",
