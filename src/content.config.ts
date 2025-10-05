@@ -1,7 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 import { file, glob } from "astro/loaders";
 import { GEAR_CATEGORIES, COMPANIES } from "./consts";
-import { date } from "astro:schema";
 
 const notes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
@@ -12,6 +11,24 @@ const notes = defineCollection({
     link: z.string().optional(),
     tags: z.array(z.string()).optional(),
     demo: z.string().optional(),
+  }),
+});
+
+const projects = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
+  schema: z.object({
+    company: reference("jobs"),
+    published: z.coerce.date(),
+    title: z.string(),
+    description: z.string(),
+    meta: z
+      .array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+        }),
+      )
+      .optional(),
   }),
 });
 
@@ -97,10 +114,11 @@ const ossContributions = defineCollection({
 });
 
 export const collections = {
-  jobs,
   gear,
+  jobs,
   notes,
+  ossContributions,
+  projects,
   recommendations,
   rolodex,
-  ossContributions,
 };

@@ -285,9 +285,21 @@
     }
   }
 
-  .prose-expanded {
-    & > :where(* + :is(h2, h3, h4)) {
+  .prose-longform {
+    & > :where(* + :is(h2, h3)) {
       margin-top: calc(var(--spacing) * 8);
+    }
+
+    & > :where(pre) {
+      margin-block: calc(var(--spacing) * 8);
+    }
+
+    & > :where(:is(h2)) {
+      font-size: var(--text-xl);
+    }
+
+    & > :where(:not(:is(h2, h3))) {
+      color: var(--color-muted-foreground);
     }
   }
 }

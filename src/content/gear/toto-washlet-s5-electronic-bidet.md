@@ -1,6 +1,6 @@
 ---
 eyebrow: Bidet
 name: TOTO WASHLET S5 Electronic Bidet
-category: misc
+category: wellness
 link: https://amzn.to/4pvfagv
 ---
