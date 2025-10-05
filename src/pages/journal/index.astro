@@ -90,13 +90,6 @@ const renderedEntries = await Promise.all(
                   ) : null}
                 </header>
               ) : null}
-              {entry.data.demo ? (
-                <Preview
-                  class="mt-4"
-                  src={entry.data.demo}
-                  title={entry.data.title}
-                />
-              ) : null}
               {entry.body ? (
                 <div class="prose mt-4 text-pretty">
                   <Content />

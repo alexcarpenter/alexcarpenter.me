@@ -51,11 +51,6 @@ const { Content } = await render(entry);
       ) : null
     }
     {
-      entry.data.demo ? (
-        <Preview class="mt-4" src={entry.data.demo} title={entry.data.title} />
-      ) : null
-    }
-    {
       entry.body ? (
         <div class="prose prose-expanded mt-4">
           <Content />
