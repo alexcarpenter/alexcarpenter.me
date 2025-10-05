@@ -14,24 +14,6 @@ const notes = defineCollection({
   }),
 });
 
-const projects = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
-  schema: z.object({
-    company: reference("jobs"),
-    published: z.coerce.date(),
-    title: z.string(),
-    description: z.string(),
-    meta: z
-      .array(
-        z.object({
-          title: z.string(),
-          description: z.string(),
-        }),
-      )
-      .optional(),
-  }),
-});
-
 const jobs = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
   schema: z.object({
@@ -118,7 +100,6 @@ export const collections = {
   jobs,
   notes,
   ossContributions,
-  projects,
   recommendations,
   rolodex,
 };
