@@ -14,6 +14,17 @@ const notes = defineCollection({
   }),
 });
 
+const journal = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/journal" }),
+  schema: z.object({
+    published: z.coerce.date(),
+    title: z.string().optional(),
+    description: z.string().optional(),
+    link: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
 const jobs = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
   schema: z.object({
@@ -98,6 +109,7 @@ const ossContributions = defineCollection({
 export const collections = {
   gear,
   jobs,
+  journal,
   notes,
   ossContributions,
   recommendations,

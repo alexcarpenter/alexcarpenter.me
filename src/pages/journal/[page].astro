@@ -1,0 +1,108 @@
+---
+import { getCollection, render } from "astro:content";
+import type { Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ExternalLink from "@/components/ExternalLink.astro";
+import Preview from "@/components/Preview.astro";
+import Pagination from "@/components/Pagination.astro";
+
+export async function getStaticPaths({ paginate }) {
+  const entries = await getCollection("journal");
+
+  const sortedEntries = entries.sort(
+    (a, b) =>
+      Date.parse(b.data.published.toString()) -
+      Date.parse(a.data.published.toString()),
+  );
+
+  return paginate(sortedEntries, { pageSize: 20 });
+}
+
+type Props = { page: Page<CollectionEntry<"journal">> };
+
+const { page } = Astro.props;
+
+const renderedEntries = await Promise.all(
+  page.data.map(async (note) => {
+    const { Content } = await render(note);
+    return { note, Content };
+  }),
+);
+---
+
+<BaseLayout title="Journal">
+  <header class="container mt-4">
+    <span
+      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
+      ><h1 class="inline">Journal</h1>
+      <span class="text-muted-foreground"
+        >on engineering, developer experience, design systems, and
+        accessibility.</span
+      ></span
+    >
+  </header>
+
+  <section class="container mt-16">
+    <ul>
+      {
+        renderedEntries.map(({ entry, Content }) => (
+          <li class="not-first:border-separator not-first:mt-16 not-first:border-t not-first:pt-16">
+            <article>
+              <a
+                href={`/journal/${entry.id}`}
+                class="text-muted-foreground inline-block font-medium"
+              >
+                <time datetime={entry.data.published.toISOString()}>
+                  {new Date(entry.data.published).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                    weekday: "short",
+                  })}
+                </time>
+              </a>
+              {entry.data.title ? (
+                <header class="mt-4">
+                  <h1 class="font-medium">
+                    {entry.data.link ? (
+                      <ExternalLink
+                        href={entry.data.link}
+                        text={entry.data.title}
+                      />
+                    ) : (
+                      entry.data.title
+                    )}
+                  </h1>
+                  {entry.data.link ? (
+                    <p class="text-muted-foreground">
+                      {new URL(entry.data.link).hostname}
+                    </p>
+                  ) : null}
+                </header>
+              ) : null}
+              {entry.data.demo ? (
+                <Preview
+                  class="mt-4"
+                  src={entry.data.demo}
+                  title={entry.data.title}
+                />
+              ) : null}
+              {entry.body ? (
+                <div class="prose mt-4 text-pretty">
+                  <Content />
+                </div>
+              ) : entry.data.description ? (
+                <div class="prose mt-4 text-pretty">
+                  <blockquote>{entry.data.description}</blockquote>
+                </div>
+              ) : null}
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+
+    <Pagination page={page} class="mt-16" collection="journal" />
+  </section>
+</BaseLayout>

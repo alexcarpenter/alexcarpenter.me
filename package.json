@@ -16,8 +16,8 @@
     "@astrojs/rss": "4.0.12",
     "@astrojs/sitemap": "3.6.0",
     "@shikijs/transformers": "^3.13.0",
-    "@tailwindcss/vite": "^4.1.13",
-    "astro": "5.13.9",
+    "@tailwindcss/vite": "^4.1.14",
+    "astro": "5.14.1",
     "astro-icon": "^1.1.5",
     "class-variance-authority": "^0.7.1",
     "markdown-it": "^14.1.0",
@@ -25,7 +25,7 @@
     "sharp": "^0.34.4",
     "tailwind-merge": "3.3.1",
     "tailwindcss": "4.1.7",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
