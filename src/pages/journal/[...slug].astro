@@ -3,13 +3,12 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
 import ExternalLink from "@/components/ExternalLink.astro";
-import Preview from "@/components/Preview.astro";
 
 export async function getStaticPaths() {
   const entries = await getCollection("journal");
-  return entries.map((n) => ({
-    params: { slug: n.id },
-    props: n,
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: entry,
   }));
 }
 
