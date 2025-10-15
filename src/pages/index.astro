@@ -67,6 +67,55 @@ const renderedRecommendations = await Promise.all(
   </header>
 
   <section class="container mt-16">
+    <SectionHeading color="teal" id="projects">Projects</SectionHeading>
+    <ul
+      class="border-separator mt-8 grid grid-cols-1 gap-x-8 border-t pt-8 sm:grid-cols-2"
+    >
+      <li>
+        <div
+          class="border-separator mb-4 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
+        >
+          <svg viewBox="0 0 378 83" fill="none" class="w-24">
+            <title>R-UI</title>
+            <path
+              d="M0.8 -1.19209e-06H62.9C82.5 -1.19209e-06 94 9.59999 94 25.9C94 38.4 86 47.1 72.8 49.9L95.7 80H62.2L41.8 50.9H30.2V80H0.8V-1.19209e-06ZM30.2 36.1H54.8C61 36.1 64.7 33.2 64.7 28.2C64.7 23.2 61 20.3 54.8 20.3H30.2V36.1ZM100.341 30.8H234.341V49.2H100.341V30.8ZM243.183 -1.19209e-06H272.583V45.2C272.583 54.9 279.383 60.4 290.883 60.4C302.383 60.4 309.183 54.7 309.183 44.7V-1.19209e-06H337.183V45.7C337.183 69.3 320.583 82.3 290.183 82.3C259.883 82.3 243.183 69.3 243.183 45.7V-1.19209e-06ZM347.87 -1.19209e-06H377.27V80H347.87V-1.19209e-06Z"
+              fill="currentColor"></path>
+          </svg>
+        </div>
+        <ExternalLink
+          href="https://www.resilient-ui.com"
+          text="Resilient—UI"
+          class="font-medium"
+        />
+        <p class="text-muted-foreground mt-2 text-pretty">
+          A shadcn library and resource around building resilient UI's.
+        </p>
+      </li>
+
+      <li>
+        <div
+          class="border-separator mb-4 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
+        >
+          <svg viewBox="0 0 600 598" fill="none" class="h-12">
+            <title>IBMOC</title>
+            <path
+              d="M0 2.50752H38.6373V594.866H0V2.50752ZM144.119 295.866C162.394 299.626 170.225 315.298 170.225 337.864V539.078C170.225 575.434 150.907 594.866 120.623 594.866H64.7556V2.50752H121.146C149.862 2.50752 168.137 21.3121 168.137 55.7882V251.361C168.137 274.553 161.871 288.344 144.119 292.731V295.866ZM116.446 44.5052H103.393V275.807H116.446C124.8 275.807 129.5 269.539 129.5 257.002V62.0569C129.5 50.1467 124.8 44.5052 116.446 44.5052ZM115.924 314.671H103.393V552.867H115.924C125.844 552.867 131.066 545.973 131.066 532.183V334.73C131.066 321.566 125.844 314.671 115.924 314.671ZM269.502 422.487L274.202 280.195L289.343 2.50752H343.123V594.866H308.14L308.662 386.13L311.273 149.186H308.14L287.255 594.866H247.573L227.211 149.186H224.077L226.688 386.13V594.866H192.228V2.50752H247.052L261.67 280.195L266.37 422.487H269.502ZM419.818 0C454.278 0 472.552 22.5658 472.552 63.9371V532.809C472.552 574.807 453.756 598 419.818 598C385.357 598 367.083 574.807 367.083 532.809V63.9371C367.083 22.5658 385.357 0 419.818 0ZM432.871 537.197V60.1759C432.871 48.8929 428.172 41.3713 419.818 41.3713C411.464 41.3713 406.764 48.2665 406.764 60.1759V537.197C406.764 549.107 411.986 556.629 419.818 556.629C427.65 556.629 432.871 548.48 432.871 537.197ZM600 308.403V537.197C600 576.688 582.248 598 548.309 598C514.372 598 495.575 574.807 495.575 532.809V63.9371C495.575 22.5658 514.372 0 548.309 0C582.248 0 600 20.6857 600 59.5494V260.763H560.841V60.1759C560.841 48.8929 556.663 41.3713 548.309 41.3713C540.477 41.3713 535.256 48.2665 535.256 60.1759V537.197C535.256 549.107 540.477 556.629 548.309 556.629C556.663 556.629 560.841 548.48 560.841 537.197V308.403H600Z"
+              fill="currentColor"></path>
+          </svg>
+        </div>
+        <ExternalLink
+          href="https://ibrewmyown.coffee/"
+          text="I Brew My Own Coffee"
+          class="font-medium"
+        />
+        <p class="text-muted-foreground mt-2 text-pretty">
+          A curated collection of home coffee setups.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="container mt-16">
     <SectionHeading color="purple" id="experience">Experience</SectionHeading>
     <ul>
       {
@@ -77,7 +126,7 @@ const renderedRecommendations = await Promise.all(
               Date.parse(a.job.data.startDate.toString()),
           )
           .map(({ job, Content }) => (
-            <li class="border-separator mt-8 rounded-sm border-t pt-8">
+            <li class="border-separator mt-8 border-t pt-8">
               <article>
                 <h2 class="font-medium">{job.data.company}</h2>
                 <div class="flex flex-wrap justify-between gap-x-4">
@@ -204,7 +253,7 @@ const renderedRecommendations = await Promise.all(
             ({ recommendation }) => recommendation.data.status === "visible",
           )
           .map(({ recommendation, Content }) => (
-            <li class="border-separator mt-8 rounded-sm border-t pt-8">
+            <li class="border-separator mt-8 border-t pt-8">
               <article>
                 <div class="prose text-pretty">
                   <Content />
