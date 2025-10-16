@@ -73,7 +73,7 @@ const renderedRecommendations = await Promise.all(
     >
       <li>
         <div
-          class="border-separator background-grid dark:text-foreground text-foreground mb-4 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
+          class="border-separator background-grid dark:text-foreground text-foreground relative mb-4 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
         >
           <svg
             viewBox="0 0 1035 86"
@@ -86,12 +86,19 @@ const renderedRecommendations = await Promise.all(
               fill="currentColor"></path>
           </svg>
         </div>
-        <ExternalLink
-          href="https://www.resilient-ui.com"
-          text="Resilient—UI"
-          class="font-medium"
-        />
-        <p class="text-muted-foreground mt-2 text-pretty">
+        <header class="mb-2 flex items-center justify-between gap-2">
+          <ExternalLink
+            href="https://www.resilient-ui.com"
+            text="Resilient—UI"
+            class="font-medium"
+          />
+          <abbr
+            title="Work In Progress"
+            class="inline-flex h-5 items-center justify-center rounded-full bg-teal-100 px-2 font-mono text-xs font-medium text-teal-600 uppercase dark:bg-teal-950 dark:text-teal-400"
+            style="text-decoration: none;">WIP</abbr
+          >
+        </header>
+        <p class="text-muted-foreground text-pretty">
           A shadcn library and resource around building resilient UI's.
         </p>
       </li>
