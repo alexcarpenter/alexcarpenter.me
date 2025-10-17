@@ -40,5 +40,11 @@
     "link": "https://github.com/shadcn-ui/ui/pull/7944",
     "description": "Add support for css imports",
     "status": "closed"
+  },
+  {
+    "date": "2023-09-03",
+    "link": "https://github.com/rauchg/blog/pull/133",
+    "description": "Defines color scheme when in light/dark modes.",
+    "status": "merged"
   }
 ]
