@@ -335,7 +335,6 @@
       var(--color-separator) 270deg 360deg
     );
     background-size: 8px 8px;
-    background-repeat: round;
   }
 
   .list-square {
