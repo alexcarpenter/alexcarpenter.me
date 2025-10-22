@@ -48,17 +48,9 @@ const renderedRecommendations = await Promise.all(
       UI Components and dashboard UI.
     </p>
     <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty">
-      In my free time, I am working on a resource around building <a
-        href="https://www.resilient-ui.com"
-        class="decoration-underline underline decoration-[0.09375rem]"
-        target="_blank"
-        rel="noopener">resilient UI's</a
-      > and curating a collection of <a
-        href="https://ibrewmyown.coffee/"
-        class="decoration-underline underline decoration-[0.09375rem]"
-        target="_blank"
-        rel="noopener">home coffee setups</a
-      >.
+      I thrive on small, highly collaborative teams that move fast and ship
+      frequently. Good design matters to me—I do my best work when I'm paired
+      with talented designers who challenge me and raise the bar.
     </p>
     <Button as="a" href="/notes" class="mt-8"
       >View notes
@@ -214,6 +206,11 @@ const renderedRecommendations = await Promise.all(
                     type: "conjunction",
                   }).format(job.data.tools)}
                 </p>
+
+                {/* <Button class="mt-4" as="button">
+                  View highlight reel
+                  <Icon name="chevron-right" aria-hidden="true" class="-mr-1" />
+                </Button> */}
               </article>
             </li>
           ))
