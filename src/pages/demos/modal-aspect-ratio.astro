@@ -1,0 +1,17 @@
+---
+import DemoLayout from "@/layouts/DemoLayout.astro";
+---
+
+<DemoLayout>
+  <div class="box bg-grid"></div>
+</DemoLayout>
+
+<style>
+  .box {
+    margin: auto;
+    position: relative;
+    aspect-ratio: 3 / 2;
+    height: min(calc(100vh - 4rem), calc((100vw - 4rem) * 2 / 3));
+    border-radius: var(--radius-lg);
+  }
+</style>

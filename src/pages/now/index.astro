@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+const entries = await getCollection("now");
+const sortedEntries = entries.sort(
+  (a, b) =>
+    Date.parse(b.data.published.toString()) -
+    Date.parse(a.data.published.toString()),
+);
+const renderedEntries = await Promise.all(
+  sortedEntries.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  }),
+);
+---
+
+<BaseLayout title="Now">
+  <header class="container mt-4">
+    <span
+      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
+    >
+      <h1 class="inline">Now</h1>
+      <span class="text-muted-foreground"> Now Now.</span>
+    </span>
+  </header>
+  <section class="container mt-16">
+    <ul>
+      {
+        renderedEntries.map(({ entry, Content }) => (
+          <li class="not-first:border-separator grid grid-cols-[25%_1fr] gap-x-8 gap-y-4 not-first:mt-16 not-first:border-t not-first:pt-16">
+            <time datetime="" class="text-muted-foreground">
+              {entry.data.published.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+              })}
+            </time>
+            <div class="prose">
+              <Content />
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

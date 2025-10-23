@@ -45,6 +45,13 @@ const jobs = defineCollection({
   }),
 });
 
+const now = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/now" }),
+  schema: z.object({
+    published: z.coerce.date(),
+  }),
+});
+
 const recommendations = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/recommendations" }),
   schema: z.object({
@@ -111,6 +118,7 @@ export const collections = {
   jobs,
   journal,
   notes,
+  now,
   ossContributions,
   recommendations,
   rolodex,
