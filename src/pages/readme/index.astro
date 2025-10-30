@@ -15,4 +15,60 @@ import { Icon } from "astro-icon/components";
       like to work.
     </p>
   </header>
+
+  <section class="container mt-16">
+    <ul class="space-y-8">
+      {
+        [
+          {
+            title: "Working hours",
+            content:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus excepturi sequi magnam quam, inventore minima voluptatem qui aliquam ut doloremque deleniti voluptate quos, animi ipsam? Pariatur ad qui quod modi.",
+          },
+          {
+            title: "Work environment",
+            content:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus excepturi sequi magnam quam, inventore minima voluptatem qui aliquam ut doloremque deleniti voluptate quos, animi ipsam? Pariatur ad qui quod modi.",
+          },
+          {
+            title: "Communication",
+            content:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus excepturi sequi magnam quam, inventore minima voluptatem qui aliquam ut doloremque deleniti voluptate quos, animi ipsam? Pariatur ad qui quod modi.",
+          },
+          {
+            title: "Collaboration",
+            content:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus excepturi sequi magnam quam, inventore minima voluptatem qui aliquam ut doloremque deleniti voluptate quos, animi ipsam? Pariatur ad qui quod modi.",
+          },
+          {
+            title: "Providing feedback",
+            content:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus excepturi sequi magnam quam, inventore minima voluptatem qui aliquam ut doloremque deleniti voluptate quos, animi ipsam? Pariatur ad qui quod modi.",
+          },
+          {
+            title: "Things I value",
+            content:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus excepturi sequi magnam quam, inventore minima voluptatem qui aliquam ut doloremque deleniti voluptate quos, animi ipsam? Pariatur ad qui quod modi.",
+          },
+          {
+            title: "Things I struggle with",
+            content:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus excepturi sequi magnam quam, inventore minima voluptatem qui aliquam ut doloremque deleniti voluptate quos, animi ipsam? Pariatur ad qui quod modi.",
+          },
+        ].map(({ title, content }, index) => {
+          return (
+            <li class="border-separator grid gap-x-8 gap-y-2 border-t pt-8 sm:grid-cols-[25%_1fr]">
+              <span class="text-muted-foreground font-mono text-sm/[1.5rem]">
+                {new Intl.NumberFormat("en-US", {
+                  minimumIntegerDigits: 2,
+                }).format(index + 1) + "."}
+              </span>
+              <h2 class="text-base font-medium">{title}</h2>
+              <p class="text-muted-foreground sm:col-start-2">{content}</p>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
 </BaseLayout>
