@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
 const meta = [
   { title: "Current title", description: "Senior UI Engineer" },
   { title: "Location", description: "Grand Rapids, MI" },
@@ -13,11 +14,11 @@ const items = [
 <BaseLayout title="README">
   <header class="container mt-4">
     <h1
-      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
+      class="flex max-w-[40ch] items-center gap-x-2 text-2xl leading-tight font-medium tracking-tight"
     >
-      README.md
+      <Icon name="terminal" />README.md
     </h1>
-    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty">
+    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-balance">
       This is my user manual, a quick way to know a little about me and how I
       like to work.
     </p>
@@ -36,9 +37,9 @@ const items = [
     </dl>
   </section>
 
-  <section class="container mt-8">
+  <!-- <section class="container mt-8">
     <ul class="marker:text-muted-foreground flex list-decimal flex-col gap-y-2">
       {items.map((item) => <li>{item}</li>)}
     </ul>
-  </section>
+  </section> -->
 </BaseLayout>

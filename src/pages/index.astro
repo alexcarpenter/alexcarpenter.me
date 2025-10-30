@@ -52,10 +52,13 @@ const renderedRecommendations = await Promise.all(
       frequently. Good design matters to me—I do my best work when I'm paired
       with talented designers who challenge me and raise the bar.
     </p>
-    <Button as="a" href="/notes" class="mt-8"
-      >View notes
-      <Icon name="chevron-right" aria-hidden="true" class="-mr-1" />
-    </Button>
+    <div class="mt-8 flex gap-x-2">
+      <Button as="a" href="/notes">View notes </Button>
+      <!-- <Button as="a" href="/readme" variant="ghost" class="font-mono text-sm">
+        <Icon name="terminal" class="size-4" aria-hidden="true" />
+        README
+      </Button> -->
+    </div>
   </header>
 
   <section class="container mt-16">

@@ -9,6 +9,8 @@ const buttonVariants = cva(
       variant: {
         default:
           "[&:is(a,button)]:hover:bg-separator border-separator border bg-white dark:bg-neutral-900",
+        ghost:
+          "[&:is(a,button)]:hover:bg-separator border-transparent border text-muted-foreground [&:is(a,button)]:hover:text-foreground",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
