@@ -1,14 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
-const meta = [
-  { title: "Current title", description: "Senior UI Engineer" },
-  { title: "Location", description: "Grand Rapids, MI" },
-  { title: "Working hours", description: "9am-5pm EST." },
-];
-const items = [
-  "I enjoy working on small collaborative teams that value communication and feedback.",
-];
 ---
 
 <BaseLayout title="README">
@@ -23,23 +15,4 @@ const items = [
       like to work.
     </p>
   </header>
-
-  <section class="container mt-8">
-    <dl class="grid grid-cols-[25%_1fr] gap-x-8 gap-y-4">
-      {
-        meta.map((item) => (
-          <Fragment>
-            <dt class="text-muted-foreground">{item.title}</dt>
-            <dd>{item.description}</dd>
-          </Fragment>
-        ))
-      }
-    </dl>
-  </section>
-
-  <!-- <section class="container mt-8">
-    <ul class="marker:text-muted-foreground flex list-decimal flex-col gap-y-2">
-      {items.map((item) => <li>{item}</li>)}
-    </ul>
-  </section> -->
 </BaseLayout>
