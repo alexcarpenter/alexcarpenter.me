@@ -9,7 +9,7 @@
     "date": "2025-09-29",
     "link": "https://github.com/vercel/ai-chatbot/pull/1252",
     "description": "Ensure both PureModelSelectorCompact and VisibilitySelector have visible outlines when focus visible.",
-    "status": "open"
+    "status": "merged"
   },
   {
     "date": "2025-09-29",
