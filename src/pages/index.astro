@@ -316,57 +316,83 @@ const renderedRecommendations = await Promise.all(
       <abbr title="Open source software" class="no-underline">OSS</abbr> Contributions
     </SectionHeading>
 
-    <ul class="mt-8 flex flex-col gap-y-4">
-      {
-        ossContributions.map((contribution) => {
-          const match = contribution.data.link.match(
-            /github\.com\/([^\/]+\/[^\/]+)/,
-          );
-          const repo = match ? match[1] : null;
-          return (
-            <li class="border-separator grid grid-cols-[1fr_auto] gap-x-8 gap-y-1 border-t pt-4">
-              <header class="flex gap-x-2">
-                <span
-                  class:list={[
-                    "flex h-[1lh] items-center",
-                    {
-                      "text-green-600 dark:text-green-400":
-                        contribution.data.status === "open",
-                      "text-purple-600 dark:text-purple-400":
-                        contribution.data.status === "merged",
-                      "text-red-600 dark:text-red-400":
-                        contribution.data.status === "closed",
-                    },
-                  ]}
-                >
-                  <Icon
-                    name={(() => {
-                      switch (contribution.data.status) {
-                        case "open":
-                          return "git-pull-request-arrow";
-                        case "merged":
-                          return "git-merge";
-                        case "closed":
-                          return "git-pull-request-closed";
-                        default:
-                          const _exhaustive: never = contribution.data.status;
-                          return _exhaustive;
-                      }
-                    })()}
-                    class="size-[1em] flex-none"
-                    aria-label={`PR is ${contribution.data.status}`}
-                  />
-                </span>
-                <h3 class="font-medium tracking-tight">{repo}</h3>
-              </header>
-              <p class="text-muted-foreground col-span-2 row-start-2 text-pretty sm:col-span-1">
-                {contribution.data.description}
-              </p>
-              <ExternalLink href={contribution.data.link} text="View PR" />
-            </li>
-          );
-        })
-      }
-    </ul>
+    <div class="relative">
+      <ul class="mt-8 flex flex-col gap-y-4 mask-b-from-24">
+        {
+          ossContributions.slice(0, 5).map((contribution) => {
+            const match = contribution.data.link.match(
+              /github\.com\/([^\/]+\/[^\/]+)/,
+            );
+            const repo = match ? match[1] : null;
+            return (
+              <li class="border-separator grid grid-cols-[1fr_auto] gap-x-8 gap-y-1 border-t pt-4">
+                <header class="flex gap-x-2">
+                  <span
+                    class:list={[
+                      "flex h-[1lh] items-center",
+                      {
+                        "text-green-600 dark:text-green-400":
+                          contribution.data.status === "open",
+                        "text-purple-600 dark:text-purple-400":
+                          contribution.data.status === "merged",
+                        "text-red-600 dark:text-red-400":
+                          contribution.data.status === "closed",
+                      },
+                    ]}
+                  >
+                    <Icon
+                      name={(() => {
+                        switch (contribution.data.status) {
+                          case "open":
+                            return "git-pull-request-arrow";
+                          case "merged":
+                            return "git-merge";
+                          case "closed":
+                            return "git-pull-request-closed";
+                          default:
+                            const _exhaustive: never = contribution.data.status;
+                            return _exhaustive;
+                        }
+                      })()}
+                      class="size-[1em] flex-none"
+                      aria-label={`PR is ${contribution.data.status}`}
+                    />
+                  </span>
+                  <h3 class="font-medium tracking-tight">{repo}</h3>
+                </header>
+                <p class="text-muted-foreground col-span-2 row-start-2 text-pretty sm:col-span-1">
+                  {contribution.data.description}
+                </p>
+                <ExternalLink href={contribution.data.link} text="View PR" />
+              </li>
+            );
+          })
+        }
+      </ul>
+      <div
+        class="pointer-events-none absolute inset-x-0 bottom-0 isolate h-36"
+        aria-hidden="true"
+      >
+        {
+          Array.from({ length: 5 }, (_, i) => {
+            const blur = `blur(${Math.pow(2, i - 1)}px)`;
+            return (
+              <div
+                style={{
+                  WebkitBackdropFilter: blur,
+                  backdropFilter: blur,
+                }}
+                class="absolute inset-0 rotate-180 [mask-image:radial-gradient(closest-side,black,transparent)] [mask-position:bottom,center] [mask-repeat:no-repeat]"
+              />
+            );
+          })
+        }
+      </div>
+      <div
+        class="absolute inset-x-0 bottom-0 flex h-36 items-center justify-center"
+      >
+        <Button as="a" href="/">Follow on GitHub</Button>
+      </div>
+    </div>
   </section>
 </BaseLayout>
