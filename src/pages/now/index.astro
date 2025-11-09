@@ -30,7 +30,10 @@ const renderedEntries = await Promise.all(
       {
         renderedEntries.map(({ entry, Content }) => (
           <li class="not-first:border-separator grid grid-cols-[25%_1fr] gap-x-8 gap-y-4 not-first:mt-16 not-first:border-t not-first:pt-16">
-            <time datetime="" class="text-muted-foreground">
+            <time
+              datetime={entry.data.published.toISOString()}
+              class="text-muted-foreground"
+            >
               {entry.data.published.toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
