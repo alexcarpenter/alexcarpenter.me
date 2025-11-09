@@ -29,7 +29,7 @@ const renderedEntries = await Promise.all(
     <ul>
       {
         renderedEntries.map(({ entry, Content }) => (
-          <li class="not-first:border-separator grid grid-cols-[25%_1fr] gap-x-8 gap-y-4 not-first:mt-16 not-first:border-t not-first:pt-16">
+          <li class="not-first:border-separator grid grid-cols-1 gap-8 not-first:mt-16 not-first:border-t not-first:pt-16 sm:grid-cols-[25%_1fr]">
             <time
               datetime={entry.data.published.toISOString()}
               class="text-muted-foreground"
