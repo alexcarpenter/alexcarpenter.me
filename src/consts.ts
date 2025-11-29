@@ -11,6 +11,7 @@ export const GEAR_CATEGORIES = [
   "bag",
   "coffee",
   "edc",
+  "gym",
   "home",
   "wellness",
   "kitchen",
@@ -50,6 +51,11 @@ export const GEAR_CATEGORY_MAP: Record<
     title: "Flashlights",
     description: "My favorite flashlights and lighting gear.",
     slug: "flashlights",
+  },
+  gym: {
+    title: "Home Gym",
+    description: "My home gym equipment and setup.",
+    slug: "home-gym",
   },
   wellness: {
     title: "Health & Wellness",
