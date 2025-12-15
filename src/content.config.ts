@@ -39,6 +39,7 @@ const jobs = defineCollection({
           title: z.string(),
           description: z.string().optional(),
           link: z.string(),
+          published: z.coerce.date().optional(),
         }),
       )
       .optional(),
