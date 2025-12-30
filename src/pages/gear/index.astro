@@ -43,41 +43,43 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
           </header>
 
           <ul class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {items.map((item) => {
-              return (
-                <li>
-                  <article>
-                    <p class="text-muted-foreground mb-1 flex gap-x-[1ch] font-mono text-xs tracking-widest uppercase">
-                      {item.data.favorite ? (
-                        <span class="flex h-[1lh] items-center">
-                          <Icon
-                            name="star"
-                            class="size-[1em] text-amber-500 dark:text-amber-400"
-                            title="Favorite"
+            {items
+              .filter((item) => item.data.status === "active")
+              .map((item) => {
+                return (
+                  <li>
+                    <article>
+                      <small class="text-muted-foreground mb-1 flex gap-x-[1ch] font-mono text-xs tracking-widest uppercase">
+                        {item.data.favorite ? (
+                          <span class="flex h-[1lh] items-center">
+                            <Icon
+                              name="star"
+                              class="size-[1em] text-amber-500 dark:text-amber-400"
+                              title="Favorite"
+                            />
+                          </span>
+                        ) : null}
+                        {item.data.eyebrow}
+                      </small>
+                      <h3 class="font-medium tracking-tight">
+                        {item.data.link ? (
+                          <ExternalLink
+                            href={item.data.link}
+                            text={item.data.name}
                           />
-                        </span>
-                      ) : null}
-                      {item.data.eyebrow}
-                    </p>
-                    <h3 class="font-medium tracking-tight">
+                        ) : (
+                          item.data.name
+                        )}
+                      </h3>
                       {item.data.link ? (
-                        <ExternalLink
-                          href={item.data.link}
-                          text={item.data.name}
-                        />
-                      ) : (
-                        item.data.name
-                      )}
-                    </h3>
-                    {item.data.link ? (
-                      <p class="text-muted-foreground">
-                        {new URL(item.data.link).hostname.replace("www.", "")}
-                      </p>
-                    ) : null}
-                  </article>
-                </li>
-              );
-            })}
+                        <p class="text-muted-foreground">
+                          {new URL(item.data.link).hostname.replace("www.", "")}
+                        </p>
+                      ) : null}
+                    </article>
+                  </li>
+                );
+              })}
           </ul>
         </section>
       ) : null;
