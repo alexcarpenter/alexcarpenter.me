@@ -47,7 +47,7 @@ const { title, description, category, items } = page;
             return (
               <li>
                 <article>
-                  <p class="text-muted-foreground mb-1 flex gap-x-1.5 font-mono text-xs tracking-widest uppercase">
+                  <small class="text-muted-foreground mb-1 flex gap-x-1.5 font-mono text-xs tracking-widest uppercase">
                     {item.data.favorite ? (
                       <span class="flex h-[1lh] items-center">
                         <Icon
@@ -58,8 +58,8 @@ const { title, description, category, items } = page;
                       </span>
                     ) : null}
                     {item.data.eyebrow}
-                  </p>
-                  <h3 class="font-medium tracking-tight">
+                  </small>
+                  <h2 class="font-medium tracking-tight">
                     {item.data.link ? (
                       <ExternalLink
                         href={item.data.link}
@@ -68,7 +68,7 @@ const { title, description, category, items } = page;
                     ) : (
                       item.data.name
                     )}
-                  </h3>
+                  </h2>
                   {item.data.link ? (
                     <p class="text-muted-foreground">
                       {new URL(item.data.link).hostname.replace("www.", "")}

@@ -14,13 +14,12 @@ const notes = defineCollection({
   }),
 });
 
-const journal = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/journal" }),
+const articles = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
   schema: z.object({
     published: z.coerce.date(),
-    title: z.string().optional(),
-    description: z.string().optional(),
-    link: z.string().optional(),
+    title: z.string(),
+    description: z.string(),
     tags: z.array(z.string()).optional(),
   }),
 });
@@ -73,6 +72,7 @@ const gear = defineCollection({
     link: z.string().optional(),
     category: z.enum(GEAR_CATEGORIES),
     favorite: z.boolean().default(false),
+    status: z.enum(["active", "retired"]).default("active"),
   }),
 });
 
@@ -117,7 +117,7 @@ const ossContributions = defineCollection({
 export const collections = {
   gear,
   jobs,
-  journal,
+  articles,
   notes,
   now,
   ossContributions,
