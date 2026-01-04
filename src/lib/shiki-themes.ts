@@ -1,4 +1,4 @@
-import type { ThemeRegistration } from "shiki";
+import type { ThemeRegistration } from '@shikijs/types'
 
 export const pierreDarkTheme: ThemeRegistration = {
   name: "pierre-dark",

@@ -29,6 +29,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "@shikijs/types": "^3.20.0",
     "@types/markdown-it": "^14.1.2",
     "@types/sanitize-html": "^2.16.0",
     "prettier": "^3.7.2",
