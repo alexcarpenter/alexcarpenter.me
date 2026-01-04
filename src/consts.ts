@@ -18,6 +18,7 @@ export const GEAR_CATEGORIES = [
   "knife",
   "flashlight",
   "misc",
+  "tools",
   "travel",
   "workspace",
 ] as const;
@@ -76,6 +77,11 @@ export const GEAR_CATEGORY_MAP: Record<
     title: "Knives",
     description: "Pocket knives and multi-tools.",
     slug: "knives",
+  },
+  tools: {
+    title: "Tools",
+    description: "Homeowner tools and equipment.",
+    slug: "tools",
   },
   travel: {
     title: "Travel",
