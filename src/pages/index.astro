@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
 import Button from "@/components/Button.astro";
@@ -26,34 +27,45 @@ const renderedRecommendations = await Promise.all(
 
 <BaseLayout>
   <header class="container mt-4">
+    <Image
+      src="/images/avatar.jpg"
+      width="128"
+      height="128"
+      alt="Avatar image of Alex Carpenter and son on shoulders"
+      class="float-right ms-8 mb-8 size-32 rounded-md"
+    />
     <span
-      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
+      class="block text-2xl leading-tight font-medium tracking-tight text-pretty"
     >
       <h1 class="inline">User interface engineer</h1>
       <span class="text-muted-foreground">
-        who enjoys working at the intersection of <Icon
-          name="figma-full-color"
-          class="inline h-[1.15em] align-text-bottom"
-          aria-hidden="true"
-        /> design and
-        <Icon
-          name="github"
-          class="text-foreground inline h-[1.15em] align-text-bottom"
-          aria-hidden="true"
-        /> engineering teams.
+        who enjoys working at the intersection of <span class="text-nowrap"
+          ><Icon
+            name="figma-full-color"
+            class="inline h-[1.15em] align-text-bottom"
+            aria-hidden="true"
+          /> design</span
+        > and
+        <span class="text-nowrap">
+          <Icon
+            name="github"
+            class="text-foreground inline h-[1.15em] align-text-bottom"
+            aria-hidden="true"
+          /> engineering</span
+        > teams.
       </span>
     </span>
-    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty">
+    <p class="text-muted-foreground mt-4 font-medium text-pretty">
       Currently I am a part of the SDK team at Clerk where I am working on our
       UI Components and dashboard UI.
     </p>
-    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty">
+    <p class="text-muted-foreground mt-4 font-medium text-pretty">
       I thrive on small, highly collaborative teams that move fast and ship
       frequently. Good design matters to me—I do my best work when I'm paired
       with talented designers who challenge me and raise the bar.
     </p>
     <div class="mt-8 flex gap-x-2">
-      <Button as="a" href="/notes">View notes </Button>
+      <Button as="a" href="/notes">View notes</Button>
       <!-- <Button as="a" href="/readme" variant="ghost" class="font-mono text-sm">
         <Icon name="terminal" class="size-4" aria-hidden="true" />
         README

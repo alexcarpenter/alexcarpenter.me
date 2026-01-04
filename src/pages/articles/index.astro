@@ -1,0 +1,101 @@
+---
+import { getCollection, render } from "astro:content";
+import type { Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ExternalLink from "@/components/ExternalLink.astro";
+import Pagination from "@/components/Pagination.astro";
+import { stripDatePrefix } from "@/lib/utils";
+
+const entries = await getCollection("articles");
+const sortedEntries = entries.sort(
+  (a, b) =>
+    Date.parse(b.data.published.toString()) -
+    Date.parse(a.data.published.toString()),
+);
+
+const pageSize = 20;
+const firstPageEntries = sortedEntries.slice(0, pageSize);
+const totalPages = Math.ceil(sortedEntries.length / pageSize);
+
+const page = {
+  currentPage: 1,
+  lastPage: totalPages,
+  start: 0,
+  end: Math.min(pageSize, sortedEntries.length) - 1,
+  total: sortedEntries.length,
+  data: firstPageEntries,
+  size: pageSize,
+  url: {
+    current: "/articles",
+    next: totalPages > 1 ? "/articles/2" : undefined,
+    prev: undefined,
+    first: "/articles",
+    last: `/articles/${totalPages}`,
+  },
+} satisfies Page<CollectionEntry<"articles">>;
+
+const renderedEntries = await Promise.all(
+  firstPageEntries.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  }),
+);
+---
+
+<BaseLayout
+  title="Articles"
+  description="Articles about gear, tools, and everyday life."
+>
+  <header class="container mt-4">
+    <span
+      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
+      ><h1 class="inline">Articles</h1>
+      <span class="text-muted-foreground"
+        >about gear, tools, and everyday life.</span
+      ></span
+    >
+  </header>
+
+  <section class="container mt-16">
+    <ul>
+      {
+        renderedEntries.map(({ entry }) => {
+          const slug = stripDatePrefix(entry.id);
+          return (
+            <li class="not-first:border-separator not-first:mt-16 not-first:border-t not-first:pt-16">
+              <article>
+                <time
+                  class="text-muted-foreground"
+                  datetime={entry.data.published.toISOString()}
+                >
+                  {new Date(entry.data.published).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit",
+                    weekday: "short",
+                  })}
+                </time>
+                <header class="mt-4">
+                  <h2 class="text-lg leading-tight font-medium tracking-tight">
+                    <a
+                      class="decoration-underline underline decoration-[0.09375rem]"
+                      href={`/articles/${slug}`}
+                    >
+                      {entry.data.title}
+                    </a>
+                  </h2>
+                </header>
+                <p class="text-muted-foreground mt-4">
+                  {entry.data.description}
+                </p>
+              </article>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <Pagination page={page} class="mt-16" collection="articles" />
+  </section>
+</BaseLayout>

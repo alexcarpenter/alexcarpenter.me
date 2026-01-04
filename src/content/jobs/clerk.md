@@ -1,5 +1,5 @@
 ---
-title: Senior UI Engineer
+title: Staff UI Engineer
 company: Clerk
 startDate: 2024-01-04
 projects:

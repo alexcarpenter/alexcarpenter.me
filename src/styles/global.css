@@ -1,16 +1,31 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/InterVariable.woff2') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BerkeleyMono';
+  src: url('/fonts/BerkeleyMonoVariable.woff2') format('woff');
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @variant dark (@media (prefers-color-scheme: dark));
 
 @theme {
   --font-*: initial;
   --font-sans:
-    Geist Sans, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    'Inter', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono:
-    Geist Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'BerkeleyMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
@@ -29,7 +44,7 @@
   --separator: var(--color-neutral-200);
   --underline: var(--color-neutral-300);
   --highlight: var(--color-amber-200);
-  --pre-background: var(--color-neutral-100);
+  --pre-background: var(--color-white);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -72,7 +87,7 @@
     --pre-background-color: var(--color-pre-background);
     padding-block: calc(var(--spacing) * 4);
     font-size: var(--text-sm);
-    line-height: 1.8;
+    line-height: 1.5;
     background-color: var(--pre-background-color) !important;
     border-radius: var(--radius-md);
     border: 1px solid var(--color-separator);
@@ -130,16 +145,12 @@
       }
 
       &.highlighted {
-        --line-border-color: var(--color-blue-600);
+        --line-border-color: #00cab1;
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
-          var(--pre-background-color) 90%
+          var(--pre-background-color) 80%
         );
-
-        @media (prefers-color-scheme: dark) {
-          --line-border-color: var(--color-blue-400);
-        }
 
         &::before {
           color: var(--line-border-color);
@@ -147,16 +158,13 @@
       }
 
       &.remove {
-        --line-border-color: var(--color-red-600);
+        --line-border-color: #ff2e3f;
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
-          var(--pre-background-color) 90%
+          var(--pre-background-color) 80%
         );
 
-        @media (prefers-color-scheme: dark) {
-          --line-border-color: var(--color-red-400);
-        }
 
         &::before {
           content: "-";
@@ -165,16 +173,12 @@
       }
 
       &.add {
-        --line-border-color: var(--color-green-600);
+        --line-border-color: #00cab1;
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
-          var(--pre-background-color) 90%
+          var(--pre-background-color) 80%
         );
-
-        @media (prefers-color-scheme: dark) {
-          --line-border-color: var(--color-green-400);
-        }
 
         &::before {
           content: "+";
@@ -186,6 +190,11 @@
 
   code {
     font-size: var(--text-sm);
+  }
+
+  small {
+    font-size: var(--text-xs);
+    font-weight: 500;
   }
 }
 
@@ -290,17 +299,36 @@
       margin-top: calc(var(--spacing) * 8);
     }
 
+    & > :where(p:has(small)) {
+      display: block;
+      margin-top: calc(var(--spacing) * 8);
+      margin-bottom: var(--spacing);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-widest);
+      color: var(--color-green-600);
+
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-green-400);
+      }
+
+      & + :is(h2, h3) {
+        margin-top: 0;
+      }
+    }
+
+
     & > :where(pre) {
       margin-block: calc(var(--spacing) * 8);
     }
 
     & > :where(:is(h2)) {
-      font-size: var(--text-xl);
+      font-size: var(--text-lg);
     }
 
-    & > :where(:not(:is(h2, h3))) {
+    /* & > :where(:not(:is(h2, h3))) {
       color: var(--color-muted-foreground);
-    }
+    } */
   }
 }
 
@@ -310,20 +338,6 @@
     margin-inline: auto;
     max-width: var(--container-2xl);
     padding-inline: calc(var(--spacing) * 4);
-  }
-
-  .background-angled-lines {
-    background-image: linear-gradient(
-      45deg,
-      var(--color-muted-foreground) 12.5%,
-      transparent 12.5%,
-      transparent 50%,
-      var(--color-muted-foreground) 50%,
-      var(--color-muted-foreground) 62.5%,
-      transparent 62.5%,
-      transparent 100%
-    );
-    background-size: 0.25rem 0.25rem;
   }
 
   .background-grid {
@@ -337,7 +351,9 @@
     background-size: 8px 8px;
   }
 
-  .list-square {
-    list-style-type: square;
+  .link {
+    text-decoration: underline;
+    text-decoration-color: var(--color-underline);
+    text-decoration-thickness: 0.09375rem;
   }
 }
