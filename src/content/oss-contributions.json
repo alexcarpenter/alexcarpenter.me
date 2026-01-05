@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-01-05",
+    "link": "https://github.com/facebook/stylex/pull/1439",
+    "description": "Fix confirm dialog closing when clicking inside.",
+    "status": "open"
+  },
+  {
     "date": "2026-01-04",
     "link": "https://github.com/facebook/stylex/pull/1434",
     "description": "Fixes issues in docs codeblock component where the icons were not rendering properly before the title, causing the title to not be properly aligned with the code, but also just not rendering the icon visibly.",
