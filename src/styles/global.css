@@ -145,12 +145,16 @@
       }
 
       &.highlighted {
-        --line-border-color: #00cab1;
+        --line-border-color: var(--color-blue-600);
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
-          var(--pre-background-color) 80%
+          var(--pre-background-color) 90%
         );
+
+        @media (prefers-color-scheme: dark) {
+          --line-border-color: var(--color-blue-400);
+        }
 
         &::before {
           color: var(--line-border-color);
@@ -158,13 +162,16 @@
       }
 
       &.remove {
-        --line-border-color: #ff2e3f;
+        --line-border-color: var(--color-red-600);
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
-          var(--pre-background-color) 80%
+          var(--pre-background-color) 90%
         );
 
+        @media (prefers-color-scheme: dark) {
+          --line-border-color: var(--color-red-400);
+        }
 
         &::before {
           content: "-";
@@ -173,12 +180,16 @@
       }
 
       &.add {
-        --line-border-color: #00cab1;
+        --line-border-color: var(--color-green-600);
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
-          var(--pre-background-color) 80%
+          var(--pre-background-color) 90%
         );
+
+        @media (prefers-color-scheme: dark) {
+          --line-border-color: var(--color-green-400);
+        }
 
         &::before {
           content: "+";

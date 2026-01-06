@@ -8,10 +8,6 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import rehypeExternalLinks from "rehype-external-links";
-import {
-  pierreDarkTheme,
-  pierreLightTheme,
-} from "./src/lib/shiki-themes.ts";
 
 export default defineConfig({
   site: "https://alexcarpenter.me",
@@ -23,8 +19,8 @@ export default defineConfig({
     rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
     shikiConfig: {
       themes: {
-        light: pierreLightTheme,
-        dark: pierreDarkTheme,
+        light: 'github-light-default',
+        dark: 'github-dark-default',
       },
       transformers: [
         transformerNotationDiff(),
