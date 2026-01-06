@@ -35,7 +35,7 @@ const renderedRecommendations = await Promise.all(
       class="float-right ms-8 mb-8 size-32 rounded-md max-sm:hidden"
     />
     <span
-      class="block text-2xl leading-tight font-medium tracking-tight text-pretty"
+      class="block text-2xl leading-tight font-medium tracking-tight text-balance"
     >
       <h1 class="inline">User interface engineer</h1>
       <span class="text-muted-foreground">
@@ -372,7 +372,7 @@ const renderedRecommendations = await Promise.all(
                   </span>
                   <h3 class="font-medium tracking-tight">{repo}</h3>
                 </header>
-                <p class="text-muted-foreground col-span-2 row-start-2 text-pretty sm:col-span-1">
+                <p class="text-muted-foreground col-span-2 row-start-2 line-clamp-2 text-pretty sm:col-span-1">
                   {contribution.data.description}
                 </p>
                 <ExternalLink href={contribution.data.link} text="View PR" />
