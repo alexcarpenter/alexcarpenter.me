@@ -11,13 +11,13 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quod repellat iu
 
 A bit of a surprise, but easily our favorite thing of the year was the bidet.
 
-<small>Shoes</small>
-## Altra Lone Peak 9
+<small>Robot</small>
+## eufy Robot Lawn Mower E15
 
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quod repellat iure a earum explicabo. Expedita et unde magni aliquid? Laudantium at illum eligendi dignissimos nihil, ad harum odio reiciendis.
 
-<small>Light</small>
-## VARMBLIXT LED table/wall lamp
+<small>Shoes</small>
+## Altra Lone Peak 9
 
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quod repellat iure a earum explicabo. Expedita et unde magni aliquid? Laudantium at illum eligendi dignissimos nihil, ad harum odio reiciendis.
 
