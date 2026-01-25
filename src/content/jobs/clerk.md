@@ -7,7 +7,7 @@ projects:
     link: https://github.com/clerk/javascript/pull/7310
     published: 2026-01-21
   - title: Add light-dark theme support
-    link: https://github.com/clerk/javascript/
+    link: https://github.com/clerk/javascript/pull/7560
     published: 2026-01-20
   - title: Interactive docs inline theme editing
     link: https://x.com/hybrid_alex/status/1970189970414399723
