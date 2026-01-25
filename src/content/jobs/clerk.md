@@ -3,6 +3,12 @@ title: Staff UI Engineer
 company: Clerk
 startDate: 2024-01-04
 projects:
+  - title: Add UNSAFE_PortalProvider component
+    link: https://github.com/clerk/javascript/pull/7310
+    published: 2026-01-21
+  - title: Add light-dark theme support
+    link: https://github.com/clerk/javascript/
+    published: 2026-01-20
   - title: Interactive docs inline theme editing
     link: https://x.com/hybrid_alex/status/1970189970414399723
     published: 2025-11-22
