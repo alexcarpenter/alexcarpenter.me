@@ -80,6 +80,13 @@ const metaDescription = description ? description : "UI Engineer";
       >
         <a href="/">Alex Carpenter</a>&trade;
       </p>
+      {
+        Astro.url.pathname === "/" ? (
+          <small class="text-muted-foreground text-sm">
+            (you can call me Carp though)
+          </small>
+        ) : null
+      }
     </nav>
     <main class="flex-1" id="main">
       <slot />
