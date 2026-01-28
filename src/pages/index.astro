@@ -55,12 +55,12 @@ const renderedRecommendations = await Promise.all(
         > teams.
       </span>
     </span>
-    <p class="text-muted-foreground mt-4 font-medium text-pretty">
+    <p class="text-muted-foreground mt-4 text-pretty">
       I'm on the SDK team at Clerk, working on UI components and the dashboard.
       Currently focused on improving our component APIs and developer
       experience.
     </p>
-    <p class="text-muted-foreground mt-4 font-medium text-pretty">
+    <p class="text-muted-foreground mt-4 text-pretty">
       I do my best work on small, highly collaborative teams that ship often. I
       care about design and work well with designers who push me.
     </p>
@@ -212,11 +212,9 @@ const renderedRecommendations = await Promise.all(
             <li class="border-separator mt-8 border-t pt-8">
               <article>
                 <h2 class="font-medium">{job.data.company}</h2>
-                <div class="flex flex-wrap justify-between gap-x-4">
-                  <p class="text-muted-foreground font-medium">
-                    {job.data.title}
-                  </p>
-                  <p class="text-muted-foreground font-medium">
+                <div class="text-muted-foreground flex flex-wrap justify-between gap-x-4">
+                  <p>{job.data.title}</p>
+                  <p>
                     <time datetime={job.data.startDate.toISOString()}>
                       {new Date(job.data.startDate).toLocaleDateString(
                         "en-US",
@@ -356,7 +354,7 @@ const renderedRecommendations = await Promise.all(
                     ))}
                   </div>
                   <p class="mt-2 font-medium">{recommendation.data.name}</p>
-                  <p class="text-muted-foreground font-medium">
+                  <p class="text-muted-foreground">
                     {recommendation.data.title}, {recommendation.data.company}
                   </p>
                 </div>

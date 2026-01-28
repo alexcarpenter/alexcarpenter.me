@@ -63,7 +63,7 @@ const renderedNotes = await Promise.all(
             <article>
               <a
                 href={`/notes/${note.id}`}
-                class="text-muted-foreground inline-block font-medium"
+                class="text-muted-foreground inline-block"
               >
                 <time datetime={note.data.published.toISOString()}>
                   {new Date(note.data.published).toLocaleDateString("en-US", {
