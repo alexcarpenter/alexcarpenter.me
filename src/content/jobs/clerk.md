@@ -3,6 +3,9 @@ title: Staff UI Engineer
 company: Clerk
 startDate: 2024-01-04
 projects:
+  - title: Improve RTL support within components
+    link: https://github.com/clerk/javascript/pull/7718
+    published: 2026-01-30
   - title: Add UNSAFE_PortalProvider component
     link: https://github.com/clerk/javascript/pull/7310
     published: 2026-01-21
