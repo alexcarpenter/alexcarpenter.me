@@ -1,4 +1,5 @@
 ---
+status: retired
 eyebrow: Espresso machine
 name: Breville Barista Express Espresso Machine
 category: coffee
