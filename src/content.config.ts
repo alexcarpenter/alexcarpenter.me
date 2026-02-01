@@ -14,6 +14,14 @@ const notes = defineCollection({
   }),
 });
 
+const changelog = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/changelog" }),
+  schema: z.object({
+    published: z.coerce.date(),
+    version: z.string(),
+  }),
+});
+
 const articles = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
   schema: z.object({
@@ -115,6 +123,7 @@ const ossContributions = defineCollection({
 });
 
 export const collections = {
+  changelog,
   gear,
   jobs,
   articles,

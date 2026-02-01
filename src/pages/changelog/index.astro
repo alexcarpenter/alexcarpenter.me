@@ -1,65 +1,67 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Markdown from "@/components/Markdown.astro";
 import { version } from "../../../package.json";
+import { getCollection, render } from "astro:content";
+
+const entries = await getCollection("changelog");
+const renderedEntries = await Promise.all(
+  entries.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  }),
+);
+
+function parseVersion(version: string) {
+  const parts = version.split(".").map(Number);
+  return {
+    major: parts[0] || 0,
+    minor: parts[1] || 0,
+    patch: parts[2] || 0,
+    full: version,
+  };
+}
+
+const groupedByMajor = renderedEntries.reduce(
+  (acc, { entry, Content }) => {
+    const parsed = parseVersion(entry.data.version);
+    const major = parsed.major;
+
+    if (!acc[major]) {
+      acc[major] = [];
+    }
+
+    acc[major].push({ entry, Content, parsed });
+    return acc;
+  },
+  {} as Record<
+    number,
+    Array<{ entry: any; Content: any; parsed: ReturnType<typeof parseVersion> }>
+  >,
+);
+
+const sortedMajorVersions = Object.keys(groupedByMajor)
+  .map(Number)
+  .sort((a, b) => b - a);
+
+sortedMajorVersions.forEach((major) => {
+  groupedByMajor[major].sort((a, b) => {
+    if (b.parsed.minor !== a.parsed.minor) {
+      return b.parsed.minor - a.parsed.minor;
+    }
+    return b.parsed.patch - a.parsed.patch;
+  });
+});
 
 const meta = {
   title: "Changelog",
   description:
     "All notable changes to this project will be documented in this file.",
 };
-
-const items = [
-  {
-    date: "2026-02-01",
-    description: "Added [readme page](/readme)",
-  },
-  {
-    date: "2025-12-27",
-    description: "Added [articles page](/articles)",
-  },
-  {
-    date: "2025-09-14",
-    description: "Added [rolodex page](/rolodex)",
-  },
-  {
-    date: "2025-08-23",
-    description: "Added [gear page](/gear)",
-  },
-  {
-    date: "2025-07-06",
-    description: "Added tags [index page](/tags)",
-  },
-  {
-    date: "2025-06-27",
-    description: "Added notes [RSS feed](/notes/rss.xml)",
-  },
-] as const;
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
   <article class="container mt-4">
-    <dl class="flex">
-      <dt class="sr-only">Current version</dt>
-      <dd class="text-muted-foreground inline-block">v{version}</dd>
-      <!-- <dt class="sr-only">Last updated</dt>
-      <dd>
-        <time
-          class="text-muted-foreground inline-block"
-          datetime={new Date(items.at(0).date).toISOString()}
-        >
-          {
-            new Date(items.at(0).date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "short",
-              day: "2-digit",
-              weekday: "short",
-            })
-          }
-        </time>
-      </dd> -->
-    </dl>
-    <header class="mt-4">
+    <header>
       <h1
         class="max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
       >
@@ -71,24 +73,45 @@ const items = [
         {meta.description}
       </p>
     </header>
-    <ul class="mt-8 space-y-4">
+    <ol class="mt-8 space-y-8">
       {
-        items.map((entry) => {
-          const date = new Date(entry.date);
+        sortedMajorVersions.map((major) => {
+          const versions = groupedByMajor[major];
+          const latestVersion = versions[0];
           return (
             <li class="grid grid-cols-1 gap-x-8 sm:grid-cols-[25%_1fr]">
-              <time class="text-muted-foreground" datetime={date.toISOString()}>
-                {new Date(date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "2-digit",
-                })}
-              </time>
-              <Markdown content={entry.description} />
+              <div class="text-muted-foreground">
+                <h2 class="text-green-600 dark:text-green-400">
+                  v{latestVersion.entry.data.version}
+                </h2>
+              </div>
+              <div>
+                <ol class="space-y-6">
+                  {versions.map(({ entry, Content }) => {
+                    return (
+                      <li>
+                        <time
+                          datetime={entry.data.published.toISOString()}
+                          class="text-muted-foreground"
+                        >
+                          {entry.data.published.toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "2-digit",
+                          })}
+                        </time>
+                        <div class="prose mt-1">
+                          <Content />
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
             </li>
           );
         })
       }
-    </ul>
+    </ol>
   </article>
 </BaseLayout>
