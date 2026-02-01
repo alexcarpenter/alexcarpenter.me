@@ -308,6 +308,30 @@
       color: var(--color-muted-foreground);
       font-weight: var(--font-weight-medium);
     }
+
+    & :where(table) {
+      table-layout: fixed;
+      width: 100%;
+      border: 1px solid var(--color-separator);
+      font-size: var(--text-sm);
+
+      th,
+      td {
+        padding: calc(var(--spacing) * 2);
+
+        &:not(:last-child) {
+          border-right: 1px solid var(--color-separator);
+        }
+      }
+
+      th {
+        font-weight: var(--font-weight-medium);
+      }
+
+      td {
+        border-top: 1px solid var(--color-separator);
+      }
+    }
   }
 
   .prose-longform {
