@@ -59,58 +59,46 @@ const meta = {
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
-  <article class="container mt-4">
-    <header>
-      <h1
-        class="max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
-      >
-        {meta.title}
-      </h1>
-      <p
-        class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty"
-      >
-        {meta.description}
-      </p>
-    </header>
-    <ol class="mt-8 space-y-8">
-      {
-        sortedMajorVersions.map((major) => {
-          const versions = groupedByMajor[major];
-          const latestVersion = versions[0];
-          return (
-            <li class="grid grid-cols-1 gap-x-8 sm:grid-cols-[25%_1fr]">
-              <div class="text-muted-foreground">
-                <h2 class="text-green-600 dark:text-green-400">
-                  v{latestVersion.entry.data.version}
-                </h2>
-              </div>
-              <div>
-                <ol class="space-y-6">
-                  {versions.map(({ entry, Content }) => {
-                    return (
-                      <li>
-                        <time
-                          datetime={entry.data.published.toISOString()}
-                          class="text-muted-foreground"
-                        >
-                          {entry.data.published.toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "short",
-                            day: "2-digit",
-                          })}
-                        </time>
-                        <div class="prose mt-1">
-                          <Content />
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ol>
-              </div>
-            </li>
-          );
-        })
-      }
-    </ol>
-  </article>
+  <header class="container mt-4">
+    <h1 class="max-w-[40ch] text-2xl leading-tight font-medium tracking-tight">
+      {meta.title}
+    </h1>
+    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty">
+      {meta.description}
+    </p>
+  </header>
+  {
+    sortedMajorVersions.map((major) => {
+      const versions = groupedByMajor[major];
+      const latestVersion = versions[0];
+      return (
+        <section class="container mt-16 grid grid-cols-1 gap-8 sm:grid-cols-[25%_1fr]">
+          <h2 class="text-green-600 dark:text-green-400">
+            v{latestVersion.entry.data.version}
+          </h2>
+          <ol class="space-y-6">
+            {versions.map(({ entry, Content }) => {
+              return (
+                <li>
+                  <time
+                    datetime={entry.data.published.toISOString()}
+                    class="text-muted-foreground"
+                  >
+                    {entry.data.published.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                    })}
+                  </time>
+                  <div class="prose mt-1">
+                    <Content />
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      );
+    })
+  }
 </BaseLayout>
