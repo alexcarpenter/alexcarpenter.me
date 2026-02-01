@@ -13,7 +13,7 @@ projects:
     link: https://github.com/clerk/javascript/pull/7560
     published: 2026-01-20
   - title: Interactive docs inline theme editing
-    link: https://x.com/hybrid_alex/status/1970189970414399723
+    link: https://x.com/alexcarp_me/status/1970189970414399723
     published: 2025-11-22
   - title: shadcn/ui registry
     description: Get started with Clerk authentication in Next.js apps using the shadcn/ui CLI
