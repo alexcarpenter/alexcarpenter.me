@@ -17,19 +17,18 @@ const renderedEntries = await Promise.all(
 ---
 
 <BaseLayout title="Now">
-  <header class="container mt-4">
-    <span
-      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
+  <header class="container">
+    <h1
+      class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]"
     >
-      <h1 class="inline">Now</h1>
-      <span class="text-muted-foreground"> Now Now.</span>
-    </span>
+      Now <span class="text-muted-foreground"> Now Now.</span>
+    </h1>
   </header>
-  <section class="container mt-16">
+  <section class="container mt-20">
     <ul>
       {
         renderedEntries.map(({ entry, Content }) => (
-          <li class="not-first:border-separator grid grid-cols-1 gap-8 not-first:mt-16 not-first:border-t not-first:pt-16 sm:grid-cols-[25%_1fr]">
+          <li class="not-first:border-separator grid grid-cols-1 gap-10 not-first:mt-20 not-first:border-t not-first:pt-20 sm:grid-cols-[25%_1fr]">
             <time
               datetime={entry.data.published.toISOString()}
               class="text-muted-foreground"

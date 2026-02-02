@@ -215,13 +215,6 @@
       margin-top: calc(var(--spacing) * 5);
     }
 
-    /* & > :where(* + pre),
-    & > :where(pre + *),
-    & > :where(* + iframe),
-    & > :where(iframe + *) {
-      margin-top: calc(var(--spacing) * 6);
-    } */
-
     & :where(h1, h2, h3) {
       font-weight: var(--font-weight-medium);
       letter-spacing: var(--tracking-tight);
@@ -241,7 +234,7 @@
     }
 
     & > :where(:is(ul, ol)) > li + li {
-      margin-top: var(--spacing);
+      margin-top: calc(var(--spacing) * 2);
     }
 
     & :where(ol) {
