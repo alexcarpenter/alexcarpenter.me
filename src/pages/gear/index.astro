@@ -21,82 +21,82 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
       >
     </h1>
   </header>
-</BaseLayout>
-{
-  Object.keys(GEAR_CATEGORY_MAP).map((category) => {
-    const { title, description, slug } = GEAR_CATEGORY_MAP[category];
-    const items = gear
-      .filter((item) => item.data.category === category)
-      .sort((a, b) => {
-        return a.data.name.localeCompare(b.data.name);
-      });
-    return items.length > 0 ? (
-      <section class="container mt-20">
-        <header class="border-separator mb-10 border-b pb-10">
-          <h2
-            class="scroll-mt-20 text-lg font-medium tracking-tight text-green-600 dark:text-green-400"
-            id={category}
-          >
-            <a href={`/gear/${slug}`}>{title}</a>
-          </h2>
-          <p class="text-muted-foreground">{description}</p>
-        </header>
+  {
+    Object.keys(GEAR_CATEGORY_MAP).map((category) => {
+      const { title, description, slug } = GEAR_CATEGORY_MAP[category];
+      const items = gear
+        .filter((item) => item.data.category === category)
+        .sort((a, b) => {
+          return a.data.name.localeCompare(b.data.name);
+        });
+      return items.length > 0 ? (
+        <section class="container mt-20">
+          <header class="border-separator mb-10 border-b pb-10">
+            <h2
+              class="scroll-mt-20 text-lg font-medium tracking-tight text-green-600 dark:text-green-400"
+              id={category}
+            >
+              <a href={`/gear/${slug}`}>{title}</a>
+            </h2>
+            <p class="text-muted-foreground">{description}</p>
+          </header>
 
-        <ul class="grid grid-cols-1 gap-10 sm:grid-cols-2">
-          {items
-            .filter((item) => item.data.status === "active")
-            .map((item) => {
-              return (
-                <li>
-                  <article>
-                    <small class="text-muted-foreground mb-2 flex gap-x-[1ch] font-mono text-xs tracking-widest uppercase">
-                      {item.data.favorite ? (
-                        <span class="flex h-[1lh] items-center">
-                          <Icon
-                            name="star"
-                            class="size-[1em] text-amber-500 dark:text-amber-400"
-                            title="Favorite"
+          <ul class="grid grid-cols-1 gap-10 sm:grid-cols-2">
+            {items
+              .filter((item) => item.data.status === "active")
+              .map((item) => {
+                return (
+                  <li>
+                    <article>
+                      <small class="text-muted-foreground mb-2 flex gap-x-[1ch] font-mono text-xs tracking-widest uppercase">
+                        {item.data.favorite ? (
+                          <span class="flex h-[1lh] items-center">
+                            <Icon
+                              name="star"
+                              class="size-[1em] text-amber-500 dark:text-amber-400"
+                              title="Favorite"
+                            />
+                          </span>
+                        ) : null}
+                        {item.data.eyebrow}
+                      </small>
+                      <h3 class="font-medium tracking-tight">
+                        {item.data.link ? (
+                          <ExternalLink
+                            href={item.data.link}
+                            text={item.data.name}
                           />
-                        </span>
-                      ) : null}
-                      {item.data.eyebrow}
-                    </small>
-                    <h3 class="font-medium tracking-tight">
+                        ) : (
+                          item.data.name
+                        )}
+                      </h3>
                       {item.data.link ? (
-                        <ExternalLink
-                          href={item.data.link}
-                          text={item.data.name}
-                        />
-                      ) : (
-                        item.data.name
-                      )}
-                    </h3>
-                    {item.data.link ? (
-                      <p class="text-muted-foreground">
-                        {new URL(item.data.link).hostname.replace("www.", "")}
-                      </p>
-                    ) : null}
-                  </article>
-                </li>
-              );
-            })}
-        </ul>
-      </section>
-    ) : null;
-  })
-}
+                        <p class="text-muted-foreground">
+                          {new URL(item.data.link).hostname.replace("www.", "")}
+                        </p>
+                      ) : null}
+                    </article>
+                  </li>
+                );
+              })}
+          </ul>
+        </section>
+      ) : null;
+    })
+  }
 
-<section class="container mt-20">
-  <div
-    class="text-muted-foreground relative rounded-md bg-white p-4 text-sm dark:bg-neutral-900"
-  >
-    <p>
-      Note this page makes use of affiliate links. If you choose to purchase
-      something through one of these links, I may receive a small commission at
-      no extra cost to you. Affiliate links are clearly marked with <mark
-        class="text-foreground bg-transparent">amzn.to</mark
-      >
-      under the product name.
-    </p>
-  </div>
-</section>
+  <section class="container mt-20">
+    <div
+      class="text-muted-foreground relative rounded-md bg-white p-4 text-sm dark:bg-neutral-900"
+    >
+      <p>
+        Note this page makes use of affiliate links. If you choose to purchase
+        something through one of these links, I may receive a small commission
+        at no extra cost to you. Affiliate links are clearly marked with <mark
+          class="text-foreground bg-transparent">amzn.to</mark
+        >
+        under the product name.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

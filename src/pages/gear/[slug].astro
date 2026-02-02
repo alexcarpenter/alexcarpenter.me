@@ -29,13 +29,13 @@ const { title, description, category, items } = page;
 ---
 
 <BaseLayout title={title}>
-  <header class="container mt-4">
+  <header class="container">
     <h1
       class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]"
     >
       {title}
     </h1>
-    <p class="text-muted-foreground mt-5 text-lg text-pretty">{description}</p>
+    <p class="text-muted-foreground mt-2 text-lg text-pretty">{description}</p>
   </header>
   {
     items.length > 0 ? (
