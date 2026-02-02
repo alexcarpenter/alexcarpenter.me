@@ -2,6 +2,7 @@
 title: Staff UI Engineer
 company: Clerk
 startDate: 2024-01-04
+logomark: true
 projects:
   - title: Improve RTL support within components
     link: https://github.com/clerk/javascript/pull/7718

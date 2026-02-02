@@ -189,60 +189,68 @@ const renderedRecommendations = await Promise.all(
           )
           .map(({ job, Content }) => (
             <li class="border-separator mt-10 border-t pt-10">
-              <article>
-                <h2 class="font-medium">{job.data.company}</h2>
-                <div class="text-muted-foreground flex flex-wrap justify-between gap-x-5">
-                  <p>{job.data.title}</p>
-                  <p>
-                    <time datetime={job.data.startDate.toISOString()}>
-                      {new Date(job.data.startDate).toLocaleDateString(
-                        "en-US",
-                        {
-                          year: "numeric",
-                          month: "short",
-                        },
-                      )}
-                    </time>{" "}
-                    -
-                    {job.data.endDate ? (
-                      <time datetime={job.data.endDate.toISOString()}>
-                        {new Date(job.data.endDate).toLocaleDateString(
+              <header class="flex gap-x-3">
+                {job.data.logomark ? (
+                  <div class="grid size-12 place-content-center overflow-hidden rounded-md inset-ring inset-ring-black/5 *:[grid-area:1/1] dark:inset-ring-white/5">
+                    <Icon name={job.id} class="size-6" />
+                    <Icon name={job.id} class="size-6 scale-200 blur-lg" />
+                  </div>
+                ) : null}
+                <div class="flex-1">
+                  <h2 class="font-medium">{job.data.company}</h2>
+                  <div class="text-muted-foreground flex flex-wrap justify-between gap-x-5">
+                    <p>{job.data.title}</p>
+                    <p>
+                      <time datetime={job.data.startDate.toISOString()}>
+                        {new Date(job.data.startDate).toLocaleDateString(
                           "en-US",
                           {
                             year: "numeric",
                             month: "short",
                           },
                         )}
-                      </time>
-                    ) : (
-                      <time datetime={new Date().toISOString()}>Present</time>
-                    )}
-                  </p>
+                      </time>{" "}
+                      -
+                      {job.data.endDate ? (
+                        <time datetime={job.data.endDate.toISOString()}>
+                          {new Date(job.data.endDate).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "short",
+                            },
+                          )}
+                        </time>
+                      ) : (
+                        <time datetime={new Date().toISOString()}>Present</time>
+                      )}
+                    </p>
+                  </div>
                 </div>
-                <div class="prose mt-5 text-pretty">
-                  <Content />
-                  {job.data.projects ? (
-                    <ul>
-                      {job.data.projects?.map((project) => {
-                        return (
-                          <li class="not-first:mt-2">
-                            <ExternalLink
-                              href={project.link}
-                              text={project.title}
-                            />
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  ) : null}
-                </div>
-                <p class="text-muted-foreground mt-5">
-                  {new Intl.ListFormat("en-US", {
-                    style: "long",
-                    type: "conjunction",
-                  }).format(job.data.tools)}
-                </p>
-              </article>
+              </header>
+              <div class="prose mt-5 text-pretty">
+                <Content />
+                {job.data.projects ? (
+                  <ul>
+                    {job.data.projects?.map((project) => {
+                      return (
+                        <li class="not-first:mt-2">
+                          <ExternalLink
+                            href={project.link}
+                            text={project.title}
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : null}
+              </div>
+              <p class="text-muted-foreground mt-5">
+                {new Intl.ListFormat("en-US", {
+                  style: "long",
+                  type: "conjunction",
+                }).format(job.data.tools)}
+              </p>
             </li>
           ))
       }

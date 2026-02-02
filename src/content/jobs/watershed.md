@@ -3,6 +3,7 @@ title: Lead Web Engineer
 company: Watershed
 startDate: 2023-08-01
 endDate: 2023-12-01
+logomark: true
 projects:
   - title: Watershed homepage
     link: "https://watershed.com"
