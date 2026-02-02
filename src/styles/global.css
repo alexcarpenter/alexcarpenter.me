@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Inter";
-  src: url("/fonts/InterVariable.woff2") format("woff");
+  font-family: "Geist";
+  src: url("/fonts/Geist[wght].woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "BerkeleyMono";
-  src: url("/fonts/BerkeleyMonoVariable.woff2") format("woff");
+  font-family: "GeistMono";
+  src: url("/fonts/GeistMono[wght].woff2") format("woff2");
   font-weight: 400 500;
   font-style: normal;
   font-display: swap;
@@ -21,10 +21,10 @@
 @theme {
   --font-*: initial;
   --font-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Geist", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono:
-    "BerkeleyMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "GeistMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -78,7 +78,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding-bottom: calc(var(--spacing) * 32);
+    padding-bottom: calc(var(--spacing) * 30);
     background-color: var(--color-background);
     color: var(--color-foreground);
   }

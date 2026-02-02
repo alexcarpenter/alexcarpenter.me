@@ -26,7 +26,7 @@ const renderedRecommendations = await Promise.all(
 ---
 
 <BaseLayout>
-  <header class="container mt-4">
+  <header class="container">
     <Image
       src="/images/avatar.jpg"
       width="128"
@@ -34,37 +34,18 @@ const renderedRecommendations = await Promise.all(
       alt="Avatar image of Alex Carpenter and son on shoulders"
       class="float-right ms-8 mb-8 size-32 rounded-md max-sm:hidden"
     />
-    <span
-      class="block text-2xl leading-tight font-medium tracking-tight text-pretty sm:text-balance"
-    >
-      <h1 class="inline">User interface engineer</h1>
-      <span class="text-muted-foreground">
-        who enjoys working at the intersection of <span class="text-nowrap"
-          ><Icon
-            name="figma-full-color"
-            class="inline h-[1.15em] align-text-bottom"
-            aria-hidden="true"
-          /> design</span
-        > and
-        <span class="text-nowrap">
-          <Icon
-            name="github"
-            class="text-foreground inline h-[1.15em] align-text-bottom"
-            aria-hidden="true"
-          /> engineering</span
-        > teams.
-      </span>
-    </span>
-    <p class="text-muted-foreground mt-4 text-pretty">
+    <!-- prettier-ignore -->
+    <h2 class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]">User interface engineer <span class="text-muted-foreground">who enjoys working at the intersection of <span><span class="text-nowrap inline"><Icon class="inline-block h-[1em] align-[-0.325ex]" name="figma-full-color" aria-hidden="true" />&NoBreak;</span>&nbsp;design</span> and <span><span class="text-nowrap inline"><Icon class="inline-block h-[1em] align-[-0.325ex] text-foreground" name="github" aria-hidden="true" />&NoBreak;</span>&nbsp;engineering</span> teams.</span></h2>
+    <p class="text-muted-foreground mt-5 text-lg text-pretty">
       I'm on the SDK team at Clerk, working on UI components and the dashboard.
       Currently focused on improving our component APIs and developer
       experience.
     </p>
-    <p class="text-muted-foreground mt-4 text-pretty">
+    <p class="text-muted-foreground mt-5 text-lg text-pretty">
       I do my best work on small, highly collaborative teams that ship often. I
       care about design and work well with designers who push me.
     </p>
-    <div class="mt-8 flex gap-x-2">
+    <div class="mt-10 flex gap-x-2">
       <Button as="a" href="/notes">View notes</Button>
       <Button as="a" href="/readme" variant="ghost" class="font-mono text-sm">
         <Icon name="terminal" class="size-4" aria-hidden="true" />
@@ -73,7 +54,381 @@ const renderedRecommendations = await Promise.all(
     </div>
   </header>
 
-  <section class="container mt-16">
+  <section class="container mt-20">
+    <SectionHeading color="teal" id="projects">Projects</SectionHeading>
+    <ul
+      class="border-separator mt-10 grid grid-cols-1 gap-10 border-t pt-10 sm:grid-cols-2"
+    >
+      <li>
+        <div
+          class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
+        >
+          <svg
+            fill="none"
+            viewBox="0 0 935 186"
+            class="h-6.5"
+            aria-hidden="true"
+            ><path
+              fill="currentColor"
+              d="M859.11 163.4c-29.6 0-43.6-24.4-43.6-52.8 0-28.2 14-52.4 43.6-52.4 25.2 0 34.2 12.8 39.4 25.8h8.6l-6.6-19V14.4h34.2v147h-34.2v-4.8l6.6-19.2h-8.6c-5.2 13.2-14.2 26-39.4 26Zm-9.4-52.8c0 15.8 8.8 22.6 25.6 22.6s25.2-6.6 25.2-22.6c0-15.6-8.4-22.2-25.2-22.2-16.8 0-25.6 6.6-25.6 22.2ZM702.593 110.4c0-32.6 22.4-52.2 53.8-52.2 35 0 55.2 19 55.2 50.8v9h-74.6c1.2 12.6 8.6 19.6 21 19.6 10.6 0 17.8-4.2 19.8-12h34c-2.8 22.4-22.6 37.8-53.8 37.8-34.2 0-55.4-21.4-55.4-53Zm34.4-10h41.2c-1-11.2-8.8-17.4-20.8-17.4-11.8 0-19.6 6.2-20.4 17.4ZM702.411 131.2v30.2h-54.4c-11.2 0-17.4-6.2-17.4-17.6V90.4h-24.4V60.2h24.4v-18l34.2-10.8v28.8h33.6v30.2h-33.6v41l37.6-.2ZM495.369 133.8c0-17.6 10.2-28 41.2-31.2l30.8-3.4c0-10.6-6-14.8-17.6-14.8-12.4 0-19.4 5.2-19.8 14.2h-32.2c.6-26.6 23-40.4 50.8-40.4 28 0 53.2 12.6 53.2 41.8v31.2h14.6v30.2h-23.2c-9.8 0-15.6-5.6-15.6-15.4v-1l5.4-12.2h-8.4c-3.8 16.4-13.4 30.6-41.8 30.6-32 0-37.4-19.2-37.4-29.6Zm33.6-5.8c0 6.6 6 8.2 12.6 8.2 14.2 0 25.8-7.6 25.8-19.8l-24.4 3.6c-9 1.4-14 2.4-14 8Z"
+            ></path><path
+              fill="currentColor"
+              d="M413.052 77.6c0-11.4 6.4-17.4 17.8-17.4h67.8v30.2h-51.2v71h-34.4V77.6ZM330.369 163.4c-26.2 0-42.2-17.4-42.2-49.4V60.2h34.4v48.2c0 18.2 5 24.8 20.2 24.8 16.6 0 27.8-7.8 27.8-36.4V60.2h34.2v101.2h-34.2V150l6.4-19h-8.4c-4 18-16.6 32.4-38.2 32.4ZM171.89 110.6c0-34.4 23.6-52.4 55.8-52.4 29 0 54.2 16 55.4 44.4h-34.4c-1-7.6-8.4-14.2-21-14.2-12 0-21.6 7.6-21.6 22.2 0 14.8 9.6 22.6 21.6 22.6 12.6 0 20-6.6 21-14.2h34.4c-1.2 28.4-26.4 44.4-55.4 44.4-32.2 0-55.8-18.2-55.8-52.8ZM173.152 0l25.4 11.2-82.2 174-25.4-11.4L173.152 0ZM0 128c0-26 10.8-42 29-42 19.6 0 33.2 15.8 43.6 15.8 6.4 0 9-4 9-16h25.6c0 26-10.8 41.8-29.2 41.8-19.4 0-33-15.8-43.4-15.8-6.4 0-9 4.2-9 16.2H0Z"
+            ></path></svg
+          >
+        </div>
+        <div>
+          <header class="mb-2 flex items-center justify-between gap-2">
+            <ExternalLink
+              href="https://curated.alexcarpenter.me"
+              text="Curated"
+              class="font-medium"
+            />
+            <span
+              class="inline-flex h-5 items-center justify-center rounded-full bg-teal-100 px-2 font-mono text-xs font-medium text-teal-600 uppercase dark:bg-teal-950 dark:text-teal-400"
+              style="text-decoration: none;">NEW</span
+            >
+          </header>
+          <p class="text-muted-foreground text-pretty">
+            Weekly curated items including design inspiration, tools, and
+            resources. Built with {
+              new Intl.ListFormat("en-US", {
+                style: "long",
+                type: "conjunction",
+              }).format(["Astro"])
+            }.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div
+          class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
+        >
+          <svg
+            viewBox="0 0 1035 86"
+            fill="none"
+            class="h-3.5"
+            aria-hidden="true"
+          >
+            <path
+              d="M0.8 3H62.9C82.5 3 94 12.6 94 28.9C94 41.4 86 50.1 72.8 52.9L95.7 83H62.2L41.8 53.9H30.2V83H0.8V3ZM30.2 39.1H54.8C61 39.1 64.7 36.2 64.7 31.2C64.7 26.2 61 23.3 54.8 23.3H30.2V39.1ZM103.241 3H185.241V23.6H132.641V34.8H179.441V51.8H132.641V62.4H184.241V83H103.241V3ZM221.257 55.6C222.257 61.6 227.757 64.2 239.457 64.2C251.957 64.2 256.857 62.1 256.857 57C256.857 53.2 253.757 51.6 245.957 51.2L219.157 49.9C201.157 49 192.257 41.5 192.257 27.6C192.257 9.6 207.957 0.699999 239.657 0.699999C271.757 0.699999 287.257 10.8 288.157 31.9H259.157C257.957 24.7 252.257 21.8 240.057 21.8C227.157 21.8 221.957 23.9 221.957 29.2C221.957 33 225.357 34.8 233.557 35.2L258.357 36.3C277.157 37.2 286.657 44.7 286.657 58.9C286.657 76.3 270.557 85.3 239.757 85.3C207.857 85.3 192.557 75.8 191.457 55.6H221.257ZM295.82 3H325.22V83H295.82V3ZM336.835 3H366.235V60.6H417.835V83H336.835V3ZM423.945 3H453.345V83H423.945V3ZM464.96 3H546.96V23.6H494.36V34.8H541.16V51.8H494.36V62.4H545.96V83H464.96V3ZM555.976 3H600.476L626.776 70.6L625.976 26.6V3H653.176V83H608.576L582.376 15.4L583.176 59.4V83H555.976V3ZM659.265 3H753.965V25.4H721.265V83H691.965V25.4H659.265V3ZM757.177 33.8H891.177V52.2H757.177V33.8ZM900.019 3H929.419V48.2C929.419 57.9 936.219 63.4 947.719 63.4C959.219 63.4 966.019 57.7 966.019 47.7V3H994.019V48.7C994.019 72.3 977.419 85.3 947.019 85.3C916.719 85.3 900.019 72.3 900.019 48.7V3ZM1004.71 3H1034.11V83H1004.71V3Z"
+              fill="currentColor"></path>
+          </svg>
+        </div>
+        <header class="mb-2 flex items-center justify-between gap-2">
+          <ExternalLink
+            href="https://www.resilient-ui.com"
+            text="Resilient—UI"
+            class="font-medium"
+          />
+          <abbr
+            title="Work In Progress"
+            class="inline-flex h-5 items-center justify-center rounded-full bg-teal-100 px-2 font-mono text-xs font-medium text-teal-600 uppercase dark:bg-teal-950 dark:text-teal-400"
+            style="text-decoration: none;">WIP</abbr
+          >
+        </header>
+        <p class="text-muted-foreground text-pretty">
+          A shadcn library and resource around building resilient UI's. Built
+          with {
+            new Intl.ListFormat("en-US", {
+              style: "long",
+              type: "conjunction",
+            }).format([
+              "Next.js",
+              "Tailwind CSS",
+              "Base UI",
+              "shadcn/ui",
+              "Fumadocs",
+            ])
+          }.
+        </p>
+      </li>
+
+      <li>
+        <div
+          class="background-grid border-separator text-foreground mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
+        >
+          <svg
+            viewBox="0 0 600 598"
+            fill="none"
+            class="h-12"
+            aria-hidden="true"
+          >
+            <path
+              d="M0 2.50752H38.6373V594.866H0V2.50752ZM144.119 295.866C162.394 299.626 170.225 315.298 170.225 337.864V539.078C170.225 575.434 150.907 594.866 120.623 594.866H64.7556V2.50752H121.146C149.862 2.50752 168.137 21.3121 168.137 55.7882V251.361C168.137 274.553 161.871 288.344 144.119 292.731V295.866ZM116.446 44.5052H103.393V275.807H116.446C124.8 275.807 129.5 269.539 129.5 257.002V62.0569C129.5 50.1467 124.8 44.5052 116.446 44.5052ZM115.924 314.671H103.393V552.867H115.924C125.844 552.867 131.066 545.973 131.066 532.183V334.73C131.066 321.566 125.844 314.671 115.924 314.671ZM269.502 422.487L274.202 280.195L289.343 2.50752H343.123V594.866H308.14L308.662 386.13L311.273 149.186H308.14L287.255 594.866H247.573L227.211 149.186H224.077L226.688 386.13V594.866H192.228V2.50752H247.052L261.67 280.195L266.37 422.487H269.502ZM419.818 0C454.278 0 472.552 22.5658 472.552 63.9371V532.809C472.552 574.807 453.756 598 419.818 598C385.357 598 367.083 574.807 367.083 532.809V63.9371C367.083 22.5658 385.357 0 419.818 0ZM432.871 537.197V60.1759C432.871 48.8929 428.172 41.3713 419.818 41.3713C411.464 41.3713 406.764 48.2665 406.764 60.1759V537.197C406.764 549.107 411.986 556.629 419.818 556.629C427.65 556.629 432.871 548.48 432.871 537.197ZM600 308.403V537.197C600 576.688 582.248 598 548.309 598C514.372 598 495.575 574.807 495.575 532.809V63.9371C495.575 22.5658 514.372 0 548.309 0C582.248 0 600 20.6857 600 59.5494V260.763H560.841V60.1759C560.841 48.8929 556.663 41.3713 548.309 41.3713C540.477 41.3713 535.256 48.2665 535.256 60.1759V537.197C535.256 549.107 540.477 556.629 548.309 556.629C556.663 556.629 560.841 548.48 560.841 537.197V308.403H600Z"
+              fill="currentColor"></path>
+          </svg>
+        </div>
+        <ExternalLink
+          href="https://ibrewmyown.coffee/"
+          text="I Brew My Own Coffee"
+          class="font-medium"
+        />
+        <p class="text-muted-foreground mt-2 text-pretty">
+          A curated collection of home coffee setups. Built with {
+            new Intl.ListFormat("en-US", {
+              style: "long",
+              type: "conjunction",
+            }).format(["Astro", "Tailwind CSS", "Ariakit"])
+          }.
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="container mt-20">
+    <SectionHeading color="purple" id="experience">Experience</SectionHeading>
+    <ul>
+      {
+        renderedJobs
+          .sort(
+            (a, b) =>
+              Date.parse(b.job.data.startDate.toString()) -
+              Date.parse(a.job.data.startDate.toString()),
+          )
+          .map(({ job, Content }) => (
+            <li class="border-separator mt-10 border-t pt-10">
+              <article>
+                <h2 class="font-medium">{job.data.company}</h2>
+                <div class="text-muted-foreground flex flex-wrap justify-between gap-x-5">
+                  <p>{job.data.title}</p>
+                  <p>
+                    <time datetime={job.data.startDate.toISOString()}>
+                      {new Date(job.data.startDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "short",
+                        },
+                      )}
+                    </time>{" "}
+                    -
+                    {job.data.endDate ? (
+                      <time datetime={job.data.endDate.toISOString()}>
+                        {new Date(job.data.endDate).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "short",
+                          },
+                        )}
+                      </time>
+                    ) : (
+                      <time datetime={new Date().toISOString()}>Present</time>
+                    )}
+                  </p>
+                </div>
+                <div class="prose mt-5 text-pretty">
+                  <Content />
+                  {job.data.projects ? (
+                    <ul>
+                      {job.data.projects?.map((project) => {
+                        return (
+                          <li class="not-first:mt-1">
+                            <ExternalLink
+                              href={project.link}
+                              text={project.title}
+                            />
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  ) : null}
+                </div>
+                <p class="text-muted-foreground mt-5">
+                  {new Intl.ListFormat("en-US", {
+                    style: "long",
+                    type: "conjunction",
+                  }).format(job.data.tools)}
+                </p>
+              </article>
+            </li>
+          ))
+      }
+    </ul>
+  </section>
+
+  <section class="container mt-20">
+    <SectionHeading color="red" id="interests-and-skills">
+      Interests &amp; Skills
+    </SectionHeading>
+    <ul class="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+      {
+        [
+          {
+            iconName: "tailwind-css",
+            title: "CSS Architecture",
+            description:
+              "I enjoy creating scalable and maintainable CSS architectures that improve performance and readability of web applications.",
+          },
+          {
+            iconName: "figma",
+            title: "Design Systems",
+            description:
+              "I love building cohesive design systems that ensure consistency and efficiency between design and development.",
+          },
+          {
+            iconName: "components",
+            title: "Component Libraries",
+            description:
+              "I take pride in crafting reusable and accessible component libraries to streamline development and enhance user experience.",
+          },
+          {
+            iconName: "github",
+            title: "Developer Experience",
+            description:
+              "I focus on optimizing developer workflows and tools to boost productivity and collaboration within engineering teams.",
+          },
+        ].map((item) => {
+          return (
+            <li class="border-separator mt-10 border-t pt-10">
+              <header class="flex gap-2">
+                <span class="flex h-[1lh] items-center">
+                  <Icon name={item.iconName} class="size-[1em] flex-none" />
+                </span>
+                <h3 class="font-medium tracking-tight">{item.title}</h3>
+              </header>
+              <p class="text-muted-foreground mt-5">{item.description}</p>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+
+  <section class="container mt-20">
+    <SectionHeading color="amber" id="recommendations">
+      Recommendations
+    </SectionHeading>
+    <ul>
+      {
+        renderedRecommendations
+          .sort(
+            (a, b) =>
+              Date.parse(b.recommendation.data.published.toString()) -
+              Date.parse(a.recommendation.data.published.toString()),
+          )
+          .filter(
+            ({ recommendation }) => recommendation.data.status === "visible",
+          )
+          .map(({ recommendation, Content }) => (
+            <li class="border-separator mt-10 border-t pt-10">
+              <div class="prose text-pretty">
+                <Content />
+              </div>
+              <div class="mt-5">
+                <div class="flex gap-x-1">
+                  {Array.from({ length: 5 }, () => (
+                    <Icon
+                      name="star"
+                      class="size-4 text-amber-500 dark:text-amber-400"
+                    />
+                  ))}
+                </div>
+                <p class="mt-2 font-medium tracking-tight">
+                  {recommendation.data.name}
+                </p>
+                <p class="text-muted-foreground">
+                  {recommendation.data.title}, {recommendation.data.company}
+                </p>
+              </div>
+            </li>
+          ))
+      }
+    </ul>
+  </section>
+
+  <section class="container mt-20">
+    <SectionHeading color="green" id="oss-contributions">
+      <abbr title="Open source software" class="no-underline">OSS</abbr> Contributions
+    </SectionHeading>
+    <div class="relative">
+      <ul class="-mx-4 mt-10 flex flex-col gap-y-5 mask-b-from-36 px-4">
+        {
+          ossContributions.slice(0, 5).map((contribution) => {
+            const match = contribution.data.link.match(
+              /github\.com\/([^\/]+\/[^\/]+)/,
+            );
+            const repo = match ? match[1] : null;
+            return (
+              <li class="border-separator grid grid-cols-[1fr_auto] gap-x-10 gap-y-2 border-t pt-5">
+                <header class="flex gap-x-2">
+                  <span
+                    class:list={[
+                      "flex h-[1lh] items-center",
+                      {
+                        "text-green-600 dark:text-green-400":
+                          contribution.data.status === "open",
+                        "text-purple-600 dark:text-purple-400":
+                          contribution.data.status === "merged",
+                        "text-red-600 dark:text-red-400":
+                          contribution.data.status === "closed",
+                      },
+                    ]}
+                  >
+                    <Icon
+                      name={(() => {
+                        switch (contribution.data.status) {
+                          case "open":
+                            return "git-pull-request-arrow";
+                          case "merged":
+                            return "git-merge";
+                          case "closed":
+                            return "git-pull-request-closed";
+                          default:
+                            const _exhaustive: never = contribution.data.status;
+                            return _exhaustive;
+                        }
+                      })()}
+                      class="size-[1em] flex-none"
+                      aria-label={`PR is ${contribution.data.status}`}
+                    />
+                  </span>
+                  <h3 class="font-medium tracking-tight">{repo}</h3>
+                </header>
+                <p class="text-muted-foreground col-span-2 row-start-2 line-clamp-2 text-pretty sm:col-span-1">
+                  {contribution.data.description}
+                </p>
+                <ExternalLink href={contribution.data.link} text="View PR" />
+              </li>
+            );
+          })
+        }
+      </ul>
+      <div
+        class="pointer-events-none absolute inset-x-0 bottom-0 isolate h-36"
+        aria-hidden="true"
+      >
+        {
+          Array.from({ length: 5 }, (_, i) => {
+            const blur = `blur(${Math.pow(2, i - 1)}px)`;
+            return (
+              <div
+                style={{
+                  WebkitBackdropFilter: blur,
+                  backdropFilter: blur,
+                }}
+                class="absolute inset-0 rotate-180 [mask-image:radial-gradient(closest-side,black,transparent)] [mask-position:bottom,center] [mask-repeat:no-repeat]"
+              />
+            );
+          })
+        }
+      </div>
+      <div
+        class="absolute inset-x-0 bottom-0 flex h-36 items-center justify-center"
+      >
+        <Button
+          as="a"
+          href="https://github.com/alexcarpenter"
+          target="_blank"
+          rel="noopener noreferrer">Follow on GitHub</Button
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="container mt-16">
     <SectionHeading color="teal" id="projects">Projects</SectionHeading>
     <ul
       class="border-separator mt-8 grid grid-cols-1 gap-8 border-t pt-8 sm:grid-cols-2"
@@ -196,9 +551,9 @@ const renderedRecommendations = await Promise.all(
         </p>
       </li>
     </ul>
-  </section>
+  </section> -->
 
-  <section class="container mt-16">
+  <!-- <section class="container mt-16">
     <SectionHeading color="purple" id="experience">Experience</SectionHeading>
     <ul>
       {
@@ -273,9 +628,9 @@ const renderedRecommendations = await Promise.all(
           ))
       }
     </ul>
-  </section>
+  </section> -->
 
-  <section class="container mt-16">
+  <!-- <section class="container mt-16">
     <SectionHeading color="red" id="interests-and-skills">
       Interests &amp; Skills
     </SectionHeading>
@@ -321,9 +676,9 @@ const renderedRecommendations = await Promise.all(
         })
       }
     </ul>
-  </section>
+  </section> -->
 
-  <section class="container mt-16">
+  <!-- <section class="container mt-16">
     <SectionHeading color="amber" id="recommendations">
       Recommendations
     </SectionHeading>
@@ -363,9 +718,9 @@ const renderedRecommendations = await Promise.all(
           ))
       }
     </ul>
-  </section>
+  </section> -->
 
-  <section class="container mt-16">
+  <!-- <section class="container mt-16">
     <SectionHeading color="green" id="oss-contributions">
       <abbr title="Open source software" class="no-underline">OSS</abbr> Contributions
     </SectionHeading>
@@ -453,5 +808,5 @@ const renderedRecommendations = await Promise.all(
         >
       </div>
     </div>
-  </section>
+  </section> -->
 </BaseLayout>
