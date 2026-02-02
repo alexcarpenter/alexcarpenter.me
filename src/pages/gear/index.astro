@@ -12,15 +12,14 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
   title="Gear"
   description="Gear I use for computing, travel, and more."
 >
-  <header class="container mt-4">
-    <span
-      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
+  <header class="container">
+    <h1
+      class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]"
     >
-      <h1 class="inline">Gear</h1>
-      <span class="text-muted-foreground"
+      Gear <span class="text-muted-foreground"
         >I use for computing, travel, and more.</span
       >
-    </span>
+    </h1>
   </header>
   {
     Object.keys(GEAR_CATEGORY_MAP).map((category) => {
@@ -31,10 +30,10 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
           return a.data.name.localeCompare(b.data.name);
         });
       return items.length > 0 ? (
-        <section class="container mt-16">
-          <header class="border-separator mb-8 border-b pb-8">
+        <section class="container mt-20">
+          <header class="border-separator mb-10 border-b pb-10">
             <h2
-              class="scroll-mt-16 font-medium tracking-tight text-green-600 dark:text-green-400"
+              class="scroll-mt-20 text-lg font-medium tracking-tight text-green-600 dark:text-green-400"
               id={category}
             >
               <a href={`/gear/${slug}`}>{title}</a>
@@ -42,14 +41,14 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
             <p class="text-muted-foreground">{description}</p>
           </header>
 
-          <ul class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <ul class="grid grid-cols-1 gap-10 sm:grid-cols-2">
             {items
               .filter((item) => item.data.status === "active")
               .map((item) => {
                 return (
                   <li>
                     <article>
-                      <small class="text-muted-foreground mb-1 flex gap-x-[1ch] font-mono text-xs tracking-widest uppercase">
+                      <small class="text-muted-foreground mb-2 flex gap-x-[1ch] font-mono text-xs tracking-widest uppercase">
                         {item.data.favorite ? (
                           <span class="flex h-[1lh] items-center">
                             <Icon
@@ -86,7 +85,7 @@ import { GEAR_CATEGORY_MAP } from "@/consts.ts";
     })
   }
 
-  <section class="container mt-16">
+  <section class="container mt-20">
     <div
       class="text-muted-foreground relative rounded-md bg-white p-4 text-sm dark:bg-neutral-900"
     >

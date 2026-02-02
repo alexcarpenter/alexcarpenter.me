@@ -10,20 +10,18 @@ const meta = {
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
-  <article class="container mt-16">
+  <article class="container">
     <header>
       <h1
-        class="max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
+        class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]"
       >
         {meta.title}
       </h1>
-      <p
-        class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-pretty"
-      >
+      <p class="text-muted-foreground mt-2 text-lg leading-[1.45] text-pretty">
         {meta.description}
       </p>
     </header>
-    <div class="mt-8">
+    <div class="mt-10">
       <Image
         src="/images/micah-lee-carpenter.webp"
         width="960"

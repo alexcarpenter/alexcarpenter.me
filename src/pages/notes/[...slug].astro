@@ -18,7 +18,7 @@ const { Content } = await render(note);
 ---
 
 <BaseLayout>
-  <article class="container mt-16">
+  <article class="container mt-5">
     <time
       class="text-muted-foreground inline-block"
       datetime={note.data.published.toISOString()}
@@ -34,7 +34,7 @@ const { Content } = await render(note);
     </time>
     {
       note.data.title ? (
-        <header class="mt-4">
+        <header class="mt-5">
           <h2 class="font-medium">
             {note.data.link ? (
               <ExternalLink href={note.data.link} text={note.data.title} />
@@ -52,26 +52,26 @@ const { Content } = await render(note);
     }
     {
       note.data.demo ? (
-        <Preview class="mt-4" src={note.data.demo} title={note.data.title} />
+        <Preview class="mt-5" src={note.data.demo} title={note.data.title} />
       ) : null
     }
     {
       note.body ? (
-        <div class="prose prose-expanded mt-4">
+        <div class="prose mt-5">
           <Content />
         </div>
       ) : note.data.description ? (
-        <div class="prose mt-4">
+        <div class="prose mt-5">
           <blockquote>{note.data.description}</blockquote>
         </div>
       ) : null
     }
   </article>
 
-  <footer class="container mt-16">
+  <footer class="container mt-20">
     <a
       href="/notes"
-      class="text-muted-foreground inline-flex items-center gap-x-1"
+      class="text-muted-foreground inline-flex items-center gap-x-2"
     >
       <Icon name="arrow-left" aria-hidden="true" />Back to all notes</a
     >

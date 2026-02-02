@@ -32,7 +32,7 @@ const renderedNotes = await Promise.all(
 ---
 
 <BaseLayout title="Notes">
-  <header class="container mt-4">
+  <header class="container">
     <span
       class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
       ><h1 class="inline">Notes</h1>
@@ -43,11 +43,11 @@ const renderedNotes = await Promise.all(
     >
   </header>
 
-  <section class="container mt-16">
+  <section class="container mt-20">
     <ul>
       {
         renderedNotes.map(({ note, Content }) => (
-          <li class="not-first:border-separator not-first:mt-16 not-first:border-t not-first:pt-16">
+          <li class="not-first:border-separator not-first:mt-20 not-first:border-t not-first:pt-20">
             <article>
               <a
                 href={`/notes/${note.id}`}
@@ -63,8 +63,8 @@ const renderedNotes = await Promise.all(
                 </time>
               </a>
               {note.data.title ? (
-                <header class="mt-4">
-                  <h1 class="font-medium">
+                <header class="mt-5">
+                  <h1 class="font-medium tracking-tight">
                     {note.data.link ? (
                       <ExternalLink
                         href={note.data.link}
@@ -83,17 +83,17 @@ const renderedNotes = await Promise.all(
               ) : null}
               {note.data.demo ? (
                 <Preview
-                  class="mt-4"
+                  class="mt-5"
                   src={note.data.demo}
                   title={note.data.title}
                 />
               ) : null}
               {note.body ? (
-                <div class="prose mt-4 text-pretty">
+                <div class="prose mt-5 text-pretty">
                   <Content />
                 </div>
               ) : note.data.description ? (
-                <div class="prose mt-4 text-pretty">
+                <div class="prose mt-5 text-pretty">
                   <blockquote>{note.data.description}</blockquote>
                 </div>
               ) : null}
@@ -103,6 +103,6 @@ const renderedNotes = await Promise.all(
       }
     </ul>
 
-    <Pagination page={page} class="mt-16" collection="notes" />
+    <Pagination page={page} class="mt-20" collection="notes" />
   </section>
 </BaseLayout>

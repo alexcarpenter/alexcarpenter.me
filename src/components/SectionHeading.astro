@@ -3,24 +3,27 @@ import { Icon } from "astro-icon/components";
 import type { HTMLTag, Polymorphic } from "astro/types";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const sectionHeadingVariants = cva("scroll-mt-16 font-medium tracking-tight", {
-  variants: {
-    color: {
-      purple: "text-purple-600 dark:text-purple-400",
-      green: "text-green-600 dark:text-green-400",
-      red: "text-red-600 dark:text-red-400",
-      yellow: "text-yellow-600 dark:text-yellow-400",
-      blue: "text-blue-600 dark:text-blue-400",
-      neutral: "text-neutral-600 dark:text-neutral-400",
-      fuchsia: "text-fuchsia-600 dark:text-fuchsia-400",
-      amber: "text-amber-600 dark:text-amber-400",
-      teal: "text-teal-600 dark:text-teal-400",
+const sectionHeadingVariants = cva(
+  "scroll-mt-16 font-medium tracking-tight text-lg",
+  {
+    variants: {
+      color: {
+        purple: "text-purple-600 dark:text-purple-400",
+        green: "text-green-600 dark:text-green-400",
+        red: "text-red-600 dark:text-red-400",
+        yellow: "text-yellow-600 dark:text-yellow-400",
+        blue: "text-blue-600 dark:text-blue-400",
+        neutral: "text-neutral-600 dark:text-neutral-400",
+        fuchsia: "text-fuchsia-600 dark:text-fuchsia-400",
+        amber: "text-amber-600 dark:text-amber-400",
+        teal: "text-teal-600 dark:text-teal-400",
+      },
+    },
+    defaultVariants: {
+      color: "green",
     },
   },
-  defaultVariants: {
-    color: "green",
-  },
-});
+);
 
 type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> &
   VariantProps<typeof sectionHeadingVariants> & {

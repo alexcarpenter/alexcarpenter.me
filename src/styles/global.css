@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Inter";
-  src: url("/fonts/InterVariable.woff2") format("woff");
+  font-family: "Geist";
+  src: url("/fonts/Geist[wght].woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "BerkeleyMono";
-  src: url("/fonts/BerkeleyMonoVariable.woff2") format("woff");
+  font-family: "GeistMono";
+  src: url("/fonts/GeistMono[wght].woff2") format("woff2");
   font-weight: 400 500;
   font-style: normal;
   font-display: swap;
@@ -21,10 +21,10 @@
 @theme {
   --font-*: initial;
   --font-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Geist", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono:
-    "BerkeleyMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "GeistMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -78,7 +78,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding-bottom: calc(var(--spacing) * 32);
+    padding-bottom: calc(var(--spacing) * 30);
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
@@ -212,18 +212,12 @@
 @layer components {
   .prose {
     & > :where(* + *) {
-      margin-top: calc(var(--spacing) * 4);
+      margin-top: calc(var(--spacing) * 5);
     }
-
-    /* & > :where(* + pre),
-    & > :where(pre + *),
-    & > :where(* + iframe),
-    & > :where(iframe + *) {
-      margin-top: calc(var(--spacing) * 6);
-    } */
 
     & :where(h1, h2, h3) {
       font-weight: var(--font-weight-medium);
+      letter-spacing: var(--tracking-tight);
     }
 
     & > :where(ul) {
@@ -240,7 +234,7 @@
     }
 
     & > :where(:is(ul, ol)) > li + li {
-      margin-top: var(--spacing);
+      margin-top: calc(var(--spacing) * 2);
     }
 
     & :where(ol) {
@@ -256,8 +250,9 @@
 
     & :where(blockquote) {
       --border-color: var(--color-green-600);
-      padding-left: calc(var(--spacing) * 4);
+      padding-left: calc(var(--spacing) * 5);
       border-left: 2px solid var(--border-color);
+
       @media (prefers-color-scheme: dark) {
         --border-color: var(--color-green-400);
       }
@@ -282,7 +277,7 @@
     }
 
     & :where(hr) {
-      margin-block: calc(var(--spacing) * 8);
+      margin-block: calc(var(--spacing) * 10);
       border-color: var(--color-separator);
     }
 
@@ -300,8 +295,8 @@
     & :where(dl) {
       display: grid;
       grid-template-columns: 25% 1fr;
-      column-gap: calc(var(--spacing) * 8);
-      row-gap: calc(var(--spacing) * 4);
+      column-gap: calc(var(--spacing) * 10);
+      row-gap: calc(var(--spacing) * 5);
     }
 
     & :where(dt) {
@@ -332,42 +327,6 @@
         border-top: 1px solid var(--color-separator);
       }
     }
-  }
-
-  .prose-longform {
-    & > :where(* + :is(h2, h3)) {
-      margin-top: calc(var(--spacing) * 8);
-    }
-
-    & > :where(p:has(small)) {
-      display: block;
-      margin-top: calc(var(--spacing) * 8);
-      margin-bottom: var(--spacing);
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-widest);
-      color: var(--color-green-600);
-
-      @media (prefers-color-scheme: dark) {
-        color: var(--color-green-400);
-      }
-
-      & + :is(h2, h3) {
-        margin-top: 0;
-      }
-    }
-
-    & > :where(pre) {
-      margin-block: calc(var(--spacing) * 8);
-    }
-
-    & > :where(:is(h2)) {
-      font-size: var(--text-lg);
-    }
-
-    /* & > :where(:not(:is(h2, h3))) {
-      color: var(--color-muted-foreground);
-    } */
   }
 }
 

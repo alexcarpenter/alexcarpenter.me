@@ -29,25 +29,25 @@ const { title, description, category, items } = page;
 ---
 
 <BaseLayout title={title}>
-  <article class="container mt-4">
-    <header class="mt-4">
-      <h1
-        class="max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
-      >
-        {title}
-      </h1>
-      <p class="text-muted-foreground mt-4 font-medium">{description}</p>
-    </header>
-  </article>
+  <header class="container">
+    <h1
+      class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]"
+    >
+      {title}
+    </h1>
+    <p class="text-muted-foreground mt-2 text-lg leading-[1.45] text-pretty">
+      {description}
+    </p>
+  </header>
   {
     items.length > 0 ? (
-      <section class="container mt-16 scroll-mt-16" id={category}>
-        <ul class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+      <section class="container mt-20 scroll-mt-20" id={category}>
+        <ul class="grid grid-cols-1 gap-10 sm:grid-cols-2">
           {items.map((item) => {
             return (
               <li>
                 <article>
-                  <small class="text-muted-foreground mb-1 flex gap-x-1.5 font-mono text-xs tracking-widest uppercase">
+                  <small class="text-muted-foreground mb-2 flex gap-x-1.5 font-mono text-xs tracking-widest uppercase">
                     {item.data.favorite ? (
                       <span class="flex h-[1lh] items-center">
                         <Icon
@@ -83,7 +83,7 @@ const { title, description, category, items } = page;
     ) : null
   }
 
-  <footer class="container mt-16">
+  <footer class="container mt-20">
     <a
       href="/gear"
       class="text-muted-foreground inline-flex items-center gap-x-1"

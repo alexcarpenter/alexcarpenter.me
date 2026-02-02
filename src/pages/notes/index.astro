@@ -44,15 +44,15 @@ const renderedNotes = await Promise.all(
 ---
 
 <BaseLayout title="Notes">
-  <header class="container mt-4">
-    <span
-      class="block max-w-[40ch] text-2xl leading-tight font-medium tracking-tight"
-      ><h1 class="inline">Notes</h1>
+  <header class="container">
+    <h1
+      class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]"
+    >
+      Notes
       <span class="text-muted-foreground"
         >on engineering, developer experience, design systems, and
-        accessibility.</span
-      ></span
-    >
+        accessibility.</span>
+    </h1>
   </header>
 
   <section class="container mt-16">
