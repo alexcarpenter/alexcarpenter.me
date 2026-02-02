@@ -212,7 +212,7 @@
 @layer components {
   .prose {
     & > :where(* + *) {
-      margin-top: calc(var(--spacing) * 4);
+      margin-top: calc(var(--spacing) * 5);
     }
 
     /* & > :where(* + pre),
@@ -224,6 +224,7 @@
 
     & :where(h1, h2, h3) {
       font-weight: var(--font-weight-medium);
+      letter-spacing: var(--tracking-tight);
     }
 
     & > :where(ul) {
@@ -256,8 +257,9 @@
 
     & :where(blockquote) {
       --border-color: var(--color-green-600);
-      padding-left: calc(var(--spacing) * 4);
+      padding-left: calc(var(--spacing) * 5);
       border-left: 2px solid var(--border-color);
+
       @media (prefers-color-scheme: dark) {
         --border-color: var(--color-green-400);
       }
@@ -282,7 +284,7 @@
     }
 
     & :where(hr) {
-      margin-block: calc(var(--spacing) * 8);
+      margin-block: calc(var(--spacing) * 10);
       border-color: var(--color-separator);
     }
 
@@ -300,8 +302,8 @@
     & :where(dl) {
       display: grid;
       grid-template-columns: 25% 1fr;
-      column-gap: calc(var(--spacing) * 8);
-      row-gap: calc(var(--spacing) * 4);
+      column-gap: calc(var(--spacing) * 10);
+      row-gap: calc(var(--spacing) * 5);
     }
 
     & :where(dt) {
@@ -332,42 +334,6 @@
         border-top: 1px solid var(--color-separator);
       }
     }
-  }
-
-  .prose-longform {
-    & > :where(* + :is(h2, h3)) {
-      margin-top: calc(var(--spacing) * 8);
-    }
-
-    & > :where(p:has(small)) {
-      display: block;
-      margin-top: calc(var(--spacing) * 8);
-      margin-bottom: var(--spacing);
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: var(--tracking-widest);
-      color: var(--color-green-600);
-
-      @media (prefers-color-scheme: dark) {
-        color: var(--color-green-400);
-      }
-
-      & + :is(h2, h3) {
-        margin-top: 0;
-      }
-    }
-
-    & > :where(pre) {
-      margin-block: calc(var(--spacing) * 8);
-    }
-
-    & > :where(:is(h2)) {
-      font-size: var(--text-lg);
-    }
-
-    /* & > :where(:not(:is(h2, h3))) {
-      color: var(--color-muted-foreground);
-    } */
   }
 }
 

@@ -4,20 +4,21 @@ import { Icon } from "astro-icon/components";
 ---
 
 <BaseLayout title="README">
-  <header class="container mt-4">
+  <header class="container">
     <h1
-      class="flex max-w-[40ch] items-center gap-x-2 text-2xl leading-tight font-medium tracking-tight"
+      class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]"
     >
-      <Icon name="terminal" />README.md
+      <!-- prettier-ignore -->
+      <span class="inline text-nowrap"><Icon class="inline-block h-[1em] align-[-0.325ex]" name="terminal" />&NoBreak;</span>&nbsp;README.md
     </h1>
-    <p class="text-muted-foreground mt-4 max-w-[55ch] font-medium text-balance">
+    <p class="text-muted-foreground mt-5 text-lg text-pretty">
       This is my user manual, a quick way to know a little about me and how I
       like to work.
     </p>
   </header>
 
-  <section class="container mt-16">
-    <ul class="space-y-8">
+  <section class="container mt-20">
+    <ul class="space-y-10">
       {
         [
           {
@@ -57,7 +58,7 @@ import { Icon } from "astro-icon/components";
           },
         ].map(({ title, content }, index) => {
           return (
-            <li class="border-separator grid gap-x-8 gap-y-2 border-t pt-8 sm:grid-cols-[25%_1fr]">
+            <li class="border-separator grid gap-x-10 gap-y-2 border-t pt-10 sm:grid-cols-[25%_1fr]">
               <span class="text-muted-foreground font-mono text-sm/[1.5rem]">
                 {new Intl.NumberFormat("en-US", {
                   minimumIntegerDigits: 2,
