@@ -191,7 +191,7 @@ const renderedRecommendations = await Promise.all(
             <li class="border-separator mt-10 border-t pt-10">
               <header class="flex gap-x-3">
                 {job.data.logomark ? (
-                  <div class="grid size-12 place-content-center overflow-hidden rounded-md inset-ring inset-ring-black/5 *:[grid-area:1/1] dark:inset-ring-white/5">
+                  <div class="grid size-12 place-content-center overflow-hidden rounded-md inset-ring inset-ring-black/5 *:[grid-area:1/1] max-sm:hidden dark:inset-ring-white/5">
                     <Icon name={job.id} class="size-6" />
                     <Icon name={job.id} class="size-6 scale-200 blur-lg" />
                   </div>
