@@ -57,9 +57,11 @@ const renderedRecommendations = await Promise.all(
   <section class="container mt-20">
     <SectionHeading color="teal" id="projects">Projects</SectionHeading>
     <ul
-      class="border-separator scroll-fade mt-10 flex gap-x-10 overflow-x-scroll overscroll-x-contain border-t pt-10"
+      class="border-separator scroll-fade mt-10 flex overflow-x-scroll overscroll-x-contain border-t pt-10"
     >
-      <li class="flex-[calc(50%_-_calc(var(--spacing)*5))] shrink-0">
+      <li
+        class="w-full shrink-0 not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
+      >
         <div
           class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
         >
@@ -101,7 +103,9 @@ const renderedRecommendations = await Promise.all(
         </div>
       </li>
 
-      <li class="flex-[calc(50%_-_calc(var(--spacing)*5))] shrink-0">
+      <li
+        class="w-full shrink-0 not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
+      >
         <div
           class="background-grid border-separator text-foreground mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
         >
@@ -131,7 +135,9 @@ const renderedRecommendations = await Promise.all(
         </p>
       </li>
 
-      <li class="flex-[calc(50%_-_calc(var(--spacing)*5))] shrink-0">
+      <li
+        class="w-full shrink-0 not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
+      >
         <div
           class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
         >
