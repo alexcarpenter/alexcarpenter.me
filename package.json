@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.6",
-    "@astrojs/rss": "4.0.14",
-    "@astrojs/sitemap": "3.6.0",
-    "@shikijs/transformers": "^3.20.0",
+    "@astrojs/rss": "4.0.15",
+    "@astrojs/sitemap": "3.7.0",
+    "@shikijs/transformers": "^3.22.0",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "5.16.6",
+    "astro": "5.17.1",
     "astro-icon": "^1.1.5",
     "class-variance-authority": "^0.7.1",
     "markdown-it": "^14.1.0",
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
     "@types/sanitize-html": "^2.16.0",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.14"
   },
