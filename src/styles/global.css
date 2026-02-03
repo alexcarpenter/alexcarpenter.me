@@ -354,4 +354,55 @@
     text-decoration-color: var(--color-underline);
     text-decoration-thickness: 0.09375rem;
   }
+
+  @supports (animation-timeline: scroll()) {
+    @property --fade-left {
+      syntax: "<length>";
+      inherits: false;
+      initial-value: 0px;
+    }
+    @property --fade-right {
+      syntax: "<length>";
+      inherits: false;
+      initial-value: 0px;
+    }
+
+    .scroll-fade {
+      --fade-distance: 32px;
+      mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        #000 var(--fade-left),
+        #000 calc(100% - var(--fade-right)),
+        transparent 100%
+      );
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      animation:
+        fade-in-left 1 linear both,
+        fade-out-right 1 linear both;
+      animation-timeline: scroll(x self), scroll(x self);
+      animation-range:
+        0% 12%,
+        88% 100%;
+    }
+
+    @keyframes fade-in-left {
+      from {
+        --fade-left: 0px;
+      }
+      to {
+        --fade-left: var(--fade-distance);
+      }
+    }
+
+    @keyframes fade-out-right {
+      from {
+        --fade-right: var(--fade-distance);
+      }
+      to {
+        --fade-right: 0px;
+      }
+    }
+  }
 }

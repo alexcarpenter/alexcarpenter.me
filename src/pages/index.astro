@@ -57,9 +57,9 @@ const renderedRecommendations = await Promise.all(
   <section class="container mt-20">
     <SectionHeading color="teal" id="projects">Projects</SectionHeading>
     <ul
-      class="border-separator mt-10 grid grid-cols-1 gap-10 border-t pt-10 sm:grid-cols-2"
+      class="border-separator scroll-fade mt-10 flex gap-x-10 overflow-x-scroll border-t pt-10"
     >
-      <li>
+      <li class="flex-[calc(50%_-_calc(var(--spacing)*5))] shrink-0">
         <div
           class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
         >
@@ -101,7 +101,7 @@ const renderedRecommendations = await Promise.all(
         </div>
       </li>
 
-      <li>
+      <li class="flex-[calc(50%_-_calc(var(--spacing)*5))] shrink-0">
         <div
           class="background-grid border-separator text-foreground mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
         >
@@ -131,7 +131,7 @@ const renderedRecommendations = await Promise.all(
         </p>
       </li>
 
-      <li>
+      <li class="flex-[calc(50%_-_calc(var(--spacing)*5))] shrink-0">
         <div
           class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
         >
