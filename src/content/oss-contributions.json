@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-02-05",
+    "link": "https://github.com/cloudflare/kumo/pull/19",
+    "description": "Wrap pagination counts with tabular-nums to avoid shifts",
+    "status": "open"
+  },
+  {
     "date": "2026-01-29",
     "link": "https://github.com/vercel/next.js/pull/89245",
     "description": "Improve templates layout flexibility",
