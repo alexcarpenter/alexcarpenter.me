@@ -1,12 +1,3 @@
-export const COMPANIES = [
-  "Clerk",
-  "Watershed",
-  "HashiCorp",
-  "NationBuilder",
-  "Mighty in the Midwest",
-  "Masuga Design",
-] as const;
-
 export const GEAR_CATEGORIES = [
   "bag",
   "coffee",

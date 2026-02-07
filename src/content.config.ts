@@ -1,6 +1,6 @@
 import { defineCollection, reference, z } from "astro:content";
 import { file, glob } from "astro/loaders";
-import { GEAR_CATEGORIES, COMPANIES } from "./consts";
+import { GEAR_CATEGORIES } from "./consts";
 
 const notes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
@@ -66,7 +66,7 @@ const recommendations = defineCollection({
   schema: z.object({
     name: z.string(),
     title: z.string(),
-    company: reference('jobs'),
+    company: reference("jobs"),
     published: z.coerce.date(),
     avatar: z.string().optional(),
     status: z.enum(["visible", "hidden"]).default("visible"),
