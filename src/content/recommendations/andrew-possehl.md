@@ -1,7 +1,7 @@
 ---
 name: Andrew Possehl
 title: Senior Designer
-company: NationBuilder
+company: nationbuilder
 published: 2021-01-01
 ---
 

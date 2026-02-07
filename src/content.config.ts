@@ -36,11 +36,11 @@ const jobs = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
   schema: z.object({
     title: z.string(),
-    company: z.enum(COMPANIES),
+    company: z.string(),
     logomark: z.boolean().optional().default(false),
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
-    tools: z.array(z.string()),
+    tools: z.array(z.string()).optional(),
     projects: z
       .array(
         z.object({
@@ -66,7 +66,7 @@ const recommendations = defineCollection({
   schema: z.object({
     name: z.string(),
     title: z.string(),
-    company: z.enum(COMPANIES),
+    company: reference('jobs'),
     published: z.coerce.date(),
     avatar: z.string().optional(),
     status: z.enum(["visible", "hidden"]).default("visible"),

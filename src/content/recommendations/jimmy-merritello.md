@@ -1,7 +1,7 @@
 ---
 name: Jimmy Merritello
 title: Web Engineer
-company: HashiCorp
+company: hashicorp
 published: 2023-01-01
 ---
 

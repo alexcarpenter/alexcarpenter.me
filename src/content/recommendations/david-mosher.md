@@ -1,7 +1,7 @@
 ---
 name: David Mosher
 title: Staff Software Engineer
-company: Clerk
+company: clerk
 published: 2024-10-14
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: Benjamin Kohl
 title: Back-end Developer
-company: Masuga Design
+company: masuga-design
 published: 2015-01-01
 status: hidden
 ---

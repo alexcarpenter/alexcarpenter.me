@@ -6,6 +6,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
 import Button from "@/components/Button.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
+import { getEntry } from "astro:content";
 
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
@@ -20,7 +21,8 @@ const renderedJobs = await Promise.all(
 const renderedRecommendations = await Promise.all(
   recommendations.map(async (recommendation) => {
     const { Content } = await render(recommendation);
-    return { recommendation, Content };
+    const company = await getEntry(recommendation.data.company);
+    return { recommendation, company, Content };
   }),
 );
 ---
@@ -57,10 +59,10 @@ const renderedRecommendations = await Promise.all(
   <section class="container mt-20">
     <SectionHeading color="teal" id="projects">Projects</SectionHeading>
     <ul
-      class="border-separator mt-10 flex overflow-x-scroll overscroll-x-contain border-t pt-10 [scrollbar-color:var(--color-separator)_transparent] [scrollbar-width:thin] snap-x snap-mandatory"
+      class="border-separator mt-10 flex snap-x snap-mandatory overflow-x-scroll overscroll-x-contain border-t pt-10 [scrollbar-color:var(--color-separator)_transparent] [scrollbar-width:thin]"
     >
       <li
-        class="w-full shrink-0 not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))] snap-start"
+        class="w-full shrink-0 snap-start not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
       >
         <div
           class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
@@ -104,7 +106,7 @@ const renderedRecommendations = await Promise.all(
       </li>
 
       <li
-        class="w-full shrink-0 not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))] snap-start"
+        class="w-full shrink-0 snap-start not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
       >
         <div
           class="background-grid border-separator text-foreground mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
@@ -136,7 +138,7 @@ const renderedRecommendations = await Promise.all(
       </li>
 
       <li
-        class="w-full shrink-0 not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))] snap-start"
+        class="w-full shrink-0 snap-start not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
       >
         <div
           class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
@@ -310,7 +312,7 @@ const renderedRecommendations = await Promise.all(
           .filter(
             ({ recommendation }) => recommendation.data.status === "visible",
           )
-          .map(({ recommendation, Content }) => (
+          .map(({ recommendation, company, Content }) => (
             <li class="border-separator mt-10 border-t pt-10">
               <div class="prose text-pretty">
                 <Content />
@@ -328,7 +330,7 @@ const renderedRecommendations = await Promise.all(
                   {recommendation.data.name}
                 </p>
                 <p class="text-muted-foreground">
-                  {recommendation.data.title}, {recommendation.data.company}
+                  {recommendation.data.title}, {company.data.company}
                 </p>
               </div>
             </li>

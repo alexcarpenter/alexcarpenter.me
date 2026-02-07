@@ -1,7 +1,7 @@
 ---
 name: Danielle Dunn
 title: Project Manager
-company: Mighty in the Midwest
+company: mighty-in-the-midwest
 published: 2018-01-02
 ---
 
