@@ -108,6 +108,15 @@
       counter-increment: line;
       background-color: var(--line-background-color);
 
+      @media (hover: hover) {
+        &:hover {
+          --line-background-color: light-dark(
+            var(--color-neutral-100),
+            var(--color-neutral-900)
+          );
+        }
+      }
+
       &::before {
         pointer-events: none;
         position: sticky;
@@ -152,8 +161,14 @@
           var(--pre-background-color) 90%
         );
 
-        @media (prefers-color-scheme: dark) {
-          --line-border-color: #08c0ef;
+        @media (hover: hover) {
+          &:hover {
+            --line-background-color: color-mix(
+              in oklab,
+              var(--line-border-color),
+              var(--pre-background-color) 80%
+            );
+          }
         }
 
         &::before {
@@ -169,8 +184,14 @@
           var(--pre-background-color) 90%
         );
 
-        @media (prefers-color-scheme: dark) {
-          --line-border-color: #ff6762;
+        @media (hover: hover) {
+          &:hover {
+            --line-background-color: color-mix(
+              in oklab,
+              var(--line-border-color),
+              var(--pre-background-color) 80%
+            );
+          }
         }
 
         &::before {
@@ -187,8 +208,14 @@
           var(--pre-background-color) 90%
         );
 
-        @media (prefers-color-scheme: dark) {
-          --line-border-color: #5ecc71;
+        @media (hover: hover) {
+          &:hover {
+            --line-background-color: color-mix(
+              in oklab,
+              var(--line-border-color),
+              var(--pre-background-color) 80%
+            );
+          }
         }
 
         &::before {
