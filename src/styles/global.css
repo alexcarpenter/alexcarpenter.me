@@ -153,8 +153,9 @@
         user-select: none;
       }
 
-      &.highlighted {
-        --line-border-color: #08c0ef;
+      &.highlighted,
+      &.remove,
+      &.add {
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
@@ -176,53 +177,29 @@
         }
       }
 
+      &.highlighted {
+        --line-border-color: #08c0ef;
+      }
+
       &.remove {
         --line-border-color: #ff6762;
-        --line-background-color: color-mix(
-          in oklab,
-          var(--line-border-color),
-          var(--pre-background-color) 90%
-        );
-
-        @media (hover: hover) {
-          &:hover {
-            --line-background-color: color-mix(
-              in oklab,
-              var(--line-border-color),
-              var(--pre-background-color) 80%
-            );
-          }
-        }
-
         &::before {
           content: "-";
-          color: var(--line-border-color);
         }
       }
 
       &.add {
         --line-border-color: #5ecc71;
-        --line-background-color: color-mix(
-          in oklab,
-          var(--line-border-color),
-          var(--pre-background-color) 90%
-        );
-
-        @media (hover: hover) {
-          &:hover {
-            --line-background-color: color-mix(
-              in oklab,
-              var(--line-border-color),
-              var(--pre-background-color) 80%
-            );
-          }
-        }
-
         &::before {
           content: "+";
-          color: var(--line-border-color);
         }
       }
+    }
+  }
+
+  pre[data-language="bash"] {
+    .line::before {
+      content: "$";
     }
   }
 
