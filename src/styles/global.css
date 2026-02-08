@@ -57,7 +57,7 @@
     --separator: var(--color-neutral-800);
     --underline: var(--color-neutral-600);
     --highlight: var(--color-neutral-700);
-    --pre-background: var(--color-neutral-900);
+    --pre-background: var(--color-neutral-950);
   }
 
   .astro-code,
@@ -145,7 +145,7 @@
       }
 
       &.highlighted {
-        --line-border-color: var(--color-blue-600);
+        --line-border-color: #08c0ef;
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
@@ -153,7 +153,7 @@
         );
 
         @media (prefers-color-scheme: dark) {
-          --line-border-color: var(--color-blue-400);
+          --line-border-color: #08c0ef;
         }
 
         &::before {
@@ -162,7 +162,7 @@
       }
 
       &.remove {
-        --line-border-color: var(--color-red-600);
+        --line-border-color: #ff6762;
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
@@ -170,7 +170,7 @@
         );
 
         @media (prefers-color-scheme: dark) {
-          --line-border-color: var(--color-red-400);
+          --line-border-color: #ff6762;
         }
 
         &::before {
@@ -180,7 +180,7 @@
       }
 
       &.add {
-        --line-border-color: var(--color-green-600);
+        --line-border-color: #5ecc71;
         --line-background-color: color-mix(
           in oklab,
           var(--line-border-color),
@@ -188,7 +188,7 @@
         );
 
         @media (prefers-color-scheme: dark) {
-          --line-border-color: var(--color-green-400);
+          --line-border-color: #5ecc71;
         }
 
         &::before {
