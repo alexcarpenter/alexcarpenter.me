@@ -14,24 +14,6 @@ const notes = defineCollection({
   }),
 });
 
-const changelog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/changelog" }),
-  schema: z.object({
-    published: z.coerce.date(),
-    version: z.string(),
-  }),
-});
-
-const articles = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/articles" }),
-  schema: z.object({
-    published: z.coerce.date(),
-    title: z.string(),
-    description: z.string(),
-    tags: z.array(z.string()).optional(),
-  }),
-});
-
 const jobs = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
   schema: z.object({
@@ -85,26 +67,6 @@ const gear = defineCollection({
   }),
 });
 
-const rolodex = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/rolodex" }),
-  schema: z.object({
-    name: z.string(),
-    title: z.string().optional(),
-    description: z.string().optional(),
-    avatar: z.string().optional(),
-    jobs: z.array(z.string()).optional(),
-    links: z
-      .object({
-        website: z.string().optional(),
-        twitter: z.string().optional(),
-        github: z.string().optional(),
-        linkedin: z.string().optional(),
-        email: z.string().optional(),
-      })
-      .optional(),
-  }),
-});
-
 const ossContributions = defineCollection({
   loader: file("src/content/oss-contributions.json", {
     parser: (fileContent) => {
@@ -124,13 +86,10 @@ const ossContributions = defineCollection({
 });
 
 export const collections = {
-  changelog,
   gear,
   jobs,
-  articles,
   notes,
   now,
   ossContributions,
   recommendations,
-  rolodex,
 };
