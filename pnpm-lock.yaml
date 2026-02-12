@@ -17,9 +17,6 @@ importers:
       '@astrojs/sitemap':
         specifier: 3.7.0
         version: 3.7.0
-      '@pierre/theme':
-        specifier: ^0.0.22
-        version: 0.0.22
       '@shikijs/transformers':
         specifier: ^3.22.0
         version: 3.22.0
@@ -491,10 +488,6 @@ packages:
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
-
-  '@pierre/theme@0.0.22':
-    resolution: {integrity: sha512-ePUIdQRNGjrveELTU7fY89Xa7YGHHEy5Po5jQy/18lm32eRn96+tnYJEtFooGdffrx55KBUtOXfvVy/7LDFFhA==}
-    engines: {vscode: ^1.0.0}
 
   '@rollup/pluginutils@5.3.0':
     resolution: {integrity: sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==}
@@ -2750,8 +2743,6 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.5
 
   '@oslojs/encoding@1.1.0': {}
-
-  '@pierre/theme@0.0.22': {}
 
   '@rollup/pluginutils@5.3.0(rollup@4.57.1)':
     dependencies:

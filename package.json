@@ -15,7 +15,6 @@
     "@astrojs/check": "0.9.6",
     "@astrojs/rss": "4.0.15",
     "@astrojs/sitemap": "3.7.0",
-    "@pierre/theme": "^0.0.22",
     "@shikijs/transformers": "^3.22.0",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "5.17.1",
