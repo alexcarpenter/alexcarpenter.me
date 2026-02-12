@@ -8,8 +8,8 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import rehypeExternalLinks from "rehype-external-links";
-import pierreLight from "./src/lib/pierre-light.json";
-import pierreDark from "./src/lib/pierre-dark.json";
+import pierreLight from "@pierre/theme/themes/light.json";
+import pierreDark from "@pierre/theme/themes/dark.json";
 
 export default defineConfig({
   site: "https://alexcarpenter.me",
