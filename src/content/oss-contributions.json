@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-02-13",
+    "link": "https://github.com/TanStack/tanstack.com/pull/712",
+    "description": "Fix docs feature grid alignment and icon sizing",
+    "status": "open"
+  },
+  {
     "date": "2026-02-05",
     "link": "https://github.com/cloudflare/kumo/pull/19",
     "description": "Wrap pagination counts with tabular-nums to avoid shifts",
