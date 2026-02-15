@@ -81,13 +81,20 @@ const metaDescription = description ? description : "UI Engineer";
       >Skip to content</a
     >
     <div class="background-grid mb-30 h-3 w-full" aria-hidden="true"></div>
-    <nav class="container mb-5">
+    <header class="container mb-5">
       <p
-        class="text-lg font-medium tracking-tight text-orange-600 dark:text-orange-400"
+        class="text-lg leading-none font-medium tracking-tight text-orange-600 dark:text-orange-400"
       >
         <a href="/">Alex Carpenter</a>
       </p>
-    </nav>
+      {
+        Astro.url.pathname === "/" ? (
+          <small class="text-muted-foreground">
+            (you can call me Carp though)
+          </small>
+        ) : null
+      }
+    </header>
     <main class="flex-1" id="main">
       <slot />
     </main>
