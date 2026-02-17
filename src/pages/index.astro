@@ -7,6 +7,7 @@ import ExternalLink from "@/components/ExternalLink.astro";
 import Button from "@/components/Button.astro";
 import SectionHeading from "@/components/SectionHeading.astro";
 import { getEntry } from "astro:content";
+import { enforceExhaustive } from "@/lib/utils";
 
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
@@ -372,7 +373,7 @@ const renderedRecommendations = await Promise.all(
     <div class="relative">
       <ul class="-mx-4 mt-10 flex flex-col gap-y-5 mask-b-from-36 px-4">
         {
-          ossContributions.slice(0, 5).map((contribution) => {
+          ossContributions.slice(0, 8).map((contribution) => {
             const match = contribution.data.link.match(
               /github\.com\/([^\/]+\/[^\/]+)/,
             );
@@ -403,8 +404,10 @@ const renderedRecommendations = await Promise.all(
                           case "closed":
                             return "git-pull-request-closed";
                           default:
-                            const _exhaustive: never = contribution.data.status;
-                            return _exhaustive;
+                            enforceExhaustive(
+                              contribution.data.status,
+                              "Unknown contribution status",
+                            );
                         }
                       })()}
                       class="size-[1em] flex-none"
