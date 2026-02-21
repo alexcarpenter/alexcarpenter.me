@@ -2,6 +2,7 @@
 title: Staff UI Engineer
 company: Clerk
 startDate: 2024-01-04
+endDate: 2026-02-20
 logomark: true
 projects:
   - title: Improve RTL support within components
