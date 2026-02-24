@@ -188,6 +188,47 @@ const renderedRecommendations = await Promise.all(
           }.
         </p>
       </li>
+      <li
+        class="w-full shrink-0 snap-start not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
+      >
+        <div
+          class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
+        >
+          <svg viewBox="0 0 586 194" fill="none" class="h-10" aria-hidden="true"
+            ><path
+              fill="currentColor"
+              d="M550.211 148.539q-8.704 0-15.232-2.688-6.528-2.816-10.24-7.68-3.584-4.864-3.584-11.392h18.816q0 3.584 2.688 5.376t7.552 1.792h5.632q5.249 0 8.064-1.792 2.944-1.792 2.944-5.12 0-3.2-2.304-4.608-2.304-1.536-7.04-2.048l-16.128-1.92q-9.344-1.152-14.336-6.912-4.992-5.887-4.992-14.592 0-21.376 27.392-21.376h6.016q12.928 0 20.608 5.632 7.68 5.633 7.68 15.104h-18.816q0-3.072-2.56-4.736-2.431-1.665-6.912-1.664h-6.016q-4.48 0-6.784 1.664t-2.304 4.608 2.176 3.968q2.304 1.024 6.4 1.536l15.36 1.92q10.368 1.28 15.616 7.296t5.248 15.872q0 10.368-7.424 16.128-7.423 5.632-21.888 5.632zM476.533 148.539q-9.345 0-16.384-3.456-6.912-3.584-10.752-9.856-3.712-6.4-3.712-14.848v-16.64q0-8.448 3.712-14.72 3.84-6.4 10.752-9.856 7.04-3.584 16.384-3.584t16.128 3.584q6.912 3.457 10.624 9.856 3.84 6.272 3.84 14.72v13.056h-43.136v3.584q0 6.656 3.072 9.728 3.2 3.072 9.472 3.072 4.096 0 7.168-1.28t3.584-3.84h18.816q-2.048 9.216-10.112 14.848t-19.456 5.632m-12.544-44.8v1.664l24.832-.256v-1.664q0-6.528-3.072-10.112-2.945-3.585-9.216-3.584-6.273 0-9.472 3.712-3.072 3.712-3.072 10.24M411.815 147.259q-7.425 0-13.056-3.072-5.632-3.2-8.832-8.832-3.072-5.633-3.072-13.056v-51.2h-22.4v-17.28h41.6v67.84q0 3.712 2.048 6.016 2.175 2.304 5.632 2.304h19.84v17.28zM293.465 147.259v-17.28h23.296v-35.84h-20.736v-17.28h39.936v53.12h20.224v17.28zm32-81.536q-5.248 0-8.448-2.688-3.072-2.688-3.072-7.296t3.072-7.296q3.2-2.688 8.448-2.688t8.32 2.688q3.2 2.688 3.2 7.296t-3.2 7.296q-3.073 2.688-8.32 2.688M232.075 147.259v-43.52h-18.688v-17.28h18.688v-10.88q0-9.856 6.656-15.744 6.783-6.016 17.664-6.016h20.608v16.64h-19.968q-2.56 0-4.224 1.664-1.536 1.537-1.536 4.096v10.24h25.728v17.28h-25.728v43.52z"
+            ></path><path
+              fill="currentColor"
+              fill-opacity=".7"
+              d="M152.616 193.51 0 152.616 40.893 0 193.51 40.893zM107.591 58.247c-21.606-5.789-43.813 7.033-49.603 28.638s7.033 43.813 28.638 49.602c21.606 5.789 43.813-7.032 49.602-28.638 5.79-21.605-7.032-43.813-28.637-49.602"
+            ></path><path
+              fill="currentColor"
+              d="M175.755 175.755h-158v-158h158zm-78.5-119c-22.368 0-40.5 18.132-40.5 40.5s18.132 40.5 40.5 40.5 40.5-18.133 40.5-40.5-18.133-40.5-40.5-40.5"
+            ></path></svg
+          >
+        </div>
+        <header class="mb-2 flex items-center justify-between gap-2">
+          <ExternalLink
+            href="https://github.com/alexcarpenter/dotfiles"
+            text=".dotfiles"
+            class="font-medium"
+          />
+          <abbr
+            title="Work In Progress"
+            class="inline-flex h-5 items-center justify-center rounded-full bg-teal-100 px-2 font-mono text-xs font-medium text-teal-600 uppercase dark:bg-teal-950 dark:text-teal-400"
+            style="text-decoration: none;">WIP</abbr
+          >
+        </header>
+        <p class="text-muted-foreground text-pretty">
+          My home config, scripts and installation process. Built with {
+            new Intl.ListFormat("en-US", {
+              style: "long",
+              type: "conjunction",
+            }).format(["Stow"])
+          }.
+        </p>
+      </li>
     </ul>
   </section>
 
