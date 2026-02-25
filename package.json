@@ -5,6 +5,11 @@
   "engines": {
     "node": ">=22"
   },
+  "pnpm": {
+    "overrides": {
+      "lodash": "4.17.23"
+    }
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -15,7 +20,7 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.6",
+    "@astrojs/check": "0.9.7-beta.1",
     "@astrojs/rss": "4.0.15",
     "@astrojs/sitemap": "3.7.0",
     "@shikijs/transformers": "^3.22.0",
