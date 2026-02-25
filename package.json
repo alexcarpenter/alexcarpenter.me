@@ -2,6 +2,9 @@
   "name": "alexcarpenter-me",
   "type": "module",
   "version": "5.5.0",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
