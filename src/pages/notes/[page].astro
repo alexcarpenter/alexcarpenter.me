@@ -6,6 +6,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ExternalLink from "@/components/ExternalLink.astro";
 import Preview from "@/components/Preview.astro";
 import Pagination from "@/components/Pagination.astro";
+import { formatLinkHostname } from "@/lib/utils";
 
 export async function getStaticPaths({ paginate }) {
   const notes = await getCollection("notes");
@@ -76,7 +77,7 @@ const renderedNotes = await Promise.all(
                   </h1>
                   {note.data.link ? (
                     <p class="text-muted-foreground">
-                      {new URL(note.data.link).hostname}
+                      {formatLinkHostname(note.data.link)}
                     </p>
                   ) : null}
                 </header>
