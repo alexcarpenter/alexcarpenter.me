@@ -3,10 +3,8 @@ import { getCollection, render } from "astro:content";
 import type { Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ExternalLink from "@/components/ExternalLink.astro";
-import Preview from "@/components/Preview.astro";
 import Pagination from "@/components/Pagination.astro";
-import { formatLinkHostname } from "@/lib/utils";
+import NoteItem from "@/components/notes/NoteItem.astro";
 
 const notes = await getCollection("notes");
 const sortedNotes = notes.sort(
@@ -57,102 +55,11 @@ const renderedNotes = await Promise.all(
     </h1>
   </header>
 
-  <section class="container mt-16">
+  <section class="container mt-20">
     <ul>
-      {
-        renderedNotes.map(({ note, Content }) => {
-          if (note.data.title && !note.data.link) {
-            return (
-              <li class="not-first:border-separator not-first:mt-16 not-first:border-t not-first:pt-16">
-                <article>
-                  <a
-                    href={`/notes/${note.id}`}
-                    class="text-muted-foreground inline-block"
-                  >
-                    <time datetime={note.data.published.toISOString()}>
-                      {new Date(note.data.published).toLocaleDateString(
-                        "en-US",
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "2-digit",
-                          weekday: "short",
-                        },
-                      )}
-                    </time>
-                  </a>
-                  <header class="mt-4">
-                    <h1 class="link text-lg leading-none font-medium tracking-tight">
-                      <a href={`/notes/${note.id}`}>{note.data.title}</a>
-                    </h1>
-                  </header>
-                  {note.data.description ? (
-                    <div class="text-muted-foreground mt-2 text-pretty">
-                      {note.data.description}
-                    </div>
-                  ) : null}
-                </article>
-              </li>
-            );
-          }
-          return (
-            <li class="not-first:border-separator not-first:mt-16 not-first:border-t not-first:pt-16">
-              <article>
-                <a
-                  href={`/notes/${note.id}`}
-                  class="text-muted-foreground inline-block"
-                >
-                  <time datetime={note.data.published.toISOString()}>
-                    {new Date(note.data.published).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "2-digit",
-                      weekday: "short",
-                    })}
-                  </time>
-                </a>
-                {note.data.title ? (
-                  <header class="mt-4">
-                    <h1 class="font-medium">
-                      {note.data.link ? (
-                        <ExternalLink
-                          href={note.data.link}
-                          text={note.data.title}
-                        />
-                      ) : (
-                        note.data.title
-                      )}
-                    </h1>
-                    {note.data.link ? (
-                      <p class="text-muted-foreground">
-                        {formatLinkHostname(note.data.link)}
-                      </p>
-                    ) : null}
-                  </header>
-                ) : null}
-                {note.data.demo ? (
-                  <Preview
-                    class="mt-4"
-                    src={note.data.demo}
-                    title={note.data.title}
-                  />
-                ) : null}
-                {note.body ? (
-                  <div class="prose mt-4 text-pretty">
-                    <Content />
-                  </div>
-                ) : note.data.description ? (
-                  <div class="prose mt-4 text-pretty">
-                    <blockquote>{note.data.description}</blockquote>
-                  </div>
-                ) : null}
-              </article>
-            </li>
-          );
-        })
-      }
+      {renderedNotes.map(({ note, Content }) => <NoteItem {note} {Content} />)}
     </ul>
 
-    <Pagination page={page} class="mt-16" collection="notes" />
+    <Pagination page={page} class="mt-20" collection="notes" />
   </section>
 </BaseLayout>

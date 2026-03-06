@@ -331,6 +331,13 @@
       }
     }
   }
+
+  .prose-expanded {
+    & > :where(* + h2) {
+      margin-top: calc(var(--spacing) * 10);
+      font-size: var(--text-lg);
+    }
+  }
 }
 
 @layer utilities {

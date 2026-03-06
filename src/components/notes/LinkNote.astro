@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ExternalLink from "@/components/ExternalLink.astro";
+import Preview from "@/components/Preview.astro";
+import { formatLinkHostname } from "@/lib/utils";
+
+interface Props {
+  note: CollectionEntry<"notes">;
+  Content: any;
+}
+
+const { note, Content } = Astro.props;
+---
+
+<a href={`/notes/${note.id}`} class="text-muted-foreground">
+  <time datetime={note.data.published.toISOString()}>
+    {
+      new Date(note.data.published).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        weekday: "short",
+      })
+    }
+  </time>
+</a>
+<header class="mt-5">
+  <h1 class="font-medium tracking-tight">
+    <ExternalLink href={note.data.link} text={note.data.title} />
+  </h1>
+  <p class="text-muted-foreground">
+    {formatLinkHostname(note.data.link)}
+  </p>
+</header>
+{
+  note.data.demo ? (
+    <Preview class="mt-5" src={note.data.demo} title={note.data.title} />
+  ) : null
+}
+{
+  note.body ? (
+    <div class="prose mt-5 text-pretty">
+      <Content />
+    </div>
+  ) : note.data.description ? (
+    <div class="prose mt-5 text-pretty">
+      <blockquote>{note.data.description}</blockquote>
+    </div>
+  ) : null
+}
