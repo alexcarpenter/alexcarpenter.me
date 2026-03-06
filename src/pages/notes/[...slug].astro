@@ -36,7 +36,12 @@ const { Content } = await render(note);
     {
       note.data.title ? (
         <header class="mt-5">
-          <h2 class="font-medium">
+          <h2
+            class:list={[
+              "font-medium",
+              !note.data.link ? "text-3xl tracking-tight text-pretty" : "",
+            ]}
+          >
             {note.data.link ? (
               <ExternalLink href={note.data.link} text={note.data.title} />
             ) : (
