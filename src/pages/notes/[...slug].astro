@@ -18,7 +18,7 @@ const note = Astro.props;
 const { Content } = await render(note);
 ---
 
-<BaseLayout>
+<BaseLayout title={note.data.title && !note.data.link ? note.data.title : null}>
   <article class="container mt-5">
     <time
       class="text-muted-foreground inline-block"
