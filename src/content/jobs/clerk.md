@@ -5,6 +5,9 @@ startDate: 2024-01-04
 endDate: 2026-02-20
 logomark: true
 projects:
+  - title: Component theme editor
+    link: https://clerk.com/components/theme-editor
+    published: 2026-03-06
   - title: Improve RTL support within components
     link: https://github.com/clerk/javascript/pull/7718
     published: 2026-01-30
