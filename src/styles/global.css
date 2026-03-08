@@ -1,14 +1,6 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Geist";
-  src: url("/fonts/Geist[wght].woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "GeistMono";
   src: url("/fonts/GeistMono[wght].woff2") format("woff2");
   font-weight: 400 500;
@@ -20,9 +12,6 @@
 
 @theme {
   --font-*: initial;
-  --font-sans:
-    "Geist", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono:
     "GeistMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
@@ -42,8 +31,6 @@
   --muted: var(--color-neutral-200);
   --muted-foreground: var(--color-neutral-500);
   --separator: var(--color-neutral-200);
-  --underline: var(--color-neutral-300);
-  --highlight: var(--color-amber-200);
   --pre-background: var(--color-white);
 }
 
@@ -55,8 +42,6 @@
     --muted: var(--color-neutral-700);
     --muted-foreground: var(--color-neutral-400);
     --separator: var(--color-neutral-800);
-    --underline: var(--color-neutral-600);
-    --highlight: var(--color-neutral-700);
     --pre-background: var(--color-neutral-950);
   }
 

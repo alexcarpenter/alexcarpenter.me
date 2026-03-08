@@ -12,13 +12,6 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
   <head>
     <link
       rel="preload"
-      href="/fonts/Geist[wght].woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
       href="/fonts/GeistMono[wght].woff2"
       as="font"
       type="font/woff2"
@@ -140,14 +133,14 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
             })
           }
         </dl>
-        <div class="text-muted-foreground flex flex-col lg:items-end">
-          <dl class="grid grid-cols-[max-content_1fr] gap-x-2">
-            <dt>Version:</dt>
-            <dd class="text-right">v{version}</dd>
-            <dt>Last Modified:</dt>
-            <dd class="text-right">{new Date().toLocaleDateString()}</dd>
-            <dt>Commit:</dt>
-            <dd class="text-right">
+        <div class="flex flex-col lg:items-end">
+          <dl class="[&_dt]:text-muted-foreground lg:text-right">
+            <dt>Version</dt>
+            <dd>v{version}</dd>
+            <dt class="mt-5">Last Modified</dt>
+            <dd>{new Date().toLocaleDateString()}</dd>
+            <dt class="mt-5">Commit</dt>
+            <dd>
               <a
                 href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${COMMIT_SHA}`}
                 target="_blank"
