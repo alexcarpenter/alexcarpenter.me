@@ -87,6 +87,7 @@
     color: var(--color-foreground);
     padding-inline: var(--spacing);
     box-decoration-break: clone;
+    border-radius: var(--radius-sm);
   }
 
   pre {
