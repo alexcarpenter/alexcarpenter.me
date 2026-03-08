@@ -78,7 +78,7 @@
   pre {
     --pre-background-color: var(--color-pre-background);
     padding-block: calc(var(--spacing) * 4);
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     line-height: 1.5;
     background-color: var(--pre-background-color) !important;
     border-radius: var(--radius-md);
@@ -192,6 +192,29 @@
   pre[data-language="bash"] {
     .line::before {
       content: "$";
+    }
+  }
+}
+
+@layer components {
+  .prose {
+    color: var(--color-muted-foreground);
+
+    & > :where(* + *) {
+      margin-top: calc(var(--spacing) * 5);
+    }
+
+    & :where(blockquote) {
+      display: flex;
+      column-gap: calc(var(--spacing) * 2);
+
+      &::before {
+        content: ">";
+      }
+    }
+
+    & :where(:is(h1, h2, h3)) {
+      color: var(--color-foreground);
     }
   }
 }

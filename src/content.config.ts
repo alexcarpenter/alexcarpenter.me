@@ -36,13 +36,6 @@ const jobs = defineCollection({
   }),
 });
 
-const now = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/now" }),
-  schema: z.object({
-    published: z.coerce.date(),
-  }),
-});
-
 const recommendations = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/recommendations" }),
   schema: z.object({
@@ -52,18 +45,6 @@ const recommendations = defineCollection({
     published: z.coerce.date(),
     avatar: z.string().optional(),
     status: z.enum(["visible", "hidden"]).default("visible"),
-  }),
-});
-
-const gear = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/gear" }),
-  schema: z.object({
-    eyebrow: z.string().optional(),
-    name: z.string(),
-    link: z.string().optional(),
-    category: z.enum(GEAR_CATEGORIES),
-    favorite: z.boolean().default(false),
-    status: z.enum(["active", "retired"]).default("active"),
   }),
 });
 
@@ -86,10 +67,8 @@ const ossContributions = defineCollection({
 });
 
 export const collections = {
-  gear,
   jobs,
   notes,
-  now,
   ossContributions,
   recommendations,
 };

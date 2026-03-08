@@ -1,0 +1,87 @@
+---
+import slugify from "@sindresorhus/slugify";
+import { getCollection, render } from "astro:content";
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@/layouts/base-layout.astro";
+import { getEntry } from "astro:content";
+import { enforceExhaustive, formatLinkHostname } from "@/lib/utils";
+
+const notes = await getCollection("notes");
+const sortedNotes = notes.sort(
+  (a, b) =>
+    Date.parse(b.data.published.toString()) -
+    Date.parse(a.data.published.toString()),
+);
+
+const renderedNotes = await Promise.all(
+  sortedNotes.map(async (note) => {
+    const { Content } = await render(note);
+    return { note, Content };
+  }),
+);
+---
+
+<BaseLayout>
+  <section class="mt-40 px-4">
+    <div class="mx-auto max-w-prose">
+      <h2 class="text-muted-foreground text-balance">
+        <span class="text-foreground">Notes</span> on engineering, developer experience,
+        design systems, and accessibility.
+      </h2>
+    </div>
+  </section>
+
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <h2>Notes</h2>
+      <ul>
+        {
+          renderedNotes.map(({ note, Content }) => {
+            const isExternalLink = note.data.link && note.data.title;
+            return (
+              <li class="not-first:border-separator not-first:mt-20 not-first:border-t not-first:pt-20">
+                <article>
+                  <h2 class="text-foreground text-pretty">
+                    {isExternalLink ? (
+                      <>
+                        {/* prettier-ignore */}
+                        <a href={note.data.link} target="_blank" rel="noopener noreferrer" class="relative inline-block pr-3.5">
+                          {note.data.title}<Icon name="arrow-up-right" aria-hidden="true" class="inline absolute h-5 w-2.5 flex-none ml-1" />
+                        </a>
+                      </>
+                    ) : (
+                      note.data.title
+                    )}
+                  </h2>
+                  {isExternalLink ? (
+                    <p class="text-muted-foreground">
+                      {formatLinkHostname(note.data.link)}
+                    </p>
+                  ) : null}
+                  <div class="prose mt-5">
+                    <Content />
+                  </div>
+                </article>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <footer class="flex lg:justify-end">
+        <a
+          href="/notes/rss.xml"
+          class="text-muted-foreground inline-flex items-center gap-1"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Subscribe via RSS <Icon
+            name="rss"
+            aria-hidden="true"
+            class="h-5 w-2.5 flex-none"
+          /></a
+        >
+      </footer>
+    </div>
+  </section>
+</BaseLayout>
