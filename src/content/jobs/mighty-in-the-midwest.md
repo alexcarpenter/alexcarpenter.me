@@ -10,6 +10,7 @@ projects:
     link: "https://dakecorp.com"
   - title: Brunswick Bowling
     link: "https://brunswickbowling.com"
+logomark: true
 tools:
   - Craft CMS
   - Shopify

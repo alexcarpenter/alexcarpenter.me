@@ -1,11 +1,8 @@
 ---
+import slugify from "@sindresorhus/slugify";
 import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ExternalLink from "@/components/ExternalLink.astro";
-import Button from "@/components/Button.astro";
-import SectionHeading from "@/components/SectionHeading.astro";
 import { getEntry } from "astro:content";
 import { enforceExhaustive } from "@/lib/utils";
 
@@ -29,405 +26,155 @@ const renderedRecommendations = await Promise.all(
 ---
 
 <BaseLayout>
-  <header class="container">
-    <Image
-      src="/images/avatar.jpg"
-      width="128"
-      height="128"
-      alt="Avatar image of Alex Carpenter and son on shoulders"
-      class="float-right ms-8 mb-8 size-32 rounded-md max-sm:hidden"
-    />
-    <h2
-      class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]"
-    >
-      Steward of the web <span class="text-muted-foreground"
-        >building composable interfaces for<br class="hidden sm:block" /> humans and
-        agents.</span
-      >
-    </h2>
-    <p class="text-muted-foreground mt-5 text-lg leading-[1.45] text-pretty">
-      Most recently on the SDK team at Clerk, I worked on UI components and
-      theming infrastructure—building systems for customization, improving
-      component APIs, and creating developer tooling that makes authentication
-      interfaces more flexible and accessible.
-    </p>
-    <p class="text-muted-foreground mt-5 text-lg leading-[1.45] text-pretty">
-      I do my best work on small, highly collaborative teams that ship often and
-      embrace the convergence of human craftsmanship with AI tooling. I care
-      deeply about design and believe the best interfaces emerge when designers,
-      engineers, and intelligent systems work together.
-    </p>
-    <div class="mt-10 flex gap-x-2">
-      <Button as="a" href="/notes">View notes</Button>
-      <Button as="a" href="/readme" variant="ghost" class="font-mono text-sm">
-        <Icon name="terminal" class="size-4" aria-hidden="true" />
-        README
-      </Button>
+  <section class="mt-40 px-4">
+    <div class="mx-auto max-w-prose">
+      <p class="text-muted-foreground text-balance">
+        <span class="text-foreground">Steward of the web</span> building composable
+        interfaces for humans and agents.
+      </p>
+      <p class="text-muted-foreground mt-15 text-pretty">
+        Most recently on the SDK team at Clerk, I worked on UI components and
+        theming infrastructure—building systems for customization, improving
+        component APIs, and creating developer tooling that makes authentication
+        interfaces more flexible and accessible.
+      </p>
+      <p class="text-muted-foreground mt-5 text-pretty">
+        I do my best work on small, highly collaborative teams that ship often
+        and embrace the convergence of human craftsmanship with AI tooling. I
+        care deeply about design and believe the best interfaces emerge when
+        designers, engineers, and intelligent systems work together.
+      </p>
     </div>
-  </header>
+  </section>
 
-  <section class="container mt-20">
-    <SectionHeading color="teal" id="projects">Projects</SectionHeading>
-    <ul
-      class="border-separator mt-10 flex snap-x snap-mandatory overflow-x-scroll overscroll-x-contain border-t pt-10 [scrollbar-color:var(--color-separator)_transparent] [scrollbar-width:thin]"
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      <li
-        class="w-full shrink-0 snap-start not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
-      >
-        <div
-          class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
-        >
-          <svg
-            fill="none"
-            viewBox="0 0 935 186"
-            class="h-6.5"
-            aria-hidden="true"
-            ><path
-              fill="currentColor"
-              d="M859.11 163.4c-29.6 0-43.6-24.4-43.6-52.8 0-28.2 14-52.4 43.6-52.4 25.2 0 34.2 12.8 39.4 25.8h8.6l-6.6-19V14.4h34.2v147h-34.2v-4.8l6.6-19.2h-8.6c-5.2 13.2-14.2 26-39.4 26Zm-9.4-52.8c0 15.8 8.8 22.6 25.6 22.6s25.2-6.6 25.2-22.6c0-15.6-8.4-22.2-25.2-22.2-16.8 0-25.6 6.6-25.6 22.2ZM702.593 110.4c0-32.6 22.4-52.2 53.8-52.2 35 0 55.2 19 55.2 50.8v9h-74.6c1.2 12.6 8.6 19.6 21 19.6 10.6 0 17.8-4.2 19.8-12h34c-2.8 22.4-22.6 37.8-53.8 37.8-34.2 0-55.4-21.4-55.4-53Zm34.4-10h41.2c-1-11.2-8.8-17.4-20.8-17.4-11.8 0-19.6 6.2-20.4 17.4ZM702.411 131.2v30.2h-54.4c-11.2 0-17.4-6.2-17.4-17.6V90.4h-24.4V60.2h24.4v-18l34.2-10.8v28.8h33.6v30.2h-33.6v41l37.6-.2ZM495.369 133.8c0-17.6 10.2-28 41.2-31.2l30.8-3.4c0-10.6-6-14.8-17.6-14.8-12.4 0-19.4 5.2-19.8 14.2h-32.2c.6-26.6 23-40.4 50.8-40.4 28 0 53.2 12.6 53.2 41.8v31.2h14.6v30.2h-23.2c-9.8 0-15.6-5.6-15.6-15.4v-1l5.4-12.2h-8.4c-3.8 16.4-13.4 30.6-41.8 30.6-32 0-37.4-19.2-37.4-29.6Zm33.6-5.8c0 6.6 6 8.2 12.6 8.2 14.2 0 25.8-7.6 25.8-19.8l-24.4 3.6c-9 1.4-14 2.4-14 8Z"
-            ></path><path
-              fill="currentColor"
-              d="M413.052 77.6c0-11.4 6.4-17.4 17.8-17.4h67.8v30.2h-51.2v71h-34.4V77.6ZM330.369 163.4c-26.2 0-42.2-17.4-42.2-49.4V60.2h34.4v48.2c0 18.2 5 24.8 20.2 24.8 16.6 0 27.8-7.8 27.8-36.4V60.2h34.2v101.2h-34.2V150l6.4-19h-8.4c-4 18-16.6 32.4-38.2 32.4ZM171.89 110.6c0-34.4 23.6-52.4 55.8-52.4 29 0 54.2 16 55.4 44.4h-34.4c-1-7.6-8.4-14.2-21-14.2-12 0-21.6 7.6-21.6 22.2 0 14.8 9.6 22.6 21.6 22.6 12.6 0 20-6.6 21-14.2h34.4c-1.2 28.4-26.4 44.4-55.4 44.4-32.2 0-55.8-18.2-55.8-52.8ZM173.152 0l25.4 11.2-82.2 174-25.4-11.4L173.152 0ZM0 128c0-26 10.8-42 29-42 19.6 0 33.2 15.8 43.6 15.8 6.4 0 9-4 9-16h25.6c0 26-10.8 41.8-29.2 41.8-19.4 0-33-15.8-43.4-15.8-6.4 0-9 4.2-9 16.2H0Z"
-            ></path></svg
-          >
-        </div>
-        <div>
-          <header class="mb-2 flex items-center justify-between gap-2">
-            <ExternalLink
-              href="https://curated.alexcarpenter.me"
-              text="Curated"
-              class="font-medium"
-            />
-            <span
-              class="inline-flex h-5 items-center justify-center rounded-full bg-teal-100 px-2 font-mono text-xs font-medium text-teal-600 uppercase dark:bg-teal-950 dark:text-teal-400"
-              style="text-decoration: none;">NEW</span
-            >
-          </header>
-          <p class="text-muted-foreground text-pretty">
-            Weekly curated items including design inspiration, tools, and
-            resources. Built with {
-              new Intl.ListFormat("en-US", {
-                style: "long",
-                type: "conjunction",
-              }).format(["Astro"])
-            }.
-          </p>
-        </div>
-      </li>
-
-      <li
-        class="w-full shrink-0 snap-start not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
-      >
-        <div
-          class="background-grid border-separator text-foreground mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
-        >
-          <svg
-            viewBox="0 0 600 598"
-            fill="none"
-            class="h-12"
-            aria-hidden="true"
-          >
-            <path
-              d="M0 2.50752H38.6373V594.866H0V2.50752ZM144.119 295.866C162.394 299.626 170.225 315.298 170.225 337.864V539.078C170.225 575.434 150.907 594.866 120.623 594.866H64.7556V2.50752H121.146C149.862 2.50752 168.137 21.3121 168.137 55.7882V251.361C168.137 274.553 161.871 288.344 144.119 292.731V295.866ZM116.446 44.5052H103.393V275.807H116.446C124.8 275.807 129.5 269.539 129.5 257.002V62.0569C129.5 50.1467 124.8 44.5052 116.446 44.5052ZM115.924 314.671H103.393V552.867H115.924C125.844 552.867 131.066 545.973 131.066 532.183V334.73C131.066 321.566 125.844 314.671 115.924 314.671ZM269.502 422.487L274.202 280.195L289.343 2.50752H343.123V594.866H308.14L308.662 386.13L311.273 149.186H308.14L287.255 594.866H247.573L227.211 149.186H224.077L226.688 386.13V594.866H192.228V2.50752H247.052L261.67 280.195L266.37 422.487H269.502ZM419.818 0C454.278 0 472.552 22.5658 472.552 63.9371V532.809C472.552 574.807 453.756 598 419.818 598C385.357 598 367.083 574.807 367.083 532.809V63.9371C367.083 22.5658 385.357 0 419.818 0ZM432.871 537.197V60.1759C432.871 48.8929 428.172 41.3713 419.818 41.3713C411.464 41.3713 406.764 48.2665 406.764 60.1759V537.197C406.764 549.107 411.986 556.629 419.818 556.629C427.65 556.629 432.871 548.48 432.871 537.197ZM600 308.403V537.197C600 576.688 582.248 598 548.309 598C514.372 598 495.575 574.807 495.575 532.809V63.9371C495.575 22.5658 514.372 0 548.309 0C582.248 0 600 20.6857 600 59.5494V260.763H560.841V60.1759C560.841 48.8929 556.663 41.3713 548.309 41.3713C540.477 41.3713 535.256 48.2665 535.256 60.1759V537.197C535.256 549.107 540.477 556.629 548.309 556.629C556.663 556.629 560.841 548.48 560.841 537.197V308.403H600Z"
-              fill="currentColor"></path>
-          </svg>
-        </div>
-        <ExternalLink
-          href="https://ibrewmyown.coffee/"
-          text="I Brew My Own Coffee"
-          class="font-medium"
-        />
-        <p class="text-muted-foreground mt-2 text-pretty">
-          A curated collection of home coffee setups. Built with {
-            new Intl.ListFormat("en-US", {
-              style: "long",
-              type: "conjunction",
-            }).format(["Astro", "Tailwind CSS", "Ariakit"])
-          }.
-        </p>
-      </li>
-
-      <li
-        class="w-full shrink-0 snap-start not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
-      >
-        <div
-          class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
-        >
-          <svg
-            viewBox="0 0 1035 86"
-            fill="none"
-            class="h-3.5"
-            aria-hidden="true"
-          >
-            <path
-              d="M0.8 3H62.9C82.5 3 94 12.6 94 28.9C94 41.4 86 50.1 72.8 52.9L95.7 83H62.2L41.8 53.9H30.2V83H0.8V3ZM30.2 39.1H54.8C61 39.1 64.7 36.2 64.7 31.2C64.7 26.2 61 23.3 54.8 23.3H30.2V39.1ZM103.241 3H185.241V23.6H132.641V34.8H179.441V51.8H132.641V62.4H184.241V83H103.241V3ZM221.257 55.6C222.257 61.6 227.757 64.2 239.457 64.2C251.957 64.2 256.857 62.1 256.857 57C256.857 53.2 253.757 51.6 245.957 51.2L219.157 49.9C201.157 49 192.257 41.5 192.257 27.6C192.257 9.6 207.957 0.699999 239.657 0.699999C271.757 0.699999 287.257 10.8 288.157 31.9H259.157C257.957 24.7 252.257 21.8 240.057 21.8C227.157 21.8 221.957 23.9 221.957 29.2C221.957 33 225.357 34.8 233.557 35.2L258.357 36.3C277.157 37.2 286.657 44.7 286.657 58.9C286.657 76.3 270.557 85.3 239.757 85.3C207.857 85.3 192.557 75.8 191.457 55.6H221.257ZM295.82 3H325.22V83H295.82V3ZM336.835 3H366.235V60.6H417.835V83H336.835V3ZM423.945 3H453.345V83H423.945V3ZM464.96 3H546.96V23.6H494.36V34.8H541.16V51.8H494.36V62.4H545.96V83H464.96V3ZM555.976 3H600.476L626.776 70.6L625.976 26.6V3H653.176V83H608.576L582.376 15.4L583.176 59.4V83H555.976V3ZM659.265 3H753.965V25.4H721.265V83H691.965V25.4H659.265V3ZM757.177 33.8H891.177V52.2H757.177V33.8ZM900.019 3H929.419V48.2C929.419 57.9 936.219 63.4 947.719 63.4C959.219 63.4 966.019 57.7 966.019 47.7V3H994.019V48.7C994.019 72.3 977.419 85.3 947.019 85.3C916.719 85.3 900.019 72.3 900.019 48.7V3ZM1004.71 3H1034.11V83H1004.71V3Z"
-              fill="currentColor"></path>
-          </svg>
-        </div>
-        <header class="mb-2 flex items-center justify-between gap-2">
-          <ExternalLink
-            href="https://www.resilient-ui.com"
-            text="Resilient—UI"
-            class="font-medium"
-          />
-          <abbr
-            title="Work In Progress"
-            class="inline-flex h-5 items-center justify-center rounded-full bg-teal-100 px-2 font-mono text-xs font-medium text-teal-600 uppercase dark:bg-teal-950 dark:text-teal-400"
-            style="text-decoration: none;">WIP</abbr
-          >
-        </header>
-        <p class="text-muted-foreground text-pretty">
-          Resources for building resilient user interfaces. Built with {
-            new Intl.ListFormat("en-US", {
-              style: "long",
-              type: "conjunction",
-            }).format([
-              "Next.js",
-              "Tailwind CSS",
-              "Base UI",
-              "shadcn/ui",
-              "Fumadocs",
-            ])
-          }.
-        </p>
-      </li>
-      <li
-        class="w-full shrink-0 snap-start not-last:me-10 sm:w-[calc(50%-calc(var(--spacing)*5))]"
-      >
-        <div
-          class="border-separator background-grid dark:text-foreground text-foreground relative mb-5 grid aspect-[3/2] place-content-center rounded-md border bg-white dark:bg-neutral-900"
-        >
-          <svg viewBox="0 0 586 194" fill="none" class="h-10" aria-hidden="true"
-            ><path
-              fill="currentColor"
-              d="M550.211 148.539q-8.704 0-15.232-2.688-6.528-2.816-10.24-7.68-3.584-4.864-3.584-11.392h18.816q0 3.584 2.688 5.376t7.552 1.792h5.632q5.249 0 8.064-1.792 2.944-1.792 2.944-5.12 0-3.2-2.304-4.608-2.304-1.536-7.04-2.048l-16.128-1.92q-9.344-1.152-14.336-6.912-4.992-5.887-4.992-14.592 0-21.376 27.392-21.376h6.016q12.928 0 20.608 5.632 7.68 5.633 7.68 15.104h-18.816q0-3.072-2.56-4.736-2.431-1.665-6.912-1.664h-6.016q-4.48 0-6.784 1.664t-2.304 4.608 2.176 3.968q2.304 1.024 6.4 1.536l15.36 1.92q10.368 1.28 15.616 7.296t5.248 15.872q0 10.368-7.424 16.128-7.423 5.632-21.888 5.632zM476.533 148.539q-9.345 0-16.384-3.456-6.912-3.584-10.752-9.856-3.712-6.4-3.712-14.848v-16.64q0-8.448 3.712-14.72 3.84-6.4 10.752-9.856 7.04-3.584 16.384-3.584t16.128 3.584q6.912 3.457 10.624 9.856 3.84 6.272 3.84 14.72v13.056h-43.136v3.584q0 6.656 3.072 9.728 3.2 3.072 9.472 3.072 4.096 0 7.168-1.28t3.584-3.84h18.816q-2.048 9.216-10.112 14.848t-19.456 5.632m-12.544-44.8v1.664l24.832-.256v-1.664q0-6.528-3.072-10.112-2.945-3.585-9.216-3.584-6.273 0-9.472 3.712-3.072 3.712-3.072 10.24M411.815 147.259q-7.425 0-13.056-3.072-5.632-3.2-8.832-8.832-3.072-5.633-3.072-13.056v-51.2h-22.4v-17.28h41.6v67.84q0 3.712 2.048 6.016 2.175 2.304 5.632 2.304h19.84v17.28zM293.465 147.259v-17.28h23.296v-35.84h-20.736v-17.28h39.936v53.12h20.224v17.28zm32-81.536q-5.248 0-8.448-2.688-3.072-2.688-3.072-7.296t3.072-7.296q3.2-2.688 8.448-2.688t8.32 2.688q3.2 2.688 3.2 7.296t-3.2 7.296q-3.073 2.688-8.32 2.688M232.075 147.259v-43.52h-18.688v-17.28h18.688v-10.88q0-9.856 6.656-15.744 6.783-6.016 17.664-6.016h20.608v16.64h-19.968q-2.56 0-4.224 1.664-1.536 1.537-1.536 4.096v10.24h25.728v17.28h-25.728v43.52z"
-            ></path><path
-              fill="currentColor"
-              fill-opacity=".7"
-              d="M152.616 193.51 0 152.616 40.893 0 193.51 40.893zM107.591 58.247c-21.606-5.789-43.813 7.033-49.603 28.638s7.033 43.813 28.638 49.602c21.606 5.789 43.813-7.032 49.602-28.638 5.79-21.605-7.032-43.813-28.637-49.602"
-            ></path><path
-              fill="currentColor"
-              d="M175.755 175.755h-158v-158h158zm-78.5-119c-22.368 0-40.5 18.132-40.5 40.5s18.132 40.5 40.5 40.5 40.5-18.133 40.5-40.5-18.133-40.5-40.5-40.5"
-            ></path></svg
-          >
-        </div>
-        <header class="mb-2 flex items-center justify-between gap-2">
-          <ExternalLink
-            href="https://github.com/alexcarpenter/dotfiles"
-            text=".dotfiles"
-            class="font-medium"
-          />
-          <abbr
-            title="Work In Progress"
-            class="inline-flex h-5 items-center justify-center rounded-full bg-teal-100 px-2 font-mono text-xs font-medium text-teal-600 uppercase dark:bg-teal-950 dark:text-teal-400"
-            style="text-decoration: none;">WIP</abbr
-          >
-        </header>
-        <p class="text-muted-foreground text-pretty">
-          My home config, scripts and installation process. Managed with {
-            new Intl.ListFormat("en-US", {
-              style: "long",
-              type: "conjunction",
-            }).format(["Stow"])
-          }.
-        </p>
-      </li>
-    </ul>
-  </section>
-
-  <section class="container mt-20">
-    <SectionHeading color="purple" id="experience">Experience</SectionHeading>
-    <ul>
-      <!-- <li class="border-separator mt-10 border-t pt-10">
-        <h2 class="redacted font-mono font-medium">▒░░▓░▓░</h2>
-        <div
-          class="text-muted-foreground flex flex-wrap justify-between gap-x-5"
-        >
-          <p>Staff UI Engineer</p>
-          <p>
-            <time datetime={new Date("2026-03-09").toISOString()}>
-              {
-                new Date("2026-03-09").toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                })
-              }
-            </time>
-          </p>
-        </div>
-        <div class="prose mt-5 text-pretty">
-          <p>Starting soon...</p>
-        </div>
-      </li> -->
-      {
-        renderedJobs
-          .sort(
-            (a, b) =>
-              Date.parse(b.job.data.startDate.toString()) -
-              Date.parse(a.job.data.startDate.toString()),
-          )
-          .map(({ job, Content }) => (
-            <li class="border-separator mt-10 border-t pt-10">
-              <h2 class="font-medium">{job.data.company}</h2>
-              <div class="text-muted-foreground flex flex-wrap justify-between gap-x-5">
-                <p>{job.data.title}</p>
-                <p>
-                  <time datetime={job.data.startDate.toISOString()}>
-                    {new Date(job.data.startDate).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                    })}
-                  </time>{" "}
-                  -
-                  {job.data.endDate ? (
-                    <time datetime={job.data.endDate.toISOString()}>
-                      {new Date(job.data.endDate).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                      })}
+      <h2>Experience</h2>
+      <ul>
+        {
+          renderedJobs
+            .filter(({ job }) => job.data.logomark)
+            .sort(
+              (a, b) =>
+                Date.parse(b.job.data.startDate.toString()) -
+                Date.parse(a.job.data.startDate.toString()),
+            )
+            .map(({ job }) => (
+              <li class="not-first:mt-5">
+                <div class="flex justify-between">
+                  <header class="flex gap-2">
+                    {job.data.logomark ? (
+                      <Icon
+                        name={slugify(job.data.company, { decamelize: false })}
+                        class="h-5 w-4 flex-none"
+                      />
+                    ) : null}
+                    <div>
+                      <h3>{job.data.company}</h3>
+                      <p class="text-muted-foreground flex items-center gap-1">
+                        <Icon
+                          name="corner-down-right"
+                          class="h-5 w-2.5 flex-none"
+                        />{" "}
+                        {job.data.title}
+                      </p>
+                    </div>
+                  </header>
+                  {/* prettier ignore */}
+                  <p class="text-muted-foreground">
+                    <time datetime={job.data.startDate.toISOString()}>
+                      {new Date(job.data.startDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "short",
+                        },
+                      )}
                     </time>
-                  ) : (
-                    <time datetime={new Date().toISOString()}>Present</time>
-                  )}
-                </p>
-              </div>
-              <div class="prose mt-5 text-pretty">
-                <Content />
-                {job.data.projects ? (
-                  <ul>
-                    {job.data.projects?.map((project) => {
-                      return (
-                        <li class="not-first:mt-2">
-                          <ExternalLink
-                            href={project.link}
-                            text={project.title}
-                          />
-                        </li>
-                      );
-                    })}
-                  </ul>
-                ) : null}
-              </div>
-              <p class="text-muted-foreground mt-5">
-                {new Intl.ListFormat("en-US", {
-                  style: "long",
-                  type: "conjunction",
-                }).format(job.data.tools)}
-              </p>
-            </li>
-          ))
-      }
-    </ul>
-  </section>
-
-  <section class="container mt-20">
-    <SectionHeading color="red" id="interests-and-skills">
-      Interests &amp; Skills
-    </SectionHeading>
-    <ul class="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
-      {
-        [
-          {
-            iconName: "tailwind-css",
-            title: "CSS Architecture",
-            description:
-              "I enjoy creating scalable and maintainable CSS architectures that improve performance and readability of web applications.",
-          },
-          {
-            iconName: "figma",
-            title: "Design Systems",
-            description:
-              "I love building cohesive design systems that ensure consistency and efficiency between design and development.",
-          },
-          {
-            iconName: "components",
-            title: "Component Libraries",
-            description:
-              "I take pride in crafting reusable and accessible component libraries to streamline development and enhance user experience.",
-          },
-          {
-            iconName: "github",
-            title: "Developer Experience",
-            description:
-              "I focus on optimizing developer workflows and tools to boost productivity and collaboration within engineering teams.",
-          },
-        ].map((item) => {
-          return (
-            <li class="border-separator mt-10 border-t pt-10">
-              <header class="flex gap-2">
-                <span class="flex h-[1lh] items-center">
-                  <Icon name={item.iconName} class="size-[1em] flex-none" />
-                </span>
-                <h3 class="font-medium tracking-tight">{item.title}</h3>
-              </header>
-              <p class="text-muted-foreground mt-5">{item.description}</p>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </section>
-
-  <section class="container mt-20">
-    <SectionHeading color="amber" id="recommendations">
-      Recommendations
-    </SectionHeading>
-    <ul>
-      {
-        renderedRecommendations
-          .sort(
-            (a, b) =>
-              Date.parse(b.recommendation.data.published.toString()) -
-              Date.parse(a.recommendation.data.published.toString()),
-          )
-          .filter(
-            ({ recommendation }) => recommendation.data.status === "visible",
-          )
-          .map(({ recommendation, company, Content }) => (
-            <li class="border-separator mt-10 border-t pt-10">
-              <div class="prose text-pretty">
-                <Content />
-              </div>
-              <div class="mt-5">
-                <div class="flex gap-x-1">
-                  {Array.from({ length: 5 }, () => (
-                    <Icon
-                      name="star"
-                      class="size-4 text-amber-500 dark:text-amber-400"
-                    />
-                  ))}
+                    –
+                    {job.data.endDate ? (
+                      <time datetime={job.data.endDate.toISOString()}>
+                        {new Date(job.data.endDate).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "short",
+                          },
+                        )}
+                      </time>
+                    ) : (
+                      <time datetime={new Date().toISOString()}>Now</time>
+                    )}
+                  </p>
                 </div>
-                <p class="mt-2 font-medium tracking-tight">
-                  {recommendation.data.name}
-                </p>
-                <p class="text-muted-foreground">
+              </li>
+            ))
+        }
+      </ul>
+      <footer class="flex lg:justify-end">
+        <a href="" class="text-muted-foreground inline-flex items-center gap-1"
+          >Connect on LinkedIn <Icon
+            name="arrow-up-right"
+            aria-hidden="true"
+            class="h-5 w-2.5 flex-none"
+          /></a
+        >
+      </footer>
+    </div>
+  </section>
+
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <h2>Recommendations</h2>
+      <ul>
+        {
+          renderedRecommendations
+            .sort(
+              (a, b) =>
+                Date.parse(b.recommendation.data.published.toString()) -
+                Date.parse(a.recommendation.data.published.toString()),
+            )
+            .filter(
+              ({ recommendation }) => recommendation.data.status === "visible",
+            )
+            .map(({ recommendation, company, Content }) => (
+              <li class="not-first:mt-10">
+                <Content />
+                <p class="mt-5">{recommendation.data.name}</p>
+                <p class="text-muted-foreground flex items-center gap-1">
+                  <Icon name="corner-down-right" class="h-5 w-2.5 flex-none" />{" "}
                   {recommendation.data.title}, {company.data.company}
                 </p>
-              </div>
-            </li>
-          ))
-      }
-    </ul>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
   </section>
-
-  <section class="container mt-20">
-    <SectionHeading color="green" id="oss-contributions">
-      <abbr title="Open source software" class="no-underline">OSS</abbr> Contributions
-    </SectionHeading>
-    <div class="relative">
-      <ul class="-mx-4 mt-10 flex flex-col gap-y-5 mask-b-from-96 px-4">
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <h2>
+        <abbr title="Open source software" class="no-underline">OSS</abbr> Contributions
+      </h2>
+      <ul>
         {
-          ossContributions.slice(0, 8).map((contribution) => {
+          ossContributions.map((contribution) => {
             const match = contribution.data.link.match(
               /github\.com\/([^\/]+\/[^\/]+)/,
             );
             const repo = match ? match[1] : null;
             return (
-              <li class="border-separator grid grid-cols-[1fr_auto] gap-x-10 gap-y-2 border-t pt-5">
-                <header class="flex gap-x-2">
-                  <span
+              <li class="not-first:mt-5">
+                <header class="flex gap-2">
+                  <Icon
                     class:list={[
-                      "flex h-[1lh] items-center",
+                      "h-5 w-4 flex-none",
                       {
                         "text-green-600 dark:text-green-400":
                           contribution.data.status === "open",
@@ -437,93 +184,46 @@ const renderedRecommendations = await Promise.all(
                           contribution.data.status === "closed",
                       },
                     ]}
-                  >
-                    <Icon
-                      name={(() => {
-                        switch (contribution.data.status) {
-                          case "open":
-                            return "git-pull-request-arrow";
-                          case "merged":
-                            return "git-merge";
-                          case "closed":
-                            return "git-pull-request-closed";
-                          default:
-                            enforceExhaustive(
-                              contribution.data.status,
-                              "Unknown contribution status",
-                            );
-                        }
-                      })()}
-                      class="size-[1em] flex-none"
-                      aria-label={`PR is ${contribution.data.status}`}
-                    />
-                  </span>
-                  <h3 class="font-medium tracking-tight">{repo}</h3>
+                    name={(() => {
+                      switch (contribution.data.status) {
+                        case "open":
+                          return "git-pull-request-arrow";
+                        case "merged":
+                          return "git-merge";
+                        case "closed":
+                          return "git-pull-request-closed";
+                        default:
+                          enforceExhaustive(
+                            contribution.data.status,
+                            "Unknown contribution status",
+                          );
+                      }
+                    })()}
+                  />
+                  <h3>
+                    {/* prettier-ignore */}
+                    <a href={contribution.data.link} target="_blank" rel="noopener noreferrer" class="relative inline-block pr-3.5">
+                      {repo.toLowerCase()}<Icon name="arrow-up-right" aria-hidden="true" class="inline absolute h-5 w-2.5 flex-none ml-1" />
+                    </a>
+                  </h3>
                 </header>
-                <p class="text-muted-foreground col-span-2 row-start-2 line-clamp-2 text-pretty sm:col-span-1">
+                <p class="text-muted-foreground line-clamp-2 pl-6 text-pretty">
                   {contribution.data.description}
                 </p>
-                <ExternalLink href={contribution.data.link} text="View PR" />
               </li>
             );
           })
         }
       </ul>
-      <div
-        class="pointer-events-none absolute inset-x-0 bottom-0 isolate h-36"
-        aria-hidden="true"
-      >
-        {
-          Array.from({ length: 5 }, (_, i) => {
-            const blur = `blur(${Math.pow(2, i - 1)}px)`;
-            return (
-              <div
-                style={{
-                  WebkitBackdropFilter: blur,
-                  backdropFilter: blur,
-                }}
-                class="absolute inset-0 rotate-180 [mask-image:radial-gradient(closest-side,black,transparent)] [mask-position:bottom,center] [mask-repeat:no-repeat]"
-              />
-            );
-          })
-        }
-      </div>
-      <div
-        class="absolute inset-x-0 bottom-0 flex h-36 items-center justify-center"
-      >
-        <Button
-          as="a"
-          href="https://github.com/alexcarpenter"
-          target="_blank"
-          rel="noopener noreferrer">Follow on GitHub</Button
+      <footer class="flex lg:justify-end">
+        <a href="" class="text-muted-foreground inline-flex items-center gap-1"
+          >Follow on GitHub <Icon
+            name="arrow-up-right"
+            aria-hidden="true"
+            class="h-5 w-2.5 flex-none"
+          /></a
         >
-      </div>
+      </footer>
     </div>
   </section>
 </BaseLayout>
-
-<!-- <script>
-  const CHARS = ["▓", "▒", "░"];
-  const LENGTH = 7;
-
-  function generateRandomText() {
-    return Array.from(
-      { length: LENGTH },
-      () => CHARS[Math.floor(Math.random() * CHARS.length)],
-    ).join("");
-  }
-
-  const heading = document.querySelector(".redacted");
-
-  if (heading) {
-    heading.textContent = generateRandomText();
-
-    const interval = setInterval(() => {
-      heading.textContent = generateRandomText();
-    }, 500);
-
-    document.addEventListener("astro:before-preparation", () => {
-      clearInterval(interval);
-    });
-  }
-</script> -->

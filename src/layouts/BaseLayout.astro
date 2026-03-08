@@ -4,6 +4,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
 const metaDescription = description ? description : "UI Engineer";
+import { version } from "../../package.json";
+const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
 ---
 
 <html lang="en">
@@ -74,77 +76,87 @@ const metaDescription = description ? description : "UI Engineer";
     />
   </head>
 
-  <body>
+  <body class="py-20 font-mono text-xs/5">
     <a
       href="#main"
       class="fixed top-0 left-0 -translate-y-full bg-blue-600 px-3 py-1.5 text-white focus-visible:translate-y-0 dark:bg-blue-500"
       >Skip to content</a
     >
-    <div class="background-grid mb-30 h-3 w-full" aria-hidden="true"></div>
-    <header class="container mb-5">
-      <p
-        class="text-lg leading-none font-medium tracking-tight text-orange-600 dark:text-orange-400"
-      >
-        <a href="/">Alex Carpenter</a>
-      </p>
-      {
-        Astro.url.pathname === "/" ? (
-          <small class="text-muted-foreground">
-            (you can call me Carp though)
-          </small>
-        ) : null
-      }
+    <header class="px-4">
+      <div class="mx-auto max-w-prose">
+        <h1>Alex Carpenter</h1>
+        <p class="text-muted-foreground">Staff UI Engineer at Shopify</p>
+        <p class="text-muted-foreground">Grand Rapids, MI.</p>
+      </div>
     </header>
     <main class="flex-1" id="main">
       <slot />
     </main>
-    <footer class="container mt-20">
-      <h2
-        class="text-lg font-medium tracking-tight text-blue-600 dark:text-blue-400"
+    <footer class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+      <div
+        class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
       >
-        Connect
-      </h2>
-      <dl class="mt-10 grid grid-cols-[25%_1fr] gap-x-10 gap-y-5">
-        {
-          [
-            {
-              title: "GitHub",
-              username: "@alexcarpenter",
-              link: "https://github.com/alexcarpenter",
-            },
-            {
-              title: "Twitter",
-              username: "@alexcarp_me",
-              link: "https://twitter.com/alexcarp_me",
-            },
-            {
-              title: "Bluesky",
-              username: "@alexcarpenter.me",
-              link: "https://bsky.app/profile/alexcarpenter.me",
-            },
-            {
-              title: "LinkedIn",
-              username: "@alexcarpenter",
-              link: "https://www.linkedin.com/in/imalexcarpenter/",
-            },
-          ].map((social) => {
-            return (
-              <Fragment>
-                <dt class="text-muted-foreground">{social.title}</dt>
-                <dd>
-                  <a
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {social.username}
-                  </a>
-                </dd>
-              </Fragment>
-            );
-          })
-        }
-      </dl>
+        <h2>Connect</h2>
+        <dl>
+          {
+            [
+              {
+                title: "GitHub",
+                username: "@alexcarpenter",
+                link: "https://github.com/alexcarpenter",
+              },
+              {
+                title: "Twitter",
+                username: "@alexcarp_me",
+                link: "https://twitter.com/alexcarp_me",
+              },
+              {
+                title: "Bluesky",
+                username: "@alexcarpenter.me",
+                link: "https://bsky.app/profile/alexcarpenter.me",
+              },
+              {
+                title: "LinkedIn",
+                username: "@alexcarpenter",
+                link: "https://www.linkedin.com/in/imalexcarpenter/",
+              },
+            ].map((social) => {
+              return (
+                <Fragment>
+                  <dt class="text-muted-foreground not-first:mt-5">
+                    {social.title}
+                  </dt>
+                  <dd>
+                    <a
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {social.username}
+                    </a>
+                  </dd>
+                </Fragment>
+              );
+            })
+          }
+        </dl>
+        <div class="text-muted-foreground flex flex-col lg:items-end">
+          <dl class="grid grid-cols-[max-content_1fr] gap-x-2">
+            <dt>Version:</dt>
+            <dd class="text-right">v{version}</dd>
+            <dt>Last Modified:</dt>
+            <dd class="text-right">{new Date().toLocaleDateString()}</dd>
+            <dt>Commit:</dt>
+            <dd class="text-right">
+              <a
+                href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${COMMIT_SHA}`}
+                target="_blank"
+                rel="noopener noreferrer">{COMMIT_SHA}</a
+              >
+            </dd>
+          </dl>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
