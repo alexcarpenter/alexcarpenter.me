@@ -204,9 +204,15 @@
       margin-top: calc(var(--spacing) * 5);
     }
 
+    & :where(a) {
+      color: var(--color-foreground);
+      text-decoration: underline;
+      text-decoration-color: var(--color-muted-foreground);
+    }
+
     & :where(blockquote) {
       display: flex;
-      column-gap: calc(var(--spacing) * 2);
+      column-gap: calc(var(--spacing) * 1);
 
       &::before {
         content: ">";
