@@ -32,13 +32,13 @@ const renderedRecommendations = await Promise.all(
         <span class="text-foreground">Steward of the web</span> building composable
         interfaces for humans and agents.
       </h2>
-      <p class="text-muted-foreground mt-10 text-pretty">
+      <p class="text-muted-foreground text-justify indent-10 hyphens-auto">
         Most recently on the SDK team at Clerk, I worked on UI components and
         theming infrastructure—building systems for customization, improving
         component APIs, and creating developer tooling that makes authentication
         interfaces more flexible and accessible.
       </p>
-      <p class="text-muted-foreground mt-5 text-pretty">
+      <p class="text-muted-foreground text-justify indent-10 hyphens-auto">
         I do my best work on small, highly collaborative teams that ship often
         and embrace the convergence of human craftsmanship with AI tooling. I
         care deeply about design and believe the best interfaces emerge when
@@ -67,7 +67,9 @@ const renderedRecommendations = await Promise.all(
                   <header class="flex gap-2">
                     {job.data.logomark ? (
                       <Icon
-                        name={slugify(job.data.company, { decamelize: false })}
+                        name={slugify(job.data.company, {
+                          decamelize: false,
+                        })}
                         class="h-5 w-4 flex-none"
                       />
                     ) : null}
@@ -84,44 +86,24 @@ const renderedRecommendations = await Promise.all(
                   </header>
                   <p class="text-muted-foreground">
                     <time datetime={job.data.startDate.toISOString()}>
-                      <span class="hidden md:inline">
-                        {new Date(job.data.startDate).toLocaleDateString(
+                      {new Date(job.data.startDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "short",
+                        },
+                      )}
+                    </time>
+                    –
+                    {job.data.endDate ? (
+                      <time datetime={job.data.endDate.toISOString()}>
+                        {new Date(job.data.endDate).toLocaleDateString(
                           "en-US",
                           {
                             year: "numeric",
                             month: "short",
                           },
                         )}
-                      </span>
-                      <span class="md:hidden">
-                        {new Date(job.data.startDate).toLocaleDateString(
-                          "en-US",
-                          {
-                            year: "numeric",
-                          },
-                        )}
-                      </span>
-                    </time>
-                    –
-                    {job.data.endDate ? (
-                      <time datetime={job.data.endDate.toISOString()}>
-                        <span class="hidden md:inline">
-                          {new Date(job.data.endDate).toLocaleDateString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                              month: "short",
-                            },
-                          )}
-                        </span>
-                        <span class="md:hidden">
-                          {new Date(job.data.endDate).toLocaleDateString(
-                            "en-US",
-                            {
-                              year: "numeric",
-                            },
-                          )}
-                        </span>
                       </time>
                     ) : (
                       <time datetime={new Date().toISOString()}>Now</time>
