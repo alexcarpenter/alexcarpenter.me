@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { getEntry } from "astro:content";
 import { enforceExhaustive } from "@/lib/utils";
+import ExternalLink from "@/components/external-link.astro";
 
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
@@ -86,24 +87,44 @@ const renderedRecommendations = await Promise.all(
                   </header>
                   <p class="text-muted-foreground">
                     <time datetime={job.data.startDate.toISOString()}>
-                      {new Date(job.data.startDate).toLocaleDateString(
-                        "en-US",
-                        {
-                          year: "numeric",
-                          month: "short",
-                        },
-                      )}
-                    </time>
-                    –
-                    {job.data.endDate ? (
-                      <time datetime={job.data.endDate.toISOString()}>
-                        {new Date(job.data.endDate).toLocaleDateString(
+                      <span class="hidden sm:inline">
+                        {new Date(job.data.startDate).toLocaleDateString(
                           "en-US",
                           {
                             year: "numeric",
                             month: "short",
                           },
                         )}
+                      </span>
+                      <span class="sm:hidden">
+                        {new Date(job.data.startDate).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                          },
+                        )}
+                      </span>
+                    </time>
+                    –
+                    {job.data.endDate ? (
+                      <time datetime={job.data.endDate.toISOString()}>
+                        <span class="hidden sm:inline">
+                          {new Date(job.data.endDate).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "short",
+                            },
+                          )}
+                        </span>
+                        <span class="sm:hidden">
+                          {new Date(job.data.endDate).toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                            },
+                          )}
+                        </span>
                       </time>
                     ) : (
                       <time datetime={new Date().toISOString()}>Now</time>
@@ -115,17 +136,10 @@ const renderedRecommendations = await Promise.all(
         }
       </ul>
       <footer class="flex lg:justify-end">
-        <a
+        <ExternalLink
           href="https://www.linkedin.com/in/imalexcarpenter"
-          class="text-muted-foreground inline-flex items-center gap-1"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Connect on LinkedIn <Icon
-            name="arrow-up-right"
-            aria-hidden="true"
-            class="h-5 w-2.5 flex-none"
-          /></a
-        >
+          text="Connect on LinkedIn"
+        />
       </footer>
     </div>
   </section>
@@ -206,10 +220,10 @@ const renderedRecommendations = await Promise.all(
                     })()}
                   />
                   <h3>
-                    {/* prettier-ignore */}
-                    <a href={contribution.data.link} target="_blank" rel="noopener noreferrer" class="relative inline-block pr-3.5">
-                      {repo.toLowerCase()}<Icon name="arrow-up-right" aria-hidden="true" class="inline absolute h-5 w-2.5 flex-none ml-1" />
-                    </a>
+                    <ExternalLink
+                      href={contribution.data.link}
+                      text={repo.toLowerCase()}
+                    />
                   </h3>
                 </header>
                 <p class="text-muted-foreground line-clamp-2 pl-6 text-pretty">
@@ -221,17 +235,10 @@ const renderedRecommendations = await Promise.all(
         }
       </ul>
       <footer class="flex lg:justify-end">
-        <a
+        <ExternalLink
           href="https://github.com/alexcarpenter"
-          class="text-muted-foreground inline-flex items-center gap-1"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Follow on GitHub <Icon
-            name="arrow-up-right"
-            aria-hidden="true"
-            class="h-5 w-2.5 flex-none"
-          /></a
-        >
+          text="Follow on GitHub"
+        />
       </footer>
     </div>
   </section>

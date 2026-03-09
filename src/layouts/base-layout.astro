@@ -139,7 +139,15 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
             <dt>Version</dt>
             <dd>v{version}</dd>
             <dt class="mt-5">Last Modified</dt>
-            <dd>{new Date().toLocaleDateString()}</dd>
+            <dd>
+              {
+                new Date().toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })
+              }
+            </dd>
             <dt class="mt-5">Commit</dt>
             <dd>
               <a

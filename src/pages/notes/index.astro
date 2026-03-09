@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { getEntry } from "astro:content";
 import { enforceExhaustive, formatLinkHostname } from "@/lib/utils";
+import ExternalLink from "@/components/external-link.astro";
 
 const notes = await getCollection("notes");
 const sortedNotes = notes.sort(
@@ -45,12 +46,10 @@ const renderedNotes = await Promise.all(
                 <article>
                   <h2 class="text-foreground text-pretty">
                     {isExternalLink ? (
-                      <>
-                        {/* prettier-ignore */}
-                        <a href={note.data.link} target="_blank" rel="noopener noreferrer" class="relative inline-block pr-3.5">
-                          {note.data.title}<Icon name="arrow-up-right" aria-hidden="true" class="inline absolute h-5 w-2.5 flex-none ml-1" />
-                        </a>
-                      </>
+                      <ExternalLink
+                        href={note.data.link}
+                        text={note.data.title}
+                      />
                     ) : (
                       note.data.title
                     )}

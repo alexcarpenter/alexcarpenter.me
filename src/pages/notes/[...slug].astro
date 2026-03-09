@@ -1,0 +1,67 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/base-layout.astro";
+import { Icon } from "astro-icon/components";
+import ExternalLink from "@/components/external-link.astro";
+import { formatLinkHostname } from "@/lib/utils";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("notes");
+  return notes.map((n) => ({
+    params: { slug: n.id },
+    props: n,
+  }));
+}
+
+const note = Astro.props;
+const { Content } = await render(note);
+---
+
+<BaseLayout title={note.data.title && !note.data.link ? note.data.title : null}
+  ><section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <time
+        class="text-muted-foreground"
+        datetime={note.data.published.toISOString()}
+      >
+        {
+          new Date(note.data.published).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+            weekday: "short",
+          })
+        }
+      </time>
+      <article>
+        {
+          note.data.title ? (
+            <header class="mb-10">
+              <h2>
+                {note.data.link ? (
+                  <ExternalLink href={note.data.link} text={note.data.title} />
+                ) : (
+                  note.data.title
+                )}
+              </h2>
+              {note.data.link ? (
+                <p class="text-muted-foreground">
+                  {formatLinkHostname(note.data.link)}
+                </p>
+              ) : null}
+            </header>
+          ) : null
+        }
+        {
+          note.body ? (
+            <div class="prose">
+              <Content />
+            </div>
+          ) : null
+        }
+      </article>
+    </div>
+  </section>
+</BaseLayout>
