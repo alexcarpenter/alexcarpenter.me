@@ -5,6 +5,7 @@ const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
 const metaDescription = description ? description : "UI Engineer";
 import { version } from "../../package.json";
+import ExternalLink from "@/components/external-link.astro";
 const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
 ---
 
@@ -121,13 +122,7 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
                     {social.title}
                   </dt>
                   <dd>
-                    <a
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {social.username}
-                    </a>
+                    <ExternalLink href={social.link} text={social.username} />
                   </dd>
                 </Fragment>
               );
@@ -150,11 +145,10 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
             </dd>
             <dt class="mt-5">Commit</dt>
             <dd>
-              <a
+              <ExternalLink
                 href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${COMMIT_SHA}`}
-                target="_blank"
-                rel="noopener noreferrer">{COMMIT_SHA}</a
-              >
+                text={COMMIT_SHA}
+              />
             </dd>
           </dl>
         </div>
