@@ -3,6 +3,7 @@ title: UI Engineer
 company: NationBuilder
 startDate: 2018-11-01
 endDate: 2021-07-01
+logomark: true
 tools:
   - React
   - Rails
