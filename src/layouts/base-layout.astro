@@ -1,0 +1,164 @@
+---
+import "@/styles/global.css";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { title, description } = Astro.props;
+const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
+const metaDescription = description ? description : "UI Engineer";
+import { version } from "../../package.json";
+const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
+---
+
+<html lang="en">
+  <head>
+    <link
+      rel="preload"
+      href="/fonts/GeistMono[wght].woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <!-- Global Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Theme Color -->
+    <meta
+      name="theme-color"
+      content="#fafafa"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0a0a0a"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{metaTitle}</title>
+    <meta name="title" content={metaTitle} />
+    <meta name="description" content={metaDescription} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={metaTitle} />
+    <meta property="twitter:description" content={metaDescription} />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href={new URL("/sitemap-index.xml", Astro.site)} />
+
+    <!-- RSS Feed -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Notes - Alex Carpenter"
+      href={new URL("/notes/rss.xml", Astro.site)}
+    />
+  </head>
+
+  <body class="py-20 font-mono text-xs/5">
+    <a
+      href="#main"
+      class="fixed top-0 left-0 -translate-y-full bg-blue-600 px-3 py-1.5 text-white focus-visible:translate-y-0 dark:bg-blue-500"
+      >Skip to content</a
+    >
+    <header class="px-4">
+      <div class="mx-auto max-w-prose">
+        <h1>
+          <a href="/">Alex Carpenter</a>
+        </h1>
+        <p class="text-muted-foreground">Staff UI Engineer at Shopify</p>
+        <p class="text-muted-foreground">Grand Rapids, MI.</p>
+      </div>
+    </header>
+    <main class="flex-1" id="main">
+      <slot />
+    </main>
+    <footer class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+      <div
+        class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+      >
+        <h2>Connect</h2>
+        <dl>
+          {
+            [
+              {
+                title: "GitHub",
+                username: "@alexcarpenter",
+                link: "https://github.com/alexcarpenter",
+              },
+              {
+                title: "Twitter",
+                username: "@alexcarp_me",
+                link: "https://twitter.com/alexcarp_me",
+              },
+              {
+                title: "Bluesky",
+                username: "@alexcarpenter.me",
+                link: "https://bsky.app/profile/alexcarpenter.me",
+              },
+              {
+                title: "LinkedIn",
+                username: "@alexcarpenter",
+                link: "https://www.linkedin.com/in/imalexcarpenter/",
+              },
+            ].map((social) => {
+              return (
+                <Fragment>
+                  <dt class="text-muted-foreground not-first:mt-5">
+                    {social.title}
+                  </dt>
+                  <dd>
+                    <a
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {social.username}
+                    </a>
+                  </dd>
+                </Fragment>
+              );
+            })
+          }
+        </dl>
+        <div class="flex flex-col lg:items-end">
+          <dl class="[&_dt]:text-muted-foreground lg:text-right">
+            <dt>Version</dt>
+            <dd>v{version}</dd>
+            <dt class="mt-5">Last Modified</dt>
+            <dd>
+              {
+                new Date().toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "2-digit",
+                })
+              }
+            </dd>
+            <dt class="mt-5">Commit</dt>
+            <dd>
+              <a
+                href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${COMMIT_SHA}`}
+                target="_blank"
+                rel="noopener noreferrer">{COMMIT_SHA}</a
+              >
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

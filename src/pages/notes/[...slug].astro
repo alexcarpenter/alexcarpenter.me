@@ -1,9 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/base-layout.astro";
 import { Icon } from "astro-icon/components";
-import ExternalLink from "@/components/ExternalLink.astro";
-import Preview from "@/components/Preview.astro";
+import ExternalLink from "@/components/external-link.astro";
 import { formatLinkHostname } from "@/lib/utils";
 
 export async function getStaticPaths() {
@@ -18,70 +17,51 @@ const note = Astro.props;
 const { Content } = await render(note);
 ---
 
-<BaseLayout title={note.data.title && !note.data.link ? note.data.title : null}>
-  <article class="container mt-5">
-    <time
-      class="text-muted-foreground inline-block"
-      datetime={note.data.published.toISOString()}
+<BaseLayout title={note.data.title && !note.data.link ? note.data.title : null}
+  ><section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      {
-        new Date(note.data.published).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "2-digit",
-          weekday: "short",
-        })
-      }
-    </time>
-    {
-      note.data.title ? (
-        <header class="mt-5">
-          <h2
-            class:list={[
-              "font-medium",
-              !note.data.link ? "text-3xl tracking-tight text-pretty" : "",
-            ]}
-          >
-            {note.data.link ? (
-              <ExternalLink href={note.data.link} text={note.data.title} />
-            ) : (
-              note.data.title
-            )}
-          </h2>
-          {note.data.link ? (
-            <p class="text-muted-foreground">
-              {formatLinkHostname(note.data.link)}
-            </p>
-          ) : null}
-        </header>
-      ) : null
-    }
-    {
-      note.data.demo ? (
-        <Preview class="mt-5" src={note.data.demo} title={note.data.title} />
-      ) : null
-    }
-    {
-      note.body ? (
-        <div
-          class:list={["prose mt-5", !note.data.link ? "prose-expanded" : ""]}
-        >
-          <Content />
-        </div>
-      ) : note.data.description ? (
-        <div class="prose mt-5">
-          <blockquote>{note.data.description}</blockquote>
-        </div>
-      ) : null
-    }
-  </article>
-
-  <footer class="container mt-20">
-    <a
-      href="/notes"
-      class="text-muted-foreground inline-flex items-center gap-x-2"
-    >
-      <Icon name="arrow-left" aria-hidden="true" />Back to all notes</a
-    >
-  </footer>
+      <time
+        class="text-muted-foreground"
+        datetime={note.data.published.toISOString()}
+      >
+        {
+          new Date(note.data.published).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+            weekday: "short",
+          })
+        }
+      </time>
+      <article>
+        {
+          note.data.title ? (
+            <header class="mb-10">
+              <h2>
+                {note.data.link ? (
+                  <ExternalLink href={note.data.link} text={note.data.title} />
+                ) : (
+                  note.data.title
+                )}
+              </h2>
+              {note.data.link ? (
+                <p class="text-muted-foreground">
+                  {formatLinkHostname(note.data.link)}
+                </p>
+              ) : null}
+            </header>
+          ) : null
+        }
+        {
+          note.body ? (
+            <div class="prose">
+              <Content />
+            </div>
+          ) : null
+        }
+      </article>
+    </div>
+  </section>
 </BaseLayout>

@@ -1,7 +1,7 @@
 {
   "name": "alexcarpenter-me",
   "type": "module",
-  "version": "5.5.0",
+  "version": "6.0.0",
   "engines": {
     "node": ">=22"
   },
@@ -24,6 +24,7 @@
     "@astrojs/rss": "4.0.15",
     "@astrojs/sitemap": "3.7.0",
     "@shikijs/transformers": "^4.0.1",
+    "@sindresorhus/slugify": "^3.0.0",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "5.18.0",
     "astro-icon": "^1.1.5",

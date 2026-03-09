@@ -3,17 +3,15 @@ import { Icon } from "astro-icon/components";
 const { href, text, class: className } = Astro.props;
 ---
 
+{/* prettier-ignore */}
 <a
   href={href}
   target="_blank"
   rel="noopener noreferrer"
-  class:list={[
-    "decoration-underline relative inline-block pr-5 align-top underline decoration-[0.09375rem]",
-    className,
-  ]}
+  class:list={["relative inline-block pr-3.5", className]}
   >{text}<Icon
     name="arrow-up-right"
-    class="text-muted-foreground absolute ml-1 inline-block h-[0.85lh] w-4 shrink-0"
     aria-hidden="true"
-  />
-</a>
+    class="absolute ml-1 inline h-5 w-2.5 flex-none"
+  /></a
+>

@@ -1,14 +1,6 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Geist";
-  src: url("/fonts/Geist[wght].woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "GeistMono";
   src: url("/fonts/GeistMono[wght].woff2") format("woff2");
   font-weight: 400 500;
@@ -20,9 +12,6 @@
 
 @theme {
   --font-*: initial;
-  --font-sans:
-    "Geist", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono:
     "GeistMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
@@ -37,13 +26,11 @@
 }
 
 :root {
-  --background: var(--color-neutral-50);
+  --background: var(--color-white);
   --foreground: var(--color-neutral-950);
   --muted: var(--color-neutral-200);
   --muted-foreground: var(--color-neutral-500);
   --separator: var(--color-neutral-200);
-  --underline: var(--color-neutral-300);
-  --highlight: var(--color-amber-200);
   --pre-background: var(--color-white);
 }
 
@@ -52,11 +39,9 @@
     color-scheme: dark;
     --background: var(--color-neutral-950);
     --foreground: var(--color-neutral-50);
-    --muted: var(--color-neutral-800);
+    --muted: var(--color-neutral-700);
     --muted-foreground: var(--color-neutral-400);
     --separator: var(--color-neutral-800);
-    --underline: var(--color-neutral-600);
-    --highlight: var(--color-neutral-700);
     --pre-background: var(--color-neutral-950);
   }
 
@@ -78,15 +63,22 @@
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    padding-bottom: calc(var(--spacing) * 30);
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+
+  mark {
+    background-color: var(--color-muted);
+    color: var(--color-foreground);
+    padding-inline: var(--spacing);
+    box-decoration-break: clone;
+    border-radius: var(--radius-sm);
   }
 
   pre {
     --pre-background-color: var(--color-pre-background);
     padding-block: calc(var(--spacing) * 4);
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     line-height: 1.5;
     background-color: var(--pre-background-color) !important;
     border-radius: var(--radius-md);
@@ -202,217 +194,33 @@
       content: "$";
     }
   }
-
-  code {
-    font-size: var(--text-sm);
-  }
-
-  small {
-    font-size: var(--text-xs);
-  }
 }
 
 @layer components {
   .prose {
+    color: var(--color-muted-foreground);
+
     & > :where(* + *) {
       margin-top: calc(var(--spacing) * 5);
     }
 
-    & :where(h1, h2, h3) {
-      font-weight: var(--font-weight-medium);
-      letter-spacing: var(--tracking-tight);
-    }
-
-    & > :where(ul) {
-      list-style-type: disc;
-      padding-inline-start: calc(var(--spacing) * 6);
-
-      & :where(li:has(br)) {
-        color: var(--color-muted-foreground);
-
-        &::first-line {
-          color: var(--color-foreground);
-        }
-      }
-    }
-
-    & > :where(:is(ul, ol)) > li + li {
-      margin-top: calc(var(--spacing) * 2);
-    }
-
-    & :where(ol) {
-      list-style: numeric;
-      padding-inline-start: calc(var(--spacing) * 6);
-    }
-
     & :where(a) {
+      color: var(--color-foreground);
       text-decoration: underline;
-      text-decoration-color: var(--color-underline);
-      text-decoration-thickness: 0.09375rem;
+      text-decoration-color: var(--color-muted-foreground);
     }
 
     & :where(blockquote) {
-      --border-color: var(--color-green-600);
-      padding-left: calc(var(--spacing) * 5);
-      border-left: 2px solid var(--border-color);
+      display: flex;
+      column-gap: calc(var(--spacing) * 1);
 
-      @media (prefers-color-scheme: dark) {
-        --border-color: var(--color-green-400);
+      &::before {
+        content: ">";
       }
     }
 
-    & :where(mark) {
+    & :where(:is(h1, h2, h3)) {
       color: var(--color-foreground);
-      background-color: var(--color-highlight);
-      margin-inline: calc(var(--spacing) * -0.5);
-      padding-inline: calc(var(--spacing) * 1);
-      box-decoration-break: clone;
-      border-radius: var(--radius-sm);
-      font-weight: var(--font-weight-medium);
-    }
-
-    & :where(strong) {
-      font-weight: var(--font-weight-medium);
-    }
-
-    & *::marker {
-      color: var(--color-muted-foreground);
-    }
-
-    & :where(hr) {
-      margin-block: calc(var(--spacing) * 10);
-      border-color: var(--color-separator);
-    }
-
-    & :where(p:has(> img)) {
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-
-      & > img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    & :where(dl) {
-      display: grid;
-      grid-template-columns: 25% 1fr;
-      column-gap: calc(var(--spacing) * 10);
-      row-gap: calc(var(--spacing) * 5);
-    }
-
-    & :where(dt) {
-      color: var(--color-muted-foreground);
-      font-weight: var(--font-weight-medium);
-    }
-
-    & :where(table) {
-      table-layout: fixed;
-      width: 100%;
-      border: 1px solid var(--color-separator);
-      font-size: var(--text-sm);
-
-      th,
-      td {
-        padding: calc(var(--spacing) * 2);
-
-        &:not(:last-child) {
-          border-right: 1px solid var(--color-separator);
-        }
-      }
-
-      th {
-        font-weight: var(--font-weight-medium);
-      }
-
-      td {
-        border-top: 1px solid var(--color-separator);
-      }
-    }
-  }
-
-  .prose-expanded {
-    & > :where(* + h2) {
-      margin-top: calc(var(--spacing) * 10);
-      font-size: var(--text-lg);
-    }
-  }
-}
-
-@layer utilities {
-  .container {
-    width: 100%;
-    margin-inline: auto;
-    max-width: var(--container-2xl);
-    padding-inline: calc(var(--spacing) * 4);
-  }
-
-  .background-grid {
-    background: conic-gradient(
-      from 90deg at 50% 50%,
-      transparent 0deg 90deg,
-      var(--color-separator) 90deg 180deg,
-      transparent 180deg 270deg,
-      var(--color-separator) 270deg 360deg
-    );
-    background-size: 8px 8px;
-  }
-
-  .link {
-    text-decoration: underline;
-    text-decoration-color: var(--color-underline);
-    text-decoration-thickness: 0.09375rem;
-  }
-
-  @supports (animation-timeline: scroll()) {
-    @property --fade-left {
-      syntax: "<length>";
-      inherits: false;
-      initial-value: 0px;
-    }
-    @property --fade-right {
-      syntax: "<length>";
-      inherits: false;
-      initial-value: 0px;
-    }
-
-    .scroll-fade {
-      --fade-distance: 32px;
-      mask-image: linear-gradient(
-        to right,
-        transparent 0,
-        #000 var(--fade-left),
-        #000 calc(100% - var(--fade-right)),
-        transparent 100%
-      );
-      mask-size: 100% 100%;
-      mask-repeat: no-repeat;
-      animation:
-        fade-in-left 1 linear both,
-        fade-out-right 1 linear both;
-      animation-timeline: scroll(x self), scroll(x self);
-      animation-range:
-        0% 12%,
-        88% 100%;
-    }
-
-    @keyframes fade-in-left {
-      from {
-        --fade-left: 0px;
-      }
-      to {
-        --fade-left: var(--fade-distance);
-      }
-    }
-
-    @keyframes fade-out-right {
-      from {
-        --fade-right: var(--fade-distance);
-      }
-      to {
-        --fade-right: 0px;
-      }
     }
   }
 }

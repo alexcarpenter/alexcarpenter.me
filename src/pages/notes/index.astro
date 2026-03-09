@@ -1,10 +1,11 @@
 ---
+import slugify from "@sindresorhus/slugify";
 import { getCollection, render } from "astro:content";
-import type { Page } from "astro";
-import type { CollectionEntry } from "astro:content";
-import BaseLayout from "@/layouts/BaseLayout.astro";
-import Pagination from "@/components/Pagination.astro";
-import NoteItem from "@/components/notes/NoteItem.astro";
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@/layouts/base-layout.astro";
+import { getEntry } from "astro:content";
+import { enforceExhaustive, formatLinkHostname } from "@/lib/utils";
+import ExternalLink from "@/components/external-link.astro";
 
 const notes = await getCollection("notes");
 const sortedNotes = notes.sort(
@@ -13,53 +14,73 @@ const sortedNotes = notes.sort(
     Date.parse(a.data.published.toString()),
 );
 
-const pageSize = 20;
-const firstPageNotes = sortedNotes.slice(0, pageSize);
-const totalPages = Math.ceil(sortedNotes.length / pageSize);
-
-const page = {
-  currentPage: 1,
-  lastPage: totalPages,
-  start: 0,
-  end: Math.min(pageSize, sortedNotes.length) - 1,
-  total: sortedNotes.length,
-  data: firstPageNotes,
-  size: pageSize,
-  url: {
-    current: "/notes",
-    next: totalPages > 1 ? "/notes/2" : undefined,
-    prev: undefined,
-    first: "/notes",
-    last: `/notes/${totalPages}`,
-  },
-} satisfies Page<CollectionEntry<"notes">>;
-
 const renderedNotes = await Promise.all(
-  firstPageNotes.map(async (note) => {
+  sortedNotes.map(async (note) => {
     const { Content } = await render(note);
     return { note, Content };
   }),
 );
 ---
 
-<BaseLayout title="Notes">
-  <header class="container">
-    <h1
-      class="text-3xl font-medium tracking-tight text-pretty [text-box-trim:trim-start]"
+<BaseLayout>
+  <section class="mt-40 px-4">
+    <div class="mx-auto max-w-prose">
+      <h2 class="text-muted-foreground text-balance">
+        <span class="text-foreground">Notes</span> on engineering, developer experience,
+        design systems, and accessibility.
+      </h2>
+    </div>
+  </section>
+
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      Notes
-      <span class="text-muted-foreground"
-        >on engineering, developer experience, design systems, and
-        accessibility.</span
-      >
-    </h1>
-  </header>
-
-  <section class="container mt-20">
-    <ul>
-      {renderedNotes.map(({ note, Content }) => <NoteItem {note} {Content} />)}
-    </ul>
-
-    <Pagination page={page} class="mt-20" collection="notes" />
+      <h2>Notes</h2>
+      <ul>
+        {
+          renderedNotes.map(({ note, Content }) => {
+            const isExternalLink = note.data.link && note.data.title;
+            return (
+              <li class="not-first:border-separator not-first:mt-20 not-first:border-t not-first:pt-20">
+                <article>
+                  <h2 class="text-foreground text-pretty">
+                    {isExternalLink ? (
+                      <ExternalLink
+                        href={note.data.link}
+                        text={note.data.title}
+                      />
+                    ) : (
+                      note.data.title
+                    )}
+                  </h2>
+                  {isExternalLink ? (
+                    <p class="text-muted-foreground">
+                      {formatLinkHostname(note.data.link)}
+                    </p>
+                  ) : null}
+                  <div class="prose mt-5">
+                    <Content />
+                  </div>
+                </article>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <footer class="flex lg:justify-end">
+        <a
+          href="/notes/rss.xml"
+          class="text-muted-foreground inline-flex items-center gap-1"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Subscribe via RSS <Icon
+            name="rss"
+            aria-hidden="true"
+            class="h-5 w-2.5 flex-none"
+          /></a
+        >
+      </footer>
+    </div>
   </section>
 </BaseLayout>
