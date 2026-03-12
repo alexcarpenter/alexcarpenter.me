@@ -50,12 +50,14 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={new URL("/og.jpg", Astro.site)} />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={metaTitle} />
     <meta property="twitter:description" content={metaDescription} />
+    <meta property="twitter:image" content={new URL("/og.jpg", Astro.site)} />
 
     <!-- Sitemap -->
     <link rel="sitemap" href={new URL("/sitemap-index.xml", Astro.site)} />
