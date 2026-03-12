@@ -15,6 +15,11 @@ export default defineConfig({
   site: "https://alexcarpenter.me",
   vite: {
     plugins: [tailwindcss()],
+    define: {
+      "import.meta.env.COMMIT_SHA": JSON.stringify(
+        process.env.VERCEL_GIT_COMMIT_SHA || process.env.COMMIT_SHA || "",
+      ),
+    },
   },
   integrations: [sitemap(), icon()],
   markdown: {
