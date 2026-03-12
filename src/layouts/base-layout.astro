@@ -3,7 +3,9 @@ import "@/styles/global.css";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description } = Astro.props;
 const metaTitle = title ? `${title} // Alex Carpenter` : "Alex Carpenter";
-const metaDescription = description ? description : "UI Engineer";
+const metaDescription = description
+  ? description
+  : "Staff UI Engineer at Shopify";
 import { version } from "../../package.json";
 import ExternalLink from "@/components/external-link.astro";
 const COMMIT_SHA = import.meta.env.COMMIT_SHA?.slice(0, 7) ?? "bf7feb7";
