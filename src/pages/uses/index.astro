@@ -1,0 +1,71 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/base-layout.astro";
+import { GEAR_CATEGORY_MAP, GEAR_CATEGORIES } from "@/consts";
+import ExternalLink from "@/components/external-link.astro";
+
+const gear = await getCollection("gear");
+const activeGear = gear.filter((item) => item.data.status === "active");
+
+const groupedGear = Array.from(
+  activeGear.reduce((map, item) => {
+    const key = item.data.category;
+    if (!map.has(key)) {
+      map.set(key, []);
+    }
+    map.get(key)!.push(item);
+    return map;
+  }, new Map<string, typeof activeGear>()),
+).sort(([categoryA], [categoryB]) => {
+  return (
+    GEAR_CATEGORIES.indexOf(categoryA as (typeof GEAR_CATEGORIES)[number]) -
+    GEAR_CATEGORIES.indexOf(categoryB as (typeof GEAR_CATEGORIES)[number])
+  );
+});
+---
+
+<BaseLayout>
+  {
+    groupedGear.map(([category, items]) => {
+      const categoryInfo =
+        GEAR_CATEGORY_MAP[category as keyof typeof GEAR_CATEGORY_MAP];
+      if (!categoryInfo || items.length === 0) return null;
+
+      return (
+        <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+          <div class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]">
+            <h2>{categoryInfo.title}</h2>
+            <ul class="grid grid-cols-2 gap-10">
+              {items.map((item) => (
+                <li>
+                  <div>
+                    {item.data.eyebrow && (
+                      <p class="text-muted-foreground text-[0.625rem] tracking-widest uppercase">
+                        {item.data.eyebrow}
+                      </p>
+                    )}
+                    <h3>
+                      {item.data.link ? (
+                        <ExternalLink
+                          href={item.data.link}
+                          text={item.data.name}
+                        />
+                      ) : (
+                        item.data.name
+                      )}
+                    </h3>
+                    {item.data.link && (
+                      <p class="text-muted-foreground">
+                        {new URL(item.data.link).hostname}
+                      </p>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      );
+    })
+  }
+</BaseLayout>

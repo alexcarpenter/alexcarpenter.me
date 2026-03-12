@@ -2,6 +2,18 @@ import { defineCollection, reference, z } from "astro:content";
 import { file, glob } from "astro/loaders";
 import { GEAR_CATEGORIES } from "./consts";
 
+const gear = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/gear" }),
+  schema: z.object({
+    name: z.string(),
+    category: z.enum(GEAR_CATEGORIES),
+    eyebrow: z.string().optional(),
+    link: z.string().url().optional(),
+    favorite: z.boolean().optional().default(false),
+    status: z.enum(["active", "retired"]).default("active"),
+  }),
+});
+
 const notes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
   schema: z.object({
@@ -67,6 +79,7 @@ const ossContributions = defineCollection({
 });
 
 export const collections = {
+  gear,
   jobs,
   notes,
   ossContributions,
