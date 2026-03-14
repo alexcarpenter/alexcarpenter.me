@@ -1,4 +1,5 @@
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection, reference } from "astro:content";
+import { z } from "astro/zod";
 import { file, glob } from "astro/loaders";
 import { GEAR_CATEGORIES } from "./consts";
 
@@ -8,7 +9,7 @@ const gear = defineCollection({
     name: z.string(),
     category: z.enum(GEAR_CATEGORIES),
     eyebrow: z.string().optional(),
-    link: z.string().url().optional(),
+    link: z.url().optional(),
     favorite: z.boolean().optional().default(false),
     status: z.enum(["active", "retired"]).default("active"),
   }),
@@ -64,14 +65,14 @@ const ossContributions = defineCollection({
   loader: file("src/content/oss-contributions.json", {
     parser: (fileContent) => {
       const data = JSON.parse(fileContent);
-      return data.map((item, index) => ({
+      return data.map((item: Record<string, unknown>, index: number) => ({
         id: `contribution-${index + 1}`,
         ...item,
       }));
     },
   }),
   schema: z.object({
-    link: z.string().url(),
+    link: z.url(),
     date: z.coerce.date(),
     description: z.string(),
     status: z.enum(["open", "merged", "closed"]).default("open"),

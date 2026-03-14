@@ -1,10 +1,8 @@
 ---
-import slugify from "@sindresorhus/slugify";
 import { getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/base-layout.astro";
-import { getEntry } from "astro:content";
-import { enforceExhaustive, formatLinkHostname } from "@/lib/utils";
+import { formatLinkHostname } from "@/lib/utils";
 import ExternalLink from "@/components/external-link.astro";
 
 const notes = await getCollection("notes");
@@ -36,7 +34,7 @@ const renderedNotes = await Promise.all(
     <div
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      <h2>Notes</h2>
+      <h2>Latest</h2>
       <ul>
         {
           renderedNotes.map(({ note, Content }) => {
