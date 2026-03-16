@@ -5,7 +5,6 @@ import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { getEntry } from "astro:content";
 import { enforceExhaustive } from "@/lib/utils";
-import Button from "@/components/button.astro";
 import ExternalLink from "@/components/external-link.astro";
 
 const jobs = await getCollection("jobs");
@@ -46,7 +45,11 @@ const renderedRecommendations = await Promise.all(
         care deeply about design and believe the best interfaces emerge when
         designers, engineers, and intelligent systems work together.
       </p>
-      <Button as="a" href="/notes" class="mt-10">View notes</Button>
+      <a
+        href="/notes"
+        class="text-muted-foreground hover:text-foreground mt-10 inline-flex gap-1"
+        >View notes<Icon name="arrow-right" class="h-5 w-2.5" /></a
+      >
     </div>
   </section>
 
@@ -141,6 +144,7 @@ const renderedRecommendations = await Promise.all(
         <ExternalLink
           href="https://www.linkedin.com/in/imalexcarpenter"
           text="Connect on LinkedIn"
+          class="text-muted-foreground hover:text-foreground"
         />
       </footer>
     </div>
@@ -240,6 +244,7 @@ const renderedRecommendations = await Promise.all(
         <ExternalLink
           href="https://github.com/alexcarpenter"
           text="Follow on GitHub"
+          class="text-muted-foreground hover:text-foreground"
         />
       </footer>
     </div>
