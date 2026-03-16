@@ -189,55 +189,61 @@ const renderedRecommendations = await Promise.all(
       </h2>
       <ul>
         {
-          ossContributions.map((contribution) => {
-            const match = contribution.data.link.match(
-              /github\.com\/([^\/]+\/[^\/]+)/,
-            );
-            const repo = match ? match[1] : null;
-            return (
-              <li class="not-first:mt-5">
-                <header class="flex gap-2">
-                  <Icon
-                    class:list={[
-                      "h-5 w-4 flex-none",
-                      {
-                        "text-green-600 dark:text-green-400":
-                          contribution.data.status === "open",
-                        "text-purple-600 dark:text-purple-400":
-                          contribution.data.status === "merged",
-                        "text-red-600 dark:text-red-400":
-                          contribution.data.status === "closed",
-                      },
-                    ]}
-                    name={(() => {
-                      switch (contribution.data.status) {
-                        case "open":
-                          return "git-pull-request-arrow";
-                        case "merged":
-                          return "git-merge";
-                        case "closed":
-                          return "git-pull-request-closed";
-                        default:
-                          enforceExhaustive(
-                            contribution.data.status,
-                            "Unknown contribution status",
-                          );
-                      }
-                    })()}
-                  />
-                  <h3>
-                    <ExternalLink
-                      href={contribution.data.link}
-                      text={repo.toLowerCase()}
+          ossContributions
+            .sort(
+              (a, b) =>
+                Date.parse(b.data.date.toString()) -
+                Date.parse(a.data.date.toString()),
+            )
+            .map((contribution) => {
+              const match = contribution.data.link.match(
+                /github\.com\/([^\/]+\/[^\/]+)/,
+              );
+              const repo = match ? match[1] : null;
+              return (
+                <li class="not-first:mt-5">
+                  <header class="flex gap-2">
+                    <Icon
+                      class:list={[
+                        "h-5 w-4 flex-none",
+                        {
+                          "text-green-600 dark:text-green-400":
+                            contribution.data.status === "open",
+                          "text-purple-600 dark:text-purple-400":
+                            contribution.data.status === "merged",
+                          "text-red-600 dark:text-red-400":
+                            contribution.data.status === "closed",
+                        },
+                      ]}
+                      name={(() => {
+                        switch (contribution.data.status) {
+                          case "open":
+                            return "git-pull-request-arrow";
+                          case "merged":
+                            return "git-merge";
+                          case "closed":
+                            return "git-pull-request-closed";
+                          default:
+                            enforceExhaustive(
+                              contribution.data.status,
+                              "Unknown contribution status",
+                            );
+                        }
+                      })()}
                     />
-                  </h3>
-                </header>
-                <p class="text-muted-foreground line-clamp-2 pl-6 text-pretty">
-                  {contribution.data.description}
-                </p>
-              </li>
-            );
-          })
+                    <h3>
+                      <ExternalLink
+                        href={contribution.data.link}
+                        text={repo.toLowerCase()}
+                      />
+                    </h3>
+                  </header>
+                  <p class="text-muted-foreground line-clamp-2 pl-6 text-pretty">
+                    {contribution.data.description}
+                  </p>
+                </li>
+              );
+            })
         }
       </ul>
       <footer class="flex lg:justify-end">
