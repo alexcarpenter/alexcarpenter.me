@@ -17,7 +17,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     define: {
       "import.meta.env.COMMIT_SHA": JSON.stringify(
-        process.env.VERCEL_GIT_COMMIT_SHA || process.env.COMMIT_SHA || "",
+        process.env.VERCEL_GIT_COMMIT_SHA || process.env.COMMIT_SHA || "56720e6",
       ),
     },
   },
