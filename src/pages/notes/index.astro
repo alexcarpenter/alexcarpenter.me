@@ -42,7 +42,23 @@ const renderedNotes = await Promise.all(
             return (
               <li class="not-first:border-separator not-first:mt-20 not-first:border-t not-first:pt-20">
                 <article>
-                  <h2 class="text-foreground text-pretty">
+                  <a href={`/notes/${note.id}`}>
+                    <time
+                      class="text-muted-foreground"
+                      datetime={note.data.published.toISOString()}
+                    >
+                      {new Date(note.data.published).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "short",
+                          day: "2-digit",
+                          weekday: "short",
+                        },
+                      )}
+                    </time>
+                  </a>
+                  <h2 class="text-foreground mt-5 text-pretty">
                     {isExternalLink ? (
                       <ExternalLink
                         href={note.data.link}
