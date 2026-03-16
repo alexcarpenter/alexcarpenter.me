@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { getEntry } from "astro:content";
 import { enforceExhaustive } from "@/lib/utils";
+import Button from "@/components/button.astro";
 import ExternalLink from "@/components/external-link.astro";
 
 const jobs = await getCollection("jobs");
@@ -45,6 +46,7 @@ const renderedRecommendations = await Promise.all(
         care deeply about design and believe the best interfaces emerge when
         designers, engineers, and intelligent systems work together.
       </p>
+      <Button as="a" href="/notes" class="mt-10">View notes</Button>
     </div>
   </section>
 
