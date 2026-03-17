@@ -44,7 +44,7 @@ const renderedNotes = await Promise.all(
                 <article>
                   <a href={`/notes/${note.id}`}>
                     <time
-                      class="text-muted-foreground"
+                      class="text-muted-foreground hover:text-foreground"
                       datetime={note.data.published.toISOString()}
                     >
                       {new Date(note.data.published).toLocaleDateString(
