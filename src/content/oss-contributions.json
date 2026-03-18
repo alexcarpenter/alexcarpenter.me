@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-03-18",
+    "link": "https://github.com/developit/kinu/pull/102",
+    "description": "Allow clicking between radio/checkbox and labels",
+    "status": "open"
+  },
+  {
     "date": "2026-02-17",
     "link": "https://github.com/anomalyco/opencode/pull/13987",
     "description": "Fix homepage video layout shift",
