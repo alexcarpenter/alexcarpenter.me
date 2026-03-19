@@ -61,7 +61,6 @@ const renderedRecommendations = await Promise.all(
       <ul>
         {
           renderedJobs
-            .filter(({ job }) => job.data.logomark)
             .sort(
               (a, b) =>
                 Date.parse(b.job.data.startDate.toString()) -
@@ -71,14 +70,12 @@ const renderedRecommendations = await Promise.all(
               <li class="not-first:mt-5">
                 <div class="flex justify-between">
                   <header class="flex gap-2">
-                    {job.data.logomark ? (
-                      <Icon
-                        name={slugify(job.data.company, {
-                          decamelize: false,
-                        })}
-                        class="h-5 w-4 flex-none"
-                      />
-                    ) : null}
+                    <Icon
+                      name={slugify(job.data.company, {
+                        decamelize: false,
+                      })}
+                      class="h-5 w-4 flex-none"
+                    />
                     <div>
                       <h3>{job.data.company}</h3>
                       <p class="text-muted-foreground flex items-center gap-1">

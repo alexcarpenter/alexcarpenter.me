@@ -1,23 +1,36 @@
 ---
+import type { GetStaticPaths, Page } from "astro";
 import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { formatLinkHostname } from "@/lib/utils";
 import ExternalLink from "@/components/external-link.astro";
 
-const notes = await getCollection("notes");
-const sortedNotes = notes.sort(
-  (a, b) =>
-    Date.parse(b.data.published.toString()) -
-    Date.parse(a.data.published.toString()),
-);
+type Props = {
+  page: Page<CollectionEntry<"notes">>;
+};
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const notes = await getCollection("notes");
+  const sortedNotes = notes.sort(
+    (a, b) =>
+      Date.parse(b.data.published.toString()) -
+      Date.parse(a.data.published.toString()),
+  );
+  return paginate(sortedNotes, { pageSize: 20 });
+};
+
+const { page } = Astro.props as Props;
 
 const renderedNotes = await Promise.all(
-  sortedNotes.map(async (note) => {
+  page.data.map(async (note) => {
     const { Content } = await render(note);
     return { note, Content };
   }),
 );
+
+const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
 ---
 
 <BaseLayout>
@@ -34,7 +47,7 @@ const renderedNotes = await Promise.all(
     <div
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      <h2>Latest</h2>
+      <h2>{heading}</h2>
       <ul>
         {
           renderedNotes.map(({ note, Content }) => {
@@ -82,7 +95,7 @@ const renderedNotes = await Promise.all(
           })
         }
       </ul>
-      <footer class="flex lg:justify-end">
+      <footer class="flex flex-col gap-10 lg:items-end">
         <a
           href="/notes/rss.xml"
           class="text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
@@ -95,6 +108,45 @@ const renderedNotes = await Promise.all(
           /></a
         >
       </footer>
+      {
+        (page.url.prev || page.url.next) && (
+          <nav class="col-start-2 grid grid-cols-3 gap-5">
+            {page.url.prev && (
+              <span class="flex">
+                <a
+                  href={page.url.prev}
+                  class="text-muted-foreground hover:text-foreground inline-flex gap-1"
+                >
+                  <Icon
+                    name="arrow-left"
+                    aria-hidden="true"
+                    class="h-5 w-2.5 flex-none"
+                  />{" "}
+                  Prev
+                </a>
+              </span>
+            )}
+            <span class="text-muted-foreground col-start-2 text-center">
+              {page.currentPage} / {page.lastPage}
+            </span>
+            {page.url.next && (
+              <span class="flex justify-end">
+                <a
+                  href={page.url.next}
+                  class="text-muted-foreground hover:text-foreground inline-flex gap-1"
+                >
+                  Next{" "}
+                  <Icon
+                    name="arrow-right"
+                    aria-hidden="true"
+                    class="h-5 w-2.5 flex-none"
+                  />
+                </a>
+              </span>
+            )}
+          </nav>
+        )
+      }
     </div>
   </section>
 </BaseLayout>

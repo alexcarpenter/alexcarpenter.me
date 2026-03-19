@@ -3,7 +3,6 @@ title: Front-end Developer
 company: Masuga Design
 startDate: 2012-02-01
 endDate: 2015-08-01
-logomark: true
 tools:
   - ExpressionEngine
   - Craft CMS

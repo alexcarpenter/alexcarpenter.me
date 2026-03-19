@@ -32,7 +32,6 @@ const jobs = defineCollection({
   schema: z.object({
     title: z.string(),
     company: z.string(),
-    logomark: z.boolean().optional().default(false),
     startDate: z.coerce.date(),
     endDate: z.coerce.date().optional(),
     tools: z.array(z.string()).optional(),

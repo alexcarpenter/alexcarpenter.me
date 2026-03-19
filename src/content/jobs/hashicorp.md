@@ -3,7 +3,6 @@ title: Senior Lead Web Engineer
 company: HashiCorp
 startDate: 2021-07-01
 endDate: 2023-07-01
-logomark: true
 tools:
   - Next.js
   - Dato CMS
