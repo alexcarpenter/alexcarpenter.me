@@ -83,6 +83,8 @@
     background-color: var(--pre-background-color) !important;
     border-radius: var(--radius-md);
     border: 1px solid var(--color-separator);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-separator) transparent;
   }
 
   pre code {
@@ -212,7 +214,7 @@
 
     & :where(blockquote) {
       display: flex;
-      column-gap: calc(var(--spacing) * 1);
+      column-gap: var(--spacing);
 
       &::before {
         content: ">";
