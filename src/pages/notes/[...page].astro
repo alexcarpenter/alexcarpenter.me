@@ -33,7 +33,10 @@ const renderedNotes = await Promise.all(
 const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Notes"
+  description="Notes on engineering, developer experience, design systems, and accessibility."
+>
   <section class="mt-40 px-4">
     <div class="mx-auto max-w-prose">
       <h2 class="text-muted-foreground text-balance">
