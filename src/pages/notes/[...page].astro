@@ -113,7 +113,7 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
       </footer>
       {
         (page.url.prev || page.url.next) && (
-          <nav class="col-start-2 grid grid-cols-3 gap-5">
+          <nav class="grid grid-cols-3 gap-5 lg:col-start-2">
             {page.url.prev && (
               <span class="flex">
                 <a
