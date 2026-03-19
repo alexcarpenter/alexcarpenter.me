@@ -85,6 +85,7 @@
     border: 1px solid var(--color-separator);
     scrollbar-width: thin;
     scrollbar-color: var(--color-separator) transparent;
+    outline-offset: 4px;
   }
 
   pre code {
