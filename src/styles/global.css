@@ -218,7 +218,7 @@
       column-gap: var(--spacing);
 
       &::before {
-        content: ">";
+        content: "\BB";
       }
     }
 
