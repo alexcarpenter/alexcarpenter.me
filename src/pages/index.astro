@@ -58,7 +58,7 @@ const renderedRecommendations = await Promise.all(
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
       <h2>Experience</h2>
-      <ul>
+      <ul class="flex flex-col gap-5">
         {
           renderedJobs
             .sort(
@@ -66,52 +66,32 @@ const renderedRecommendations = await Promise.all(
                 Date.parse(b.job.data.startDate.toString()) -
                 Date.parse(a.job.data.startDate.toString()),
             )
-            .map(({ job }) => (
-              <li class="not-first:mt-5">
-                <div class="flex justify-between">
-                  <header class="flex gap-2">
-                    <Icon
-                      name={slugify(job.data.company, {
-                        decamelize: false,
-                      })}
-                      class="h-5 w-4 flex-none"
-                    />
-                    <div>
-                      <h3>{job.data.company}</h3>
-                      <p class="text-muted-foreground flex items-center gap-1">
-                        <Icon
-                          name="corner-down-right"
-                          class="h-5 w-2.5 flex-none"
-                        />{" "}
-                        {job.data.title}
-                      </p>
-                    </div>
-                  </header>
-                  <p class="text-muted-foreground">
-                    <time datetime={job.data.startDate.toISOString()}>
-                      <span class="hidden sm:inline">
-                        {new Date(job.data.startDate).toLocaleDateString(
-                          "en-US",
-                          {
-                            year: "numeric",
-                            month: "short",
-                          },
-                        )}
-                      </span>
-                      <span class="sm:hidden">
-                        {new Date(job.data.startDate).toLocaleDateString(
-                          "en-US",
-                          {
-                            year: "numeric",
-                          },
-                        )}
-                      </span>
-                    </time>
-                    –
-                    {job.data.endDate ? (
-                      <time datetime={job.data.endDate.toISOString()}>
+            .map(({ job, Content }) => (
+              <li>
+                <details name="accordion" class="group/accordion">
+                  <summary class="grid grid-cols-[1fr_max-content_0.625rem] gap-2">
+                    <header class="flex gap-2">
+                      <Icon
+                        name={slugify(job.data.company, {
+                          decamelize: false,
+                        })}
+                        class="h-5 w-4 flex-none"
+                      />
+                      <div>
+                        <h3>{job.data.company}</h3>
+                        <p class="text-muted-foreground flex items-center gap-1">
+                          <Icon
+                            name="corner-down-right"
+                            class="h-5 w-2.5 flex-none"
+                          />{" "}
+                          {job.data.title}
+                        </p>
+                      </div>
+                    </header>
+                    <p class="text-muted-foreground">
+                      <time datetime={job.data.startDate.toISOString()}>
                         <span class="hidden sm:inline">
-                          {new Date(job.data.endDate).toLocaleDateString(
+                          {new Date(job.data.startDate).toLocaleDateString(
                             "en-US",
                             {
                               year: "numeric",
@@ -120,7 +100,7 @@ const renderedRecommendations = await Promise.all(
                           )}
                         </span>
                         <span class="sm:hidden">
-                          {new Date(job.data.endDate).toLocaleDateString(
+                          {new Date(job.data.startDate).toLocaleDateString(
                             "en-US",
                             {
                               year: "numeric",
@@ -128,11 +108,48 @@ const renderedRecommendations = await Promise.all(
                           )}
                         </span>
                       </time>
-                    ) : (
-                      <time datetime={new Date().toISOString()}>Now</time>
-                    )}
-                  </p>
-                </div>
+                      –
+                      {job.data.endDate ? (
+                        <time datetime={job.data.endDate.toISOString()}>
+                          <span class="hidden sm:inline">
+                            {new Date(job.data.endDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                              },
+                            )}
+                          </span>
+                          <span class="sm:hidden">
+                            {new Date(job.data.endDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                              },
+                            )}
+                          </span>
+                        </time>
+                      ) : (
+                        <time datetime={new Date().toISOString()}>Now</time>
+                      )}
+                    </p>
+
+                    <Icon
+                      name="chevron-down"
+                      class="text-muted-foreground h-5 w-2.5 flex-none transition-transform group-open/accordion:rotate-180"
+                    />
+                  </summary>
+
+                  <div class="ps-6 pbs-2">
+                    <Content />
+                    <p class="text-muted-foreground mbs-2">
+                      {new Intl.ListFormat("en-US", {
+                        style: "long",
+                        type: "conjunction",
+                      }).format(job.data.tools)}
+                    </p>
+                  </div>
+                </details>
               </li>
             ))
         }
@@ -253,3 +270,37 @@ const renderedRecommendations = await Promise.all(
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  details {
+    --duration: 0.2s;
+
+    @media (prefers-reduced-motion: no-preference) {
+      interpolate-size: allow-keywords;
+    }
+
+    &::details-content {
+      opacity: 0;
+      block-size: 0;
+      overflow-y: clip;
+      filter: blur(2px);
+      transition:
+        content-visibility var(--duration) allow-discrete,
+        opacity var(--duration),
+        block-size var(--duration),
+        filter var(--duration);
+    }
+
+    &[open]::details-content {
+      opacity: 1;
+      block-size: auto;
+      filter: blur(0px);
+    }
+  }
+
+  summary {
+    cursor: pointer;
+    user-select: none;
+    outline-offset: 4px;
+  }
+</style>
