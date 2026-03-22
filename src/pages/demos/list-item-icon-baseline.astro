@@ -1,0 +1,28 @@
+---
+import DemoLayout from "@/layouts/demo-layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<DemoLayout>
+  <div class="m-auto max-w-sm">
+    <ul class="flex flex-col gap-2">
+      {
+        [
+          "List item 1",
+          "List item 2 that is longer than the others and wraps to two lines",
+          "List item 3",
+        ].map((i) => (
+          <li class="flex gap-2">
+            <span class="h-1lh flex items-center">
+              <Icon
+                class="text-accent size-[1em] flex-none"
+                name="badge-check"
+              />
+            </span>{" "}
+            {i}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</DemoLayout>

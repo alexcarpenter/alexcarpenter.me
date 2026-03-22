@@ -6,6 +6,7 @@ import { Icon } from "astro-icon/components";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { formatLinkHostname } from "@/lib/utils";
 import ExternalLink from "@/components/external-link.astro";
+import Demo from "@/components/demo.astro";
 
 type Props = {
   page: Page<CollectionEntry<"notes">>;
@@ -74,6 +75,13 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
                       )}
                     </time>
                   </a>
+                  {note.data.demo ? (
+                    <Demo
+                      class="mt-5"
+                      src={note.data.demo}
+                      title={note.data.title}
+                    />
+                  ) : null}
                   <h2 class="text-foreground mt-5">
                     {isExternalLink ? (
                       <ExternalLink

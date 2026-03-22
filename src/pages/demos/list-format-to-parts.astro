@@ -1,0 +1,22 @@
+---
+import DemoLayout from "@/layouts/demo-layout.astro";
+const tags = ["HTML", "CSS", "JavaScript"];
+---
+
+<DemoLayout>
+  <p class="m-auto max-w-xl">
+    {
+      new Intl.ListFormat("en-US")
+        .formatToParts(tags)
+        .map(({ type, value }) => {
+          if (type === "element") {
+            return (
+              // prettier-ignore
+              <a href="" class="underline">{value}</a>
+            );
+          }
+          return value;
+        })
+    }
+  </p>
+</DemoLayout>
