@@ -67,9 +67,10 @@
     color: var(--color-foreground);
   }
 
-  mark {
+  mark,
+  :not(pre) > code {
     background-color: var(--color-muted);
-    color: var(--color-foreground);
+    color: inherit;
     padding-inline: var(--spacing);
     box-decoration-break: clone;
     border-radius: var(--radius-sm);
