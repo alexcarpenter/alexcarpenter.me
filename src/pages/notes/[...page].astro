@@ -49,7 +49,7 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
 
   <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
     <div
-      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-20 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
       <h2>{heading}</h2>
       <ul>
@@ -97,9 +97,11 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
                       {formatLinkHostname(note.data.link)}
                     </p>
                   ) : null}
-                  <div class="prose mt-5">
-                    <Content />
-                  </div>
+                  {note.body ? (
+                    <div class="prose mt-5">
+                      <Content />
+                    </div>
+                  ) : null}
                 </article>
               </li>
             );
@@ -121,7 +123,7 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
       </footer>
       {
         (page.url.prev || page.url.next) && (
-          <nav class="grid grid-cols-3 gap-5 pt-10 lg:col-start-2">
+          <nav class="grid grid-cols-3 gap-5 lg:col-start-2">
             {page.url.prev && (
               <span class="flex">
                 <a
