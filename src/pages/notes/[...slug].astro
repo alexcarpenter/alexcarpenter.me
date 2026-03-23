@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+// import slugify from "@sindresorhus/slugify";
 import BaseLayout from "@/layouts/base-layout.astro";
 import ExternalLink from "@/components/external-link.astro";
 import { formatLinkHostname } from "@/lib/utils";
@@ -20,7 +21,7 @@ const { Content } = await render(note);
 <BaseLayout title={note.data.title && !note.data.link ? note.data.title : null}
   ><section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
     <div
-      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
       <time
         class="text-muted-foreground"
@@ -38,7 +39,7 @@ const { Content } = await render(note);
       <article>
         {
           note.data.title ? (
-            <header class="mb-5">
+            <header>
               <h2>
                 {note.data.link ? (
                   <ExternalLink href={note.data.link} text={note.data.title} />
@@ -61,12 +62,32 @@ const { Content } = await render(note);
         }
         {
           note.body ? (
-            <div class="prose">
+            <div class="prose mt-5">
               <Content />
             </div>
           ) : null
         }
       </article>
+      <!-- {
+        note.data.tags ? (
+          <footer class="text-muted-foreground flex lg:justify-end">
+            <dl>
+              <dt class="sr-only">Tagged</dt>
+              <dd class="text-right text-balance">
+                {new Intl.ListFormat("en-US")
+                  .formatToParts(note.data.tags)
+                  .map(({ type, value }) => {
+                    const slug = slugify(value);
+                    if (type === "element") {
+                      return <a href={`/tagged/${slug}`}>#{slug}</a>;
+                    }
+                    return value;
+                  })}
+              </dd>
+            </dl>
+          </footer>
+        ) : null
+      } -->
     </div>
   </section>
 </BaseLayout>
