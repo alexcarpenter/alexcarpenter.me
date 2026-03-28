@@ -92,7 +92,7 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
                       note.data.title
                     )}
                   </h2>
-                  {isExternalLink ? (
+                  {isExternalLink && note.data.link ? (
                     <p class="text-muted-foreground">
                       {formatLinkHostname(note.data.link)}
                     </p>
