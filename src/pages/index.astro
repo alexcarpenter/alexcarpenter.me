@@ -300,12 +300,14 @@ const renderedRecommendations = await Promise.all(
 
                   <div class="ps-6 pbs-2">
                     <Content />
-                    <p class="text-muted-foreground mbs-2">
-                      {new Intl.ListFormat("en-US", {
-                        style: "long",
-                        type: "conjunction",
-                      }).format(job.data.tools)}
-                    </p>
+                    {job.data.tools ? (
+                      <p class="text-muted-foreground mbs-2">
+                        {new Intl.ListFormat("en-US", {
+                          style: "long",
+                          type: "conjunction",
+                        }).format(job.data.tools)}
+                      </p>
+                    ) : null}
                   </div>
                 </details>
               </li>
@@ -372,6 +374,7 @@ const renderedRecommendations = await Promise.all(
                 /github\.com\/([^\/]+\/[^\/]+)/,
               );
               const repo = match ? match[1] : null;
+              if (!repo) return;
               return (
                 <li class="not-first:mt-5">
                   <header class="flex gap-2">
