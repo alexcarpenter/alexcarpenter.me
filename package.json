@@ -8,8 +8,7 @@
   "pnpm": {
     "overrides": {
       "lodash": "4.17.23"
-    },
-    "minimumReleaseAge": "24 hours"
+    }
   },
   "scripts": {
     "dev": "astro dev",
