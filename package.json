@@ -8,7 +8,8 @@
   "pnpm": {
     "overrides": {
       "lodash": "4.17.23"
-    }
+    },
+    "minimumReleaseAge": "24 hours"
   },
   "scripts": {
     "dev": "astro dev",
@@ -20,20 +21,20 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.7",
-    "@astrojs/rss": "4.0.17",
-    "@astrojs/sitemap": "3.7.1",
+    "@astrojs/check": "0.9.8",
+    "@astrojs/rss": "4.0.18",
+    "@astrojs/sitemap": "3.7.2",
     "@shikijs/transformers": "^4.0.2",
     "@sindresorhus/slugify": "^3.0.0",
-    "@tailwindcss/vite": "^4.2.1",
-    "astro": "6.0.4",
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "6.1.1",
     "astro-icon": "^1.1.5",
     "markdown-it": "^14.1.1",
     "rehype-external-links": "^3.0.0",
-    "sanitize-html": "^2.17.1",
+    "sanitize-html": "^2.17.2",
     "sharp": "^0.34.5",
-    "tailwindcss": "4.2.1",
-    "typescript": "^5.9.3"
+    "tailwindcss": "4.2.2",
+    "typescript": "^6.0.2"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",
