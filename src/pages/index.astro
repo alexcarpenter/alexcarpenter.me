@@ -201,7 +201,9 @@ const renderedRecommendations = await Promise.all(
                 <h3 class="mt-5">
                   <ExternalLink href={project.link} text={project.name} />
                 </h3>
-                <p class="text-muted-foreground">{project.description}</p>
+                <p class="text-muted-foreground text-pretty">
+                  {project.description}
+                </p>
               </li>
             ))
         }
