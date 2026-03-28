@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { GEAR_CATEGORY_MAP, GEAR_CATEGORIES } from "@/consts";
 import ExternalLink from "@/components/external-link.astro";
+import slugify from "@sindresorhus/slugify";
 
 const gear = await getCollection("gear");
 const activeGear = gear.filter((item) => item.data.status === "active");
@@ -39,7 +40,10 @@ const groupedGear = Array.from(
       if (!categoryInfo || items.length === 0) return null;
 
       return (
-        <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+        <section
+          class="border-separator mt-20 border-t px-4 pt-20 lg:px-20"
+          id={slugify(categoryInfo.title)}
+        >
           <div class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]">
             <h2>{categoryInfo.title}</h2>
             <ul class="grid grid-cols-2 gap-10 lg:col-span-2 lg:grid-cols-4">
