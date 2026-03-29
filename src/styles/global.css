@@ -217,7 +217,6 @@
     & :where(blockquote) {
       display: flex;
       column-gap: var(--spacing);
-
       &::before {
         content: "\BB";
       }
@@ -225,6 +224,20 @@
 
     & :where(:is(h1, h2, h3)) {
       color: var(--color-foreground);
+    }
+
+    & :where(ul) {
+      display: flex;
+      flex-direction: column;
+      row-gap: var(--spacing);
+    }
+
+    & :where(li) {
+      display: flex;
+      column-gap: var(--spacing);
+      &::before {
+        content: "\203A";
+      }
     }
   }
 }
