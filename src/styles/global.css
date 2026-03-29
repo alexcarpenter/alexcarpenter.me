@@ -233,10 +233,13 @@
     }
 
     & :where(li) {
-      display: flex;
-      column-gap: var(--spacing);
+      position: relative;
+      padding-inline-start: calc(1ch + var(--spacing));
       &::before {
         content: "\203A";
+        position: absolute;
+        top: 0;
+        left: 0;
       }
     }
   }
