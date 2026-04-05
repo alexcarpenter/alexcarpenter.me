@@ -42,7 +42,11 @@ const { Content } = await render(note);
             <header>
               <h2>
                 {note.data.link ? (
-                  <ExternalLink href={note.data.link} text={note.data.title} />
+                  <ExternalLink
+                    href={note.data.link}
+                    text={note.data.title}
+                    class="hover:text-yellow"
+                  />
                 ) : (
                   note.data.title
                 )}

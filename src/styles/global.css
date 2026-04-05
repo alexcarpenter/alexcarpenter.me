@@ -20,29 +20,45 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-separator: var(--separator);
-  --color-underline: var(--underline);
-  --color-highlight: var(--highlight);
-  --color-pre-background: var(--pre-background);
+  /**/
+  --color-red: var(--red);
+  --color-teal: var(--teal);
+  --color-yellow: var(--yellow);
+  --color-green: var(--green);
+  --color-orange: var(--orange);
+  --color-purple: var(--purple);
 }
 
 :root {
-  --background: var(--color-white);
-  --foreground: var(--color-neutral-950);
-  --muted: var(--color-neutral-200);
-  --muted-foreground: var(--color-neutral-500);
-  --separator: var(--color-neutral-200);
-  --pre-background: var(--color-white);
+  --background: #f9f5d7;
+  --foreground: #3c3836;
+  --muted: #efe3be;
+  --muted-foreground: #7c6f64;
+  --separator: #ddcca7;
+  /**/
+  --red: #9d0006;
+  --teal: #076678;
+  --yellow: #b57614;
+  --green: #79740e;
+  --orange: #af3a03;
+  --purple: #8f3f71;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --background: var(--color-neutral-950);
-    --foreground: var(--color-neutral-50);
-    --muted: var(--color-neutral-700);
-    --muted-foreground: var(--color-neutral-400);
-    --separator: var(--color-neutral-800);
-    --pre-background: var(--color-neutral-950);
+    --background: #1d2021;
+    --foreground: #ebdbb2;
+    --muted: #32302f;
+    --muted-foreground: #a89984;
+    --separator: #494340;
+    /**/
+    --red: #fb4934;
+    --teal: #83a598;
+    --yellow: #fabd2f;
+    --green: #b8bb26;
+    --orange: #fe8019;
+    --purple: #d3869b;
   }
 
   .astro-code,
@@ -77,7 +93,7 @@
   }
 
   pre {
-    --pre-background-color: var(--color-pre-background);
+    --pre-background-color: var(--color-background);
     padding-block: calc(var(--spacing) * 4);
     font-size: var(--text-xs);
     line-height: 1.5;
@@ -106,10 +122,7 @@
 
       @media (hover: hover) {
         &:hover {
-          --line-background-color: light-dark(
-            var(--color-neutral-100),
-            var(--color-neutral-900)
-          );
+          --line-background-color: light-dark(#c0d2c1, #353f3d);
         }
       }
 
@@ -174,18 +187,18 @@
       }
 
       &.highlighted {
-        --line-border-color: #08c0ef;
+        --line-border-color: var(--color-teal);
       }
 
       &.remove {
-        --line-border-color: #ff6762;
+        --line-border-color: var(--color-red);
         &::before {
           content: "-";
         }
       }
 
       &.add {
-        --line-border-color: #5ecc71;
+        --line-border-color: var(--color-green);
         &::before {
           content: "+";
         }
@@ -219,6 +232,7 @@
       column-gap: var(--spacing);
       &::before {
         content: "\BB";
+        color: var(--color-orange);
       }
     }
 
@@ -240,6 +254,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        color: var(--color-orange);
       }
     }
   }

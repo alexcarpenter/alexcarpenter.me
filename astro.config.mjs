@@ -8,8 +8,6 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import rehypeExternalLinks from "rehype-external-links";
-import pierreLight from "./src/lib/pierre-light.json";
-import pierreDark from "./src/lib/pierre-dark.json";
 
 export default defineConfig({
   site: "https://alexcarpenter.me",
@@ -17,7 +15,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
     define: {
       "import.meta.env.COMMIT_SHA": JSON.stringify(
-        process.env.VERCEL_GIT_COMMIT_SHA || process.env.COMMIT_SHA || "56720e6",
+        process.env.VERCEL_GIT_COMMIT_SHA ||
+          process.env.COMMIT_SHA ||
+          "56720e6",
       ),
     },
   },
@@ -26,8 +26,8 @@ export default defineConfig({
     rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
     shikiConfig: {
       themes: {
-        light: pierreLight,
-        dark: pierreDark,
+        light: "gruvbox-light-hard",
+        dark: "gruvbox-dark-hard",
       },
       transformers: [
         transformerNotationDiff(),

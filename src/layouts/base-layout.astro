@@ -126,7 +126,11 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA.slice(0, 7);
                     {social.title}
                   </dt>
                   <dd>
-                    <ExternalLink href={social.link} text={social.username} />
+                    <ExternalLink
+                      href={social.link}
+                      text={social.username}
+                      class="hover:text-yellow"
+                    />
                   </dd>
                 </Fragment>
               );
@@ -152,6 +156,7 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA.slice(0, 7);
               <ExternalLink
                 href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${COMMIT_SHA}`}
                 text={COMMIT_SHA}
+                class="hover:text-yellow"
               />
             </dd>
           </dl>

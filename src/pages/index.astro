@@ -57,7 +57,7 @@ const renderedRecommendations = await Promise.all(
     <div
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      <h2>Projects</h2>
+      <h2 class="text-teal">Projects</h2>
       <ul
         class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3"
       >
@@ -195,11 +195,15 @@ const renderedRecommendations = await Promise.all(
             .filter((p) => p.name !== "dotfiles")
             .map((project) => (
               <li>
-                <figure class="bg-grid grid aspect-3/2 place-content-center">
+                <figure class="bg-grid text-purple grid aspect-3/2 place-content-center">
                   {project.logomark}
                 </figure>
                 <h3 class="mt-5">
-                  <ExternalLink href={project.link} text={project.name} />
+                  <ExternalLink
+                    href={project.link}
+                    text={project.name}
+                    class="hover:text-yellow"
+                  />
                 </h3>
                 <p class="text-muted-foreground text-pretty">
                   {project.description}
@@ -215,7 +219,7 @@ const renderedRecommendations = await Promise.all(
     <div
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      <h2>Experience</h2>
+      <h2 class="text-teal">Experience</h2>
       <ul class="flex flex-col gap-5">
         {
           renderedJobs
@@ -328,7 +332,7 @@ const renderedRecommendations = await Promise.all(
     <div
       class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      <h2>Recommendations</h2>
+      <h2 class="text-teal">Recommendations</h2>
       <ul>
         {
           renderedRecommendations
@@ -358,7 +362,7 @@ const renderedRecommendations = await Promise.all(
     <div
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      <h2>
+      <h2 class="text-teal">
         <abbr title="Open source software" class="no-underline">OSS</abbr> Contributions
       </h2>
       <ul>
@@ -382,12 +386,9 @@ const renderedRecommendations = await Promise.all(
                       class:list={[
                         "h-5 w-4 flex-none",
                         {
-                          "text-green-600 dark:text-green-400":
-                            contribution.data.status === "open",
-                          "text-purple-600 dark:text-purple-400":
-                            contribution.data.status === "merged",
-                          "text-red-600 dark:text-red-400":
-                            contribution.data.status === "closed",
+                          "text-green": contribution.data.status === "open",
+                          "text-purple": contribution.data.status === "merged",
+                          "text-red": contribution.data.status === "closed",
                         },
                       ]}
                       name={(() => {
@@ -410,6 +411,7 @@ const renderedRecommendations = await Promise.all(
                       <ExternalLink
                         href={contribution.data.link}
                         text={repo.toLowerCase()}
+                        class="hover:text-yellow"
                       />
                     </h3>
                   </header>

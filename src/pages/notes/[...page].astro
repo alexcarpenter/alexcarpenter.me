@@ -51,7 +51,7 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
     <div
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-20 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      <h2>{heading}</h2>
+      <h2 class="text-teal">{heading}</h2>
       <ul>
         {
           renderedNotes.map(({ note, Content }) => {
@@ -87,6 +87,7 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
                       <ExternalLink
                         href={note.data.link}
                         text={note.data.title}
+                        class="hover:text-yellow"
                       />
                     ) : (
                       note.data.title
