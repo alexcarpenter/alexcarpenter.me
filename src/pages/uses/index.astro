@@ -45,7 +45,7 @@ const groupedGear = Array.from(
           id={slugify(categoryInfo.title)}
         >
           <div class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]">
-            <h2 class="text-teal">{categoryInfo.title}</h2>
+            <h2>{categoryInfo.title}</h2>
             <ul class="grid grid-cols-2 gap-10 lg:col-span-2 lg:grid-cols-4">
               {items.map((item) => (
                 <li>
@@ -60,7 +60,6 @@ const groupedGear = Array.from(
                         <ExternalLink
                           href={item.data.link}
                           text={item.data.name}
-                          class="hover:text-yellow"
                         />
                       ) : (
                         item.data.name

@@ -26,8 +26,8 @@ export default defineConfig({
     rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
     shikiConfig: {
       themes: {
-        light: "gruvbox-light-hard",
-        dark: "gruvbox-dark-hard",
+        light: "github-light",
+        dark: "github-dark",
       },
       transformers: [
         transformerNotationDiff(),
