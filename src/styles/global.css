@@ -187,18 +187,27 @@
       }
 
       &.highlighted {
-        --line-border-color: light-dark(#005cc5, #79b8ff);
+        --line-border-color: light-dark(
+          oklch(0.4949 0.180091 257.6013),
+          oklch(0.7685 0.1214 252.34)
+        );
       }
 
       &.remove {
-        --line-border-color: light-dark(#d73a49, #f97583);
+        --line-border-color: light-dark(
+          oklch(0.5879 0.1927 20.47),
+          oklch(0.7214 0.1616 15.49)
+        );
         &::before {
           content: "-";
         }
       }
 
       &.add {
-        --line-border-color: light-dark(#22863a, #85e89d);
+        --line-border-color: light-dark(
+          oklch(0.5464 0.1442 147.32),
+          oklch(0.8512 0.1406 150.34)
+        );
         &::before {
           content: "+";
         }
