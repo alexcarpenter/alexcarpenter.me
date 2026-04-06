@@ -59,7 +59,11 @@ const renderedRecommendations = await Promise.all(
     >
       <h2>Projects</h2>
       <ul
-        class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3"
+        class:list={[
+          "grid gap-5",
+          "lg:col-span-2 lg:grid-cols-3 lg:gap-10",
+          "max-lg:snap-x max-lg:snap-mandatory max-lg:auto-cols-[calc(100%---spacing(20))] max-lg:grid-flow-col max-lg:overflow-x-auto max-lg:scroll-smooth max-lg:[scrollbar-width:none]",
+        ]}
       >
         {
           [
@@ -194,7 +198,7 @@ const renderedRecommendations = await Promise.all(
           ]
             .filter((p) => p.name !== "dotfiles")
             .map((project) => (
-              <li>
+              <li class="snap-center">
                 <figure class="bg-grid grid aspect-3/2 place-content-center">
                   {project.logomark}
                 </figure>
