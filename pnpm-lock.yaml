@@ -30,8 +30,8 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2(vite@7.3.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(yaml@2.8.3))
       astro:
-        specifier: 6.1.2
-        version: 6.1.2(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(typescript@6.0.2)(yaml@2.8.3)
+        specifier: 6.1.4
+        version: 6.1.4(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(typescript@6.0.2)(yaml@2.8.3)
       astro-icon:
         specifier: ^1.1.5
         version: 1.1.5
@@ -919,8 +919,8 @@ packages:
   astro-icon@1.1.5:
     resolution: {integrity: sha512-CJYS5nWOw9jz4RpGWmzNQY7D0y2ZZacH7atL2K9DeJXJVaz7/5WrxeyIxO8KASk1jCM96Q4LjRx/F3R+InjJrw==}
 
-  astro@6.1.2:
-    resolution: {integrity: sha512-r3iIvmB6JvQxsdJLvapybKKq7Bojd1iQK6CCx5P55eRnXJIyUpHx/1UB/GdMm+em/lwaCUasxHCmIO0lCLV2uA==}
+  astro@6.1.4:
+    resolution: {integrity: sha512-SRy1bONuCHkGWhI5JiWCQKVDVbeaXOikjAVZs/Nz+lvUvubtdLoZfnacmuZHQ9RL2IOkU54M8/qZYm9ypJDKrg==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3076,7 +3076,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@6.1.2(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(typescript@6.0.2)(yaml@2.8.3):
+  astro@6.1.4(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(typescript@6.0.2)(yaml@2.8.3):
     dependencies:
       '@astrojs/compiler': 3.0.1
       '@astrojs/internal-helpers': 0.8.0

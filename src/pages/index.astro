@@ -228,9 +228,13 @@ const renderedRecommendations = await Promise.all(
                 Date.parse(b.job.data.startDate.toString()) -
                 Date.parse(a.job.data.startDate.toString()),
             )
-            .map(({ job, Content }) => (
+            .map(({ job, Content }, index) => (
               <li>
-                <details name="accordion" class="group/accordion">
+                <details
+                  name="accordion"
+                  class="group/accordion"
+                  open={index === 0 ? true : false}
+                >
                   <summary class="grid grid-cols-[1fr_max-content_0.625rem] gap-2">
                     <header class="flex gap-2">
                       <Icon
