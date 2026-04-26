@@ -1,0 +1,46 @@
+---
+import DemoLayout from "@/layouts/demo-layout.astro";
+---
+
+<DemoLayout>
+  <div class="flex flex-1 items-center justify-center gap-4">
+    <button class="green">Hello world</button>
+    <button class="neutral">Hello world</button>
+  </div>
+</DemoLayout>
+
+<style>
+  button {
+    --bg: transparent;
+    --fg: currentColor;
+    --am: 0%;
+    appearance: none;
+    background-color: color-mix(in srgb, var(--bg), var(--fg) var(--am));
+    color: var(--fg);
+    border-radius: 6px;
+    border: 1px solid transparent;
+    height: 32px;
+    width: fit-content;
+    padding-inline: 16px;
+    font-size: 14px;
+    transition: background-color ease 0.2s;
+
+    &:hover {
+      --am: 10%;
+    }
+
+    &:active {
+      --am: 20%;
+    }
+  }
+
+  .green {
+    --bg: oklch(62.7% 0.194 149.214);
+    --fg: oklch(1 0 0);
+  }
+
+  .neutral {
+    --bg: oklch(92.9% 0.013 255.508);
+    --fg: oklch(27.8% 0.033 256.848);
+  }
+</style>
