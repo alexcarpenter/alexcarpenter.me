@@ -57,7 +57,16 @@ const { Content } = await render(note);
         }
         {
           note.data.demo ? (
-            <Demo class="my-5" src={note.data.demo} title={note.data.title} />
+            <Demo
+              class:list={[
+                "mb-5",
+                {
+                  "mt-5": note.data.title,
+                },
+              ]}
+              src={note.data.demo}
+              title={note.data.title}
+            />
           ) : null
         }
         {
