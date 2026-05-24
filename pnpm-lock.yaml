@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  lodash: 4.17.23
+  lodash: 4.17.21
 
 importers:
 
@@ -21,53 +21,53 @@ importers:
         specifier: 3.7.2
         version: 3.7.2
       '@shikijs/transformers':
-        specifier: ^4.1.0
+        specifier: 4.1.0
         version: 4.1.0
       '@sindresorhus/slugify':
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0
       '@tailwindcss/vite':
-        specifier: ^4.3.0
+        specifier: 4.3.0
         version: 4.3.0(vite@7.3.3(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0))
       astro:
         specifier: 6.3.7
         version: 6.3.7(@types/node@25.9.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
       astro-icon:
-        specifier: ^1.1.5
+        specifier: 1.1.5
         version: 1.1.5
       markdown-it:
-        specifier: ^14.2.0
+        specifier: 14.2.0
         version: 14.2.0
       rehype-external-links:
-        specifier: ^3.0.0
+        specifier: 3.0.0
         version: 3.0.0
       sanitize-html:
-        specifier: ^2.17.4
+        specifier: 2.17.4
         version: 2.17.4
       sharp:
-        specifier: ^0.34.5
+        specifier: 0.34.5
         version: 0.34.5
       tailwindcss:
         specifier: 4.2.4
         version: 4.2.4
       typescript:
-        specifier: ^6.0.3
+        specifier: 6.0.3
         version: 6.0.3
     devDependencies:
       '@types/markdown-it':
-        specifier: ^14.1.2
+        specifier: 14.1.2
         version: 14.1.2
       '@types/sanitize-html':
-        specifier: ^2.16.1
+        specifier: 2.16.1
         version: 2.16.1
       prettier:
-        specifier: ^3.8.3
+        specifier: 3.8.3
         version: 3.8.3
       prettier-plugin-astro:
-        specifier: ^0.14.1
+        specifier: 0.14.1
         version: 0.14.1
       prettier-plugin-tailwindcss:
-        specifier: ^0.7.4
+        specifier: 0.7.4
         version: 0.7.4(prettier-plugin-astro@0.14.1)(prettier@3.8.3)
 
 packages:
