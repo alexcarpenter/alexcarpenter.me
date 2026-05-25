@@ -1,7 +1,19 @@
 # Alex Carpenter
 
-This site provides a Markdown version of the homepage for language models and other automated agents.
+Personal website for Alex Carpenter, Staff UI Engineer at Clerk.
+
+## Markdown
+
+- Homepage: https://alexcarpenter.me/index.md
+- Notes index: https://alexcarpenter.me/notes.md
+- Notes RSS: https://alexcarpenter.me/notes/rss.xml
+
+## HTML
 
 - Homepage: https://alexcarpenter.me/
-- Markdown homepage: https://alexcarpenter.me/index.md
 - Notes: https://alexcarpenter.me/notes
+- Uses: https://alexcarpenter.me/uses
+
+## Discovery
+
+- Sitemap: https://alexcarpenter.me/sitemap-index.xml
