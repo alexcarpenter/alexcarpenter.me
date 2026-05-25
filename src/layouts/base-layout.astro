@@ -72,16 +72,7 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA.slice(0, 7);
       href={new URL("/notes/rss.xml", Astro.site)}
     />
 
-    {
-      Astro.url.pathname === "/" && (
-        <link
-          rel="alternate"
-          type="text/markdown"
-          title="Markdown version"
-          href={new URL("/index.md", Astro.site)}
-        />
-      )
-    }
+    <slot name="head" />
   </head>
 
   <body class="py-20 font-mono text-xs/5">
