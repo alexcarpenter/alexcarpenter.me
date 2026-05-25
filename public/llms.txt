@@ -1,0 +1,7 @@
+# Alex Carpenter
+
+This site provides a Markdown version of the homepage for language models and other automated agents.
+
+- Homepage: https://alexcarpenter.me/
+- Markdown homepage: https://alexcarpenter.me/index.md
+- Notes: https://alexcarpenter.me/notes

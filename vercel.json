@@ -1,0 +1,26 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*(text/markdown|text/plain).*"
+        }
+      ],
+      "destination": "/index.md"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-Web|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|GoogleOther|CCBot|cohere-ai|Bytespider|Meta-ExternalAgent|Applebot-Extended).*"
+        }
+      ],
+      "destination": "/index.md"
+    }
+  ]
+}
