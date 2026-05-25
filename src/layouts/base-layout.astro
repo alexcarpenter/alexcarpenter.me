@@ -71,6 +71,8 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA.slice(0, 7);
       title="Notes - Alex Carpenter"
       href={new URL("/notes/rss.xml", Astro.site)}
     />
+
+    <slot name="head" />
   </head>
 
   <body class="py-20 font-mono text-xs/5">

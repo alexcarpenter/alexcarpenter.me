@@ -27,6 +27,15 @@ const renderedRecommendations = await Promise.all(
 ---
 
 <BaseLayout>
+  <Fragment slot="head">
+    <link
+      rel="alternate"
+      type="text/markdown"
+      title="Markdown version"
+      href={new URL("/index.md", Astro.site)}
+    />
+  </Fragment>
+
   <section class="mt-40 px-4">
     <div class="relative mx-auto max-w-prose">
       <h2 class="text-muted-foreground text-balance">

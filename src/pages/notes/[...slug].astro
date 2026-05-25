@@ -19,7 +19,15 @@ const { Content } = await render(note);
 ---
 
 <BaseLayout title={note.data.title && !note.data.link ? note.data.title : null}
-  ><section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+  ><Fragment slot="head">
+    <link
+      rel="alternate"
+      type="text/markdown"
+      title="Markdown version"
+      href={new URL(`/notes/${note.id}.md`, Astro.site)}
+    />
+  </Fragment>
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
     <div
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
