@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-05-25",
+    "link": "https://github.com/JoviDeCroock/pracht/pull/167",
+    "description": "improve text wrapping and add color-scheme usage",
+    "status": "open"
+  },
+  {
     "date": "2026-03-18",
     "link": "https://github.com/developit/kinu/pull/102",
     "description": "Allow clicking between radio/checkbox and labels",
