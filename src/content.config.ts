@@ -1,6 +1,7 @@
 import { defineCollection, reference } from "astro:content";
 import { z } from "astro/zod";
 import { file, glob } from "astro/loaders";
+import { clerkPrsLoader } from "./lib/clerk-prs";
 import { GEAR_CATEGORIES } from "./consts";
 
 const gear = defineCollection({
@@ -78,7 +79,19 @@ const ossContributions = defineCollection({
   }),
 });
 
+const clerkPrs = defineCollection({
+  loader: clerkPrsLoader(),
+  schema: z.object({
+    url: z.url(),
+    title: z.string(),
+    number: z.number(),
+    date: z.coerce.date(),
+    status: z.enum(["open", "merged", "closed"]),
+  }),
+});
+
 export const collections = {
+  clerkPrs,
   gear,
   jobs,
   notes,

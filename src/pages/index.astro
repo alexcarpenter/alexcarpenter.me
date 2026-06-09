@@ -10,6 +10,9 @@ import ExternalLink from "@/components/external-link.astro";
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
 const ossContributions = await getCollection("ossContributions");
+const clerkPrs = (await getCollection("clerkPrs")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
 
 const renderedJobs = await Promise.all(
   jobs.map(async (job) => {
@@ -341,6 +344,58 @@ const renderedRecommendations = await Promise.all(
     </div>
   </section>
 
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <h2>Latest Work</h2>
+      <ul>
+        {
+          clerkPrs.map(({ data: pr }) => (
+            <li class="not-first:mt-5">
+              <header class="flex gap-2">
+                <Icon
+                  class:list={[
+                    "h-5 w-4 flex-none",
+                    {
+                      "text-green": pr.status === "open",
+                      "text-purple": pr.status === "merged",
+                      "text-red": pr.status === "closed",
+                    },
+                  ]}
+                  name={(() => {
+                    switch (pr.status) {
+                      case "open":
+                        return "git-pull-request-arrow";
+                      case "merged":
+                        return "git-merge";
+                      case "closed":
+                        return "git-pull-request-closed";
+                      default:
+                        enforceExhaustive(pr.status, "Unknown PR status");
+                    }
+                  })()}
+                />
+                <h3>
+                  <ExternalLink href={pr.url} text={pr.title} />
+                </h3>
+              </header>
+              <p class="text-muted-foreground pl-6 text-pretty">
+                clerk/javascript#{pr.number}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+      <footer class="flex lg:justify-end">
+        <ExternalLink
+          href="https://github.com/clerk/javascript/pulls/alexcarpenter"
+          text="View on GitHub"
+          class="text-muted-foreground hover:text-foreground"
+        />
+      </footer>
+    </div>
+  </section>
   <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
     <div
       class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
