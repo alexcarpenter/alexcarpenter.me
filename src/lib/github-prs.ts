@@ -9,7 +9,7 @@ type SearchItem = {
   pull_request?: { merged_at: string | null };
 };
 
-type Entry = {
+export type GithubPr = {
   url: string;
   title: string;
   number: number;
@@ -17,38 +17,17 @@ type Entry = {
   status: "open" | "merged" | "closed";
 };
 
-const DUMMY: Entry[] = [
-  {
-    url: "https://github.com/clerk/javascript/pull/9999",
-    title: "feat(ui): example open PR for local dev",
-    number: 9999,
-    date: "2026-06-01T00:00:00Z",
-    status: "open",
-  },
-  {
-    url: "https://github.com/clerk/javascript/pull/9998",
-    title: "feat(headless): example merged PR for local dev",
-    number: 9998,
-    date: "2026-05-28T00:00:00Z",
-    status: "merged",
-  },
-  {
-    url: "https://github.com/clerk/javascript/pull/9997",
-    title: "chore: example closed PR for local dev",
-    number: 9997,
-    date: "2026-05-20T00:00:00Z",
-    status: "closed",
-  },
-];
-
-export function clerkPrsLoader(
-  author = "alexcarpenter",
-  limit = 10,
-): Loader {
+export function githubPrsLoader(options: {
+  repo: string;
+  author: string;
+  limit?: number;
+  dummy?: GithubPr[];
+}): Loader {
+  const { repo, author, limit = 10, dummy } = options;
   return {
-    name: "clerk-prs",
+    name: `github-prs:${repo}`,
     load: async ({ store, logger, parseData }) => {
-      const write = async (entries: Entry[]) => {
+      const write = async (entries: GithubPr[]) => {
         store.clear();
         for (const entry of entries) {
           const data = await parseData({ id: String(entry.number), data: entry });
@@ -56,14 +35,14 @@ export function clerkPrsLoader(
         }
       };
 
-      if (import.meta.env.DEV) {
+      if (import.meta.env.DEV && dummy) {
         logger.info("Using dummy data (dev mode)");
-        await write(DUMMY);
+        await write(dummy);
         return;
       }
 
       const url = `https://api.github.com/search/issues?q=${encodeURIComponent(
-        `repo:clerk/javascript author:${author} is:pr`,
+        `repo:${repo} author:${author} is:pr`,
       )}&sort=created&order=desc&per_page=${limit}`;
 
       const res = await fetch(url, {

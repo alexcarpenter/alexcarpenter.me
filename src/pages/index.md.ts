@@ -64,6 +64,7 @@ export const GET: APIRoute = async () => {
   const jobs = await getCollection("jobs");
   const recommendations = await getCollection("recommendations");
   const ossContributions = await getCollection("ossContributions");
+  const clerkPrs = await getCollection("clerkPrs");
 
   const experienceMarkdown = jobs
     .sort(
@@ -128,6 +129,16 @@ export const GET: APIRoute = async () => {
     "## Experience",
     "",
     experienceMarkdown,
+    "",
+    "## Latest Work",
+    "",
+    clerkPrs
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+      .map(
+        (pr) =>
+          `- [${pr.data.title}](${pr.data.url}) — clerk/javascript#${pr.data.number} (${pr.data.status})`,
+      )
+      .join("\n"),
     "",
     "## Recommendations",
     "",
