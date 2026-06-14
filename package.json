@@ -3,12 +3,7 @@
   "type": "module",
   "version": "7.0.0",
   "engines": {
-    "node": ">=22"
-  },
-  "pnpm": {
-    "overrides": {
-      "lodash": "4.17.21"
-    }
+    "node": "24.x"
   },
   "scripts": {
     "dev": "astro dev",
@@ -21,6 +16,7 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
+    "@astrojs/markdown-remark": "7.2.0",
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.3",
     "@shikijs/transformers": "4.2.0",
@@ -42,5 +38,5 @@
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.8.0"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@11.6.0"
 }

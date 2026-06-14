@@ -1,4 +1,5 @@
 import sitemap from "@astrojs/sitemap";
+import { unified } from "@astrojs/markdown-remark";
 import {
   transformerMetaHighlight,
   transformerMetaWordHighlight,
@@ -23,7 +24,9 @@ export default defineConfig({
   },
   integrations: [sitemap(), icon()],
   markdown: {
-    rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
+    processor: unified({
+      rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
+    }),
     shikiConfig: {
       themes: {
         light: "github-light",
