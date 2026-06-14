@@ -107,6 +107,7 @@ const clerkPrs = defineCollection({
   loader: githubPrsLoader({
     repo: "clerk/javascript",
     author: "alexcarpenter",
+    excludeStatuses: ["closed"],
     dummy: CLERK_PRS_DUMMY,
   }),
   schema: z.object({
