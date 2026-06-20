@@ -42,7 +42,7 @@ const renderedRecommendations = await Promise.all(
   <section class="mt-40 px-4">
     <div class="relative mx-auto max-w-prose">
       <h2 class="text-muted-foreground text-balance">
-        <span class="text-foreground">Steward of the web</span> building composable
+        <span class="text-foreground">Staff UI Engineer</span> building composable
         interfaces for humans and agents.
       </h2>
       <p class="text-muted-foreground text-justify indent-10">
@@ -74,7 +74,7 @@ const renderedRecommendations = await Promise.all(
         class:list={[
           "grid gap-5",
           "lg:col-span-2 lg:grid-cols-3 lg:gap-10",
-          "max-lg:snap-x max-lg:snap-mandatory max-lg:auto-cols-[calc(100%---spacing(20))] max-lg:grid-flow-col max-lg:overflow-x-auto max-lg:scroll-smooth max-lg:[scrollbar-width:none]",
+          "max-lg:snap-x max-lg:snap-mandatory max-lg:scrollbar-none max-lg:auto-cols-[calc(100%-(--spacing(20)))] max-lg:grid-flow-col max-lg:overflow-x-auto max-lg:scroll-smooth",
         ]}
       >
         {
@@ -171,18 +171,18 @@ const renderedRecommendations = await Promise.all(
                 </>,
             },
           ].map((project) => (
-              <li class="snap-center">
-                <figure class="bg-grid grid aspect-3/2 place-content-center">
-                  {project.logomark}
-                </figure>
-                <h3 class="mt-5">
-                  <ExternalLink href={project.link} text={project.name} />
-                </h3>
-                <p class="text-muted-foreground text-pretty">
-                  {project.description}
-                </p>
-              </li>
-            ))
+            <li class="snap-center">
+              <figure class="bg-grid grid aspect-3/2 place-content-center">
+                {project.logomark}
+              </figure>
+              <h3 class="mt-5">
+                <ExternalLink href={project.link} text={project.name} />
+              </h3>
+              <p class="text-muted-foreground text-pretty">
+                {project.description}
+              </p>
+            </li>
+          ))
         }
       </ul>
     </div>
