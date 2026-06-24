@@ -1,0 +1,52 @@
+---
+import { getCollection, render } from "astro:content";
+import { Icon } from "astro-icon/components";
+import BaseLayout from "@/layouts/base-layout.astro";
+import ExternalLink from "@/components/external-link.astro";
+import { getGithubRepoMetadata } from "@/lib/github-repos";
+
+export async function getStaticPaths() {
+  const repos = await getCollection("githubRepos");
+
+  return repos.map((repo) => ({
+    params: { slug: repo.id },
+    props: repo,
+  }));
+}
+
+const repo = Astro.props;
+const { Content } = await render(repo);
+const metadata = await getGithubRepoMetadata(repo.data.link);
+---
+
+<BaseLayout title={repo.data.title} description={repo.data.description}>
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <div>
+        <a
+          href="/github"
+          class="text-muted-foreground hover:text-foreground inline-flex gap-1"
+        >
+          <Icon name="arrow-left" aria-hidden="true" class="h-5 w-2.5" /> GitHub
+        </a>
+      </div>
+      <article>
+        <header>
+          <h2><ExternalLink href={repo.data.link} text={repo.data.title} /></h2>
+          <p class="text-muted-foreground text-pretty">
+            {repo.data.description}
+          </p>
+        </header>
+        {
+          repo.body ? (
+            <div class="prose mt-10">
+              <Content />
+            </div>
+          ) : null
+        }
+      </article>
+    </div>
+  </section>
+</BaseLayout>
