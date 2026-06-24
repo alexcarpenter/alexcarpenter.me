@@ -40,6 +40,15 @@ const gear = defineCollection({
   }),
 });
 
+const githubRepos = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/github" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    link: z.url(),
+  }),
+});
+
 const notes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
   schema: z.object({
@@ -122,6 +131,7 @@ const clerkPrs = defineCollection({
 export const collections = {
   clerkPrs,
   gear,
+  githubRepos,
   jobs,
   notes,
   ossContributions,

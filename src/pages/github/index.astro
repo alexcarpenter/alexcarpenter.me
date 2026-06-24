@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/base-layout.astro";
+import ExternalLink from "@/components/external-link.astro";
+import { getGithubRepoMetadata } from "@/lib/github-repos";
+
+const repos = await getCollection("githubRepos");
+const reposWithMetadata = await Promise.all(
+  repos
+    .sort((a, b) => a.data.title.localeCompare(b.data.title))
+    .map(async (repo) => ({
+      repo,
+      metadata: await getGithubRepoMetadata(repo.data.link),
+    })),
+);
+---
+
+<BaseLayout
+  title="GitHub"
+  description="Open source projects from Alex Carpenter."
+>
+  <section class="mt-40 px-4">
+    <div class="mx-auto max-w-prose">
+      <h2 class="text-muted-foreground text-balance">
+        <span class="text-foreground">GitHub</span> projects and documentation.
+      </h2>
+    </div>
+  </section>
+
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <h2>Repositories</h2>
+      <ul>
+        {
+          reposWithMetadata.map(({ repo, metadata }) => (
+            <li class="not-first:mt-10">
+              <article>
+                <h3>
+                  <a href={`/github/${repo.id}`}>{repo.data.title}</a>
+                </h3>
+                <p class="text-muted-foreground text-pretty">
+                  {repo.data.description}
+                </p>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+      <footer class="flex lg:justify-end">
+        <ExternalLink
+          href="https://github.com/alexcarpenter"
+          text="View on GitHub"
+          class="text-muted-foreground hover:text-foreground"
+        />
+      </footer>
+    </div>
+  </section>
+</BaseLayout>
