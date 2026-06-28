@@ -22,7 +22,7 @@
     "@shikijs/transformers": "4.2.0",
     "@sindresorhus/slugify": "3.0.0",
     "@tailwindcss/vite": "4.3.1",
-    "astro": "7.0.2",
+    "astro": "7.0.3",
     "astro-icon": "1.1.5",
     "markdown-it": "14.2.0",
     "rehype-external-links": "3.0.0",
