@@ -1,7 +1,7 @@
 ---
-title: Nano Stores Form
+title: '@alexcarpenter/form'
 description: Tiny headless forms for Nano Stores.
-link: https://github.com/alexcarpenter/nanostores-form
+link: https://github.com/alexcarpenter/form
 ---
 
 Tiny headless forms for [Nano Stores](https://github.com/nanostores/nanostores).
@@ -14,7 +14,7 @@ Tiny headless forms for [Nano Stores](https://github.com/nanostores/nanostores).
   framework helpers can live in separate entrypoints later.
 
 ```js
-import { form } from "nanostores-form";
+import { form } from "@alexcarpenter/form";
 
 export const $login = form(
   {
@@ -39,7 +39,7 @@ await $login.handleSubmit();
 ## Install
 
 ```sh
-pnpm add nanostores nanostores-form
+pnpm add nanostores @alexcarpenter/form
 ```
 
 ## Guide
@@ -50,7 +50,7 @@ If you prefer the TanStack Form shape, use `createForm()` with
 `defaultValues` and `validators`.
 
 ```js
-import { createForm } from "nanostores-form";
+import { createForm } from "@alexcarpenter/form";
 
 export const $login = createForm({
   defaultValues: {
@@ -207,7 +207,7 @@ core imports.
 Use any validator that supports Standard Schema, such as Zod or Valibot.
 
 ```js
-import { standardSchema } from "nanostores-form/standard-schema";
+import { standardSchema } from "@alexcarpenter/form/standard-schema";
 
 const $form = form(
   { email: "" },
@@ -220,7 +220,7 @@ const $form = form(
 ### Debounce
 
 ```js
-import { debounce } from "nanostores-form/debounce";
+import { debounce } from "@alexcarpenter/form/debounce";
 
 const username = debounce($form.field("username"), 300);
 
@@ -232,7 +232,7 @@ username.flush();
 ### Path
 
 ```js
-import { path } from "nanostores-form/path";
+import { path } from "@alexcarpenter/form/path";
 
 const email = path($form, "user.email");
 email.set("alex@example.com");
@@ -241,7 +241,7 @@ email.set("alex@example.com");
 ### Array
 
 ```js
-import { array } from "nanostores-form/array";
+import { array } from "@alexcarpenter/form/array";
 
 const items = array($form, "items");
 items.push({ title: "" });
@@ -258,7 +258,7 @@ Create a small derived store for a slice of form state. Useful for React when a
 component should re-render only for one value.
 
 ```js
-import { select } from "nanostores-form/select";
+import { select } from "@alexcarpenter/form/select";
 
 const $canSubmit = select($form, (form) => form.canSubmit);
 const $email = select($form, (form) => form.values.email);
@@ -267,7 +267,7 @@ const $email = select($form, (form) => form.values.email);
 ### Debug
 
 ```js
-import { debug } from "nanostores-form/debug";
+import { debug } from "@alexcarpenter/form/debug";
 
 let stop = debug($form, { name: "login" });
 ```
@@ -278,7 +278,7 @@ Use the normal Nano Stores React binding:
 
 ```tsx
 import { useStore } from "@nanostores/react";
-import { select } from "nanostores-form/select";
+import { select } from "@alexcarpenter/form/select";
 import { $login } from "./stores/login";
 
 const $canSubmit = select($login, (form) => form.canSubmit);

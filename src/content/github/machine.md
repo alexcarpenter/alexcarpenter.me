@@ -1,7 +1,7 @@
 ---
-title: Nano Stores Machine
+title: '@alexcarpenter/machine'
 description: Tiny state machines for Nano Stores.
-link: https://github.com/alexcarpenter/nanostores-machine
+link: https://github.com/alexcarpenter/machine
 ---
 
 Tiny flat state machines for [Nano Stores](https://github.com/nanostores/nanostores).
@@ -16,7 +16,7 @@ Tiny flat state machines for [Nano Stores](https://github.com/nanostores/nanosto
   compatibility layer in core.
 
 ```js
-import { machine, state, transition } from "nanostores-machine";
+import { machine, state, transition } from "@alexcarpenter/machine";
 
 export const $toggle = machine("off", {
   off: state(transition("toggle", "on")),
@@ -30,7 +30,7 @@ $toggle.get(); //=> { state: 'on', context: undefined, done: false }
 ## Install
 
 ```sh
-pnpm add nanostores nanostores-machine
+pnpm add nanostores @alexcarpenter/machine
 ```
 
 ## Guide
@@ -61,7 +61,7 @@ $form.send({ type: "submit", time: Date.now() });
 For stronger context and event inference, create typed helpers:
 
 ```ts
-import { setup } from "nanostores-machine";
+import { setup } from "@alexcarpenter/machine";
 
 interface LoginContext {
   username: string;
@@ -137,7 +137,7 @@ infinite transient cycles.
 Timer support is optional:
 
 ```js
-import { delay } from "nanostores-machine/delay";
+import { delay } from "@alexcarpenter/machine/delay";
 
 const $toast = machine("visible", {
   visible: state({
@@ -152,7 +152,7 @@ const $toast = machine("visible", {
 Promise and callback services are optional:
 
 ```js
-import { invoke } from "nanostores-machine/invoke";
+import { invoke } from "@alexcarpenter/machine/invoke";
 
 const $user = machine(
   "loading",
@@ -186,7 +186,7 @@ Invoke ignores late promise results after state exit and aborts the provided
 Transition logging is optional:
 
 ```js
-import { debug } from "nanostores-machine/debug";
+import { debug } from "@alexcarpenter/machine/debug";
 
 let stop = debug($user, {
   name: "user",
@@ -207,7 +207,7 @@ Use the normal Nano Stores React binding:
 
 ```tsx
 import { useStore } from "@nanostores/react";
-import { machine, state, transition } from "nanostores-machine";
+import { machine, state, transition } from "@alexcarpenter/machine";
 
 const $toggle = machine("off", {
   off: state(transition("toggle", "on")),
@@ -289,11 +289,11 @@ transition("submit", "loading", {
 
 ### `delay(ms, target, opts?)`
 
-Creates a delayed transition from `nanostores-machine/delay`.
+Creates a delayed transition from `@alexcarpenter/machine/delay`.
 
 ### `debug(machine, opts?)`
 
-Logs transitions from `nanostores-machine/debug`. Options:
+Logs transitions from `@alexcarpenter/machine/debug`. Options:
 
 ```ts
 {
@@ -306,7 +306,7 @@ Logs transitions from `nanostores-machine/debug`. Options:
 
 ### `invoke(opts)`
 
-Starts a promise or callback service from `nanostores-machine/invoke`.
+Starts a promise or callback service from `@alexcarpenter/machine/invoke`.
 
 ```js
 invoke({
