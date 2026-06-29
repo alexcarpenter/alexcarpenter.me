@@ -8,7 +8,7 @@ const homepageIntro = [
   "",
   "Grand Rapids, MI.",
   "",
-  "## Steward of the web Building composable interfaces for humans and agents.",
+  "## Staff UI Engineer building composable interfaces for humans and agents.",
   "",
   "Currently on the SDK team at Clerk, I work on UI components and theming infrastructure-building systems for customization, improving component APIs, and creating developer tooling that makes authentication interfaces more flexible and accessible.",
   "",
