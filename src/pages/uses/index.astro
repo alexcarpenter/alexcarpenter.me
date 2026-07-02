@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from "@/layouts/base-layout.astro";
-import { GEAR_CATEGORY_MAP, GEAR_CATEGORIES } from "@/consts";
 import ExternalLink from "@/components/external-link.astro";
+import { GEAR_CATEGORIES, GEAR_CATEGORY_MAP } from "@/consts";
+import BaseLayout from "@/layouts/base-layout.astro";
 import slugify from "@sindresorhus/slugify";
+import { getCollection } from "astro:content";
 
 const gear = await getCollection("gear");
 const activeGear = gear.filter((item) => item.data.status === "active");
@@ -28,7 +28,9 @@ const groupedGear = Array.from(
 <BaseLayout title="Uses">
   <section class="mt-40 px-4">
     <div class="mx-auto max-w-prose">
-      <h2 class="text-muted-foreground text-balance">
+      <h2
+        class="text-muted-foreground font-headline mb-5 text-2xl text-balance"
+      >
         <span class="text-foreground">Uses</span>
       </h2>
     </div>

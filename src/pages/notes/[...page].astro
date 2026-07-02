@@ -1,12 +1,12 @@
 ---
-import type { GetStaticPaths, Page } from "astro";
-import { getCollection, render } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { Icon } from "astro-icon/components";
+import Demo from "@/components/demo.astro";
+import ExternalLink from "@/components/external-link.astro";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { formatLinkHostname } from "@/lib/utils";
-import ExternalLink from "@/components/external-link.astro";
-import Demo from "@/components/demo.astro";
+import type { GetStaticPaths, Page } from "astro";
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 type Props = {
   page: Page<CollectionEntry<"notes">>;
@@ -40,7 +40,7 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
 >
   <section class="mt-40 px-4">
     <div class="mx-auto max-w-prose">
-      <h2 class="text-muted-foreground text-balance">
+      <h2 class="text-muted-foreground font-headline mb-5 text-2xl text-pretty">
         <span class="text-foreground">Notes</span> on engineering, developer experience,
         design systems, and agentic engineering.
       </h2>

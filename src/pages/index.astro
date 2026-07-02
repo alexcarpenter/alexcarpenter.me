@@ -1,11 +1,10 @@
 ---
-import slugify from "@sindresorhus/slugify";
-import { getCollection, render } from "astro:content";
-import { Icon } from "astro-icon/components";
-import BaseLayout from "@/layouts/base-layout.astro";
-import { getEntry } from "astro:content";
-import { enforceExhaustive } from "@/lib/utils";
 import ExternalLink from "@/components/external-link.astro";
+import BaseLayout from "@/layouts/base-layout.astro";
+import { enforceExhaustive } from "@/lib/utils";
+import slugify from "@sindresorhus/slugify";
+import { Icon } from "astro-icon/components";
+import { getCollection, getEntry, render } from "astro:content";
 
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
@@ -41,17 +40,17 @@ const renderedRecommendations = await Promise.all(
 
   <section class="mt-40 px-4">
     <div class="relative mx-auto max-w-prose">
-      <h2 class="text-muted-foreground text-balance">
+      <h2 class="text-muted-foreground font-headline text-2xl text-balance">
         <span class="text-foreground">Staff UI Engineer</span> building composable
         interfaces for humans and agents.
       </h2>
-      <p class="text-muted-foreground text-justify indent-10">
+      <p class="text-muted-foreground mt-5">
         Currently on the SDK team at Clerk, I work on UI components and theming
         infrastructure-building systems for customization, improving component
         APIs, and creating developer tooling that makes authentication
         interfaces more flexible and accessible.
       </p>
-      <p class="text-muted-foreground text-justify indent-10">
+      <p class="text-muted-foreground mt-5">
         I do my best work on small, highly collaborative teams that ship often
         and embrace the convergence of human craftsmanship with AI tooling. I
         care deeply about design and believe the best interfaces emerge when

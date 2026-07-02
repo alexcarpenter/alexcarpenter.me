@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
 @font-face {
+  font-family: "Stack Sans Notch";
+  src: url("/fonts/stack-sans-notch-v5-latin-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "GeistMono";
   src: url("/fonts/GeistMono[wght].woff2") format("woff2");
   font-weight: 400 500;
@@ -12,6 +20,7 @@
 
 @theme {
   --font-*: initial;
+  --font-headline: "Stack Sans Notch", ui-sans-serif, system-ui, sans-serif;
   --font-mono:
     "GeistMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
@@ -198,6 +207,7 @@
           oklch(0.5879 0.1927 20.47),
           oklch(0.7214 0.1616 15.49)
         );
+
         &::before {
           content: "-";
         }
@@ -208,6 +218,7 @@
           oklch(0.5464 0.1442 147.32),
           oklch(0.8512 0.1406 150.34)
         );
+
         &::before {
           content: "+";
         }
@@ -239,6 +250,7 @@
     & :where(blockquote) {
       display: flex;
       column-gap: var(--spacing);
+
       &::before {
         content: "\BB";
       }
@@ -257,6 +269,7 @@
     & :where(li) {
       position: relative;
       padding-inline-start: calc(1ch + var(--spacing));
+
       &::before {
         content: "\203A";
         position: absolute;

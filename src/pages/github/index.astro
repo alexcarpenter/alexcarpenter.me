@@ -1,8 +1,8 @@
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from "@/layouts/base-layout.astro";
 import ExternalLink from "@/components/external-link.astro";
+import BaseLayout from "@/layouts/base-layout.astro";
 import { getGithubRepoMetadata } from "@/lib/github-repos";
+import { getCollection } from "astro:content";
 
 const repos = await getCollection("githubRepos");
 const reposWithMetadata = await Promise.all(
@@ -21,7 +21,9 @@ const reposWithMetadata = await Promise.all(
 >
   <section class="mt-40 px-4">
     <div class="mx-auto max-w-prose">
-      <h2 class="text-muted-foreground text-balance">
+      <h2
+        class="text-muted-foreground font-headline mb-5 text-2xl text-balance"
+      >
         <span class="text-foreground">GitHub</span> projects and documentation.
       </h2>
     </div>
