@@ -1,0 +1,44 @@
+<svg width="600" height="400" viewBox="0 0 600 600" style="width:100%;max-width:600px;height:auto;filter:saturate(125%);-webkit-filter:saturate(125%)" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs><style>
+    #bg {fill:#5135FF}
+    .rect0 {fill:url(#rg0)}.rect1 {fill:url(#rg1)}.rect2 {fill:url(#rg2)}.rect3 {fill:url(#rg3)}
+  </style>
+  <radialGradient id="rg0" fx="0.2821064418763265" fy="0.5">
+    <stop offset="0%" stop-color="#5135FF"/>
+    <stop offset="100%" stop-color="#5135FF" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg0" fx="0.38469020738075277" fy="0.5">
+    <stop offset="0%" stop-color="#5135FF"/>
+    <stop offset="100%" stop-color="#5135FF" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg0" fx="0.3104794449269077" fy="0.5">
+    <stop offset="0%" stop-color="#5135FF"/>
+    <stop offset="100%" stop-color="#5135FF" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg1" fx="0.12492574437419644" fy="0.5">
+    <stop offset="0%" stop-color="#FF5828"/>
+    <stop offset="100%" stop-color="#FF5828" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg1" fx="0.3482971116783786" fy="0.5">
+    <stop offset="0%" stop-color="#FF5828"/>
+    <stop offset="100%" stop-color="#FF5828" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg1" fx="0.14285772622729997" fy="0.5">
+    <stop offset="0%" stop-color="#FF5828"/>
+    <stop offset="100%" stop-color="#FF5828" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg2" fx="0.33522348102966837" fy="0.5">
+    <stop offset="0%" stop-color="#F69CFF"/>
+    <stop offset="100%" stop-color="#F69CFF" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg2" fx="0.11363606111203164" fy="0.5">
+    <stop offset="0%" stop-color="#F69CFF"/>
+    <stop offset="100%" stop-color="#F69CFF" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg2" fx="0.1118799609908045" fy="0.5">
+    <stop offset="0%" stop-color="#F69CFF"/>
+    <stop offset="100%" stop-color="#F69CFF" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg3" fx="0.15060306191710024" fy="0.5">
+    <stop offset="0%" stop-color="#FFA50F"/>
+    <stop offset="100%" stop-color="#FFA50F" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg3" fx="0.35603759225107734" fy="0.5">
+    <stop offset="0%" stop-color="#FFA50F"/>
+    <stop offset="100%" stop-color="#FFA50F" stop-opacity="0"/>
+  </radialGradient><radialGradient id="rg3" fx="0.3750773468864801" fy="0.5">
+    <stop offset="0%" stop-color="#FFA50F"/>
+    <stop offset="100%" stop-color="#FFA50F" stop-opacity="0"/>
+  </radialGradient></defs>
+  <rect id="bg" x="0" y="0" width="100%" height="100%"/><rect class="rect rect3" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(1.0152293663787189 0.980416551016335) skewX(1.0134671138182014) rotate(271.92818241519353) translate(-77.98964397504275 -198.76004360836222) translate(-300 -300)"/><rect class="rect rect2" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(1.0598806346372036 1.3860149613927952) skewX(7.631733670629316) rotate(188.75758491736323) translate(140.29044433900458 -149.42271958119377) translate(-300 -300)"/><rect class="rect rect1" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(1.4312426717206177 0.8522003826474296) skewX(7.253077295731991) rotate(117.79242779408678) translate(-141.90232717566116 -63.98991038014207) translate(-300 -300)"/><rect class="rect rect1" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(0.8906731883932839 0.8183720131712597) skewX(0.06992433875072201) rotate(41.0388467537286) translate(207.35785649475304 221.92085697430574) translate(-300 -300)"/><rect class="rect rect3" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(1.2202353810495405 1.4638236268094427) skewX(3.4199801164960775) rotate(207.71515807383685) translate(-213.9162740392138 -217.31302536186567) translate(-300 -300)"/><rect class="rect rect0" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(1.3337136628526887 1.286782354020064) skewX(3.5022899223896165) rotate(90.46657647203685) translate(114.10754993449095 -62.92402803109222) translate(-300 -300)"/><rect class="rect rect0" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(1.1424587351524724 1.171097651495064) skewX(-3.1837322976007654) rotate(19.765215037233446) translate(123.70405191473344 -159.7545121749698) translate(-300 -300)"/><rect class="rect rect2" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(0.7968687557183323 1.020857894626114) skewX(-0.43720448081522534) rotate(44.93109155597827) translate(91.5799102611252 81.41093026563901) translate(-300 -300)"/><rect class="rect rect3" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(1.4717747252943116 0.9438744736269158) skewX(-8.901986692087371) rotate(54.987922412416324) translate(190.05446653881665 180.32157204783962) translate(-300 -300)"/><rect class="rect rect1" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(1.1306571022400431 0.8568341111079182) skewX(-5.583583298083661) rotate(87.98308913970759) translate(-125.4736375607916 201.93905822897625) translate(-300 -300)"/><rect class="rect rect2" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(0.7932308384022193 1.064388579432877) skewX(0.6186654804161549) rotate(246.4684959308525) translate(200.93059126754383 -100.83543846319498) translate(-300 -300)"/><rect class="rect rect0" x="0" y="0" width="100%" height="100%" transform="translate(300 300) scale(1.4657785460580928 1.4404566281359026) skewX(9.439189464098607) rotate(333.0588041054629) translate(75.46315721022168 -196.86218607979043) translate(-300 -300)"/>
+</svg>
