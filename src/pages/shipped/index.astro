@@ -1,0 +1,65 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import BaseLayout from "@/layouts/base-layout.astro";
+import ExternalLink from "@/components/external-link.astro";
+
+const caseStudies = await getCollection("caseStudies");
+const renderedCaseStudies = await Promise.all(
+  caseStudies.map(async (caseStudy) => {
+    const { Content } = await render(caseStudy);
+    const company = await getEntry(caseStudy.data.company);
+    return { caseStudy, company, Content };
+  }),
+);
+---
+
+<BaseLayout title="Shipped">
+  <section class="mt-20 px-4">
+    <div class="mx-auto max-w-prose">
+      <h2 class="text-muted-foreground font-headline text-2xl text-balance">
+        <span class="text-foreground">Shipped</span> work and collaborations.
+      </h2>
+    </div>
+  </section>
+
+  {
+    renderedCaseStudies.map(async ({ caseStudy, company, Content }) => {
+      return (
+        <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+          <div class="mx-auto grid max-w-prose grid-cols-1 items-start gap-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]">
+            <h2 class="text-muted-foreground font-headline text-2xl text-balance lg:col-span-full lg:grid lg:grid-cols-subgrid">
+              {company.data.company}{" "}
+              <span class="text-foreground lg:first-letter:uppercase">
+                {caseStudy.data.title}
+              </span>
+            </h2>
+            <!-- <figure class="bg-grid col-span-full grid aspect-video place-content-center" /> -->
+            <dl class="[&_dt]:text-muted-foreground">
+              <dt>Link</dt>
+              <dd>
+                <ExternalLink text="clerk.com" href="/" />
+              </dd>
+            </dl>
+            <div class="prose">
+              <Content />
+            </div>
+            <dl class="[&_dt]:text-muted-foreground lg:text-right">
+              <dt>Published</dt>
+              <dd>
+                <time datetime={caseStudy.data.published.toISOString()}>
+                  {new Date(caseStudy.data.published).toLocaleDateString(
+                    "en-US",
+                    {
+                      year: "numeric",
+                      month: "short",
+                    },
+                  )}
+                </time>
+              </dd>
+            </dl>
+          </div>
+        </section>
+      );
+    })
+  }
+</BaseLayout>
