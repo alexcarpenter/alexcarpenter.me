@@ -231,6 +231,16 @@
       content: "$";
     }
   }
+
+  pre .space {
+    position: relative;
+  }
+
+  pre .space::before {
+    content: "·";
+    position: absolute;
+    opacity: 0.25;
+  }
 }
 
 @layer components {

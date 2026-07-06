@@ -4,6 +4,7 @@ import {
   transformerMetaHighlight,
   transformerMetaWordHighlight,
   transformerNotationDiff,
+  transformerRenderWhitespace,
 } from "@shikijs/transformers";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
@@ -36,6 +37,7 @@ export default defineConfig({
         transformerNotationDiff(),
         transformerMetaHighlight(),
         transformerMetaWordHighlight(),
+        transformerRenderWhitespace(),
       ],
       cache: true,
     },
