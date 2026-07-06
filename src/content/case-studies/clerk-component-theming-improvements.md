@@ -10,8 +10,8 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque dolor
 
 ```diff
 :root {
--  --clerk-color-primary: #5f05f0;
-+  --clerk-color-primary: var(--color-primary);
+  --clerk-color-primary: #5f05f0; // [!code --]
+  --clerk-color-primary: var(--color-primary); // [!code ++]
 }
 ```
 
