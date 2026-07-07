@@ -109,6 +109,7 @@
     scrollbar-width: thin;
     scrollbar-color: var(--color-separator) transparent;
     outline-offset: 4px;
+    overscroll-behavior: none;
   }
 
   pre code {
