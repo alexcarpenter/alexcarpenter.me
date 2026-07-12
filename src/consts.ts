@@ -49,11 +49,6 @@ export const GEAR_CATEGORY_MAP: Record<
     description: "My home gym equipment and setup.",
     slug: "home-gym",
   },
-  wellness: {
-    title: "Health & Wellness",
-    description: "",
-    slug: "health-and-wellness",
-  },
   home: {
     title: "Home",
     description: "My home automation setup.",
