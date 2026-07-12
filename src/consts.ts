@@ -4,7 +4,6 @@ export const GEAR_CATEGORIES = [
   "edc",
   "gym",
   "home",
-  "wellness",
   "kitchen",
   "knife",
   "flashlight",
