@@ -29,7 +29,8 @@
     "sanitize-html": "2.17.5",
     "sharp": "0.35.1",
     "tailwindcss": "4.3.1",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "undici": "7.28.0"
   },
   "devDependencies": {
     "@types/markdown-it": "14.1.2",
