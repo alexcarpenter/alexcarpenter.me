@@ -246,10 +246,11 @@
 
 @layer components {
   .prose {
+      --gap: 5;
     color: var(--color-muted-foreground);
 
     & > :where(* + *) {
-      margin-top: calc(var(--spacing) * 5);
+      margin-top: calc(var(--spacing) * var(--gap));
     }
 
     & :where(a) {

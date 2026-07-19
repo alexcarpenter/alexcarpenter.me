@@ -45,7 +45,7 @@ const renderedRecommendations = await Promise.all(
         interfaces for humans and agents.
       </h2>
       <p class="text-muted-foreground mt-5">
-        Currently on the SDK team at Clerk, I work on UI components and theming
+        Currently on the core team at Clerk, I work on UI components and theming
         infrastructure-building systems for customization, improving component
         APIs, and creating developer tooling that makes authentication
         interfaces more flexible and accessible.
@@ -279,15 +279,22 @@ const renderedRecommendations = await Promise.all(
                   </summary>
 
                   <div class="ps-6 pbs-2">
-                    <Content />
-                    {job.data.tools ? (
-                      <p class="text-muted-foreground mbs-2">
-                        {new Intl.ListFormat("en-US", {
-                          style: "long",
-                          type: "conjunction",
-                        }).format(job.data.tools)}
-                      </p>
-                    ) : null}
+                    <div
+                      class="prose"
+                      style={{
+                        "--gap": 2.5,
+                      }}
+                    >
+                      <Content />
+                      {job.data.tools ? (
+                        <p class="text-muted-foreground">
+                          {new Intl.ListFormat("en-US", {
+                            style: "long",
+                            type: "conjunction",
+                          }).format(job.data.tools)}
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
                 </details>
               </li>

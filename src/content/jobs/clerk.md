@@ -64,4 +64,4 @@ tools:
   - Floating UI
 ---
 
-UI Engineer apart of the SDK team, working on UI Components and Dashboard UI.
+UI Engineer apart of the core team, working on UI components and theming infrastructure-building systems for customization, improving component APIs, and creating developer tooling.
