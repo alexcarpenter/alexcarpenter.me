@@ -1,0 +1,15 @@
+---
+import "@/components/code-image/code-image.css";
+import CodeImageLayout from "@/layouts/code-image-layout.astro";
+---
+
+<CodeImageLayout
+  title="Code Image"
+  description="Paste code and download a shareable image."
+>
+  <code-image-maker></code-image-maker>
+</CodeImageLayout>
+
+<script>
+  import "@/components/code-image/code-image-maker";
+</script>
