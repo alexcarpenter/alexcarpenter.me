@@ -1,8 +1,11 @@
 ---
+import { highlightCode } from "./highlight";
 import { defaultCode } from "./store";
+
+const initialHighlightedCode = await highlightCode(defaultCode, "html");
 ---
 
-<code-image-maker>
+<code-image-maker data-highlighted>
   <div class="flex justify-end p-4" data-ref="actions" data-ignore-in-export>
     <button
       class="bg-foreground text-background grid aspect-square h-5 place-content-center rounded-sm"
@@ -30,7 +33,11 @@ import { defaultCode } from "./store";
       data-ref="exportTarget"
     >
       <div class="code-image-editor relative w-full">
-        <div data-highlighted-code data-ref="highlightedCode"></div>
+        <div
+          data-highlighted-code
+          data-ref="highlightedCode"
+          set:html={initialHighlightedCode}
+        />
         <textarea
           id="code-image-input"
           data-ref="input"

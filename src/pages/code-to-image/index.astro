@@ -1,15 +1,16 @@
 ---
 import CodeImageMaker from "@/components/code-image/code-image-maker.astro";
 import "@/components/code-image/code-image.css";
-import CodeImageLayout from "@/layouts/code-image-layout.astro";
+import RootLayout from "@/layouts/root-layout.astro";
 ---
 
-<CodeImageLayout
-  title="Code Image"
+<RootLayout
+  title="Code to Image"
   description="Paste code and download a shareable image."
+  bodyClass="font-mono text-xs/5"
 >
   <CodeImageMaker />
-</CodeImageLayout>
+</RootLayout>
 
 <script>
   import "@/components/code-image/code-image-maker";
