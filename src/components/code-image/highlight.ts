@@ -2,6 +2,8 @@ import { transformerRenderWhitespace } from "@shikijs/transformers";
 import { createHighlighter, type Highlighter } from "shiki";
 import type { CodeLanguage } from "./language";
 
+export type LineStyle = "highlighted" | "add" | "remove";
+
 let highlighterPromise: Promise<Highlighter> | undefined;
 
 function getHighlighter() {
@@ -34,14 +36,14 @@ export async function highlightCode(code: string, lang: CodeLanguage) {
 }
 
 function normalizeDiffLines(code: string) {
-  const lineClasses: Array<"add" | "remove" | undefined> = [];
+  const lineClasses: Array<LineStyle | undefined> = [];
   const normalizedCode = code
     .split("\n")
     .map((line, index) => {
-      const diffMatch = line.match(/^(\s*)([+-])(?![+-])(.*)$/);
+      const diffMatch = line.match(/^(\s*)([-+*])(?!\2)\s?(.*)$/);
 
       if (diffMatch) {
-        lineClasses[index] = diffMatch[2] === "+" ? "add" : "remove";
+        lineClasses[index] = lineClassForMarker(diffMatch[2]);
         return `${diffMatch[1]}${diffMatch[3]}`;
       }
 
@@ -52,9 +54,20 @@ function normalizeDiffLines(code: string) {
   return { normalizedCode, lineClasses };
 }
 
+function lineClassForMarker(marker: string): LineStyle {
+  switch (marker) {
+    case "+":
+      return "add";
+    case "-":
+      return "remove";
+    default:
+      return "highlighted";
+  }
+}
+
 function addLineClasses(
   html: string,
-  lineClasses: Array<"add" | "remove" | undefined>,
+  lineClasses: Array<LineStyle | undefined>,
 ) {
   let lineIndex = 0;
 

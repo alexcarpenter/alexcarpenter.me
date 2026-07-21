@@ -67,15 +67,15 @@ function getDiffLines(code: string) {
   return code
     .split("\n")
     .map((line) => {
-      const match = line.match(/^\s*([+-])(?![+-])\s?(.*)$/);
+      const match = line.match(/^\s*([-+*])(?!\1)\s?(.*)$/);
       if (!match) return;
 
       return {
-        type: match[1] as "+" | "-",
+        type: match[1] as "+" | "-" | "*",
         content: normalizeLineForDiffMatch(match[2]),
       };
     })
-    .filter((line): line is { type: "+" | "-"; content: string } =>
+    .filter((line): line is { type: "+" | "-" | "*"; content: string } =>
       Boolean(line),
     );
 }
@@ -83,13 +83,13 @@ function getDiffLines(code: string) {
 function stripDiffMarkers(code: string) {
   return code
     .split("\n")
-    .map((line) => line.replace(/^(\s*)([+-])(?![+-])\s?/, "$1"))
+    .map((line) => line.replace(/^(\s*)([-+*])(?!\2)\s?/, "$1"))
     .join("\n");
 }
 
 function reapplyDiffMarkers(
   code: string,
-  diffLines: Array<{ type: "+" | "-"; content: string }>,
+  diffLines: Array<{ type: "+" | "-" | "*"; content: string }>,
 ) {
   const remainingDiffLines = [...diffLines];
 
@@ -103,7 +103,7 @@ function reapplyDiffMarkers(
       if (matchIndex === -1) return line;
 
       const [diffLine] = remainingDiffLines.splice(matchIndex, 1);
-      return `${diffLine.type}${line}`;
+      return `${diffLine.type} ${line}`;
     })
     .join("\n");
 }
