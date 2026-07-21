@@ -1,0 +1,48 @@
+code-image-maker {
+  display: block;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-image-editor pre {
+  margin: 0;
+  overflow: hidden;
+}
+
+.code-image-editor pre code .line:hover {
+  --line-background-color: var(--pre-background-color);
+}
+
+.code-image-editor textarea {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100%;
+  resize: none;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-foreground);
+  caret-color: var(--color-foreground);
+  padding-block: calc(var(--spacing) * 4);
+  padding-inline: 0;
+  padding-left: 2.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1.5;
+  tab-size: 2;
+  white-space: pre;
+  outline-offset: 4px;
+}
+
+code-image-maker[data-highlighted] .code-image-editor textarea {
+  color: transparent;
+}
+
+.code-image-editor textarea::selection {
+  background: color-mix(in oklab, var(--color-blue), transparent 70%);
+  color: transparent;
+}

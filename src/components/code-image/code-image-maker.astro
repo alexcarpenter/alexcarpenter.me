@@ -1,0 +1,59 @@
+---
+import { highlightCode } from "./highlight";
+import { defaultCode } from "./store";
+
+const initialHighlightedCode = await highlightCode(defaultCode, "html");
+---
+
+<code-image-maker data-highlighted>
+  <div class="flex justify-end p-4" data-ref="actions" data-ignore-in-export>
+    <button
+      class="bg-foreground text-background grid aspect-square h-5 place-content-center rounded-sm"
+      type="button"
+      data-action="download"
+      aria-label="Download code to image"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-2.5"
+        ><path d="M12 17V3"></path><path d="m6 11 6 6 6-6"></path><path
+          d="M19 21H5"></path></svg
+      >
+    </button>
+  </div>
+  <div class="bg-background grid flex-1 place-items-center pt-4 pb-8">
+    <div
+      class="bg-background w-full max-w-156 min-w-0 p-8"
+      data-export-target
+      data-ref="exportTarget"
+    >
+      <div class="code-image-editor relative w-full">
+        <div
+          data-highlighted-code
+          data-ref="highlightedCode"
+          set:html={initialHighlightedCode}
+        />
+        <textarea
+          id="code-image-input"
+          data-ref="input"
+          aria-label="Code"
+          spellcheck="false"
+          autocomplete="off">{defaultCode}</textarea
+        >
+      </div>
+    </div>
+    <p
+      class="text-red max-w-140 text-pretty"
+      data-ref="error"
+      data-ignore-in-export
+      role="alert"
+      hidden
+    >
+    </p>
+  </div>
+</code-image-maker>
