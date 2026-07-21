@@ -27,6 +27,7 @@
     "html-to-image": "1.11.13",
     "markdown-it": "14.2.0",
     "nanostores": "1.4.0",
+    "nanotags": "^0.15.2",
     "rehype-external-links": "3.0.0",
     "sanitize-html": "2.17.5",
     "sharp": "0.35.1",

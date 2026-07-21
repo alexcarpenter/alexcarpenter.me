@@ -14,25 +14,20 @@ export async function formatPastedCode(code: string, lang: CodeLanguage) {
     language,
   );
 
-  try {
-    const parser = parserForLanguage(language);
+  const parser = parserForLanguage(language);
 
-    const formatted = (
-      await prettier.format(codeToFormat, {
-        parser: parser.name,
-        plugins: parser.plugins,
-        printWidth: 80,
-        singleQuote: false,
-      })
-    ).trimEnd();
+  const formatted = (
+    await prettier.format(codeToFormat, {
+      parser: parser.name,
+      plugins: parser.plugins,
+      printWidth: 80,
+      singleQuote: false,
+    })
+  ).trimEnd();
 
-    return diffLines.length
-      ? reapplyDiffMarkers(formatted, diffLines)
-      : formatted;
-  } catch (error) {
-    console.error("Unable to format code", error);
-    return diffLines.length ? normalizeDiffMarkers(normalized) : normalized;
-  }
+  return diffLines.length
+    ? reapplyDiffMarkers(formatted, diffLines)
+    : formatted;
 }
 
 function normalizeForPrettier(code: string, lang: CodeLanguage) {
@@ -115,11 +110,4 @@ function reapplyDiffMarkers(
 
 function normalizeLineForDiffMatch(line: string) {
   return line.trim().replace(/[\s,;]+/g, "");
-}
-
-function normalizeDiffMarkers(code: string) {
-  return code
-    .split("\n")
-    .map((line) => line.replace(/^(\s*)([+-])(\s+)/, "$1$2"))
-    .join("\n");
 }

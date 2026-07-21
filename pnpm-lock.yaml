@@ -48,6 +48,9 @@ importers:
       nanostores:
         specifier: 1.4.0
         version: 1.4.0
+      nanotags:
+        specifier: ^0.15.2
+        version: 0.15.2(nanostores@1.4.0)
       rehype-external-links:
         specifier: 3.0.0
         version: 3.0.0
@@ -1098,6 +1101,9 @@ packages:
     resolution: {integrity: sha512-gVaaGtKYMYAMmI8buULVH3A2TXVJ98QiwGwI7ddrWGuGidGC2uRt4FHs22+8iROJ0QTzju9CuMjlVsrvpqsdhA==}
     engines: {node: '>=20'}
 
+  '@standard-schema/spec@1.1.0':
+    resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
+
   '@tailwindcss/node@4.3.1':
     resolution: {integrity: sha512-6NDaqRoAMSXD1mr/RXu0HBvNE9a2n5tHPsxu9XHLws8o4Twes5rBM2205SUUiJ9goAtadrN6xTGX0UDEwp/N4A==}
 
@@ -2029,6 +2035,11 @@ packages:
   nanostores@1.4.0:
     resolution: {integrity: sha512-i0tloweeudshAEuddpDxcg9Ik6pkPfVsHIgKyf143JrgG7/MOh0+q7BypdLXZPoOP7fOYt1eTcwGkyiVmhJFkA==}
     engines: {node: ^20.0.0 || >=22.0.0}
+
+  nanotags@0.15.2:
+    resolution: {integrity: sha512-CGWafcNQ5aV/ghZmOvWkWGByzMiEGIioGzL/05et8krDzQIJBxUnA48TD1rbdcRtVx3xyLwMk9iNfM6touT1/g==}
+    peerDependencies:
+      nanostores: ^1.1.1
 
   neotraverse@0.6.18:
     resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
@@ -3602,6 +3613,8 @@ snapshots:
 
   '@sindresorhus/transliterate@2.3.1': {}
 
+  '@standard-schema/spec@1.1.0': {}
+
   '@tailwindcss/node@4.3.1':
     dependencies:
       '@jridgewell/remapping': 2.3.5
@@ -4819,6 +4832,11 @@ snapshots:
   nanoid@3.3.12: {}
 
   nanostores@1.4.0: {}
+
+  nanotags@0.15.2(nanostores@1.4.0):
+    dependencies:
+      '@standard-schema/spec': 1.1.0
+      nanostores: 1.4.0
 
   neotraverse@0.6.18: {}
 
