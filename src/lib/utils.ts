@@ -7,13 +7,14 @@ export function enforceExhaustive(
 
 export function formatLinkHostname(urlString: string): string {
   const url = new URL(urlString);
+  const hostname = url.hostname.replace(/^www\./, "");
 
   // For Twitter/X links, show x.com/username or twitter.com/username
-  if (url.hostname.includes("twitter.com") || url.hostname.includes("x.com")) {
+  if (hostname.includes("twitter.com") || hostname.includes("x.com")) {
     const username = url.pathname.split("/")[1];
-    return username ? `${url.hostname}/${username}` : url.hostname;
+    return username ? `${hostname}/${username}` : hostname;
   }
 
   // For all other links, just show the hostname
-  return url.hostname;
+  return hostname;
 }
