@@ -4,6 +4,7 @@ title: component theming improvements
 description: description
 link: https://clerk.com
 published: 2026-07-05T15:14:19-0400
+status: shipped
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque doloremque illum minus perferendis veniam eius facilis mollitia ut earum nobis iure atque, architecto aut harum ex voluptatem culpa libero!
