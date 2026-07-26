@@ -47,7 +47,7 @@ const renderedCaseStudies = await Promise.all(
             <div class="prose prose-longform">
               <Content />
             </div>
-            <dl class="[&_dt]:text-muted-foreground lg:text-right">
+            <dl class="[&_dt]:text-muted-foreground lg:text-right [&_dd+dt]:mt-5">
               <dt>Published</dt>
               <dd>
                 <time datetime={caseStudy.data.published.toISOString()}>
