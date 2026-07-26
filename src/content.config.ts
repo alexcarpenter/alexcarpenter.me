@@ -43,6 +43,10 @@ const gear = defineCollection({
 const caseStudies = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/case-studies" }),
   schema: z.object({
+    status: z.enum([
+      'in-progress',
+      'shipped'
+    ]).default("in-progress"),
     company: reference("jobs"),
     title: z.string(),
     description: z.string(),
