@@ -10,9 +10,9 @@ const homepageIntro = [
   "",
   "## Staff UI Engineer building composable interfaces for humans and agents.",
   "",
-  "Currently on the SDK team at Clerk, I work on UI components and theming infrastructure-building systems for customization, improving component APIs, and creating developer tooling that makes authentication interfaces more flexible and accessible.",
+  "I’m currently on the core team at Clerk, working on UI components, theming infrastructure, and developer tooling for authentication interfaces. My work is mostly about making customization easier, improving component APIs, and giving developers more flexible primitives to build with.",
   "",
-  "I do my best work on small, highly collaborative teams that ship often and embrace the convergence of human craftsmanship with AI tooling. I care deeply about design and believe the best interfaces emerge when designers, engineers, and intelligent systems work together.",
+  "I do my best work on small teams that collaborate closely and ship often. I care deeply about design and craft, and I’m especially interested in how AI tools can help designers and engineers build better interfaces together.",
 ].join("\n");
 
 const projects = [
