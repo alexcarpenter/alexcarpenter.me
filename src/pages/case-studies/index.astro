@@ -5,7 +5,11 @@ import ExternalLink from "@/components/external-link.astro";
 
 const caseStudies = await getCollection("caseStudies");
 const renderedCaseStudies = await Promise.all(
-  caseStudies.map(async (caseStudy) => {
+  caseStudies.sort(
+    (a, b) =>
+      Date.parse(b.data.published.toString()) -
+      Date.parse(a.data.published.toString()),
+  ).map(async (caseStudy) => {
     const { Content } = await render(caseStudy);
     const company = await getEntry(caseStudy.data.company);
     return { caseStudy, company, Content };
@@ -13,11 +17,11 @@ const renderedCaseStudies = await Promise.all(
 );
 ---
 
-<BaseLayout title="Shipped">
+<BaseLayout title="Case studies">
   <section class="mt-20 px-4">
     <div class="mx-auto max-w-prose">
       <h2 class="text-muted-foreground font-headline text-2xl text-balance">
-        <span class="text-foreground">Shipped</span> work and collaborations.
+        <span class="text-foreground">Case studies</span> in progress and shipped.
       </h2>
     </div>
   </section>
@@ -40,7 +44,7 @@ const renderedCaseStudies = await Promise.all(
                 <ExternalLink text="clerk.com" href="/" />
               </dd>
             </dl>
-            <div class="prose">
+            <div class="prose prose-longform">
               <Content />
             </div>
             <dl class="[&_dt]:text-muted-foreground lg:text-right">
@@ -55,6 +59,10 @@ const renderedCaseStudies = await Promise.all(
                     },
                   )}
                 </time>
+              </dd>
+              <dt>Status</dt>
+              <dd class="uppercase">
+                  {caseStudy.data.status}
               </dd>
             </dl>
           </div>
