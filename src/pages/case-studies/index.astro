@@ -1,18 +1,37 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
+import type { CollectionEntry, InferEntrySchema } from "astro:content";
 import BaseLayout from "@/layouts/base-layout.astro";
 import ExternalLink from "@/components/external-link.astro";
 
-const caseStudies = await getCollection("caseStudies");
+type CaseStudy = CollectionEntry<"caseStudies">;
+
+type PublishedCaseStudy = CaseStudy & {
+  data: Omit<CaseStudy["data"], "published"> & {
+    published: Date;
+  };
+};
+
+function isPublished(caseStudy: CaseStudy): caseStudy is PublishedCaseStudy {
+  return caseStudy.data.published instanceof Date;
+}
+
+const caseStudies = (await getCollection("caseStudies"))
+  .filter(isPublished)
+  .toSorted((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
 const renderedCaseStudies = await Promise.all(
-  caseStudies.sort(
-    (a, b) =>
-      Date.parse(b.data.published.toString()) -
-      Date.parse(a.data.published.toString()),
-  ).map(async (caseStudy) => {
-    const { Content } = await render(caseStudy);
-    const company = await getEntry(caseStudy.data.company);
-    return { caseStudy, company, Content };
+  caseStudies.map(async (caseStudy) => {
+    const [{ Content }, company] = await Promise.all([
+      render(caseStudy),
+      getEntry(caseStudy.data.company),
+    ]);
+
+    return {
+      caseStudy,
+      company,
+      Content,
+    };
   }),
 );
 ---
@@ -37,8 +56,7 @@ const renderedCaseStudies = await Promise.all(
                 {caseStudy.data.title}
               </span>
             </h2>
-            <!-- <figure class="bg-grid col-span-full grid aspect-video place-content-center" /> -->
-            <dl class="[&_dt]:text-muted-foreground">
+            <dl class="[&_dt]:text-muted-foreground max-lg:hidden">
               <dt>Link</dt>
               <dd>
                 <ExternalLink text="clerk.com" href="/" />
@@ -47,8 +65,12 @@ const renderedCaseStudies = await Promise.all(
             <div class="prose prose-longform">
               <Content />
             </div>
-            <dl class="[&_dt]:text-muted-foreground lg:text-right [&_dd+dt]:mt-5">
-              <dt>Published</dt>
+            <dl class="[&_dt]:text-muted-foreground lg:text-right">
+              <dt class="lg:hidden">Link</dt>
+              <dd class="lg:hidden">
+                <ExternalLink text="clerk.com" href="/" />
+              </dd>
+              <dt class="max-lg:mt-5">Published</dt>
               <dd>
                 <time datetime={caseStudy.data.published.toISOString()}>
                   {new Date(caseStudy.data.published).toLocaleDateString(
@@ -60,10 +82,8 @@ const renderedCaseStudies = await Promise.all(
                   )}
                 </time>
               </dd>
-              <dt>Status</dt>
-              <dd class="uppercase">
-                  {caseStudy.data.status}
-              </dd>
+              <dt class="mt-5">Status</dt>
+              <dd class="uppercase">{caseStudy.data.status}</dd>
             </dl>
           </div>
         </section>

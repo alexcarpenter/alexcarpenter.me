@@ -3,7 +3,6 @@ company: clerk
 title: interactive docs and theme editor
 description: description
 link: https://clerk.com
-published: 2026-07-05T15:13:59-0400
 status: shipped
 ---
 
