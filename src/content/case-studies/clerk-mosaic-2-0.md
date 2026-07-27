@@ -1,6 +1,6 @@
 ---
 company: clerk
-title: components Mosaic 2.0
+title: Mosaic 2.0 components
 description: description
 link: https://clerk.com
 published: 2026-07-26T08:47:05-0400
