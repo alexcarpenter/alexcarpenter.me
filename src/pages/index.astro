@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/base-layout.astro";
 import { enforceExhaustive } from "@/lib/utils";
 import slugify from "@sindresorhus/slugify";
 import { Icon } from "astro-icon/components";
+import { getGithubRepoMetadata } from "@/lib/github-repos";
 import { getCollection, getEntry, render } from "astro:content";
 
 const jobs = await getCollection("jobs");
@@ -12,6 +13,7 @@ const ossContributions = await getCollection("ossContributions");
 const clerkPrs = (await getCollection("clerkPrs")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
+const repos = await getCollection("githubRepos");
 
 const renderedJobs = await Promise.all(
   jobs.map(async (job) => {
@@ -25,6 +27,14 @@ const renderedRecommendations = await Promise.all(
     const company = await getEntry(recommendation.data.company);
     return { recommendation, company, Content };
   }),
+);
+const reposWithMetadata = await Promise.all(
+  repos
+    .sort((a, b) => a.data.title.localeCompare(b.data.title))
+    .map(async (repo) => ({
+      repo,
+      metadata: await getGithubRepoMetadata(repo.data.link),
+    })),
 );
 ---
 
@@ -401,63 +411,86 @@ const renderedRecommendations = await Promise.all(
       <h2>
         <abbr title="Open source software" class="no-underline">OSS</abbr> Contributions
       </h2>
-      <ul>
-        {
-          ossContributions
-            .sort(
-              (a, b) =>
-                Date.parse(b.data.date.toString()) -
-                Date.parse(a.data.date.toString()),
-            )
-            .map((contribution) => {
-              const match = contribution.data.link.match(
-                /github\.com\/([^\/]+\/[^\/]+)/,
-              );
-              const repo = match ? match[1] : null;
-              if (!repo) return;
-              return (
-                <li class="not-first:mt-5">
-                  <header class="flex gap-2">
-                    <Icon
-                      class:list={[
-                        "h-5 w-4 flex-none",
-                        {
-                          "text-green": contribution.data.status === "open",
-                          "text-purple": contribution.data.status === "merged",
-                          "text-red": contribution.data.status === "closed",
-                        },
-                      ]}
-                      name={(() => {
-                        switch (contribution.data.status) {
-                          case "open":
-                            return "git-pull-request-arrow";
-                          case "merged":
-                            return "git-merge";
-                          case "closed":
-                            return "git-pull-request-closed";
-                          default:
-                            enforceExhaustive(
-                              contribution.data.status,
-                              "Unknown contribution status",
-                            );
-                        }
-                      })()}
+      <div>
+        <ul>
+          {
+            reposWithMetadata.map(({ repo, metadata }) => (
+              <li class="not-first:mt-5">
+                <article>
+                  <h3>
+                    <ExternalLink
+                      text={repo.data.title}
+                      href={repo.data.link}
                     />
-                    <h3>
-                      <ExternalLink
-                        href={contribution.data.link}
-                        text={repo.toLowerCase()}
-                      />
-                    </h3>
-                  </header>
-                  <p class="text-muted-foreground line-clamp-2 pl-6 text-pretty">
-                    {contribution.data.description}
+                  </h3>
+                  <p class="text-muted-foreground text-pretty">
+                    {repo.data.description}
                   </p>
-                </li>
-              );
-            })
-        }
-      </ul>
+                </article>
+              </li>
+            ))
+          }
+        </ul>
+        <hr class="bg-separator my-10 h-px w-full border-none" />
+        <ul>
+          {
+            ossContributions
+              .sort(
+                (a, b) =>
+                  Date.parse(b.data.date.toString()) -
+                  Date.parse(a.data.date.toString()),
+              )
+              .map((contribution) => {
+                const match = contribution.data.link.match(
+                  /github\.com\/([^\/]+\/[^\/]+)/,
+                );
+                const repo = match ? match[1] : null;
+                if (!repo) return;
+                return (
+                  <li class="not-first:mt-5">
+                    <header class="flex gap-2">
+                      <Icon
+                        class:list={[
+                          "h-5 w-4 flex-none",
+                          {
+                            "text-green": contribution.data.status === "open",
+                            "text-purple":
+                              contribution.data.status === "merged",
+                            "text-red": contribution.data.status === "closed",
+                          },
+                        ]}
+                        name={(() => {
+                          switch (contribution.data.status) {
+                            case "open":
+                              return "git-pull-request-arrow";
+                            case "merged":
+                              return "git-merge";
+                            case "closed":
+                              return "git-pull-request-closed";
+                            default:
+                              enforceExhaustive(
+                                contribution.data.status,
+                                "Unknown contribution status",
+                              );
+                          }
+                        })()}
+                      />
+                      <h3>
+                        <ExternalLink
+                          href={contribution.data.link}
+                          text={repo.toLowerCase()}
+                        />
+                      </h3>
+                    </header>
+                    <p class="text-muted-foreground line-clamp-2 pl-6 text-pretty">
+                      {contribution.data.description}
+                    </p>
+                  </li>
+                );
+              })
+          }
+        </ul>
+      </div>
       <footer class="flex lg:justify-end">
         <ExternalLink
           href="https://github.com/alexcarpenter"
