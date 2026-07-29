@@ -65,6 +65,7 @@ export const GET: APIRoute = async () => {
   const recommendations = await getCollection("recommendations");
   const ossContributions = await getCollection("ossContributions");
   const clerkPrs = await getCollection("clerkPrs");
+  const githubRepos = await getCollection("githubRepos");
 
   const experienceMarkdown = jobs
     .sort(
@@ -145,6 +146,14 @@ export const GET: APIRoute = async () => {
     recommendationsMarkdown,
     "",
     "## OSS Contributions",
+    "",
+    githubRepos
+      .sort((a, b) => a.data.title.localeCompare(b.data.title))
+      .map(
+        (repo) =>
+          `### [${repo.data.title}](${repo.data.link})\n\n${repo.data.description}`,
+      )
+      .join("\n\n"),
     "",
     ossContributions
       .sort(
