@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-07-30",
+    "link": "https://github.com/facebook/stylex/pull/1789",
+    "description": "Fix :active being outranked by :hover in a media query",
+    "status": "open"
+  },
+  {
     "date": "2026-05-25",
     "link": "https://github.com/JoviDeCroock/pracht/pull/167",
     "description": "improve text wrapping and add color-scheme usage",
