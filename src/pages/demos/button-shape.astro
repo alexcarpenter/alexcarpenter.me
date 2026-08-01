@@ -1,0 +1,37 @@
+---
+import DemoLayout from "@/layouts/demo-layout.astro";
+---
+
+<DemoLayout>
+  <div class="grid flex-1 place-content-center">
+    <div class="grid grid-cols-2 items-center justify-center gap-5">
+      <button
+        class="flex aspect-square h-7 items-center justify-center rounded-md bg-blue-500 text-white"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg
+        >
+      </button>
+
+      <button
+        class="flex aspect-square h-7 items-center justify-center rounded-full bg-blue-500 text-white"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="w-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg
+        >
+      </button>
+    </div>
+  </div>
+</DemoLayout>
