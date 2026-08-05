@@ -40,18 +40,6 @@ const gear = defineCollection({
   }),
 });
 
-const caseStudies = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/case-studies" }),
-  schema: z.object({
-    status: z.enum(["in-progress", "shipped"]).default("in-progress"),
-    company: reference("jobs"),
-    title: z.string(),
-    description: z.string(),
-    link: z.url(),
-    published: z.coerce.date().optional(),
-  }),
-});
-
 const githubRepos = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/github" }),
   schema: z.object({
@@ -141,7 +129,6 @@ const clerkPrs = defineCollection({
 });
 
 export const collections = {
-  caseStudies,
   clerkPrs,
   gear,
   githubRepos,
