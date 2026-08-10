@@ -57,6 +57,7 @@ projects:
     link: "https://clerk.com/user-authentication"
 tools:
   - Next.js
+  - StyleX
   - Tailwind CSS
   - React Aria Components
   - TypeScript
