@@ -246,7 +246,7 @@
 
 @layer components {
   .prose {
-      --gap: 5;
+    --gap: 5;
     color: var(--color-muted-foreground);
 
     & > :where(* + *) {
