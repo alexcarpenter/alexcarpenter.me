@@ -291,6 +291,12 @@
       }
     }
   }
+
+  .prose-longform {
+    & > :where(* + :is(h2, h3)) {
+      margin-top: calc(var(--spacing) * calc(var(--gap) * 2));
+    }
+  }
 }
 
 @layer utilities {
