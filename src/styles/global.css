@@ -262,6 +262,7 @@
     & :where(blockquote) {
       display: flex;
       column-gap: var(--spacing);
+      text-wrap: pretty;
 
       &::before {
         content: "\BB";
