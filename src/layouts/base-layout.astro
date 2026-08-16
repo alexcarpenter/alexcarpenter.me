@@ -1,10 +1,19 @@
 ---
 import ExternalLink from "@/components/external-link.astro";
+import { Icon } from "astro-icon/components";
 import RootLayout from "@/layouts/root-layout.astro";
+import {
+  formatRelativeTime,
+  getGithubCommitMetadata,
+} from "@/lib/github-commits";
 import { version } from "../../package.json";
 
 const { title, description } = Astro.props;
-const COMMIT_SHA = import.meta.env.COMMIT_SHA.slice(0, 7);
+const COMMIT_SHA = import.meta.env.COMMIT_SHA;
+const commit = await getGithubCommitMetadata(
+  "alexcarpenter/alexcarpenter.me",
+  COMMIT_SHA,
+);
 ---
 
 <RootLayout
@@ -93,10 +102,20 @@ const COMMIT_SHA = import.meta.env.COMMIT_SHA.slice(0, 7);
           </dd>
           <dt class="mt-5">Commit</dt>
           <dd>
-            <ExternalLink
-              href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${COMMIT_SHA}`}
-              text={COMMIT_SHA}
-            />
+            {
+              commit ? (
+                <a href={commit.url}>
+                  <span>{COMMIT_SHA.slice(0, 7)}</span>{" "}
+                  <span class="text-green">+{commit.additions}</span>{" "}
+                  <span class="text-red">−{commit.deletions}</span>
+                </a>
+              ) : (
+                <ExternalLink
+                  href={`https://github.com/alexcarpenter/alexcarpenter.me/commit/${COMMIT_SHA}`}
+                  text={COMMIT_SHA.slice(0, 7)}
+                />
+              )
+            }
           </dd>
         </dl>
       </div>
