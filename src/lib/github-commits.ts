@@ -37,15 +37,49 @@ export async function getGithubCommitMetadata(
       },
     );
 
-    if (!res.ok) return null;
+    if (!res.ok) return getGithubCommitMetadataFromPatch(repo, sha);
 
     const data = (await res.json()) as GithubCommitResponse;
+
+    if (!data.stats) return getGithubCommitMetadataFromPatch(repo, sha);
 
     return {
       url: data.html_url,
       date: data.commit.author.date,
-      additions: data.stats?.additions ?? null,
-      deletions: data.stats?.deletions ?? null,
+      additions: data.stats.additions,
+      deletions: data.stats.deletions,
+    };
+  } catch {
+    return getGithubCommitMetadataFromPatch(repo, sha);
+  }
+}
+
+async function getGithubCommitMetadataFromPatch(
+  repo: string,
+  sha: string,
+): Promise<GithubCommitMetadata | null> {
+  try {
+    const res = await fetch(`https://github.com/${repo}/commit/${sha}.patch`);
+
+    if (!res.ok) return null;
+
+    const patch = await res.text();
+    const date = patch.match(/^Date: (.+)$/m)?.[1];
+
+    if (!date) return null;
+
+    const additions = patch
+      .split("\n")
+      .filter((line) => line.startsWith("+") && !line.startsWith("+++")).length;
+    const deletions = patch
+      .split("\n")
+      .filter((line) => line.startsWith("-") && !line.startsWith("---")).length;
+
+    return {
+      url: `https://github.com/${repo}/commit/${sha}`,
+      date,
+      additions,
+      deletions,
     };
   } catch {
     return null;
