@@ -1,11 +1,7 @@
 ---
 import ExternalLink from "@/components/external-link.astro";
-import { Icon } from "astro-icon/components";
 import RootLayout from "@/layouts/root-layout.astro";
-import {
-  formatRelativeTime,
-  getGithubCommitMetadata,
-} from "@/lib/github-commits";
+import { getGithubCommitMetadata } from "@/lib/github-commits";
 import { version } from "../../package.json";
 
 const { title, description } = Astro.props;

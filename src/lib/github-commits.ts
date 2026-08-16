@@ -1,10 +1,5 @@
 type GithubCommitResponse = {
   html_url: string;
-  commit: {
-    author: {
-      date: string;
-    };
-  };
   stats?: {
     additions: number;
     deletions: number;
@@ -13,12 +8,31 @@ type GithubCommitResponse = {
 
 export type GithubCommitMetadata = {
   url: string;
-  date: string;
   additions: number | null;
   deletions: number | null;
 };
 
-export async function getGithubCommitMetadata(
+const commitMetadataCache = new Map<
+  string,
+  Promise<GithubCommitMetadata | null>
+>();
+
+export function getGithubCommitMetadata(
+  repo: string,
+  sha: string,
+): Promise<GithubCommitMetadata | null> {
+  const cacheKey = `${repo}:${sha}`;
+  const cached = commitMetadataCache.get(cacheKey);
+
+  if (cached) return cached;
+
+  const request = fetchGithubCommitMetadata(repo, sha);
+  commitMetadataCache.set(cacheKey, request);
+
+  return request;
+}
+
+async function fetchGithubCommitMetadata(
   repo: string,
   sha: string,
 ): Promise<GithubCommitMetadata | null> {
@@ -45,7 +59,6 @@ export async function getGithubCommitMetadata(
 
     return {
       url: data.html_url,
-      date: data.commit.author.date,
       additions: data.stats.additions,
       deletions: data.stats.deletions,
     };
@@ -64,10 +77,6 @@ async function getGithubCommitMetadataFromPatch(
     if (!res.ok) return null;
 
     const patch = await res.text();
-    const date = patch.match(/^Date: (.+)$/m)?.[1];
-
-    if (!date) return null;
-
     const additions = patch
       .split("\n")
       .filter((line) => line.startsWith("+") && !line.startsWith("+++")).length;
@@ -77,32 +86,10 @@ async function getGithubCommitMetadataFromPatch(
 
     return {
       url: `https://github.com/${repo}/commit/${sha}`,
-      date,
       additions,
       deletions,
     };
   } catch {
     return null;
   }
-}
-
-export function formatRelativeTime(date: string): string {
-  const elapsedSeconds = (Date.now() - new Date(date).getTime()) / 1000;
-  const units = [
-    ["year", 60 * 60 * 24 * 365],
-    ["month", 60 * 60 * 24 * 30],
-    ["week", 60 * 60 * 24 * 7],
-    ["day", 60 * 60 * 24],
-    ["hour", 60 * 60],
-    ["minute", 60],
-  ] as const;
-
-  const [unit, seconds] = units.find(
-    ([, seconds]) => elapsedSeconds >= seconds,
-  ) ?? ["second", 1];
-
-  return new Intl.RelativeTimeFormat("en", { numeric: "always" }).format(
-    -Math.floor(elapsedSeconds / seconds),
-    unit,
-  );
 }
