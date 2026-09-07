@@ -1,13 +1,18 @@
 ---
 import { Icon } from "astro-icon/components";
-const { href, text, class: className } = Astro.props;
+const {
+  href,
+  text,
+  class: className,
+  rel = "noopener noreferrer",
+} = Astro.props;
 ---
 
 {/* prettier-ignore */}
 <a
   href={href}
   target="_blank"
-  rel="noopener noreferrer"
+  rel={rel}
   class:list={["relative inline-block pr-3.5", className]}
   >{text}<Icon
     name="arrow-up-right"

@@ -68,24 +68,49 @@ const reposWithMetadata = await Promise.all(
         interfaces together.
       </p>
       <a
-        href="/notes"
+        href="/notes/"
         class="text-muted-foreground hover:text-foreground mt-10 inline-flex gap-1"
         >View notes<Icon name="arrow-right" class="h-5 w-2.5" /></a
       >
     </div>
   </section>
 
-  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+  <!-- <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
     <div
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
     >
-      <h2>Projects</h2>
+      <h2>Now</h2>
+      <div class="prose">
+        <h3>Work</h3>
+        <ul>
+          <li>Tinkering with RC Crawlers with my son</li>
+          <li>Practicing for my ham radio technicians license</li>
+          <li>Watching Dark Matter season 2</li>
+        </ul>
+        <h3>Life</h3>
+        <ul>
+          <li>Tinkering with RC Crawlers with my son</li>
+          <li>Practicing for my ham radio technicians license</li>
+          <li>Watching Dark Matter season 2</li>
+        </ul>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="border-separator relative mt-20 border-t pt-20">
+    <div class="px-4 lg:absolute lg:inset-x-0 lg:top-20 lg:z-0 lg:px-20">
+      <div
+        class="mx-auto grid max-w-prose grid-cols-1 items-start lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+      >
+        <h2>Projects</h2>
+      </div>
+    </div>
+    <div
+      aria-label="Projects gallery"
+      class="relative z-10 mt-10 grid snap-x snap-mandatory scrollbar-none grid-cols-[1fr_var(--content-width)_1fr] overflow-x-auto overscroll-x-contain scroll-smooth [--content-width:min(calc(100vw-(--spacing(8))),65ch)] [--gallery-width:min(calc(100vw-(--spacing(20))),65ch)] lg:mt-0"
+    >
       <ul
-        class:list={[
-          "grid gap-5",
-          "lg:col-span-2 lg:grid-cols-3 lg:gap-10",
-          "max-lg:snap-x max-lg:snap-mandatory max-lg:scrollbar-none max-lg:auto-cols-[calc(100%-(--spacing(20)))] max-lg:grid-flow-col max-lg:overflow-x-auto max-lg:scroll-smooth",
-        ]}
+        class="col-start-2 flex w-full min-w-0 gap-5 [--gallery-gap:var(--spacing)*5] after:[margin-inline-start:calc(-1*var(--gallery-gap))] after:shrink-0 after:self-stretch after:pe-[calc((100vw-var(--content-width))/2)] after:content-[''] lg:gap-10 lg:[--gallery-gap:var(--spacing)*10]"
       >
         {
           [
@@ -181,7 +206,7 @@ const reposWithMetadata = await Promise.all(
                 </>,
             },
           ].map((project) => (
-            <li class="snap-center">
+            <li class="bg-background w-(--gallery-width) shrink-0 snap-center">
               <figure class="bg-grid grid aspect-3/2 place-content-center">
                 {project.logomark}
               </figure>

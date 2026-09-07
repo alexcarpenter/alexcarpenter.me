@@ -13,6 +13,7 @@ import rehypeExternalLinks from "rehype-external-links";
 
 export default defineConfig({
   site: "https://alexcarpenter.me",
+  trailingSlash: "always",
   vite: {
     plugins: [tailwindcss()],
     define: {

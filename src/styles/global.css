@@ -290,6 +290,10 @@
         left: 0;
       }
     }
+
+    & :where(td) {
+        text-wrap: pretty;
+    }
   }
 
   .prose-longform {

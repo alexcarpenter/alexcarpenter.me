@@ -59,7 +59,7 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
             return (
               <li class="not-first:border-separator not-first:mt-20 not-first:border-t not-first:pt-20">
                 <article>
-                  <a href={`/notes/${note.id}`}>
+                  <a href={`/notes/${note.id}/`}>
                     <time
                       class="text-muted-foreground hover:text-foreground"
                       datetime={note.data.published.toISOString()}
