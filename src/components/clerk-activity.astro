@@ -1,0 +1,66 @@
+---
+import type { ClerkActivity } from "@/lib/clerk-activity";
+
+const { activity } = Astro.props as { activity: ClerkActivity };
+const size = 10;
+const pitch = 13;
+const first = Date.parse(activity.days[0].date);
+const format = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
+const colors = [
+  "fill-muted",
+  "fill-green/20",
+  "fill-green/40",
+  "fill-green/70",
+  "fill-green",
+];
+const cells = activity.days.map((day) => {
+  const date = new Date(`${day.date}T00:00:00Z`);
+  return {
+    ...day,
+    x: Math.floor((date.getTime() - first) / (7 * 24 * 60 * 60 * 1000)) * pitch,
+    y: date.getUTCDay() * pitch,
+    label: `${day.count} ${day.count === 1 ? "contribution" : "contributions"} on ${format.format(date)}`,
+  };
+});
+const width = cells.at(-1)!.x + size;
+---
+
+<figure>
+  <figcaption class="text-muted-foreground mb-2.5">
+    {activity.total.toLocaleString("en-US")} contributions in the last year
+  </figcaption>
+  <a
+    href="https://github.com/alexcarpenter?tab=overview&org=clerk"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="View Clerk contributions on GitHub"
+    class="block"
+  >
+    <svg
+      viewBox={`0 0 ${width} ${7 * pitch - 3}`}
+      role="img"
+      aria-label={`${activity.total.toLocaleString("en-US")} contributions at Clerk in the last year`}
+      class="h-auto w-full"
+    >
+      {
+        cells.map((day) => (
+          <rect
+            x={day.x}
+            y={day.y}
+            width={size}
+            height={size}
+            rx="2"
+            class={colors[day.level]}
+          >
+            <title>{day.label}</title>
+          </rect>
+        ))
+      }
+    </svg>
+  </a>
+</figure>
