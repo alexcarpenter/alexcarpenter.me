@@ -61,6 +61,31 @@ const notes = defineCollection({
   }),
 });
 
+const rcCars = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/rc-cars" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      heading: z.string(),
+      gallery: z
+        .array(
+          z.object({
+            src: image(),
+            alt: z.string(),
+          }),
+        )
+        .default([]),
+      parts: z.array(
+        z.object({
+          type: z.string(),
+          name: z.string(),
+          link: z.url(),
+        }),
+      ),
+    }),
+});
+
 const jobs = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
   schema: z.object({
@@ -135,5 +160,6 @@ export const collections = {
   jobs,
   notes,
   ossContributions,
+  rcCars,
   recommendations,
 };

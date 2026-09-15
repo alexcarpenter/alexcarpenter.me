@@ -295,6 +295,7 @@
     }
 
     & :where(td) {
+        color: var(--color-foreground);
         text-wrap: pretty;
     }
   }

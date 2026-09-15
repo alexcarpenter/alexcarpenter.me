@@ -1,0 +1,153 @@
+---
+import BaseLayout from "@/layouts/base-layout.astro";
+import ExternalLink from "@/components/external-link.astro";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const rcCars = await getCollection("rcCars");
+
+  return rcCars.map((rcCar) => ({
+    params: { slug: rcCar.id },
+    props: rcCar,
+  }));
+}
+
+const rcCar = Astro.props;
+const { Content } = await render(rcCar);
+const [headingFirstWord, ...headingRemainingWords] =
+  rcCar.data.heading.split(" ");
+const pageUrl = new URL(`/rc-cars/${rcCar.id}/`, Astro.site);
+const markdownUrl = new URL(`/rc-cars/${rcCar.id}.md`, Astro.site);
+const hasGallery = rcCar.data.gallery.length > 0;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: rcCar.data.title,
+  description: rcCar.data.description,
+  url: pageUrl,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": pageUrl,
+  },
+  author: {
+    "@type": "Person",
+    name: "Alex Carpenter",
+    url: new URL("/", Astro.site),
+  },
+};
+---
+
+<BaseLayout title={rcCar.data.title} description={rcCar.data.description}>
+  <Fragment slot="head">
+    <link
+      rel="alternate"
+      type="text/markdown"
+      title="Markdown version"
+      href={markdownUrl}
+    />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  </Fragment>
+
+  <section class="mt-20 px-4">
+    <div class="mx-auto max-w-prose">
+      <h1 class="text-muted-foreground font-headline text-xl text-balance">
+        <span class="text-foreground">{headingFirstWord}</span>{" "}
+        {headingRemainingWords.join(" ")}.
+      </h1>
+      <p class="text-muted-foreground mt-2.5 text-pretty">
+        {rcCar.data.description}
+      </p>
+    </div>
+  </section>
+
+  {
+    hasGallery && (
+      <section class="relative py-10">
+        <span class="bg-separator absolute inset-x-0 top-1/2 h-px -translate-y-1/2" />
+        <div
+          aria-label={`${rcCar.data.heading} image gallery`}
+          class="relative grid snap-x snap-mandatory scrollbar-none grid-cols-[1fr_var(--content-width)_1fr] overflow-x-auto overscroll-x-contain scroll-smooth [--content-width:min(calc(100vw-(--spacing(8))),65ch)] [--gallery-width:min(calc(100vw-(--spacing(20))),65ch)]"
+        >
+          <ul class="col-start-2 flex w-full min-w-0 gap-5 [--gallery-gap:var(--spacing)*5] after:[margin-inline-start:calc(-1*var(--gallery-gap))] after:shrink-0 after:self-stretch after:pe-[calc((100vw-var(--content-width))/2)] after:content-[''] lg:gap-10 lg:[--gallery-gap:var(--spacing)*10]">
+            {rcCar.data.gallery.map((image, index) => (
+              <li class="bg-separator aspect-4/3 w-(--gallery-width) shrink-0 snap-center">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  widths={[320, 640, 960, 1280]}
+                  sizes="(max-width: 600px) calc(100vw - 5rem), 65ch"
+                  priority={index === 0}
+                  class="size-full object-cover"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <section
+    class:list={[
+      "px-4 lg:px-20",
+      { "border-separator mt-20 border-t pt-20": !hasGallery },
+    ]}
+  >
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <article class="lg:col-start-2">
+        <div class="prose prose-longform">
+          {rcCar.body ? <Content /> : null}
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th
+                  class="text-muted-foreground pb-2.5 text-left font-normal uppercase"
+                >
+                  Type
+                </th>
+                <th
+                  class="text-muted-foreground px-10 pb-2.5 text-left font-normal uppercase"
+                >
+                  Name
+                </th>
+                <th
+                  class="text-muted-foreground pb-2.5 text-left font-normal uppercase"
+                >
+                  Link
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                rcCar.data.parts.map((part) => (
+                  <tr>
+                    <td class="border-separator border-t py-2.5">
+                      {part.type}
+                    </td>
+                    <td class="border-separator border-t px-10 py-2.5">
+                      {part.name}
+                    </td>
+                    <td class="border-separator border-t py-2.5">
+                      <ExternalLink
+                        text={"Buy"}
+                        href={part.link}
+                        rel="sponsored noopener noreferrer"
+                      />
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
