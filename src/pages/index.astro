@@ -6,7 +6,6 @@ import { getClerkActivity } from "@/lib/clerk-activity";
 import { enforceExhaustive } from "@/lib/utils";
 import slugify from "@sindresorhus/slugify";
 import { Icon } from "astro-icon/components";
-import { getGithubRepoMetadata } from "@/lib/github-repos";
 import { getCollection, getEntry, render } from "astro:content";
 
 const jobs = await getCollection("jobs");
@@ -31,13 +30,8 @@ const renderedRecommendations = await Promise.all(
     return { recommendation, company, Content };
   }),
 );
-const reposWithMetadata = await Promise.all(
-  repos
-    .sort((a, b) => a.data.title.localeCompare(b.data.title))
-    .map(async (repo) => ({
-      repo,
-      metadata: await getGithubRepoMetadata(repo.data.link),
-    })),
+const sortedRepos = repos.sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
 );
 ---
 
@@ -77,28 +71,6 @@ const reposWithMetadata = await Promise.all(
       >
     </div>
   </section>
-
-  <!-- <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
-    <div
-      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
-    >
-      <h2>Now</h2>
-      <div class="prose">
-        <h3>Work</h3>
-        <ul>
-          <li>Tinkering with RC Crawlers with my son</li>
-          <li>Practicing for my ham radio technicians license</li>
-          <li>Watching Dark Matter season 2</li>
-        </ul>
-        <h3>Life</h3>
-        <ul>
-          <li>Tinkering with RC Crawlers with my son</li>
-          <li>Practicing for my ham radio technicians license</li>
-          <li>Watching Dark Matter season 2</li>
-        </ul>
-      </div>
-    </div>
-  </section> -->
 
   <section
     class="projects-section border-separator relative mt-20 border-t pt-20 [--content-width:min(calc(100vw-(--spacing(8))),65ch)]"
@@ -414,6 +386,7 @@ const reposWithMetadata = await Promise.all(
       </footer>
     </div>
   </section>
+
   <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
     <div
       class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
@@ -444,6 +417,7 @@ const reposWithMetadata = await Promise.all(
       </ul>
     </div>
   </section>
+
   <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
     <div
       class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
@@ -454,7 +428,7 @@ const reposWithMetadata = await Promise.all(
       <div>
         <ul>
           {
-            reposWithMetadata.map(({ repo, metadata }) => (
+            sortedRepos.map((repo) => (
               <li class="not-first:mt-5">
                 <article>
                   <h3>
