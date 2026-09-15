@@ -555,7 +555,7 @@ const reposWithMetadata = await Promise.all(
 
       .projects-heading {
         animation: projects-heading-fade 1ms linear both;
-        animation-timeline: --projects-gallery;
+        animation-timeline: --projects-gallery !important;
         animation-range: 0
           calc((100vw - var(--content-width)) / 2 - var(--spacing) * 20);
       }
