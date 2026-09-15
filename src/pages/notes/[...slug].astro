@@ -71,7 +71,14 @@ const { Content } = await render(note);
         }
         {
           note.body ? (
-            <div class="prose mt-5">
+            <div
+              class:list={[
+                "prose",
+                {
+                  "mt-5": note.data.title,
+                },
+              ]}
+            >
               <Content />
             </div>
           ) : null
