@@ -34,6 +34,7 @@
   --color-green: var(--green);
   --color-orange: var(--orange);
   --color-purple: var(--purple);
+  --color-yellow: var(--yellow);
 }
 
 :root {
@@ -47,6 +48,7 @@
   --green: var(--color-green-600);
   --orange: var(--color-orange-600);
   --purple: var(--color-purple-600);
+  --yellow: var(--color-yellow-600);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,6 +64,7 @@
     --green: var(--color-green-500);
     --orange: var(--color-orange-500);
     --purple: var(--color-purple-500);
+    --yellow: var(--color-yellow-500);
   }
 
   .astro-code,
