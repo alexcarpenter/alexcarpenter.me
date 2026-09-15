@@ -100,17 +100,19 @@ const reposWithMetadata = await Promise.all(
     </div>
   </section> -->
 
-  <section class="border-separator relative mt-20 border-t pt-20">
+  <section
+    class="projects-section border-separator relative mt-20 border-t pt-20 [--content-width:min(calc(100vw-(--spacing(8))),65ch)]"
+  >
     <div class="px-4 lg:absolute lg:inset-x-0 lg:top-20 lg:z-0 lg:px-20">
       <div
-        class="mx-auto grid max-w-prose grid-cols-1 items-start lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+        class="mx-auto grid max-w-prose grid-cols-1 items-start lg:max-w-none lg:grid-cols-[1fr_var(--content-width)_1fr]"
       >
-        <h2>Projects</h2>
+        <h2 class="projects-heading">Projects</h2>
       </div>
     </div>
     <div
       aria-label="Projects gallery"
-      class="relative z-10 mt-10 grid snap-x snap-mandatory scrollbar-none grid-cols-[1fr_var(--content-width)_1fr] overflow-x-auto overscroll-x-contain scroll-smooth [--content-width:min(calc(100vw-(--spacing(8))),65ch)] [--gallery-width:min(calc(100vw-(--spacing(20))),65ch)] lg:mt-0"
+      class="projects-gallery relative z-10 mt-10 grid snap-x snap-mandatory scrollbar-none grid-cols-[1fr_var(--content-width)_1fr] overflow-x-auto overscroll-x-contain scroll-smooth [--gallery-width:min(calc(100vw-(--spacing(20))),65ch)] lg:mt-0"
     >
       <ul
         class="col-start-2 flex w-full min-w-0 gap-5 [--gallery-gap:var(--spacing)*5] after:[margin-inline-start:calc(-1*var(--gallery-gap))] after:shrink-0 after:self-stretch after:pe-[calc((100vw-var(--content-width))/2)] after:content-[''] lg:gap-10 lg:[--gallery-gap:var(--spacing)*10]"
@@ -541,6 +543,31 @@ const reposWithMetadata = await Promise.all(
 </BaseLayout>
 
 <style>
+  @supports (animation-timeline: scroll()) {
+    @media (width >= 64rem) and (prefers-reduced-motion: no-preference) {
+      .projects-section {
+        timeline-scope: --projects-gallery;
+      }
+
+      .projects-gallery {
+        scroll-timeline: --projects-gallery inline;
+      }
+
+      .projects-heading {
+        animation: projects-heading-fade 1ms linear both;
+        animation-timeline: --projects-gallery !important;
+        animation-range: 0
+          calc((100vw - var(--content-width)) / 2 - var(--spacing) * 20);
+      }
+    }
+  }
+
+  @keyframes projects-heading-fade {
+    to {
+      opacity: 0;
+    }
+  }
+
   details {
     --duration: 0.2s;
 
