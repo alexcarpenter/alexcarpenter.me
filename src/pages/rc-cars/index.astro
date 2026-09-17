@@ -1,0 +1,77 @@
+---
+import BaseLayout from "@/layouts/base-layout.astro";
+import { getCollection } from "astro:content";
+
+const rcCars = (await getCollection("rcCars")).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title),
+);
+const pageUrl = new URL("/rc-cars/", Astro.site);
+const markdownUrl = new URL("/rc-cars.md", Astro.site);
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "RC Cars",
+  description:
+    "RC car builds, upgrades, parts lists, and installation notes from Alex Carpenter.",
+  url: pageUrl,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: rcCars.map((rcCar, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: rcCar.data.title,
+      url: new URL(`/rc-cars/${rcCar.id}/`, Astro.site),
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title="RC Cars"
+  description="RC car builds, upgrades, parts lists, and installation notes from Alex Carpenter."
+>
+  <Fragment slot="head">
+    <link
+      rel="alternate"
+      type="text/markdown"
+      title="Markdown version"
+      href={markdownUrl}
+    />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  </Fragment>
+  <section class="mt-40 px-4">
+    <div class="mx-auto max-w-prose">
+      <h1 class="text-muted-foreground font-headline text-xl text-balance">
+        <span class="text-foreground">RC Cars</span> builds, upgrades, and parts lists.
+      </h1>
+    </div>
+  </section>
+
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <h2>Builds</h2>
+      <ul>
+        {
+          rcCars.map((rcCar) => (
+            <li class="not-first:mt-10">
+              <article>
+                <h3>
+                  <a href={`/rc-cars/${rcCar.id}/`}>{rcCar.data.title}</a>
+                </h3>
+                <p class="text-muted-foreground text-pretty">
+                  {rcCar.data.description}
+                </p>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
