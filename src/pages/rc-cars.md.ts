@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 export const GET: APIRoute = async () => {
   const rcCars = (await getCollection("rcCars")).sort((a, b) =>
-    a.data.heading.localeCompare(b.data.heading),
+    a.data.title.localeCompare(b.data.title),
   );
 
   const markdown = [
@@ -15,7 +15,7 @@ export const GET: APIRoute = async () => {
     "",
     ...rcCars.map(
       (rcCar) =>
-        `- [${rcCar.data.heading}](https://alexcarpenter.me/rc-cars/${rcCar.id}.md) — ${rcCar.data.description}`,
+        `- [${rcCar.data.title}](https://alexcarpenter.me/rc-cars/${rcCar.id}.md) — ${rcCar.data.description}`,
     ),
     "",
   ].join("\n");
