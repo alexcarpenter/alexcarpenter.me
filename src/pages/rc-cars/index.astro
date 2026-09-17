@@ -3,7 +3,7 @@ import BaseLayout from "@/layouts/base-layout.astro";
 import { getCollection } from "astro:content";
 
 const rcCars = (await getCollection("rcCars")).sort((a, b) =>
-  a.data.heading.localeCompare(b.data.heading),
+  a.data.title.localeCompare(b.data.title),
 );
 const pageUrl = new URL("/rc-cars/", Astro.site);
 const markdownUrl = new URL("/rc-cars.md", Astro.site);
@@ -19,7 +19,7 @@ const structuredData = {
     itemListElement: rcCars.map((rcCar, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      name: rcCar.data.heading,
+      name: rcCar.data.title,
       url: new URL(`/rc-cars/${rcCar.id}/`, Astro.site),
     })),
   },
@@ -62,7 +62,7 @@ const structuredData = {
             <li class="not-first:mt-10">
               <article>
                 <h3>
-                  <a href={`/rc-cars/${rcCar.id}/`}>{rcCar.data.heading}</a>
+                  <a href={`/rc-cars/${rcCar.id}/`}>{rcCar.data.title}</a>
                 </h3>
                 <p class="text-muted-foreground text-pretty">
                   {rcCar.data.description}

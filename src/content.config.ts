@@ -67,7 +67,6 @@ const rcCars = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
-      heading: z.string(),
       gallery: z
         .array(
           z.object({

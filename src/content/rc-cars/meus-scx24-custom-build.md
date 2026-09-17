@@ -1,7 +1,6 @@
 ---
-title: MEUS MD24 SCX24 Crawler Build & Parts List
+title: MEUS MD24 SCX24 Crawler
 description: My MEUS MD24 SCX24 crawler build, featuring MEUS V2 isokinetic axles, Furitek brushless electronics, Mofo RC wheels, JConcepts tires, and other performance upgrades.
-heading: MEUS MD24 SCX24 Crawler
 parts:
   - type: Chassis
     name: MEUS Racing MD24 Chassis Kit

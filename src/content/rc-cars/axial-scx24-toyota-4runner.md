@@ -1,14 +1,6 @@
 ---
-title: Axial SCX24 Toyota 4Runner Upgrades & Build List
+title: Axial SCX24 Toyota 4Runner
 description: My Axial SCX24 Toyota 4Runner build, including the servo, wheels, tires, and other upgrades I installed—with photos, fitment notes, and parts links.
-heading: Axial SCX24 Toyota 4Runner
-gallery:
-  - src: ./images/test.jpg
-    alt: Testing
-  - src: ./images/test.jpg
-    alt: Testing
-  - src: ./images/test.jpg
-    alt: Testing
 parts:
   - type: Truck
     name: 1/24 Axial SCX24 Toyota 4Runner

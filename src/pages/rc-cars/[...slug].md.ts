@@ -29,7 +29,7 @@ export const GET: APIRoute = async ({ props }) => {
   );
 
   const markdown = [
-    `# ${rcCar.data.heading}`,
+    `# ${rcCar.data.title}`,
     "",
     rcCar.data.description,
     gallery.length ? "" : null,

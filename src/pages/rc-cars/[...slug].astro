@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 const rcCar = Astro.props;
 const { Content } = await render(rcCar);
 const [headingFirstWord, ...headingRemainingWords] =
-  rcCar.data.heading.split(" ");
+  rcCar.data.title.split(" ");
 const pageUrl = new URL(`/rc-cars/${rcCar.id}/`, Astro.site);
 const markdownUrl = new URL(`/rc-cars/${rcCar.id}.md`, Astro.site);
 const hasGallery = rcCar.data.gallery.length > 0;
@@ -70,7 +70,7 @@ const structuredData = {
       <section class="relative py-10">
         <span class="bg-separator absolute inset-x-0 top-1/2 h-px -translate-y-1/2" />
         <div
-          aria-label={`${rcCar.data.heading} image gallery`}
+          aria-label={`${rcCar.data.title} image gallery`}
           class="relative grid snap-x snap-mandatory scrollbar-none grid-cols-[1fr_var(--content-width)_1fr] overflow-x-auto overscroll-x-contain scroll-smooth [--content-width:min(calc(100vw-(--spacing(8))),65ch)] [--gallery-width:min(calc(100vw-(--spacing(20))),65ch)]"
         >
           <ul class="col-start-2 flex w-full min-w-0 gap-5 [--gallery-gap:var(--spacing)*5] after:[margin-inline-start:calc(-1*var(--gallery-gap))] after:shrink-0 after:self-stretch after:pe-[calc((100vw-var(--content-width))/2)] after:content-[''] lg:gap-10 lg:[--gallery-gap:var(--spacing)*10]">
