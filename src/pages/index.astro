@@ -11,6 +11,7 @@ import { getCollection, getEntry, render } from "astro:content";
 const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
 const ossContributions = await getCollection("ossContributions");
+const now = await getEntry("now", "now");
 const clerkPrs = (await getCollection("clerkPrs")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
@@ -30,6 +31,7 @@ const renderedRecommendations = await Promise.all(
     return { recommendation, company, Content };
   }),
 );
+const { Content: NowContent } = await render(now);
 const sortedRepos = repos.sort((a, b) =>
   a.data.title.localeCompare(b.data.title),
 );
@@ -184,7 +186,7 @@ const sortedRepos = repos.sort((a, b) =>
             },
           ].map((project) => (
             <li class="bg-background w-(--gallery-width) shrink-0 snap-center">
-              <figure class="bg-grid grid aspect-3/2 place-content-center">
+              <figure class="bg-grid grid aspect-video place-content-center">
                 {project.logomark}
               </figure>
               <h3 class="mt-5">
@@ -512,6 +514,25 @@ const sortedRepos = repos.sort((a, b) =>
           class="text-muted-foreground hover:text-foreground"
         />
       </footer>
+    </div>
+  </section>
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <h2>Now</h2>
+      <div class="prose">
+        <NowContent />
+      </div>
+      <p class="text-muted-foreground lg:text-right">
+        Updated {
+          now.data.updated.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+          })
+        }
+      </p>
     </div>
   </section>
 </BaseLayout>
