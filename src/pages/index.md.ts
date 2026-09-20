@@ -64,6 +64,10 @@ export const GET: APIRoute = async () => {
   const jobs = await getCollection("jobs");
   const recommendations = await getCollection("recommendations");
   const ossContributions = await getCollection("ossContributions");
+  const now = await getEntry("now", "now");
+  if (!now) {
+    throw new Error("Missing src/content/now.md");
+  }
   const clerkPrs = await getCollection("clerkPrs");
   const githubRepos = await getCollection("githubRepos");
 
@@ -115,8 +119,18 @@ export const GET: APIRoute = async () => {
     )
   ).join("\n\n");
 
+  const nowMarkdown = [
+    normalizeMarkdown(now.body),
+    "",
+    `Updated ${formatDate(now.data.updated)}.`,
+  ].join("\n");
+
   const markdown = [
     homepageIntro,
+    "",
+    "## Now",
+    "",
+    nowMarkdown,
     "",
     "## Projects",
     "",

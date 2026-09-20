@@ -85,6 +85,13 @@ const rcCars = defineCollection({
     }),
 });
 
+const now = defineCollection({
+  loader: glob({ pattern: "now.md", base: "./src/content" }),
+  schema: z.object({
+    updated: z.coerce.date(),
+  }),
+});
+
 const jobs = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
   schema: z.object({
@@ -157,6 +164,7 @@ export const collections = {
   gear,
   githubRepos,
   jobs,
+  now,
   notes,
   ossContributions,
   rcCars,
