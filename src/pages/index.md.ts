@@ -65,6 +65,9 @@ export const GET: APIRoute = async () => {
   const recommendations = await getCollection("recommendations");
   const ossContributions = await getCollection("ossContributions");
   const now = await getEntry("now", "now");
+  if (!now) {
+    throw new Error("Missing src/content/now.md");
+  }
   const clerkPrs = await getCollection("clerkPrs");
   const githubRepos = await getCollection("githubRepos");
 

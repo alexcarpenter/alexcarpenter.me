@@ -12,6 +12,9 @@ const jobs = await getCollection("jobs");
 const recommendations = await getCollection("recommendations");
 const ossContributions = await getCollection("ossContributions");
 const now = await getEntry("now", "now");
+if (!now) {
+  throw new Error("Missing src/content/now.md");
+}
 const clerkPrs = (await getCollection("clerkPrs")).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
