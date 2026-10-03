@@ -25,7 +25,7 @@
     "astro": "7.3.4",
     "astro-icon": "1.1.5",
     "html-to-image": "1.11.13",
-    "markdown-it": "14.2.0",
+    "markdown-it": "14.3.1",
     "nanostores": "1.4.0",
     "nanotags": "^0.15.2",
     "rehype-external-links": "3.0.0",
