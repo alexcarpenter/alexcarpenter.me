@@ -1,4 +1,5 @@
 ---
+import ExternalLink from "@/components/external-link.astro";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { getCollection } from "astro:content";
 
@@ -24,6 +25,33 @@ const structuredData = {
     })),
   },
 };
+
+const tools = [
+  {
+    name: "WERA 1.3 hex driver",
+    link: "https://link.amazon/B06zHRuhj",
+  },
+  {
+    name: "WERA 1.5 x 60 mm hex driver",
+    link: "https://link.amazon/B0hlayPxt",
+  },
+  {
+    name: "WERA 4mm nut driver",
+    link: "https://link.amazon/B0dmhtj7J",
+  },
+  {
+    name: "Wiha 1.3mm Hex Driver",
+    link: "https://link.amazon/B09ccfkY2",
+  },
+  {
+    name: "Wiha 1.5 x 50mm Hex Driver",
+    link: "https://link.amazon/B00qBDosn",
+  },
+  {
+    name: "INJORA Silicone Pit Mat",
+    link: "https://link.amazon/B06kNaYqN",
+  },
+] as const;
 ---
 
 <BaseLayout
@@ -72,6 +100,50 @@ const structuredData = {
           ))
         }
       </ul>
+    </div>
+  </section>
+
+  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
+    <div
+      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
+    >
+      <h2>Tools</h2>
+      <div class="prose">
+        <table class="w-full">
+          <thead>
+            <tr>
+              <th
+                class="text-muted-foreground pr-10 pb-2.5 text-left font-normal uppercase"
+              >
+                Name
+              </th>
+              <th
+                class="text-muted-foreground pb-2.5 text-left font-normal uppercase"
+              >
+                Link
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              tools.map((t) => (
+                <tr>
+                  <td class="border-separator border-t py-2.5 pr-10">
+                    {t.name}
+                  </td>
+                  <td class="border-separator border-t py-2.5">
+                    <ExternalLink
+                      text={"Buy"}
+                      href={t.link}
+                      rel="sponsored noopener noreferrer"
+                    />
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </BaseLayout>
