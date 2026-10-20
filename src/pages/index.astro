@@ -78,7 +78,7 @@ const sortedRepos = repos.sort((a, b) =>
   </section>
 
   <section
-    class="projects-section border-separator relative mt-20 border-t pt-20 [--content-width:min(calc(100vw-(--spacing(8))),65ch)]"
+    class="projects-section border-separator relative mt-20 overflow-x-clip border-t pt-20 [--content-width:min(calc(100vw-(--spacing(8))),65ch)]"
   >
     <div class="px-4 lg:absolute lg:inset-x-0 lg:top-20 lg:z-0 lg:px-20">
       <div
@@ -87,9 +87,9 @@ const sortedRepos = repos.sort((a, b) =>
         <h2 class="projects-heading">Projects</h2>
       </div>
     </div>
-    <div
+    <swipe-carousel
       aria-label="Projects gallery"
-      class="projects-gallery relative z-10 mt-10 grid snap-x snap-mandatory scrollbar-none grid-cols-[1fr_var(--content-width)_1fr] overflow-x-auto overscroll-x-contain scroll-smooth [--gallery-width:min(calc(100vw-(--spacing(20))),65ch)] lg:mt-0"
+      class="projects-gallery relative z-10 mt-10 grid snap-x snap-mandatory scrollbar-none grid-cols-[1fr_var(--content-width)_1fr] overflow-x-auto overscroll-x-contain scroll-smooth [--gallery-width:min(calc(100vw-(--spacing(20))),65ch)] data-dragging:cursor-grabbing data-dragging:*:pointer-events-none data-free-scroll:snap-none data-free-scroll:scroll-auto data-free-scroll:select-none lg:mt-0 pointer-fine:[&:defined]:cursor-grab"
     >
       <ul
         class="col-start-2 flex w-full min-w-0 gap-5 [--gallery-gap:var(--spacing)*5] after:[margin-inline-start:calc(-1*var(--gallery-gap))] after:shrink-0 after:self-stretch after:pe-[calc((100vw-var(--content-width))/2)] after:content-[''] lg:gap-10 lg:[--gallery-gap:var(--spacing)*10]"
@@ -188,7 +188,10 @@ const sortedRepos = repos.sort((a, b) =>
                 </>,
             },
           ].map((project) => (
-            <li class="bg-background w-(--gallery-width) shrink-0 snap-center">
+            <li
+              data-ref="slide"
+              class="bg-background w-(--gallery-width) shrink-0 snap-center"
+            >
               <figure class="bg-grid grid aspect-video place-content-center">
                 {project.logomark}
               </figure>
@@ -202,7 +205,7 @@ const sortedRepos = repos.sort((a, b) =>
           ))
         }
       </ul>
-    </div>
+    </swipe-carousel>
   </section>
 
   <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
@@ -539,6 +542,10 @@ const sortedRepos = repos.sort((a, b) =>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  import "@/components/swipe-carousel";
+</script>
 
 <style>
   @supports (animation-timeline: scroll()) {
