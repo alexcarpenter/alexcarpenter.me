@@ -1,0 +1,42 @@
+<swipe-carousel-scrollbar
+  aria-hidden="true"
+  class="scrollbar mx-auto mt-7.5 w-(--content-width) touch-none py-2.5 select-none"
+>
+  <div class="bg-muted h-[2.5px] rounded-full">
+    <div
+      data-ref="thumb"
+      class="thumb bg-muted-foreground/30 h-full rounded-full"
+    >
+    </div>
+  </div>
+</swipe-carousel-scrollbar>
+
+<script>
+  import "./scrollbar";
+</script>
+
+<style>
+  .scrollbar {
+    display: none;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .scrollbar {
+      display: block;
+    }
+
+    .thumb {
+      width: calc(var(--thumb, 0) * 100%);
+      scale: var(--squish, 1) 1;
+      transform-origin: var(--squish-origin, left);
+      animation: swipe-carousel-thumb 1ms linear both;
+      animation-timeline: --swipe-carousel;
+    }
+  }
+
+  @keyframes swipe-carousel-thumb {
+    to {
+      translate: calc((1 / var(--thumb, 1) - 1) * 100%);
+    }
+  }
+</style>

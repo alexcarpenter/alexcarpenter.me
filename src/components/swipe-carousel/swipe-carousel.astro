@@ -1,0 +1,38 @@
+---
+import Scrollbar from "./scrollbar.astro";
+
+const { label, class: className, scrollbar = true } = Astro.props;
+---
+
+<swipe-carousel class:list={["relative block", className]}>
+  <slot name="header" />
+  <div
+    data-ref="viewport"
+    aria-label={label}
+    class="viewport relative grid snap-x snap-mandatory scrollbar-none grid-cols-[1fr_var(--content-width)_1fr] overflow-x-auto overscroll-x-contain scroll-smooth data-dragging:cursor-grabbing data-dragging:*:pointer-events-none data-free-scroll:snap-none data-free-scroll:scroll-auto data-free-scroll:select-none pointer-fine:in-[swipe-carousel:defined]:cursor-grab"
+  >
+    <ul
+      data-ref="slides"
+      class="col-start-2 flex w-full min-w-0 gap-(--slide-gap) *:w-(--slide-width) *:shrink-0 *:snap-center after:[margin-inline-start:calc(-1*var(--slide-gap))] after:shrink-0 after:self-stretch after:pe-[calc((100vw-var(--content-width))/2)] after:content-['']"
+    >
+      <slot />
+    </ul>
+  </div>
+  {scrollbar && <Scrollbar />}
+</swipe-carousel>
+
+<script>
+  import "./swipe-carousel";
+</script>
+
+<style>
+  @supports (animation-timeline: scroll()) {
+    swipe-carousel {
+      timeline-scope: --swipe-carousel;
+    }
+
+    .viewport {
+      scroll-timeline: --swipe-carousel inline;
+    }
+  }
+</style>

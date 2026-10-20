@@ -30,7 +30,7 @@ const projects = [
   },
   {
     name: "RESILIENT—UI",
-    link: "https://resilient-ui.com",
+    link: "https://github.com/alexcarpenter/resilient-ui",
     description:
       "Resources for building resilient user interfaces. Built with Next.js, Tailwind CSS, Base UI, shadcn/ui, and Fumadocs.",
   },
