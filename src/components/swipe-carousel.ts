@@ -4,7 +4,7 @@ const DRAG_FOLLOW = 0.72;
 const EDGE_FOLLOW = 0.8;
 const GLIDE = 0.28;
 const SETTLE = 0.12;
-const STRETCH = 0.2;
+const STRETCH = 0.55;
 const FLICK_CARRY = 120;
 const DRAG_THRESHOLD = 5;
 const VELOCITY_WINDOW = 100;
@@ -25,8 +25,9 @@ define("swipe-carousel")
     let target = 0;
     let landing = 0;
     let pressStart = 0;
-    let stretch = 0;
+    let overshoot = 0;
     let maxScroll = 0;
+    let maxStretch = 0;
     let snaps: number[] = [];
     let frame = 0;
     let lastTime = 0;
@@ -40,6 +41,7 @@ define("swipe-carousel")
       dragged = false;
       samples = [{ x: event.clientX, time: event.timeStamp }];
       maxScroll = host.scrollWidth - host.clientWidth;
+      maxStretch = host.clientWidth / 2;
       snaps = measureSnaps();
 
       if (frame) {
@@ -121,16 +123,15 @@ define("swipe-carousel")
       }
 
       const inRange = clamp(position, 0, maxScroll);
-      stretch = press
-        ? damp(stretch, (inRange - position) * STRETCH, EDGE_FOLLOW, elapsed)
-        : damp(stretch, 0, SETTLE, elapsed);
+      overshoot = press
+        ? damp(overshoot, inRange - position, EDGE_FOLLOW, elapsed)
+        : damp(overshoot, 0, SETTLE, elapsed);
 
       if (host.scrollLeft !== inRange) host.scrollLeft = inRange;
-      const translate = Math.abs(stretch) < 0.01 ? "" : `${stretch}px 0`;
-      if (host.style.translate !== translate) host.style.translate = translate;
+      applyOvershoot(overshoot);
 
       const settled =
-        Math.abs(landing - position) < 0.5 && Math.abs(stretch) < 0.5;
+        Math.abs(landing - position) < 0.5 && Math.abs(overshoot) < 0.5;
       if (!press && settled) {
         host.scrollLeft = landing;
         stop();
@@ -143,8 +144,18 @@ define("swipe-carousel")
       cancelAnimationFrame(frame);
       frame = 0;
       lastTime = 0;
-      host.style.translate = "";
+      overshoot = 0;
+      applyOvershoot(overshoot);
       host.toggleAttribute("data-free-scroll", false);
+    }
+
+    function applyOvershoot(value: number) {
+      const stretch = rubberBand(value, maxStretch);
+      const translate = Math.abs(stretch) < 0.01 ? "" : `${stretch}px 0`;
+      if (host.style.translate === translate) return;
+
+      host.style.translate = translate;
+      ctx.emit("overscroll", translate ? value : 0);
     }
 
     function landingFor(projected: number) {
@@ -185,6 +196,11 @@ function nearestIndex(values: number[], to: number) {
     if (Math.abs(value - to) < Math.abs(best - to)) nearest = index;
   });
   return nearest;
+}
+
+function rubberBand(overshoot: number, limit: number) {
+  const give = 1 - 1 / ((Math.abs(overshoot) * STRETCH) / limit + 1);
+  return Math.sign(overshoot) * give * limit;
 }
 
 function clamp(value: number, min: number, max: number) {

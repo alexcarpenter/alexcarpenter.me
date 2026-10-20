@@ -84,7 +84,11 @@ const sortedRepos = repos.sort((a, b) =>
       <div
         class="mx-auto grid max-w-prose grid-cols-1 items-start lg:max-w-none lg:grid-cols-[1fr_var(--content-width)_1fr]"
       >
-        <h2 class="projects-heading">Projects</h2>
+        <h2 class="projects-heading">
+          Projects<span aria-hidden="true" class="projects-heading-glow"
+            >Projects</span
+          >
+        </h2>
       </div>
     </div>
     <swipe-carousel
@@ -545,9 +549,41 @@ const sortedRepos = repos.sort((a, b) =>
 
 <script>
   import "@/components/swipe-carousel";
+
+  const projects = document.querySelector<HTMLElement>(".projects-section");
+  if (projects) {
+    let fadeLength = readFadeLength(projects);
+    window.addEventListener("resize", () => {
+      fadeLength = readFadeLength(projects);
+    });
+
+    projects.addEventListener("overscroll", (event) => {
+      if (!(event instanceof CustomEvent) || typeof event.detail !== "number")
+        return;
+      const pull = Math.min(Math.max(event.detail, 0) / fadeLength, 1);
+      projects.style.setProperty("--pull", String(pull));
+    });
+  }
+
+  function readFadeLength(element: HTMLElement) {
+    const value = getComputedStyle(element).getPropertyValue("--heading-fade");
+    return Math.max(parseFloat(value), 1);
+  }
 </script>
 
 <style>
+  @property --heading-fade {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+  }
+
+  .projects-section {
+    --heading-fade: calc(
+      (100vw - var(--content-width)) / 2 - var(--spacing) * 20
+    );
+  }
+
   @supports (animation-timeline: scroll()) {
     @media (width >= 64rem) and (prefers-reduced-motion: no-preference) {
       .projects-section {
@@ -561,9 +597,31 @@ const sortedRepos = repos.sort((a, b) =>
       .projects-heading {
         animation: projects-heading-fade 1ms linear both;
         animation-timeline: --projects-gallery !important;
-        animation-range: 0
-          calc((100vw - var(--content-width)) / 2 - var(--spacing) * 20);
+        animation-range: 0 var(--heading-fade);
       }
+    }
+  }
+
+  .projects-heading-glow {
+    display: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .projects-heading {
+      position: relative;
+    }
+
+    .projects-heading-glow {
+      position: absolute;
+      inset: 0;
+      display: block;
+      background: url("/images/hdr-white.png") 0 0 / 100% 100%;
+      background-clip: text;
+      color: transparent;
+      opacity: var(--pull, 0);
+      dynamic-range-limit: no-limit;
+      pointer-events: none;
+      user-select: none;
     }
   }
 
