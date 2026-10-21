@@ -1,11 +1,10 @@
-packages:
-  - .
-
-overrides:
-  esbuild: 0.28.1
-  yaml: 2.9.0
+engineStrict: true
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - astro
+  - "@astrojs/*"
+strictDepBuilds: true
 
 allowBuilds:
   esbuild: true
-  sharp: true
-
+  sharp: false

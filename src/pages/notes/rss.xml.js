@@ -1,9 +1,8 @@
 import rss from "@astrojs/rss";
+import { createMarkdownProcessor } from "@astrojs/markdown-remark";
 import { getCollection } from "astro:content";
-import sanitizeHtml from "sanitize-html";
-import MarkdownIt from "markdown-it";
 
-const parser = new MarkdownIt({ html: true, linkify: true, typographer: true });
+const markdown = await createMarkdownProcessor({ syntaxHighlight: false });
 
 export async function GET(context) {
   const notes = await getCollection("notes");
@@ -12,18 +11,16 @@ export async function GET(context) {
     description:
       "Notes on engineering, developer experience, design systems, and accessibility.",
     site: context.site,
-    items: notes
-      .sort((a, b) => b.data.published - a.data.published)
-      .map((post) => ({
-        title: post.data.title,
-        description: post.data.description,
-        pubDate: post.data.published,
-        link: `/notes/${post.id}`,
-        content:
-          post.body &&
-          sanitizeHtml(parser.render(post.body), {
-            allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-          }),
-      })),
+    items: await Promise.all(
+      notes
+        .sort((a, b) => b.data.published - a.data.published)
+        .map(async (post) => ({
+          title: post.data.title,
+          description: post.data.description,
+          pubDate: post.data.published,
+          link: `/notes/${post.id}`,
+          content: post.body && (await markdown.render(post.body)).code,
+        })),
+    ),
   });
 }
