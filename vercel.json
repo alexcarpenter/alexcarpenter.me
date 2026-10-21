@@ -22,50 +22,6 @@
         }
       ],
       "destination": "/index.md"
-    },
-    {
-      "source": "/rc-cars/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*(text/markdown|text/plain).*"
-        }
-      ],
-      "destination": "/rc-cars.md"
-    },
-    {
-      "source": "/rc-cars/",
-      "has": [
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": ".*(GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-Web|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|GoogleOther|CCBot|cohere-ai|Bytespider|Meta-ExternalAgent|Applebot-Extended).*"
-        }
-      ],
-      "destination": "/rc-cars.md"
-    },
-    {
-      "source": "/rc-cars/:slug/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*(text/markdown|text/plain).*"
-        }
-      ],
-      "destination": "/rc-cars/:slug.md"
-    },
-    {
-      "source": "/rc-cars/:slug/",
-      "has": [
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": ".*(GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-Web|anthropic-ai|PerplexityBot|Perplexity-User|Google-Extended|GoogleOther|CCBot|cohere-ai|Bytespider|Meta-ExternalAgent|Applebot-Extended).*"
-        }
-      ],
-      "destination": "/rc-cars/:slug.md"
     }
   ]
 }
