@@ -1,9 +1,5 @@
 engineStrict: true
 minimumReleaseAge: 10080
-minimumReleaseAgeExclude:
-  - astro
-  - "@astrojs/*"
-strictDepBuilds: true
 
 allowBuilds:
   esbuild: true
