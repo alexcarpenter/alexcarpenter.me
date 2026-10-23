@@ -543,8 +543,17 @@ const sortedRepos = repos.sort((a, b) =>
   .project-folder {
     --radius: 0.75rem;
     --tab-height: calc(var(--spacing) * 6);
-    --tab-width: 35%;
-    --tab-slope: calc(var(--spacing) * 9);
+    --tab-width: 28%;
+    --slope-width: calc(var(--tab-height) * 2.4);
+    /*
+     * Continuous corners: each corner is a cubic with both control points on
+     * the corner, so curvature eases in from the straight edges instead of
+     * jumping like a circle. 2.34× matches a circle of --radius at the diagonal.
+     */
+    --corner: calc(var(--radius) * 2.34);
+    --slope-start: var(--tab-width);
+    --slope-mid: calc(var(--tab-width) + var(--slope-width) / 2);
+    --slope-end: calc(var(--tab-width) + var(--slope-width));
 
     border-radius: var(--radius);
 
@@ -552,19 +561,22 @@ const sortedRepos = repos.sort((a, b) =>
       padding-top: var(--tab-height);
       border-radius: 0;
       clip-path: shape(
-        from 0 var(--radius),
-        curve to var(--radius) 0 with 0 0,
-        hline to var(--tab-width),
-        curve to calc(var(--tab-width) + var(--tab-slope)) var(--tab-height)
-          with calc(var(--tab-width) + var(--tab-slope) * 0.8) 0 /
-          calc(var(--tab-width) + var(--tab-slope) * 0.2) var(--tab-height),
-        hline to calc(100% - var(--radius)),
-        curve to 100% calc(var(--tab-height) + var(--radius)) with 100%
-          var(--tab-height),
-        vline to calc(100% - var(--radius)),
-        curve to calc(100% - var(--radius)) 100% with 100% 100%,
-        hline to var(--radius),
-        curve to 0 calc(100% - var(--radius)) with 0 100%,
+        from 0 var(--corner),
+        curve to var(--corner) 0 with 0 0 / 0 0,
+        hline to var(--slope-start),
+        curve to var(--slope-mid) calc(var(--tab-height) / 2) with
+          calc(var(--slope-start) + var(--slope-width) / 4) 0 /
+          calc(var(--slope-start) + var(--slope-width) / 4) 0,
+        curve to var(--slope-end) var(--tab-height) with
+          calc(var(--slope-end) - var(--slope-width) / 4) var(--tab-height) /
+          calc(var(--slope-end) - var(--slope-width) / 4) var(--tab-height),
+        hline to calc(100% - var(--corner)),
+        curve to 100% calc(var(--tab-height) + var(--corner)) with 100%
+          var(--tab-height) / 100% var(--tab-height),
+        vline to calc(100% - var(--corner)),
+        curve to calc(100% - var(--corner)) 100% with 100% 100% / 100% 100%,
+        hline to var(--corner),
+        curve to 0 calc(100% - var(--corner)) with 0 100% / 0 100%,
         close
       );
     }
