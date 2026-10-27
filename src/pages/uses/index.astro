@@ -2,7 +2,7 @@
 import ExternalLink from "@/components/external-link.astro";
 import { GEAR_CATEGORIES, GEAR_CATEGORY_MAP } from "@/consts";
 import BaseLayout from "@/layouts/base-layout.astro";
-import slugify from "@sindresorhus/slugify";
+import { slugify } from "@/lib/slugify";
 import { getCollection } from "astro:content";
 
 const gear = await getCollection("gear");

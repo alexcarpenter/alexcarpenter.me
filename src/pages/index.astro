@@ -5,7 +5,7 @@ import SwipeCarousel from "@/components/swipe-carousel/swipe-carousel.astro";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { getClerkActivity } from "@/lib/clerk-activity";
 import { enforceExhaustive } from "@/lib/utils";
-import slugify from "@sindresorhus/slugify";
+import { slugify } from "@/lib/slugify";
 import { Icon } from "astro-icon/components";
 import { getCollection, getEntry, render } from "astro:content";
 
@@ -220,9 +220,7 @@ const sortedRepos = repos.sort((a, b) =>
                 <summary class="grid grid-cols-[1fr_max-content_0.625rem] gap-2">
                   <header class="flex gap-2">
                     <Icon
-                      name={slugify(job.data.company, {
-                        decamelize: false,
-                      })}
+                      name={slugify(job.data.company)}
                       class="h-5 w-4 flex-none"
                     />
                     <div>
