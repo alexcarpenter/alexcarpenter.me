@@ -295,7 +295,7 @@
     }
 
     & :where(td) {
-        text-wrap: pretty;
+      text-wrap: pretty;
     }
   }
 

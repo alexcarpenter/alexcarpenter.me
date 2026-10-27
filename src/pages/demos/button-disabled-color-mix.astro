@@ -3,9 +3,7 @@ import DemoLayout from "@/layouts/demo-layout.astro";
 ---
 
 <DemoLayout>
-  <div
-    class="bg-grid absolute inset-0 p-2 [&:not(:has(input:checked))]:[background:transparent]"
-  >
+  <div class="bg-grid absolute inset-0 p-2 [&:not(:has(input:checked))]:[background:transparent]">
     <label class="flex items-center gap-x-2 font-mono text-xs select-none">
       <input type="checkbox" checked />
       Toggle background
@@ -23,15 +21,19 @@ import DemoLayout from "@/layouts/demo-layout.astro";
         <button class="h-11 rounded-md bg-(--bg) text-(--fg)">Opacity</button>
         <button
           class="h-11 rounded-md bg-(--bg) text-(--fg) opacity-50"
-          disabled>Opacity</button
+          disabled
         >
+          Opacity
+        </button>
       </div>
       <div class="flex flex-col gap-y-4">
         <button class="h-11 rounded-md bg-(--bg) text-(--fg)">Color Mix</button>
         <button
           class="h-11 rounded-md bg-[color-mix(in_srgb,var(--bg)_50%,var(--color-background))] text-[color-mix(in_srgb,var(--fg)_50%,var(--color-background))]"
-          disabled>Color Mix</button
+          disabled
         >
+          Color Mix
+        </button>
       </div>
     </div>
   </div>

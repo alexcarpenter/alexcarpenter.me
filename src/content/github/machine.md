@@ -1,5 +1,5 @@
 ---
-title: '@alexcarpenter/machine'
+title: "@alexcarpenter/machine"
 description: Tiny state machines for Nano Stores.
 link: https://github.com/alexcarpenter/machine
 ---

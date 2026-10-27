@@ -1,5 +1,5 @@
 ---
-title: '@alexcarpenter/form'
+title: "@alexcarpenter/form"
 description: Tiny headless forms for Nano Stores.
 link: https://github.com/alexcarpenter/form
 ---

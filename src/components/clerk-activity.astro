@@ -31,8 +31,9 @@ const width = cells.at(-1)!.x + size;
 ---
 
 <figure>
-  <figcaption class="text-muted-foreground mb-2.5">
-    {activity.total.toLocaleString("en-US")} contributions at Clerk in the last year
+  <figcaption class="mb-2.5 text-muted-foreground">
+    {activity.total.toLocaleString("en-US")} contributions at Clerk in the last
+    year
   </figcaption>
   <a
     href="https://github.com/alexcarpenter?tab=overview&org=clerk"
@@ -47,20 +48,18 @@ const width = cells.at(-1)!.x + size;
       aria-label={`${activity.total.toLocaleString("en-US")} contributions at Clerk in the last year`}
       class="h-auto w-full"
     >
-      {
-        cells.map((day) => (
-          <rect
-            x={day.x}
-            y={day.y}
-            width={size}
-            height={size}
-            rx="2"
-            class={colors[day.level]}
-          >
-            <title>{day.label}</title>
-          </rect>
-        ))
-      }
+      {cells.map((day) => (
+        <rect
+          x={day.x}
+          y={day.y}
+          width={size}
+          height={size}
+          rx="2"
+          class={colors[day.level]}
+        >
+          <title>{day.label}</title>
+        </rect>
+      ))}
     </svg>
   </a>
 </figure>

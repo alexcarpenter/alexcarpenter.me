@@ -40,126 +40,115 @@ const heading = page.currentPage === 1 ? "Latest" : `Page ${page.currentPage}`;
 >
   <section class="mt-40 px-4">
     <div class="mx-auto max-w-prose">
-      <h2 class="text-muted-foreground font-headline mb-5 text-xl text-pretty">
-        <span class="text-foreground">Notes</span> on engineering, developer experience,
-        design systems, and agentic engineering.
+      <h2 class="mb-5 font-headline text-xl text-pretty text-muted-foreground">
+        <span class="text-foreground">Notes</span> on engineering, developer
+        experience, design systems, and agentic engineering.
       </h2>
     </div>
   </section>
 
-  <section class="border-separator mt-20 border-t px-4 pt-20 lg:px-20">
-    <div
-      class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-20 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]"
-    >
+  <section class="mt-20 border-t border-separator px-4 pt-20 lg:px-20">
+    <div class="mx-auto grid max-w-prose grid-cols-1 items-start gap-y-20 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]">
       <h2>{heading}</h2>
       <ul>
-        {
-          renderedNotes.map(({ note, Content }) => {
-            const isExternalLink = note.data.link && note.data.title;
-            return (
-              <li class="not-first:border-separator not-first:mt-20 not-first:border-t not-first:pt-20">
-                <article>
-                  <a href={`/notes/${note.id}/`}>
-                    <time
-                      class="text-muted-foreground hover:text-foreground"
-                      datetime={note.data.published.toISOString()}
-                    >
-                      {new Date(note.data.published).toLocaleDateString(
-                        "en-US",
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "2-digit",
-                          weekday: "short",
-                        },
-                      )}
-                    </time>
-                  </a>
-                  {note.data.demo ? (
-                    <Demo
-                      class="mt-5"
-                      src={note.data.demo}
-                      title={note.data.title}
+        {renderedNotes.map(({ note, Content }) => {
+          const isExternalLink = note.data.link && note.data.title;
+          return (
+            <li class="not-first:mt-20 not-first:border-t not-first:border-separator not-first:pt-20">
+              <article>
+                <a href={`/notes/${note.id}/`}>
+                  <time
+                    class="text-muted-foreground hover:text-foreground"
+                    datetime={note.data.published.toISOString()}
+                  >
+                    {new Date(note.data.published).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                      weekday: "short",
+                    })}
+                  </time>
+                </a>
+                {note.data.demo ? (
+                  <Demo
+                    class="mt-5"
+                    src={note.data.demo}
+                    title={note.data.title}
+                  />
+                ) : null}
+                <h2 class="mt-5 text-foreground">
+                  {isExternalLink ? (
+                    <ExternalLink
+                      href={note.data.link}
+                      text={note.data.title}
                     />
-                  ) : null}
-                  <h2 class="text-foreground mt-5">
-                    {isExternalLink ? (
-                      <ExternalLink
-                        href={note.data.link}
-                        text={note.data.title}
-                      />
-                    ) : (
-                      note.data.title
-                    )}
-                  </h2>
-                  {isExternalLink && note.data.link ? (
-                    <p class="text-muted-foreground">
-                      {formatLinkHostname(note.data.link)}
-                    </p>
-                  ) : null}
-                  {note.body ? (
-                    <div class="prose mt-5">
-                      <Content />
-                    </div>
-                  ) : null}
-                </article>
-              </li>
-            );
-          })
-        }
+                  ) : (
+                    note.data.title
+                  )}
+                </h2>
+                {isExternalLink && note.data.link ? (
+                  <p class="text-muted-foreground">
+                    {formatLinkHostname(note.data.link)}
+                  </p>
+                ) : null}
+                {note.body ? (
+                  <div class="prose mt-5">
+                    <Content />
+                  </div>
+                ) : null}
+              </article>
+            </li>
+          );
+        })}
       </ul>
       <footer class="flex flex-col gap-10 lg:items-end">
         <a
           href="/notes/rss.xml"
-          class="text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
+          class="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
           target="_blank"
           rel="noopener noreferrer"
-          >Subscribe via RSS <Icon
-            name="rss"
-            aria-hidden="true"
-            class="h-5 w-2.5 flex-none"
-          /></a
         >
+          Subscribe via RSS{" "}
+          <Icon name="rss" aria-hidden="true" class="h-5 w-2.5 flex-none" />
+        </a>
       </footer>
-      {
-        (page.url.prev || page.url.next) && (
-          <nav class="grid grid-cols-3 gap-5 lg:col-start-2">
-            {page.url.prev && (
-              <span class="flex">
-                <a
-                  href={page.url.prev}
-                  class="text-muted-foreground hover:text-foreground inline-flex gap-1"
-                >
-                  <Icon
-                    name="arrow-left"
-                    aria-hidden="true"
-                    class="h-5 w-2.5 flex-none"
-                  />{" "}
-                  Prev
-                </a>
-              </span>
-            )}
-            <span class="text-muted-foreground col-start-2 text-center">
-              {page.currentPage} / {page.lastPage}
+      {(page.url.prev || page.url.next) && (
+        <nav class="grid grid-cols-3 gap-5 lg:col-start-2">
+          {page.url.prev && (
+            <span class="flex">
+              <a
+                href={page.url.prev}
+                class="inline-flex gap-1 text-muted-foreground hover:text-foreground"
+              >
+                <Icon
+                  name="arrow-left"
+                  aria-hidden="true"
+                  class="h-5 w-2.5 flex-none"
+                />{" "}
+                Prev
+              </a>
             </span>
-            {page.url.next && (
-              <span class="flex justify-end">
-                <a
-                  href={page.url.next}
-                  class="text-muted-foreground hover:text-foreground inline-flex gap-1"
-                >
-                  Next{" "}
-                  <Icon
-                    name="arrow-right"
-                    aria-hidden="true"
-                    class="h-5 w-2.5 flex-none"
-                  />
-                </a>
-              </span>
-            )}
-          </nav>
-        )
-      }
+          )}
+          <span class="col-start-2 text-center text-muted-foreground">
+            {page.currentPage} / {page.lastPage}
+          </span>
+          {page.url.next && (
+            <span class="flex justify-end">
+              <a
+                href={page.url.next}
+                class="inline-flex gap-1 text-muted-foreground hover:text-foreground"
+              >
+                Next{" "}
+                <Icon
+                  name="arrow-right"
+                  aria-hidden="true"
+                  class="h-5 w-2.5 flex-none"
+                />
+              </a>
+            </span>
+          )}
+        </nav>
+      )}
     </div>
   </section>
 </BaseLayout>

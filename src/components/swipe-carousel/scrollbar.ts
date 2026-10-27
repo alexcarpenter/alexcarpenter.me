@@ -42,7 +42,10 @@ export function createScrollbar(
   return { stretch };
 
   function stretch(value: number) {
-    host.style.setProperty("--squish", value ? String(1 - Math.abs(value)) : "");
+    host.style.setProperty(
+      "--squish",
+      value ? String(1 - Math.abs(value)) : "",
+    );
     host.style.setProperty("--squish-origin", value > 0 ? "left" : "right");
   }
 
