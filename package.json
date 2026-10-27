@@ -32,7 +32,7 @@
   "devDependencies": {
     "@astrojs/compiler-rs": "0.5.2",
     "@types/hast": "3.0.5",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.5",
     "oxfmt": "0.74.0",
     "oxlint": "1.89.0"
   },
