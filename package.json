@@ -14,7 +14,8 @@
     "format": "oxfmt",
     "check": "astro check",
     "format:check": "oxfmt --check",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "test": "node --test"
   },
   "dependencies": {
     "@astrojs/check": "0.9.11",
@@ -22,16 +23,16 @@
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.4",
     "@shikijs/transformers": "4.5.0",
-    "@sindresorhus/slugify": "3.0.1",
     "@tailwindcss/vite": "4.3.3",
     "astro": "7.4.1",
     "astro-icon": "1.2.0",
-    "rehype-external-links": "3.0.0",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3"
   },
   "devDependencies": {
     "@astrojs/compiler-rs": "0.5.2",
+    "@types/hast": "3.0.5",
+    "@types/node": "24.19.2",
     "oxfmt": "0.74.0",
     "oxlint": "1.89.0"
   },

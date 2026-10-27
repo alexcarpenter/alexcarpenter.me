@@ -9,7 +9,7 @@ import {
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
-import rehypeExternalLinks from "rehype-external-links";
+import { rehypeExternalLinks } from "./src/lib/rehype-external-links.ts";
 
 export default defineConfig({
   site: "https://alexcarpenter.me",
@@ -27,7 +27,7 @@ export default defineConfig({
   integrations: [sitemap(), icon()],
   markdown: {
     processor: unified({
-      rehypePlugins: [[rehypeExternalLinks, { target: "_blank" }]],
+      rehypePlugins: [rehypeExternalLinks],
     }),
     shikiConfig: {
       themes: {
