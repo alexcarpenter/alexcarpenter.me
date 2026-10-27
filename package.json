@@ -11,8 +11,10 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write .",
-    "check": "astro check"
+    "format": "oxfmt",
+    "check": "astro check",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint"
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",
@@ -29,9 +31,9 @@
     "typescript": "6.0.3"
   },
   "devDependencies": {
-    "prettier": "3.9.10",
-    "prettier-plugin-astro": "1.1.1",
-    "prettier-plugin-tailwindcss": "0.8.1"
+    "@astrojs/compiler-rs": "0.5.2",
+    "oxfmt": "0.74.0",
+    "oxlint": "1.89.0"
   },
   "packageManager": "pnpm@11.6.0"
 }

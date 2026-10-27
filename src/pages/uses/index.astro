@@ -28,55 +28,53 @@ const groupedGear = Array.from(
 <BaseLayout title="Uses">
   <section class="mt-40 px-4">
     <div class="mx-auto max-w-prose">
-      <h2 class="text-muted-foreground font-headline mb-5 text-xl text-balance">
+      <h2 class="mb-5 font-headline text-xl text-balance text-muted-foreground">
         <span class="text-foreground">Uses</span>
       </h2>
     </div>
   </section>
-  {
-    groupedGear.map(([category, items]) => {
-      const categoryInfo =
-        GEAR_CATEGORY_MAP[category as keyof typeof GEAR_CATEGORY_MAP];
-      if (!categoryInfo || items.length === 0) return null;
+  {groupedGear.map(([category, items]) => {
+    const categoryInfo =
+      GEAR_CATEGORY_MAP[category as keyof typeof GEAR_CATEGORY_MAP];
+    if (!categoryInfo || items.length === 0) return null;
 
-      return (
-        <section
-          class="border-separator mt-20 border-t px-4 pt-20 lg:px-20"
-          id={slugify(categoryInfo.title)}
-        >
-          <div class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]">
-            <h2>{categoryInfo.title}</h2>
-            <ul class="grid grid-cols-2 gap-10 lg:col-span-2 lg:grid-cols-4">
-              {items.map((item) => (
-                <li>
-                  <div>
-                    {item.data.eyebrow && (
-                      <p class="text-muted-foreground text-[0.625rem] tracking-widest uppercase">
-                        {item.data.eyebrow}
-                      </p>
+    return (
+      <section
+        class="mt-20 border-t border-separator px-4 pt-20 lg:px-20"
+        id={slugify(categoryInfo.title)}
+      >
+        <div class="mx-auto grid max-w-prose grid-cols-1 gap-y-10 lg:max-w-none lg:grid-cols-[1fr_65ch_1fr]">
+          <h2>{categoryInfo.title}</h2>
+          <ul class="grid grid-cols-2 gap-10 lg:col-span-2 lg:grid-cols-4">
+            {items.map((item) => (
+              <li>
+                <div>
+                  {item.data.eyebrow && (
+                    <p class="text-[0.625rem] tracking-widest text-muted-foreground uppercase">
+                      {item.data.eyebrow}
+                    </p>
+                  )}
+                  <h3>
+                    {item.data.link ? (
+                      <ExternalLink
+                        href={item.data.link}
+                        text={item.data.name}
+                      />
+                    ) : (
+                      item.data.name
                     )}
-                    <h3>
-                      {item.data.link ? (
-                        <ExternalLink
-                          href={item.data.link}
-                          text={item.data.name}
-                        />
-                      ) : (
-                        item.data.name
-                      )}
-                    </h3>
-                    {item.data.link && (
-                      <p class="text-muted-foreground">
-                        {new URL(item.data.link).hostname}
-                      </p>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      );
-    })
-  }
+                  </h3>
+                  {item.data.link && (
+                    <p class="text-muted-foreground">
+                      {new URL(item.data.link).hostname}
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    );
+  })}
 </BaseLayout>
