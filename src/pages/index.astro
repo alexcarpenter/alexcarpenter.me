@@ -64,12 +64,6 @@ const sortedRepos = repos.sort((a, b) =>
         improving component APIs, and giving developers more flexible primitives
         to build with.
       </p>
-      <p class="mt-5 text-muted-foreground">
-        I do my best work on small teams that collaborate closely and ship
-        often. I care deeply about design and craft, and I’m especially
-        interested in how AI tools can help designers and engineers build better
-        interfaces together.
-      </p>
       <a
         href="/notes/"
         class="mt-10 inline-flex gap-1 text-muted-foreground hover:text-foreground"
@@ -188,7 +182,7 @@ const sortedRepos = repos.sort((a, b) =>
         },
       ].map((project) => (
         <li class="bg-background">
-          <figure class="project-folder bg-grid grid aspect-video place-content-center">
+          <figure class="bg-grid grid aspect-video place-content-center">
             {project.logomark}
           </figure>
           <h3 class="mt-5">
@@ -535,43 +529,6 @@ const sortedRepos = repos.sort((a, b) =>
   @keyframes projects-heading-fade {
     to {
       opacity: 0;
-    }
-  }
-
-  .project-folder {
-    --radius: 0.75rem;
-    --tab-height: calc(var(--spacing) * 6);
-    --tab-width: 28%;
-    --slope-width: calc(var(--tab-height) * 2.4);
-    --corner: calc(var(--radius) * 2.34);
-    --slope-start: var(--tab-width);
-    --slope-mid: calc(var(--tab-width) + var(--slope-width) / 2);
-    --slope-end: calc(var(--tab-width) + var(--slope-width));
-
-    border-radius: var(--radius);
-
-    @supports (clip-path: shape(from 0 0, hline to 0)) {
-      padding-top: var(--tab-height);
-      border-radius: 0;
-      clip-path: shape(
-        from 0 var(--corner),
-        curve to var(--corner) 0 with 0 0 / 0 0,
-        hline to var(--slope-start),
-        curve to var(--slope-mid) calc(var(--tab-height) / 2) with
-          calc(var(--slope-start) + var(--slope-width) / 4) 0 /
-          calc(var(--slope-start) + var(--slope-width) / 4) 0,
-        curve to var(--slope-end) var(--tab-height) with
-          calc(var(--slope-end) - var(--slope-width) / 4) var(--tab-height) /
-          calc(var(--slope-end) - var(--slope-width) / 4) var(--tab-height),
-        hline to calc(100% - var(--corner)),
-        curve to 100% calc(var(--tab-height) + var(--corner)) with 100%
-          var(--tab-height) / 100% var(--tab-height),
-        vline to calc(100% - var(--corner)),
-        curve to calc(100% - var(--corner)) 100% with 100% 100% / 100% 100%,
-        hline to var(--corner),
-        curve to 0 calc(100% - var(--corner)) with 0 100% / 0 100%,
-        close
-      );
     }
   }
 
