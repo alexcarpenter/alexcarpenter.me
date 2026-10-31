@@ -2,7 +2,6 @@ import { defineCollection, reference } from "astro:content";
 import { z } from "astro/zod";
 import { file, glob } from "astro/loaders";
 import { githubPrsLoader, type GithubPr } from "./lib/github-prs";
-import { GEAR_CATEGORIES } from "./consts";
 
 const CLERK_PRS_DUMMY: GithubPr[] = [
   {
@@ -27,18 +26,6 @@ const CLERK_PRS_DUMMY: GithubPr[] = [
     status: "closed",
   },
 ];
-
-const gear = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/gear" }),
-  schema: z.object({
-    name: z.string(),
-    category: z.enum(GEAR_CATEGORIES),
-    eyebrow: z.string().optional(),
-    link: z.url().optional(),
-    favorite: z.boolean().optional().default(false),
-    status: z.enum(["active", "retired"]).default("active"),
-  }),
-});
 
 const githubRepos = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/github" }),
@@ -137,7 +124,6 @@ const clerkPrs = defineCollection({
 
 export const collections = {
   clerkPrs,
-  gear,
   githubRepos,
   jobs,
   now,
