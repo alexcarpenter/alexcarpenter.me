@@ -29,11 +29,11 @@
 }
 
 :root {
-  --background: var(--color-neutral-50);
-  --foreground: var(--color-neutral-800);
-  --muted: var(--color-neutral-200);
-  --muted-foreground: var(--color-neutral-500);
-  --separator: var(--color-neutral-200);
+  --background: var(--color-zinc-50);
+  --foreground: var(--color-zinc-800);
+  --muted: var(--color-zinc-200);
+  --muted-foreground: var(--color-zinc-500);
+  --separator: var(--color-zinc-200);
   --red: var(--color-red-600);
   --blue: var(--color-blue-600);
   --green: var(--color-green-600);
@@ -45,11 +45,11 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --background: var(--color-neutral-950);
-    --foreground: var(--color-neutral-50);
-    --muted: var(--color-neutral-800);
-    --muted-foreground: var(--color-neutral-400);
-    --separator: var(--color-neutral-800);
+    --background: var(--color-zinc-950);
+    --foreground: var(--color-zinc-50);
+    --muted: var(--color-zinc-800);
+    --muted-foreground: var(--color-zinc-400);
+    --separator: var(--color-zinc-800);
     --red: var(--color-red-500);
     --blue: var(--color-blue-500);
     --green: var(--color-green-500);
@@ -91,8 +91,8 @@
 
   pre {
     --pre-background-color: light-dark(
-      var(--color-neutral-100),
-      var(--color-neutral-900)
+      var(--color-zinc-100),
+      var(--color-zinc-900)
     );
     padding-block: calc(var(--spacing) * 4);
     font-size: var(--text-xs);
@@ -124,8 +124,8 @@
       @media (hover: hover) {
         &:hover {
           --line-background-color: light-dark(
-            var(--color-neutral-200),
-            var(--color-neutral-800)
+            var(--color-zinc-200),
+            var(--color-zinc-800)
           );
         }
       }
