@@ -1,14 +1,6 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Stack Sans Notch";
-  src: url("/fonts/stack-sans-notch-v5-latin-600.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "GeistMono";
   src: url("/fonts/GeistMono[wght].woff2") format("woff2");
   font-weight: 400 500;
@@ -20,7 +12,6 @@
 
 @theme {
   --font-*: initial;
-  --font-headline: "Stack Sans Notch", ui-sans-serif, system-ui, sans-serif;
   --font-mono:
     "GeistMono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
