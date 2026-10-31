@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { externalLinkClass, externalLinkIconClass } from "@/lib/external-link";
 const {
   href,
   text,
@@ -13,10 +14,10 @@ const {
   href={href}
   target="_blank"
   rel={rel}
-  class:list={["relative inline-block pr-3.5", className]}
+  class:list={[externalLinkClass, className]}
   >{text}<Icon
     name="arrow-up-right"
     aria-hidden="true"
-    class="absolute ml-1 inline h-5 w-2.5 flex-none"
+    class={externalLinkIconClass}
   /></a
 >

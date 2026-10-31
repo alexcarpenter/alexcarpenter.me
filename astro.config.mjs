@@ -27,7 +27,9 @@ export default defineConfig({
   integrations: [sitemap(), icon()],
   markdown: {
     processor: unified({
-      rehypePlugins: [rehypeExternalLinks],
+      rehypePlugins: [
+        [rehypeExternalLinks, { site: "https://alexcarpenter.me" }],
+      ],
     }),
     shikiConfig: {
       themes: {
