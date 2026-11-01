@@ -542,10 +542,37 @@ const sortedRepos = repos.sort((a, b) =>
      Letting go springs them back in a wave, starting from the slides. */
   @media (width >= 64rem) and (prefers-reduced-motion: no-preference) {
     .magnetic-letter {
+      --letter-spring: linear(
+        0,
+        0.074,
+        0.244,
+        0.447,
+        0.641,
+        0.804,
+        0.927,
+        1.009,
+        1.056,
+        1.076,
+        1.077,
+        1.067,
+        1.053,
+        1.037,
+        1.022,
+        1.011,
+        1.003,
+        0.997,
+        0.995,
+        0.994,
+        0.994,
+        0.995,
+        0.996,
+        0.998,
+        1
+      );
       --position: calc(sibling-index() / sibling-count());
       --weight: calc(var(--position) * var(--position) * 0.6);
       translate: calc(max(var(--pull, 0px), 0px) * var(--weight)) 0;
-      transition: translate 700ms var(--spring)
+      transition: translate 700ms var(--letter-spring)
         calc((sibling-count() - sibling-index()) * 15ms);
     }
 
