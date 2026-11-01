@@ -88,7 +88,16 @@ const sortedRepos = repos.sort((a, b) =>
         class="mb-10 px-4 lg:absolute lg:inset-x-0 lg:top-0 lg:mb-0 lg:px-20"
       >
         <div class="mx-auto grid max-w-prose grid-cols-1 items-start lg:max-w-none lg:grid-cols-[1fr_var(--content-width)_1fr]">
-          <h2 class="projects-heading">Projects</h2>
+          <h2 class="projects-heading">
+            <span class="sr-only">Projects</span>
+            <span aria-hidden="true" class="inline-flex select-none">
+              {[..."Projects"].map((letter, index) => (
+                <span class="magnetic-letter" style={`--index: ${index}`}>
+                  {letter}
+                </span>
+              ))}
+            </span>
+          </h2>
         </div>
       </div>
       {[
@@ -522,16 +531,29 @@ const sortedRepos = repos.sort((a, b) =>
   @supports (animation-timeline: scroll()) {
     @media (width >= 64rem) and (prefers-reduced-motion: no-preference) {
       .projects-heading {
-        animation: projects-heading-fade 1ms linear both;
+        transform-origin: left center;
+        animation: projects-heading-exit 1ms linear both;
         animation-timeline: --swipe-carousel !important;
         animation-range: 0 var(--heading-fade);
       }
     }
   }
 
-  @keyframes projects-heading-fade {
+  /* Pulling the carousel past its start drags the word after it. Letters nearer
+     the slides feel the pull more and respond sooner, like a magnet's falloff. */
+  @media (width >= 64rem) and (prefers-reduced-motion: no-preference) {
+    .magnetic-letter {
+      --weight: calc((var(--index) + 1) * (var(--index) + 1) / 64 * 0.6);
+      translate: calc(max(var(--pull, 0px), 0px) * var(--weight)) 0;
+      transition: translate calc((8 - var(--index)) * 25ms) ease-out;
+    }
+  }
+
+  @keyframes projects-heading-exit {
     to {
       opacity: 0;
+      scale: 0.92;
+      filter: blur(4px);
     }
   }
 
