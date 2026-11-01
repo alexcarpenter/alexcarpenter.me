@@ -189,7 +189,10 @@ function setup(host: HTMLElement, signal: AbortSignal) {
     if (viewport.style.translate === translate) return;
 
     viewport.style.translate = translate;
-    host.style.setProperty("--pull", translate ? `${stretch}px` : "0px");
+    host.style.setProperty(
+      "--pull",
+      press && translate ? `${stretch}px` : "0px",
+    );
     scrollbar?.stretch(translate ? stretch / bounds.maxStretch : 0);
   }
 

@@ -6,6 +6,10 @@ const EDGE_FOLLOW = 0.8;
 const GLIDE = 0.28;
 const SETTLE = 0.12;
 const STRETCH = 0.55;
+const SPRING_FREQUENCY = 0.016;
+const SPRING_DAMPING = 0.72;
+const SPRING_MAX_STEP = 2 * FRAME;
+const SPRING_REST_VELOCITY = 0.01;
 const FLICK_CARRY = 120;
 const VELOCITY_WINDOW = 100;
 
@@ -17,6 +21,7 @@ export type Motion = {
   target: number;
   landing: number;
   overshoot: number;
+  overshootVelocity: number;
 };
 
 export const CONTENT_GRIP: Grip = { scale: -1, reach: 1, carry: FLICK_CARRY };
@@ -26,7 +31,13 @@ export function thumbGrip(maxScroll: number, travel: number): Grip {
 }
 
 export function at(position: number): Motion {
-  return { position, target: position, landing: position, overshoot: 0 };
+  return {
+    position,
+    target: position,
+    landing: position,
+    overshoot: 0,
+    overshootVelocity: 0,
+  };
 }
 
 export function step(
@@ -40,13 +51,12 @@ export function step(
     const edge =
       (clamp(position, 0, maxScroll) - position) / Math.abs(grip.scale);
     const overshoot = damp(motion.overshoot, edge, EDGE_FOLLOW, elapsed);
-    return { ...motion, position, overshoot };
+    return { ...motion, position, overshoot, overshootVelocity: 0 };
   }
 
   const target = damp(motion.target, motion.landing, GLIDE, elapsed);
   const position = damp(motion.position, target, SETTLE, elapsed);
-  const overshoot = damp(motion.overshoot, 0, SETTLE, elapsed);
-  return { ...motion, target, position, overshoot };
+  return { ...motion, target, position, ...springToRest(motion, elapsed) };
 }
 
 export function land(
@@ -74,7 +84,8 @@ export function land(
 export function isSettled(motion: Motion) {
   return (
     Math.abs(motion.landing - motion.position) < 0.5 &&
-    Math.abs(motion.overshoot) < 0.5
+    Math.abs(motion.overshoot) < 0.5 &&
+    Math.abs(motion.overshootVelocity) < SPRING_REST_VELOCITY
   );
 }
 
@@ -111,6 +122,21 @@ function scrollVelocity(samples: Sample[], releaseTime: number) {
   if (!first || !last || last.time === first.time) return 0;
 
   return (last.position - first.position) / (last.time - first.time);
+}
+
+function springToRest(
+  { overshoot, overshootVelocity }: Motion,
+  elapsed: number,
+) {
+  const time = Math.min(elapsed, SPRING_MAX_STEP);
+  const acceleration =
+    -(SPRING_FREQUENCY ** 2) * overshoot -
+    2 * SPRING_DAMPING * SPRING_FREQUENCY * overshootVelocity;
+  const velocity = overshootVelocity + acceleration * time;
+  return {
+    overshoot: overshoot + velocity * time,
+    overshootVelocity: velocity,
+  };
 }
 
 function damp(from: number, to: number, factor: number, elapsed: number) {
