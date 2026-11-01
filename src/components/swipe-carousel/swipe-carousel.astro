@@ -26,6 +26,51 @@ const { label, class: className, scrollbar = true } = Astro.props;
 </script>
 
 <style>
+  swipe-carousel {
+    --spring: linear(
+      0,
+      0.076,
+      0.253,
+      0.47,
+      0.68,
+      0.858,
+      0.989,
+      1.073,
+      1.116,
+      1.126,
+      1.115,
+      1.092,
+      1.064,
+      1.038,
+      1.016,
+      1,
+      0.99,
+      0.985,
+      0.984,
+      0.986,
+      0.989,
+      0.992,
+      0.995,
+      0.998,
+      1
+    );
+  }
+
+  /* Pulling past the start opens the gaps between slides. Letting go closes them
+     in a wave, starting from the first slide. */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-ref="slides"] > :global(*) {
+      translate: calc(max(var(--pull, 0px), 0px) * (sibling-index() - 1) * 0.08)
+        0;
+      transition: translate 700ms var(--spring)
+        calc((sibling-index() - 1) * 40ms);
+    }
+
+    .viewport[data-dragging] [data-ref="slides"] > :global(*) {
+      transition: none;
+    }
+  }
+
   @supports (animation-timeline: scroll()) {
     swipe-carousel {
       timeline-scope: --swipe-carousel;
