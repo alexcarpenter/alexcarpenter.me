@@ -19,6 +19,8 @@ import {
 type Press = Hold & { pointerId: number; startX: number; lastX: number };
 type Bounds = { maxScroll: number; maxStretch: number; snaps: number[] };
 
+const FULL_PULL = 150;
+
 class SwipeCarousel extends HTMLElement {
   #controller = new AbortController();
 
@@ -189,9 +191,11 @@ function setup(host: HTMLElement, signal: AbortSignal) {
     if (viewport.style.translate === translate) return;
 
     viewport.style.translate = translate;
+    const pull = press && translate ? stretch : 0;
+    host.style.setProperty("--pull", `${pull}px`);
     host.style.setProperty(
-      "--pull",
-      press && translate ? `${stretch}px` : "0px",
+      "--pull-progress",
+      String(clamp(pull / FULL_PULL, 0, 1)),
     );
     scrollbar?.stretch(
       translate ? clamp(stretch / bounds.maxStretch, -1, 1) : 0,

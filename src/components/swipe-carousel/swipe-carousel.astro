@@ -56,8 +56,6 @@ const { label, class: className, scrollbar = true } = Astro.props;
     );
   }
 
-  /* Pulling past the start opens the gaps between slides. Letting go closes them
-     in a wave, starting from the first slide. */
   @media (prefers-reduced-motion: no-preference) {
     [data-ref="slides"] > :global(*) {
       translate: calc(max(var(--pull, 0px), 0px) * (sibling-index() - 1) * 0.08)
