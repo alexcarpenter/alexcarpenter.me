@@ -288,7 +288,7 @@ const sortedRepos = repos.sort((a, b) =>
 
                   <Icon
                     name="chevron-down"
-                    class="h-5 w-2.5 flex-none text-muted-foreground transition-transform group-open/accordion:rotate-180"
+                    class="h-5 w-2.5 flex-none text-muted-foreground transition-transform duration-200 ease-out group-open/accordion:rotate-180"
                   />
                 </summary>
 
@@ -545,7 +545,7 @@ const sortedRepos = repos.sort((a, b) =>
     .magnetic-letter {
       --weight: calc((var(--index) + 1) * (var(--index) + 1) / 64 * 0.6);
       translate: calc(max(var(--pull, 0px), 0px) * var(--weight)) 0;
-      transition: translate calc((8 - var(--index)) * 25ms) ease-out;
+      transition: translate calc((8 - var(--index)) * 25ms) var(--ease-out);
     }
   }
 
@@ -568,18 +568,25 @@ const sortedRepos = repos.sort((a, b) =>
       opacity: 0;
       block-size: 0;
       overflow-y: clip;
-      filter: blur(2px);
       transition:
-        content-visibility var(--duration) allow-discrete,
-        opacity var(--duration),
-        block-size var(--duration),
-        filter var(--duration);
+        content-visibility var(--duration) var(--ease-out) allow-discrete,
+        opacity var(--duration) var(--ease-out),
+        block-size var(--duration) var(--ease-out),
+        filter var(--duration) var(--ease-out),
+        scale var(--duration) var(--ease-out);
+
+      @media (prefers-reduced-motion: no-preference) {
+        filter: blur(4px);
+        scale: 0.98;
+        transform-origin: left top;
+      }
     }
 
     &[open]::details-content {
       opacity: 1;
       block-size: auto;
       filter: blur(0px);
+      scale: 1;
     }
   }
 
