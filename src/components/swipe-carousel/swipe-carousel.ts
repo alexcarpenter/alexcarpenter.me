@@ -191,11 +191,9 @@ function setup(host: HTMLElement, signal: AbortSignal) {
     if (viewport.style.translate === translate) return;
 
     viewport.style.translate = translate;
-    const pull = press && translate ? stretch : 0;
-    host.style.setProperty("--pull", `${pull}px`);
     host.style.setProperty(
       "--pull-progress",
-      String(clamp(pull / FULL_PULL, 0, 1)),
+      String(press && translate ? clamp(stretch / FULL_PULL, 0, 1) : 0),
     );
     scrollbar?.stretch(
       translate ? clamp(stretch / bounds.maxStretch, -1, 1) : 0,
