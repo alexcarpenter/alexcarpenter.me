@@ -4,11 +4,11 @@ import {
   clamp,
   CONTENT_GRIP,
   DRAG_THRESHOLD,
+  elastic,
   FRAME,
   isSettled,
   land,
   nearestIndex,
-  rubberBand,
   sampled,
   step,
   type Grip,
@@ -184,7 +184,7 @@ function setup(host: HTMLElement, signal: AbortSignal) {
 
   function renderStretch() {
     const { overshoot } = motion;
-    const stretch = rubberBand(overshoot, bounds.maxStretch);
+    const stretch = elastic(overshoot);
     const translate = Math.abs(stretch) < 0.01 ? "" : `${stretch}px 0`;
     if (viewport.style.translate === translate) return;
 
@@ -193,7 +193,9 @@ function setup(host: HTMLElement, signal: AbortSignal) {
       "--pull",
       press && translate ? `${stretch}px` : "0px",
     );
-    scrollbar?.stretch(translate ? stretch / bounds.maxStretch : 0);
+    scrollbar?.stretch(
+      translate ? clamp(stretch / bounds.maxStretch, -1, 1) : 0,
+    );
   }
 
   function measureBounds(): Bounds {

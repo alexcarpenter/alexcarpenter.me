@@ -5,7 +5,7 @@ const DRAG_FOLLOW = 0.72;
 const EDGE_FOLLOW = 0.8;
 const GLIDE = 0.28;
 const SETTLE = 0.12;
-const STRETCH = 0.55;
+const ELASTIC = 0.35;
 const SPRING_FREQUENCY = 0.016;
 const SPRING_DAMPING = 0.72;
 const SPRING_MAX_STEP = 2 * FRAME;
@@ -95,9 +95,8 @@ export function sampled(samples: Sample[], sample: Sample) {
   );
 }
 
-export function rubberBand(overshoot: number, limit: number) {
-  const give = 1 - 1 / ((Math.abs(overshoot) * STRETCH) / limit + 1);
-  return Math.sign(overshoot) * give * limit;
+export function elastic(overshoot: number) {
+  return overshoot * ELASTIC;
 }
 
 export function nearestIndex(values: number[], to: number) {
