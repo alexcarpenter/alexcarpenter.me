@@ -1,6 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
-import { externalLinkClass, externalLinkIconClass } from "@/lib/external-link";
 const {
   href,
   text,
@@ -9,15 +7,6 @@ const {
 } = Astro.props;
 ---
 
-{/* prettier-ignore */}
-<a
-  href={href}
-  target="_blank"
-  rel={rel}
-  class:list={[externalLinkClass, className]}
-  >{text}<Icon
-    name="arrow-up-right"
-    aria-hidden="true"
-    class={externalLinkIconClass}
-  /></a
->
+<a href={href} target="_blank" rel={rel} class={className}>
+  {text}
+</a>

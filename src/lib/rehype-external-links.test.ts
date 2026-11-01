@@ -4,7 +4,7 @@ import type { Element, Root } from "hast";
 import { rehypeExternalLinks } from "./rehype-external-links.ts";
 import { createMarkdownProcessor } from "@astrojs/markdown-remark";
 
-test("renders formatted link text with the external-link icon", async () => {
+test("renders formatted link text without injecting markup", async () => {
   const processor = await createMarkdownProcessor({
     syntaxHighlight: false,
     rehypePlugins: [rehypeExternalLinks],
@@ -14,11 +14,11 @@ test("renders formatted link text with the external-link icon", async () => {
   );
   assert.match(code, /target="_blank"/);
   assert.match(code, /title="Title"/);
-  assert.match(code, /class="relative inline-block pr-3.5"/);
-  assert.match(code, /<strong>Example<\/strong><svg aria-hidden="true"/);
+  assert.doesNotMatch(code, /class=/);
+  assert.match(code, /<strong>Example<\/strong><\/a>/);
 });
 
-test("preserves attributes and adds only one icon when run twice", () => {
+test("preserves attributes when run twice", () => {
   const node = link("//example.com");
   node.properties.rel = ["nofollow"];
   node.properties.className = ["custom"];
@@ -27,8 +27,7 @@ test("preserves attributes and adds only one icon when run twice", () => {
   run([node]);
   assert.deepEqual(node, first);
   assert.deepEqual(node.properties.rel, ["nofollow", "noopener", "noreferrer"]);
-  assert.ok((node.properties.className as string[]).includes("custom"));
-  assert.equal(node.children.length, 1);
+  assert.deepEqual(node.properties.className, ["custom"]);
 });
 
 test("leaves same-origin absolute links alone when a site is provided", () => {

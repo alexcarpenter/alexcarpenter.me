@@ -40,6 +40,7 @@
   --orange: var(--color-orange-600);
   --purple: var(--color-purple-600);
   --yellow: var(--color-yellow-600);
+  --arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 7h10v10'/%3E%3Cpath d='M7 17 17 7'/%3E%3C/svg%3E");
 }
 
 @media (prefers-color-scheme: dark) {
@@ -78,6 +79,17 @@
     min-height: 100%;
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+
+  /* Links that carry their own icon or graphic opt out. The word joiner keeps
+     the arrow on the same line as the last word, and the empty alt text hides
+     it from screen readers. */
+  a[target="_blank"]:not(:has(svg))::after {
+    content: "\2060" / "";
+    margin-inline-start: var(--spacing);
+    padding-inline-start: calc(var(--spacing) * 2.5);
+    background: currentColor;
+    mask: var(--arrow) 0 0 / 100% 100%;
   }
 
   mark,
