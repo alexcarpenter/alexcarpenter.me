@@ -18,7 +18,7 @@
     "test": "node --test"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.11",
+    "@astrojs/check": "0.9.12",
     "@astrojs/markdown-remark": "7.3.3",
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.4",
