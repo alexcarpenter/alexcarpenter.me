@@ -24,7 +24,7 @@
     "@astrojs/sitemap": "3.7.4",
     "@shikijs/transformers": "4.5.0",
     "@tailwindcss/vite": "4.3.3",
-    "astro": "7.4.1",
+    "astro": "7.4.2",
     "astro-icon": "1.2.0",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3"
