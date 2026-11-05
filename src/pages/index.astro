@@ -53,6 +53,59 @@ const sortedRepos = repos.sort((a, b) =>
 
   <section class="mt-40 px-4">
     <div class="relative mx-auto max-w-prose">
+      <svg
+        viewBox="53 73 438 137"
+        fill="none"
+        stroke="url(#logo-ink)"
+        stroke-width="8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+        class="pointer-events-none absolute bottom-full -left-1 -mb-5 w-[min(220px,100%)] overflow-visible mix-blend-multiply sm:-left-10 dark:mix-blend-screen"
+      >
+        <filter id="logo-texture" color-interpolation-filters="sRGB">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.9"
+            numOctaves="2"
+            seed="4"
+            result="grain"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="grain"
+            scale="1.5"
+            result="rough"
+          />
+          <feColorMatrix
+            in="grain"
+            type="matrix"
+            values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.2 1.45"
+            result="density"
+          />
+          <feComposite in="rough" in2="density" operator="in" />
+        </filter>
+        <linearGradient
+          id="logo-ink"
+          gradientUnits="userSpaceOnUse"
+          x1="53"
+          y1="73"
+          x2="491"
+          y2="210"
+        >
+          <stop offset="0" class="[stop-color:var(--color-red-700)] dark:[stop-color:var(--color-red-600)]" />
+          <stop offset="0.35" class="[stop-color:var(--color-red-500)] dark:[stop-color:var(--color-red-600)]" />
+          <stop offset="0.6" class="[stop-color:var(--color-red-400)] dark:[stop-color:var(--color-red-700)]" />
+          <stop offset="1" class="[stop-color:var(--color-red-600)] dark:[stop-color:var(--color-red-600)]" />
+        </linearGradient>
+        <g filter="url(#logo-texture)">
+          <path d="M166 107 C137 116 102 137 77 162 C61 178 57 190 65 195 C74 201 94 193 116 181 C145 165 176 146 199 146" />
+          <path d="M199 146 C211 142 222 149 235 161 L252 180 L247 151 L304 120" />
+          <path d="M247 151 L304 120 L279 145 C304 151 332 174 355 206 L350 153" />
+          <path d="M350 153 C347 126 360 104 383 91 C407 77 442 78 468 80 C482 81 487 86 480 95 C469 109 443 125 412 136 C383 146 359 150 338 149" />
+          <path d="M350 153 L355 206" />
+        </g>
+      </svg>
       <h2 class="text-balance text-muted-foreground">
         <span class="text-foreground">
           <Icon name="terminal" class="inline-block h-lh align-top" /> Staff UI
