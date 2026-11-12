@@ -1,10 +1,9 @@
 ---
-updated: 2026-09-19
+updated: 2026-11-12
 ---
 
-- Building [Clerk Mosaic 2.0 components](https://github.com/alexcarpenter?tab=overview&org=clerk)
-- Inspiration [instagram.com/blockheadmotors](https://www.instagram.com/blockheadmotors/)
-- Watching [Dark Matter season 2](https://www.imdb.com/title/tt19231492)
-- Listening to [Isaiah Rashad: Tiny Desk Concert](https://www.youtube.com/watch?v=kVzaq0RRYPQ&list=RDkVzaq0RRYPQ&start_radio=1)
+- Building the new [Clerk UI](https://github.com/alexcarpenter?tab=overview&org=clerk)
+- Exploring generative UI
+- Listening to Young Manhood & Other Donatable Organs
 
 <!--- Tinkering on [RC Cars]() with my son-->
