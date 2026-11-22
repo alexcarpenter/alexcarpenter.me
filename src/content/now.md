@@ -1,5 +1,5 @@
 ---
-updated: 2026-11-12
+updated: 2026-11-22
 ---
 
 - Building the new [Clerk UI](https://github.com/alexcarpenter?tab=overview&org=clerk) with [Mosaic](https://mosaic.clerk.com/)
