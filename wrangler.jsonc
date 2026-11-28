@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "alexcarpenter-me",
-  "main": "cloudflare/worker.js",
+  "main": "src/worker.js",
   "compatibility_date": "2026-11-26",
   "workers_dev": true,
   "routes": [
