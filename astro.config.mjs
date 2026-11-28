@@ -19,7 +19,6 @@ export default defineConfig({
     define: {
       "import.meta.env.COMMIT_SHA": JSON.stringify(
         process.env.WORKERS_CI_COMMIT_SHA ||
-          process.env.VERCEL_GIT_COMMIT_SHA ||
           process.env.COMMIT_SHA ||
           "56720e6",
       ),
