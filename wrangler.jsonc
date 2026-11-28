@@ -3,7 +3,7 @@
   "name": "alexcarpenter-me",
   "main": "src/worker.js",
   "compatibility_date": "2026-11-26",
-  "workers_dev": true,
+  "workers_dev": false,
   "routes": [
     {
       "pattern": "alexcarpenter.me/*",
