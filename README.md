@@ -1,7 +1,7 @@
 # alexcarpenter.me
 
 - Framework: Astro
-- Deployment: Vercel
+- Deployment: Cloudflare Workers
 - Styling: Tailwind CSS
 
 ## Running locally
